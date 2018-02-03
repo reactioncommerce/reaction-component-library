@@ -6,7 +6,6 @@
 npm install
 ```
 
-
 ## To run styleguide locally
 
 ```bash

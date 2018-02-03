@@ -17,6 +17,6 @@
   },
   "devDependencies": {
     "jest-cli": "^21.2.1",
-    "react-styleguidist": "^6.0.33"
+    "react-styleguidist": "^6.2.2"
   }
 }
