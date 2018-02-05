@@ -16,6 +16,9 @@
 .env.test.local
 .env.production.local
 
+.opt-in
+.opt-out
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

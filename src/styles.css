@@ -1,0 +1,51 @@
+/**
+ * Global
+ *
+ * Define styles that should apply to the style guide and the components within it here.
+ * This should not be very many things.
+ */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/**
+ * Style Guide Theme
+ *
+ * Define styles for the style guide application here.
+ * Be careful not to define any styles that will apply generally to the components
+ * or any of the HTML elements they render. (In general, only style .rsg--* classes here.)
+ */
+
+/* Level 1 heading from styleguidist sections */
+.rsg--heading1-15 {
+  font-size: 32px !important;
+}
+
+/* Level 2 heading from styleguidist sections */
+.rsg--heading2-16 {
+  font-size: 26px !important;
+}
+
+/* Level 2 heading from styleguidist sections */
+.rsg--heading3-17 {
+  font-size: 22px !important;
+}
+
+/**
+ * Default Components Theme
+ *
+ * Define default colors, fonts, etc. for component classes here
+ */
+
+.btn-default {
+  border: 1px solid black;
+  border-radius: 2px;
+  background-color: #723944;
+  color: #ffffff;
+}
+
+.btn-disabled {
+  background-color: #999999;
+}
