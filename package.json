@@ -54,8 +54,7 @@
     "env": {
       "browser": true,
       "es6": true,
-      "jest/globals": true,
-      "mocha": true,
+      "jest": true,
       "node": true
     },
     "parserOptions": {
