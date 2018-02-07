@@ -2,8 +2,29 @@
 
 exports[`basic snapshot 1`] = `
 <div
-  className="a b"
+  className="rui--btn rui--btn-default a b"
   onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  style={
+    Object {
+      "borderStyle": "solid",
+      "borderWidth": 1,
+      "cursor": "pointer",
+      "display": "inline-flex",
+      "marginBottom": 0,
+      "marginLeft": 0,
+      "marginRight": 0,
+      "marginTop": 0,
+      "outline": "none",
+      "paddingBottom": "0.5rem",
+      "paddingLeft": "1.5rem",
+      "paddingRight": "1.5rem",
+      "paddingTop": "0.5rem",
+      "textAlign": "center",
+    }
+  }
+  tabIndex={0}
   title="title"
 >
   Submit

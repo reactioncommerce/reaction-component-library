@@ -1,9 +1,12 @@
-export const containerStyles = {
+const commonStyles = {
+  borderStyle: "solid",
+  borderWidth: 1,
   cursor: "pointer",
   marginBottom: 0,
   marginLeft: 0,
   marginRight: 0,
   marginTop: 0,
+  outline: "none",
   paddingBottom: "0.5rem",
   paddingLeft: "1.5rem",
   paddingRight: "1.5rem",
@@ -11,7 +14,17 @@ export const containerStyles = {
   textAlign: "center"
 };
 
-export const flexContainerStyles = {
-  ...containerStyles,
+export const containerStyles = {
+  ...commonStyles,
+  display: "inline-flex"
+};
+
+export const fullWidthContainerStyles = {
+  ...commonStyles,
   display: "flex"
+};
+
+export const fullWidthTextContainerStyles = {
+  ...commonStyles,
+  display: "block"
 };

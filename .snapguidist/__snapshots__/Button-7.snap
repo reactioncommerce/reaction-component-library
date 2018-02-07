@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button-1 1`] = `
+exports[`Button-7 1`] = `
 <div
   style={
     Object {
@@ -16,7 +16,7 @@ exports[`Button-1 1`] = `
     }
   >
     <div
-      className="rui--btn rui--btn-default myBtn"
+      className="rui--btn rui--btn-danger myBtn"
       role="button"
       style={
         Object {
@@ -37,9 +37,9 @@ exports[`Button-1 1`] = `
         }
       }
       tabIndex={0}
-      title="Default"
+      title="Danger"
     >
-      Default
+      Danger
     </div>
   </div>
   <div
@@ -50,7 +50,7 @@ exports[`Button-1 1`] = `
     }
   >
     <div
-      className="rui--btn rui--btn-default rui--btn-disabled myBtn"
+      className="rui--btn rui--btn-danger rui--btn-disabled myBtn"
       role="button"
       style={
         Object {
@@ -71,9 +71,9 @@ exports[`Button-1 1`] = `
         }
       }
       tabIndex={0}
-      title="Default"
+      title="Danger"
     >
-      Default Disabled
+      Danger Disabled
     </div>
   </div>
 </div>

@@ -17,21 +17,21 @@ Leave it running while developing and documenting components so that you can qui
 1. Add a folder in /src/components.
     - Name the folder the same as the component name, in title case without any spaces.
     - Do not create any additional layers of subfolders
-1. In the folder, add a .jsx file, a .md file, and a .test.jsx file, all of them named the same as the component name. If the component needs styles, add a file named `styles.js`. If the component needs any component-specific helper functions (to keep the code in the .jsx file clean), add a file named `helpers.js` Here is an example folder structure:
+1. In the folder, add a .js file, a .md file, and a .test.js file, all of them named the same as the component name. If the component needs styles, add a file named `styles.js`. If the component needs any component-specific helper functions (to keep the code in the .js file clean), add a file named `helpers.js` Here is an example folder structure:
     ```text
     /src
       /components
         /Button
-          Button.jsx
-          Button.test.jsx
+          Button.js
+          Button.test.js
           Button.md
           styles.js
           helpers.js
     ```
-1. Define a single React component in the .jsx file. Export it as default. (Refer to "Component Guidelines" section.)
-1. Write tests in the .test.jsx file, using Jest. (Refer to "Writing and Running Tests" section.)
+1. Define a single React component in the .js file. Export it as default. (Refer to "Component Guidelines" section.)
+1. Write tests in the .test.js file, using Jest. (Refer to "Writing and Running Tests" section.)
 1. Write style guide documentation and examples for the component in the .md file.
-1. If you have inline styles, define them in styles.js and import that into the component .jsx file.
+1. If you have inline styles, define them in styles.js and import that into the component .js file.
 1. Add your component to an appropriate style guide section in styleguide.config.js
 1. If any helper functions used by your component can be helpful to other components, too, put them in `/src/helpers/helperFunctionName.js` instead of the component-specific `helpers.js`
 
@@ -55,7 +55,7 @@ Every component and helper in this style guide, with rare exceptions for extreme
 
 ### Test Files
 
-Files containing tests for a component must end in `.test.jsx` and be named after the component. Files containing tests for a helper must end in `.test.js` and be named after the helper function.
+Files containing tests for a component must end in `.test.js` and be named after the component. Files containing tests for a helper must end in `.test.js` and be named after the helper function.
 
 ### Code Style for Tests
 

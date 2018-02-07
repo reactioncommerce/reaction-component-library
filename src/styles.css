@@ -39,13 +39,34 @@ body {
  * Define default colors, fonts, etc. for component classes here
  */
 
-.btn-default {
-  border: 1px solid black;
+.rui--btn {
   border-radius: 2px;
-  background-color: #723944;
+}
+
+.rui--btn-default {
+  border-color: #98AFBB;
+  background-color: #98AFBB;
   color: #ffffff;
 }
 
-.btn-disabled {
-  background-color: #999999;
+.rui--btn-important {
+  border-color: #009AD0;
+  background-color: #009AD0;
+  color: #ffffff;
+}
+
+.rui--btn-secondary {
+  border-color: #505558;
+  background-color: transparent;
+  color: #505558;
+}
+
+.rui--btn-danger {
+  border-color: #e9173a;
+  background-color: #e9173a;
+  color: #ffffff;
+}
+
+.rui--btn-disabled {
+  /* TODO */
 }

@@ -20,7 +20,7 @@ module.exports = snapguidist({
         {
           name: "Clickables",
           components: () => [
-            "./src/components/Button/Button.jsx"
+            "./src/components/Button/Button.js"
           ]
         },
         {
