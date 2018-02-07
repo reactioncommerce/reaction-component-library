@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button-1 1`] = `
+<div
+  className="btn-default myBtn"
+  style={
+    Object {
+      "cursor": "pointer",
+      "marginBottom": 0,
+      "marginLeft": 0,
+      "marginRight": 0,
+      "marginTop": 0,
+      "paddingBottom": "0.5rem",
+      "paddingLeft": "1.5rem",
+      "paddingRight": "1.5rem",
+      "paddingTop": "0.5rem",
+      "textAlign": "center",
+    }
+  }
+  title="Submit"
+>
+  Submit
+</div>
+`;
