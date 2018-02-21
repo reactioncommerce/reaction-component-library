@@ -1,6 +1,21 @@
 The `Button` component can render with four different possible appearances, which are chosen based on the `actionType` prop value. You should choose the appropriate appearance based on what type of action will happen if you click it.
 
-The actual colors of the appearance are defined by your theme. The examples here use our default theme.
+The actual colors of the appearance are defined by your theme. The examples here use our default theme. The theme properties used by this component are:
+
+- `rui_buttonBorderRadius`
+- `rui_buttonBorderColor_danger`
+- `rui_buttonBorderColor_default`
+- `rui_buttonBorderColor_important`
+- `rui_buttonBorderColor_secondary`
+- `rui_buttonBackgroundColor_danger`
+- `rui_buttonBackgroundColor_default`
+- `rui_buttonBackgroundColor_important`
+- `rui_buttonBackgroundColor_secondary`
+- `rui_buttonForegroundColor_danger`
+- `rui_buttonForegroundColor_default`
+- `rui_buttonForegroundColor_important`
+- `rui_buttonForegroundColor_secondary`
+- `rui_buttonPadding`
 
 #### Default Button
 
@@ -64,12 +79,16 @@ To make any button take up the full width of its container, add `fullWidth` prop
 
 ```jsx
 const divStyles = {
+  borderColor: "#888888",
+  borderStyle: "solid",
+  borderWidth: 1,
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-around",
   height: 100,
+  justifyContent: "space-around",
   marginLeft: "auto",
   marginRight: "auto",
+  padding: 10,
   width: 500
 };
 

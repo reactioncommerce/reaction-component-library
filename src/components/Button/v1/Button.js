@@ -1,7 +1,30 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import preventAccidentalDoubleClick from "../../helpers/preventAccidentalDoubleClick";
-import { containerStyles, fullWidthContainerStyles, fullWidthTextContainerStyles } from "./styles";
+import styled from "styled-components";
+import { applyTheme, preventAccidentalDoubleClick } from "../../../helpers";
+import { applyThemeWithActionType } from "./helpers";
+
+const ButtonDiv = styled.div`
+  background-color: ${applyThemeWithActionType("buttonBackgroundColor", true)};
+  border-color: ${applyThemeWithActionType("buttonBorderColor", true)};
+  border-style: solid;
+  border-width: 1px;
+  border-radius: ${applyTheme("buttonBorderRadius")};
+  color: ${applyThemeWithActionType("buttonForegroundColor", true)};
+  cursor: pointer;
+  display: ${(props) => {
+    const { children, fullWidth } = props;
+    if (fullWidth) {
+      if (typeof children === "string") return "block";
+      return "flex";
+    }
+    return "inline-flex";
+  }};
+  margin: 0;
+  outline: none;
+  padding: ${applyTheme("buttonPadding")};
+  text-align: center;
+`;
 
 class Button extends Component {
   static propTypes = {
@@ -48,9 +71,7 @@ class Button extends Component {
 
     const { disabled, onClick } = this.props;
 
-    if (!disabled) {
-      onClick();
-    }
+    if (!disabled) onClick();
   });
 
   handleKeyPress = (event) => {
@@ -58,35 +79,28 @@ class Button extends Component {
   };
 
   render() {
-    const { children, className, disabled, fullWidth, title, actionType } = this.props;
+    const { actionType, children, className, disabled, fullWidth, title } = this.props;
 
-    // Build className
-    const finalClassName = `rui--btn rui--btn-${actionType} ${disabled ? "rui--btn-disabled " : ""}${className}`.trim();
-
-    // Build style
-    let style;
-    if (fullWidth) {
-      if (typeof children === "string") {
-        style = fullWidthTextContainerStyles;
-      } else {
-        style = fullWidthContainerStyles;
-      }
-    } else {
-      style = containerStyles;
+    const moreButtonDivProps = {};
+    if (disabled) {
+      moreButtonDivProps["aria-disabled"] = "true";
     }
 
     return (
-      <div
-        className={finalClassName}
+      <ButtonDiv
+        actionType={actionType}
+        className={className}
+        disabled={disabled}
+        fullWidth={fullWidth}
         onClick={this.handleClick}
         onKeyPress={this.handleKeyPress}
         role="button"
-        style={style}
         tabIndex={0}
         title={title}
+        {...moreButtonDivProps}
       >
         {children}
-      </div>
+      </ButtonDiv>
     );
   }
 }
