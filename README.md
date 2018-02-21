@@ -4,6 +4,10 @@
 
 Clone the repo and `npm install` in the repo folder. (Make sure to use NPM 5+)
 
+### Editor Extensions
+
+https://www.styled-components.com/docs/tooling#syntax-highlighting
+
 ## Run Locally
 
 ```bash
@@ -16,24 +20,28 @@ Leave it running while developing and documenting components so that you can qui
 
 1. Add a folder in /src/components.
     - Name the folder the same as the component name, in title case without any spaces.
+    - Beneath that, add a `v1` folder. Each new version of the component that changes its appearance will get a new version folder.
     - Do not create any additional layers of subfolders
-1. In the folder, add a .jsx file, a .md file, and a .test.jsx file, all of them named the same as the component name. If the component needs styles, add a file named `styles.js`. If the component needs any component-specific helper functions (to keep the code in the .jsx file clean), add a file named `helpers.js` Here is an example folder structure:
+1. In the folder, add a .js file, a .md file, and a .test.js file, all of them named the same as the component name. If the component needs any component-specific helper functions (to keep the code in the .js file clean), add a folder named `helpers` and put them in there with an `index.js` file that exports them by name. Here is an example folder structure:
     ```text
     /src
       /components
         /Button
-          Button.jsx
-          Button.test.jsx
-          Button.md
-          styles.js
-          helpers.js
+          /v1
+            Button.js
+            Button.test.js
+            Button.md
+            helpers
+              index.js
+              myHelperFunction.js
+              myHelperFunction.test.js
     ```
-1. Define a single React component in the .jsx file. Export it as default. (Refer to "Component Guidelines" section.)
-1. Write tests in the .test.jsx file, using Jest. (Refer to "Writing and Running Tests" section.)
+1. Define a single React component in the .js file. Export it as default. (Refer to "Component Guidelines" section.)
+1. Write tests in the .test.js file, using Jest. (Refer to "Writing and Running Tests" section.)
 1. Write style guide documentation and examples for the component in the .md file.
-1. If you have inline styles, define them in styles.js and import that into the component .jsx file.
-1. Add your component to an appropriate style guide section in styleguide.config.js
-1. If any helper functions used by your component can be helpful to other components, too, put them in `/src/helpers/helperFunctionName.js` instead of the component-specific `helpers.js`
+1. Add your component to an appropriate style guide section in `styleguide.config.js`
+1. Export your component from the package by adding it in `/src/components/v1`, or whichever version matches the version folder in which it lives.
+1. If any helper functions used by your component can be helpful to other components, too, put them in a `/src/helpers/helperFunctionName` folder instead of the component-specific `helpers` folder
 
 ## Component Guidelines
 
@@ -41,7 +49,9 @@ Leave it running while developing and documenting components so that you can qui
 - Include a `static propTypes = {};` at the top of the component class definition.
 - Include a description comment above each propType property, wrapped in `/** */`. The style guide will automatically pull these in as the prop description in the Properties table.
 - If the component takes and renders children, use `children: PropTypes.node` as the propType definition.
-- For all props that are `PropTypes.func`, define a default no-op function:
+- If the component relies on a prop being set and cannot provide a defaultProp for it, add `.isRequired` to the prop type.
+- Add `static defaultProps` below `static propTypes` if necessary.
+- For all props that are `PropTypes.func`, define a default no-op function. You then do not have to check whether that prop exists before calling the function.
     ```js
     static defaultProps = {
       onClick() {}
@@ -49,13 +59,17 @@ Leave it running while developing and documenting components so that you can qui
     ```
 - Wrap all `onClick` handlers in the `preventAccidentalDoubleClick` helper function. See the `Button` component for an example.
 
+### Component Themes
+
+Components must use the [styled-components](https://www.styled-components.com/) package to style all HTML elements they render, and allow certain styles to be specified by a [styled-components theme](https://www.styled-components.com/docs/advanced#theming). Add the default values for any theme properties you use in /src/defaultComponentTheme.js. All theme properties must start with `rui_` followed by a camelcased identifier.
+
 ## Writing and Running Tests
 
-Every component and helper in this style guide, with rare exceptions for extremely simple helper functions, must have a corresponding file containing component tests. All tests are written using, and run by, the [Jest](https://facebook.github.io/jest/) test framework, which is based on the Jasmine framework. If you haven't used Jest, you should read their documentation to get familiar.
+Every component and helper in this style guide must have a corresponding file containing component tests. All tests are written using, and run by, the [Jest](https://facebook.github.io/jest/) test framework, which is based on the Jasmine framework. If you haven't used Jest, you should read their documentation to get familiar.
 
 ### Test Files
 
-Files containing tests for a component must end in `.test.jsx` and be named after the component. Files containing tests for a helper must end in `.test.js` and be named after the helper function.
+Files containing tests for a component must end in `.test.js` and be named after the component. Files containing tests for a helper must end in `.test.js` and be named after the helper function.
 
 ### Code Style for Tests
 
@@ -86,9 +100,7 @@ When you `git commit` from this repo, it automatically runs eslint and all tests
 
 ## Theming the Guide
 
-You can change the theme styles for the guide in `/src/styles.css`. Be careful to define styles only for specific style guide classes. If you define styles for something generic, like `div`, then it will alter the appearance of all of the components that render that element and will confuse people.
-
-The exception to the above rule, is that the default theme styles should be defined in `/src/styles.css`, in the "Default Components Theme" section.
+You can change the theme styles for the style guide app in `/src/styleguide/styles.css`. Be careful to define styles only for specific style guide classes. If you define styles for something generic, like `div`, then it may alter the appearance of all of the components that render that element and will confuse people.
 
 ## Adding or Editing Sections in the Guide
 

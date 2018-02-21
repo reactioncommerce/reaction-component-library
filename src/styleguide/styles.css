@@ -32,20 +32,3 @@ body {
 .rsg--heading3-17 {
   font-size: 22px !important;
 }
-
-/**
- * Default Components Theme
- *
- * Define default colors, fonts, etc. for component classes here
- */
-
-.btn-default {
-  border: 1px solid black;
-  border-radius: 2px;
-  background-color: #723944;
-  color: #ffffff;
-}
-
-.btn-disabled {
-  background-color: #999999;
-}
