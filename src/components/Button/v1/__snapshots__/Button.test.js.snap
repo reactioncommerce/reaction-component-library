@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+<div
+  className="a b Button__ButtonDiv-yVfId ewgMTB"
+  disabled={false}
+  onClick={[Function]}
+  onKeyPress={[Function]}
+  role="button"
+  tabIndex={0}
+  title="title"
+>
+  Submit
+</div>
+`;
