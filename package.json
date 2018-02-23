@@ -24,8 +24,8 @@
     "start": "yarn styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "test": "react-scripts test --env=jsdom",
-    "test:once": "CI=true npm test"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "babel": {
     "plugins": [
