@@ -1,8 +1,12 @@
-# Style Components
+# 6. Style Components
+
+Date: 2018-02-23
 
 ## Status
 
-Proposed
+STATUS：proposed
+
+2018-02-23 proposed
 
 ## Context
 

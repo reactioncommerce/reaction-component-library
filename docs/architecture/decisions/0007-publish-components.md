@@ -1,8 +1,12 @@
-# Publish Components
+# 7. Publish Components
+
+Date: 2018-02-23
 
 ## Status
 
-Proposed
+STATUS：proposed
+
+2018-02-23 proposed
 
 ## Context
 

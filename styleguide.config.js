@@ -70,7 +70,7 @@ module.exports = {
       sections: [
         {
           name: "Installing and Importing",
-          content: "docs/InstallingandImporting.md"
+          content: "src/styleguide/sections/InstallingandImporting.md"
           // description: ""
         }
       ]
@@ -104,7 +104,8 @@ module.exports = {
     const dir = path.dirname(componentPath);
     const lastPieceOfDirPath = dir.slice(dir.lastIndexOf("/") + 1);
     return `import { ${name} } from "@reactioncommerce/components/${lastPieceOfDirPath}"`;
-  }
+  },
+  serverPort: 4000
   // handlers(componentPath) {
   //   return defaultHandlers.concat(
   //     // require("react-docgen-displayname-handler").createDisplayNameHandler(componentPath),

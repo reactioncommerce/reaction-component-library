@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+# Helper to automatically link any NPM modules that are in development.
+#
+# Mounting Custom Modules to the Docker Container:
+#   Custom NPM modules must be mounted into the Docker container at
+#
+#   /usr/local/src/${module}
+#
+#   Here's an example Docker Compose mount for two modules, rimraf and eslint:
+#
+#       volumes:
+#         - web-yarn:/home/node/.cache/yarn
+#         - .:/usr/local/src/reaction-app
+#         - ../rimraf:/usr/local/src/rimraf
+#         - ../eslint:/usr/local/src/eslint
+#
+#
+# Run this Script on Container Start:
+#   Add this script to the Docker CMD to ensure that it links all modules
+#   before starting the project process.
+#
+#   Example command:
+#
+#       command: [sh, -c, "bin/yarn-link && yarn run build && yarn run start"]
+
+
+# NPM modules that will be linked.
+# Set in .env
+custom_modules="${LINKED_NPM_MODULES}"
+
+custom_modules_folder=/usr/local/src
+modules_folder=/usr/local/src/node_modules
+project_folder=/usr/local/src/reaction-app
+
+for module in ${custom_modules}; do
+  cd "${custom_modules_folder}/${module}" \
+    || ( echo "Attempted to link NPM module that doesn't exist" 2>&1 && exit 1 )
+  yarn --modules-folder "${modules_folder}" link
+  cd "${project_folder}" \
+    || ( echo "Project directory doesn't exist while NPM module linking!" 2>&1 && exit 1 )
+  yarn --modules-folder "${modules_folder}" link ${module}
+done
