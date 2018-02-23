@@ -1,0 +1,58 @@
+{
+  "name": "@reactioncommerce/styleguide",
+  "version": "0.1.0",
+  "description": "",
+  "homepage": "https://github.com/reactioncommerce/styleguide",
+  "main": "index.js",
+  "repository": "https://github.com/reactioncommerce/styleguide",
+  "author": {
+    "name": "Reaction Commerce",
+    "email": "engineering@reactioncommerce.com",
+    "url": "https://reactioncommerce.com"
+  },
+  "license": "GPL-3.0-only",
+  "private": false,
+  "scripts": {
+    "clean": "rimraf dist",
+    "build": "yarn run clean && babel src -d dist --copy-files"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-2"
+    ]
+  },
+  "eslintConfig": {
+    "extends": [
+      "@reactioncommerce",
+      "prettier"
+    ]
+  },
+  "eslintIgnore": [
+    "dist",
+    "reports"
+  ],
+  "jest": {
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{js,jsx}",
+      "!**/reports/**",
+      "!**/dist/**",
+      "!**/node_modules/**",
+      "!**/vendor/**"
+    ],
+    "coverageDirectory": "reports/coverage",
+    "testResultsProcessor": "jest-junit"
+  },
+  "jest-junit": {
+    "output": "reports/junit/junit.xml",
+    "suiteName": "jest-tests"
+  },
+  "dependencies": {
+    "lodash.debounce": "^4.0.8",
+    "lodash.get": "^4.4.2",
+    "polished": "^1.9.2",
+    "styled-components": "^3.1.6"
+  },
+  "devDependencies": {}
+}

@@ -1,14 +1,19 @@
-# Define Project Structure
+# 4. Define Project Structure
+
+Date: 2018-02-23
 
 ## Status
 
-Proposed
+STATUS：proposed
+
+2018-02-23 proposed
 
 ## Context
 
 How should the folders and files in this repo be organized and named?
 
 ## Decision
+
 
 1. Add a folder in /src/components.
     - Name the folder the same as the component name, in title case without any spaces.
