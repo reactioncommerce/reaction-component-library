@@ -4,7 +4,7 @@
 
 ```sh
 # Clone
-git clone git@github.com:reactioncommerce/styleguide.git
+git clone git@github.com:reactioncommerce/reaction-component-library.git
 
 cd styleguide
 
