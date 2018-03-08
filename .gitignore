@@ -1,6 +1,6 @@
 !.env.example
 .env
-.yarn-error.log
+yarn-error.log
 coverage
 !dist/README.md
 dist/*

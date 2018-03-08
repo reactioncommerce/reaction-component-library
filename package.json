@@ -2,9 +2,9 @@
   "name": "@reactioncommerce/styleguide",
   "version": "0.1.0",
   "description": "",
-  "homepage": "https://github.com/reactioncommerce/styleguide",
+  "homepage": "https://github.com/reactioncommerce/reaction-component-library",
   "main": "index.js",
-  "repository": "https://github.com/reactioncommerce/styleguide",
+  "repository": "https://github.com/reactioncommerce/reaction-component-library",
   "author": {
     "name": "Reaction Commerce",
     "email": "engineering@reactioncommerce.com",
