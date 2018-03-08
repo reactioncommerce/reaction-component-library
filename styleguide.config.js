@@ -53,17 +53,17 @@ if (fs.statSync(componentsDir).isDirectory()) {
   });
 }
 
-function generateSection(name, componentNames) {
+function generateSection({ componentNames, name, content }) {
   const sections = componentNames.map((componentName) => {
     const components = Object.keys(componentTree[componentName]).map((version) => componentTree[componentName][version]);
     return { name: componentName, components: () => components };
   });
 
-  return { name, sections };
+  return { content, name, sections };
 }
 
 module.exports = {
-  title: "Reaction Core UI Components",
+  title: "Reaction UI Components Style Guide",
   sections: [
     {
       name: "Introduction",
@@ -78,7 +78,11 @@ module.exports = {
     {
       name: "Components",
       sections: [
-        generateSection("Clickables", ["Button"])
+        generateSection({
+          componentNames: ["Button"],
+          content: "src/styleguide/sections/Actions.md",
+          name: "Actions",
+        })
       ]
     }
   ],
@@ -105,7 +109,8 @@ module.exports = {
     const lastPieceOfDirPath = dir.slice(dir.lastIndexOf("/") + 1);
     return `import { ${name} } from "@reactioncommerce/components/${lastPieceOfDirPath}"`;
   },
-  serverPort: 4000
+  serverPort: 4000,
+  template: "src/styleguide/index.html"
   // handlers(componentPath) {
   //   return defaultHandlers.concat(
   //     // require("react-docgen-displayname-handler").createDisplayNameHandler(componentPath),

@@ -32,3 +32,28 @@ body {
 .rsg--heading3-17 {
   font-size: 22px !important;
 }
+
+.columns {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -20px;
+  margin-bottom: 10px;
+}
+
+.columns > .column {
+  margin-bottom: 20px;
+}
+
+@media(min-width: 879px) {
+  .columns > .column {
+    flex: 1;
+    min-width: 280px;
+    max-width: 280px;
+    margin-right: 30px;
+  }
+}
+
+.column img {
+  width: 100%;
+  margin-bottom: 15px;
+}
