@@ -128,30 +128,19 @@ docker-compose up
 
 ## Adding a New Component
 
-1. Add a folder in /src/components.
-    - Name the folder the same as the component name, in title case without any spaces.
-    - Beneath that, add a `v1` folder. Each new version of the component that changes its appearance will get a new version folder.
-    - Do not create any additional layers of subfolders
-1. In the folder, add a .js file, a .md file, and a .test.js file, all of them named the same as the component name. If the component needs any component-specific helper functions (to keep the code in the .js file clean), add a folder named `helpers` and put them in there with an `index.js` file that exports them by name. Here is an example folder structure:
-    ```text
-    /src
-      /components
-        /Button
-          /v1
-            Button.js
-            Button.test.js
-            Button.md
-            helpers
-              index.js
-              myHelperFunction.js
-              myHelperFunction.test.js
-    ```
-1. Define a single React component in the .js file. Export it as default. (Refer to "Component Guidelines" section.)
-1. Write tests in the .test.js file, using Jest. (Refer to "Writing and Running Tests" section.)
-1. Write style guide documentation and examples for the component in the .md file.
+1. In the project root directory, run `node .reaction/scripts/addcomponent MyComponent` using Node 8+, where `MyComponent` is the name of the component you want to add. The necessary files will be added in `/src/components`.
 1. Add your component to an appropriate style guide section in `styleguide.config.js`
-1. Export your component from the package by adding it in `/src/components/v1`, or whichever version matches the version folder in which it lives.
-1. If any helper functions used by your component can be helpful to other components, too, put them in a `/src/helpers/helperFunctionName` folder instead of the component-specific `helpers` folder
+1. If any helper functions used by your component can be helpful to other components, too, put them in a `/src/helpers/helperFunctionName` folder. Otherwise put them in a component-specific `helpers` folder within the component version folder.
+
+## Making a New Version of a Component
+
+This should be done only when you have to make changes that are not backwards compatible, which includes any changes to styling that might be unexpected.
+
+```
+node .reaction/scripts/addcomponent MyComponent next
+```
+
+Where `MyComponent` is the name of the component, which must already exist and have at least one `v`-prefixed subfolder. This command will copy the latest version into the next version folder.
 
 ## Component Guidelines
 

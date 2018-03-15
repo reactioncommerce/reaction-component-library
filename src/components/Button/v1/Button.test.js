@@ -21,7 +21,7 @@ test("calls onClick when clicked", () => {
   expect(clickSpy).toHaveBeenCalled();
 });
 
-it("calls onClick only once when double-clicked before timeout", () => {
+test("calls onClick only once when double-clicked before timeout", () => {
   const clickSpy = jest.fn();
   const item = shallow(<Button onClick={clickSpy} />);
 
@@ -31,7 +31,7 @@ it("calls onClick only once when double-clicked before timeout", () => {
   expect(clickSpy.mock.calls.length).toBe(1);
 });
 
-it("calls onClick twice when double-clicked after timeout", (done) => {
+test("calls onClick twice when double-clicked after timeout", (done) => {
   const clickSpy = jest.fn();
   const item = shallow(<Button onClick={clickSpy} />);
 
