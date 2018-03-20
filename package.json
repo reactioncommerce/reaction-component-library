@@ -24,8 +24,7 @@
     "start": "yarn styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "test": "jest",
-    "test:watch": "jest --watch",
+    "test": "react-scripts test --env=jsdom",
     "snyk-protect": "snyk protect"
   },
   "babel": {
@@ -62,20 +61,13 @@
     "styleguide"
   ],
   "jest": {
-    "collectCoverage": true,
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
       "!**/reports/**",
       "!**/dist/**",
       "!**/node_modules/**",
       "!**/vendor/**"
-    ],
-    "coverageDirectory": "reports/coverage",
-    "testResultsProcessor": "jest-junit"
-  },
-  "jest-junit": {
-    "output": "reports/junit/junit.xml",
-    "suiteName": "jest-tests"
+    ]
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
@@ -107,9 +99,8 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "fs-extra": "^5.0.0",
-    "jest": "^22.3.0",
     "jest-junit": "3.6.0",
-    "jest-styled-components": "^4.10.0",
+    "jest-styled-components": "^5.0.0",
     "nodemon": "^1.14.12",
     "prettier": "1.10.2",
     "prettier-check": "^2.0.0",
