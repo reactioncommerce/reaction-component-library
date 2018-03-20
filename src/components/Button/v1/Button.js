@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme, preventAccidentalDoubleClick } from "../../../helpers";
+import { applyTheme, preventAccidentalDoubleClick } from "helpers";
 import { applyThemeWithActionType } from "./helpers";
+
+const paddingFunc = (props) => {
+  const { styleVariant } = props;
+  if (styleVariant === "small") return applyTheme("buttonVerticalPaddingSmall");
+  return applyTheme("buttonVerticalPadding");
+};
 
 const ButtonDiv = styled.div`
   background-color: ${applyThemeWithActionType("buttonBackgroundColor", true)};
@@ -10,6 +16,7 @@ const ButtonDiv = styled.div`
   border-style: solid;
   border-width: 1px;
   border-radius: ${applyTheme("buttonBorderRadius")};
+  box-sizing: border-box;
   color: ${applyThemeWithActionType("buttonForegroundColor", true)};
   cursor: pointer;
   display: ${(props) => {
@@ -18,11 +25,16 @@ const ButtonDiv = styled.div`
       if (typeof children === "string") return "block";
       return "flex";
     }
+    if (typeof children === "string") return "inline-block";
     return "inline-flex";
   }};
   margin: 0;
+  min-width: ${applyTheme("buttonMinimumWidth")};
   outline: none;
-  padding: ${applyTheme("buttonPadding")};
+  padding-left: ${applyTheme("buttonHorizontalPadding")};
+  padding-right: ${applyTheme("buttonHorizontalPadding")};
+  padding-top: ${paddingFunc};
+  padding-bottom: ${paddingFunc};
   text-align: center;
 `;
 
@@ -32,6 +44,7 @@ class Button extends Component {
      * The type of action performed by the button
      */
     actionType: PropTypes.oneOf(["danger", "default", "important", "secondary"]),
+    styleVariant: PropTypes.oneOf(["small", "text"]),
     /**
      * The contents of the button, such as text, icons, or any combination of React and HTML components
      */
@@ -79,7 +92,7 @@ class Button extends Component {
   };
 
   render() {
-    const { actionType, children, className, disabled, fullWidth, title } = this.props;
+    const { actionType, children, className, disabled, fullWidth, styleVariant, title } = this.props;
 
     const moreButtonDivProps = {};
     if (disabled) {
@@ -95,6 +108,7 @@ class Button extends Component {
         onClick={this.handleClick}
         onKeyPress={this.handleKeyPress}
         role="button"
+        styleVariant={styleVariant}
         tabIndex={0}
         title={title}
         {...moreButtonDivProps}
