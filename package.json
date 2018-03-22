@@ -70,6 +70,7 @@
     ]
   },
   "dependencies": {
+    "composable-form-tests": "^0.0.3",
     "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
     "polished": "^1.9.2",

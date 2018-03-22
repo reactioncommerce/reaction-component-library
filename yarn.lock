@@ -2046,6 +2046,12 @@ component-emitter@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/component-emitter/-/component-emitter-1.2.1.tgz#137918d6d78283f7df7a6b7c5a63e140e69425e6"
 
+composable-form-tests@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/composable-form-tests/-/composable-form-tests-0.0.3.tgz#c90fc904ecb635e2e389ab62d3611bf56c34f0ae"
+  dependencies:
+    react "^16.0.0"
+
 compressible@~2.0.13:
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/compressible/-/compressible-2.0.13.tgz#0d1020ab924b2fdb4d6279875c7d6daba6baa7a9"
@@ -7492,7 +7498,7 @@ react-test-renderer@^16.0.0-0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
-react@^16.2.0:
+react@^16.0.0, react@^16.2.0:
   version "16.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.2.0.tgz#a31bd2dab89bff65d42134fa187f24d054c273ba"
   dependencies:
