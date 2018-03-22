@@ -115,10 +115,22 @@ const fontWeightBold = "700";
 // leading
 const bodyLeading = "1.5";
 const headerLeading = "1.25";
+const flatLeading = "1";
 
-// sizing stiuff
+/**
+ * Default Theme Spacing
+ */
+
+// old button sizing helper
 const paddingBasePixels = 10;
 
+const spacingBase = 0.625;
+const baseUnit = (size) => `${spacingBase*size}rem`;
+
+/**
+ * Default Theme Borders
+ */
+const borderRadius = baseUnit(.2);
 
 /**
  * Default Theme Elements
@@ -148,11 +160,32 @@ const buttonStyles = {
   rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`
 }
 
-// inputs
+// input
 const inputStyles = {
-  rui_inputBackgroundColor_default: white,
-  rui_inputBackgroundColor_default_focus: coolGrey,
-  rui_inputBackgroundColor_dark: red
+  rui_inputBackgroundColor_default: black02,
+  rui_inputBackgroundColor_dark: white,
+  rui_inputBorderColor: black20,
+  rui_inputBorderColor_focus: teal,
+  rui_inputBorderColor_invalid: red,
+  rui_inputBoarderRadius: borderRadius,
+  rui_inputColor: black55,
+  rui_inputColor_disabled: black25,
+  rui_inputColor_invalid: red,
+  rui_inputPlaceholderColor: black20,
+  rui_inputFontFamily: "inherit",
+  rui_inputFontSize: fontSize14,
+  rui_inputLineHeight: flatLeading,
+  rui_inputVerticalPadding: baseUnit(1.2),
+  rui_inputHorizontalPadding: baseUnit(1)
 }
 
-export default { ...buttonStyles, ...inputStyles};
+const textareaStyles = {
+  rui_textareaHeight: baseUnit(6),
+  rui_textareaLineHeight: bodyLeading
+}
+
+export default {
+  ...buttonStyles,
+  ...inputStyles,
+  ...textareaStyles
+};

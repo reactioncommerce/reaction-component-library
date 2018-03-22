@@ -2,7 +2,8 @@
 
 exports[`renders 1`] = `
 <input
-  className="sc-bdVaJa bPvjUk"
+  className="sc-bdVaJa dboVJU"
+  disabled={false}
   maxLength={undefined}
   name="test"
   onBlur={[Function]}
@@ -17,7 +18,8 @@ exports[`renders 1`] = `
 
 exports[`renders textarea 1`] = `
 <input
-  className="sc-bdVaJa bPvjUk"
+  className="sc-bdVaJa dboVJU"
+  disabled={false}
   maxLength={undefined}
   name="test"
   onBlur={[Function]}
@@ -32,7 +34,8 @@ exports[`renders textarea 1`] = `
 
 exports[`renders textarea with props 1`] = `
 <input
-  className="CLASSNAME sc-bdVaJa bPvjUk"
+  className="CLASSNAME sc-bdVaJa dboVJU"
+  disabled={false}
   maxLength={20}
   name="test"
   onBlur={[Function]}
@@ -47,7 +50,8 @@ exports[`renders textarea with props 1`] = `
 
 exports[`renders with props 1`] = `
 <input
-  className="CLASSNAME sc-bdVaJa bPvjUk"
+  className="CLASSNAME sc-bdVaJa dboVJU"
+  disabled={false}
   maxLength={20}
   name="test"
   onBlur={[Function]}

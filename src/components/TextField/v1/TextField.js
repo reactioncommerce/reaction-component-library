@@ -12,13 +12,41 @@ function applyThemeVariant(themeProp) {
 
 const StyledInput = styled.input`
   background-color: ${applyThemeVariant("inputBackgroundColor")};
+  border: 1px solid ${applyTheme("inputBorderColor")};
+  border-radius: ${applyTheme("inputBoarderRadius")};
+  color: ${applyTheme("inputColor")};
+  crsor: pointer;
+  font-family: ${applyTheme("inputFontFamily")};
+  font-size: ${applyTheme("inputFontSize")};
+  line-height: ${applyTheme("inputLineHeight")};
+  padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
+  width: 100%;
+
+  &::placeholder {
+    color: ${applyTheme("inputPlaceholderColor")};
+  }
+
   &:focus {
-    background-color: ${applyTheme("inputBackgroundColor_default_focus")};
+    border-color: ${applyTheme("inputBorderColor_focus")};
+  }
+
+  &:invalid {
+    border-color: ${applyTheme("inputBorderColor_invalid")};
+    color: ${applyTheme("inputColor_invalid")};
+  }
+
+  &:disabled {
+    color: ${applyTheme("inputColor_disabled")};
+    cursor: not-allowed;
   }
 `;
 
-const StyledTextarea = styled.textarea`
-  background-color: #ff00ff;
+const Textarea = StyledInput.withComponent("textarea");
+
+const StyledTextarea = Textarea.extend`
+  line-height: ${applyTheme("textareaLineHeight")};
+  min-height: ${applyTheme("textareaHeight")}
+  resize: vertical;
 `;
 
 class TextField extends Component {
@@ -28,6 +56,8 @@ class TextField extends Component {
     allowLineBreaks: PropTypes.bool,
     className: PropTypes.string,
     convertEmptyStringToNull: PropTypes.bool,
+    disabled: PropTypes.bool,
+    invalid: PropTypes.bool,
     isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
     maxLength: PropTypes.number,
     name: PropTypes.string,
@@ -48,6 +78,8 @@ class TextField extends Component {
   static defaultProps = {
     allowLineBreaks: false,
     convertEmptyStringToNull: true,
+    disabled: false,
+    invalid: false,
     isReadOnly: false,
     onChange() {},
     onChanging() {},
@@ -142,7 +174,7 @@ class TextField extends Component {
   }
 
   render() {
-    const { allowLineBreaks, className, dark, isReadOnly, maxLength, name, placeholder, type } = this.props;
+    const { allowLineBreaks, className, dark, disabled, invalid, isReadOnly, maxLength, name, placeholder, type } = this.props;
     const { value } = this.state;
 
     if (allowLineBreaks) {
@@ -152,6 +184,8 @@ class TextField extends Component {
           <StyledTextarea
             className={className}
             dark={dark}
+            disabled={disabled}
+            invalid={invalid}
             readOnly={isReadOnly}
             maxLength={maxLength}
             name={name}
@@ -167,6 +201,8 @@ class TextField extends Component {
         <StyledInput
           className={className}
           dark={dark}
+          disabled={disabled}
+          invalid={invalid}
           readOnly={isReadOnly}
           maxLength={maxLength}
           name={name}
