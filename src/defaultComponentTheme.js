@@ -29,5 +29,8 @@ export default {
   rui_buttonHorizontalPadding: `${paddingBasePixels*2}px`,
   rui_buttonMinimumWidth: "100px",
   rui_buttonVerticalPadding: `${paddingBasePixels}px`,
-  rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`
+    rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`,
+    rui_inputBackgroundColor_default: white,
+    rui_inputBackgroundColor_default_focus: coolGrey,
+    rui_inputBackgroundColor_dark: red
 };
