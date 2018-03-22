@@ -1,11 +1,92 @@
 /* eslint-disable camelcase */
+/* eslint-disable no-unused-vars */
 
-const reactionBlue = "#1999dd";
-const coolGrey = "#5e7480";
-const coolGrey200 = "#d5d5d5";
-const coolGrey500 = "#3c3c3c";
-const red = "#cd3f4c";
+/**
+ * Default Theme Colors
+ */
+
+// grey scale
+const black = "#000000";
+const black95 = "#0d0d0d";
+const black90 = "#1a1a1a";
+const black85 = "#262626";
+const black80 = "#333333";
+const black75 = "#404040";
+const black70 = "#4d4d4d";
+const black65 = "#595959";
+const black60 = "#666666";
+const black55 = "#737373";
+const black50 = "#808080";
+const black45 = "#8c8c8c";
+const black40 = "#999999";
+const black35 = "#a6a6a6";
+const black30 = "#b3b3b3";
+const black25 = "#bfbfbf";
+const black20 = "#cccccc";
+const black15 = "#d9d9d9";
+const black10 = "#e6e6e6";
+const black05 = "#f5f5f5";
+const black02 = "#fafafa";
 const white = "#ffffff";
+
+// medium colors
+const reactionBlue = "#1999dd";
+const reactionBlue100 = "#ecf8fe";
+const reactionBlue200 = "#d6e5ed";
+const reactionBlue300 = "#26b0f9";
+const reactionBlue400 = "#067ebe";
+const reactionBlue500 = "#285268";
+const reactionBlue600 = "#172f3c";
+
+const coolGrey = "#5e7480";
+const coolGrey100 = "#e3ebf0";
+const coolGrey200 = "#d5d5d5";
+const coolGrey300 = "#5d8ea9";
+const coolGrey400 = "#3c5d6f";
+const coolGrey500 = "#3c3c3c";
+const coolGrey600 = "#1d1d1d";
+
+// dark colors
+const forestGreen = "#158562";
+const forestGreen100 = "#dcfaf1";
+const forestGreen200 = "#b4ddc1";
+const forestGreen300 = "#0db781";
+const forestGreen400 = "#066144";
+const forestGreen500 = "#285749";
+const forestGreen600 = "#1e4035";
+
+const darkBlue = "#23566d";
+const darkBlue100 = "#d9ebf3";
+const darkBlue200 = "#c4d3da";
+const darkBlue300 = "#135471";
+const darkBlue400 = "#103a4d";
+const darkBlue500 = "#333f45";
+const darkBlue600 = "#242c30";
+
+// support colors
+const yellow = "#3fc95f";
+const yellow100 = "#fcf3dc";
+const yellow200 = "#e9e1cb";
+const yellow300 = "#fdda79";
+const yellow400 = "#fbc120";
+const yellow500 = "#a2832d";
+const yellow600 = "#7a6322";
+
+const red = "#cd3f4c";
+const red100 = "#ffeeef";
+const red200 = "#f0e8e9";
+const red300 = "#e54f5d";
+const red400 = "#bc1d2b";
+const red500 = "#5e3033";
+const red600 = "#3c1f21";
+
+const teal = "#8ce0c9";
+const teal100 = "#edfdf8";
+const teal200 = "#d9ece6";
+const teal300 = "#a3f2dc";
+const teal400 = "#55e4be";
+const teal500 = "#447467";
+const teal600 = "#34584f";
 
 const paddingBasePixels = 10;
 
@@ -29,8 +110,8 @@ export default {
   rui_buttonHorizontalPadding: `${paddingBasePixels*2}px`,
   rui_buttonMinimumWidth: "100px",
   rui_buttonVerticalPadding: `${paddingBasePixels}px`,
-    rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`,
-    rui_inputBackgroundColor_default: white,
-    rui_inputBackgroundColor_default_focus: coolGrey,
-    rui_inputBackgroundColor_dark: red
+  rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`,
+  rui_inputBackgroundColor_default: white,
+  rui_inputBackgroundColor_default_focus: coolGrey,
+  rui_inputBackgroundColor_dark: red
 };
