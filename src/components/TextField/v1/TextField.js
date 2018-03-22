@@ -10,7 +10,7 @@ const StyledInput = styled.input`
       inputType = "dark"
     } else {
       inputType = "default"
-    }    
+    }
     return  applyTheme(`inputBackgroundColor_${inputType}`)(props);
 }};
   &:focus {
@@ -26,24 +26,24 @@ class TextField extends Component {
   static isFormInput = true;
 
   static propTypes = {
-    isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    onChanging: PropTypes.func,
     allowLineBreaks: PropTypes.bool,
     className: PropTypes.string,
     convertEmptyStringToNull: PropTypes.bool,
+    isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
     maxLength: PropTypes.number,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    onChanging: PropTypes.func,
     onSubmit: PropTypes.func,
     placeholder: PropTypes.string,
     trimValue: PropTypes.bool,
     type: PropTypes.oneOf([
-      'email',
-      'password',
-      'text',
-      'url',
+      "email",
+      "password",
+      "text",
+      "url",
     ]),
-    value: PropTypes.string,
+    value: PropTypes.string
   };
 
   static defaultProps = {
@@ -54,14 +54,14 @@ class TextField extends Component {
     onChanging() {},
     onSubmit() {},
     trimValue: true,
-    type: 'text',
+    type: "text"
   };
 
   constructor(props) {
     super(props);
 
     this.state = {
-      value: props.value || '',
+      value: props.value || ""
     };
   }
 
@@ -92,7 +92,7 @@ class TextField extends Component {
 
   onChange = (event) => {
     let { value } = event.target;
-    value = value || '';
+    value = value || "";
     this.setState({ value });
     this.handleChanging(value);
   };
@@ -101,8 +101,7 @@ class TextField extends Component {
     return this.cleanValue(this.state.value);
   }
 
-  setValue(value) {
-    value = value || '';
+  setValue(value = "") {
     this.setState({ value });
     this.handleChanging(value);
     this.handleChanged(value);
@@ -111,7 +110,7 @@ class TextField extends Component {
   cleanValue(value) {
     const { convertEmptyStringToNull, trimValue } = this.props;
     let outputValue = trimValue ? value.trim() : value;
-    if (convertEmptyStringToNull && outputValue === '') outputValue = null;
+    if (convertEmptyStringToNull && outputValue === "") outputValue = null;
     return outputValue;
   }
 
@@ -137,50 +136,48 @@ class TextField extends Component {
     }
   }
 
-  // Input is dirty if value prop doesn't match value state. Whenever a changed
+  // Input is dirty if value prop doesn"t match value state. Whenever a changed
   // value prop comes in, we reset state to that, thus becoming clean.
   isDirty() {
     return this.state.value !== this.props.value;
   }
 
   render() {
-    const { allowLineBreaks, className, isReadOnly, maxLength, name, placeholder, dark, type } = this.props;
+    const { allowLineBreaks, className, isReadOnly, maxLength, name, placeholder, type } = this.props;
     const { value } = this.state;
 
     if (allowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
-      // We don't support rows; use style to set height instead
+      // We don"t support rows; use style to set height instead
       return (
-        <StyledTextarea
-          className={className}
-          readOnly={isReadOnly}
-          maxLength={maxLength}
-          name={name}
-          onBlur={this.onBlur}
-          onChange={this.onChange}
-          placeholder={placeholder}
-          style={style}
-          value={value}
-        />
+          <StyledTextarea
+            className={className}
+            readOnly={isReadOnly}
+            maxLength={maxLength}
+            name={name}
+            onBlur={this.onBlur}
+            onChange={this.onChange}
+            placeholder={placeholder}
+            value={value}
+          />
       );
     }
 
     return (
-      <StyledInput
-        className={className}
-        readOnly={isReadOnly}
-        maxLength={maxLength}
-        name={name}
-        onKeyPress={this.onKeyPress}
-        onBlur={this.onBlur}
-        onChange={this.onChange}
-        placeholder={placeholder}
-        type={type}
-        value={value}
-        dark={dark}
-      />
+        <StyledInput
+          className={className}
+          readOnly={isReadOnly}
+          maxLength={maxLength}
+          name={name}
+          onKeyPress={this.onKeyPress}
+          onBlur={this.onBlur}
+          onChange={this.onChange}
+          placeholder={placeholder}
+          type={type}
+          value={value}
+        />
     );
-}
+  }
 }
 
 export default TextField;
