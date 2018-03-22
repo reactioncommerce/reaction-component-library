@@ -1,28 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot 1`] = `
-.c0 {
-  background-color: #5e7480;
-  border-color: #5e7480;
-  border-style: solid;
-  border-width: 1px;
-  border-radius: 2px;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  display: inline-block;
-  margin: 0;
-  min-width: 100px;
-  outline: none;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-}
-
 <div
-  className="a b c0"
+  className="a b sc-bdVaJa ghwmVD"
   disabled={false}
   onClick={[Function]}
   onKeyPress={[Function]}

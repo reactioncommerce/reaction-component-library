@@ -1,18 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot 1`] = `
-.c0 {
-  background-color: #ffffff;
-}
-
-.c0:focus {
-  background-color: #5e7480;
-}
-
+exports[`renders 1`] = `
 <input
-  className="c0"
+  className="sc-bdVaJa bPvjUk"
   maxLength={undefined}
-  name={undefined}
+  name="test"
   onBlur={[Function]}
   onChange={[Function]}
   onKeyPress={[Function]}
@@ -20,5 +12,50 @@ exports[`basic snapshot 1`] = `
   readOnly={false}
   type="text"
   value=""
+/>
+`;
+
+exports[`renders textarea 1`] = `
+<input
+  className="sc-bdVaJa bPvjUk"
+  maxLength={undefined}
+  name="test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onKeyPress={[Function]}
+  placeholder={undefined}
+  readOnly={false}
+  type="text"
+  value=""
+/>
+`;
+
+exports[`renders textarea with props 1`] = `
+<input
+  className="CLASSNAME sc-bdVaJa bPvjUk"
+  maxLength={20}
+  name="test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onKeyPress={[Function]}
+  placeholder="PLACEHOLDER"
+  readOnly={true}
+  type="text"
+  value="VALUE"
+/>
+`;
+
+exports[`renders with props 1`] = `
+<input
+  className="CLASSNAME sc-bdVaJa bPvjUk"
+  maxLength={20}
+  name="test"
+  onBlur={[Function]}
+  onChange={[Function]}
+  onKeyPress={[Function]}
+  placeholder="PLACEHOLDER"
+  readOnly={true}
+  type="text"
+  value="VALUE"
 />
 `;
