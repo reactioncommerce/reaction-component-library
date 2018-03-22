@@ -3,16 +3,15 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "./../../../helpers";
 
+function applyThemeVariant(themeProp) {
+  return (props) => {
+    const inputType = (props.dark) ? "dark" : "default";
+    return  applyTheme(`${themeProp}_${inputType}`);
+  }
+}
+
 const StyledInput = styled.input`
-  background-color: ${(props) => {
-    let inputType;
-    if (props.dark) {
-      inputType = "dark"
-    } else {
-      inputType = "default"
-    }
-    return  applyTheme(`inputBackgroundColor_${inputType}`)(props);
-}};
+  background-color: ${applyThemeVariant("inputBackgroundColor")};
   &:focus {
     background-color: ${applyTheme("inputBackgroundColor_default_focus")};
   }
@@ -143,7 +142,7 @@ class TextField extends Component {
   }
 
   render() {
-    const { allowLineBreaks, className, isReadOnly, maxLength, name, placeholder, type } = this.props;
+    const { allowLineBreaks, className, dark, isReadOnly, maxLength, name, placeholder, type } = this.props;
     const { value } = this.state;
 
     if (allowLineBreaks) {
@@ -152,6 +151,7 @@ class TextField extends Component {
       return (
           <StyledTextarea
             className={className}
+            dark={dark}
             readOnly={isReadOnly}
             maxLength={maxLength}
             name={name}
@@ -166,6 +166,7 @@ class TextField extends Component {
     return (
         <StyledInput
           className={className}
+          dark={dark}
           readOnly={isReadOnly}
           maxLength={maxLength}
           name={name}

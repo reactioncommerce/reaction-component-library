@@ -88,9 +88,44 @@ const teal400 = "#55e4be";
 const teal500 = "#447467";
 const teal600 = "#34584f";
 
+/**
+ * Default Theme Typography
+ */
+
+// font stack
+const fontStack= "Source Sans Pro, sans-serif";
+
+// font scale
+const fontSize12 = "0,75rem";
+const fontSize14 = "0.875rem";
+const fontSize16 = "1rem";
+const fontSize18 = "1.125rem";
+const fontSize20 = "1.25rem";
+const fontSize24 = "1.5rem";
+const fontSize28 = "1.75rem";
+const fontSize32 = "2rem";
+const fontSize36 = "2.25rem";
+const fontSize42 = "2.625rem";
+
+// font weights
+const fontWeightLight = "200";
+const fontWeightRegular = "400";
+const fontWeightBold = "700";
+
+// leading
+const bodyLeading = "1.5";
+const headerLeading = "1.25";
+
+// sizing stiuff
 const paddingBasePixels = 10;
 
-export default {
+
+/**
+ * Default Theme Elements
+ */
+
+// buttons
+const buttonStyles = {
   rui_buttonBorderRadius: "2px",
   rui_buttonBorderColor_danger: red,
   rui_buttonBorderColor_default: coolGrey,
@@ -110,8 +145,14 @@ export default {
   rui_buttonHorizontalPadding: `${paddingBasePixels*2}px`,
   rui_buttonMinimumWidth: "100px",
   rui_buttonVerticalPadding: `${paddingBasePixels}px`,
-  rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`,
+  rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`
+}
+
+// inputs
+const inputStyles = {
   rui_inputBackgroundColor_default: white,
   rui_inputBackgroundColor_default_focus: coolGrey,
   rui_inputBackgroundColor_dark: red
-};
+}
+
+export default { ...buttonStyles, ...inputStyles};
