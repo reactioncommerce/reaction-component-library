@@ -1,14 +1,22 @@
 import { getFromTheme } from "helpers";
 
-export default function applyThemeWithActionType(themeProp) {
+export default function applyThemeWithActionType(themeProp, transparentWhenTextOnly, stateSuffix) {
   return (props) => {
-    const { actionType, disabled } = props;
+    const { actionType, isDisabled, isTextOnly } = props;
+
+    if (isTextOnly && transparentWhenTextOnly) return "transparent";
+
     let suffix;
-    if (disabled) {
+    if (isDisabled) {
       suffix = "disabled";
     } else {
-      suffix = actionType;
+      // Currently we force "default" styling for text-only buttons
+      suffix = isTextOnly ? "default" : actionType;
     }
-    return getFromTheme(props, `rui_${themeProp}_${suffix}`);
+
+    const actualThemeProp = isTextOnly ? "buttonTextOnlyColor" : themeProp;
+    let key = `rui_${actualThemeProp}_${suffix}`;
+    if (typeof stateSuffix === "string" && suffix !== "disabled") key += `_${stateSuffix}`;
+    return getFromTheme(props, key);
   };
 }

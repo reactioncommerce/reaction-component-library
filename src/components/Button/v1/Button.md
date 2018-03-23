@@ -13,7 +13,7 @@ There are four types of buttons you can choose from, and which one you choose sh
 
 And there are a couple possible variations:
 
-- Any of these button types can be rendered with less height using the "small" style variant.
+- Any of these button types can be rendered with less height using the "short" variant.
 - The default button can be rendered as text only (similar to a link) by using the "text" style variant. Use this in rare cases where having a solid or outline button for an action would be cluttered and visually confusing.
 
 #### Component Usage
@@ -37,7 +37,7 @@ The actual colors of the appearance are defined by your theme. The examples here
 - `rui_buttonForegroundColor_secondary`
 - `rui_buttonHorizontalPadding`
 - `rui_buttonVerticalPadding`
-- `rui_buttonVerticalPaddingSmall`
+- `rui_buttonVerticalPaddingShort`
 
 #### Default Solid Button
 
@@ -49,24 +49,24 @@ The solid button is used for a primary action in a modal, card, large view and g
     <Button title="Default" className="myBtn">Default</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Default" className="myBtn" disabled>Default Disabled</Button>
+    <Button title="Default" className="myBtn" isDisabled>Default Disabled</Button>
   </div>
 </div>
 ```
 
-##### Small Variant
+##### Short Variant
 
-Same as the regular solid button but when you don’t have enough room such as actions taken in table headers.
+Same as the regular solid button but when you don’t have enough vertical height, such as in table headers.
 
-To get a small button, use `styleVariant="small"` on your solid button.
+To get a short button, use `isShortHeight` on your solid button.
 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Default" className="myBtn" styleVariant="small">Default Small</Button>
+    <Button title="Default" className="myBtn" isShortHeight>Default Short</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Default" className="myBtn" styleVariant="small" disabled>Default Small Disabled</Button>
+    <Button title="Default" className="myBtn" isShortHeight isDisabled>Default Short Disabled</Button>
   </div>
 </div>
 ```
@@ -75,15 +75,30 @@ To get a small button, use `styleVariant="small"` on your solid button.
 
 The text button is used in rare cases where having a solid or outline button for an action would be cluttered and visually confusing.
 
-To get a text button, use `styleVariant="text"` on your solid button.
+To get a text button, use `isTextOnly` on your solid button.
 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Default" className="myBtn" styleVariant="text">Default Text</Button>
+    <Button title="Default" className="myBtn" isTextOnly>Default Text</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Default" className="myBtn" styleVariant="text" disabled>Default Text Disabled</Button>
+    <Button title="Default" className="myBtn" isTextOnly isDisabled>Default Text Disabled</Button>
+  </div>
+</div>
+```
+
+##### Short Text Variant
+
+Combines `isTextOnly` with `isShortHeight`
+
+```jsx
+<div style={{ display: "flex" }}>
+  <div style={{ marginRight: "1rem" }}>
+    <Button title="Default" className="myBtn" isTextOnly isShortHeight>Default Short Text</Button>
+  </div>
+  <div style={{ marginRight: "1rem" }}>
+    <Button title="Default" className="myBtn" isTextOnly isShortHeight isDisabled>Default Short Text Disabled</Button>
   </div>
 </div>
 ```
@@ -98,24 +113,24 @@ The outline button style is used for a secondary or dismissive action. The outli
     <Button title="Secondary" className="myBtn" actionType="secondary">Secondary</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Secondary" className="myBtn" actionType="secondary" disabled>Secondary Disabled</Button>
+    <Button title="Secondary" className="myBtn" actionType="secondary" isDisabled>Secondary Disabled</Button>
   </div>
 </div>
 ```
 
-##### Small Variant
+##### Short Variant
 
 Same as the regular outline button but when you don’t have enough room such as actions taken in table headers.
 
-To get a small button, use `styleVariant="small"` on your outline button.
+To get a short button, use `isShortHeight` on your outline button.
 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Secondary" className="myBtn" actionType="secondary" styleVariant="small">Secondary Small</Button>
+    <Button title="Secondary" className="myBtn" actionType="secondary" isShortHeight>Secondary Short</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Secondary" className="myBtn" actionType="secondary" styleVariant="small" disabled>Secondary Small Disabled</Button>
+    <Button title="Secondary" className="myBtn" actionType="secondary" isShortHeight isDisabled>Secondary Short Disabled</Button>
   </div>
 </div>
 ```
@@ -130,24 +145,24 @@ The important button is used when there needs to be particular importance put on
     <Button title="Important" className="myBtn" actionType="important">Important</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Important" className="myBtn" actionType="important" disabled>Important Disabled</Button>
+    <Button title="Important" className="myBtn" actionType="important" isDisabled>Important Disabled</Button>
   </div>
 </div>
 ```
 
-##### Small Variant
+##### Short Variant
 
 Same as the regular important button but when you don’t have enough room such as actions taken in table headers.
 
-To get a small button, use `styleVariant="small"` on your important button.
+To get a short button, use `isShortHeight` on your important button.
 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Important" className="myBtn" actionType="important" styleVariant="small">Important Small</Button>
+    <Button title="Important" className="myBtn" actionType="important" isShortHeight>Important Short</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Important" className="myBtn" actionType="important" styleVariant="small" disabled>Important Small Disabled</Button>
+    <Button title="Important" className="myBtn" actionType="important" isShortHeight isDisabled>Important Short Disabled</Button>
   </div>
 </div>
 ```
@@ -162,24 +177,24 @@ The danger button is used for a destructive action that is difficult to recover 
     <Button title="Danger" className="myBtn" actionType="danger">Danger</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Danger" className="myBtn" actionType="danger" disabled>Danger Disabled</Button>
+    <Button title="Danger" className="myBtn" actionType="danger" isDisabled>Danger Disabled</Button>
   </div>
 </div>
 ```
 
-##### Small Variant
+##### Short Variant
 
 Same as the regular danger button but when you don’t have enough room such as actions taken in table headers.
 
-To get a small button, use `styleVariant="small"` on your danger button.
+To get a short button, use `isShortHeight` on your danger button.
 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Danger" className="myBtn" actionType="danger" styleVariant="small">Danger Small</Button>
+    <Button title="Danger" className="myBtn" actionType="danger" isShortHeight>Danger Short</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
-    <Button title="Danger" className="myBtn" actionType="danger" styleVariant="small" disabled>Danger Small Disabled</Button>
+    <Button title="Danger" className="myBtn" actionType="danger" isShortHeight isDisabled>Danger Short Disabled</Button>
   </div>
 </div>
 ```
@@ -205,6 +220,6 @@ const divStyles = {
 
 <div style={divStyles}>
   <Button className="myBtn" fullWidth>Full Width Default</Button>
-  <Button className="myBtn" styleVariant="small" fullWidth>Full Width Default Small</Button>
+  <Button className="myBtn" isShortHeight fullWidth>Full Width Default Short</Button>
 </div>
 ```

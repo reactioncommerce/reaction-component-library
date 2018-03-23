@@ -5,8 +5,8 @@ import { applyTheme, preventAccidentalDoubleClick } from "helpers";
 import { applyThemeWithActionType } from "./helpers";
 
 const paddingFunc = (props) => {
-  const { styleVariant } = props;
-  if (styleVariant === "small") return applyTheme("buttonVerticalPaddingSmall");
+  const { isShortHeight } = props;
+  if (isShortHeight) return applyTheme("buttonVerticalPaddingShort");
   return applyTheme("buttonVerticalPadding");
 };
 
@@ -17,7 +17,7 @@ const ButtonDiv = styled.div`
   border-width: 1px;
   border-radius: ${applyTheme("buttonBorderRadius")};
   box-sizing: border-box;
-  color: ${applyThemeWithActionType("buttonForegroundColor", true)};
+  color: ${applyThemeWithActionType("buttonForegroundColor", false)};
   cursor: pointer;
   display: ${(props) => {
     const { children, fullWidth } = props;
@@ -36,6 +36,18 @@ const ButtonDiv = styled.div`
   padding-top: ${paddingFunc};
   padding-bottom: ${paddingFunc};
   text-align: center;
+
+  &:hover {
+    background-color: ${applyThemeWithActionType("buttonBackgroundColor", true, "hover")};
+    border-color: ${applyThemeWithActionType("buttonBorderColor", true, "hover")};
+    color: ${applyThemeWithActionType("buttonForegroundColor", false, "hover")};
+  }
+
+  &:active {
+    background-color: ${applyThemeWithActionType("buttonBackgroundColor", true, "active")};
+    border-color: ${applyThemeWithActionType("buttonBorderColor", true, "active")};
+    color: ${applyThemeWithActionType("buttonForegroundColor", false, "active")};
+  }
 `;
 
 class Button extends Component {
@@ -44,7 +56,6 @@ class Button extends Component {
      * The type of action performed by the button
      */
     actionType: PropTypes.oneOf(["danger", "default", "important", "secondary"]),
-    styleVariant: PropTypes.oneOf(["small", "text"]),
     /**
      * The contents of the button, such as text, icons, or any combination of React and HTML components
      */
@@ -56,11 +67,19 @@ class Button extends Component {
     /**
      * Set to `true` to prevent the button from calling `onClick` when clicked
      */
-    disabled: PropTypes.bool,
+    isDisabled: PropTypes.bool,
     /**
      * Button should take full width
      */
-    fullWidth: PropTypes.bool,
+    isFullWidth: PropTypes.bool,
+    /**
+     * Enable this when you don’t have enough vertical space, such as in table headers
+     */
+    isShortHeight: PropTypes.bool,
+    /**
+     * Enable this in rare cases where having a solid or outline button for an action would be cluttered and visually confusing.
+     */
+    isTextOnly: PropTypes.bool,
     /**
      * Called with no arguments whenever the button is clicked. There is double-click protection,
      * so if the user double-clicks quickly, onClick is called only once.
@@ -74,17 +93,17 @@ class Button extends Component {
 
   static defaultProps = {
     actionType: "default",
-    disabled: false,
-    fullWidth: false,
+    isDisabled: false,
+    isFullWidth: false,
     onClick() {}
   };
 
   handleClick = preventAccidentalDoubleClick((event) => {
     event.preventDefault();
 
-    const { disabled, onClick } = this.props;
+    const { isDisabled, onClick } = this.props;
 
-    if (!disabled) onClick();
+    if (!isDisabled) onClick();
   });
 
   handleKeyPress = (event) => {
@@ -92,10 +111,10 @@ class Button extends Component {
   };
 
   render() {
-    const { actionType, children, className, disabled, fullWidth, styleVariant, title } = this.props;
+    const { actionType, children, className, isDisabled, isFullWidth, isShortHeight, isTextOnly, title } = this.props;
 
     const moreButtonDivProps = {};
-    if (disabled) {
+    if (isDisabled) {
       moreButtonDivProps["aria-disabled"] = "true";
     }
 
@@ -103,12 +122,13 @@ class Button extends Component {
       <ButtonDiv
         actionType={actionType}
         className={className}
-        disabled={disabled}
-        fullWidth={fullWidth}
+        isDisabled={isDisabled}
+        fullWidth={isFullWidth}
         onClick={this.handleClick}
         onKeyPress={this.handleKeyPress}
         role="button"
-        styleVariant={styleVariant}
+        isShortHeight={isShortHeight}
+        isTextOnly={isTextOnly}
         tabIndex={0}
         title={title}
         {...moreButtonDivProps}

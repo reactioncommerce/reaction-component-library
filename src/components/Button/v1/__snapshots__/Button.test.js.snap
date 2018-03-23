@@ -21,9 +21,20 @@ exports[`basic snapshot 1`] = `
   text-align: center;
 }
 
+.c0:hover {
+  background-color: #5d8fa9;
+  border-color: #5d8fa9;
+  color: #ffffff;
+}
+
+.c0:active {
+  background-color: #3b5c70;
+  border-color: #3b5c70;
+  color: #ffffff;
+}
+
 <div
   className="a b c0"
-  disabled={false}
   onClick={[Function]}
   onKeyPress={[Function]}
   role="button"
