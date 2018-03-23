@@ -1,65 +1,113 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders 1`] = `
-<input
-  className="sc-bdVaJa dboVJU"
-  disabled={false}
-  maxLength={undefined}
-  name="test"
-  onBlur={[Function]}
-  onChange={[Function]}
-  onKeyPress={[Function]}
-  placeholder={undefined}
-  readOnly={false}
-  type="text"
-  value=""
-/>
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className="sc-bdVaJa curHrV"
+    maxLength={undefined}
+    name="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder={undefined}
+    readOnly={false}
+    type="text"
+    value=""
+  />
+  <div
+    className="sc-bxivhb kFPtLz"
+  >
+    <span />
+  </div>
+</div>
 `;
 
 exports[`renders textarea 1`] = `
-<input
-  className="sc-bdVaJa dboVJU"
-  disabled={false}
-  maxLength={undefined}
-  name="test"
-  onBlur={[Function]}
-  onChange={[Function]}
-  onKeyPress={[Function]}
-  placeholder={undefined}
-  readOnly={false}
-  type="text"
-  value=""
-/>
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className="sc-bdVaJa curHrV"
+    maxLength={undefined}
+    name="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder={undefined}
+    readOnly={false}
+    type="text"
+    value=""
+  />
+  <div
+    className="sc-bxivhb kFPtLz"
+  >
+    <span />
+  </div>
+</div>
 `;
 
 exports[`renders textarea with props 1`] = `
-<input
-  className="CLASSNAME sc-bdVaJa dboVJU"
-  disabled={false}
-  maxLength={20}
-  name="test"
-  onBlur={[Function]}
-  onChange={[Function]}
-  onKeyPress={[Function]}
-  placeholder="PLACEHOLDER"
-  readOnly={true}
-  type="text"
-  value="VALUE"
-/>
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className="CLASSNAME sc-bdVaJa curHrV"
+    maxLength={20}
+    name="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder="PLACEHOLDER"
+    readOnly={true}
+    type="text"
+    value="VALUE"
+  />
+  <div
+    className="sc-bxivhb kFPtLz"
+  >
+    <span />
+  </div>
+</div>
 `;
 
 exports[`renders with props 1`] = `
-<input
-  className="CLASSNAME sc-bdVaJa dboVJU"
-  disabled={false}
-  maxLength={20}
-  name="test"
-  onBlur={[Function]}
-  onChange={[Function]}
-  onKeyPress={[Function]}
-  placeholder="PLACEHOLDER"
-  readOnly={true}
-  type="text"
-  value="VALUE"
-/>
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className="CLASSNAME sc-bdVaJa curHrV"
+    maxLength={20}
+    name="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onKeyPress={[Function]}
+    placeholder="PLACEHOLDER"
+    readOnly={true}
+    type="text"
+    value="VALUE"
+  />
+  <div
+    className="sc-bxivhb kFPtLz"
+  >
+    <span />
+  </div>
+</div>
 `;

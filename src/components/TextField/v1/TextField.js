@@ -10,25 +10,25 @@ function applyThemeVariant(themeProp) {
   }
 }
 
-function applyThemeValidation(themeProp) {
+function applyValidationColor(themeProp = "color") {
   return (props) => {
-    let color;
+    let status;
     if (props.fieldIsDirty && !props.errors.length) {
-      color = "success";
+      status = "success";
     } else if (props.errors.length) {
-      color = "invalid";
+      status = "error";
     } else {
-      color = "default";
+      status = "default";
     }
-    return applyTheme(`${themeProp}_${color}`);
+    return applyTheme(`${themeProp}_${status}`);
   }
 }
 
 const StyledInput = styled.input`
   background-color: ${applyThemeVariant("inputBackgroundColor")};
-  border: 1px solid ${applyThemeValidation("inputBorderColor")};
+  border: 1px solid ${applyValidationColor("inputBorderColor")};
   border-radius: ${applyTheme("inputBoarderRadius")};
-  color: ${applyTheme("inputColor")};
+  color: ${applyValidationColor("inputColor")};
   crsor: pointer;
   font-family: ${applyTheme("inputFontFamily")};
   font-size: ${applyTheme("inputFontSize")};
@@ -42,11 +42,6 @@ const StyledInput = styled.input`
 
   &:focus {
     border-color: ${applyTheme("inputBorderColor_focus")};
-  }
-
-  &:invalid {
-    border-color: ${applyTheme("inputBorderColor_invalid")};
-    color: ${applyTheme("inputColor_invalid")};
   }
 
   &:read-only {
@@ -64,11 +59,18 @@ const StyledTextarea = Textarea.extend`
 `;
 
 const IconWrapper = styled.div`
-  position: absolute;
-  top: ${applyTheme("iconTop")};
-  right: ${applyTheme("iconRight")};
+  color: ${applyValidationColor("inputIconColor")};
+  fill: currentColor;
+  font-size: ${applyTheme("inputIconFontSize")};
   height: 1em;
+  position: ${({ isTextarea }) => isTextarea ? "relative" : "absolute"};
+  right: ${({ isTextarea }) => isTextarea ? "0" : applyTheme("inputIconRight")};
+  top: ${({ isTextarea }) => isTextarea ? "0" : applyTheme("inputIconTop")};
   width: 1em;
+
+  & * {
+    display: inline;
+  }
 `;
 
 class TextField extends Component {
@@ -205,7 +207,7 @@ class TextField extends Component {
   }
 
   renderIcon() {
-    const { errors, icon, iconSuccess, iconError } = this.props;
+    const { allowLineBreaks, errors, icon, iconAccessibilityText, iconSuccess, iconError, onIconClick } = this.props;
 
     let inputIcon;
     if (this.isDirty() && !errors.length) {
@@ -217,8 +219,9 @@ class TextField extends Component {
     }
 
     return (
-      <IconWrapper>
+      <IconWrapper isTextarea={allowLineBreaks} fieldIsDirty={this.isDirty} errors={errors}>
         {inputIcon}
+        <span>{iconAccessibilityText}</span>
       </IconWrapper>
     );
   }
@@ -231,6 +234,7 @@ class TextField extends Component {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
       return (
+        <div style={{ position: "relative" }}>
           <StyledTextarea
             className={className}
             dark={dark}
@@ -244,6 +248,8 @@ class TextField extends Component {
             placeholder={placeholder}
             value={value}
           />
+          {this.renderIcon()}
+        </div>
       );
     }
 

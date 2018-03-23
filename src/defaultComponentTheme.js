@@ -136,6 +136,12 @@ const borderRadius = baseUnit(.2);
  * Default Theme Elements
  */
 
+const defaultStyles = {
+  rui_color_default: black55,
+  rui_color_error: red,
+  rui_color_success: teal
+}
+
 // buttons
 const buttonStyles = {
   rui_buttonBorderRadius: "2px",
@@ -166,12 +172,13 @@ const inputStyles = {
   rui_inputBackgroundColor_dark: white,
   rui_inputBorderColor_default: black20,
   rui_inputBorderColor_focus: teal,
-  rui_inputBorderColor_invalid: red,
+  rui_inputBorderColor_error: red,
   rui_inputBorderColor_success: teal,
   rui_inputBoarderRadius: borderRadius,
-  rui_inputColor: black55,
+  rui_inputColor_default: black55,
   rui_inputColor_disabled: black25,
-  rui_inputColor_invalid: red,
+  rui_inputColor_error: red,
+  rui_inputColor_success: black55,
   rui_inputPlaceholderColor: black20,
   rui_inputFontFamily: "inherit",
   rui_inputFontSize: fontSize14,
@@ -182,6 +189,16 @@ const inputStyles = {
   rui_iconRight: baseUnit(1)
 }
 
+const inputIcon = {
+  rui_inputIconColor_default: black55,
+  rui_inputIconColor_disabled: black25,
+  rui_inputIconColor_error: red,
+  rui_inputIconColor_success: forestGreen,
+  rui_inputIconFontSize: fontSize14,
+  rui_inputIconRight: baseUnit(1.2),
+  rui_inputIconTop: baseUnit(1.2)
+}
+
 // textarea
 const textareaStyles = {
   rui_textareaHeight: baseUnit(6),
@@ -189,7 +206,9 @@ const textareaStyles = {
 }
 
 export default {
+  ...defaultStyles,
   ...buttonStyles,
   ...inputStyles,
+  ...inputIcon,
   ...textareaStyles
 };
