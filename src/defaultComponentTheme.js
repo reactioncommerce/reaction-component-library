@@ -164,9 +164,10 @@ const buttonStyles = {
 const inputStyles = {
   rui_inputBackgroundColor_default: black02,
   rui_inputBackgroundColor_dark: white,
-  rui_inputBorderColor: black20,
+  rui_inputBorderColor_default: black20,
   rui_inputBorderColor_focus: teal,
   rui_inputBorderColor_invalid: red,
+  rui_inputBorderColor_success: teal,
   rui_inputBoarderRadius: borderRadius,
   rui_inputColor: black55,
   rui_inputColor_disabled: black25,
@@ -176,9 +177,12 @@ const inputStyles = {
   rui_inputFontSize: fontSize14,
   rui_inputLineHeight: flatLeading,
   rui_inputVerticalPadding: baseUnit(1.2),
-  rui_inputHorizontalPadding: baseUnit(1)
+  rui_inputHorizontalPadding: baseUnit(1),
+  rui_iconTop: baseUnit(1),
+  rui_iconRight: baseUnit(1)
 }
 
+// textarea
 const textareaStyles = {
   rui_textareaHeight: baseUnit(6),
   rui_textareaLineHeight: bodyLeading

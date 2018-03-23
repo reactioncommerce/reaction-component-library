@@ -10,9 +10,23 @@ function applyThemeVariant(themeProp) {
   }
 }
 
+function applyThemeValidation(themeProp) {
+  return (props) => {
+    let color;
+    if (props.fieldIsDirty && !props.errors.length) {
+      color = "success";
+    } else if (props.errors.length) {
+      color = "invalid";
+    } else {
+      color = "default";
+    }
+    return applyTheme(`${themeProp}_${color}`);
+  }
+}
+
 const StyledInput = styled.input`
   background-color: ${applyThemeVariant("inputBackgroundColor")};
-  border: 1px solid ${applyTheme("inputBorderColor")};
+  border: 1px solid ${applyThemeValidation("inputBorderColor")};
   border-radius: ${applyTheme("inputBoarderRadius")};
   color: ${applyTheme("inputColor")};
   crsor: pointer;
@@ -35,7 +49,7 @@ const StyledInput = styled.input`
     color: ${applyTheme("inputColor_invalid")};
   }
 
-  &:disabled {
+  &:read-only {
     color: ${applyTheme("inputColor_disabled")};
     cursor: not-allowed;
   }
@@ -45,8 +59,16 @@ const Textarea = StyledInput.withComponent("textarea");
 
 const StyledTextarea = Textarea.extend`
   line-height: ${applyTheme("textareaLineHeight")};
-  min-height: ${applyTheme("textareaHeight")}
+  min-height: ${applyTheme("textareaHeight")};
   resize: vertical;
+`;
+
+const IconWrapper = styled.div`
+  position: absolute;
+  top: ${applyTheme("iconTop")};
+  right: ${applyTheme("iconRight")};
+  height: 1em;
+  width: 1em;
 `;
 
 class TextField extends Component {
@@ -56,13 +78,20 @@ class TextField extends Component {
     allowLineBreaks: PropTypes.bool,
     className: PropTypes.string,
     convertEmptyStringToNull: PropTypes.bool,
-    disabled: PropTypes.bool,
-    invalid: PropTypes.bool,
+    dark: PropTypes.bool,
+    errors: PropTypes.array,
+    icon: PropTypes.node,
+    iconAccessibilityText: PropTypes.string,
+    iconError: PropTypes.node,
+    iconErrorAccessibilityText: PropTypes.string,
+    iconSuccess: PropTypes.node,
+    iconSuccessAccessibilityText: PropTypes.string,
     isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
     maxLength: PropTypes.number,
     name: PropTypes.string,
     onChange: PropTypes.func,
     onChanging: PropTypes.func,
+    onIconClick: PropTypes.func,
     onSubmit: PropTypes.func,
     placeholder: PropTypes.string,
     trimValue: PropTypes.bool,
@@ -78,8 +107,10 @@ class TextField extends Component {
   static defaultProps = {
     allowLineBreaks: false,
     convertEmptyStringToNull: true,
-    disabled: false,
-    invalid: false,
+    dark: false,
+    errors: [],
+    iconError: (<i className="fa fa-exclamation-triangle" />),
+    iconSuccess: (<i className="fa fa-check-circle" />),
     isReadOnly: false,
     onChange() {},
     onChanging() {},
@@ -170,11 +201,30 @@ class TextField extends Component {
   // Input is dirty if value prop doesn"t match value state. Whenever a changed
   // value prop comes in, we reset state to that, thus becoming clean.
   isDirty() {
-    return this.state.value !== this.props.value;
+    return this.state.value !== (this.props.value || "");
+  }
+
+  renderIcon() {
+    const { errors, icon, iconSuccess, iconError } = this.props;
+
+    let inputIcon;
+    if (this.isDirty() && !errors.length) {
+      inputIcon = iconSuccess;
+    } else if (errors.length) {
+      inputIcon = iconError;
+    } else {
+      inputIcon = icon;
+    }
+
+    return (
+      <IconWrapper>
+        {inputIcon}
+      </IconWrapper>
+    );
   }
 
   render() {
-    const { allowLineBreaks, className, dark, disabled, invalid, isReadOnly, maxLength, name, placeholder, type } = this.props;
+    const { allowLineBreaks, className, dark, errors, isReadOnly, maxLength, name, placeholder, type } = this.props;
     const { value } = this.state;
 
     if (allowLineBreaks) {
@@ -184,8 +234,8 @@ class TextField extends Component {
           <StyledTextarea
             className={className}
             dark={dark}
-            disabled={disabled}
-            invalid={invalid}
+            errors={errors}
+            fieldIsDirty={this.isDirty()}
             readOnly={isReadOnly}
             maxLength={maxLength}
             name={name}
@@ -198,11 +248,12 @@ class TextField extends Component {
     }
 
     return (
+      <div style={{ position: "relative" }}>
         <StyledInput
           className={className}
           dark={dark}
-          disabled={disabled}
-          invalid={invalid}
+          errors={errors}
+          fieldIsDirty={this.isDirty()}
           readOnly={isReadOnly}
           maxLength={maxLength}
           name={name}
@@ -213,6 +264,8 @@ class TextField extends Component {
           type={type}
           value={value}
         />
+        {this.renderIcon()}
+      </div>
     );
   }
 }
