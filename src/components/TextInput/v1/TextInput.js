@@ -12,12 +12,10 @@ function applyThemeVariant(themeProp) {
 
 function applyValidationColor(themeProp = "color") {
   return (props) => {
-    console.log("apply valid colors", themeProp, props)
     let status;
     if (props.errors && props.errors.length) {
       status = "error";
     } else if (props.hasBeenValidated && props.value && props.value.length) {
-      console.log("apply success color")
       status = "success";
     } else if (props.inputFocused || props.buttonFocused) {
       status = "focus";
@@ -82,12 +80,18 @@ const ClearButton = styled.button`
   color: ${applyTheme("color_coolGrey")};
   cursor: pointer;
   line-height: 0;
-  margin-top: ${({ isTextarea }) => isTextarea ? applyTheme("inputIconTop") : "-0.75rem"};
+  margin-top: ${({ isTextarea }) => isTextarea ? applyTheme("inputIconTop") : "0"};
   padding: ${applyTheme("inputIconVerticalPadding")} ${applyTheme("inputIconHorizontalPadding")};
+  position: relative;
+  top: ${({ isTextarea }) => isTextarea ?  "0" : "-0.1rem"};
 
   &:hover,
   &:focus {
     background-color: ${applyTheme("inputIconBackgroundColor")}
+  }
+
+  & i {
+    line-height: 8px;
   }
 
   ${({ isTextarea }) => !isTextarea ? `

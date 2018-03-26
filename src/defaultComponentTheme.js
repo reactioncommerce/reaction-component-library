@@ -198,7 +198,7 @@ const inputIcon = {
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
   rui_inputIconFontSize: fontSize14,
-  rui_inputIconHorizontalPadding: baseUnit(.7),
+  rui_inputIconHorizontalPadding: baseUnit(.5),
   rui_inputIconVerticalPadding: baseUnit(.5),
   rui_inputIconRight: baseUnit(1.2),
   rui_inputIconTop: baseUnit(1.2),

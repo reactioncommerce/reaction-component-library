@@ -15,7 +15,7 @@ The <code class="rsg-code-36">TextInput</code> component can render in two possi
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "0 1 50%", padding: "1rem" }}>
-    <TextInput name="single-line" placeholder="Hint" hasBeenValidated />
+    <TextInput name="single-line" placeholder="Hint" />
   </div>
 </div>
 ``` 

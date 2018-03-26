@@ -22,7 +22,8 @@ exports[`renders 1`] = `
     value=""
   />
   <div
-    className="sc-bxivhb TvFDu"
+    className="sc-bxivhb esSsum"
+    value=""
   >
     <span />
   </div>
@@ -51,7 +52,8 @@ exports[`renders textarea 1`] = `
     value=""
   />
   <div
-    className="sc-bxivhb TvFDu"
+    className="sc-bxivhb esSsum"
+    value=""
   >
     <span />
   </div>
@@ -80,7 +82,8 @@ exports[`renders textarea with props 1`] = `
     value="VALUE"
   />
   <div
-    className="sc-bxivhb TvFDu"
+    className="sc-bxivhb esSsum"
+    value="VALUE"
   >
     <span />
   </div>
@@ -109,7 +112,8 @@ exports[`renders with props 1`] = `
     value="VALUE"
   />
   <div
-    className="sc-bxivhb TvFDu"
+    className="sc-bxivhb esSsum"
+    value="VALUE"
   >
     <span />
   </div>
