@@ -2,10 +2,10 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { mount } from "enzyme";
 import { testInput } from "composable-form-tests";
-import TextField from "./TextField";
+import TextInput from "./TextInput";
 
 testInput({
-  component: TextField,
+  component: TextInput,
   defaultValue: null,
   exampleValueOne: "ONE",
   exampleValueTwo: "TWO",
@@ -22,7 +22,7 @@ testInput({
 });
 
 test("renders", () => {
-  const component = renderer.create(<TextField name="test" />);
+  const component = renderer.create(<TextInput name="test" />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -30,7 +30,7 @@ test("renders", () => {
 
 test("renders with props", () => {
   const component = renderer.create(
-    <TextField
+    <TextInput
       name="test"
       value="VALUE"
       placeholder="PLACEHOLDER"
@@ -46,7 +46,7 @@ test("renders with props", () => {
 
 test("renders textarea", () => {
   const component = renderer.create(
-    <TextField name="test" allowLineBreak />
+    <TextInput name="test" allowLineBreak />
   );
 
   const tree = component.toJSON();
@@ -55,7 +55,7 @@ test("renders textarea", () => {
 
 test("renders textarea with props", () => {
   const component = renderer.create(
-    <TextField
+    <TextInput
       name="test"
       allowLineBreak
       value="VALUE"
@@ -71,16 +71,16 @@ test("renders textarea with props", () => {
 });
 
 test('getValue default trimming and null', () => {
-  const wrapper = mount(<TextField name="test" value=" " />);
+  const wrapper = mount(<TextInput name="test" value=" " />);
   expect(wrapper.instance().getValue()).toBeNull();
 });
 
 test('getValue with convertEmptyStringToNull false', () => {
-  const wrapper = mount(<TextField name="test" convertEmptyStringToNull={false} />);
+  const wrapper = mount(<TextInput name="test" convertEmptyStringToNull={false} />);
   expect(wrapper.instance().getValue()).toBe('');
 });
 
 test('getValue with trimValue false', () => {
-  const wrapper = mount(<TextField name="test" trimValue={false} value=" " />);
+  const wrapper = mount(<TextInput name="test" trimValue={false} value=" " />);
   expect(wrapper.instance().getValue()).toBe(' ');
 });

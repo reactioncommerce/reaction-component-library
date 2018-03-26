@@ -106,7 +106,7 @@ const ClearButton = styled.button`
 
 const stringDefaultEquals = (value1, value2) => ((value1 || '') === (value2 || ''));
 
-class TextField extends Component {
+class TextInput extends Component {
   static isFormInput = true;
 
   static propTypes = {
@@ -365,4 +365,4 @@ class TextField extends Component {
   }
 }
 
-export default TextField;
+export default TextInput;
