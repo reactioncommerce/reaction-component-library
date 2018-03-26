@@ -12,11 +12,15 @@ function applyThemeVariant(themeProp) {
 
 function applyValidationColor(themeProp = "color") {
   return (props) => {
+    console.log("apply valid colors", themeProp, props)
     let status;
-    if (props.fieldIsDirty && !props.errors.length) {
-      status = "success";
-    } else if (props.errors.length) {
+    if (props.errors && props.errors.length) {
       status = "error";
+    } else if (props.hasBeenValidated && props.value && props.value.length) {
+      console.log("apply success color")
+      status = "success";
+    } else if (props.inputFocused || props.buttonFocused) {
+      status = "focus";
     } else {
       status = "default";
     }
@@ -77,7 +81,8 @@ const ClearButton = styled.button`
   border-radius: ${({ isTextarea }) => isTextarea ? applyTheme("inputBorderRadius") : "50%"};
   color: ${applyTheme("color_coolGrey")};
   cursor: pointer;
-  margin-top: ${({ isTextarea }) => isTextarea ? applyTheme("inputIconTop") : "-0.625rem"};
+  line-height: 0;
+  margin-top: ${({ isTextarea }) => isTextarea ? applyTheme("inputIconTop") : "-0.75rem"};
   padding: ${applyTheme("inputIconVerticalPadding")} ${applyTheme("inputIconHorizontalPadding")};
 
   &:hover,
@@ -110,6 +115,9 @@ class TextInput extends Component {
   static isFormInput = true;
 
   static propTypes = {
+    /**
+     * allowLineBreaks
+     */
     allowLineBreaks: PropTypes.bool,
     className: PropTypes.string,
     convertEmptyStringToNull: PropTypes.bool,
@@ -170,7 +178,9 @@ class TextInput extends Component {
     this.state = {
       initialValue: value,
       value,
-      focused: false
+      focused: false,
+      inputFocused: false,
+      buttonFocused: false
     };
   }
 
@@ -216,9 +226,24 @@ class TextInput extends Component {
   };
 
   onBlur = (event) => {
-    if (event.target.localName === "button") this.setState({ focused: false });
-    this.setValue(event.target.value, false);
+    if (event.target.localName === "button") {
+      this.setState({ focused: false });
+    } else {
+      this.setValue(event.target.value, false);
+    }
   };
+
+  onInputBlur = (event) => {
+    setTimeout(() => {
+      this.setState({ inputFocused: false });
+    }, 150);
+
+    this.setValue(event.target.value, false);
+  }
+
+  onButtonBlur = () => {
+    this.setState({ buttonFocused: false });
+  }
 
   onChange = (event) => {
     let { value } = event.target;
@@ -229,6 +254,14 @@ class TextInput extends Component {
 
   onFocus = () => {
     this.setState({ focused: true })
+  }
+
+  onInputFocus = () => {
+    this.setState({ inputFocused: true })
+  }
+
+  onButtonFocus = () => {
+    this.setState({ buttonFocused: true})
   }
 
   getValue() {
@@ -282,14 +315,15 @@ class TextInput extends Component {
   }
 
   renderClearButton() {
-    const { allowLineBreaks, errors, iconClear, iconClearAccessibilityText } = this.props
+    const { allowLineBreaks, errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props
+    const { value } = this.state
     return (
-      <IconWrapper isTextarea={allowLineBreaks} errors={errors} feildIsDirty={this.isDirty}>
+      <IconWrapper isTextarea={allowLineBreaks} errors={errors} hasBeenValidated={hasBeenValidated} value={value}>
         <ClearButton
           isTextarea={allowLineBreaks}
           onClick={() => this.resetValue()}
-          onFocus={this.onFocus}
-          onBlur={this.onBlur}
+          onFocus={this.onButtonFocus}
+          onBlur={this.onButtonBlur}
         >
           {iconClear}
           <span>{iconClearAccessibilityText}</span>
@@ -299,19 +333,20 @@ class TextInput extends Component {
   }
 
   renderIcon() {
-    const { allowLineBreaks, errors, icon, iconAccessibilityText, iconSuccess, iconError } = this.props;
+    const { allowLineBreaks, errors, hasBeenValidated, icon, iconAccessibilityText, iconSuccess, iconError } = this.props;
+    const { value } = this.state
 
     let inputIcon;
-    if (this.isDirty() && !errors.length) {
-      inputIcon = iconSuccess;
-    } else if (errors.length) {
+    if (errors && errors.length) {
       inputIcon = iconError;
+    } else if (hasBeenValidated && value && value.length) {
+      inputIcon = iconSuccess;
     } else {
       inputIcon = icon;
     }
 
     return (
-      <IconWrapper isTextarea={allowLineBreaks} fieldIsDirty={this.isDirty} errors={errors}>
+      <IconWrapper isTextarea={allowLineBreaks} hasBeenValidated={hasBeenValidated} errors={errors} value={value}>
         {inputIcon}
         <span>{iconAccessibilityText}</span>
       </IconWrapper>
@@ -319,8 +354,8 @@ class TextInput extends Component {
   }
 
   render() {
-    const { allowLineBreaks, className, dark, errors, isReadOnly, maxLength, name, placeholder, type } = this.props;
-    const { focused, value } = this.state;
+    const { allowLineBreaks, className, dark, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
+    const { focused, inputFocused, buttonFocused, value } = this.state;
     if (allowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
@@ -351,19 +386,19 @@ class TextInput extends Component {
           className={className}
           dark={dark}
           errors={errors}
-          fieldIsDirty={this.isDirty()}
+          hasBeenValidated={hasBeenValidated}
           readOnly={isReadOnly}
           maxLength={maxLength}
           name={name}
           onKeyPress={this.onKeyPress}
-          onBlur={this.onBlur}
+          onBlur={this.onInputBlur}
           onChange={this.onChange}
-          onFocus={this.onFocus}
+          onFocus={this.onInputFocus}
           placeholder={placeholder}
           type={type}
           value={value}
         />
-        {(this.isDirty() && focused) ? this.renderClearButton() : this.renderIcon()}
+        {(this.getValue() && inputFocused || this.getValue() && buttonFocused) ? this.renderClearButton() : this.renderIcon()}
       </div>
     );
   }
