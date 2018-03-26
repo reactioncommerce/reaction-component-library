@@ -62,15 +62,22 @@ const IconWrapper = styled.div`
   color: ${applyValidationColor("inputIconColor")};
   fill: currentColor;
   font-size: ${applyTheme("inputIconFontSize")};
-  height: 1em;
   position: ${({ isTextarea }) => isTextarea ? "relative" : "absolute"};
   right: ${({ isTextarea }) => isTextarea ? "0" : applyTheme("inputIconRight")};
   top: ${({ isTextarea }) => isTextarea ? "0" : applyTheme("inputIconTop")};
-  width: 1em;
 
   & * {
     display: inline;
   }
+`;
+
+const ClearButton = styled.button`
+  background-color: ${applyTheme("inputIconBackgroundColor")};
+  border: none;
+  border-radius: 50%;
+  font-size: 12px;
+  line-height: 1;
+  padding: ${applyTheme("inputIconPadding")};
 `;
 
 class TextField extends Component {
@@ -84,6 +91,7 @@ class TextField extends Component {
     errors: PropTypes.array,
     icon: PropTypes.node,
     iconAccessibilityText: PropTypes.string,
+    iconClear: PropTypes.node,
     iconError: PropTypes.node,
     iconErrorAccessibilityText: PropTypes.string,
     iconSuccess: PropTypes.node,
@@ -111,6 +119,7 @@ class TextField extends Component {
     convertEmptyStringToNull: true,
     dark: false,
     errors: [],
+    iconClear: (<i className="fa fa-close" />),
     iconError: (<i className="fa fa-exclamation-triangle" />),
     iconSuccess: (<i className="fa fa-check-circle" />),
     isReadOnly: false,
@@ -125,7 +134,8 @@ class TextField extends Component {
     super(props);
 
     this.state = {
-      value: props.value || ""
+      value: props.value || "",
+      focused: false
     };
   }
 
@@ -151,6 +161,7 @@ class TextField extends Component {
   };
 
   onBlur = (event) => {
+    if (event.target.localName === "button") this.setState({ focused: false });
     this.setValue(event.target.value);
   };
 
@@ -160,6 +171,10 @@ class TextField extends Component {
     this.setState({ value });
     this.handleChanging(value);
   };
+
+  onFocus = (event) => {
+    this.setState({ focused: true })
+  }
 
   getValue() {
     return this.cleanValue(this.state.value);
@@ -206,6 +221,17 @@ class TextField extends Component {
     return this.state.value !== (this.props.value || "");
   }
 
+  renderClearButton() {
+    const { allowLineBreaks, errors, iconClear } = this.props
+    return (
+      <IconWrapper isTextarea={allowLineBreaks} errors={errors} feildIsDirty={this.isDirty}>
+        <ClearButton onClick={() => this.resetValue()} onFocus={this.onFocus} onBlur={this.onBlur}>
+          {iconClear}
+        </ClearButton>
+      </IconWrapper>
+    );
+  }
+
   renderIcon() {
     const { allowLineBreaks, errors, icon, iconAccessibilityText, iconSuccess, iconError, onIconClick } = this.props;
 
@@ -228,8 +254,8 @@ class TextField extends Component {
 
   render() {
     const { allowLineBreaks, className, dark, errors, isReadOnly, maxLength, name, placeholder, type } = this.props;
-    const { value } = this.state;
-
+    const { focused, value } = this.state;
+    console.log("render", value)
     if (allowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
@@ -266,11 +292,12 @@ class TextField extends Component {
           onKeyPress={this.onKeyPress}
           onBlur={this.onBlur}
           onChange={this.onChange}
+          onFocus={this.onFocus}
           placeholder={placeholder}
           type={type}
           value={value}
         />
-        {this.renderIcon()}
+        {(this.isDirty() && focused) ? this.renderClearButton() : this.renderIcon()}
       </div>
     );
   }

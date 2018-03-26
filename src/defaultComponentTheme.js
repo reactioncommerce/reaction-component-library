@@ -190,11 +190,13 @@ const inputStyles = {
 }
 
 const inputIcon = {
+  rui_inputIconBackgroundColor: black15,
   rui_inputIconColor_default: black55,
   rui_inputIconColor_disabled: black25,
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
   rui_inputIconFontSize: fontSize14,
+  rui_inputIconPadding: baseUnit(.5),
   rui_inputIconRight: baseUnit(1.2),
   rui_inputIconTop: baseUnit(1.2)
 }
