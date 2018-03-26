@@ -103,7 +103,7 @@ Combines `isTextOnly` with `isShortHeight`
 </div>
 ```
 
-#### Secondary Outline Button
+#### Secondary Button
 
 The outline button style is used for a secondary or dismissive action. The outline button should be paired with the solid button in cases such as dismissing a modal or canceling an action.
 
@@ -195,6 +195,40 @@ To get a short button, use `isShortHeight` on your danger button.
   </div>
   <div style={{ marginRight: "1rem" }}>
     <Button title="Danger" className="myBtn" actionType="danger" isShortHeight isDisabled>Danger Short Disabled</Button>
+  </div>
+</div>
+```
+
+#### Secondary Danger Button
+
+The danger button is used for a destructive action that is difficult to recover from such as deleting information. The danger button should be used at the point that the destructive action actually takes place. For example, you can have a delete button as a secondary action on a page and in this case you would use a an outline button, the outline button would then trigger a modal confirmation, which is where you would use the danger button.  If a danger button is used to initiate a destructive action it should always trigger a confirmation modal.
+
+In some cases, such as an administration screen with multiple actions, you might want to place more emphasis on a destructive action. In these situations, you can use a secondary outline button but with danger coloring.
+
+```jsx
+<div style={{ display: "flex" }}>
+  <div style={{ marginRight: "1rem" }}>
+    <Button title="Danger" className="myBtn" actionType="secondaryDanger">Secondary Danger</Button>
+  </div>
+  <div style={{ marginRight: "1rem" }}>
+    <Button title="Danger" className="myBtn" actionType="secondaryDanger" isDisabled>Secondary Danger Disabled</Button>
+  </div>
+</div>
+```
+
+##### Short Variant
+
+Same as the regular secondary danger button but when you don’t have enough room such as actions taken in table headers.
+
+To get a short button, use `isShortHeight` on your secondary danger outline button.
+
+```jsx
+<div style={{ display: "flex" }}>
+  <div style={{ marginRight: "1rem" }}>
+    <Button title="Danger" className="myBtn" actionType="secondaryDanger" isShortHeight>Secondary Danger Short</Button>
+  </div>
+  <div style={{ marginRight: "1rem" }}>
+    <Button title="Danger" className="myBtn" actionType="secondaryDanger" isShortHeight isDisabled>Secondary Danger Short Disabled</Button>
   </div>
 </div>
 ```

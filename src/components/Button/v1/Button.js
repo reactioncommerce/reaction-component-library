@@ -55,7 +55,7 @@ class Button extends Component {
     /**
      * The type of action performed by the button
      */
-    actionType: PropTypes.oneOf(["danger", "default", "important", "secondary"]),
+    actionType: PropTypes.oneOf(["danger", "default", "important", "secondary", "secondaryDanger"]),
     /**
      * The contents of the button, such as text, icons, or any combination of React and HTML components
      */
