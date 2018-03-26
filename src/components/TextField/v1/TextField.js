@@ -27,7 +27,7 @@ function applyValidationColor(themeProp = "color") {
 const StyledInput = styled.input`
   background-color: ${applyThemeVariant("inputBackgroundColor")};
   border: 1px solid ${applyValidationColor("inputBorderColor")};
-  border-radius: ${applyTheme("inputBoarderRadius")};
+  border-radius: ${applyTheme("inputBorderRadius")};
   color: ${applyValidationColor("inputColor")};
   crsor: pointer;
   font-family: ${applyTheme("inputFontFamily")};
@@ -67,18 +67,44 @@ const IconWrapper = styled.div`
   top: ${({ isTextarea }) => isTextarea ? "0" : applyTheme("inputIconTop")};
 
   & * {
-    display: inline;
+    display: inline-block;
   }
 `;
 
 const ClearButton = styled.button`
-  background-color: ${applyTheme("inputIconBackgroundColor")};
+  background-color: ${({ isTextarea }) => isTextarea ? applyTheme("color_white") : applyTheme("inputIconBackgroundColor")};
   border: none;
-  border-radius: 50%;
-  font-size: 12px;
-  line-height: 1;
-  padding: ${applyTheme("inputIconPadding")};
+  border-radius: ${({ isTextarea }) => isTextarea ? applyTheme("inputBorderRadius") : "50%"};
+  color: ${applyTheme("color_coolGrey")};
+  cursor: pointer;
+  margin-top: ${({ isTextarea }) => isTextarea ? applyTheme("inputIconTop") : "-0.625rem"};
+  padding: ${applyTheme("inputIconVerticalPadding")} ${applyTheme("inputIconHorizontalPadding")};
+
+  &:hover,
+  &:focus {
+    background-color: ${applyTheme("inputIconBackgroundColor")}
+  }
+
+  ${({ isTextarea }) => !isTextarea ? `
+    & span {
+      border: 0;
+      clip: rect(1px, 1px, 1px, 1px);
+      clip-path: inset(50%);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      position: absolute !important;
+      width: 1px;
+      word-wrap:normal !important;
+    }
+  ` : `
+    & span {
+      margin-left: .3125rem;
+    }
+  `}
 `;
+
+const stringDefaultEquals = (value1, value2) => ((value1 || '') === (value2 || ''));
 
 class TextField extends Component {
   static isFormInput = true;
@@ -92,6 +118,7 @@ class TextField extends Component {
     icon: PropTypes.node,
     iconAccessibilityText: PropTypes.string,
     iconClear: PropTypes.node,
+    iconClearAccessibilityText: PropTypes.string,
     iconError: PropTypes.node,
     iconErrorAccessibilityText: PropTypes.string,
     iconSuccess: PropTypes.node,
@@ -117,9 +144,10 @@ class TextField extends Component {
   static defaultProps = {
     allowLineBreaks: false,
     convertEmptyStringToNull: true,
-    dark: false,
     errors: [],
+    dark: false,
     iconClear: (<i className="fa fa-close" />),
+    iconClearAccessibilityText: 'Clear',
     iconError: (<i className="fa fa-exclamation-triangle" />),
     iconSuccess: (<i className="fa fa-check-circle" />),
     isReadOnly: false,
@@ -133,8 +161,11 @@ class TextField extends Component {
   constructor(props) {
     super(props);
 
+    const value = props.value || '';
+
     this.state = {
-      value: props.value || "",
+      initialValue: value,
+      value,
       focused: false
     };
   }
@@ -147,11 +178,31 @@ class TextField extends Component {
 
   componentWillReceiveProps(nextProps) {
     const { value } = this.props;
+    const { value: stateValue } = this.state;
     const { value: nextValue } = nextProps;
 
-    // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
-    if (value !== nextValue) {
-      this.setValue(nextValue);
+    // Whenever a changed value prop comes in, and doesn't match our state,
+    // and therefore was from outside this input, we reset state to that, thus becoming clean.
+    if (!stringDefaultEquals(value, nextValue) && !stringDefaultEquals(stateValue, nextValue)) {
+      this.setValue(nextValue, true);
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { value } = this.state;
+    const { value: prevValue } = prevState;
+
+    if (!stringDefaultEquals(value, prevValue)) {
+      this.handleChanging(value);
+    }
+
+    // We do not worry about whether value has changed when calling handleChanged
+    // because it will do its own check against a different value. In fact, often
+    // value will not differ from prevValue here because `value` tracks "changing"
+    // rather than "changed".
+    if (this.shouldCallChanged) {
+      this.shouldCallChanged = false;
+      this.handleChanged(value);
     }
   }
 
@@ -162,7 +213,7 @@ class TextField extends Component {
 
   onBlur = (event) => {
     if (event.target.localName === "button") this.setState({ focused: false });
-    this.setValue(event.target.value);
+    this.setValue(event.target.value, false);
   };
 
   onChange = (event) => {
@@ -172,7 +223,7 @@ class TextField extends Component {
     this.handleChanging(value);
   };
 
-  onFocus = (event) => {
+  onFocus = () => {
     this.setState({ focused: true })
   }
 
@@ -180,10 +231,14 @@ class TextField extends Component {
     return this.cleanValue(this.state.value);
   }
 
-  setValue(value = "") {
+  setValue(value = "", shouldSetInitialValue) {
+    this.shouldCallChanged = true;
+
     this.setState({ value });
-    this.handleChanging(value);
-    this.handleChanged(value);
+
+    if (shouldSetInitialValue) {
+      this.setState({ initialValue: value });
+    }
   }
 
   cleanValue(value) {
@@ -194,7 +249,7 @@ class TextField extends Component {
   }
 
   resetValue() {
-    this.setValue(this.props.value);
+    this.setValue(this.props.value, true);
   }
 
   handleChanged(value) {
@@ -218,22 +273,29 @@ class TextField extends Component {
   // Input is dirty if value prop doesn"t match value state. Whenever a changed
   // value prop comes in, we reset state to that, thus becoming clean.
   isDirty() {
-    return this.state.value !== (this.props.value || "");
+    const { initialValue, value } = this.state;
+    return !stringDefaultEquals(value, initialValue);
   }
 
   renderClearButton() {
-    const { allowLineBreaks, errors, iconClear } = this.props
+    const { allowLineBreaks, errors, iconClear, iconClearAccessibilityText } = this.props
     return (
       <IconWrapper isTextarea={allowLineBreaks} errors={errors} feildIsDirty={this.isDirty}>
-        <ClearButton onClick={() => this.resetValue()} onFocus={this.onFocus} onBlur={this.onBlur}>
+        <ClearButton
+          isTextarea={allowLineBreaks}
+          onClick={() => this.resetValue()}
+          onFocus={this.onFocus}
+          onBlur={this.onBlur}
+        >
           {iconClear}
+          <span>{iconClearAccessibilityText}</span>
         </ClearButton>
       </IconWrapper>
     );
   }
 
   renderIcon() {
-    const { allowLineBreaks, errors, icon, iconAccessibilityText, iconSuccess, iconError, onIconClick } = this.props;
+    const { allowLineBreaks, errors, icon, iconAccessibilityText, iconSuccess, iconError } = this.props;
 
     let inputIcon;
     if (this.isDirty() && !errors.length) {
@@ -255,7 +317,6 @@ class TextField extends Component {
   render() {
     const { allowLineBreaks, className, dark, errors, isReadOnly, maxLength, name, placeholder, type } = this.props;
     const { focused, value } = this.state;
-    console.log("render", value)
     if (allowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
@@ -271,10 +332,11 @@ class TextField extends Component {
             name={name}
             onBlur={this.onBlur}
             onChange={this.onChange}
+            onFocus={this.onFocus}
             placeholder={placeholder}
             value={value}
           />
-          {this.renderIcon()}
+          {(this.isDirty() && focused) ? this.renderClearButton() : this.renderIcon()}
         </div>
       );
     }

@@ -139,7 +139,9 @@ const borderRadius = baseUnit(.2);
 const defaultStyles = {
   rui_color_default: black55,
   rui_color_error: red,
-  rui_color_success: teal
+  rui_color_success: teal,
+  rui_color_coolGrey: coolGrey,
+  rui_color_white: white
 }
 
 // buttons
@@ -174,7 +176,7 @@ const inputStyles = {
   rui_inputBorderColor_focus: teal,
   rui_inputBorderColor_error: red,
   rui_inputBorderColor_success: teal,
-  rui_inputBoarderRadius: borderRadius,
+  rui_inputBorderRadius: borderRadius,
   rui_inputColor_default: black55,
   rui_inputColor_disabled: black25,
   rui_inputColor_error: red,
@@ -196,9 +198,11 @@ const inputIcon = {
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
   rui_inputIconFontSize: fontSize14,
-  rui_inputIconPadding: baseUnit(.5),
+  rui_inputIconHorizontalPadding: baseUnit(.7),
+  rui_inputIconVerticalPadding: baseUnit(.5),
   rui_inputIconRight: baseUnit(1.2),
-  rui_inputIconTop: baseUnit(1.2)
+  rui_inputIconTop: baseUnit(1.2),
+  rui_inputIconTextPadding: baseUnit(20)
 }
 
 // textarea
