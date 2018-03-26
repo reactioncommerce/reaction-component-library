@@ -2,9 +2,9 @@ FROM node:8-alpine
 
 ARG NAME=styleguide
 ARG DESCRIPTION="Reaction Components Style Guide"
-ARG URL=https://github.com/reactioncommerce/styleguide
-ARG DOC_URL=https://github.com/reactioncommerce/styleguide
-ARG VCS_URL=https://github.com/reactioncommerce/styleguide
+ARG URL=https://github.com/reactioncommerce/reaction-component-library
+ARG DOC_URL=https://github.com/reactioncommerce/reaction-component-library
+ARG VCS_URL=https://github.com/reactioncommerce/reaction-component-library
 ARG VCS_REF
 ARG VENDOR
 ARG BUILD_DATE
