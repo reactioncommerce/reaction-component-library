@@ -158,7 +158,6 @@ class TextInput extends Component {
     allowLineBreaks: false,
     convertEmptyStringToNull: true,
     dark: false,
-    errors: [],
     hasBeenValidated: false,
     iconClear: (<i className="fa fa-close" />),
     iconClearAccessibilityText: "Clear",
@@ -182,7 +181,6 @@ class TextInput extends Component {
     this.state = {
       initialValue: value,
       value,
-      focused: false,
       inputFocused: false,
       buttonFocused: false
     };
@@ -229,14 +227,6 @@ class TextInput extends Component {
     if (event.which === 13) onSubmit();
   };
 
-  onBlur = (event) => {
-    if (event.target.localName === "button") {
-      this.setState({ focused: false });
-    } else {
-      this.setValue(event.target.value, false);
-    }
-  };
-
   onInputBlur = (event) => {
     setTimeout(() => {
       this.setState({ inputFocused: false });
@@ -255,10 +245,6 @@ class TextInput extends Component {
     this.setState({ value });
     this.handleChanging(value);
   };
-
-  onFocus = () => {
-    this.setState({ focused: true })
-  }
 
   onInputFocus = () => {
     this.setState({ inputFocused: true })
@@ -359,7 +345,7 @@ class TextInput extends Component {
 
   render() {
     const { allowLineBreaks, className, dark, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
-    const { focused, inputFocused, buttonFocused, value } = this.state;
+    const { inputFocused, buttonFocused, value } = this.state;
     if (allowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
@@ -373,13 +359,13 @@ class TextInput extends Component {
             readOnly={isReadOnly}
             maxLength={maxLength}
             name={name}
-            onBlur={this.onBlur}
+            onBlur={this.onInputBlur}
             onChange={this.onChange}
-            onFocus={this.onFocus}
+            onFocus={this.onInputFocus}
             placeholder={placeholder}
             value={value}
           />
-          {(this.isDirty() && focused) ? this.renderClearButton() : this.renderIcon()}
+          {(this.getValue() && inputFocused || this.getValue() && buttonFocused) ? this.renderClearButton() : this.renderIcon()}
         </div>
       );
     }
