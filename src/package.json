@@ -18,5 +18,27 @@
     "polished": "^1.9.2",
     "styled-components": "^3.1.6"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "babel": {
+    "plugins": [
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./src"
+          ],
+          "alias": {
+            "helpers": "./src/helpers"
+          }
+        }
+      ],
+      "babel-plugin-styled-components"
+    ],
+    "presets": [
+      "env",
+      "stage-2",
+      "react"
+    ],
+    "sourceMaps": true
+  }
 }

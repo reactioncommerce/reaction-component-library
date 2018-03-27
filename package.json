@@ -64,10 +64,7 @@
       "!**/dist/**",
       "!**/node_modules/**",
       "!**/vendor/**"
-    ],
-    "moduleNameMapper": {
-      "helpers": "<rootDir>/src/helpers"
-    }
+    ]
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
