@@ -355,6 +355,7 @@ class TextInput extends Component {
             className={className}
             dark={dark}
             errors={errors}
+            hasBeenValidated={hasBeenValidated}
             fieldIsDirty={this.isDirty()}
             readOnly={isReadOnly}
             maxLength={maxLength}
