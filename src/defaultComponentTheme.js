@@ -208,7 +208,9 @@ const inputIcon = {
 // textarea
 const textareaStyles = {
   rui_textareaHeight: baseUnit(6),
-  rui_textareaLineHeight: bodyLeading
+  rui_textareaLineHeight: bodyLeading,
+  rui_textareaIconRight: "0",
+  rui_textareaIconTop: baseUnit(1)
 }
 
 export default {

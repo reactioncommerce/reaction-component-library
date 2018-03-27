@@ -48,7 +48,6 @@ const StyledInput = styled.input`
 
   &:read-only {
     color: ${applyTheme("inputColor_disabled")};
-    cursor: not-allowed;
   }
 `;
 
@@ -65,8 +64,8 @@ const IconWrapper = styled.div`
   fill: currentColor;
   font-size: ${applyTheme("inputIconFontSize")};
   position: ${({ isTextarea }) => isTextarea ? "relative" : "absolute"};
-  right: ${({ isTextarea }) => isTextarea ? "0" : applyTheme("inputIconRight")};
-  top: ${({ isTextarea }) => isTextarea ? "0" : applyTheme("inputIconTop")};
+  right: ${({ isTextarea }) => isTextarea ? applyTheme("textareaIconRight") : applyTheme("inputIconRight")};
+  top: ${({ isTextarea }) => isTextarea ? applyTheme("textareaIconTop") : applyTheme("inputIconTop")};
 
   & * {
     display: inline-block;
@@ -224,7 +223,7 @@ class TextInput extends Component {
      */
     trimValue: PropTypes.bool,
     /**
-     * The HTML input type for the text input, defaults to "text"
+     * The HTML input type for the text input, the input only supports "email", "password", "text", "url" defaults to "text"
      */
     type: PropTypes.oneOf([
       "email",
@@ -389,6 +388,12 @@ class TextInput extends Component {
     return !stringDefaultEquals(value, initialValue);
   }
 
+  showClearButton() {
+    const { isReadOnly } = this.props;
+    const { inputFocused, buttonFocused } = this.state;
+    return ((this.getValue() && inputFocused || this.getValue() && buttonFocused) && !isReadOnly);
+  }
+
   renderClearButton() {
     const { allowLineBreaks, errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props
     const { value } = this.state
@@ -396,9 +401,10 @@ class TextInput extends Component {
       <IconWrapper isTextarea={allowLineBreaks} errors={errors} hasBeenValidated={hasBeenValidated} value={value}>
         <ClearButton
           isTextarea={allowLineBreaks}
-          onClick={() => this.resetValue()}
+          onClick={() => this.setValue()}
           onFocus={this.onButtonFocus}
           onBlur={this.onButtonBlur}
+          tabIndex={-1}
         >
           {iconClear}
           <span>{iconClearAccessibilityText}</span>
@@ -450,7 +456,7 @@ class TextInput extends Component {
 
   render() {
     const { allowLineBreaks, className, dark, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
-    const { inputFocused, buttonFocused, value } = this.state;
+    const { value } = this.state;
     if (allowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
@@ -471,7 +477,7 @@ class TextInput extends Component {
             placeholder={placeholder}
             value={value}
           />
-          {(this.getValue() && inputFocused || this.getValue() && buttonFocused) ? this.renderClearButton() : this.renderIcon()}
+          {this.showClearButton() ? this.renderClearButton() : this.renderIcon()}
         </div>
       );
     }
@@ -494,7 +500,7 @@ class TextInput extends Component {
           type={type}
           value={value}
         />
-        {(this.getValue() && inputFocused || this.getValue() && buttonFocused) ? this.renderClearButton() : this.renderIcon()}
+        {this.showClearButton() ? this.renderClearButton() : this.renderIcon()}
       </div>
     );
   }
