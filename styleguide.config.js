@@ -81,7 +81,7 @@ module.exports = {
         generateSection({
           componentNames: ["Button"],
           content: "src/styleguide/sections/Actions.md",
-          name: "Actions",
+          name: "Actions"
         })
       ]
     }

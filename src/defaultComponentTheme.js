@@ -72,12 +72,12 @@ export default {
   rui_buttonForegroundColor_secondaryDanger_active: white,
   rui_buttonForegroundColor_secondaryDanger_hover: white,
   rui_buttonForegroundColor_secondaryDanger: red,
-  rui_buttonHorizontalPadding: `${paddingBasePixels*2}px`,
+  rui_buttonHorizontalPadding: `${paddingBasePixels * 2}px`,
   rui_buttonMinimumWidth: "100px",
   rui_buttonTextOnlyColor_default_active: coolGrey400Active,
   rui_buttonTextOnlyColor_default_hover: coolGrey400Hover,
   rui_buttonTextOnlyColor_default: coolGrey400,
   rui_buttonTextOnlyColor_disabled: coolGrey200,
   rui_buttonVerticalPadding: `${paddingBasePixels}px`,
-  rui_buttonVerticalPaddingShort: `${paddingBasePixels/2}px`
+  rui_buttonVerticalPaddingShort: `${paddingBasePixels / 2}px`
 };

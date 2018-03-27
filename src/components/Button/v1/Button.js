@@ -185,12 +185,16 @@ class Button extends Component {
         {...moreButtonDivProps}
       >
         {kids}
-        {<SpinnerWrap
-          actionType={actionType}
-          isDisabled={isDisabled}
-          isTextOnly={isTextOnly}
-          style={spinnerStyles}
-         >{spinnerComponent}</SpinnerWrap>}
+        {
+          <SpinnerWrap
+            actionType={actionType}
+            isDisabled={isDisabled}
+            isTextOnly={isTextOnly}
+            style={spinnerStyles}
+          >
+            {spinnerComponent}
+          </SpinnerWrap>
+        }
         {!!isWaiting && <WaitingOverlay />}
       </ButtonDiv>
     );
