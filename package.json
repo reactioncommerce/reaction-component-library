@@ -22,7 +22,7 @@
     "start": "yarn styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "CI=true react-scripts test --env=jsdom",
     "snyk-protect": "snyk protect"
   },
   "babel": {
@@ -49,8 +49,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@reactioncommerce",
-      "prettier"
+      "@reactioncommerce"
     ]
   },
   "eslintIgnore": [
@@ -65,7 +64,10 @@
       "!**/dist/**",
       "!**/node_modules/**",
       "!**/vendor/**"
-    ]
+    ],
+    "moduleNameMapper": {
+      "helpers": "<rootDir>/src/helpers"
+    }
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
