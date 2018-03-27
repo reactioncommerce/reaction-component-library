@@ -113,6 +113,18 @@ const ClearButton = styled.button`
   `}
 `;
 
+const ScreenReaderText = styled.span`
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute !important;
+  width: 1px;
+  word-wrap:normal !important;
+`;
+
 const stringDefaultEquals = (value1, value2) => ((value1 || '') === (value2 || ''));
 
 class TextInput extends Component {
@@ -120,37 +132,109 @@ class TextInput extends Component {
 
   static propTypes = {
     /**
-     * allowLineBreaks
+     * Enable this when you need a textarea for multi line values, disabled by default
      */
     allowLineBreaks: PropTypes.bool,
+    /**
+     * Custom class name
+     */
     className: PropTypes.string,
+    /**
+     * If the input returns an empty string value convert it to a null value, enabled by default
+     */
     convertEmptyStringToNull: PropTypes.bool,
+    /**
+     * Enable when using the input on a dark background, disabled by default
+     */
     dark: PropTypes.bool,
+    /**
+     * An array of validation errors
+     */
     errors: PropTypes.array,
+    /**
+     * Enable when a input's value has been validated
+     */
     hasBeenValidated: PropTypes.bool,
+    /**
+     * Add an icon to the input by passing an icon node,
+     */
     icon: PropTypes.node,
+    /**
+     * Add extra context to your icon for assistive technologies
+     */
     iconAccessibilityText: PropTypes.string,
+    /**
+     * Overwrite the default clear input icon by passing an icon node
+     */
     iconClear: PropTypes.node,
+    /**
+     * Overwrite the default clear input icon accessibilty text
+     */
     iconClearAccessibilityText: PropTypes.string,
+    /**
+     * Overwrite the default error input icon by passing an icon node
+     */
     iconError: PropTypes.node,
+    /**
+     * Overwrite the default error input icon accessibilty text
+     */
     iconErrorAccessibilityText: PropTypes.string,
+    /**
+     * Overwrite the default success input icon by passing an icon node
+     */
     iconSuccess: PropTypes.node,
+    /**
+     * Overwrite the default success input icon accessibilty text
+     */
     iconSuccessAccessibilityText: PropTypes.string,
+    /**
+     * Enable to make the input read only / disabled, disabled by default
+     */
     isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+    /**
+     * Max amount of characters allowed in input
+     */
     maxLength: PropTypes.number,
+    /**
+     * Input name
+     */
     name: PropTypes.string,
+    /**
+     * On change hanlder for input
+     */
     onChange: PropTypes.func,
+    /**
+     * On changing hanlder for input
+     */
     onChanging: PropTypes.func,
+    /**
+     * Custome click hanlder for added icon
+     */
     onIconClick: PropTypes.func,
+    /**
+     * On submit hanlder for input
+     */
     onSubmit: PropTypes.func,
+    /**
+     * Input placeholder text
+     */
     placeholder: PropTypes.string,
+    /**
+     * Enable this when you want to trim empty spaces from the begining and end of the input's returned value, enabled by default
+     */
     trimValue: PropTypes.bool,
+    /**
+     * The HTML input type for the text input, defaults to "text"
+     */
     type: PropTypes.oneOf([
       "email",
       "password",
       "text",
       "url",
     ]),
+    /**
+     * Prepopulate the input's value
+     */
     value: PropTypes.string
   };
 
@@ -168,6 +252,7 @@ class TextInput extends Component {
     isReadOnly: false,
     onChange() {},
     onChanging() {},
+    onIconClick() {},
     onSubmit() {},
     trimValue: true,
     type: "text"
@@ -323,22 +408,42 @@ class TextInput extends Component {
   }
 
   renderIcon() {
-    const { allowLineBreaks, errors, hasBeenValidated, icon, iconAccessibilityText, iconSuccess, iconError } = this.props;
+    const {
+      allowLineBreaks,
+      errors,
+      hasBeenValidated,
+      icon, onIconClick,
+      iconAccessibilityText,
+      iconSuccess,
+      iconSuccessAccessibilityText,
+      iconError,
+      iconErrorAccessibilityText
+    } = this.props;
     const { value } = this.state
 
     let inputIcon;
+    let inputIconText;
     if (errors && errors.length) {
       inputIcon = iconError;
+      inputIconText = iconErrorAccessibilityText;
     } else if (hasBeenValidated && value && value.length) {
       inputIcon = iconSuccess;
+      inputIconText = iconSuccessAccessibilityText;
     } else {
       inputIcon = icon;
+      inputIconText = iconAccessibilityText
     }
 
     return (
-      <IconWrapper isTextarea={allowLineBreaks} hasBeenValidated={hasBeenValidated} errors={errors} value={value}>
+      <IconWrapper
+        errors={errors}
+        hasBeenValidated={hasBeenValidated}
+        onClick={onIconClick}
+        isTextarea={allowLineBreaks}
+        value={value}
+      >
         {inputIcon}
-        <span>{iconAccessibilityText}</span>
+        {inputIconText ? <ScreenReaderText>{inputIconText}</ScreenReaderText> : ""}
       </IconWrapper>
     );
   }

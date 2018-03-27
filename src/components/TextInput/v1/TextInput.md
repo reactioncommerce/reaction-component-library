@@ -10,7 +10,7 @@ Text inputs aslo have two styles of inputs.
  - The dark input style to be used on dark backgrounds.
  
 #### Component Usage
-The <code class="rsg-code-36">TextInput</code> component.
+TODO: The <code class="rsg-code-36">TextInput</code> component usage.
 
 ##### Default Theme
 - TODO: defaultTheme settings
@@ -59,6 +59,7 @@ Idle Unfilled / Focused Unfilled
   </div>
 </div>
 ```
+
 Idle Filled / Focused Filled
 ```jsx
 <div style={{ display: "flex" }}>
@@ -70,6 +71,7 @@ Idle Filled / Focused Filled
   </div>
 </div>
 ```
+
 Valid
 ```jsx
 <div style={{ display: "flex" }}>
@@ -104,14 +106,31 @@ Read Only / Disabled
 </div>
 ```
 ###### Input Icons
-Text inputs have the ability to add a custom icon to the input to give extra content to the input.
+Text inputs have the ability to add a custom icon to the input to give extra content to the input. Text input icons have three available props to customize the input.
+ - `icon` The icon node you want to display
+ - `iconAccessibilityText` Text string to give the icon extra context for  assistive technologies.
+ - `onIconClick` Click event handler for icon clicks.
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" icon={<i className="fa fa-pied-piper" />} />
+    <TextInput name="example" placeholder="Hint" icon={<i className="fa fa-pied-piper" />} iconAccessibilityText="Pied Piper" onIconClick={(event) => alert("Input Icon Clicked!")} />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" icon={<i className="fa fa-pied-piper" />} dark />
+    <TextInput name="example" placeholder="Hint" icon={<i className="fa fa-pied-piper" />} iconAccessibilityText="Pied Piper" onIconClick={(event) => alert("Input Icon Clicked!")} dark />
+  </div>
+</div>
+```
+The default valid, invalid and clear icons can be overwritten by passing values to these props of the text input.
+ - `iconClear, iconError, iconSuccess`
+ - `iconClearAccessibilityText, iconErrorAccessibilityText, iconSuccessAccessibilityText`
+
+```jsx
+<div style={{ display: "flex" }}>
+  <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
+    <TextInput name="example" placeholder="Hint" value="Valid" hasBeenValidated iconClear={<i className="fa fa-legal" />} iconSuccess={<i className="fa fa-thumbs-up" />}  />
+  </div>
+  <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
+    <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} iconClear={<i className="fa fa-legal" />} iconError={<i className="fa fa-thumbs-down" />}  dark />
   </div>
 </div>
 ```
