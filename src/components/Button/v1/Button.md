@@ -233,6 +233,52 @@ To get a short button, use `isShortHeight` on your secondary danger outline butt
 </div>
 ```
 
+#### Waiting Button
+
+Any button style can have a "waiting" style added to it by passing `isWaiting` prop as `true`. This will also disable clicks and show a spinner to the right of the button content.
+
+```jsx
+initialState = { isWaiting: false }
+const onClick = () => { setState({ isWaiting: true }); setTimeout(() => { setState({ isWaiting: false }); }, 3000); }
+;<div>
+  <p>Click to see waiting state for 3 seconds</p>
+  <div style={{ display: "flex" }}>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="default" isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="secondary" isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="important" isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="danger" isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="secondaryDanger" isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+  </div>
+  <div style={{ display: "flex", marginTop: 20 }}>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="default" isShortHeight isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="secondary" isShortHeight isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="important" isShortHeight isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="danger" isShortHeight isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button actionType="secondaryDanger" isShortHeight isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+  </div>
+</div>
+```
+
 #### Full Width Button
 
 To make any button take up the full width of its container, add `fullWidth` prop.
@@ -244,7 +290,7 @@ const divStyles = {
   borderWidth: 1,
   display: "flex",
   flexDirection: "column",
-  height: 100,
+  height: 180,
   justifyContent: "space-around",
   marginLeft: "auto",
   marginRight: "auto",
@@ -255,5 +301,6 @@ const divStyles = {
 <div style={divStyles}>
   <Button className="myBtn" fullWidth>Full Width Default</Button>
   <Button className="myBtn" isShortHeight fullWidth>Full Width Default Short</Button>
+  <Button className="myBtn" isWaiting={state.isWaiting} onClick={() => { setState({ isWaiting: true }); setTimeout(() => { setState({ isWaiting: false }); }, 3000); }}>Click to See Waiting</Button>
 </div>
 ```

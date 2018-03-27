@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme, preventAccidentalDoubleClick } from "helpers";
+import { applyTheme, preventAccidentalDoubleClick, spinner } from "helpers";
 import { applyThemeWithActionType } from "./helpers";
 
 const paddingFunc = (props) => {
@@ -11,6 +11,7 @@ const paddingFunc = (props) => {
 };
 
 const ButtonDiv = styled.div`
+  align-items: center;
   background-color: ${applyThemeWithActionType("buttonBackgroundColor", true)};
   border-color: ${applyThemeWithActionType("buttonBorderColor", true)};
   border-style: solid;
@@ -20,14 +21,13 @@ const ButtonDiv = styled.div`
   color: ${applyThemeWithActionType("buttonForegroundColor", false)};
   cursor: pointer;
   display: ${(props) => {
-    const { children, fullWidth } = props;
+    const { fullWidth } = props;
     if (fullWidth) {
-      if (typeof children === "string") return "block";
       return "flex";
     }
-    if (typeof children === "string") return "inline-block";
     return "inline-flex";
   }};
+  justify-content: center;
   margin: 0;
   min-width: ${applyTheme("buttonMinimumWidth")};
   outline: none;
@@ -35,6 +35,7 @@ const ButtonDiv = styled.div`
   padding-right: ${applyTheme("buttonHorizontalPadding")};
   padding-top: ${paddingFunc};
   padding-bottom: ${paddingFunc};
+  position: relative;
   text-align: center;
 
   &:hover {
@@ -48,6 +49,27 @@ const ButtonDiv = styled.div`
     border-color: ${applyThemeWithActionType("buttonBorderColor", true, "active")};
     color: ${applyThemeWithActionType("buttonForegroundColor", false, "active")};
   }
+`;
+
+const SpinnerWrap = styled.div`
+  display: flex;
+  overflow: hidden;
+  padding-left: ${applyTheme("buttonHorizontalPadding")};
+  transition: width 0.2s ease-out 0s, padding-left 0.2s ease-out 0s, opacity 0.2s ease-out 0.2s;
+
+  & svg path,
+  & svg rect {
+    fill: ${applyThemeWithActionType("buttonForegroundColor", false)};
+  }
+`;
+
+const WaitingOverlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
 `;
 
 class Button extends Component {
@@ -81,10 +103,19 @@ class Button extends Component {
      */
     isTextOnly: PropTypes.bool,
     /**
+     * Set to `true` to prevent clicks, use waiting styles, and show a spinner
+     */
+    isWaiting: PropTypes.bool,
+    /**
      * Called with no arguments whenever the button is clicked. There is double-click protection,
      * so if the user double-clicks quickly, onClick is called only once.
      */
     onClick: PropTypes.func,
+    /**
+     * A custom spinner component to show on the button when `isWaiting` is true. You can also
+     * set this to `null` to prevent adding a spinner to the button while waiting.
+     */
+    spinnerComponent: PropTypes.node,
     /**
      * The string for the `title` attribute of the button element
      */
@@ -95,15 +126,17 @@ class Button extends Component {
     actionType: "default",
     isDisabled: false,
     isFullWidth: false,
-    onClick() {}
+    isWaiting: false,
+    onClick() {},
+    spinnerComponent: spinner
   };
 
   handleClick = preventAccidentalDoubleClick((event) => {
     event.preventDefault();
 
-    const { isDisabled, onClick } = this.props;
+    const { isDisabled, isWaiting, onClick } = this.props;
 
-    if (!isDisabled) onClick();
+    if (!isDisabled && !isWaiting) onClick();
   });
 
   handleKeyPress = (event) => {
@@ -111,29 +144,54 @@ class Button extends Component {
   };
 
   render() {
-    const { actionType, children, className, isDisabled, isFullWidth, isShortHeight, isTextOnly, title } = this.props;
+    const { actionType, children, className, isDisabled, isFullWidth, isShortHeight, isTextOnly, isWaiting, spinnerComponent, title } = this.props;
 
     const moreButtonDivProps = {};
     if (isDisabled) {
       moreButtonDivProps["aria-disabled"] = "true";
     }
 
+    // wrap text children so that ButtonDiv flex styling applies correctly
+    let kids;
+    if (typeof children === "string") {
+      kids = <div>{children}</div>;
+    } else {
+      kids = children;
+    }
+
+    const spinnerStyles = {};
+    if (isWaiting) {
+      spinnerStyles.width = "auto";
+      spinnerStyles.opacity = 100;
+    } else {
+      spinnerStyles.width = 0;
+      spinnerStyles.paddingLeft = 0;
+      spinnerStyles.opacity = 0;
+    }
+
     return (
       <ButtonDiv
         actionType={actionType}
         className={className}
-        isDisabled={isDisabled}
         fullWidth={isFullWidth}
+        isDisabled={isDisabled}
+        isShortHeight={isShortHeight}
+        isTextOnly={isTextOnly}
         onClick={this.handleClick}
         onKeyPress={this.handleKeyPress}
         role="button"
-        isShortHeight={isShortHeight}
-        isTextOnly={isTextOnly}
         tabIndex={0}
         title={title}
         {...moreButtonDivProps}
       >
-        {children}
+        {kids}
+        {<SpinnerWrap
+          actionType={actionType}
+          isDisabled={isDisabled}
+          isTextOnly={isTextOnly}
+          style={spinnerStyles}
+         >{spinnerComponent}</SpinnerWrap>}
+        {!!isWaiting && <WaitingOverlay />}
       </ButtonDiv>
     );
   }
