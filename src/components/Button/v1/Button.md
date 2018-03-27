@@ -22,20 +22,61 @@ The `Button` component can render with four different possible appearances, whic
 
 The actual colors of the appearance are defined by your theme. The examples here use our default theme. The theme properties used by the `Button` component are:
 
-- `rui_buttonBorderRadius`
-- `rui_buttonBorderColor_danger`
-- `rui_buttonBorderColor_default`
-- `rui_buttonBorderColor_important`
-- `rui_buttonBorderColor_secondary`
+- `rui_buttonBackgroundColor_danger_active`
+- `rui_buttonBackgroundColor_danger_hover`
 - `rui_buttonBackgroundColor_danger`
+- `rui_buttonBackgroundColor_default_active`
+- `rui_buttonBackgroundColor_default_hover`
 - `rui_buttonBackgroundColor_default`
+- `rui_buttonBackgroundColor_disabled`
+- `rui_buttonBackgroundColor_important_active`
+- `rui_buttonBackgroundColor_important_hover`
 - `rui_buttonBackgroundColor_important`
+- `rui_buttonBackgroundColor_secondary_active`
+- `rui_buttonBackgroundColor_secondary_hover`
 - `rui_buttonBackgroundColor_secondary`
+- `rui_buttonBackgroundColor_secondaryDanger_active`
+- `rui_buttonBackgroundColor_secondaryDanger_hover`
+- `rui_buttonBackgroundColor_secondaryDanger`
+- `rui_buttonBorderColor_danger_active`
+- `rui_buttonBorderColor_danger_hover`
+- `rui_buttonBorderColor_danger`
+- `rui_buttonBorderColor_default_active`
+- `rui_buttonBorderColor_default_hover`
+- `rui_buttonBorderColor_default`
+- `rui_buttonBorderColor_disabled`
+- `rui_buttonBorderColor_important_active`
+- `rui_buttonBorderColor_important_hover`
+- `rui_buttonBorderColor_important`
+- `rui_buttonBorderColor_secondary_active`
+- `rui_buttonBorderColor_secondary_hover`
+- `rui_buttonBorderColor_secondary`
+- `rui_buttonBorderColor_secondaryDanger_active`
+- `rui_buttonBorderColor_secondaryDanger_hover`
+- `rui_buttonBorderColor_secondaryDanger`
+- `rui_buttonBorderRadius`
+- `rui_buttonForegroundColor_danger_active`
+- `rui_buttonForegroundColor_danger_hover`
 - `rui_buttonForegroundColor_danger`
+- `rui_buttonForegroundColor_default_active`
+- `rui_buttonForegroundColor_default_hover`
 - `rui_buttonForegroundColor_default`
+- `rui_buttonForegroundColor_disabled`
+- `rui_buttonForegroundColor_important_active`
+- `rui_buttonForegroundColor_important_hover`
 - `rui_buttonForegroundColor_important`
+- `rui_buttonForegroundColor_secondary_active`
+- `rui_buttonForegroundColor_secondary_hover`
 - `rui_buttonForegroundColor_secondary`
+- `rui_buttonForegroundColor_secondaryDanger_active`
+- `rui_buttonForegroundColor_secondaryDanger_hover`
+- `rui_buttonForegroundColor_secondaryDanger`
 - `rui_buttonHorizontalPadding`
+- `rui_buttonMinimumWidth`
+- `rui_buttonTextOnlyColor_default_active`
+- `rui_buttonTextOnlyColor_default_hover`
+- `rui_buttonTextOnlyColor_default`
+- `rui_buttonTextOnlyColor_disabled`
 - `rui_buttonVerticalPadding`
 - `rui_buttonVerticalPaddingShort`
 
@@ -236,6 +277,12 @@ To get a short button, use `isShortHeight` on your secondary danger outline butt
 #### Waiting Button
 
 Any button style can have a "waiting" style added to it by passing `isWaiting` prop as `true`. This will also disable clicks and show a spinner to the right of the button content.
+
+The spinner is used to provide inline feedback to the user that information is being submitted, after they have clicked an action button.
+
+The spinner can be used with both normal width buttons and full width buttons. The spinner and animation persists for the amount of time that the button's action is occurring.
+
+In most cases, the button spinner should not be used in conjunction with a page or container spinner overlay.
 
 ```jsx
 initialState = { isWaiting: false }
