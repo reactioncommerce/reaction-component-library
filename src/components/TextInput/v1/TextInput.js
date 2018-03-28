@@ -63,9 +63,11 @@ const IconWrapper = styled.div`
   color: ${applyValidationColor("inputIconColor")};
   fill: currentColor;
   font-size: ${applyTheme("inputIconFontSize")};
+  height: ${({ isTextarea }) => isTextarea ? "auto" : "1rem"};
   position: ${({ isTextarea }) => isTextarea ? "relative" : "absolute"};
   right: ${({ isTextarea }) => isTextarea ? applyTheme("textareaIconRight") : applyTheme("inputIconRight")};
   top: ${({ isTextarea }) => isTextarea ? applyTheme("textareaIconTop") : applyTheme("inputIconTop")};
+  width: ${({ isTextarea }) => isTextarea ? "auto" : "1rem"};
 
   & * {
     display: inline-block;
