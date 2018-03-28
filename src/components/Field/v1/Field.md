@@ -6,7 +6,7 @@
     <TextInput name="example" placeholder="Hint" />
   </Field>
   <Field name="example" label="Label">
-    <TextInput name="example" placeholder="Hint" />
+    <TextInput name="example" placeholder="Hint" allowLineBreaks />
   </Field>
 </div>
 ```
