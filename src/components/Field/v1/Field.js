@@ -4,8 +4,31 @@ import styled from "styled-components";
 import isEmpty from 'lodash.isempty';
 import { applyTheme } from "./../../../helpers";
 
-const StyledDiv = styled.div`
-  color: #333333;
+function applyValidationColor(themeProp = "color") {
+  return (props) => {
+    let status;
+    if (props.errors && props.errors.length) {
+      status = "error";
+    } else if (props.hasBeenValidated && props.value && props.value.length) {
+      status = "success";
+    } else if (props.inputFocused || props.buttonFocused) {
+      status = "focus";
+    } else {
+      status = "default";
+    }
+    return applyTheme(`${themeProp}_${status}`);
+  }
+}
+
+const StyledField = styled.div`
+
+`;
+
+const StyledLabel = styled.label`
+  color: ${applyValidationColor("labelColor")};
+  display: block;
+  font-size: ${applyTheme("labelFontSize")};
+  margin: ${applyTheme("labelMargin")};
 `;
 
 class Field extends Component {
@@ -38,10 +61,10 @@ class Field extends Component {
   }
 
   renderLabel() {
-    const { label, labelClassName, labelFor } = this.props;
+    const { errors, label, labelClassName, labelFor } = this.props;
 
     return (
-      <label className={labelClassName} htmlFor={labelFor}>{label}</label>
+      <StyledLabel className={labelClassName} errors={errors} htmlFor={labelFor}>{label}</StyledLabel>
     );
   }
 
@@ -49,10 +72,10 @@ class Field extends Component {
     const { children, label } = this.props;
 
     return (
-      <div className={this.getClassName()}>
+      <StyledField className={this.getClassName()}>
         {!isEmpty(label) && this.renderLabel()}
         {children}
-      </div>
+      </StyledField>
     );
 }
 }

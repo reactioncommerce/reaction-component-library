@@ -213,10 +213,20 @@ const textareaStyles = {
   rui_textareaIconTop: baseUnit(1)
 }
 
+// label
+const labelStyles = {
+  rui_labelColor_default: black55,
+  rui_labelColor_error: red,
+  rui_labelColor_success: black55,
+  rui_labelFontSize: fontSize14,
+  rui_labelMargin: `${baseUnit(1.5)} 0 ${baseUnit(1)}`
+}
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
   ...inputStyles,
   ...inputIcon,
-  ...textareaStyles
+  ...textareaStyles,
+  ...labelStyles
 };
