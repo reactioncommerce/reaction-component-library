@@ -36,7 +36,7 @@ test('renders with label', () => {
 
 test('renders with other props', () => {
   const component = renderer.create(
-    <Field label="Foo" className="className" labelClassName="labelClassName" labelFor="labelFor" labelStyle={{ color: '#000' }} style={{ color: '#fff' }}>
+    <Field label="Foo" className="className" labelClassName="labelClassName" labelFor="labelFor">
       <p>Blah</p>
     </Field>,
   );
