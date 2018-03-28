@@ -26,18 +26,6 @@ function applyValidationColor(themeProp = "color") {
   }
 }
 
-function applyClearButtonPadding() {
-  return ({ isTextarea }) => {
-    let padding;
-    if (isTextarea) {
-      padding = applyTheme("textareaIconPadding");
-    } else {
-      padding = applyTheme("inputIconPadding");
-    }
-    return padding;
-  }
-}
-
 const StyledInput = styled.input`
   background-color: ${applyThemeVariant("inputBackgroundColor")};
   border: 1px solid ${applyValidationColor("inputBorderColor")};
