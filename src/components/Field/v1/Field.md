@@ -2,10 +2,10 @@
 
 ```jsx
 <div>
-  <Field name="example" label="Text Field">
+  <Field name="example" label="Label" helpText="Help text">
     <TextInput name="example" placeholder="Hint" />
   </Field>
-  <Field name="example" label="Text Field">
+  <Field name="example" label="Label">
     <TextInput name="example" placeholder="Hint" />
   </Field>
 </div>

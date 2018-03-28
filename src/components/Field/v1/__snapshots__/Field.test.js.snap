@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders with label 1`] = `
+exports[`renders with help text 1`] = `
 .c0 {
+  margin: 0.9375rem 0;
+}
+
+.c3 {
+  color: #737373;
+  display: block;
+  font-size: 0.875rem;
+  margin: 0.625rem 0 0;
+}
+
+.c1 {
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -14,35 +25,35 @@ exports[`renders with label 1`] = `
   width: 100%;
 }
 
-.c0::-webkit-input-placeholder {
+.c1::-webkit-input-placeholder {
   color: #cccccc;
 }
 
-.c0::-moz-placeholder {
+.c1::-moz-placeholder {
   color: #cccccc;
 }
 
-.c0:-ms-input-placeholder {
+.c1:-ms-input-placeholder {
   color: #cccccc;
 }
 
-.c0::placeholder {
+.c1::placeholder {
   color: #cccccc;
 }
 
-.c0:focus {
+.c1:focus {
   border-color: #8ce0c9;
 }
 
-.c0:-moz-read-only {
+.c1:-moz-read-only {
   color: #bfbfbf;
 }
 
-.c0:read-only {
+.c1:read-only {
   color: #bfbfbf;
 }
 
-.c1 {
+.c2 {
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -53,15 +64,127 @@ exports[`renders with label 1`] = `
   width: 1rem;
 }
 
-.c1 * {
+.c2 * {
   display: inline-block;
 }
 
 <div
-  className=""
+  className="c0"
+>
+  <p>
+    Text above
+  </p>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      className="c1"
+      maxLength={undefined}
+      name="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      placeholder={undefined}
+      readOnly={false}
+      type="text"
+      value=""
+    />
+    <div
+      className="c2"
+      onClick={[Function]}
+      value=""
+    />
+  </div>
+  <p>
+    Text below
+  </p>
+  <span
+    className="c3"
+  >
+    Foo
+  </span>
+</div>
+`;
+
+exports[`renders with label 1`] = `
+.c0 {
+  margin: 0.9375rem 0;
+}
+
+.c1 {
+  color: #737373;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  margin: 0 0 0.625rem;
+}
+
+.c2 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  color: #737373;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c2::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c2::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c2:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c2::placeholder {
+  color: #cccccc;
+}
+
+.c2:focus {
+  border-color: #8ce0c9;
+}
+
+.c2:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c2:read-only {
+  color: #bfbfbf;
+}
+
+.c3 {
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c3 * {
+  display: inline-block;
+}
+
+<div
+  className="c0"
 >
   <label
-    className={undefined}
+    className="c1"
     htmlFor={undefined}
   >
     Foo
@@ -77,7 +200,7 @@ exports[`renders with label 1`] = `
     }
   >
     <input
-      className="c0"
+      className="c2"
       maxLength={undefined}
       name="test"
       onBlur={[Function]}
@@ -90,7 +213,7 @@ exports[`renders with label 1`] = `
       value=""
     />
     <div
-      className="c1"
+      className="c3"
       onClick={[Function]}
       value=""
     />
@@ -101,8 +224,12 @@ exports[`renders with label 1`] = `
 </div>
 `;
 
-exports[`renders with no label 1`] = `
+exports[`renders with no help text 1`] = `
 .c0 {
+  margin: 0.9375rem 0;
+}
+
+.c1 {
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -115,35 +242,35 @@ exports[`renders with no label 1`] = `
   width: 100%;
 }
 
-.c0::-webkit-input-placeholder {
+.c1::-webkit-input-placeholder {
   color: #cccccc;
 }
 
-.c0::-moz-placeholder {
+.c1::-moz-placeholder {
   color: #cccccc;
 }
 
-.c0:-ms-input-placeholder {
+.c1:-ms-input-placeholder {
   color: #cccccc;
 }
 
-.c0::placeholder {
+.c1::placeholder {
   color: #cccccc;
 }
 
-.c0:focus {
+.c1:focus {
   border-color: #8ce0c9;
 }
 
-.c0:-moz-read-only {
+.c1:-moz-read-only {
   color: #bfbfbf;
 }
 
-.c0:read-only {
+.c1:read-only {
   color: #bfbfbf;
 }
 
-.c1 {
+.c2 {
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -154,12 +281,12 @@ exports[`renders with no label 1`] = `
   width: 1rem;
 }
 
-.c1 * {
+.c2 * {
   display: inline-block;
 }
 
 <div
-  className=""
+  className="c0"
 >
   <p>
     Text above
@@ -172,7 +299,7 @@ exports[`renders with no label 1`] = `
     }
   >
     <input
-      className="c0"
+      className="c1"
       maxLength={undefined}
       name="test"
       onBlur={[Function]}
@@ -185,7 +312,106 @@ exports[`renders with no label 1`] = `
       value=""
     />
     <div
+      className="c2"
+      onClick={[Function]}
+      value=""
+    />
+  </div>
+  <p>
+    Text below
+  </p>
+</div>
+`;
+
+exports[`renders with no label 1`] = `
+.c0 {
+  margin: 0.9375rem 0;
+}
+
+.c1 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  color: #737373;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c1::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c1:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c1::placeholder {
+  color: #cccccc;
+}
+
+.c1:focus {
+  border-color: #8ce0c9;
+}
+
+.c1:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c1:read-only {
+  color: #bfbfbf;
+}
+
+.c2 {
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c2 * {
+  display: inline-block;
+}
+
+<div
+  className="c0"
+>
+  <p>
+    Text above
+  </p>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
       className="c1"
+      maxLength={undefined}
+      name="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      placeholder={undefined}
+      readOnly={false}
+      type="text"
+      value=""
+    />
+    <div
+      className="c2"
       onClick={[Function]}
       value=""
     />
@@ -197,11 +423,23 @@ exports[`renders with no label 1`] = `
 `;
 
 exports[`renders with other props 1`] = `
+.c0 {
+  margin: 0.9375rem 0;
+}
+
+.c1 {
+  color: #737373;
+  display: block;
+  font-size: 0.875rem;
+  line-height: 1.25;
+  margin: 0 0 0.625rem;
+}
+
 <div
-  className="className"
+  className="className c0"
 >
   <label
-    className="labelClassName"
+    className="labelClassName c1"
     htmlFor="labelFor"
   >
     Foo

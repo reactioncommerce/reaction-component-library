@@ -141,7 +141,10 @@ const defaultStyles = {
   rui_color_error: red,
   rui_color_success: teal,
   rui_color_coolGrey: coolGrey,
-  rui_color_white: white
+  rui_color_white: white,
+  rui_leading_body: bodyLeading,
+  rui_leading_header: headerLeading,
+  rui_leading_flat: flatLeading
 }
 
 // buttons
@@ -213,13 +216,25 @@ const textareaStyles = {
   rui_textareaIconTop: baseUnit(1)
 }
 
+// field
+const fieldStyles = {
+  rui_fieldMargin: `${baseUnit(1.5)} 0`
+}
+
 // label
 const labelStyles = {
   rui_labelColor_default: black55,
   rui_labelColor_error: red,
   rui_labelColor_success: black55,
   rui_labelFontSize: fontSize14,
-  rui_labelMargin: `${baseUnit(1.5)} 0 ${baseUnit(1)}`
+  rui_labelMargin: `0 0 ${baseUnit(1)}`
+}
+
+// help text
+const helpTextStyles = {
+  rui_helpTextColor: black55,
+  rui_helpTextFontSize: fontSize14,
+  rui_helpTextMargin: `${baseUnit(1)} 0 0`
 }
 
 export default {
@@ -228,5 +243,7 @@ export default {
   ...inputStyles,
   ...inputIcon,
   ...textareaStyles,
-  ...labelStyles
+  ...fieldStyles,
+  ...labelStyles,
+  ...helpTextStyles
 };

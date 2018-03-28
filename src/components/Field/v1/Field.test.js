@@ -34,6 +34,32 @@ test('renders with label', () => {
   expect(tree).toMatchSnapshot();
 });
 
+test('renders with no help text', () => {
+  const component = renderer.create(
+    <Field>
+      <p>Text above</p>
+      <TextInput name="test" />
+      <p>Text below</p>
+    </Field>,
+  );
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test('renders with help text', () => {
+  const component = renderer.create(
+    <Field helpText="Foo">
+      <p>Text above</p>
+      <TextInput name="test" />
+      <p>Text below</p>
+    </Field>,
+  );
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test('renders with other props', () => {
   const component = renderer.create(
     <Field label="Foo" className="className" labelClassName="labelClassName" labelFor="labelFor">

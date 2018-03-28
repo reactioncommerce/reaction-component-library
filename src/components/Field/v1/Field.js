@@ -21,14 +21,22 @@ function applyValidationColor(themeProp = "color") {
 }
 
 const StyledField = styled.div`
-
+  margin: ${applyTheme("fieldMargin")};
 `;
 
 const StyledLabel = styled.label`
   color: ${applyValidationColor("labelColor")};
   display: block;
   font-size: ${applyTheme("labelFontSize")};
+  line-height: ${applyTheme("leading_header")};
   margin: ${applyTheme("labelMargin")};
+`;
+
+const StyledHelpText = styled.span`
+  color: ${applyTheme("helpTextColor")};
+  display: block;
+  font-size: ${applyTheme("helpTextFontSize")};
+  margin: ${applyTheme("helpTextMargin")};
 `;
 
 class Field extends Component {
@@ -38,6 +46,7 @@ class Field extends Component {
     children: PropTypes.node.isRequired,
     className: PropTypes.string,
     errors: PropTypes.array,
+    helpText: PropTypes.string,
     isRequired: PropTypes.bool,
     label: PropTypes.node,
     labelClassName: PropTypes.string,
@@ -68,13 +77,19 @@ class Field extends Component {
     );
   }
 
+  renderHelpText() {
+    const { helpText } = this.props;
+    return <StyledHelpText>{helpText}</StyledHelpText>;
+  }
+
   render() {
-    const { children, label } = this.props;
+    const { children, helpText, label } = this.props;
 
     return (
       <StyledField className={this.getClassName()}>
         {!isEmpty(label) && this.renderLabel()}
         {children}
+        {!isEmpty(helpText) && this.renderHelpText()}
       </StyledField>
     );
 }
