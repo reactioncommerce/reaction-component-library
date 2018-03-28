@@ -1,0 +1,213 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with label 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  color: #737373;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
+<div
+  className=""
+>
+  <label
+    className={undefined}
+    htmlFor={undefined}
+  >
+    Foo
+  </label>
+  <p>
+    Text above
+  </p>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      className="c0"
+      maxLength={undefined}
+      name="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      placeholder={undefined}
+      readOnly={false}
+      type="text"
+      value=""
+    />
+    <div
+      className="c1"
+      onClick={[Function]}
+      value=""
+    />
+  </div>
+  <p>
+    Text below
+  </p>
+</div>
+`;
+
+exports[`renders with no label 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  color: #737373;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
+<div
+  className=""
+>
+  <p>
+    Text above
+  </p>
+  <div
+    style={
+      Object {
+        "position": "relative",
+      }
+    }
+  >
+    <input
+      className="c0"
+      maxLength={undefined}
+      name="test"
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      placeholder={undefined}
+      readOnly={false}
+      type="text"
+      value=""
+    />
+    <div
+      className="c1"
+      onClick={[Function]}
+      value=""
+    />
+  </div>
+  <p>
+    Text below
+  </p>
+</div>
+`;
+
+exports[`renders with other props 1`] = `
+<div
+  className="className"
+>
+  <label
+    className="labelClassName"
+    htmlFor="labelFor"
+  >
+    Foo
+  </label>
+  <p>
+    Blah
+  </p>
+</div>
+`;
