@@ -15,16 +15,14 @@
   "scripts": {
     "clean": "rimraf dist",
     "build": "echo 'No build step necessary'",
-    "lint": "yarn run lint:eslint && yarn run lint:prettier",
+    "lint": "yarn run lint:eslint",
     "lint:eslint": "eslint .",
-    "lint:prettier": "prettier-check 'src/**/*.js' 'test/**/*.js'",
-    "lint:fix": "yarn run lint:fix:eslint && yarn run lint:fix:prettier",
+    "lint:fix": "yarn run lint:fix:eslint",
     "lint:fix:eslint": "eslint --fix .",
-    "lint:fix:prettier": "prettier --write 'src/**/*.js' 'test/**/*.js'",
     "start": "yarn styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "CI=true react-scripts test --env=jsdom",
     "snyk-protect": "snyk protect"
   },
   "babel": {
@@ -51,8 +49,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@reactioncommerce",
-      "prettier"
+      "@reactioncommerce"
     ]
   },
   "eslintIgnore": [
@@ -67,7 +64,10 @@
       "!**/dist/**",
       "!**/node_modules/**",
       "!**/vendor/**"
-    ]
+    ],
+    "moduleNameMapper": {
+      "helpers": "<rootDir>/src/helpers"
+    }
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
@@ -78,6 +78,7 @@
     "react-dom": "^16.2.0",
     "react-scripts": "1.1.0",
     "reacto-form": "^0.0.2",
+    "react-select": "^2.0.0-alpha.8",
     "styled-components": "^3.1.6"
   },
   "devDependencies": {
