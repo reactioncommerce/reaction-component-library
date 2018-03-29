@@ -44,6 +44,7 @@ const StyledInput = styled.input`
   font-family: ${applyTheme("inputFontFamily")};
   font-size: ${applyTheme("inputFontSize")};
   line-height: ${applyTheme("inputLineHeight")};
+  outline: none;
   padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
   width: 100%;
 
