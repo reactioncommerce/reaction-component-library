@@ -19,6 +19,9 @@ exports[`basic snapshot 1`] = `
   box-sizing: border-box;
   color: #ffffff;
   cursor: pointer;
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
   display: inline-flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
@@ -48,6 +51,9 @@ exports[`basic snapshot 1`] = `
 }
 
 .c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   overflow: hidden;
   padding-left: 20px;

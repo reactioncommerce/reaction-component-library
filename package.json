@@ -144,7 +144,7 @@
     "promise": "8.0.1",
     "raf": "3.4.0",
     "react-dev-utils": "^5.0.0",
-    "react-styleguidist": "^6.2.5",
+    "react-styleguidist": "^6.5.3",
     "rimraf": "^2.6.2",
     "snyk": "^1.69.10",
     "style-loader": "0.19.0",
