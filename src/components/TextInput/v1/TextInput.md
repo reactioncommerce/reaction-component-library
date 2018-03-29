@@ -176,10 +176,10 @@ The default valid, invalid and clear icons can be overwritten by passing values 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" value="Valid" hasBeenValidated iconClear={<i className="fa fa-legal" />} iconSuccess={<i className="fa fa-thumbs-up" />}  />
+    <TextInput name="example" placeholder="Hint" value="Valid" hasBeenValidated iconClear={<i className="fas fa-gavel" />} iconSuccess={<i className="fa fa-thumbs-up" />}  />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} iconClear={<i className="fa fa-legal" />} iconError={<i className="fa fa-thumbs-down" />}  dark />
+    <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} iconClear={<i className="fas fa-gavel" />} iconError={<i className="fa fa-thumbs-down" />}  dark />
   </div>
 </div>
 ```
