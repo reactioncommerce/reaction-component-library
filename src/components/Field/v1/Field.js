@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import isEmpty from 'lodash.isempty';
+import isEmpty from "lodash.isempty";
 import { applyTheme } from "./../../../helpers";
 
 function applyValidationColor(themeProp = "color") {
@@ -17,7 +17,7 @@ function applyValidationColor(themeProp = "color") {
       status = "default";
     }
     return applyTheme(`${themeProp}_${status}`);
-  }
+  };
 }
 
 const StyledField = styled.div`
@@ -64,9 +64,9 @@ class Field extends Component {
 
   getClassName() {
     const { className, errors, isRequired } = this.props;
-    const errorClass = Array.isArray(errors) && errors.length > 0 ? 'has-error' : '';
-    const requiredClass = isRequired ? 'required' : '';
-    return `${className || ''} ${errorClass} ${requiredClass}`.trim();
+    const errorClass = Array.isArray(errors) && errors.length > 0 ? "has-error" : "";
+    const requiredClass = isRequired ? "required" : "";
+    return `${className || ""} ${errorClass} ${requiredClass}`.trim();
   }
 
   renderLabel() {
@@ -92,7 +92,7 @@ class Field extends Component {
         {!isEmpty(helpText) && this.renderHelpText()}
       </StyledField>
     );
-}
+  }
 }
 
 export default Field;
