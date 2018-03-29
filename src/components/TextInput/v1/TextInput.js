@@ -39,6 +39,7 @@ const StyledInput = styled.input`
   background-color: ${applyThemeVariant("inputBackgroundColor")};
   border: 1px solid ${applyValidationColor("inputBorderColor")};
   border-radius: ${applyTheme("inputBorderRadius")};
+  box-sizing: border-box;
   color: ${applyValidationColor("inputColor")};
   crsor: pointer;
   font-family: ${applyTheme("inputFontFamily")};
