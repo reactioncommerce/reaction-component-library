@@ -12,13 +12,13 @@ const paddingFunc = (props) => {
 
 const ButtonDiv = styled.div`
   align-items: center;
-  background-color: ${applyThemeWithActionType("buttonBackgroundColor", true)};
-  border-color: ${applyThemeWithActionType("buttonBorderColor", true)};
+  background-color: ${applyThemeWithActionType("buttonBackgroundColor")};
+  border-color: ${applyThemeWithActionType("buttonBorderColor")};
   border-style: solid;
   border-width: 1px;
   border-radius: ${applyTheme("buttonBorderRadius")};
   box-sizing: border-box;
-  color: ${applyThemeWithActionType("buttonForegroundColor", false)};
+  color: ${applyThemeWithActionType("buttonForegroundColor")};
   cursor: pointer;
   display: ${(props) => {
     const { fullWidth } = props;
@@ -39,15 +39,15 @@ const ButtonDiv = styled.div`
   text-align: center;
 
   &:hover {
-    background-color: ${applyThemeWithActionType("buttonBackgroundColor", true, "hover")};
-    border-color: ${applyThemeWithActionType("buttonBorderColor", true, "hover")};
-    color: ${applyThemeWithActionType("buttonForegroundColor", false, "hover")};
+    background-color: ${applyThemeWithActionType("buttonBackgroundColor", "hover")};
+    border-color: ${applyThemeWithActionType("buttonBorderColor", "hover")};
+    color: ${applyThemeWithActionType("buttonForegroundColor", "hover")};
   }
 
   &:active {
-    background-color: ${applyThemeWithActionType("buttonBackgroundColor", true, "active")};
-    border-color: ${applyThemeWithActionType("buttonBorderColor", true, "active")};
-    color: ${applyThemeWithActionType("buttonForegroundColor", false, "active")};
+    background-color: ${applyThemeWithActionType("buttonBackgroundColor", "active")};
+    border-color: ${applyThemeWithActionType("buttonBorderColor", "active")};
+    color: ${applyThemeWithActionType("buttonForegroundColor", "active")};
   }
 `;
 
@@ -59,7 +59,7 @@ const SpinnerWrap = styled.div`
 
   & svg path,
   & svg rect {
-    fill: ${applyThemeWithActionType("buttonForegroundColor", false)};
+    fill: ${applyThemeWithActionType("buttonForegroundColor")};
   }
 `;
 
