@@ -93,7 +93,7 @@ const teal600 = "#34584f";
  */
 
 // font stack
-const fontStack= "Source Sans Pro, sans-serif";
+const fontStack = "Source Sans Pro, sans-serif";
 
 // font scale
 const fontSize12 = "0,75rem";
@@ -141,12 +141,12 @@ const lightBlueGrey = "#c8d9e3";
 const paddingBasePixels = 10;
 
 const spacingBase = 0.625;
-const baseUnit = (size) => `${spacingBase*size}rem`;
+const baseUnit = (size) => `${spacingBase * size}rem`;
 
 /**
  * Default Theme Borders
  */
-const borderRadius = baseUnit(.2);
+const borderRadius = baseUnit(0.2);
 
 /**
  * Default Theme Elements
@@ -158,7 +158,7 @@ const defaultStyles = {
   rui_color_success: teal,
   rui_color_coolGrey: coolGrey,
   rui_color_white: white
-}
+};
 
 // buttons
 const buttonStyles = {
@@ -238,8 +238,8 @@ const buttonStyles = {
   rui_buttonHorizontalPadding: `${paddingBasePixels * 2}px`,
   rui_buttonMinimumWidth: "100px",
   rui_buttonVerticalPadding: `${paddingBasePixels}px`,
-  rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`
-}
+  rui_buttonVerticalPaddingSmall: `${paddingBasePixels / 2}px`
+};
 
 // input
 const inputStyles = {
@@ -262,7 +262,7 @@ const inputStyles = {
   rui_inputHorizontalPadding: baseUnit(1),
   rui_iconTop: baseUnit(1),
   rui_iconRight: baseUnit(1)
-}
+};
 
 const inputIcon = {
   rui_inputIconBackgroundColor: black10,
@@ -271,20 +271,20 @@ const inputIcon = {
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
   rui_inputIconFontSize: fontSize14,
-  rui_inputIconPadding: `${baseUnit(.5)} ${baseUnit(.5)}`,
+  rui_inputIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
   rui_inputIconRight: baseUnit(1.2),
   rui_inputIconTop: baseUnit(1.2),
   rui_inputIconTextPadding: baseUnit(20)
-}
+};
 
 // textarea
 const textareaStyles = {
   rui_textareaHeight: baseUnit(6),
   rui_textareaLineHeight: bodyLeading,
-  rui_textareaIconPadding: `${baseUnit(.75)} ${baseUnit(.75)}`,
+  rui_textareaIconPadding: `${baseUnit(0.75)} ${baseUnit(0.75)}`,
   rui_textareaIconRight: "0",
   rui_textareaIconTop: baseUnit(1)
-}
+};
 
 export default {
   ...defaultStyles,
