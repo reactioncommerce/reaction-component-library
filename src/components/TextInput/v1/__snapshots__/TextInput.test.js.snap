@@ -6,7 +6,7 @@ exports[`renders 1`] = `
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
   box-sizing: border-box;
-  color: #737373;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
@@ -94,7 +94,7 @@ exports[`renders textarea 1`] = `
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
   box-sizing: border-box;
-  color: #737373;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
@@ -182,7 +182,7 @@ exports[`renders textarea with props 1`] = `
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
   box-sizing: border-box;
-  color: #737373;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
@@ -270,7 +270,7 @@ exports[`renders with props 1`] = `
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
   box-sizing: border-box;
-  color: #737373;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
