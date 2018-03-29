@@ -162,10 +162,10 @@ Text inputs have the ability to add a custom icon to the input to give extra con
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" icon={<i className="fa fa-pied-piper" />} onIconClick={(event) => alert("Input Icon Clicked!")} />
+    <TextInput name="example" placeholder="Hint" icon={<i className="fab fa-pied-piper" />} onIconClick={(event) => alert("Input Icon Clicked!")} />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" icon={<i className="fa fa-pied-piper" />}  onIconClick={(event) => alert("Input Icon Clicked!")} dark />
+    <TextInput name="example" placeholder="Hint" icon={<i className="fab fa-pied-piper" />}  onIconClick={(event) => alert("Input Icon Clicked!")} dark />
   </div>
 </div>
 ```
@@ -285,10 +285,10 @@ Text inputs have the ability to add a custom icon to the input to give extra con
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks icon={<i className="fa fa-pied-piper" />} />
+    <TextInput name="example" placeholder="Hint" allowLineBreaks icon={<i className="fab fa-pied-piper" />} />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks icon={<i className="fa fa-pied-piper" />} dark />
+    <TextInput name="example" placeholder="Hint" allowLineBreaks icon={<i className="fab fa-pied-piper" />} dark />
   </div>
 </div>
 ```
