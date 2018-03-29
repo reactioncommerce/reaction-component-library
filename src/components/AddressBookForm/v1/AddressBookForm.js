@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
-import { Field, ErrorsBlock, Form } from "reacto-form";
-import { applyTheme } from "helpers";
+// import styled from "styled-components";
+import { Form } from "reacto-form";
+// import { applyTheme } from "helpers";
+import Field from "./../../Field/v1/Field";
 import TextInput from "./../../TextInput/v1/TextInput";
+import ErrorsBlock from "./../../ErrorsBlock/v1/ErrorsBlock";
 import Button from "./../../Button/v1/Button";
 
-const StyledDiv = styled.div`
-  color: #333333;
-`;
+// const StyledDiv = styled.div`
+//   color: #333333;
+// `;
 
 class AddressBookForm extends Component {
   static propTypes = {
@@ -262,7 +264,7 @@ class AddressBookForm extends Component {
     //   );
     // }
     return (
-      <Form ref={i => { this.form = i; }}  onSubmit={this.onSubmit} onChange={this.onFieldChange} validator={this.testValidator} value={{ fullName: "Nat Hamilton" }}>
+      <Form ref={i => { this.form = i; }}  onSubmit={this.onSubmit} onChange={this.onFieldChange} validator={this.testValidator}>
         <div className="row">
           <div className="col-md-6">
             {/* <Components.Select
@@ -280,9 +282,7 @@ class AddressBookForm extends Component {
         <div className="row">
           <div className="col-md-6">
             <Field name="fullName" label="Full Name">
-              <TextInput
-                name="fullName"
-              />
+              <TextInput name="fullName" />
               <ErrorsBlock names={["fullName"]} />
             </Field>
           </div>
@@ -291,22 +291,14 @@ class AddressBookForm extends Component {
         <div className="row">
           <div className="col-md-6">
             <Field label="Address">
-              <TextInput
-                name="address1"
-                onChange={this.onFieldChange}
-                value={fields.address1}
-              />
+              <TextInput name="address1" />
               <ErrorsBlock names={["address1"]}/>
             </Field>
 
           </div>
           <div className="col-md-6">
             <Field label="Address">
-              <TextInput
-                name="address2"
-                onChange={this.onFieldChange}
-                value={fields.address2}
-              />
+              <TextInput name="address2" />
               <ErrorsBlock names={["address2"]}/>
             </Field>
           </div>
@@ -315,20 +307,15 @@ class AddressBookForm extends Component {
         <div className="row">
           <div className="col-md-4">
             <Field label="Postal">
-              <TextInput
-                name="postal"
-                value={fields.postal}
-              />
+              <TextInput name="postal" />
+              <ErrorsBlock names={["postal"]}/>
             </Field>
           </div>
           <div className="col-md-4">
-            <TextInput
-
-              label="City"
-              name="city"
-              onChange={this.onFieldChange}
-              value={fields.city}
-            />
+            <Field name="city" label="City">
+              <TextInput name="city" />
+              <ErrorsBlock names={["city"]}/>
+            </Field>
           </div>
           <div className="col-md-4">
 
@@ -337,13 +324,10 @@ class AddressBookForm extends Component {
 
         <div className="row">
           <div className="col-md-4">
-            <TextInput
-
-              label="Phone"
-              name="phone"
-              onChange={this.onFieldChange}
-              value={fields.phone}
-            />
+            <Field label="Phone">
+              <TextInput name="phone" />
+              <ErrorsBlock names={["phone"]}/>
+            </Field>
           </div>
         </div>
 
