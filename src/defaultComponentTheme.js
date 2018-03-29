@@ -92,9 +92,6 @@ const teal600 = "#34584f";
  * Default Theme Typography
  */
 
-// font stack
-const fontStack = "Source Sans Pro, sans-serif";
-
 // font scale
 const fontSize12 = "0.75rem";
 const fontSize14 = "0.875rem";
@@ -250,7 +247,7 @@ const inputStyles = {
   rui_inputBorderColor_error: red,
   rui_inputBorderColor_success: teal,
   rui_inputBorderRadius: borderRadius,
-  rui_inputColor_default: black55,
+  rui_inputColor_default: coolGrey500,
   rui_inputColor_disabled: black25,
   rui_inputColor_error: red,
   rui_inputColor_success: black55,

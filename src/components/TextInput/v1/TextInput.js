@@ -306,6 +306,9 @@ class TextInput extends Component {
   };
 
   onInputBlur = (event) => {
+    // when a user clicks the input's clear button the input will blur
+    // and remove the button before the onClick event fires. This timeout will
+    // keep the button rendered long enough for the onClick event to fire.
     setTimeout(() => {
       this.setState({ isInputFocused: false });
     }, 150);
