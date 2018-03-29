@@ -52,7 +52,7 @@ test("renders textarea", () => {
 test("renders textarea with props", () => {
   const component = renderer.create(<TextInput
     name="test"
-    allowLineBreak
+    shouldAllowLineBreak
     value="VALUE"
     placeholder="PLACEHOLDER"
     className="CLASSNAME"
@@ -69,12 +69,12 @@ test("getValue default trimming and null", () => {
   expect(wrapper.instance().getValue()).toBeNull();
 });
 
-test("getValue with convertEmptyStringToNull false", () => {
-  const wrapper = mount(<TextInput name="test" convertEmptyStringToNull={false} />);
+test("getValue with shouldConvertEmptyStringToNull false", () => {
+  const wrapper = mount(<TextInput name="test" shouldConvertEmptyStringToNull={false} />);
   expect(wrapper.instance().getValue()).toBe("");
 });
 
-test("getValue with trimValue false", () => {
-  const wrapper = mount(<TextInput name="test" trimValue={false} value=" " />);
+test("getValue with shouldTrimValue false", () => {
+  const wrapper = mount(<TextInput name="test" shouldTrimValue={false} value=" " />);
   expect(wrapper.instance().getValue()).toBe(" ");
 });

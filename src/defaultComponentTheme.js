@@ -96,7 +96,7 @@ const teal600 = "#34584f";
 const fontStack = "Source Sans Pro, sans-serif";
 
 // font scale
-const fontSize12 = "0,75rem";
+const fontSize12 = "0.75rem";
 const fontSize14 = "0.875rem";
 const fontSize16 = "1rem";
 const fontSize18 = "1.125rem";

@@ -65,14 +65,14 @@ Default text input used in the majoprity of instances. It can be defined as one 
 </div>
 ``` 
 ###### Input styles
-Text input on white and text input on grey or dark backgrounds. The dark brackground style is applyed by adding the `dark` prop to the component. Use `dark` text input when the background is grey or dark. When a grey background is used to create hierarchy and sections a white text field is use. 
+Text input on white and text input on grey or dark backgrounds. The dark brackground style is applyed by adding the `isDark` prop to the component. Use `dark` text input when the background is grey or dark. When a grey background is used to create hierarchy and sections a white text field is use. 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
     <TextInput name="example" placeholder="Hint" />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" dark />
+    <TextInput name="example" placeholder="Hint" isDark />
   </div>
 </div>
 ```
@@ -97,7 +97,7 @@ When a user has clicked or pressed into an input it’s in focused state.
     <TextInput name="example" placeholder="Hint" />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" dark />
+    <TextInput name="example" placeholder="Hint" isDark />
   </div>
 </div>
 ```
@@ -111,7 +111,7 @@ When a field has been filled in by the user, and has been unfocused it shows idl
     <TextInput name="example" placeholder="Hint" value="value" />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" value="value" dark />
+    <TextInput name="example" placeholder="Hint" value="value" isDark />
   </div>
 </div>
 ```
@@ -125,7 +125,7 @@ When information is required and/or needs to be formatted in a specific way the 
     <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated dark />
+    <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated isDark />
   </div>
 </div>
 ```
@@ -138,7 +138,7 @@ When information is required and/or needs to be formatted in a specific way the 
     <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} dark />
+    <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} isDark />
   </div>
 </div>
 ```
@@ -151,7 +151,7 @@ A disabled input is used when an action needs to be taken in before a button can
     <TextInput name="example" placeholder="Hint" value="value" isReadOnly />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" value="value" isReadOnly dark />
+    <TextInput name="example" placeholder="Hint" value="value" isReadOnly isDark />
   </div>
 </div>
 ```
@@ -165,7 +165,7 @@ Text inputs have the ability to add a custom icon to the input to give extra con
     <TextInput name="example" placeholder="Hint" icon={<i className="fab fa-pied-piper" />} onIconClick={(event) => alert("Input Icon Clicked!")} />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" icon={<i className="fab fa-pied-piper" />}  onIconClick={(event) => alert("Input Icon Clicked!")} dark />
+    <TextInput name="example" placeholder="Hint" icon={<i className="fab fa-pied-piper" />}  onIconClick={(event) => alert("Input Icon Clicked!")} isDark />
   </div>
 </div>
 ```
@@ -179,7 +179,7 @@ The default valid, invalid and clear icons can be overwritten by passing values 
     <TextInput name="example" placeholder="Hint" value="Valid" hasBeenValidated iconClear={<i className="fas fa-gavel" />} iconSuccess={<i className="fa fa-thumbs-up" />}  />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} iconClear={<i className="fas fa-gavel" />} iconError={<i className="fa fa-thumbs-down" />}  dark />
+    <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} iconClear={<i className="fas fa-gavel" />} iconError={<i className="fa fa-thumbs-down" />}  isDark />
   </div>
 </div>
 ```
@@ -197,7 +197,7 @@ const svg = <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1
     <TextInput name="example" placeholder="Hint" icon={svg} />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" icon={svg} dark />
+    <TextInput name="example" placeholder="Hint" icon={svg} isDark />
   </div>
 </div>
 ```
@@ -206,21 +206,21 @@ const svg = <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "0 1 50%", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks />
   </div>
 </div>
 ``` 
 
 ##### Input Styles
-Text input on white and text input on grey or dark backgrounds
+Text input on white and text input on grey or isDark backgrounds
 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="multi-line" placeholder="Hint" allowLineBreaks />
+    <TextInput name="multi-line" placeholder="Hint" shouldAllowLineBreaks />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="multi-line" placeholder="Hint" dark allowLineBreaks />
+    <TextInput name="multi-line" placeholder="Hint" isDark shouldAllowLineBreaks />
   </div>
 </div>
 ```
@@ -229,10 +229,10 @@ Idle Unfilled / Focused Unfilled
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks dark />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks isDark />
   </div>
 </div>
 ```
@@ -240,10 +240,10 @@ Idle Filled / Focused Filled
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks value="value" />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks value="value" dark />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isDark />
   </div>
 </div>
 ```
@@ -251,10 +251,10 @@ Valid
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks value="value" hasBeenValidated />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks value="value" hasBeenValidated dark />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated isDark />
   </div>
 </div>
 ```
@@ -262,10 +262,10 @@ Invalid
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks value="value" errors={["error"]} />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks value="value" errors={["error"]} dark />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} isDark />
   </div>
 </div>
 ```
@@ -273,10 +273,10 @@ Read Only / Disabled
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks value="value" isReadOnly />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks value="value" isReadOnly dark />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly isDark />
   </div>
 </div>
 ```
@@ -285,10 +285,10 @@ Text inputs have the ability to add a custom icon to the input to give extra con
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks icon={<i className="fab fa-pied-piper" />} />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks icon={<i className="fab fa-pied-piper" />} />
   </div>
   <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" allowLineBreaks icon={<i className="fab fa-pied-piper" />} dark />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks icon={<i className="fab fa-pied-piper" />} isDark />
   </div>
 </div>
 ```

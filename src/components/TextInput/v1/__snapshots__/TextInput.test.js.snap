@@ -5,6 +5,7 @@ exports[`renders 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
+  box-sizing: border-box;
   color: #737373;
   crsor: pointer;
   font-family: inherit;
@@ -44,6 +45,7 @@ exports[`renders 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -91,6 +93,7 @@ exports[`renders textarea 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
+  box-sizing: border-box;
   color: #737373;
   crsor: pointer;
   font-family: inherit;
@@ -130,6 +133,7 @@ exports[`renders textarea 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -177,6 +181,7 @@ exports[`renders textarea with props 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
+  box-sizing: border-box;
   color: #737373;
   crsor: pointer;
   font-family: inherit;
@@ -216,6 +221,7 @@ exports[`renders textarea with props 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -263,6 +269,7 @@ exports[`renders with props 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
+  box-sizing: border-box;
   color: #737373;
   crsor: pointer;
   font-family: inherit;
@@ -302,6 +309,7 @@ exports[`renders with props 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;

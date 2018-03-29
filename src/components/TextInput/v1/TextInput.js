@@ -5,7 +5,7 @@ import { applyTheme } from "./../../../helpers";
 
 function applyThemeVariant(themeProp) {
   return (props) => {
-    const inputType = (props.dark) ? "dark" : "default";
+    const inputType = (props.isDark) ? "dark" : "default";
     return applyTheme(`${themeProp}_${inputType}`);
   };
 }
@@ -17,7 +17,7 @@ function applyValidationColor(themeProp = "color") {
       status = "error";
     } else if (props.hasBeenValidated && props.value && props.value.length) {
       status = "success";
-    } else if (props.inputFocused || props.buttonFocused) {
+    } else if (props.isInputFocused || props.isButtonFocused) {
       status = "focus";
     } else {
       status = "default";
@@ -65,12 +65,14 @@ const StyledInput = styled.input`
 const Textarea = StyledInput.withComponent("textarea");
 
 const StyledTextarea = Textarea.extend`
+  box-sizing: border-box;
   line-height: ${applyTheme("textareaLineHeight")};
   min-height: ${applyTheme("textareaHeight")};
   resize: vertical;
 `;
 
 const IconWrapper = styled.div`
+  box-sizing: border-box;
   color: ${applyValidationColor("inputIconColor")};
   fill: currentColor;
   font-size: ${applyTheme("inputIconFontSize")};
@@ -85,10 +87,11 @@ const IconWrapper = styled.div`
   }
 `;
 
-const ClearButton = styled.button`
+const ClearButton = styled.div`
   background-color: ${applyTextareaVariant(applyTheme("color_white"), applyTheme("inputIconBackgroundColor"))};
   border: none;
   border-radius: ${applyTextareaVariant(applyTheme("inputBorderRadius"), "50%")};
+  box-sizing: border-box;
   color: ${applyTheme("color_coolGrey")};
   cursor: pointer;
   line-height: 0;
@@ -132,21 +135,9 @@ class TextInput extends Component {
 
   static propTypes = {
     /**
-     * Enable this when you need a textarea for multi line values, disabled by default
-     */
-    allowLineBreaks: PropTypes.bool,
-    /**
      * Custom class name
      */
     className: PropTypes.string,
-    /**
-     * If the input returns an empty string value convert it to a null value, enabled by default
-     */
-    convertEmptyStringToNull: PropTypes.bool,
-    /**
-     * Enable when using the input on a dark background, disabled by default
-     */
-    dark: PropTypes.bool,
     /**
      * An array of validation errors
      */
@@ -180,6 +171,10 @@ class TextInput extends Component {
      */
     iconSuccess: PropTypes.node,
     /**
+     * Enable when using the input on a dark background, disabled by default
+     */
+    isDark: PropTypes.bool,
+    /**
      * Enable to make the input read only / disabled, disabled by default
      */
     isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
@@ -212,9 +207,17 @@ class TextInput extends Component {
      */
     placeholder: PropTypes.string,
     /**
+     * Enable this when you need a textarea for multi line values, disabled by default
+     */
+    shouldAllowLineBreaks: PropTypes.bool,
+    /**
+     * If the input returns an empty string value convert it to a null value, enabled by default
+     */
+    shouldConvertEmptyStringToNull: PropTypes.bool,
+    /**
      * Enable this when you want to trim empty spaces from the begining and end of the input's returned value, enabled by default
      */
-    trimValue: PropTypes.bool,
+    shouldTrimValue: PropTypes.bool,
     /**
      * The HTML input type for the text input, the input only supports "email", "password", "text", "url" defaults to "text"
      */
@@ -231,20 +234,20 @@ class TextInput extends Component {
   };
 
   static defaultProps = {
-    allowLineBreaks: false,
-    convertEmptyStringToNull: true,
-    dark: false,
     hasBeenValidated: false,
     iconClear: (<i className="fas fa-times" />),
     iconClearAccessibilityText: "Clear",
     iconError: (<i className="fas fa-exclamation-triangle" />),
     iconSuccess: (<i className="far fa-check-circle" />),
+    isDark: false,
     isReadOnly: false,
     onChange() {},
     onChanging() {},
     onIconClick() {},
     onSubmit() {},
-    trimValue: true,
+    shouldAllowLineBreaks: false,
+    shouldConvertEmptyStringToNull: true,
+    shouldTrimValue: true,
     type: "text"
   };
 
@@ -256,8 +259,8 @@ class TextInput extends Component {
     this.state = {
       initialValue: value,
       value,
-      inputFocused: false,
-      buttonFocused: false
+      isInputFocused: false,
+      isButtonFocused: false
     };
   }
 
@@ -304,14 +307,14 @@ class TextInput extends Component {
 
   onInputBlur = (event) => {
     setTimeout(() => {
-      this.setState({ inputFocused: false });
+      this.setState({ isInputFocused: false });
     }, 150);
 
     this.setValue(event.target.value, false);
   }
 
   onButtonBlur = () => {
-    this.setState({ buttonFocused: false });
+    this.setState({ isButtonFocused: false });
   }
 
   onChange = (event) => {
@@ -322,11 +325,11 @@ class TextInput extends Component {
   };
 
   onInputFocus = () => {
-    this.setState({ inputFocused: true });
+    this.setState({ isInputFocused: true });
   }
 
   onButtonFocus = () => {
-    this.setState({ buttonFocused: true });
+    this.setState({ isButtonFocused: true });
   }
 
   getValue() {
@@ -344,9 +347,9 @@ class TextInput extends Component {
   }
 
   cleanValue(value) {
-    const { convertEmptyStringToNull, trimValue } = this.props;
-    let outputValue = trimValue ? value.trim() : value;
-    if (convertEmptyStringToNull && outputValue === "") outputValue = null;
+    const { shouldConvertEmptyStringToNull, shouldTrimValue } = this.props;
+    let outputValue = shouldTrimValue ? value.trim() : value;
+    if (shouldConvertEmptyStringToNull && outputValue === "") outputValue = null;
     return outputValue;
   }
 
@@ -381,17 +384,17 @@ class TextInput extends Component {
 
   showClearButton() {
     const { isReadOnly } = this.props;
-    const { inputFocused, buttonFocused } = this.state;
-    return (((this.getValue() && inputFocused) || (this.getValue() && buttonFocused)) && !isReadOnly);
+    const { isInputFocused, isButtonFocused } = this.state;
+    return (((this.getValue() && isInputFocused) || (this.getValue() && isButtonFocused)) && !isReadOnly);
   }
 
   renderClearButton() {
-    const { allowLineBreaks, errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
+    const { shouldAllowLineBreaks, errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
     const { value } = this.state;
     return (
-      <IconWrapper isTextarea={allowLineBreaks} errors={errors} hasBeenValidated={hasBeenValidated} value={value}>
+      <IconWrapper isTextarea={shouldAllowLineBreaks} errors={errors} hasBeenValidated={hasBeenValidated} value={value}>
         <ClearButton
-          isTextarea={allowLineBreaks}
+          isTextarea={shouldAllowLineBreaks}
           onClick={() => this.setValue()}
           onFocus={this.onButtonFocus}
           onBlur={this.onButtonBlur}
@@ -406,7 +409,7 @@ class TextInput extends Component {
 
   renderIcon() {
     const {
-      allowLineBreaks,
+      shouldAllowLineBreaks,
       errors,
       hasBeenValidated,
       icon, onIconClick,
@@ -429,7 +432,7 @@ class TextInput extends Component {
         errors={errors}
         hasBeenValidated={hasBeenValidated}
         onClick={onIconClick}
-        isTextarea={allowLineBreaks}
+        isTextarea={shouldAllowLineBreaks}
         value={value}
       >
         {inputIcon}
@@ -438,16 +441,16 @@ class TextInput extends Component {
   }
 
   render() {
-    const { allowLineBreaks, className, dark, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
+    const { shouldAllowLineBreaks, className, isDark, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
     const { value } = this.state;
-    if (allowLineBreaks) {
+    if (shouldAllowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
       return (
         <div style={{ position: "relative" }}>
           <StyledTextarea
             className={className}
-            dark={dark}
+            isDark={isDark}
             errors={errors}
             hasBeenValidated={hasBeenValidated}
             fieldIsDirty={this.isDirty()}
@@ -469,7 +472,7 @@ class TextInput extends Component {
       <div style={{ position: "relative" }}>
         <StyledInput
           className={className}
-          dark={dark}
+          isDark={isDark}
           errors={errors}
           hasBeenValidated={hasBeenValidated}
           readOnly={isReadOnly}
