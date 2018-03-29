@@ -238,7 +238,7 @@ const buttonStyles = {
   rui_buttonHorizontalPadding: `${paddingBasePixels * 2}px`,
   rui_buttonMinimumWidth: "100px",
   rui_buttonVerticalPadding: `${paddingBasePixels}px`,
-  rui_buttonVerticalPaddingSmall: `${paddingBasePixels / 2}px`
+  rui_buttonVerticalPaddingShort: `${paddingBasePixels / 2}px`
 };
 
 // input
