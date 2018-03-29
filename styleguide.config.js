@@ -84,7 +84,7 @@ module.exports = {
           name: "Actions",
         }),
         generateSection({
-          componentNames: ["TextInput", "AddressBookForm"],
+            componentNames: ["Field", "TextInput", "AddressBookForm"],
           content: "src/styleguide/sections/Forms.md",
           name: "Forms",
         })

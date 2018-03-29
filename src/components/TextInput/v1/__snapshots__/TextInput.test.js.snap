@@ -1,6 +1,62 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  color: #737373;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
 <div
   style={
     Object {
@@ -9,7 +65,7 @@ exports[`renders 1`] = `
   }
 >
   <input
-    className="sc-bdVaJa eQLUFM"
+    className="c0"
     maxLength={undefined}
     name="test"
     onBlur={[Function]}
@@ -22,7 +78,7 @@ exports[`renders 1`] = `
     value=""
   />
   <div
-    className="sc-bxivhb haMKKf"
+    className="c1"
     onClick={[Function]}
     value=""
   />
@@ -30,6 +86,62 @@ exports[`renders 1`] = `
 `;
 
 exports[`renders textarea 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  color: #737373;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
 <div
   style={
     Object {
@@ -38,7 +150,7 @@ exports[`renders textarea 1`] = `
   }
 >
   <input
-    className="sc-bdVaJa eQLUFM"
+    className="c0"
     maxLength={undefined}
     name="test"
     onBlur={[Function]}
@@ -51,7 +163,7 @@ exports[`renders textarea 1`] = `
     value=""
   />
   <div
-    className="sc-bxivhb haMKKf"
+    className="c1"
     onClick={[Function]}
     value=""
   />
@@ -59,6 +171,62 @@ exports[`renders textarea 1`] = `
 `;
 
 exports[`renders textarea with props 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  color: #737373;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
 <div
   style={
     Object {
@@ -67,7 +235,7 @@ exports[`renders textarea with props 1`] = `
   }
 >
   <input
-    className="CLASSNAME sc-bdVaJa eQLUFM"
+    className="CLASSNAME c0"
     maxLength={20}
     name="test"
     onBlur={[Function]}
@@ -80,7 +248,7 @@ exports[`renders textarea with props 1`] = `
     value="VALUE"
   />
   <div
-    className="sc-bxivhb haMKKf"
+    className="c1"
     onClick={[Function]}
     value="VALUE"
   />
@@ -88,6 +256,62 @@ exports[`renders textarea with props 1`] = `
 `;
 
 exports[`renders with props 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  color: #737373;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
 <div
   style={
     Object {
@@ -96,7 +320,7 @@ exports[`renders with props 1`] = `
   }
 >
   <input
-    className="CLASSNAME sc-bdVaJa eQLUFM"
+    className="CLASSNAME c0"
     maxLength={20}
     name="test"
     onBlur={[Function]}
@@ -109,7 +333,7 @@ exports[`renders with props 1`] = `
     value="VALUE"
   />
   <div
-    className="sc-bxivhb haMKKf"
+    className="c1"
     onClick={[Function]}
     value="VALUE"
   />
