@@ -4,11 +4,6 @@
  * Define styles that should apply to the style guide and the components within it here.
  * This should not be very many things.
  */
-
-* {
-  box-sizing: border-box;
-}
-
 body {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
