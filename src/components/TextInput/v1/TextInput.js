@@ -63,9 +63,11 @@ const IconWrapper = styled.div`
   color: ${applyValidationColor("inputIconColor")};
   fill: currentColor;
   font-size: ${applyTheme("inputIconFontSize")};
+  height: ${({ isTextarea }) => isTextarea ? "auto" : "1rem"};
   position: ${({ isTextarea }) => isTextarea ? "relative" : "absolute"};
   right: ${({ isTextarea }) => isTextarea ? applyTheme("textareaIconRight") : applyTheme("inputIconRight")};
   top: ${({ isTextarea }) => isTextarea ? applyTheme("textareaIconTop") : applyTheme("inputIconTop")};
+  width: ${({ isTextarea }) => isTextarea ? "auto" : "1rem"};
 
   & * {
     display: inline-block;
@@ -79,8 +81,7 @@ const ClearButton = styled.button`
   color: ${applyTheme("color_coolGrey")};
   cursor: pointer;
   line-height: 0;
-  margin-top: ${({ isTextarea }) => isTextarea ? applyTheme("inputIconTop") : "0"};
-  padding: ${applyTheme("inputIconVerticalPadding")} ${applyTheme("inputIconHorizontalPadding")};
+  padding: ${({ isTextarea }) => isTextarea ? applyTheme("textareaIconPadding") : applyTheme("inputIconPadding")};
   position: relative;
   top: ${({ isTextarea }) => isTextarea ?  "0" : "-0.1rem"};
 
@@ -110,18 +111,6 @@ const ClearButton = styled.button`
       margin-left: .3125rem;
     }
   `}
-`;
-
-const ScreenReaderText = styled.span`
-  border: 0;
-  clip: rect(1px, 1px, 1px, 1px);
-  clip-path: inset(50%);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  position: absolute !important;
-  width: 1px;
-  word-wrap:normal !important;
 `;
 
 const stringDefaultEquals = (value1, value2) => ((value1 || '') === (value2 || ''));
@@ -175,17 +164,9 @@ class TextInput extends Component {
      */
     iconError: PropTypes.node,
     /**
-     * Overwrite the default error input icon accessibilty text
-     */
-    iconErrorAccessibilityText: PropTypes.string,
-    /**
      * Overwrite the default success input icon by passing an icon node
      */
     iconSuccess: PropTypes.node,
-    /**
-     * Overwrite the default success input icon accessibilty text
-     */
-    iconSuccessAccessibilityText: PropTypes.string,
     /**
      * Enable to make the input read only / disabled, disabled by default
      */
@@ -245,9 +226,7 @@ class TextInput extends Component {
     iconClear: (<i className="fa fa-close" />),
     iconClearAccessibilityText: "Clear",
     iconError: (<i className="fa fa-exclamation-triangle" />),
-    iconErrorAccessibilityText: "Error",
     iconSuccess: (<i className="fa fa-check-circle" />),
-    iconSuccessAccessibilityText: "Success",
     isReadOnly: false,
     onChange() {},
     onChanging() {},
@@ -419,25 +398,18 @@ class TextInput extends Component {
       errors,
       hasBeenValidated,
       icon, onIconClick,
-      iconAccessibilityText,
       iconSuccess,
-      iconSuccessAccessibilityText,
-      iconError,
-      iconErrorAccessibilityText
+      iconError
     } = this.props;
     const { value } = this.state
 
     let inputIcon;
-    let inputIconText;
     if (errors && errors.length) {
       inputIcon = iconError;
-      inputIconText = iconErrorAccessibilityText;
     } else if (hasBeenValidated && value && value.length) {
       inputIcon = iconSuccess;
-      inputIconText = iconSuccessAccessibilityText;
     } else {
       inputIcon = icon;
-      inputIconText = iconAccessibilityText
     }
 
     return (
@@ -449,7 +421,6 @@ class TextInput extends Component {
         value={value}
       >
         {inputIcon}
-        {inputIconText ? <ScreenReaderText>{inputIconText}</ScreenReaderText> : ""}
       </IconWrapper>
     );
   }
