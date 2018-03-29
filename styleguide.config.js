@@ -81,7 +81,7 @@ module.exports = {
         generateSection({
           componentNames: ["Button"],
           content: "src/styleguide/sections/Actions.md",
-          name: "Actions",
+          name: "Actions"
         })
       ]
     }
@@ -109,6 +109,7 @@ module.exports = {
     const lastPieceOfDirPath = dir.slice(dir.lastIndexOf("/") + 1);
     return `import { ${name} } from "@reactioncommerce/components/${lastPieceOfDirPath}"`;
   },
+  pagePerSection: true,
   serverPort: 4000,
   template: "src/styleguide/index.html"
   // handlers(componentPath) {

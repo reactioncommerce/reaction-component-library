@@ -116,14 +116,11 @@ docker-compose run --rm web yarn add --dev eslint
 
 ###### Yarn Install
 
-:warning: Always rebuild the image and start a new container after modifying
+:warning: Always rebuild the image after modifying
 `yarn.lock` or `Dockerfile`!
 
 ```sh
-docker-compose run --rm web yarn install
-docker-compose down --rmi local
-docker-compose build
-docker-compose up
+docker-compose up --build
 ```
 
 ## Adding a New Component
