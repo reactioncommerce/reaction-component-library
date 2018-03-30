@@ -466,7 +466,7 @@ class TextInput extends Component {
             placeholder={placeholder}
             value={value}
           />
-          {this.showClearButton() ? this.renderClearButton() : this.renderIcon()}
+          {this.showClearButton() ? this.renderClearButton() : "" }
         </div>
       );
     }
