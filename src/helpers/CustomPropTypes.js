@@ -8,8 +8,8 @@ const optionsSyntax = PropTypes.arrayOf(PropTypes.shape({
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-    PropTypes.bool,
-  ]).isRequired,
+    PropTypes.bool
+  ]).isRequired
 }));
 
 export default {
