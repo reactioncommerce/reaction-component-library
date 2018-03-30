@@ -53,13 +53,21 @@ if (fs.statSync(componentsDir).isDirectory()) {
   });
 }
 
-function generateSection({ componentNames, name, content }) {
-  const sections = componentNames.map((componentName) => {
-    const components = Object.keys(componentTree[componentName]).map((version) => componentTree[componentName][version]);
-    return { name: componentName, components: () => components };
-  });
+// function generateSection({ componentNames, name, content }) {
+//   const sections = componentNames.map((componentName) => {
+//     const components = Object.keys(componentTree[componentName]).map((version) => componentTree[componentName][version]);
+//     return { name: componentName, components: () => components };
+//   });
 
-  return { content, name, sections };
+//   return { content, name, sections };
+// }
+
+// This one renders only version 1 for now
+function generateSection({ componentNames, name, content }) {
+  const components = componentNames.map((componentName) =>
+    Object.keys(componentTree[componentName]).map((version) => componentTree[componentName][version])[0]);
+
+  return { content, name, components };
 }
 
 module.exports = {
@@ -84,7 +92,7 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["Field", "TextInput", "ErrorsBlock"],
+          componentNames: ["ErrorsBlock", "Field", "Select", "TextInput"],
           content: "src/styleguide/sections/Forms.md",
           name: "Forms"
         })
