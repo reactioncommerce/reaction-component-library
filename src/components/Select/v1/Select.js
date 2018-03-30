@@ -1,8 +1,9 @@
 import React, { Component } from "react";
+import isEqual from "lodash.isequal";
 import PropTypes from "prop-types";
 import ReactSelect from "react-select";
-import styled from "styled-components";
-import { applyTheme, CustomPropTypes } from "helpers";
+// import styled from "styled-components";
+import { CustomPropTypes } from "helpers";
 
 const nullDefaultEquals = (value1, value2) => ((value1 || null) === (value2 || null));
 
@@ -23,7 +24,6 @@ const supportedPassthroughProps = [
   "hideSelectedOptions",
   "inputValue",
   "isClearable",
-  "isDisabled",
   "isLoading",
   "isOptionDisabled",
   "isOptionSelected",
@@ -54,110 +54,250 @@ const supportedPassthroughProps = [
 
 class Select extends Component {
   static propTypes = {
-    className: PropTypes.string,
-    isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
-    name: PropTypes.string,
-    onChange: PropTypes.func,
-    onChanging: PropTypes.func,
-    options: CustomPropTypes.options,
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.bool,
-    ]),
-
-    /* Focus the control when it is mounted */
-    autoFocus: PropTypes.bool,
-    /* Remove the currently focused option when the user presses backspace */
-    backspaceRemovesValue: PropTypes.bool,
-    /* Remove focus from the input when the user selects an option (handy for dismissing the keyboard on touch devices) */
-    blurInputOnSelect: PropTypes.bool,
-    /* When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent  */
-    captureMenuScroll: PropTypes.bool,
-    /* Close the select menu when the user selects an option */
-    closeMenuOnSelect: PropTypes.bool,
-    /* Custom components to use */
-    components: PropTypes.object,
-    /* Clear all values when the user presses escape AND the menu is closed */
-    escapeClearsValue: PropTypes.bool,
-    /* Formats group labels in the menu as React components */
-    formatGroupLabel: PropTypes.func,
-    /* Formats option labels in the menu and control as React components */
-    formatOptionLabel: PropTypes.func,
-    /* Resolves option data to a string to be displayed as the label by components */
-    getOptionLabel: PropTypes.func,
-    /* Resolves option data to a string to compare options and specify value attributes */
-    getOptionValue: PropTypes.func,
-    /* Hide the selected option from the menu */
-    hideSelectedOptions: PropTypes.bool,
-    /* The value of the search input */
-    inputValue: PropTypes.string,
-    /* Is the select value clearable */
-    isClearable: PropTypes.bool,
-    /* Is the select disabled */
-    isDisabled: PropTypes.bool,
-    /* Is the select in a state of loading (async) */
-    isLoading: PropTypes.bool,
-    /* Override the built-in logic to detect whether an option is disabled */
-    isOptionDisabled: PropTypes.func,
-    /* Override the built-in logic to detect whether an option is selected */
-    isOptionSelected: PropTypes.func,
-    /* Support multiple selected options */
-    isMulti: PropTypes.bool,
-    /* Is the select direction right-to-left */
-    isRtl: PropTypes.bool,
-    /* Whether to enable search functionality */
-    isSearchable: PropTypes.bool,
-    /* Async: Text to display when loading options */
-    loadingMessage: PropTypes.func,
-    /* Minimum height of the menu before flipping */
-    minMenuHeight: PropTypes.number,
-    /* Maximum height of the menu before scrolling */
-    maxMenuHeight: PropTypes.number,
-    /* Maximum height of the value container before scrolling */
-    maxValueHeight: PropTypes.number,
-    /* Whether the menu is open */
-    menuIsOpen: PropTypes.bool,
     /**
-     * Default placement of the menu in relation to the control. 'auto' will flip
+     * Passed through to react-select package. Focus the control when it is mounted
+     */
+    autoFocus: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Remove the currently focused option when the user presses backspace
+     */
+    backspaceRemovesValue: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package.
+     * Remove focus from the input when the user selects an option (handy for dismissing the keyboard on touch devices)
+     */
+    blurInputOnSelect: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
+     */
+    captureMenuScroll: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Close the select menu when the user selects an option
+     */
+    closeMenuOnSelect: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Custom components to use
+     */
+    components: PropTypes.object,
+
+    /**
+     * Passed through to react-select package. Clear all values when the user presses escape AND the menu is closed
+     */
+    escapeClearsValue: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Formats group labels in the menu as React components
+     */
+    formatGroupLabel: PropTypes.func,
+
+    /**
+     * Passed through to react-select package. Formats option labels in the menu and control as React components
+     */
+    formatOptionLabel: PropTypes.func,
+
+    /**
+     * Passed through to react-select package. Resolves option data to a string to be displayed as the label by components
+     */
+    getOptionLabel: PropTypes.func,
+
+    /**
+     * Passed through to react-select package. Resolves option data to a string to compare options and specify value attributes
+     */
+    getOptionValue: PropTypes.func,
+
+    /**
+     * Passed through to react-select package. Hide the selected option from the menu
+     */
+    hideSelectedOptions: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. The value of the search input
+     */
+    inputValue: PropTypes.string,
+
+    /**
+     * Passed through to react-select package. Is the select value clearable
+     */
+    isClearable: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Is the select in a state of loading (async)
+     */
+    isLoading: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Support multiple selected options
+     */
+    isMulti: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Override the built-in logic to detect whether an option is disabled
+     */
+    isOptionDisabled: PropTypes.func,
+
+    /**
+     * Passed through to react-select package. Override the built-in logic to detect whether an option is selected
+     */
+    isOptionSelected: PropTypes.func,
+
+    /**
+     * Passed through to react-select package as `isDisabled`. Should the user be able to edit this value?
+     */
+    isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+
+    /**
+     * Passed through to react-select package. Is the select direction right-to-left
+     */
+    isRtl: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Whether to enable search functionality
+     */
+    isSearchable: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Async: Text to display when loading options
+     */
+    loadingMessage: PropTypes.func,
+
+    /**
+     * Passed through to react-select package. Maximum height of the menu before scrolling
+     */
+    maxMenuHeight: PropTypes.number,
+
+    /**
+     * Passed through to react-select package. Maximum height of the value container before scrolling
+     */
+    maxValueHeight: PropTypes.number,
+
+    /**
+     * Passed through to react-select package. Whether the menu is open
+     */
+    menuIsOpen: PropTypes.bool,
+
+    /**
+     * Passed through to react-select package. Default placement of the menu in relation to the control. 'auto' will flip
      * when there isn't enough space below the control.
      */
     menuPlacement: PropTypes.oneOf(["auto", "bottom", "top"]),
-    /* Text to display when there are no options */
+
+    /**
+     * Passed through to react-select package. Minimum height of the menu before flipping
+     */
+    minMenuHeight: PropTypes.number,
+
+    /**
+     * A name or object path that determines where in the closest form object this will appear.
+     */
+    name: PropTypes.string,
+
+    /**
+     * Passed through to react-select package. Text to display when there are no options
+     */
     noOptionsMessage: PropTypes.func,
-    /* Handle blur events on the control */
+
+    /**
+     * Passed through to react-select package. Handle blur events on the control
+     */
     onBlur: PropTypes.func,
-    /* Handle focus events on the control */
+
+    /**
+     * Called with the new selected value each time the user changes the selection
+     */
+    onChange: PropTypes.func,
+
+    /**
+     * Called with the new selected value each time the user changes the selection
+     */
+    onChanging: PropTypes.func,
+
+    /**
+     * Passed through to react-select package. Handle focus events on the control
+     */
     onFocus: PropTypes.func,
-    /* Handle change events on the input */
+
+    /**
+     * Passed through to react-select package. Handle change events on the input
+     */
     onInputChange: PropTypes.func,
-    /* Handle key down events on the select */
+
+    /**
+     * Passed through to react-select package. Handle key down events on the select
+     */
     onKeyDown: PropTypes.func,
-    /* Handle the menu opening */
-    onMenuOpen: PropTypes.func,
-    /* Handle the menu closing */
+
+    /**
+     * Passed through to react-select package. Handle the menu closing
+     */
     onMenuClose: PropTypes.func,
-    /* Fired when the user scrolls to the top of the menu */
-    onMenuScrollToTop: PropTypes.func,
-    /* Fired when the user scrolls to the bottom of the menu */
+
+    /**
+     * Passed through to react-select package. Handle the menu opening
+     */
+    onMenuOpen: PropTypes.func,
+
+    /**
+     * Passed through to react-select package. Fired when the user scrolls to the bottom of the menu
+     */
     onMenuScrollToBottom: PropTypes.func,
-    /* Number of options to jump in menu when page{up|down} keys are used */
+
+    /**
+     * Passed through to react-select package. Fired when the user scrolls to the top of the menu
+     */
+    onMenuScrollToTop: PropTypes.func,
+
+    /**
+     * The options to show, in Composable Form Spec format.
+     * @see http://forms.dairystatedesigns.com/user/input/#selection-inputs
+     */
+    options: CustomPropTypes.options,
+
+    /**
+     * Passed through to react-select package. Number of options to jump in menu when page{up|down} keys are used
+     */
     pageSize: PropTypes.number,
-    /* Placeholder text for the select value */
+
+    /**
+     * Passed through to react-select package. Placeholder text for the select value
+     */
     placeholder: PropTypes.string,
-    /* Status to relay to screen readers */
+
+    /**
+     * Passed through to react-select package. Status to relay to screen readers
+     */
     screenReaderStatus: PropTypes.func,
-    /* Whether the menu should be scrolled into view when it opens */
+
+    /**
+     * Passed through to react-select package. Whether the menu should be scrolled into view when it opens
+     */
     scrollMenuIntoView: PropTypes.bool,
-    /* Select the currently focused option when the user presses tab */
-    tabSelectsValue: PropTypes.bool
+
+    /**
+     * Passed through to react-select package. Select the currently focused option when the user presses tab
+     */
+    tabSelectsValue: PropTypes.bool,
+
+    /**
+     * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
+     * the Composable Forms spec will pass this automatically.
+     */
+    value: PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.bool
+    ])
   };
 
   static defaultProps = {
     isReadOnly: false,
     onChange() {},
     onChanging() {},
-    options: [],
+    options: []
   };
 
   static isFormInput = true;
@@ -168,7 +308,7 @@ class Select extends Component {
     this.validateOptions(props.options);
 
     this.state = {
-      value: props.value || null,
+      value: props.value || null
     };
   }
 
@@ -195,14 +335,14 @@ class Select extends Component {
 
     if (value !== undefined && value !== null) {
       switch (this.dataType) {
-        case 'string':
+        case "string":
           value = String(value);
           break;
-        case 'number':
-          value = value === '' ? null : Number(value);
+        case "number":
+          value = value === "" ? null : Number(value);
           break;
-        case 'boolean':
-          value = value === '' ? null : Boolean(value);
+        case "boolean":
+          value = value === "" ? null : Boolean(value);
           break;
         default:
           // do nothing
@@ -250,14 +390,15 @@ class Select extends Component {
         if (!this.dataType) {
           this.dataType = checkDataType;
         } else if (checkDataType !== this.dataType) {
-          throw new Error(`All option values must have the same data type. The data type of the first option is "${this.dataType}" while the data type of the ${option.label} option is "${checkDataType}"`);
+          throw new Error(`All option values must have the same data type. The data type of the first option is "${this.dataType}" while the` +
+            ` data type of the ${option.label} option is "${checkDataType}"`);
         }
       }
     });
   }
 
   render() {
-    const { options } = this.props;
+    const { isReadOnly, options } = this.props;
 
     // Unfortunately right now, react-select optgroup support is just a tad different from the
     // composable form spec. Might be able to do a PR to get react-select updated.
@@ -266,7 +407,7 @@ class Select extends Component {
         return {
           label: opt.optgroup,
           options: opt.options
-        }
+        };
       }
       return opt;
     });
@@ -279,6 +420,7 @@ class Select extends Component {
     return (
       <ReactSelect
         {...passthroughProps}
+        isDisabled={isReadOnly}
         onChange={this.handleChange}
         options={reactSelectOptions}
       />
