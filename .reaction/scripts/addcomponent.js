@@ -29,7 +29,7 @@ if (!componentName) {
 }
 
 const BASE_PATH = path.join(process.cwd(), "src/components");
-const componentDirectory = path.join(BASE_PATH, componentName);;
+const componentDirectory = path.join(BASE_PATH, componentName);
 
 function createComponentFile(name) {
   const filePath = path.join(componentDirectory, "v1", `${name}.js`);

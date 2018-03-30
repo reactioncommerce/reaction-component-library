@@ -18,6 +18,7 @@
     "lint:eslint": "eslint .",
     "lint:fix": "yarn run lint:fix:eslint",
     "lint:fix:eslint": "eslint --fix .",
+    "prep-publish": "node ./.reaction/scripts/publish.js",
     "start": "yarn styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
@@ -31,10 +32,10 @@
         "module-resolver",
         {
           "root": [
-            "./src"
+            "./package/src"
           ],
           "alias": {
-            "helpers": "./src/helpers"
+            "helpers": "./package/src/helpers"
           }
         }
       ],
@@ -54,7 +55,6 @@
   },
   "eslintIgnore": [
     "config",
-    "build",
     "reports"
   ],
   "jest": {
@@ -71,7 +71,7 @@
     "setupFiles": [
       "<rootDir>/config/polyfills.js"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
+    "setupTestFrameworkScriptFile": "<rootDir>/package/src/setupTests.js",
     "testPathIgnorePatterns": [
       "/config/",
       "/node_modules/"
