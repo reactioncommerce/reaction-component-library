@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 // const snapguidist = require("snapguidist");
 
-const componentsDir = path.join(__dirname, "src/components");
+const componentsDir = path.join(__dirname, "package/src/components");
 const componentTree = {};
 // const { defaultHandlers } = require("react-docgen");
 
@@ -47,7 +47,7 @@ if (fs.statSync(componentsDir).isDirectory()) {
       const versionItems = fs.readdirSync(fullItemPath);
       versionItems.forEach((versionName) => {
         componentTree[componentName] = componentTree[componentName] || {};
-        componentTree[componentName][versionName] = path.join("./src/components", componentName, versionName, `${componentName}.js`);
+        componentTree[componentName][versionName] = path.join("./package/src/components", componentName, versionName, `${componentName}.js`);
       });
     }
   });
@@ -78,7 +78,7 @@ module.exports = {
       sections: [
         {
           name: "Installing and Importing",
-          content: "src/styleguide/sections/InstallingandImporting.md"
+          content: "styleguide/src/sections/InstallingandImporting.md"
           // description: ""
         }
       ]
@@ -88,25 +88,28 @@ module.exports = {
       sections: [
         generateSection({
           componentNames: ["Button"],
-          content: "src/styleguide/sections/Actions.md",
+          content: "styleguide/src/sections/Actions.md",
           name: "Actions"
         }),
         generateSection({
           componentNames: ["ErrorsBlock", "Field", "Select", "TextInput"],
-          content: "src/styleguide/sections/Forms.md",
+          content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
       ]
     }
   ],
-  require: [path.join(__dirname, "src/styleguide/styles.css")],
+  require: [path.join(__dirname, "styleguide/src/styles.css")],
   webpackConfig: {
     devtool: "source-map",
     module: {
       rules: [
         {
           test: /\.jsx?$/,
-          include: path.resolve(__dirname, "src"),
+          include: [
+            path.resolve(__dirname, "package/src"),
+            path.resolve(__dirname, "styleguide/src")
+          ],
           loader: "babel-loader"
         },
         {
@@ -124,7 +127,7 @@ module.exports = {
   },
   pagePerSection: true,
   serverPort: 4000,
-  template: "src/styleguide/index.html"
+  template: "styleguide/src/index.html"
   // handlers(componentPath) {
   //   return defaultHandlers.concat(
   //     // require("react-docgen-displayname-handler").createDisplayNameHandler(componentPath),

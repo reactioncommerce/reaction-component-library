@@ -3,7 +3,7 @@
 yarn-error.log
 coverage
 !dist/README.md
-dist/*
+**/dist/*
 node_modules
 !reports/README.md
 reports/*
