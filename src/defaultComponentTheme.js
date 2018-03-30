@@ -92,11 +92,8 @@ const teal600 = "#34584f";
  * Default Theme Typography
  */
 
-// font stack
-const fontStack= "Source Sans Pro, sans-serif";
-
 // font scale
-const fontSize12 = "0,75rem";
+const fontSize12 = "0.75rem";
 const fontSize14 = "0.875rem";
 const fontSize16 = "1rem";
 const fontSize18 = "1.125rem";
@@ -118,6 +115,22 @@ const headerLeading = "1.25";
 const flatLeading = "1";
 
 /**
+ * Default Theme Buttons
+ */
+const redActive = "#bc1d2b";
+const coolGreyActive = "#3b5c70";
+const coolGreyActiveLight = "#c9d9e1";
+const reactionBlueActive = "#057dbe";
+
+const redHover = "#e4505e";
+const coolGreyHover = "#5d8fa9";
+const coolGreyHoverLight = "#eaeff3";
+const reactionBlueHover = "#25b0f9";
+
+const paleGrey = "#e9f0f4";
+const lightBlueGrey = "#c8d9e3";
+
+/**
  * Default Theme Spacing
  */
 
@@ -125,12 +138,12 @@ const flatLeading = "1";
 const paddingBasePixels = 10;
 
 const spacingBase = 0.625;
-const baseUnit = (size) => `${spacingBase*size}rem`;
+const baseUnit = (size) => `${spacingBase * size}rem`;
 
 /**
  * Default Theme Borders
  */
-const borderRadius = baseUnit(.2);
+const borderRadius = baseUnit(0.2);
 
 /**
  * Default Theme Elements
@@ -145,31 +158,88 @@ const defaultStyles = {
   rui_leading_body: bodyLeading,
   rui_leading_header: headerLeading,
   rui_leading_flat: flatLeading
-}
+};
 
 // buttons
 const buttonStyles = {
-  rui_buttonBorderRadius: "2px",
-  rui_buttonBorderColor_danger: red,
-  rui_buttonBorderColor_default: coolGrey,
-  rui_buttonBorderColor_disabled: coolGrey200,
-  rui_buttonBorderColor_important: reactionBlue,
-  rui_buttonBorderColor_secondary: coolGrey,
+  rui_buttonBackgroundColor_danger_active: redActive,
+  rui_buttonBackgroundColor_danger_disabled: coolGrey200,
+  rui_buttonBackgroundColor_danger_hover: redHover,
   rui_buttonBackgroundColor_danger: red,
+  rui_buttonBackgroundColor_default_active: coolGreyActive,
+  rui_buttonBackgroundColor_default_disabled: coolGrey200,
+  rui_buttonBackgroundColor_default_hover: coolGreyHover,
   rui_buttonBackgroundColor_default: coolGrey,
-  rui_buttonBackgroundColor_disabled: coolGrey200,
+  rui_buttonBackgroundColor_important_active: reactionBlueActive,
+  rui_buttonBackgroundColor_important_disabled: coolGrey200,
+  rui_buttonBackgroundColor_important_hover: reactionBlueHover,
   rui_buttonBackgroundColor_important: reactionBlue,
+  rui_buttonBackgroundColor_secondary_active: coolGreyActiveLight,
+  rui_buttonBackgroundColor_secondary_disabled: coolGrey200,
+  rui_buttonBackgroundColor_secondary_hover: coolGreyHoverLight,
   rui_buttonBackgroundColor_secondary: "transparent",
+  rui_buttonBackgroundColor_secondaryDanger_active: redActive,
+  rui_buttonBackgroundColor_secondaryDanger_disabled: coolGrey200,
+  rui_buttonBackgroundColor_secondaryDanger_hover: redHover,
+  rui_buttonBackgroundColor_secondaryDanger: "transparent",
+  rui_buttonBackgroundColor_textOnly_active: lightBlueGrey,
+  rui_buttonBackgroundColor_textOnly_disabled: "transparent",
+  rui_buttonBackgroundColor_textOnly_hover: paleGrey,
+  rui_buttonBackgroundColor_textOnly: "transparent",
+  rui_buttonBorderColor_danger_active: redActive,
+  rui_buttonBorderColor_danger_disabled: coolGrey200,
+  rui_buttonBorderColor_danger_hover: redHover,
+  rui_buttonBorderColor_danger: red,
+  rui_buttonBorderColor_default_active: coolGreyActive,
+  rui_buttonBorderColor_default_disabled: coolGrey200,
+  rui_buttonBorderColor_default_hover: coolGreyHover,
+  rui_buttonBorderColor_default: coolGrey,
+  rui_buttonBorderColor_important_active: reactionBlueActive,
+  rui_buttonBorderColor_important_disabled: coolGrey200,
+  rui_buttonBorderColor_important_hover: reactionBlueHover,
+  rui_buttonBorderColor_important: reactionBlue,
+  rui_buttonBorderColor_secondary_active: coolGrey,
+  rui_buttonBorderColor_secondary_disabled: coolGrey200,
+  rui_buttonBorderColor_secondary_hover: coolGrey,
+  rui_buttonBorderColor_secondary: coolGrey,
+  rui_buttonBorderColor_secondaryDanger_active: redActive,
+  rui_buttonBorderColor_secondaryDanger_disabled: coolGrey200,
+  rui_buttonBorderColor_secondaryDanger_hover: redHover,
+  rui_buttonBorderColor_secondaryDanger: red,
+  rui_buttonBorderColor_textOnly_active: lightBlueGrey,
+  rui_buttonBorderColor_textOnly_disabled: "transparent",
+  rui_buttonBorderColor_textOnly_hover: paleGrey,
+  rui_buttonBorderColor_textOnly: "transparent",
+  rui_buttonBorderRadius: "2px",
+  rui_buttonForegroundColor_danger_active: white,
+  rui_buttonForegroundColor_danger_disabled: white,
+  rui_buttonForegroundColor_danger_hover: white,
   rui_buttonForegroundColor_danger: white,
+  rui_buttonForegroundColor_default_active: white,
+  rui_buttonForegroundColor_default_disabled: white,
+  rui_buttonForegroundColor_default_hover: white,
   rui_buttonForegroundColor_default: white,
-  rui_buttonForegroundColor_disabled: white,
+  rui_buttonForegroundColor_important_active: white,
+  rui_buttonForegroundColor_important_disabled: white,
+  rui_buttonForegroundColor_important_hover: white,
   rui_buttonForegroundColor_important: white,
+  rui_buttonForegroundColor_secondary_active: coolGrey500,
+  rui_buttonForegroundColor_secondary_disabled: white,
+  rui_buttonForegroundColor_secondary_hover: coolGrey500,
   rui_buttonForegroundColor_secondary: coolGrey500,
-  rui_buttonHorizontalPadding: `${paddingBasePixels*2}px`,
+  rui_buttonForegroundColor_secondaryDanger_active: white,
+  rui_buttonForegroundColor_secondaryDanger_disabled: white,
+  rui_buttonForegroundColor_secondaryDanger_hover: white,
+  rui_buttonForegroundColor_secondaryDanger: red,
+  rui_buttonForegroundColor_textOnly_active: coolGrey400,
+  rui_buttonForegroundColor_textOnly_disabled: coolGrey200,
+  rui_buttonForegroundColor_textOnly_hover: coolGrey400,
+  rui_buttonForegroundColor_textOnly: coolGrey400,
+  rui_buttonHorizontalPadding: `${paddingBasePixels * 2}px`,
   rui_buttonMinimumWidth: "100px",
   rui_buttonVerticalPadding: `${paddingBasePixels}px`,
-  rui_buttonVerticalPaddingSmall: `${paddingBasePixels/2}px`
-}
+  rui_buttonVerticalPaddingShort: `${paddingBasePixels / 2}px`
+};
 
 // input
 const inputStyles = {
@@ -180,7 +250,7 @@ const inputStyles = {
   rui_inputBorderColor_error: red,
   rui_inputBorderColor_success: teal,
   rui_inputBorderRadius: borderRadius,
-  rui_inputColor_default: black55,
+  rui_inputColor_default: coolGrey500,
   rui_inputColor_disabled: black25,
   rui_inputColor_error: red,
   rui_inputColor_success: black55,
@@ -192,7 +262,7 @@ const inputStyles = {
   rui_inputHorizontalPadding: baseUnit(1),
   rui_iconTop: baseUnit(1),
   rui_iconRight: baseUnit(1)
-}
+};
 
 const inputIcon = {
   rui_inputIconBackgroundColor: black10,
@@ -201,25 +271,25 @@ const inputIcon = {
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
   rui_inputIconFontSize: fontSize14,
-  rui_inputIconPadding: `${baseUnit(.5)} ${baseUnit(.5)}`,
+  rui_inputIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
   rui_inputIconRight: baseUnit(1.2),
   rui_inputIconTop: baseUnit(1.2),
   rui_inputIconTextPadding: baseUnit(20)
-}
+};
 
 // textarea
 const textareaStyles = {
   rui_textareaHeight: baseUnit(6),
   rui_textareaLineHeight: bodyLeading,
-  rui_textareaIconPadding: `${baseUnit(.75)} ${baseUnit(.75)}`,
+  rui_textareaIconPadding: `${baseUnit(0.75)} ${baseUnit(0.75)}`,
   rui_textareaIconRight: "0",
   rui_textareaIconTop: baseUnit(1)
-}
+};
 
 // field
 const fieldStyles = {
   rui_fieldMargin: `${baseUnit(1.5)} 0`
-}
+};
 
 // label
 const labelStyles = {
@@ -228,14 +298,14 @@ const labelStyles = {
   rui_labelColor_success: black55,
   rui_labelFontSize: fontSize14,
   rui_labelMargin: `0 0 ${baseUnit(1)}`
-}
+};
 
 // help text
 const helpTextStyles = {
   rui_helpTextColor: black55,
   rui_helpTextFontSize: fontSize14,
   rui_helpTextMargin: `${baseUnit(1)} 0 0`
-}
+};
 
 // errors block
 const errorsBlockStyles = {

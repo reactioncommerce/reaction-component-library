@@ -1,14 +1,15 @@
-import { getFromTheme } from "./../../../../helpers";
+import { getFromTheme } from "helpers";
 
-export default function applyThemeWithActionType(themeProp) {
+export default function applyThemeWithActionType(themeProp, stateSuffix) {
   return (props) => {
-    const { actionType, disabled } = props;
-    let suffix;
-    if (disabled) {
-      suffix = "disabled";
-    } else {
-      suffix = actionType;
-    }
-    return getFromTheme(props, `rui_${themeProp}_${suffix}`);
+    const { actionType, isDisabled, isTextOnly } = props;
+
+    const finalSuffix = isTextOnly ? "textOnly" : actionType;
+    const finalStateSuffix = isDisabled ? "disabled" : stateSuffix;
+
+    let key = `rui_${themeProp}_${finalSuffix}`;
+    if (typeof finalStateSuffix === "string") key += `_${finalStateSuffix}`;
+
+    return getFromTheme(props, key);
   };
 }

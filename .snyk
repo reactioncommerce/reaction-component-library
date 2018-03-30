@@ -178,4 +178,8 @@ ignore:
     - react-scripts > jest > jest-cli > jest-runtime > jest-config > jest-environment-jsdom > jsdom > nwmatcher:
         reason: None given
         expires: '2018-04-05T20:56:49.880Z'
+  'npm:eslint:20180222':
+    - react-scripts > eslint:
+        reason: no resolution available
+        expires: '2018-04-26T14:37:00.839Z'
 patch: {}

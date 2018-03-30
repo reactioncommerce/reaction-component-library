@@ -5,11 +5,13 @@ exports[`renders 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
-  color: #737373;
+  box-sizing: border-box;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1;
+  outline: none;
   padding: 0.75rem 0.625rem;
   width: 100%;
 }
@@ -43,6 +45,7 @@ exports[`renders 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -90,11 +93,13 @@ exports[`renders textarea 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
-  color: #737373;
+  box-sizing: border-box;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1;
+  outline: none;
   padding: 0.75rem 0.625rem;
   width: 100%;
 }
@@ -128,6 +133,7 @@ exports[`renders textarea 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -175,11 +181,13 @@ exports[`renders textarea with props 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
-  color: #737373;
+  box-sizing: border-box;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1;
+  outline: none;
   padding: 0.75rem 0.625rem;
   width: 100%;
 }
@@ -213,6 +221,7 @@ exports[`renders textarea with props 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -260,11 +269,13 @@ exports[`renders with props 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
-  color: #737373;
+  box-sizing: border-box;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1;
+  outline: none;
   padding: 0.75rem 0.625rem;
   width: 100%;
 }
@@ -298,6 +309,7 @@ exports[`renders with props 1`] = `
 }
 
 .c1 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;

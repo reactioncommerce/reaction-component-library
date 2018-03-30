@@ -16,11 +16,13 @@ exports[`renders with help text 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
-  color: #737373;
+  box-sizing: border-box;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1;
+  outline: none;
   padding: 0.75rem 0.625rem;
   width: 100%;
 }
@@ -54,6 +56,7 @@ exports[`renders with help text 1`] = `
 }
 
 .c2 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -128,11 +131,13 @@ exports[`renders with label 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
-  color: #737373;
+  box-sizing: border-box;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1;
+  outline: none;
   padding: 0.75rem 0.625rem;
   width: 100%;
 }
@@ -166,6 +171,7 @@ exports[`renders with label 1`] = `
 }
 
 .c3 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -233,11 +239,13 @@ exports[`renders with no help text 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
-  color: #737373;
+  box-sizing: border-box;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1;
+  outline: none;
   padding: 0.75rem 0.625rem;
   width: 100%;
 }
@@ -271,6 +279,7 @@ exports[`renders with no help text 1`] = `
 }
 
 .c2 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
@@ -332,11 +341,13 @@ exports[`renders with no label 1`] = `
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
-  color: #737373;
+  box-sizing: border-box;
+  color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
   font-size: 0.875rem;
   line-height: 1;
+  outline: none;
   padding: 0.75rem 0.625rem;
   width: 100%;
 }
@@ -370,6 +381,7 @@ exports[`renders with no label 1`] = `
 }
 
 .c2 {
+  box-sizing: border-box;
   color: #737373;
   fill: currentColor;
   font-size: 0.875rem;
