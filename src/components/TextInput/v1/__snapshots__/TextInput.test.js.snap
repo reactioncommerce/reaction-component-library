@@ -1,0 +1,353 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  box-sizing: border-box;
+  color: #3c3c3c;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  outline: none;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  box-sizing: border-box;
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className="c0"
+    maxLength={undefined}
+    name="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder={undefined}
+    readOnly={false}
+    type="text"
+    value=""
+  />
+  <div
+    className="c1"
+    onClick={[Function]}
+    value=""
+  />
+</div>
+`;
+
+exports[`renders textarea 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  box-sizing: border-box;
+  color: #3c3c3c;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  outline: none;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  box-sizing: border-box;
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className="c0"
+    maxLength={undefined}
+    name="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder={undefined}
+    readOnly={false}
+    type="text"
+    value=""
+  />
+  <div
+    className="c1"
+    onClick={[Function]}
+    value=""
+  />
+</div>
+`;
+
+exports[`renders textarea with props 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  box-sizing: border-box;
+  color: #3c3c3c;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  outline: none;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  box-sizing: border-box;
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className="CLASSNAME c0"
+    maxLength={20}
+    name="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder="PLACEHOLDER"
+    readOnly={true}
+    type="text"
+    value="VALUE"
+  />
+  <div
+    className="c1"
+    onClick={[Function]}
+    value="VALUE"
+  />
+</div>
+`;
+
+exports[`renders with props 1`] = `
+.c0 {
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  box-sizing: border-box;
+  color: #3c3c3c;
+  crsor: pointer;
+  font-family: inherit;
+  font-size: 0.875rem;
+  line-height: 1;
+  outline: none;
+  padding: 0.75rem 0.625rem;
+  width: 100%;
+}
+
+.c0::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c0:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c0::placeholder {
+  color: #cccccc;
+}
+
+.c0:focus {
+  border-color: #8ce0c9;
+}
+
+.c0:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c0:read-only {
+  color: #bfbfbf;
+}
+
+.c1 {
+  box-sizing: border-box;
+  color: #737373;
+  fill: currentColor;
+  font-size: 0.875rem;
+  height: 1rem;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 1rem;
+}
+
+.c1 * {
+  display: inline-block;
+}
+
+<div
+  style={
+    Object {
+      "position": "relative",
+    }
+  }
+>
+  <input
+    className="CLASSNAME c0"
+    maxLength={20}
+    name="test"
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder="PLACEHOLDER"
+    readOnly={true}
+    type="text"
+    value="VALUE"
+  />
+  <div
+    className="c1"
+    onClick={[Function]}
+    value="VALUE"
+  />
+</div>
+`;
