@@ -23,29 +23,6 @@
     "prepare": "npm run build",
     "test": "jest"
   },
-  "babel": {
-    "plugins": [
-      "transform-class-properties",
-      [
-        "module-resolver",
-        {
-          "root": [
-            "./src"
-          ],
-          "alias": {
-            "helpers": "./src/helpers"
-          }
-        }
-      ],
-      "babel-plugin-styled-components"
-    ],
-    "presets": [
-      "es2015",
-      "react-app",
-      "stage-2"
-    ],
-    "sourceMaps": true
-  },
   "jest": {
     "setupFiles": [
       "<rootDir>/../config/polyfills.js"
@@ -55,6 +32,7 @@
   "dependencies": {
     "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
+    "lodash.isempty": "^4.4.0",
     "lodash.isequal": "^4.5.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
