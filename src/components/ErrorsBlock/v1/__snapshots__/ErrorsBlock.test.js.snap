@@ -2,24 +2,29 @@
 
 exports[`renders all error messages 1`] = `
 .c0 {
-  color: #cd3f4c;
-  font-size: 0.875rem;
   margin: 0.625rem 0 0;
 }
 
+.c1 {
+  color: #cd3f4c;
+  font-size: 0.875rem;
+}
+
 <div
-  className={undefined}
+  className="c0"
 >
   <div
-    className="c0"
+    className="c1"
     data-name="a"
   >
+    
     Message One
   </div>
   <div
-    className="c0"
+    className="c1"
     data-name="b"
   >
+    
     Message Two
   </div>
 </div>
