@@ -249,17 +249,6 @@ You can add a custom icon to the right side of any text input and optionally pro
 </div>
 ```
 
-```jsx
-<div style={{ display: "flex" }}>
-  <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks icon={<i className="fab fa-pied-piper" />} />
-  </div>
-  <div style={{ backgroundColor: "#f5f5f5", flex: "1 1 auto", margin: "0 1rem", padding: "1rem" }}>
-    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks icon={<i className="fab fa-pied-piper" />} isOnDarkBackground />
-  </div>
-</div>
-```
-
 The default valid, invalid and clear icons can be overwritten by passing values to these props of the text input.
  - `iconClear, iconError, iconSuccess`
  - `iconClearAccessibilityText`
