@@ -1,14 +1,14 @@
 ### TextInput Overview
 
 #### General Usage
-The <code class="rsg-code-36">TextInput</code> component is used for collecting string form values. 
+The `TextInput` component is used for collecting string form values. 
  
 #### Component Usage
 There are two types of text inputs to choose from.
- - The sinlge line text input for single line form values.
+ - The single line text input for single line form values.
  - The multi line text input for multi line form values.
 
-Text inputs aslo have two styles of inputs.
+Text inputs also have two styles of inputs.
  - The default input style to be used on light backgrounds.
  - The dark input style to be used on dark backgrounds.
 
@@ -90,7 +90,7 @@ Text input's have 8 basic states.
 
 Idle Unfilled / Focused Unfilled
 
-When a user has clicked or pressed into an input it’s in focused state. 
+When a user has clicked, pressed or tabed into an input, it’s in focused state. 
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
@@ -144,7 +144,7 @@ When information is required and/or needs to be formatted in a specific way the 
 ```
 Read Only / Disabled
 
-A disabled input is used when an action needs to be taken in before a button can be enabled. A user us unable to input information into a disabled input. Passing the `isReadOnly` prop to enabled read only / disabled state.
+A disabled input is used when an action needs to be taken before the input can be enabled. A user is unable to input information into a disabled input. Pass the `isReadOnly` prop to enabled read only / disabled state.
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "1 1 auto", padding: "1rem" }}>
@@ -156,7 +156,7 @@ A disabled input is used when an action needs to be taken in before a button can
 </div>
 ```
 ###### Input Icons
-Text inputs have the ability to add a custom icon to the input to give extra content to the input. Text input icons has two available props to customize the input.
+You can add a custom icon to the right side of any text input and optionally provide a click handler for it. Use these two props:
  - `icon` The icon node you want to display
  - `onIconClick` Click event handler for icon clicks.
 ```jsx
@@ -183,10 +183,10 @@ The default valid, invalid and clear icons can be overwritten by passing values 
   </div>
 </div>
 ```
-All of the icon props will accept a few different nodes to create the input icon.
+All of the icon props will accept a few different types of nodes to create the input icon.
  - React Component
  - `<i/>` tag used for icon fonts
- - `<svg>` tag for inline svg
+ - `<svg>` tag for inline SVG
  - Plain text
  
 Inline SVG icon
@@ -202,7 +202,8 @@ const svg = <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1
 </div>
 ```
 
-#### Multi line text field
+#### Multi line text input
+To enable the multi line text input pass the `shouldAllowLineBreaks` prop.
 ```jsx
 <div style={{ display: "flex" }}>
   <div style={{ border: "1px solid #cccccc", flex: "0 1 50%", padding: "1rem" }}>
