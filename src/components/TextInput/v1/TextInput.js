@@ -5,7 +5,7 @@ import { applyTheme } from "helpers";
 
 function applyThemeVariant(themeProp) {
   return (props) => {
-    const inputType = (props.isDark) ? "dark" : "default";
+    const inputType = (props.isOnDarkBackground) ? "dark" : "default";
     return applyTheme(`${themeProp}_${inputType}`);
   };
 }
@@ -167,13 +167,13 @@ class TextInput extends Component {
      */
     iconError: PropTypes.node,
     /**
-     * Overwrite the default success input icon by passing an icon node
+     * Overwrite the default valid input icon by passing an icon node
      */
-    iconSuccess: PropTypes.node,
+    iconValid: PropTypes.node,
     /**
      * Enable when using the input on a dark background, disabled by default
      */
-    isDark: PropTypes.bool,
+    isOnDarkBackground: PropTypes.bool,
     /**
      * Enable to make the input read only / disabled, disabled by default
      */
@@ -238,8 +238,8 @@ class TextInput extends Component {
     iconClear: (<i className="fas fa-times" />),
     iconClearAccessibilityText: "Clear",
     iconError: (<i className="fas fa-exclamation-triangle" />),
-    iconSuccess: (<i className="far fa-check-circle" />),
-    isDark: false,
+    iconValid: (<i className="far fa-check-circle" />),
+    isOnDarkBackground: false,
     isReadOnly: false,
     onChange() {},
     onChanging() {},
@@ -416,7 +416,7 @@ class TextInput extends Component {
       errors,
       hasBeenValidated,
       icon, onIconClick,
-      iconSuccess,
+      iconValid,
       iconError
     } = this.props;
     const { value } = this.state;
@@ -425,7 +425,7 @@ class TextInput extends Component {
     if (errors && errors.length) {
       inputIcon = iconError;
     } else if (hasBeenValidated && value && value.length) {
-      inputIcon = iconSuccess;
+      inputIcon = iconValid;
     } else {
       inputIcon = icon;
     }
@@ -444,7 +444,7 @@ class TextInput extends Component {
   }
 
   render() {
-    const { shouldAllowLineBreaks, className, isDark, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
+    const { shouldAllowLineBreaks, className, isOnDarkBackground, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
     const { value } = this.state;
     if (shouldAllowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
@@ -453,7 +453,7 @@ class TextInput extends Component {
         <div style={{ position: "relative" }}>
           <StyledTextarea
             className={className}
-            isDark={isDark}
+            isOnDarkBackground={isOnDarkBackground}
             errors={errors}
             hasBeenValidated={hasBeenValidated}
             fieldIsDirty={this.isDirty()}
@@ -475,7 +475,7 @@ class TextInput extends Component {
       <div style={{ position: "relative" }}>
         <StyledInput
           className={className}
-          isDark={isDark}
+          isOnDarkBackground={isOnDarkBackground}
           errors={errors}
           hasBeenValidated={hasBeenValidated}
           readOnly={isReadOnly}
