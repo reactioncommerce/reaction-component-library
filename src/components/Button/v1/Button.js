@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme, preventAccidentalDoubleClick, spinner } from "./../../../helpers";
+import { applyTheme, preventAccidentalDoubleClick, spinner } from "helpers";
 import { applyThemeWithActionType } from "./helpers";
 
 const paddingFunc = (props) => {
