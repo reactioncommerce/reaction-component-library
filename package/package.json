@@ -18,7 +18,7 @@
     "README.md"
   ],
   "scripts": {
-    "build": "rm -rf dist/** && BABEL_ENV=production babel src --out-dir dist --ignore *.test.js,__snapshots__,setupTests.js",
+    "build": "node ../.reaction/scripts/prepublish.js && rm -rf dist/** && BABEL_ENV=production babel src --out-dir dist --ignore *.test.js,__snapshots__,setupTests.js",
     "lint": "eslint .",
     "prepare": "npm run build",
     "test": "jest"

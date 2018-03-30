@@ -18,7 +18,6 @@
     "lint:eslint": "eslint .",
     "lint:fix": "yarn run lint:fix:eslint",
     "lint:fix:eslint": "eslint --fix .",
-    "prep-publish": "node ./.reaction/scripts/publish.js",
     "start": "yarn styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
