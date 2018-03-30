@@ -312,7 +312,7 @@ const errorsBlockStyles = {
   rui_errorsBlockColor: red,
   rui_errorsBlockFontSize: fontSize14,
   rui_errorsBlockMargin: `${baseUnit(1)} 0 0`
-}
+};
 
 export default {
   ...defaultStyles,

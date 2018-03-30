@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow } from "enzyme";
 import ErrorsBlock from "./ErrorsBlock";
 
 test("basic snapshot", () => {
