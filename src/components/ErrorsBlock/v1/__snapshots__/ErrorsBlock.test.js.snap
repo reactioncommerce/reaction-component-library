@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders all error messages 1`] = `
+.c0 {
+  margin: 0.625rem 0 0;
+}
+
+.c1 {
+  color: #cd3f4c;
+  font-size: 0.875rem;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    data-name="a"
+  >
+    
+    Message One
+  </div>
+  <div
+    className="c1"
+    data-name="b"
+  >
+    
+    Message Two
+  </div>
+</div>
+`;
+
+exports[`renders nothing when there are no errors 1`] = `null`;

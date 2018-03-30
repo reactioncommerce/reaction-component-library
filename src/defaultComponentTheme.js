@@ -307,6 +307,14 @@ const helpTextStyles = {
   rui_helpTextMargin: `${baseUnit(1)} 0 0`
 };
 
+// errors block
+const errorsBlockStyles = {
+  rui_errorsBlockColor: red,
+  rui_errorsBlockFontSize: fontSize14,
+  rui_errorsBlockMargin: `${baseUnit(1)} 0 0`,
+  rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -315,5 +323,6 @@ export default {
   ...textareaStyles,
   ...fieldStyles,
   ...labelStyles,
-  ...helpTextStyles
+  ...helpTextStyles,
+  ...errorsBlockStyles
 };
