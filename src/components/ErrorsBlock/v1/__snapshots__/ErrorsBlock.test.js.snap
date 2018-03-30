@@ -1,3 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot 1`] = `null`;
+exports[`renders all error messages 1`] = `
+.c0 {
+  color: #cd3f4c;
+  font-size: 0.875rem;
+  margin: 0.625rem 0 0;
+}
+
+<div
+  className={undefined}
+>
+  <div
+    className="c0"
+    data-name="a"
+  >
+    Message One
+  </div>
+  <div
+    className="c0"
+    data-name="b"
+  >
+    Message Two
+  </div>
+</div>
+`;
+
+exports[`renders nothing when there are no errors 1`] = `null`;
