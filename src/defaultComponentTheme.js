@@ -126,7 +126,6 @@ const redHover = "#e4505e";
 const coolGreyHover = "#5d8fa9";
 const coolGreyHoverLight = "#eaeff3";
 const reactionBlueHover = "#25b0f9";
-
 const paleGrey = "#e9f0f4";
 const lightBlueGrey = "#c8d9e3";
 
@@ -240,6 +239,7 @@ const buttonStyles = {
   rui_buttonVerticalPadding: `${paddingBasePixels}px`,
   rui_buttonVerticalPaddingShort: `${paddingBasePixels / 2}px`
 };
+
 
 // input
 const inputStyles = {
