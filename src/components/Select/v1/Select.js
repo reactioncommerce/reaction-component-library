@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import isEqual from "lodash.isequal";
 import PropTypes from "prop-types";
 import ReactSelect from "react-select";
-// import styled from "styled-components";
-import { CustomPropTypes } from "helpers";
+import { applyTheme, CustomPropTypes } from "helpers";
 
 const nullDefaultEquals = (value1, value2) => ((value1 || null) === (value2 || null));
 
@@ -26,8 +25,6 @@ const supportedPassthroughProps = [
   "isClearable",
   "isLoading",
   "isOptionDisabled",
-  "isOptionSelected",
-  "isMulti",
   "isRtl",
   "isSearchable",
   "loadingMessage",
@@ -49,8 +46,46 @@ const supportedPassthroughProps = [
   "placeholder",
   "screenReaderStatus",
   "scrollMenuIntoView",
-  "tabSelectsValue"
+  "tabSelectsValue",
+  "value"
 ];
+
+function applyValidationColor(themeProp = "color") {
+  return (props) => {
+    let status;
+    if (props.errors && props.errors.length) {
+      status = "error";
+    } else if (props.hasBeenValidated && props.value && props.value.length) {
+      status = "success";
+    } else if (props.isFocused) {
+      status = "focus";
+    } else {
+      status = "default";
+    }
+    return applyTheme(`${themeProp}_${status}`)(props);
+  };
+}
+
+const getInputBorderColor = applyValidationColor("inputBorderColor");
+const getInputBorderRadius = applyTheme("inputBorderRadius");
+
+function getCustomStyles(props) {
+  const { maxWidth } = props;
+
+  // TODO isDark change bg color
+  return {
+    container(base) {
+      return { ...base, maxWidth };
+    },
+    control(base, state) {
+      return {
+        ...base,
+        borderColor: getInputBorderColor({ ...props, isFocused: state.isFocused }),
+        borderRadius: getInputBorderRadius(props)
+      };
+    }
+  };
+}
 
 class Select extends Component {
   static propTypes = {
@@ -86,6 +121,11 @@ class Select extends Component {
     components: PropTypes.object,
 
     /**
+     * An array of validation errors
+     */
+    errors: PropTypes.array,
+
+    /**
      * Passed through to react-select package. Clear all values when the user presses escape AND the menu is closed
      */
     escapeClearsValue: PropTypes.bool,
@@ -111,6 +151,11 @@ class Select extends Component {
     getOptionValue: PropTypes.func,
 
     /**
+     * Enable when a input's value has been validated
+     */
+    hasBeenValidated: PropTypes.bool,
+
+    /**
      * Passed through to react-select package. Hide the selected option from the menu
      */
     hideSelectedOptions: PropTypes.bool,
@@ -131,19 +176,9 @@ class Select extends Component {
     isLoading: PropTypes.bool,
 
     /**
-     * Passed through to react-select package. Support multiple selected options
-     */
-    isMulti: PropTypes.bool,
-
-    /**
      * Passed through to react-select package. Override the built-in logic to detect whether an option is disabled
      */
     isOptionDisabled: PropTypes.func,
-
-    /**
-     * Passed through to react-select package. Override the built-in logic to detect whether an option is selected
-     */
-    isOptionSelected: PropTypes.func,
 
     /**
      * Passed through to react-select package as `isDisabled`. Should the user be able to edit this value?
@@ -295,6 +330,7 @@ class Select extends Component {
 
   static defaultProps = {
     isReadOnly: false,
+    isSearchable: false,
     onChange() {},
     onChanging() {},
     options: []
@@ -398,7 +434,7 @@ class Select extends Component {
   }
 
   render() {
-    const { isReadOnly, options } = this.props;
+    const { isReadOnly, options, value } = this.props;
 
     // Unfortunately right now, react-select optgroup support is just a tad different from the
     // composable form spec. Might be able to do a PR to get react-select updated.
@@ -417,12 +453,22 @@ class Select extends Component {
       passthroughProps[prop] = this.props[prop];
     });
 
+    let optionValue;
+    if (value !== undefined && value !== null) {
+      optionValue = reactSelectOptions.find((opt) => {
+        if (opt.options) return opt.options.find((o) => o.value === value);
+        return opt.value === value;
+      });
+    }
+
     return (
       <ReactSelect
         {...passthroughProps}
         isDisabled={isReadOnly}
+        value={optionValue}
         onChange={this.handleChange}
         options={reactSelectOptions}
+        styles={getCustomStyles(this.props)}
       />
     );
   }
