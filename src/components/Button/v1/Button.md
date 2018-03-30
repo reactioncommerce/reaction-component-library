@@ -305,6 +305,9 @@ const onClick = () => { setState({ isWaiting: true }); setTimeout(() => { setSta
     <div style={{ marginRight: "1rem" }}>
       <Button actionType="secondaryDanger" isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
     </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button isTextOnly isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
   </div>
   <div style={{ display: "flex", marginTop: 20 }}>
     <div style={{ marginRight: "1rem" }}>
@@ -321,6 +324,9 @@ const onClick = () => { setState({ isWaiting: true }); setTimeout(() => { setSta
     </div>
     <div style={{ marginRight: "1rem" }}>
       <Button actionType="secondaryDanger" isShortHeight isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
+    </div>
+    <div style={{ marginRight: "1rem" }}>
+      <Button isShortHeight isTextOnly isWaiting={state.isWaiting} onClick={onClick}>Submit</Button>
     </div>
   </div>
 </div>

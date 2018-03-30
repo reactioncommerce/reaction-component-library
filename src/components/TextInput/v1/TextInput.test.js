@@ -11,13 +11,13 @@ testInput({
   exampleValueTwo: "TWO",
   mount,
   simulateChanging(wrapper, value) {
-    wrapper.find('input').simulate('change', { target: { value } });
+    wrapper.find("input").simulate("change", { target: { value } });
   },
   simulateChanged(wrapper, value) {
-    wrapper.find('input').simulate('blur', { target: { value } });
+    wrapper.find("input").simulate("blur", { target: { value } });
   },
   simulateSubmit(wrapper) {
-    wrapper.find('input').simulate('keypress', { which: 13 });
+    wrapper.find("input").simulate("keypress", { which: 13 });
   }
 });
 
@@ -29,58 +29,52 @@ test("renders", () => {
 });
 
 test("renders with props", () => {
-  const component = renderer.create(
-    <TextInput
-      name="test"
-      value="VALUE"
-      placeholder="PLACEHOLDER"
-      className="CLASSNAME"
-      maxLength={20}
-      isReadOnly
-    />
-  );
+  const component = renderer.create(<TextInput
+    name="test"
+    value="VALUE"
+    placeholder="PLACEHOLDER"
+    className="CLASSNAME"
+    maxLength={20}
+    isReadOnly
+  />); // eslint-disable-line react/jsx-closing-bracket-location
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test("renders textarea", () => {
-  const component = renderer.create(
-    <TextInput name="test" allowLineBreak />
-  );
+  const component = renderer.create(<TextInput name="test" allowLineBreak />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test("renders textarea with props", () => {
-  const component = renderer.create(
-    <TextInput
-      name="test"
-      allowLineBreak
-      value="VALUE"
-      placeholder="PLACEHOLDER"
-      className="CLASSNAME"
-      maxLength={20}
-      isReadOnly
-    />
-  );
+  const component = renderer.create(<TextInput
+    name="test"
+    shouldAllowLineBreak
+    value="VALUE"
+    placeholder="PLACEHOLDER"
+    className="CLASSNAME"
+    maxLength={20}
+    isReadOnly
+  />); // eslint-disable-line react/jsx-closing-bracket-location
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test('getValue default trimming and null', () => {
+test("getValue default trimming and null", () => {
   const wrapper = mount(<TextInput name="test" value=" " />);
   expect(wrapper.instance().getValue()).toBeNull();
 });
 
-test('getValue with convertEmptyStringToNull false', () => {
-  const wrapper = mount(<TextInput name="test" convertEmptyStringToNull={false} />);
-  expect(wrapper.instance().getValue()).toBe('');
+test("getValue with shouldConvertEmptyStringToNull false", () => {
+  const wrapper = mount(<TextInput name="test" shouldConvertEmptyStringToNull={false} />);
+  expect(wrapper.instance().getValue()).toBe("");
 });
 
-test('getValue with trimValue false', () => {
-  const wrapper = mount(<TextInput name="test" trimValue={false} value=" " />);
-  expect(wrapper.instance().getValue()).toBe(' ');
+test("getValue with shouldTrimValue false", () => {
+  const wrapper = mount(<TextInput name="test" shouldTrimValue={false} value=" " />);
+  expect(wrapper.instance().getValue()).toBe(" ");
 });
