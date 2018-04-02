@@ -28,7 +28,7 @@ if (!componentName) {
   errorAndExit("You must include the name of the component to create as the first argument of this script");
 }
 
-const BASE_PATH = path.join(process.cwd(), "src/components");
+const BASE_PATH = path.join(process.cwd(), "package/src/components");
 const componentDirectory = path.join(BASE_PATH, componentName);
 
 function createComponentFile(name) {
