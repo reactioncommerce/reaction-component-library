@@ -4,9 +4,10 @@ Date: 2018-02-23
 
 ## Status
 
-STATUS：proposed
+STATUS：accepted
 
 2018-02-23 proposed
+2018-03-01 accepted
 
 ## Context
 
