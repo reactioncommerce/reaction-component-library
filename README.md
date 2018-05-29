@@ -163,26 +163,9 @@ Components must use the [styled-components](https://www.styled-components.com/) 
 
 Every component and helper in this style guide must have a corresponding file containing component tests. All tests are written using, and run by, the [Jest](https://facebook.github.io/jest/) test framework, which is based on the Jasmine framework. If you haven't used Jest, you should read their documentation to get familiar.
 
-### Test Files
+### Writing Tests
 
-Files containing tests for a component must end in `.test.js` and be named after the component. Files containing tests for a helper must end in `.test.js` and be named after the helper function.
-
-### Code Style for Tests
-
-- Follow the same eslint rules as for the components themselves.
-- Jest tests are automatically file scoped. This means that your test file does not need a `describe` block in it. You _may_ add multiple `describe` blocks to group related tests within the file, but you _should not_ have a file with only a single `describe` block in it. (It will not break anything, but it diminishes simplicity and readability.)
-- Jest test functions can be defined using either `it()` or `test()`. Because it is more understandable, we will always use `test()`.
-- `describe`, `test`, `jasmine`, and `expect` are automatic globals in all test files. You do not need to import them from anywhere.
-- Use arrow functions for all `describe` and `test` functions.
-- Use `expect` for assertions. See [the documentation](https://facebook.github.io/jest/docs/en/expect.html#content).
-
-### Rendering Components In Tests
-
-To render your component in your tests, use either `react-test-renderer` or `enzyme`. `react-test-renderer` is primarily for snapshots, while `enzyme` is for whenever you need to actually interact with the component, like simulate clicking it, feed it new props and see how it changes, etc. There is a good explanation of both of them [here](https://facebook.github.io/jest/docs/en/tutorial-react.html).
-
-### Mocking Functions
-
-https://facebook.github.io/jest/docs/en/mock-function-api.html
+Review and follow all guidelines in [Writing Jest Unit Tests](https://docs.reactioncommerce.com/reaction-docs/master/writing-jest-unit-tests)
 
 ### Running Tests
 
