@@ -10,14 +10,19 @@ We use the `react-styleguidist` package to run and build the style guide, and ru
 # Clone
 git clone git@github.com:reactioncommerce/reaction-component-library.git
 
-cd styleguide
+cd reaction-component-library
 
 # Setup - puts an .env in place
 bin/setup
 
-# Start
+# Start in current process
 docker-compose up
+
+# OR Start in background and stream logs to current process
+docker-compose up -d && docker-compose logs -f
 ```
+
+Then go to `http://localhost:4040` in a browser on the same computer.
 
 Leave it running while developing and documenting components so that you can quickly see what they look like and manually test them.
 
@@ -25,107 +30,32 @@ Leave it running while developing and documenting components so that you can qui
 
 https://www.styled-components.com/docs/tooling#syntax-highlighting
 
-## Tooling
-
-### Yarn
-
-We have chosen Yarn because it provides advanced features over NPM.
-
-* Ability to freeze the `yarn.lock` for safety in CI and production.
-* Ability to set `--modules-folder` for cacheability in Docker images.
-* Yarn cache and offline mirror for faster development cycles.
-
-### Docker Compose
+## Local Development
 
 Development should be done in Docker Compose. The project directory is mounted
 into the Docker container at runtime so that files may be edited from the host
 machine. This means that you can choose any editor you'd like and work in a
-comfortable development environment. But, be sure to run all tooling commands
-with Docker Compose!
+comfortable development environment. But, be sure to run all `yarn` commands
+with Docker Compose (e.g., `docker-compose run --rm web [...]`)!
 
-#### Running Commands
-
-`docker-compose run --rm web [...]` will run any command inside a Docker
-container and then remove the container. Use this to run any tooling
-operations. Remember your project directory will be mounted and things will
-usually just work.
-
-##### Basic Docker Compose Commands
-
-###### Build
-
-```sh
-docker-compose build
-```
-
-###### Run the Project
-
-```sh
-docker-compose up
-```
-
-Or, optionally:
-
-```sh
-docker-compose up -d && docker-compose logs -f
-```
-
-###### Cleanup
-
-Stop, and retain containers:
-
-```sh
-docker-compose stop
-```
-
-Stop, and remove containers:
-
-```sh
-docker-compose down
-```
-
-Stop, and remove containers, volumes and built images:
+If things go wrong, it can be useful to destroy the whole Docker setup (image, volume, containers) and start over:
 
 ```sh
 docker-compose down -v --rmi local
+docker-compose up
 ```
 
-###### Chaining Commands
+### Yarn
 
-Commands can be chained for quick execution and selection in shell history.
+Do NOT run `yarn add` or `yarn install` commands on your local host machine. Always run them with `docker-compose run --rm web` before them. If you accidentally do run on your host machine, you'll see files in `node_modules`. Just `rm -rf node_modules` to correct your mistake.
 
-For example, here's a selective restart of the `web` service into a new
-container. This would be useful if you were to modify the service in
-`docker-compose.yml`.
+Exception: You may have to install some dev dependencies such as the ESLint packages on your host machine in order for your IDE to properly show inline lint errors.
 
-```sh
-docker-compose stop web \
-  && docker-compose rm -f web \
-  && docker-compose up -d  web \
-  && docker-compose logs -f web
-```
+After running `yarn add`, you need to stop and restart if the app container was running. It should not be necessary to do a full rebuild of the image, but if the new package does not seem to be found, try `docker-compose up --build`.
 
-##### Yarn Commands
+### Automatic Restarts
 
-Yarn & NPM should especially run inside the Docker container. We've taken steps
-to ensure that the `node_modules` are placed into a cacheable location. If you
-run Yarn locally, the `node_modules` are written directly to the project
-directory and take precedence over those from the Docker build.
-
-###### Yarn Add
-
-```sh
-docker-compose run --rm web yarn add --dev eslint
-```
-
-###### Yarn Install
-
-:warning: Always rebuild the image after modifying
-`yarn.lock` or `Dockerfile`!
-
-```sh
-docker-compose up --build
-```
+When you have the Style Guide app running in Docker Compose and you make a change to a file, the page in the browser should refresh to show your changes automatically. The exceptions are changing yarn dependencies or changing anything in `styleguide.config.js`, both of which require you to stop and restart the app (`docker-compose down` + `docker-compose up`).
 
 ## Adding a New Component
 

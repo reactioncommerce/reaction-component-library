@@ -75,9 +75,10 @@ module.exports = {
   sections: [
     {
       name: "Introduction",
+      content: "styleguide/src/sections/Introduction.md",
       sections: [
         {
-          name: "Installing and Importing",
+          name: "Installing and Importing the Components",
           content: "styleguide/src/sections/InstallingandImporting.md"
           // description: ""
         }
@@ -126,7 +127,8 @@ module.exports = {
     return `import { ${name} } from "@reactioncommerce/components/${lastPieceOfDirPath}"`;
   },
   pagePerSection: true,
-  serverPort: 4000,
+  serverPort: Number(process.env.PORT),
+  assetsDir: "styleguide/src/assets/",
   template: "styleguide/src/index.html"
   // handlers(componentPath) {
   //   return defaultHandlers.concat(

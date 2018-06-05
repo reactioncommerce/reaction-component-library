@@ -6,13 +6,13 @@ services:
       context: .
       args:
         BUILD_ENV: "development"
-    command: [sh, -c, "yarn start"]
+    command: sh -c "yarn install && yarn start"
     env_file:
       - ./.env
     environment:
       REACTION_APP_NAME: "styleguide.web"
     ports:
-      - 4000:4000
+      - 4040:4040
     volumes:
       - $HOME/.cache/yarn-offline-mirror:/home/node/.cache/yarn-offline-mirror
       - web-yarn:/home/node/.cache/yarn
