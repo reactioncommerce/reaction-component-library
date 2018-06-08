@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "helpers";
+import { applyTheme } from "../../utils";
 
 function applyThemeVariant(themeProp) {
   return (props) => {
@@ -36,6 +36,7 @@ function applyTextareaVariant(textareaProp, inputProp) {
 }
 
 const StyledInput = styled.input`
+  -webkit-font-smoothing: antialiased;
   background-color: ${applyThemeVariant("inputBackgroundColor")};
   border: 1px solid ${applyValidationColor("inputBorderColor")};
   border-radius: ${applyTheme("inputBorderRadius")};
@@ -72,9 +73,11 @@ const StyledTextarea = Textarea.extend`
 `;
 
 const IconWrapper = styled.div`
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: ${applyValidationColor("inputIconColor")};
   fill: currentColor;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   font-size: ${applyTheme("inputIconFontSize")};
   height: ${applyTextareaVariant("auto", "1rem")};
   position: ${applyTextareaVariant("relative", "absolute")};
@@ -88,12 +91,14 @@ const IconWrapper = styled.div`
 `;
 
 const ClearButton = styled.div`
+  -webkit-font-smoothing: antialiased;
   background-color: ${applyTextareaVariant(applyTheme("color_white"), applyTheme("inputIconBackgroundColor"))};
   border: none;
   border-radius: ${applyTextareaVariant(applyTheme("inputBorderRadius"), "50%")};
   box-sizing: border-box;
   color: ${applyTheme("color_coolGrey")};
   cursor: pointer;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   line-height: 0;
   padding: ${applyTextareaVariant(applyTheme("textareaIconPadding"), applyTheme("inputIconPadding"))};
   position: relative;

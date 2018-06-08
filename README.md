@@ -61,7 +61,7 @@ When you have the Style Guide app running in Docker Compose and you make a chang
 
 1. In the project root directory, run `node .reaction/scripts/addcomponent MyComponent` using Node 8+, where `MyComponent` is the name of the component you want to add. The necessary files will be added in `/src/components`.
 1. Add your component to an appropriate style guide section in `styleguide.config.js`
-1. If any helper functions used by your component can be helpful to other components, too, put them in a `/src/helpers/helperFunctionName` folder. Otherwise put them in a component-specific `helpers` folder within the component version folder.
+1. If any utility functions used by your component can be helpful to other components, too, put them in a `/src/utils/[functionName].js` file instead of the component-specific `utils` folder
 
 ## Making a New Version of a Component
 
@@ -87,7 +87,7 @@ Where `MyComponent` is the name of the component, which must already exist and h
       onClick() {}
     };
     ```
-- Wrap all `onClick` handlers in the `preventAccidentalDoubleClick` helper function. See the `Button` component for an example.
+- Wrap all `onClick` handlers in the `preventAccidentalDoubleClick` function from `utils`. See the `Button` component for an example.
 
 ### Component Themes
 
@@ -95,7 +95,7 @@ Components must use the [styled-components](https://www.styled-components.com/) 
 
 ## Writing and Running Tests
 
-Every component and helper in this style guide must have a corresponding file containing component tests. All tests are written using, and run by, the [Jest](https://facebook.github.io/jest/) test framework, which is based on the Jasmine framework. If you haven't used Jest, you should read their documentation to get familiar.
+Every component and utility function in this style guide must have a corresponding file containing component tests. All tests are written using, and run by, the [Jest](https://facebook.github.io/jest/) test framework, which is based on the Jasmine framework. If you haven't used Jest, you should read their documentation to get familiar.
 
 ### Writing Tests
 

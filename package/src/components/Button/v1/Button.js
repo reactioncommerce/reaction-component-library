@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme, preventAccidentalDoubleClick, spinner } from "helpers";
-import { applyThemeWithActionType } from "./helpers";
+import { applyTheme, preventAccidentalDoubleClick, spinner } from "../../utils";
+import applyThemeWithActionType from "./utils/applyThemeWithActionType";
 
 const paddingFunc = (props) => {
   const { isShortHeight } = props;
@@ -11,6 +11,7 @@ const paddingFunc = (props) => {
 };
 
 const ButtonDiv = styled.div`
+  -webkit-font-smoothing: antialiased;
   align-items: center;
   background-color: ${applyThemeWithActionType("buttonBackgroundColor")};
   border-color: ${applyThemeWithActionType("buttonBorderColor")};
@@ -27,6 +28,7 @@ const ButtonDiv = styled.div`
     }
     return "inline-flex";
   }};
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   justify-content: center;
   margin: 0;
   min-width: ${applyTheme("buttonMinimumWidth")};

@@ -1,5 +1,5 @@
 import get from "lodash.get";
-import defaultComponentTheme from "../../defaultComponentTheme";
+import defaultComponentTheme from "../defaultComponentTheme";
 
 export default function getFromTheme(props, key) {
   const value = get(props, `theme.${key}`) || get(defaultComponentTheme, key, null);

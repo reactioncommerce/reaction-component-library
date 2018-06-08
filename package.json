@@ -32,10 +32,7 @@
         {
           "root": [
             "./package/src"
-          ],
-          "alias": {
-            "helpers": "./package/src/helpers"
-          }
+          ]
         }
       ],
       "babel-plugin-styled-components"
@@ -147,7 +144,7 @@
     "raf": "3.4.0",
     "react-dev-utils": "^5.0.0",
     "react-styleguidist": "^6.5.3",
-    "rimraf": "^2.6.2",
+    "rimraf": "2.6.2",
     "snyk": "^1.69.10",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",

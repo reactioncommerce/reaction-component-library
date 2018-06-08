@@ -2,14 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import isEmpty from "lodash.isempty";
-import { applyTheme } from "helpers";
+import { applyTheme } from "../../utils";
 
 const ErrorWrapper = styled.div`
   margin: ${applyTheme("errorsBlockMargin")};
 `;
 
 const Error = styled.div`
+  -webkit-font-smoothing: antialiased;
   color: ${applyTheme("errorsBlockColor")};
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   font-size: ${applyTheme("errorsBlockFontSize")};
 `;
 

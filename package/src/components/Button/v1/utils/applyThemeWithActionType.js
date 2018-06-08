@@ -1,4 +1,4 @@
-import { getFromTheme } from "helpers";
+import { getFromTheme } from "../../../utils";
 
 export default function applyThemeWithActionType(themeProp, stateSuffix) {
   return (props) => {

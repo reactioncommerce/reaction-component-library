@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import isEqual from "lodash.isequal";
 import PropTypes from "prop-types";
 import ReactSelect from "react-select";
-import { applyTheme, CustomPropTypes } from "helpers";
+import { applyTheme, CustomPropTypes } from "../../utils";
 
 const nullDefaultEquals = (value1, value2) => ((value1 || null) === (value2 || null));
 

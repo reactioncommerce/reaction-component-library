@@ -1,4 +1,4 @@
-import getFromTheme from "../getFromTheme";
+import getFromTheme from "./getFromTheme";
 
 export default function applyTheme(themeProp, suffix) {
   return (props) => {

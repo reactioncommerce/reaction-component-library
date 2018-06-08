@@ -123,8 +123,8 @@ module.exports = {
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, ".js");
     const dir = path.dirname(componentPath);
-    const lastPieceOfDirPath = dir.slice(dir.lastIndexOf("/") + 1);
-    return `import { ${name} } from "@reactioncommerce/components/${lastPieceOfDirPath}"`;
+    const version = dir.slice(dir.lastIndexOf("/") + 1);
+    return `import ${name} from "@reactioncommerce/components/${name}/${version}"`;
   },
   pagePerSection: true,
   serverPort: Number(process.env.PORT),
