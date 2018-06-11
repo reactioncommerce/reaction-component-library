@@ -5,5 +5,5 @@ coverage
 node_modules
 !reports/README.md
 reports/*
-package-lock.json
+**/package-lock.json
 dist
