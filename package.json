@@ -21,7 +21,8 @@
     "start": "yarn styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
-    "test": "jest",
+    "test": "jest package/src",
+    "test:watch": "jest --watch package/src",
     "snyk-protect": "snyk protect"
   },
   "babel": {
@@ -52,8 +53,8 @@
   "eslintIgnore": [
     "config",
     "reports",
-    "package/node_modules",
-    "package/dist"
+    "package/dist",
+    "package/node_modules"
   ],
   "jest": {
     "collectCoverage": true,
@@ -61,6 +62,7 @@
       "**/*.{js,jsx}",
       "!**/reports/**",
       "!**/build/**",
+      "!**/dist/**",
       "!**/node_modules/**",
       "!**/vendor/**"
     ],
@@ -72,7 +74,10 @@
     "setupTestFrameworkScriptFile": "<rootDir>/package/src/setupTests.js",
     "testPathIgnorePatterns": [
       "/config/",
-      "/node_modules/"
+      "/node_modules/",
+      "/reports/",
+      "/package/dist/",
+      "/package/node_modules/"
     ],
     "moduleFileExtensions": [
       "web.js",
