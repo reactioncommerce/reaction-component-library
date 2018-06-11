@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import isEmpty from "lodash.isempty";
-import { applyTheme } from "../../utils";
+import { applyTheme } from "../../../utils";
 
 const ErrorWrapper = styled.div`
   margin: ${applyTheme("errorsBlockMargin")};

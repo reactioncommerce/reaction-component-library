@@ -3,6 +3,7 @@
 
 import path from "path";
 import fse from "fs-extra";
+import replaceInFiles from "replace-in-files";
 
 const DIST_FOLDER = path.join(process.cwd(), "dist");
 const COMPONENTS_FOLDER = path.join(DIST_FOLDER, "components");
@@ -30,6 +31,15 @@ async function createPackageFile() {
   return newPackageData;
 }
 
+// After a component has been moved to `dist` and flattened, change all "../../../utils" to "../../utils"
+async function replaceUtilsPathForComponent(componentFolderPath) {
+  return replaceInFiles({
+    files: `${componentFolderPath}/**/*.js`,
+    from: /\.\.\/\.\.\/utils/g,
+    to: "../utils"
+  });
+}
+
 async function run() {
   // After the Babel build step, we have a `dist` folder but we want to remove the extra `components`
   // folder inside it in order to have flatter import paths. We"ll traverse the `dist/components/*`
@@ -38,7 +48,11 @@ async function run() {
   const promises = directoryContents.map(async (componentName) => {
     if (componentName.indexOf(".") !== -1) return Promise.resolve();
     const componentFolder = path.join(COMPONENTS_FOLDER, componentName);
-    return fse.copy(componentFolder, path.join(DIST_FOLDER, componentName));
+    const distComponentFolder = path.join(DIST_FOLDER, componentName);
+    await fse.copy(componentFolder, distComponentFolder);
+
+    // The relative path to global `utils` folder has changed, so do a multi-file search/replace
+    return replaceUtilsPathForComponent(distComponentFolder);
   });
   await Promise.all(promises);
 

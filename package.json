@@ -51,7 +51,9 @@
   },
   "eslintIgnore": [
     "config",
-    "reports"
+    "reports",
+    "package/node_modules",
+    "package/dist"
   ],
   "jest": {
     "collectCoverage": true,
@@ -144,6 +146,7 @@
     "raf": "3.4.0",
     "react-dev-utils": "^5.0.0",
     "react-styleguidist": "^6.5.3",
+    "replace-in-files": "^1.1.1",
     "rimraf": "2.6.2",
     "snyk": "^1.69.10",
     "style-loader": "0.19.0",
