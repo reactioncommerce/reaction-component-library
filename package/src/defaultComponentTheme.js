@@ -93,16 +93,17 @@ const teal600 = "#34584f";
  */
 
 // font scale
-const fontSize12 = "0.75rem";
-const fontSize14 = "0.875rem";
-const fontSize16 = "1rem";
-const fontSize18 = "1.125rem";
-const fontSize20 = "1.25rem";
-const fontSize24 = "1.5rem";
-const fontSize28 = "1.75rem";
-const fontSize32 = "2rem";
-const fontSize36 = "2.25rem";
-const fontSize42 = "2.625rem";
+const baseFontSize = 16; // pixels
+const fontSize12 = baseFontSize * 0.75;
+const fontSize14 = baseFontSize * 0.875;
+const fontSize16 = baseFontSize * 1;
+const fontSize18 = baseFontSize * 1.125;
+const fontSize20 = baseFontSize * 1.25;
+const fontSize24 = baseFontSize * 1.5;
+const fontSize28 = baseFontSize * 1.75;
+const fontSize32 = baseFontSize * 2;
+const fontSize36 = baseFontSize * 2.25;
+const fontSize42 = baseFontSize * 2.625;
 
 // font weights
 const fontWeightLight = "200";
