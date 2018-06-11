@@ -344,19 +344,19 @@ class TextInput extends Component {
     return this.cleanValue(this.state.value);
   }
 
-  setValue(value = "", shouldSetInitialValue) {
+  setValue(value, shouldSetInitialValue) {
     this.shouldCallChanged = true;
 
-    this.setState({ value });
+    this.setState({ value: value || "" });
 
     if (shouldSetInitialValue) {
-      this.setState({ initialValue: value });
+      this.setState({ initialValue: value || "" });
     }
   }
 
   cleanValue(value) {
     const { shouldConvertEmptyStringToNull, shouldTrimValue } = this.props;
-    let outputValue = shouldTrimValue ? value.trim() : value;
+    let outputValue = shouldTrimValue ? (value || "").trim() : (value || "");
     if (shouldConvertEmptyStringToNull && outputValue === "") outputValue = null;
     return outputValue;
   }
