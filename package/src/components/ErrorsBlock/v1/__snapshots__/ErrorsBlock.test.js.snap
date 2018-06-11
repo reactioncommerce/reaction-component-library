@@ -6,7 +6,9 @@ exports[`renders all error messages 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   color: #cd3f4c;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
 }
 

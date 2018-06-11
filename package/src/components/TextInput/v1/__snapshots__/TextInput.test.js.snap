@@ -2,6 +2,7 @@
 
 exports[`renders 1`] = `
 .c0 {
+  -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -45,9 +46,11 @@ exports[`renders 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: #737373;
   fill: currentColor;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   height: 1rem;
   position: absolute;
@@ -90,6 +93,7 @@ exports[`renders 1`] = `
 
 exports[`renders textarea 1`] = `
 .c0 {
+  -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -133,9 +137,11 @@ exports[`renders textarea 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: #737373;
   fill: currentColor;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   height: 1rem;
   position: absolute;
@@ -178,6 +184,7 @@ exports[`renders textarea 1`] = `
 
 exports[`renders textarea with props 1`] = `
 .c0 {
+  -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -221,9 +228,11 @@ exports[`renders textarea with props 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: #737373;
   fill: currentColor;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   height: 1rem;
   position: absolute;
@@ -266,6 +275,7 @@ exports[`renders textarea with props 1`] = `
 
 exports[`renders with props 1`] = `
 .c0 {
+  -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -309,9 +319,11 @@ exports[`renders with props 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: #737373;
   fill: currentColor;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   height: 1rem;
   position: absolute;

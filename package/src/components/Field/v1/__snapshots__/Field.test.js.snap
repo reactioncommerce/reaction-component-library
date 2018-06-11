@@ -6,13 +6,16 @@ exports[`renders with help text 1`] = `
 }
 
 .c3 {
+  -webkit-font-smoothing: antialiased;
   color: #737373;
   display: block;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   margin: 0.625rem 0 0;
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -56,9 +59,11 @@ exports[`renders with help text 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: #737373;
   fill: currentColor;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   height: 1rem;
   position: absolute;
@@ -120,14 +125,17 @@ exports[`renders with label 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   color: #737373;
   display: block;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   line-height: 1.25;
   margin: 0 0 0.625rem;
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -171,9 +179,11 @@ exports[`renders with label 1`] = `
 }
 
 .c3 {
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: #737373;
   fill: currentColor;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   height: 1rem;
   position: absolute;
@@ -236,6 +246,7 @@ exports[`renders with no help text 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -279,9 +290,11 @@ exports[`renders with no help text 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: #737373;
   fill: currentColor;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   height: 1rem;
   position: absolute;
@@ -338,6 +351,7 @@ exports[`renders with no label 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
   border-radius: 0.125rem;
@@ -381,9 +395,11 @@ exports[`renders with no label 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: #737373;
   fill: currentColor;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   height: 1rem;
   position: absolute;
@@ -440,8 +456,10 @@ exports[`renders with other props 1`] = `
 }
 
 .c1 {
+  -webkit-font-smoothing: antialiased;
   color: #737373;
   display: block;
+  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
   font-size: 0.875rem;
   line-height: 1.25;
   margin: 0 0 0.625rem;
