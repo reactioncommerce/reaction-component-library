@@ -10,7 +10,7 @@ exports[`renders with help text 1`] = `
   color: #737373;
   display: block;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 0.875rem;
+  font-size: 14;
   margin: 0.625rem 0 0;
 }
 
@@ -23,7 +23,7 @@ exports[`renders with help text 1`] = `
   color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: 14;
   line-height: 1;
   outline: none;
   padding: 0.75rem 0.625rem;
@@ -64,7 +64,7 @@ exports[`renders with help text 1`] = `
   color: #737373;
   fill: currentColor;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 0.875rem;
+  font-size: 14;
   height: 1rem;
   position: absolute;
   right: 0.75rem;
@@ -129,7 +129,7 @@ exports[`renders with label 1`] = `
   color: #737373;
   display: block;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 0.875rem;
+  font-size: 14;
   line-height: 1.25;
   margin: 0 0 0.625rem;
 }
@@ -143,7 +143,7 @@ exports[`renders with label 1`] = `
   color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: 14;
   line-height: 1;
   outline: none;
   padding: 0.75rem 0.625rem;
@@ -184,7 +184,7 @@ exports[`renders with label 1`] = `
   color: #737373;
   fill: currentColor;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 0.875rem;
+  font-size: 14;
   height: 1rem;
   position: absolute;
   right: 0.75rem;
@@ -254,7 +254,7 @@ exports[`renders with no help text 1`] = `
   color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: 14;
   line-height: 1;
   outline: none;
   padding: 0.75rem 0.625rem;
@@ -295,7 +295,7 @@ exports[`renders with no help text 1`] = `
   color: #737373;
   fill: currentColor;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 0.875rem;
+  font-size: 14;
   height: 1rem;
   position: absolute;
   right: 0.75rem;
@@ -359,7 +359,7 @@ exports[`renders with no label 1`] = `
   color: #3c3c3c;
   crsor: pointer;
   font-family: inherit;
-  font-size: 0.875rem;
+  font-size: 14;
   line-height: 1;
   outline: none;
   padding: 0.75rem 0.625rem;
@@ -400,7 +400,7 @@ exports[`renders with no label 1`] = `
   color: #737373;
   fill: currentColor;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 0.875rem;
+  font-size: 14;
   height: 1rem;
   position: absolute;
   right: 0.75rem;
@@ -460,7 +460,7 @@ exports[`renders with other props 1`] = `
   color: #737373;
   display: block;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 0.875rem;
+  font-size: 14;
   line-height: 1.25;
   margin: 0 0 0.625rem;
 }
