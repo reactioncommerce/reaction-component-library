@@ -119,6 +119,16 @@ You can change the theme styles for the style guide app in `/src/styleguide/styl
 
 Sections are defined in `styleguide.config.js`. The format is easy to understand by looking at the existing section definitions. Put the markdown content for a section in the `/src/styleguide/sections` folder, and name the `.md` file the same as the section `name` from `styleguide.config.js`, with spaces removed.
 
+## Publish the Components Package
+
+Bump the version in package.json and then:
+
+```bash
+npm install
+cd package
+npm run release
+```
+
 ## License
 
 Copyright © [GNU General Public License v3.0](./LICENSE.md)

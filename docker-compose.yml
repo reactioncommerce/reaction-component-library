@@ -16,7 +16,11 @@ services:
     volumes:
       - $HOME/.cache/yarn-offline-mirror:/home/node/.cache/yarn-offline-mirror
       - web-yarn:/home/node/.cache/yarn
-      - .:/usr/local/src/reaction-app
+      - .:/usr/local/src/reaction-app # link everything from the root folder on the host machine into the container
+      - empty_node_modules:/usr/local/src/reaction-app/node_modules # except do not link the host node_modules in because it will override the container node_modules
+      - node_modules:/usr/local/src/node_modules # persist the node_modules that is used, which is up one folder level in the container
 
 volumes:
   web-yarn:
+  empty_node_modules:
+  node_modules:
