@@ -9,7 +9,7 @@ exports[`renders all error messages 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #cd3f4c;
   font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 14;
+  font-size: 14px;
 }
 
 <div

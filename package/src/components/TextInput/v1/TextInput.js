@@ -35,27 +35,35 @@ function applyTextareaVariant(textareaProp, inputProp) {
   };
 }
 
-const StyledInput = styled.input`
+const InputWrapper = styled.div`
   -webkit-font-smoothing: antialiased;
   background-color: ${applyThemeVariant("inputBackgroundColor")};
   border: 1px solid ${applyValidationColor("inputBorderColor")};
   border-radius: ${applyTheme("inputBorderRadius")};
   box-sizing: border-box;
   color: ${applyValidationColor("inputColor")};
-  crsor: pointer;
+  display: flex;
+  flex-direction: row;
   font-family: ${applyTheme("inputFontFamily")};
   font-size: ${applyTheme("inputFontSize")};
   line-height: ${applyTheme("inputLineHeight")};
   outline: none;
   padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
-  width: 100%;
+  position: relative;
+`;
+
+const StyledInput = styled.input`
+  background-color: inherit;
+  border: none;
+  box-sizing: border-box;
+  color: inherit;
+  flex-grow: 2;
+  font-size: ${applyTheme("inputFontSize")};
+  line-height: ${applyTheme("inputLineHeight")};
+  outline: none;
 
   &::placeholder {
     color: ${applyTheme("inputPlaceholderColor")};
-  }
-
-  &:focus {
-    border-color: ${applyTheme("inputBorderColor_focus")};
   }
 
   &:read-only {
@@ -66,72 +74,103 @@ const StyledInput = styled.input`
 const Textarea = StyledInput.withComponent("textarea");
 
 const StyledTextarea = Textarea.extend`
-  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  background-color: ${applyThemeVariant("inputBackgroundColor")};
+  border-radius: ${applyTheme("inputBorderRadius")};
+  border: 1px solid ${applyValidationColor("inputBorderColor")};
+  color: ${applyValidationColor("inputColor")};
+  font-family: ${applyTheme("inputFontFamily")};
+  font-size: ${applyTheme("inputFontSize")};
   line-height: ${applyTheme("textareaLineHeight")};
   min-height: ${applyTheme("textareaHeight")};
+  outline: none;
+  padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
   resize: vertical;
+  width: 100%;
+
+  &:read-only {
+    color: ${applyTheme("inputColor_disabled")};
+  }
 `;
 
 const IconWrapper = styled.div`
-  -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
   color: ${applyValidationColor("inputIconColor")};
   fill: currentColor;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: ${applyTheme("inputIconFontSize")};
-  height: ${applyTextareaVariant("auto", "1rem")};
-  position: ${applyTextareaVariant("relative", "absolute")};
-  right: ${applyTextareaVariant(applyTheme("textareaIconRight"), applyTheme("inputIconRight"))};
-  top: ${applyTextareaVariant(applyTheme("textareaIconTop"), applyTheme("inputIconTop"))};
-  width: ${applyTextareaVariant("auto", "1rem")};
+  margin-left: ${applyTheme("inputHorizontalPadding")};
+
+  position: relative;
+  right: ${applyTextareaVariant(applyTheme("textareaIconRight"), 0)};
+  top: ${applyTextareaVariant(applyTheme("textareaIconTop"), 0)};
 
   & * {
     display: inline-block;
   }
 `;
 
+const FontIcon = styled.i`
+  font-size: ${applyTheme("inputIconFontSize")};
+  vertical-align: middle;
+`;
+
 const ClearButton = styled.div`
-  -webkit-font-smoothing: antialiased;
-  background-color: ${applyTextareaVariant(applyTheme("color_white"), applyTheme("inputIconBackgroundColor"))};
+  background-color: transparent;
   border: none;
-  border-radius: ${applyTextareaVariant(applyTheme("inputBorderRadius"), "50%")};
+  border-radius: ${applyTheme("inputBorderRadius")};
   box-sizing: border-box;
   color: ${applyTheme("color_coolGrey")};
   cursor: pointer;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
-  line-height: 0;
-  padding: ${applyTextareaVariant(applyTheme("textareaIconPadding"), applyTheme("inputIconPadding"))};
+  height: 100%;
+  margin: 0;
+  padding: 0;
   position: relative;
-  top: ${applyTextareaVariant("0", "-0.1rem")};
 
   &:hover,
   &:focus {
-    background-color: ${applyTheme("inputIconBackgroundColor")}
+    background-color: "transparent";
+    outline: none;
   }
 
-  & i {
-    line-height: 8px;
-  }
-
-  ${({ isTextarea }) => {
-    if (!isTextarea) {
-      return `& span {
-        border: 0;
-        clip: rect(1px, 1px, 1px, 1px);
-        clip-path: inset(50%);
-        height: 1px;
-        margin: -1px;
-        overflow: hidden;
-        position: absolute !important;
-        width: 1px;
-        word-wrap:normal !important;
-      }`;
-    }
-    return `& span {
-      margin-left: .3125rem;
-    }`;
+  & span {
+    border: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
   }
 }`;
+
+const TextareaClearButton = styled.div`
+  background-color: ${applyTheme("color_white")};
+  border-radius: ${applyTheme("inputBorderRadius")};
+  border: 1px solid ${applyTheme("color_coolGrey")};
+  box-sizing: content-box;
+  color: ${applyTheme("color_coolGrey")};
+  cursor: pointer;
+  display: inline-block;
+  font-size: ${applyTheme("textareaClearButtonFontSize")};
+  height: ${applyTheme("textareaClearButtonFontSize")};;
+  margin: 0;
+  padding: ${applyTheme("textareaIconPadding")};
+  line-height: 0;
+
+  &:hover,
+  &:focus {
+    background-color: "transparent";
+    outline: none;
+  }
+
+  & span {
+    margin-left: .3125rem;
+    vertical-align: middle;
+  }
+`;
+
+const defaultClearIcon = <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" style={{ height: "100%", maxHeight: "100%", verticalAlign: "middle" }}><path d="M9.926 9.105l-2.105-2.105 2.105-2.105-0.82-0.82-2.105 2.105-2.105-2.105-0.82 0.82 2.105 2.105-2.105 2.105 0.82 0.82 2.105-2.105 2.105 2.105zM7 1.176c3.227 0 5.824 2.598 5.824 5.824s-2.598 5.824-5.824 5.824-5.824-2.598-5.824-5.824 2.598-5.824 5.824-5.824z" /></svg>;
 
 const stringDefaultEquals = (value1, value2) => ((value1 || "") === (value2 || ""));
 
@@ -240,10 +279,10 @@ class TextInput extends Component {
 
   static defaultProps = {
     hasBeenValidated: false,
-    iconClear: (<i className="fas fa-times" />),
+    iconClear: defaultClearIcon,
     iconClearAccessibilityText: "Clear",
-    iconError: (<i className="fas fa-exclamation-triangle" />),
-    iconValid: (<i className="far fa-check-circle" />),
+    iconError: (<FontIcon className="fas fa-exclamation-triangle" />),
+    iconValid: (<FontIcon className="far fa-check-circle" />),
     isOnDarkBackground: false,
     isReadOnly: false,
     onChange() {},
@@ -340,6 +379,10 @@ class TextInput extends Component {
     this.setState({ isButtonFocused: true });
   }
 
+  onClearValue = () => {
+    this.setValue();
+  }
+
   getValue() {
     return this.cleanValue(this.state.value);
   }
@@ -399,11 +442,30 @@ class TextInput extends Component {
   renderClearButton() {
     const { shouldAllowLineBreaks, errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
     const { value } = this.state;
+
+    if (shouldAllowLineBreaks) {
+      return (
+        <TextareaClearButton
+          onClick={this.onClearValue}
+          onFocus={this.onButtonFocus}
+          onBlur={this.onButtonBlur}
+          tabIndex={-1}
+        >
+          {iconClear}
+          <span>{iconClearAccessibilityText}</span>
+        </TextareaClearButton>
+      );
+    }
+
     return (
-      <IconWrapper isTextarea={shouldAllowLineBreaks} errors={errors} hasBeenValidated={hasBeenValidated} value={value}>
+      <IconWrapper
+        errors={errors}
+        hasBeenValidated={hasBeenValidated}
+        isTextarea={shouldAllowLineBreaks}
+        value={value}
+      >
         <ClearButton
-          isTextarea={shouldAllowLineBreaks}
-          onClick={() => this.setValue()}
+          onClick={this.onClearValue}
           onFocus={this.onButtonFocus}
           onBlur={this.onButtonBlur}
           tabIndex={-1}
@@ -450,7 +512,7 @@ class TextInput extends Component {
 
   render() {
     const { shouldAllowLineBreaks, className, isOnDarkBackground, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
-    const { value } = this.state;
+    const { isButtonFocused, isInputFocused, value } = this.state;
     if (shouldAllowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
@@ -471,13 +533,20 @@ class TextInput extends Component {
             placeholder={placeholder}
             value={value}
           />
-          {this.showClearButton() ? this.renderClearButton() : "" }
+          {this.showClearButton() ? this.renderClearButton() : null}
         </div>
       );
     }
 
     return (
-      <div style={{ position: "relative" }}>
+      <InputWrapper
+        errors={errors}
+        hasBeenValidated={hasBeenValidated}
+        isButtonFocused={isButtonFocused}
+        isInputFocused={isInputFocused}
+        isOnDarkBackground={isOnDarkBackground}
+        value={value}
+      >
         <StyledInput
           className={className}
           isOnDarkBackground={isOnDarkBackground}
@@ -495,7 +564,7 @@ class TextInput extends Component {
           value={value}
         />
         {this.showClearButton() ? this.renderClearButton() : this.renderIcon()}
-      </div>
+      </InputWrapper>
     );
   }
 }

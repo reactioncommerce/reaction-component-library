@@ -94,16 +94,16 @@ const teal600 = "#34584f";
 
 // font scale
 const baseFontSize = 16; // pixels
-const fontSize12 = baseFontSize * 0.75;
-const fontSize14 = baseFontSize * 0.875;
-const fontSize16 = baseFontSize * 1;
-const fontSize18 = baseFontSize * 1.125;
-const fontSize20 = baseFontSize * 1.25;
-const fontSize24 = baseFontSize * 1.5;
-const fontSize28 = baseFontSize * 1.75;
-const fontSize32 = baseFontSize * 2;
-const fontSize36 = baseFontSize * 2.25;
-const fontSize42 = baseFontSize * 2.625;
+const fontSize12 = `${baseFontSize * 0.75}px`;
+const fontSize14 = `${baseFontSize * 0.875}px`;
+const fontSize16 = `${baseFontSize * 1}px`;
+const fontSize18 = `${baseFontSize * 1.125}px`;
+const fontSize20 = `${baseFontSize * 1.25}px`;
+const fontSize24 = `${baseFontSize * 1.5}px`;
+const fontSize28 = `${baseFontSize * 1.75}px`;
+const fontSize32 = `${baseFontSize * 2}px`;
+const fontSize36 = `${baseFontSize * 2.25}px`;
+const fontSize42 = `${baseFontSize * 2.625}px`;
 
 // font weights
 const fontWeightLight = "200";
@@ -254,10 +254,11 @@ const inputStyles = {
   rui_inputColor_default: coolGrey500,
   rui_inputColor_disabled: black25,
   rui_inputColor_error: red,
+  rui_inputColor_focus: coolGrey500,
   rui_inputColor_success: black55,
   rui_inputPlaceholderColor: black20,
   rui_inputFontFamily: "inherit",
-  rui_inputFontSize: fontSize14,
+  rui_inputFontSize: "1rem",
   rui_inputLineHeight: flatLeading,
   rui_inputVerticalPadding: baseUnit(1.2),
   rui_inputHorizontalPadding: baseUnit(1),
@@ -266,24 +267,21 @@ const inputStyles = {
 };
 
 const inputIcon = {
-  rui_inputIconBackgroundColor: black10,
   rui_inputIconColor_default: black55,
   rui_inputIconColor_disabled: black25,
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
-  rui_inputIconFontSize: fontSize14,
-  rui_inputIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
-  rui_inputIconRight: baseUnit(1.2),
-  rui_inputIconTop: baseUnit(1.2),
+  rui_inputIconFontSize: fontSize16,
   rui_inputIconTextPadding: baseUnit(20)
 };
 
 // textarea
 const textareaStyles = {
+  rui_textareaClearButtonFontSize: fontSize12,
   rui_textareaHeight: baseUnit(6),
   rui_textareaLineHeight: bodyLeading,
-  rui_textareaIconPadding: `${baseUnit(0.75)} ${baseUnit(0.75)}`,
-  rui_textareaIconRight: "0",
+  rui_textareaIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
+  rui_textareaIconRight: 0,
   rui_textareaIconTop: baseUnit(1)
 };
 
