@@ -93,6 +93,11 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
+          componentNames: ["Price"],
+          content: "styleguide/src/sections/Product.md",
+          name: "Product"
+        }),
+        generateSection({
           componentNames: ["ErrorsBlock", "Field", "Select", "TextInput"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"

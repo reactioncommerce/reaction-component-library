@@ -1831,6 +1831,10 @@ chardet@^0.4.0:
   version "0.4.2"
   resolved "https://registry.yarnpkg.com/chardet/-/chardet-0.4.2.tgz#b5473b33dc97c424e5d98dc87d55d4d8a29c8bf2"
 
+check-prop-types@^1.1.2:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/check-prop-types/-/check-prop-types-1.1.2.tgz#c42df4fbdb509fbd4d8a102d113bb0ca01c21e67"
+
 cheerio@^1.0.0-rc.2:
   version "1.0.0-rc.2"
   resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-1.0.0-rc.2.tgz#4b9f53a81b27e4d5dac31c0ffd0cfa03cc6830db"
