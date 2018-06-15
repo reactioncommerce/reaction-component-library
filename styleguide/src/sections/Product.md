@@ -1,1 +1,1 @@
-TODO Write introduction to Cart
+TODO Write introduction to Product
