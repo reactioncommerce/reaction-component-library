@@ -48,7 +48,6 @@ Input Icon Styles
  - `rui_inputIconColor_disabled`
  - `rui_inputIconColor_error`
  - `rui_inputIconColor_success`
- - `rui_inputIconFontSize`
  - `rui_inputIconTextPadding`
 
 #### Single line, text input.

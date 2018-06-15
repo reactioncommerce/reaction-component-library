@@ -259,7 +259,7 @@ const inputStyles = {
   rui_inputColor_success: black55,
   rui_inputPlaceholderColor: black20,
   rui_inputFontFamily: "inherit",
-  rui_inputFontSize: "1rem",
+  rui_inputFontSize: fontSize14,
   rui_inputLineHeight: flatLeading,
   rui_inputVerticalPadding: baseUnit(1.2),
   rui_inputHorizontalPadding: baseUnit(1),
@@ -272,7 +272,6 @@ const inputIcon = {
   rui_inputIconColor_disabled: black25,
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
-  rui_inputIconFontSize: fontSize16,
   rui_inputIconTextPadding: baseUnit(20)
 };
 

@@ -58,7 +58,6 @@ const StyledInput = styled.input`
   box-sizing: border-box;
   color: inherit;
   flex-grow: 2;
-  font-size: ${applyTheme("inputFontSize")};
   line-height: ${applyTheme("inputLineHeight")};
   outline: none;
 
@@ -109,7 +108,7 @@ const IconWrapper = styled.div`
 `;
 
 const FontIcon = styled.i`
-  font-size: ${applyTheme("inputIconFontSize")};
+  font-size: 1em;
   vertical-align: middle;
 `;
 
