@@ -57,8 +57,8 @@ LABEL maintainer="Reaction Commerce <engineering@reactioncommerce.com>" \
 # Because Docker Compose uses a volume for node_modules and volumes are owned
 # by root by default, we have to initially create node_modules here with correct owner.
 # Without this Yarn cannot write packages into node_modules later, when running in a container.
-RUN mkdir -p "/usr/local/src/node_modules" && chown node "/usr/local/src/node_modules"
-RUN mkdir -p "/usr/local/src/reaction-app/node_modules" && chown node "/usr/local/src/reaction-app/node_modules"
+RUN mkdir -p "/usr/local/src/node_modules" && chown node "/usr/local/src" && chown node "/usr/local/src/node_modules"
+RUN mkdir -p "/usr/local/src/reaction-app/node_modules" && chown node "/usr/local/src/reaction-app" && chown node "/usr/local/src/reaction-app/node_modules"
 
 WORKDIR $APP_SOURCE_DIR/..
 COPY --chown=node package.json yarn.lock $APP_SOURCE_DIR/../
