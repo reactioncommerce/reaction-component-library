@@ -95,45 +95,87 @@ ignore:
     - react-scripts > fsevents > node-pre-gyp > hawk > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.878Z'
+      boom > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > hawk > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.878Z'
+      cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.878Z'
+      hawk > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > fsevents > node-pre-gyp > hawk > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.878Z'
+      hawk > boom > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.878Z'
+      hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      node-pre-gyp > hawk > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      node-pre-gyp > hawk > boom > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      node-pre-gyp > hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      node-pre-gyp > request > hawk > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      node-pre-gyp > request > hawk > boom > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > fsevents > node-pre-gyp > request > hawk > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      node-pre-gyp > request > hawk > sntp > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
+      node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
     - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
         reason: None given
         expires: '2018-04-05T20:56:49.879Z'
@@ -182,4 +224,16 @@ ignore:
     - react-scripts > eslint:
         reason: no resolution available
         expires: '2018-04-26T14:37:00.839Z'
+  'npm:deep-extend:20180409':
+    - node-pre-gyp > rc > deep-extend:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
+  'npm:sshpk:20180409':
+    - node-pre-gyp > request > http-signature > sshpk:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
+  'npm:stringstream:20180511':
+    - node-pre-gyp > request > stringstream:
+        reason: None given
+        expires: '2018-07-15T03:19:00.834Z'
 patch: {}
