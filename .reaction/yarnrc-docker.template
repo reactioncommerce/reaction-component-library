@@ -13,4 +13,3 @@ yarn-offline-mirror-pruning true
 --install.ignore-scripts true
 --install.modules-folder /usr/local/src/node_modules
 --install.prefer-offline true
-
