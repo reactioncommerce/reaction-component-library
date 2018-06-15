@@ -121,12 +121,13 @@ Sections are defined in `styleguide.config.js`. The format is easy to understand
 
 ## Publish the Components Package
 
-Bump the version in package.json and then:
+Bump the version in package.json and then do these on your host machine (NOT in a Docker container):
 
 ```bash
-npm install
+yarn install
 cd package
-npm run release
+yarn install
+yarn release
 ```
 
 ## License

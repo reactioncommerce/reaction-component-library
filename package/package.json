@@ -1,6 +1,6 @@
 {
   "name": "@reactioncommerce/components",
-  "version": "0.1.6",
+  "version": "0.2.0",
   "description": "Reaction Components",
   "homepage": "https://github.com/reactioncommerce/styleguide",
   "repository": "https://github.com/reactioncommerce/styleguide",
@@ -15,8 +15,6 @@
     "prebuild": "rimraf dist && node ./scripts/prebuild.js",
     "build": "BABEL_ENV=production babel src --out-dir dist --ignore *.test.js,__snapshots__,setupTests.js",
     "postbuild": "BABEL_ENV=production babel-node ./scripts/postbuild.js",
-    "lint": "eslint .",
-    "test": "jest",
     "release": "npm run build && npm publish dist"
   },
   "jest": {
