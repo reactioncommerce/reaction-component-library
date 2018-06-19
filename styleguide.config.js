@@ -1,6 +1,6 @@
 const path = require("path");
 const fs = require("fs");
-const theme  = require("./styleguide/src/styles/themes.js")
+const theme  = require("./styleguide/src/styles/themes")
 // const snapguidist = require("snapguidist");
 
 const componentsDir = path.join(__dirname, "package/src/components");
@@ -72,7 +72,7 @@ function generateSection({ componentNames, name, content }) {
 
 module.exports = {
   title: "Reaction UI Components Style Guide",
-  theme,
+  themes,
   sections: [
     {
       name: "Introduction",
