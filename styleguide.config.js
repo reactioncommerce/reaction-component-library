@@ -71,6 +71,7 @@ function generateSection({ componentNames, name, content }) {
 
 module.exports = {
   title: "Reaction Design System",
+  editorConfig: { theme: "oceanic-next" },
   theme: {
     sidebarWidth: 320,
     maxWidth: 1000,
@@ -263,6 +264,7 @@ module.exports = {
     return `import ${name} from "@reactioncommerce/components/${name}/${version}"`;
   },
   pagePerSection: true,
+  showUsage: true,
   serverPort: Number(process.env.PORT),
   assetsDir: "styleguide/src/assets/",
   template: "styleguide/src/index.html"
