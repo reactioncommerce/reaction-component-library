@@ -76,37 +76,37 @@ module.exports = {
     maxWidth: 1000,
     color: {
       // base:
-      sidebarBackground: "#ffffff",
       // light: '#767676',
       // lightest: '#ccc',
-      // link: '#1978c8',
+      link: '#062a4e',
       // linkHover: '#f28a25',
       // border: '#e8e8e8',
       // name: '#7f9a44',
       // type: '#b77daa',
       // error: '#c00',
       // baseBackground: '#fff',
-      // codeBackground: '#f5f5f5',
+      codeBackground: '#233444',
       // ribbonBackground: '#f9970d',
       // ribbonText: '#fff',
     },
-    // fontFamily: {
-      // base: [
-
-      // ],
-      // monospace: []
-    // },
-    // fontSize: {
-    //   base: ,
-    //   text: ,
-    //   small: ,
-    //   h1: ,
-    //   h2: ,
-    //   h3: ,
-    //   h4: ,
-    //   h5: ,
-    //   h6 ,
-    // }
+    fontFamily: {
+      base: [
+        "-apple-system",
+        "sans-serif"
+      ],
+      monospace: ["Overpass Mono", "Menlo", "monospace"]
+    },
+    fontSize: {
+      base: 16,
+      text: 16,
+      small: 14,
+      h1: 39,
+      h2: 31,
+      h3: 25,
+      h4: 20,
+      h5: 18,
+      h6: 16,
+    }
   },
   styles: {
     StyleGuide: {
@@ -135,41 +135,54 @@ module.exports = {
         padding: "20px 80px 40px 80px"
       },
     },
+    Link: {
+      link: {
+        '&, &:link, &:visited': {
+          color: "#fd8283",
+          textDecoration: "underline",
+        },
+        '&:hover, &:active': {
+          color: "#fd8283",
+          textDecoration: "none"
+        },
+      }
+    },
     TableOfContents: {
       search: {
         position: "relative",
-      },
-      input: {
-        backgroundColor: "#f6f6f6",
-        border: "1px solid #f6f6f6",
-        borderRadius: 23,
-        paddingLeft: 30,
-        "&:focus": {
-          borderColor: "#ebebeb",
-        },
         "&::before": {
           border: "3px solid #052a4e",
           borderRadius: "50%",
           content: "' '",
           display: "block",
-          height: 6,
-          left: 25,
-          width: 6,
+          height: 12,
+          left: 28,
+          width: 12,
           position: "absolute",
-          top: "50%",
+          top: "47%",
           zIndex: 1,
           transform: "translateY(-58%)",
         },
         "&::after": {
           background: "#052a4e",
           content: "' '",
+          display: "block",
           height: 7,
-          left: 35,
+          left: 38,
           position: "absolute",
           transform: "rotate(-45deg)",
-          top: "55%",
+          top: "52%",
           width: 3,
           zIndex: 1,
+        }
+      },
+      input: {
+        backgroundColor: "#f6f6f6",
+        border: "1px solid #f6f6f6",
+        borderRadius: 23,
+        paddingLeft: 35,
+        "&:focus": {
+          borderColor: "#ebebeb",
         }
       }
     }
