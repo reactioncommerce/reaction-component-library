@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="215px" height="60px" viewBox="0 0 215 60" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Title</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Style-Guide-Layout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="SG---Layout-Usage" transform="translate(-29.000000, -24.000000)">
+            <g id="RDS---Logo">
+                <g id="Title" transform="translate(32.000000, 26.000000)">
+                    <text id="Design-System" font-family="PostGrotesk-Regular, Post Grotesk Regular" font-size="20" font-weight="normal" line-spacing="30" letter-spacing="0.1291666" fill="#052A50">
+                        <tspan x="83" y="47">Design System</tspan>
+                    </text>
+                    <text id="Reaction" font-family="PostGrotesk-Medium, Post Grotesk Medium" font-size="33" font-weight="400" line-spacing="30" letter-spacing="0.2131249" fill="#052A50">
+                        <tspan x="83" y="31">Reaction </tspan>
+                    </text>
+                    <g id="Style-Guide-Icon" transform="translate(0.000000, 1.000000)" stroke="#052A4E" stroke-width="3">
+                        <polygon id="Triangle" points="19.5 0 39 33 0 33"></polygon>
+                        <circle id="Oval" fill="#FFFFFF" cx="42" cy="37" r="18"></circle>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -70,7 +70,7 @@ function generateSection({ componentNames, name, content }) {
 }
 
 module.exports = {
-  title: "Reaction UI Components Style Guide",
+  title: "Reaction Design System",
   theme: {
     sidebarWidth: 320,
     maxWidth: 1000,
@@ -120,7 +120,11 @@ module.exports = {
         borderWidth: [[0, 2, 0, 0]]
       },
       logo: {
-        borderBottom: [[0]]
+        borderBottom: [[0]],
+        backgroundImage: "url(reaction-design-system-logo.svg)",
+        backgroundRepeat: "no-repeat",
+        height: 110,
+        backgroundPosition: "50%",
       }
     },
     ComponentsList: {
@@ -135,6 +139,13 @@ module.exports = {
         padding: "20px 80px 40px 80px"
       },
     },
+    Heading: {
+      heading2: {
+        color: "#052a4e",
+        fontFamily: ["Overpass Mono", "Menlo", "monospace"],
+        fontSize: "50px",
+      }
+    },
     Link: {
       link: {
         '&, &:link, &:visited': {
@@ -145,6 +156,11 @@ module.exports = {
           color: "#fd8283",
           textDecoration: "none"
         },
+      }
+    },
+    Logo: {
+      logo: {
+        display: "none",
       }
     },
     TableOfContents: {
