@@ -93,7 +93,7 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["Price"],
+          componentNames: ["Price", "StockWarning"],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
         }),
