@@ -148,11 +148,18 @@ module.exports = {
         padding: "20px 80px 40px 80px"
       },
     },
-    Heading: {
-      heading2: {
+    SectionHeading: {
+      sectionName: {
         color: "#052a4e",
+        cursor: "text",
+        pointerEvents: "none",
         fontFamily: ["Overpass Mono", "Menlo", "monospace"],
         fontSize: "50px",
+        "&:hover, &:active": {
+          cursor: "text",
+          pointerEvents: "none",
+          textDecoration: "none"
+        }
       }
     },
     Link: {
