@@ -128,6 +128,7 @@ module.exports = {
         backgroundRepeat: "no-repeat",
         height: 110,
         backgroundPosition: "25% 50%",
+        backgroundSize: 235,
       }
     },
     EditorLoader: {
@@ -142,13 +143,21 @@ module.exports = {
       item: {
         color: "#062a4e",
         "& > a": {
+          display: "inline",
           fontWeight: "bold !important",
-          textDecoration: "none !important"
+          textDecoration: "none !important",
         }
       },
       isChild: {
         "& > a": {
           fontWeight: "normal !important",
+        },
+        "& > a:hover": {
+          cursor: "pointer",
+          backgroundImage: "linear-gradient(#f7fdff 50%, #a7edff 50%) !important",
+          backgroundRepeat: "repeat-x !important",
+          backgroundSize: "8px 2px !important",
+          backgroundPositionY: "1em !important"
         }
       }
     },
