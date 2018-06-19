@@ -80,7 +80,7 @@ module.exports = {
       // light: '#767676',
       // lightest: '#ccc',
       link: '#062a4e',
-      // linkHover: '#f28a25',
+      linkHover: '#fd8283',
       // border: '#e8e8e8',
       // name: '#7f9a44',
       // type: '#b77daa',
@@ -264,6 +264,7 @@ module.exports = {
     return `import ${name} from "@reactioncommerce/components/${name}/${version}"`;
   },
   pagePerSection: true,
+  showCode: true,
   showUsage: true,
   serverPort: Number(process.env.PORT),
   assetsDir: "styleguide/src/assets/",
