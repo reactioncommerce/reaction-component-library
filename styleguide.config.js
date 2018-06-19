@@ -92,6 +92,7 @@ module.exports = {
     },
     fontFamily: {
       base: [
+        "PostGrotesk-Book",
         "-apple-system",
         "sans-serif"
       ],
@@ -118,19 +119,15 @@ module.exports = {
       sidebar: {
         backgroundColor: "#f7fdff",
         border: [["#a7edff", "solid"]],
-        borderWidth: [[0, 2, 0, 0]]
+        borderWidth: [[0, 2, 0, 0]],
+        paddingLeft: 25,
       },
       logo: {
         borderBottom: [[0]],
         backgroundImage: "url(reaction-design-system-logo.svg)",
         backgroundRepeat: "no-repeat",
         height: 110,
-        backgroundPosition: "50%",
-      }
-    },
-    ComponentsList: {
-      list: {
-        paddingLeft: "40px"
+        backgroundPosition: "25% 50%",
       }
     },
     EditorLoader: {
@@ -138,6 +135,20 @@ module.exports = {
         '.CodeMirror.CodeMirror': {
           borderRadius: 5,
           marginTop: 20
+        }
+      }
+    },
+    ComponentsList: {
+      item: {
+        color: "#062a4e",
+        "& > a": {
+          fontWeight: "bold !important",
+          textDecoration: "none !important"
+        }
+      },
+      isChild: {
+        "& > a": {
+          fontWeight: "normal !important",
         }
       }
     },
@@ -165,11 +176,11 @@ module.exports = {
     Link: {
       link: {
         '&, &:link, &:visited': {
-          color: "#fd8283",
+          color: "inherit",
           textDecoration: "underline",
         },
         '&:hover, &:active': {
-          color: "#fd8283",
+          color: "inherit",
           textDecoration: "none"
         },
       }
@@ -181,6 +192,7 @@ module.exports = {
     },
     TableOfContents: {
       search: {
+        paddingLeft: 0,
         position: "relative",
         "&::before": {
           border: "3px solid #052a4e",
@@ -188,7 +200,7 @@ module.exports = {
           content: "' '",
           display: "block",
           height: 12,
-          left: 28,
+          left: 14,
           width: 12,
           position: "absolute",
           top: "47%",
@@ -200,7 +212,7 @@ module.exports = {
           content: "' '",
           display: "block",
           height: 7,
-          left: 38,
+          left: 24,
           position: "absolute",
           transform: "rotate(-45deg)",
           top: "52%",
@@ -212,6 +224,7 @@ module.exports = {
         backgroundColor: "#f6f6f6",
         border: "1px solid #f6f6f6",
         borderRadius: 23,
+        padding: 11,
         paddingLeft: 35,
         "&:focus": {
           borderColor: "#ebebeb",
