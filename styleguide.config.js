@@ -1,6 +1,5 @@
 const path = require("path");
 const fs = require("fs");
-const theme  = require("./styleguide/src/styles/themes")
 // const snapguidist = require("snapguidist");
 
 const componentsDir = path.join(__dirname, "package/src/components");
@@ -72,7 +71,109 @@ function generateSection({ componentNames, name, content }) {
 
 module.exports = {
   title: "Reaction UI Components Style Guide",
-  themes,
+  theme: {
+    sidebarWidth: 320,
+    maxWidth: 1000,
+    color: {
+      // base:
+      sidebarBackground: "#ffffff",
+      // light: '#767676',
+      // lightest: '#ccc',
+      // link: '#1978c8',
+      // linkHover: '#f28a25',
+      // border: '#e8e8e8',
+      // name: '#7f9a44',
+      // type: '#b77daa',
+      // error: '#c00',
+      // baseBackground: '#fff',
+      // codeBackground: '#f5f5f5',
+      // ribbonBackground: '#f9970d',
+      // ribbonText: '#fff',
+    },
+    // fontFamily: {
+      // base: [
+
+      // ],
+      // monospace: []
+    // },
+    // fontSize: {
+    //   base: ,
+    //   text: ,
+    //   small: ,
+    //   h1: ,
+    //   h2: ,
+    //   h3: ,
+    //   h4: ,
+    //   h5: ,
+    //   h6 ,
+    // }
+  },
+  styles: {
+    StyleGuide: {
+      content: {
+        maxWidth: "initial",
+        padding: "0 80px",
+      },
+      sidebar: {
+        backgroundColor: "#f7fdff",
+        border: [["#a7edff", "solid"]],
+        borderWidth: [[0, 2, 0, 0]]
+      },
+      logo: {
+        borderBottom: [[0]]
+      }
+    },
+    ComponentsList: {
+      list: {
+        paddingLeft: "40px"
+      }
+    },
+    ReactComponent: {
+      header: {
+        backgroundColor: "#fffbcc",
+        margin: "0 -80px 40px -80px",
+        padding: "20px 80px 40px 80px"
+      },
+    },
+    TableOfContents: {
+      search: {
+        position: "relative",
+      },
+      input: {
+        backgroundColor: "#f6f6f6",
+        border: "1px solid #f6f6f6",
+        borderRadius: 23,
+        paddingLeft: 30,
+        "&:focus": {
+          borderColor: "#ebebeb",
+        },
+        "&::before": {
+          border: "3px solid #052a4e",
+          borderRadius: "50%",
+          content: "' '",
+          display: "block",
+          height: 6,
+          left: 25,
+          width: 6,
+          position: "absolute",
+          top: "50%",
+          zIndex: 1,
+          transform: "translateY(-58%)",
+        },
+        "&::after": {
+          background: "#052a4e",
+          content: "' '",
+          height: 7,
+          left: 35,
+          position: "absolute",
+          transform: "rotate(-45deg)",
+          top: "55%",
+          width: 3,
+          zIndex: 1,
+        }
+      }
+    }
+  },
   sections: [
     {
       name: "Introduction",
