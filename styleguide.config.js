@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const theme  = require("./styleguide/src/styles/themes.js")
 // const snapguidist = require("snapguidist");
 
 const componentsDir = path.join(__dirname, "package/src/components");
@@ -20,8 +21,7 @@ const componentTree = {};
 //     //   documentation.set("displayName", "v1");
 
 //     //   // Calculate the key required to find the component in the module exports
-//     //   if (
-//     //     definition.parentPath.value.type === "ExportNamedDeclaration"
+//     //   if ( //     //     definition.parentPath.value.type === "ExportNamedDeclaration"
 //     //   ) {
 //     //     console.log("name", definition.value.id.name);
 //     //     documentation.set("path", `v1.${definition.value.id.name}`);
@@ -72,6 +72,7 @@ function generateSection({ componentNames, name, content }) {
 
 module.exports = {
   title: "Reaction UI Components Style Guide",
+  theme,
   sections: [
     {
       name: "Introduction",
