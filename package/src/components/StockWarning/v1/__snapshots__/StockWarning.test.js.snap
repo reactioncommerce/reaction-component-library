@@ -6,15 +6,14 @@ exports[`Renders nothing when stock level is normal 1`] = `null`;
 
 exports[`Renders stock warning when inventory is low 1`] = `
 .c0 {
-  display: block;
   color: #cd3f4c;
 }
 
-<span
+<div
   className="c0"
 >
   Only 
   10
    in stock
-</span>
+</div>
 `;

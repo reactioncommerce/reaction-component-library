@@ -3,9 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
-const Span = styled.span`
-  display: block;
-  color: ${applyTheme("color_error")};
+const Span = styled.div`
+  color: ${applyTheme("color_stockWarning")};
 `;
 
 class StockWarning extends Component {
