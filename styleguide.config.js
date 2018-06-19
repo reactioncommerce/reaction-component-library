@@ -133,6 +133,14 @@ module.exports = {
         paddingLeft: "40px"
       }
     },
+    EditorLoader: {
+      '@global': {
+        '.CodeMirror.CodeMirror': {
+          borderRadius: 5,
+          marginTop: 20
+        }
+      }
+    },
     ReactComponent: {
       header: {
         backgroundColor: "#fffbcc",
