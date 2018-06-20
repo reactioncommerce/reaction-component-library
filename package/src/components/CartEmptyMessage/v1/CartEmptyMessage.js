@@ -26,7 +26,7 @@ class CartEmptyMessage extends Component {
   // }
 
   static defaultProps = {
-
+    onClick() {}
   };
 
   render() {
