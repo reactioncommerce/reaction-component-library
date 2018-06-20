@@ -157,6 +157,7 @@ const defaultStyles = {
   rui_color_stockWarning: red,
   rui_color_success: teal,
   rui_color_coolGrey: coolGrey,
+  rui_color_coolGrey500: coolGrey500,
   rui_color_white: white,
   rui_leading_body: bodyLeading,
   rui_leading_header: headerLeading,
@@ -311,8 +312,15 @@ const helpTextStyles = {
 const errorsBlockStyles = {
   rui_errorsBlockColor: red,
   rui_errorsBlockFontSize: fontSize14,
-  rui_errorsBlockMargin: `${baseUnit(1)} 0 0`,
+  rui_errorsBlockMargin: `${baseUnit(1)} 0`,
   rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
+};
+
+// cartEmptyMessage
+const cartEmptyMessage = {
+  rui_cartEmptyMessageFontSize: baseFontSize,
+  rui_cartEmptyMessageLetterSpacing: `${baseUnit(0.03)}`,
+  rui_cartEmptyMessageMarginBottom: `${baseUnit(5.4)}`
 };
 
 export default {
@@ -324,5 +332,6 @@ export default {
   ...fieldStyles,
   ...labelStyles,
   ...helpTextStyles,
-  ...errorsBlockStyles
+  ...errorsBlockStyles,
+  ...cartEmptyMessage
 };

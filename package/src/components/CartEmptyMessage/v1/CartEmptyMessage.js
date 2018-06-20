@@ -10,9 +10,10 @@ const EmptyButton = styled.div`
 
 const EmptyMessage = styled.div`
   color: #3c3c3c;
-  letter-spacing: 0.3px;
-  font-size: 16px;
-  margin-bottom: 54px;
+  letter-spacing: ${applyTheme("cartEmptyMessageLetterSpacing")};
+  font-size: ${applyTheme("cartEmptyMessageFontSize")};
+  color: ${applyTheme("color_coolGrey500")};
+  margin-bottom: ${applyTheme("cartEmptyMessageMarginBottom")};
   display: flex;
   justify-content: center;
 `;
