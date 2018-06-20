@@ -29,7 +29,7 @@ class CartEmptyMessage extends Component {
      * Onclick function to pass to the Button component. Not handled internally, directly passed
      */
     onClick: PropTypes.func
-}
+  }
 
   static defaultProps = {
     onClick() {}
