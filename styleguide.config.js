@@ -131,23 +131,27 @@ module.exports = {
     },
     ComponentsList: {
       item: {
-        "color": "#062a4e",
+        color: "#062a4e",
+        fontSize: 14,
         "& > a": {
           display: "inline",
           fontFamily: "PostGrotesk-Bold !important",
+          letterSpacing: "0.6px !important",
           textDecoration: "none !important"
         }
       },
       isChild: {
         "& > a": {
-          fontFamily: "PostGrotesk-Regular !important"
+          fontFamily: "PostGrotesk-Regular !important",
+          letterSpacing: "0.4px !important"
         },
         "& > a:hover": {
           cursor: "pointer",
           backgroundImage: "linear-gradient(#f7fdff 50%, #a7edff 50%) !important",
           backgroundRepeat: "repeat-x !important",
-          backgroundSize: "8px 2px !important",
-          backgroundPositionY: "1em !important"
+          backgroundSize: "8px 4px !important",
+          backgroundPositionY: "0.9em !important",
+          transition: "background-image .3s ease-in",
         }
       }
     },
@@ -254,6 +258,10 @@ module.exports = {
           name: "Installing and Importing the Components",
           content: "styleguide/src/sections/InstallingandImporting.md"
           // description: ""
+        },
+        {
+          name: "Text Styles",
+          content: "styleguide/src/sections/Type.md"
         }
       ]
     },
