@@ -6,9 +6,9 @@ Displays a summary of the current current items in the cart.
 #### Basic usage
 ```jsx
 <CartSummary
-  displayShipping="10.99"
-  displaySubtotal="275.77"
-  displayTotal="286.10"
+  displayShipping="$10.99"
+  displaySubtotal="$275.77"
+  displayTotal="$286.10"
   itemsQuantity={3}
 />
 ```
@@ -16,9 +16,8 @@ Displays a summary of the current current items in the cart.
 #### Renders summary with FREE shipping
 ```jsx
 <CartSummary
-  displayShipping="3-5 Days"
-  displaySubtotal="275.77"
-  displayTotal="275.77"
+  displaySubtotal="$275.77"
+  displayTotal="$275.77"
   itemsQuantity={3}
   isFreeShipping
 />
@@ -28,8 +27,8 @@ Displays a summary of the current current items in the cart.
 ```jsx
 <CartSummary
   displayShipping="$5.25"
-  displaySubtotal="275.77"
-  displayTotal="288.64"
+  displaySubtotal="$275.77"
+  displayTotal="$288.64"
   itemsQuantity={3}
   displayTax="$7.62"
 />
@@ -40,8 +39,8 @@ Displays a summary of the current current items in the cart.
 <CartSummary
   displayDiscount="-$83.42"
   displayShipping="$5.25"
-  displaySubtotal="275.77"
-  displayTotal="288.64"
+  displaySubtotal="$275.77"
+  displayTotal="$288.64"
   itemsQuantity={3}
   displayTax="$7.62"
 />

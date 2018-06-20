@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const Table = styled.table`
-  min-width: 20rem;
+  width: 100%;
   background-color: ${applyTheme("color_black02")};
   padding: 1rem;
 `;

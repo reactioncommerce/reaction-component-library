@@ -2,7 +2,7 @@
 
 exports[`Displays a summary of the current items in the cart 1`] = `
 .c0 {
-  min-width: 20rem;
+  width: 100%;
   background-color: #fafafa;
   padding: 1rem;
 }
@@ -119,7 +119,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
 
 exports[`Displays a summary with FREE shipping 1`] = `
 .c0 {
-  min-width: 20rem;
+  width: 100%;
   background-color: #fafafa;
   padding: 1rem;
 }
@@ -236,7 +236,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
 
 exports[`Displays a summary with applied discount 1`] = `
 .c0 {
-  min-width: 20rem;
+  width: 100%;
   background-color: #fafafa;
   padding: 1rem;
 }
@@ -374,7 +374,7 @@ exports[`Displays a summary with applied discount 1`] = `
 
 exports[`Displays a summary with calculated taxes 1`] = `
 .c0 {
-  min-width: 20rem;
+  width: 100%;
   background-color: #fafafa;
   padding: 1rem;
 }
