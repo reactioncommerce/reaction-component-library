@@ -76,23 +76,13 @@ module.exports = {
     sidebarWidth: 320,
     maxWidth: 1000,
     color: {
-      // base:
-      // light: '#767676',
-      // lightest: '#ccc',
       link: '#062a4e',
       linkHover: '#fd8283',
-      // border: '#e8e8e8',
-      // name: '#7f9a44',
-      // type: '#b77daa',
-      // error: '#c00',
-      // baseBackground: '#fff',
       codeBackground: '#233444',
-      // ribbonBackground: '#f9970d',
-      // ribbonText: '#fff',
     },
     fontFamily: {
       base: [
-        "PostGrotesk-Book",
+        "'PostGrotesk-Regular'",
         "-apple-system",
         "sans-serif"
       ],
@@ -144,13 +134,13 @@ module.exports = {
         color: "#062a4e",
         "& > a": {
           display: "inline",
-          fontWeight: "bold !important",
+          fontFamily: "PostGrotesk-Bold !important",
           textDecoration: "none !important",
         }
       },
       isChild: {
         "& > a": {
-          fontWeight: "normal !important",
+          fontFamily: "PostGrotesk-Regular !important",
         },
         "& > a:hover": {
           cursor: "pointer",
@@ -159,6 +149,20 @@ module.exports = {
           backgroundSize: "8px 2px !important",
           backgroundPositionY: "1em !important"
         }
+      }
+    },
+    Heading: {
+      heading: {
+        fontFamily: "PostGrotesk-Bold",
+      },
+      heading1: {
+        fontFamily: "PostGrotesk-Bold",
+      },
+      heading2: {
+        fontFamily: "PostGrotesk-Medium",
+      },
+      heading3: {
+        fontFamily: "PostGrotesk-Light",
       }
     },
     ReactComponent: {
