@@ -10,12 +10,12 @@ const EmptyButton = styled.div`
 
 const EmptyMessage = styled.div`
   color: #3c3c3c;
-  letter-spacing: ${applyTheme("cartEmptyMessageLetterSpacing")};
-  font-size: ${applyTheme("cartEmptyMessageFontSize")};
   color: ${applyTheme("color_coolGrey500")};
-  margin-bottom: ${applyTheme("cartEmptyMessageMarginBottom")};
   display: flex;
+  font-size: ${applyTheme("cartEmptyMessageFontSize")};
   justify-content: center;
+  letter-spacing: ${applyTheme("cartEmptyMessageLetterSpacing")};
+  margin-bottom: ${applyTheme("cartEmptyMessageMarginBottom")};
 `;
 
 class CartEmptyMessage extends Component {
