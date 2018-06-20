@@ -1,0 +1,490 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Displays a summary of the current items in the cart 1`] = `
+.c0 {
+  width: 100%;
+  background-color: #fafafa;
+  padding: 1rem;
+}
+
+.c1 {
+  text-align: left;
+}
+
+.c3 {
+  text-align: right;
+  color: #b3b3b3;
+  font-weight: normal;
+}
+
+.c5 {
+  text-align: right;
+  padding: 1rem 0;
+  color: #3c3c3c;
+}
+
+.c4 {
+  padding: 1rem 0;
+  color: #3c5d6f;
+}
+
+.c2 {
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+.c6 {
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+<table
+  className="c0"
+>
+  <thead>
+    <tr>
+      <th
+        className="c1"
+      >
+        <span
+          className="c2"
+        >
+          Cart Summary
+        </span>
+      </th>
+      <th
+        className="c3"
+      >
+        3
+         items
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="c4"
+      >
+        Subtotal
+      </td>
+      <td
+        className="c5"
+      >
+        $246.22
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Shipping
+      </td>
+      <td
+        className="c5"
+      >
+        3-5 Days
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Tax
+      </td>
+      <td
+        className="c5"
+      >
+        -
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Total
+      </td>
+      <td
+        className="c5"
+      >
+        <span
+          className="c6"
+        >
+          $300.424
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Displays a summary with FREE shipping 1`] = `
+.c0 {
+  width: 100%;
+  background-color: #fafafa;
+  padding: 1rem;
+}
+
+.c1 {
+  text-align: left;
+}
+
+.c3 {
+  text-align: right;
+  color: #b3b3b3;
+  font-weight: normal;
+}
+
+.c5 {
+  text-align: right;
+  padding: 1rem 0;
+  color: #3c3c3c;
+}
+
+.c4 {
+  padding: 1rem 0;
+  color: #3c5d6f;
+}
+
+.c2 {
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+.c6 {
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+<table
+  className="c0"
+>
+  <thead>
+    <tr>
+      <th
+        className="c1"
+      >
+        <span
+          className="c2"
+        >
+          Cart Summary
+        </span>
+      </th>
+      <th
+        className="c3"
+      >
+        3
+         items
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="c4"
+      >
+        Subtotal
+      </td>
+      <td
+        className="c5"
+      >
+        $246.22
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Shipping
+      </td>
+      <td
+        className="c5"
+      >
+        FREE
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Tax
+      </td>
+      <td
+        className="c5"
+      >
+        -
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Total
+      </td>
+      <td
+        className="c5"
+      >
+        <span
+          className="c6"
+        >
+          $300.424
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Displays a summary with applied discount 1`] = `
+.c0 {
+  width: 100%;
+  background-color: #fafafa;
+  padding: 1rem;
+}
+
+.c1 {
+  text-align: left;
+}
+
+.c3 {
+  text-align: right;
+  color: #b3b3b3;
+  font-weight: normal;
+}
+
+.c5 {
+  text-align: right;
+  padding: 1rem 0;
+  color: #3c3c3c;
+}
+
+.c4 {
+  padding: 1rem 0;
+  color: #3c5d6f;
+}
+
+.c2 {
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+.c6 {
+  color: #0db781;
+  font-weight: 700;
+}
+
+.c7 {
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+<table
+  className="c0"
+>
+  <thead>
+    <tr>
+      <th
+        className="c1"
+      >
+        <span
+          className="c2"
+        >
+          Cart Summary
+        </span>
+      </th>
+      <th
+        className="c3"
+      >
+        3
+         items
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="c4"
+      >
+        Subtotal
+      </td>
+      <td
+        className="c5"
+      >
+        $246.22
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Shipping
+      </td>
+      <td
+        className="c5"
+      >
+        3-5 Days
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Promo code applied
+      </td>
+      <td
+        className="c5"
+      >
+        <span
+          className="c6"
+        >
+          -$80.42
+        </span>
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Tax
+      </td>
+      <td
+        className="c5"
+      >
+        -
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Total
+      </td>
+      <td
+        className="c5"
+      >
+        <span
+          className="c7"
+        >
+          $300.424
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Displays a summary with calculated taxes 1`] = `
+.c0 {
+  width: 100%;
+  background-color: #fafafa;
+  padding: 1rem;
+}
+
+.c1 {
+  text-align: left;
+}
+
+.c3 {
+  text-align: right;
+  color: #b3b3b3;
+  font-weight: normal;
+}
+
+.c5 {
+  text-align: right;
+  padding: 1rem 0;
+  color: #3c3c3c;
+}
+
+.c4 {
+  padding: 1rem 0;
+  color: #3c5d6f;
+}
+
+.c2 {
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+.c6 {
+  font-weight: 700;
+  color: #3c3c3c;
+}
+
+<table
+  className="c0"
+>
+  <thead>
+    <tr>
+      <th
+        className="c1"
+      >
+        <span
+          className="c2"
+        >
+          Cart Summary
+        </span>
+      </th>
+      <th
+        className="c3"
+      >
+        3
+         items
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td
+        className="c4"
+      >
+        Subtotal
+      </td>
+      <td
+        className="c5"
+      >
+        $246.22
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Shipping
+      </td>
+      <td
+        className="c5"
+      >
+        3-5 Days
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Tax
+      </td>
+      <td
+        className="c5"
+      >
+        $24.88
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c4"
+      >
+        Total
+      </td>
+      <td
+        className="c5"
+      >
+        <span
+          className="c6"
+        >
+          $300.424
+        </span>
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
