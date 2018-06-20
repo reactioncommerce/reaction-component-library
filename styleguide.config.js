@@ -76,9 +76,9 @@ module.exports = {
     sidebarWidth: 320,
     maxWidth: 1000,
     color: {
-      link: '#062a4e',
-      linkHover: '#fd8283',
-      codeBackground: '#233444',
+      link: "#062a4e",
+      linkHover: "#fd8283",
+      codeBackground: "#233444"
     },
     fontFamily: {
       base: [
@@ -97,20 +97,20 @@ module.exports = {
       h3: 25,
       h4: 20,
       h5: 18,
-      h6: 16,
+      h6: 16
     }
   },
   styles: {
     StyleGuide: {
       content: {
         maxWidth: "initial",
-        padding: "0 80px",
+        padding: "0 80px"
       },
       sidebar: {
         backgroundColor: "#f7fdff",
         border: [["#a7edff", "solid"]],
         borderWidth: [[0, 2, 0, 0]],
-        paddingLeft: 25,
+        paddingLeft: 25
       },
       logo: {
         borderBottom: [[0]],
@@ -118,12 +118,12 @@ module.exports = {
         backgroundRepeat: "no-repeat",
         height: 110,
         backgroundPosition: "25% 50%",
-        backgroundSize: 235,
+        backgroundSize: 235
       }
     },
     EditorLoader: {
-      '@global': {
-        '.CodeMirror.CodeMirror': {
+      "@global": {
+        ".CodeMirror.CodeMirror": {
           borderRadius: 5,
           marginTop: 20
         }
@@ -131,16 +131,16 @@ module.exports = {
     },
     ComponentsList: {
       item: {
-        color: "#062a4e",
+        "color": "#062a4e",
         "& > a": {
           display: "inline",
           fontFamily: "PostGrotesk-Bold !important",
-          textDecoration: "none !important",
+          textDecoration: "none !important"
         }
       },
       isChild: {
         "& > a": {
-          fontFamily: "PostGrotesk-Regular !important",
+          fontFamily: "PostGrotesk-Regular !important"
         },
         "& > a:hover": {
           cursor: "pointer",
@@ -153,16 +153,16 @@ module.exports = {
     },
     Heading: {
       heading: {
-        fontFamily: "PostGrotesk-Bold",
+        fontFamily: "PostGrotesk-Bold"
       },
       heading1: {
-        fontFamily: "PostGrotesk-Bold",
+        fontFamily: "PostGrotesk-Bold"
       },
       heading2: {
-        fontFamily: "PostGrotesk-Medium",
+        fontFamily: "PostGrotesk-Medium"
       },
       heading3: {
-        fontFamily: "PostGrotesk-Light",
+        fontFamily: "PostGrotesk-Light"
       }
     },
     ReactComponent: {
@@ -170,15 +170,15 @@ module.exports = {
         backgroundColor: "#fffbcc",
         margin: "0 -80px 40px -80px",
         padding: "20px 80px 40px 80px"
-      },
+      }
     },
     SectionHeading: {
       sectionName: {
-        color: "#052a4e",
-        cursor: "text",
-        pointerEvents: "none",
-        fontFamily: ["Overpass Mono", "Menlo", "monospace"],
-        fontSize: "50px",
+        "color": "#052a4e",
+        "cursor": "text",
+        "pointerEvents": "none",
+        "fontFamily": ["Overpass Mono", "Menlo", "monospace"],
+        "fontSize": "50px",
         "&:hover, &:active": {
           cursor: "text",
           pointerEvents: "none",
@@ -188,25 +188,25 @@ module.exports = {
     },
     Link: {
       link: {
-        '&, &:link, &:visited': {
+        "&, &:link, &:visited": {
           color: "inherit",
-          textDecoration: "underline",
+          textDecoration: "underline"
         },
-        '&:hover, &:active': {
+        "&:hover, &:active": {
           color: "inherit",
           textDecoration: "none"
-        },
+        }
       }
     },
     Logo: {
       logo: {
-        display: "none",
+        display: "none"
       }
     },
     TableOfContents: {
       search: {
-        paddingLeft: 0,
-        position: "relative",
+        "paddingLeft": 0,
+        "position": "relative",
         "&::before": {
           border: "3px solid #052a4e",
           borderRadius: "50%",
@@ -218,7 +218,7 @@ module.exports = {
           position: "absolute",
           top: "47%",
           zIndex: 1,
-          transform: "translateY(-58%)",
+          transform: "translateY(-58%)"
         },
         "&::after": {
           background: "#052a4e",
@@ -230,17 +230,17 @@ module.exports = {
           transform: "rotate(-45deg)",
           top: "52%",
           width: 3,
-          zIndex: 1,
+          zIndex: 1
         }
       },
       input: {
-        backgroundColor: "#f6f6f6",
-        border: "1px solid #f6f6f6",
-        borderRadius: 23,
-        padding: 11,
-        paddingLeft: 35,
+        "backgroundColor": "#f6f6f6",
+        "border": "1px solid #f6f6f6",
+        "borderRadius": 23,
+        "padding": 11,
+        "paddingLeft": 35,
         "&:focus": {
-          borderColor: "#ebebeb",
+          borderColor: "#ebebeb"
         }
       }
     }
