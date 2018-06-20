@@ -19,22 +19,32 @@ const EmptyMessage = styled.div`
 `;
 
 class CartEmptyMessage extends Component {
-  // static propTypes: {
-  //   components: PropTypes.shape({
-  //     continueShoppingButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-  //   })
-  // }
+  static propTypes = {
+  /**
+   * On object of component children to pass into this component
+   */
+  components: PropTypes.shape({
+    ContinueShoppingButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+  }),
+  /**
+   * Onclick function to pass to the Button component. Not handled internally, directly passed
+   */
+  onClick: PropTypes.func,
+}
 
   static defaultProps = {
     onClick() {}
   };
 
   render() {
+    const { onClick } = this.props;
+    const { ContinueShoppingButton } = this.props.components;
+
     return (
       <Fragment>
         <EmptyMessage>Your shopping cart is empty.</EmptyMessage>
         <EmptyButton>
-          <Button className="emptyCartBtn" actionType="important">Continue shopping</Button>
+          <ContinueShoppingButton className="emptyCartBtn" actionType="important" onClick={onClick}>Continue shopping</ContinueShoppingButton>
         </EmptyButton>
       </Fragment>
     );
