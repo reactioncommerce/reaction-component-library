@@ -4,20 +4,20 @@ exports[`basic snapshot 1`] = `
 Array [
   .c0 {
   color: #3c3c3c;
-  -webkit-letter-spacing: 0.3px;
-  -moz-letter-spacing: 0.3px;
-  -ms-letter-spacing: 0.3px;
-  letter-spacing: 0.3px;
-  font-size: 16px;
-  margin-bottom: 54px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  font-size: 16;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-letter-spacing: 0.01875rem;
+  -moz-letter-spacing: 0.01875rem;
+  -ms-letter-spacing: 0.01875rem;
+  letter-spacing: 0.01875rem;
+  margin-bottom: 3.375rem;
 }
 
 <div
