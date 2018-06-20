@@ -9,7 +9,6 @@ const EmptyButton = styled.div`
 `;
 
 const EmptyMessage = styled.div`
-  color: #3c3c3c;
   color: ${applyTheme("color_coolGrey500")};
   display: flex;
   font-size: ${applyTheme("cartEmptyMessageFontSize")};
