@@ -2,7 +2,6 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
-import Button from "../../Button/v1";
 
 const EmptyButton = styled.div`
   display: flex;
@@ -20,16 +19,16 @@ const EmptyMessage = styled.div`
 
 class CartEmptyMessage extends Component {
   static propTypes = {
-  /**
-   * On object of component children to pass into this component
-   */
-  components: PropTypes.shape({
-    ContinueShoppingButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-  }),
-  /**
-   * Onclick function to pass to the Button component. Not handled internally, directly passed
-   */
-  onClick: PropTypes.func,
+    /**
+     * On object of component children to pass into this component
+     */
+    components: PropTypes.shape({
+      ContinueShoppingButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    }),
+    /**
+     * Onclick function to pass to the Button component. Not handled internally, directly passed
+     */
+    onClick: PropTypes.func
 }
 
   static defaultProps = {
