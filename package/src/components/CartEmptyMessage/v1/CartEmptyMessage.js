@@ -20,6 +20,10 @@ const EmptyMessage = styled.div`
 class CartEmptyMessage extends Component {
   static propTypes = {
     /**
+     * Text to display inside the button
+     */
+    buttonText: PropTypes.string,
+    /**
      * On object of component children to pass into this component
      */
     components: PropTypes.shape({
@@ -33,17 +37,18 @@ class CartEmptyMessage extends Component {
 
   static defaultProps = {
     onClick() {}
+    buttonText: "Continue shopping",
   };
 
   render() {
-    const { onClick } = this.props;
+    const { buttonText, messageText, onClick } = this.props;
     const { ContinueShoppingButton } = this.props.components;
 
     return (
       <Fragment>
-        <EmptyMessage>Your shopping cart is empty.</EmptyMessage>
+        <EmptyMessage>{messageText}</EmptyMessage>
         <EmptyButton>
-          <ContinueShoppingButton className="emptyCartBtn" actionType="important" onClick={onClick}>Continue shopping</ContinueShoppingButton>
+          <ContinueShoppingButton actionType="important" onClick={this.handleOnClick}>{buttonText}</ContinueShoppingButton>
         </EmptyButton>
       </Fragment>
     );
