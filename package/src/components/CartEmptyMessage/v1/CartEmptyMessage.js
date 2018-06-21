@@ -45,11 +45,11 @@ class CartEmptyMessage extends Component {
   };
 
   handleOnClick = () => {
-    this.props.onClick()
+    this.props.onClick();
   }
 
   render() {
-    const { buttonText, messageText, onClick } = this.props;
+    const { buttonText, messageText } = this.props;
     const { ContinueShoppingButton } = this.props.components;
 
     return (

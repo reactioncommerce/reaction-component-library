@@ -13,14 +13,14 @@ test("default cart empty button", () => {
 
 test("custom cart empty button", () => {
   const onClick = () => {};
-  const component = renderer.create(
+  const component = renderer.create((
     <CartEmptyMessage
       buttonText={"Custom button text"}
       components={{ ContinueShoppingButton: Button }}
       messageText={"Custom message text"}
       onClick={onClick}
     />
-  );
+  ));
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
