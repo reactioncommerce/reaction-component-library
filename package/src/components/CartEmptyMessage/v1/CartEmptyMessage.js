@@ -30,6 +30,10 @@ class CartEmptyMessage extends Component {
       ContinueShoppingButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
+     * Text to display inside the message area
+     */
+    messageText: PropTypes.string,
+    /**
      * Onclick function to pass to the Button component. Not handled internally, directly passed
      */
     onClick: PropTypes.func
@@ -38,6 +42,7 @@ class CartEmptyMessage extends Component {
   static defaultProps = {
     onClick() {}
     buttonText: "Continue shopping",
+    messageText: "Your shopping cart is empty."
   };
 
   render() {
