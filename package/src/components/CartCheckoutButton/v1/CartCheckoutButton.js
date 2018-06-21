@@ -5,6 +5,10 @@ import PropTypes from "prop-types";
 class CartCheckoutButton extends Component {
   static propTypes = {
     /**
+     * Text to display inside the button
+     */
+    buttonText: PropTypes.string,
+    /**
      * On object of component children to pass into this component
      */
     components: PropTypes.shape({
@@ -22,14 +26,17 @@ class CartCheckoutButton extends Component {
 
   static defaultProps = {
     onClick() {}
+    buttonText: "Checkout"
   };
 
   render() {
     const { isDisabled, onClick } = this.props;
+    const { buttonText, isDisabled } = this.props;
     const { CartCheckoutButton } = this.props.components;
 
     return (
       <CartCheckoutButton className="cartCheckoutBtn" actionType="important" isDisabled={isDisabled} onClick={onClick} fullWidth>Checkout</CartCheckoutButton>
+      <CartCheckoutButton className="cartCheckoutBtn" actionType="important" isDisabled={isDisabled} onClick={this.handleOnClick} fullWidth>{buttonText}</CartCheckoutButton>
     );
   }
 }
