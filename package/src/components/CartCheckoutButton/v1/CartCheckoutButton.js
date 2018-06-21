@@ -41,6 +41,7 @@ class CartCheckoutButton extends Component {
         actionType="important"
         isDisabled={isDisabled}
         onClick={this.handleOnClick}
+        fullWidth
       >
         {buttonText}
       </Button>
