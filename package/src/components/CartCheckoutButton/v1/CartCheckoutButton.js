@@ -21,21 +21,22 @@ class CartCheckoutButton extends Component {
     /**
      * Onclick function to pass to the Button component. Not handled internally, directly passed
      */
-    onClick: PropTypes.func
+    onClick: PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    onClick() {}
     buttonText: "Checkout"
   };
 
+  handleOnClick = () => {
+    this.props.onClick();
+  }
+
   render() {
-    const { isDisabled, onClick } = this.props;
     const { buttonText, isDisabled } = this.props;
     const { CartCheckoutButton } = this.props.components;
 
     return (
-      <CartCheckoutButton className="cartCheckoutBtn" actionType="important" isDisabled={isDisabled} onClick={onClick} fullWidth>Checkout</CartCheckoutButton>
       <CartCheckoutButton className="cartCheckoutBtn" actionType="important" isDisabled={isDisabled} onClick={this.handleOnClick} fullWidth>{buttonText}</CartCheckoutButton>
     );
   }
