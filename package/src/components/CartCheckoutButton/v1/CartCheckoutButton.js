@@ -12,7 +12,7 @@ class CartCheckoutButton extends Component {
      * On object of component children to pass into this component
      */
     components: PropTypes.shape({
-      CartCheckoutButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+      Button: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
      * Set to `true` to prevent the button from calling `onClick` when clicked
@@ -34,10 +34,16 @@ class CartCheckoutButton extends Component {
 
   render() {
     const { buttonText, isDisabled } = this.props;
-    const { CartCheckoutButton } = this.props.components;
+    const { Button } = this.props.components;
 
     return (
-      <CartCheckoutButton className="cartCheckoutBtn" actionType="important" isDisabled={isDisabled} onClick={this.handleOnClick} fullWidth>{buttonText}</CartCheckoutButton>
+      <Button
+        actionType="important"
+        isDisabled={isDisabled}
+        onClick={this.handleOnClick}
+      >
+        {buttonText}
+      </Button>
     );
   }
 }

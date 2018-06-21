@@ -9,7 +9,7 @@ const Button = require("../../Button/v1").default;
 const onClick = () => {};
 
   <CartCheckoutButton
-    components={{CartCheckoutButton: Button}}
+    components={{Button}}
     isDisabled={false}
     onClick={onClick}
   />
@@ -22,7 +22,7 @@ const onClick = () => {};
 
   <CartCheckoutButton
     buttonText="Custom button text"
-    components={{CartCheckoutButton: Button}}
+    components={{Button}}
     isDisabled={false}
     onClick={onClick}
   />
