@@ -36,14 +36,17 @@ class CartEmptyMessage extends Component {
     /**
      * Onclick function to pass to the Button component. Not handled internally, directly passed
      */
-    onClick: PropTypes.func
+    onClick: PropTypes.func.isRequired
   }
 
   static defaultProps = {
-    onClick() {}
     buttonText: "Continue shopping",
     messageText: "Your shopping cart is empty."
   };
+
+  handleOnClick = () => {
+    this.props.onClick()
+  }
 
   render() {
     const { buttonText, messageText, onClick } = this.props;
