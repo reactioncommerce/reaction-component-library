@@ -323,8 +323,15 @@ const helpTextStyles = {
 const errorsBlockStyles = {
   rui_errorsBlockColor: red,
   rui_errorsBlockFontSize: fontSize14,
-  rui_errorsBlockMargin: `${baseUnit(1)} 0 0`,
+  rui_errorsBlockMargin: `${baseUnit(1)} 0`,
   rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
+};
+
+// cartEmptyMessage
+const cartEmptyMessage = {
+  rui_cartEmptyMessageFontSize: baseFontSize,
+  rui_cartEmptyMessageLetterSpacing: `${baseUnit(0.03)}`,
+  rui_cartEmptyMessageMarginBottom: `${baseUnit(5.4)}`
 };
 
 export default {
@@ -336,5 +343,6 @@ export default {
   ...fieldStyles,
   ...labelStyles,
   ...helpTextStyles,
-  ...errorsBlockStyles
+  ...errorsBlockStyles,
+  ...cartEmptyMessage
 };
