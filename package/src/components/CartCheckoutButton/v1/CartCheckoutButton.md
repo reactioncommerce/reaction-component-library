@@ -1,3 +1,12 @@
 ### CartCheckoutButton
 
-Document component here. See https://react-styleguidist.js.org/docs/documenting.html
+#### Overview
+The `CartCheckoutButton` displays a button that allows the user to continue to checkout their cart.
+
+#### A cart checkout button will be rendered when the user needs to continue to the checkout step in the cart
+```jsx
+const Button = require("../../Button/v1").default;
+const onClick = () => {};
+
+  <CartCheckoutButton components={{CartCheckoutButton: Button}} isDisabled={false} onClick={onClick} fullWidth />
+```
