@@ -22,6 +22,10 @@ class CartCheckoutButton extends Component {
      * Onclick function to pass to the Button component. Not handled internally, directly passed
      */
     onClick: PropTypes.func.isRequired
+    /**
+     * The url for the checkout to redirect to
+     */
+    url: PropTypes.string.isRequired
   }
 
   static defaultProps = {
@@ -29,6 +33,12 @@ class CartCheckoutButton extends Component {
   };
 
   handleOnClick = () => {
+    const { url } = this.props;
+
+    console.log("url", url);
+
+    // Do something with the url inside here??
+
     this.props.onClick();
   }
 

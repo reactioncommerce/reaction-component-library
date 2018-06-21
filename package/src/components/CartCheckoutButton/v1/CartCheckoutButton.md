@@ -12,6 +12,7 @@ const onClick = () => {};
     components={{CartCheckoutButton: Button}}
     isDisabled={false}
     onClick={onClick}
+    url="/"
   />
 ```
 
@@ -25,5 +26,6 @@ const onClick = () => {};
     components={{CartCheckoutButton: Button}}
     isDisabled={false}
     onClick={onClick}
+    url="/"
   />
 ```
