@@ -21,7 +21,7 @@ const Button = require("../../Button/v1").default;
 const onClick = () => {};
 
   <CartCheckoutButton
-    buttonText={"Custom button text"}
+    buttonText="Custom button text"
     components={{CartCheckoutButton: Button}}
     isDisabled={false}
     onClick={onClick}
