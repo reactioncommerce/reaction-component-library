@@ -8,5 +8,22 @@ The `CartCheckoutButton` displays a button that allows the user to continue to c
 const Button = require("../../Button/v1").default;
 const onClick = () => {};
 
-  <CartCheckoutButton components={{CartCheckoutButton: Button}} isDisabled={false} onClick={onClick} fullWidth />
+  <CartCheckoutButton
+    components={{CartCheckoutButton: Button}}
+    isDisabled={false}
+    onClick={onClick}
+  />
+```
+
+#### It's possible to customize button text
+```jsx
+const Button = require("../../Button/v1").default;
+const onClick = () => {};
+
+  <CartCheckoutButton
+    buttonText={"Custom button text"}
+    components={{CartCheckoutButton: Button}}
+    isDisabled={false}
+    onClick={onClick}
+  />
 ```
