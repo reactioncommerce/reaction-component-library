@@ -131,8 +131,8 @@ module.exports = {
     },
     ComponentsList: {
       item: {
-        color: "#062a4e",
-        fontSize: 14,
+        "color": "#062a4e",
+        "fontSize": 14,
         "& > a": {
           display: "inline",
           fontFamily: "PostGrotesk-Bold !important",
@@ -151,7 +151,7 @@ module.exports = {
           backgroundRepeat: "repeat-x !important",
           backgroundSize: "8px 4px !important",
           backgroundPositionY: "0.9em !important",
-          transition: "background-image .3s ease-in",
+          transition: "background-image .3s ease-in"
         }
       }
     },
