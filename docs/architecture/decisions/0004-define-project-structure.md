@@ -15,7 +15,6 @@ How should the folders and files in this repo be organized and named?
 
 ## Decision
 
-
 1. Add a folder in /src/components.
     - Name the folder the same as the component name, in title case without any spaces.
     - Beneath that, add a `v1` folder. Each new version of the component that changes its appearance will get a new version folder.
