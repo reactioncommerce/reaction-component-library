@@ -93,9 +93,14 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["Price"],
+          componentNames: ["Price", "StockWarning"],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
+        }),
+        generateSection({
+          componentNames: ["CartEmptyMessage", "CartSummary"],
+          content: "styleguide/src/sections/Cart.md",
+          name: "Cart"
         }),
         generateSection({
           componentNames: ["ErrorsBlock", "Field", "Select", "TextInput"],
