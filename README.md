@@ -65,10 +65,6 @@ Run `npm test` command to run all tests in watch mode. This command runs only th
 
 In a CI container, `npm test` will not run in watch mode. This is because the `CI` environment variable is set in CI containers. If you need to run tests in non-watch mode locally, you can do the same: `CI=true npm test`
 
-### Pre-commit Checks
-
-When you `git commit` from this repo, it automatically runs eslint and all tests. It will not push if anything fails. This runs through the `pre-commit` package. If you really need to skip this hook for a commit, see [the docs](https://www.npmjs.com/package/pre-commit).
-
 ## Full Documentation
 
 See [the docs](./docs/README.md)
