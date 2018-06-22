@@ -5,7 +5,6 @@ The `CartCheckoutButton` displays a button that allows the user to continue to c
 
 #### A cart checkout button will be rendered when the user needs to continue to the checkout step in the cart
 ```jsx
-const Button = require("../../Button/v1").default;
 const onClick = () => {};
 
   <CartCheckoutButton
@@ -17,7 +16,6 @@ const onClick = () => {};
 
 #### It's possible to customize button text
 ```jsx
-const Button = require("../../Button/v1").default;
 const onClick = () => {};
 
   <CartCheckoutButton
