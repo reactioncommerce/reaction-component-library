@@ -19,7 +19,7 @@ class CartCheckoutButton extends Component {
      */
     isDisabled: PropTypes.bool,
     /**
-     * Onclick function to pass to the Button component. Not handled internally, directly passed
+     * On click function to pass to the Button component. Not handled internally, directly passed
      */
     onClick: PropTypes.func.isRequired
   }
