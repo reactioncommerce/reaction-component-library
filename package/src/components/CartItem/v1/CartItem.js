@@ -110,6 +110,10 @@ class CartItem extends Component {
     onRemoveItemFromCart() {}
   };
 
+  state = {
+    isProcessing: false
+  };
+
   handleChangeCartItemQuantity = () => {
     const { onChangeCartItemQuantity } = this.props;
     onChangeCartItemQuantity();
@@ -140,7 +144,7 @@ class CartItem extends Component {
         CartItemPriceComponent,
         CartItemQuantityInputComponent
       },
-      item: { attributes, productSlug, title, quantity }
+      item: { attributes, currentQuantity, productSlug, title, quantity, price: { displayPrice, compareAtPrice } }
     } = this.props;
     return (
       <Item>
@@ -151,7 +155,10 @@ class CartItem extends Component {
               <ItemContentDetailInfo>
                 <CartItemDetailComponent title={title} productSlug={productSlug} attributes={attributes} />
 
-                <CartItemStockWarningComponent inventoryQuantity={1} isLowInventoryQuantity={10} />
+                <CartItemStockWarningComponent
+                  inventoryQuantity={currentQuantity}
+                  isLowInventoryQuantity={currentQuantity}
+                />
               </ItemContentDetailInfo>
 
               <CartItemQuantityInputComponent quantity={quantity} />
@@ -161,7 +168,7 @@ class CartItem extends Component {
           </ItemContentDetail>
 
           <ItemContentPrice>
-            <CartItemPriceComponent displayPrice="$20.00" displayCompareAtPrice="$35.00" />
+            <CartItemPriceComponent displayPrice={displayPrice} displayCompareAtPrice={compareAtPrice} />
           </ItemContentPrice>
         </ItemContent>
       </Item>

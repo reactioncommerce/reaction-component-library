@@ -11,7 +11,7 @@ const item = {
   imageUrl: "http://placehold.it",
   price: {
     displayPrice: "$20.00",
-    compareAtPrice: "$35.00"
+    compareAtPrice: "$45.00"
   },
   productSlug: "/product-slug",
   title: "A Great Product",
