@@ -16,10 +16,10 @@ Follow this checklist when creating a new component. The overall steps are:
 
 ## Run a script to create the component files
 
-In the project root directory, run the following command using Node 8+, where `MyComponent` is the name of the component you want to add:
+In the project root directory, run the following command, where `MyComponent` is the name of the component you want to add:
 
 ```bash
-node .reaction/scripts/addcomponent MyComponent
+docker-compose run --rm web node .reaction/scripts/addcomponent MyComponent
 ```
 
 The necessary files will be added in `/src/components`.
