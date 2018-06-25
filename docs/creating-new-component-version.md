@@ -9,7 +9,7 @@ The goal is to allow any app depending on this library to take new minor or patc
 Only when you have to make changes that are not backwards compatible, you can use the following script to copy the most recent version folder for a component to a next version folder:
 
 ```bash
-node .reaction/scripts/addcomponent MyComponent next
+docker-compose run --rm web node .reaction/scripts/addcomponent MyComponent next
 ```
 
 Where `MyComponent` is the name of the component, which must already exist and have at least one `v`-prefixed subfolder.
