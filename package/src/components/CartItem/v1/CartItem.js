@@ -1,43 +1,58 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Button from "../../Button/v1";
 import { applyTheme } from "../../../utils";
 
 const Item = styled.div`
+  align-items: flex-start;
   border-bottom: solid 1px ${applyTheme("color_black05")};
   box-sizing: border-box;
   display: flex;
   padding: 1rem;
   width: 100%;
+
+  > * {
+    box-sizing: border-box;
+  }
 `;
 
 const ItemContent = styled.div`
-  background-color: rgba(145, 234, 86, 0.2);
+  background-color: blue;
   display: flex;
   margin-left: 1rem;
+  position: relative;
   width: 100%;
 `;
 
 const ItemContentDetail = styled.div`
-  background-color: rgba(45, 24, 86, 0.2);
+  background-color: yellow;
   display: flex;
-  flex: 1 1 100%;
-  flex-direction: column;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
 `;
 
 const ItemContentDetailInner = styled.div`
-  background-color: rgba(134, 200, 200, 0.2);
-  flex: 1 1 auto;
+  background-color: limegreen;
+  flex: 1 1 100%;
+  justify-self: strech;
 `;
 
 const ItemContentPrice = styled.div`
-  background-color: rgba(5, 224, 186, 0.2);
-  align-self: flex-end;
+  background-color: orange;
+  bottom: 0;
   flex: 0 1 auto;
+  position: absolute;
+  right: 0;
+
+  @media (min-width: 768px) {
+    position: relative;
+  }
 `;
 
 const ItemRemoveButton = styled.button`
-  background-color: transparent;
+  align-self: flex-start;
+  background-color: red;
   border: none;
   color: ${applyTheme("color_coolGrey400")};
   cursor: pointer;
@@ -53,6 +68,62 @@ const ItemRemoveButton = styled.button`
   width: auto;
 `;
 
+// temp image component
+const Img = ({ src }) => (
+  <picture>
+    <source srcSet={`${src}/150`} media="(min-width: 768px)" />
+    <img src={`${src}/100`} />
+  </picture>
+);
+
+// temp cart detail component
+const CartItemDetailComponent = ({ attributes, title, productSlug }) => {
+  return (
+    <Fragment>
+      <h3>
+        <a href={productSlug}>{title}</a>
+      </h3>
+      {attributes.map(({ label, value }) => (
+        <p>
+          <b>{label}:</b> {value}
+        </p>
+      ))}
+    </Fragment>
+  );
+};
+
+let inputQuantity;
+// temp cart item quantity input component
+const CartItemQuantityInputComponent = ({ quantity: initQuantity }) => {
+  inputQuantity = 0;
+  const decreaseQuantity = (e) => {
+    inputQuantity--;
+    console.log("decrease inputQuantity", inputQuantity, initQuantity);
+  };
+  const increaseQuantity = (e) => {
+    inputQuantity++;
+    console.log("increase inputQuantity", inputQuantity, initQuantity);
+  };
+  return (
+    <Fragment>
+      <Button isShortHeight onClick={decreaseQuantity}>
+        <i className="fa fa-minus" />
+      </Button>
+      <input
+        type="number"
+        value={inputQuantity}
+        onChange={({ target: { value } }) => {
+          inputQuantity = value;
+          console.log("change inputQuantity", inputQuantity, initQuantity, value);
+        }}
+      />
+      <Button isShortHeight onClick={increaseQuantity}>
+        <i className="fa fa-plus" />
+      </Button>
+    </Fragment>
+  );
+};
+
 class CartItem extends Component {
   static propTypes = {
     components: PropTypes.shape({
@@ -62,7 +133,24 @@ class CartItem extends Component {
       CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
       CartItemRemoveButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
-    item: PropTypes.shape({}),
+    item: PropTypes.shape({
+      _id: PropTypes.string,
+      attributes: PropTypes.arrayOf(
+        PropTypes.shape({
+          label: PropTypes.string,
+          value: PropTypes.string
+        })
+      ),
+      currentQuantity: PropTypes.number,
+      imageUrl: PropTypes.string,
+      price: PropTypes.shape({
+        compareAtPrice: PropTypes.string,
+        displayPrice: PropTypes.string
+      }),
+      productSlug: PropTypes.string,
+      title: PropTypes.string,
+      quantity: PropTypes.number
+    }),
     onChangeCartItemQuantity: PropTypes.func,
     onRemoveItemFromCart: PropTypes.func
   };
@@ -80,25 +168,24 @@ class CartItem extends Component {
   render() {
     const {
       components: {
-        CartItemDetailComponent,
+        //CartItemDetailComponent,
         CartItemStockWarningComponent,
-        CartItemPriceComponent,
-        CartItemQuantityInputComponent
+        CartItemPriceComponent
+        //CartItemQuantityInputComponent
       },
-      item
+      item: { attributes, imageUrl, productSlug, title, quantity }
     } = this.props;
     return (
       <Item>
-        <img src="http://placehold.it/100" />
-
+        <Img src={imageUrl} />
         <ItemContent>
           <ItemContentDetail>
             <ItemContentDetailInner>
-              <CartItemDetailComponent />
+              <CartItemDetailComponent title={title} productSlug={productSlug} attributes={attributes} />
 
               <CartItemStockWarningComponent inventoryQuantity={1} isLowInventoryQuantity={10} />
 
-              <CartItemQuantityInputComponent />
+              <CartItemQuantityInputComponent quantity={quantity} />
             </ItemContentDetailInner>
 
             <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>
