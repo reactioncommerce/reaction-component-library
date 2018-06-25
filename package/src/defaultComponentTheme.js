@@ -158,6 +158,7 @@ const defaultStyles = {
   rui_color_disabled: black25,
   rui_color_black02: black02,
   rui_color_black05: black05,
+  rui_color_black15: black15,
   rui_color_black30: black30,
   rui_color_black65: black65,
   rui_color_error: red,

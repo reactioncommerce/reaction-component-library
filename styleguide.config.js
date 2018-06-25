@@ -103,7 +103,7 @@ module.exports = {
           name: "Cart"
         }),
         generateSection({
-          componentNames: ["ErrorsBlock", "Field", "Select", "TextInput"],
+          componentNames: ["ErrorsBlock", "Field", "Select", "TextInput", "QuantityInput"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
