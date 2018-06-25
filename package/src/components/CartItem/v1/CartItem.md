@@ -6,7 +6,7 @@
 
 ```jsx
 const item = {
-  attributes: [{ label: "Color", value: "Blue" }, { label: "Size", value: "Small" }],
+  attributes: [{ value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
   imageUrl: "http://placehold.it",
   price: {
@@ -20,7 +20,7 @@ const item = {
 
 <CartItem
   components={{
-    CartItemDetailComponent: () => "Cart Item Detail",
+    CartItemDetailComponent: CartItemDetail,
     CartItemStockWarningComponent: StockWarning,
     CartItemPriceComponent: Price,
     CartItemQuantityInputComponent: () => "Quantity Input"

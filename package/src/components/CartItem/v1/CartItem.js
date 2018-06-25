@@ -18,7 +18,6 @@ const Item = styled.div`
 `;
 
 const ItemContent = styled.div`
-  background-color: blue;
   display: flex;
   margin-left: 1rem;
   position: relative;
@@ -26,33 +25,39 @@ const ItemContent = styled.div`
 `;
 
 const ItemContentDetail = styled.div`
-  background-color: yellow;
   display: flex;
   flex: 1 1 auto;
   flex-wrap: wrap;
 `;
 
 const ItemContentDetailInner = styled.div`
-  background-color: limegreen;
+  display: flex;
   flex: 1 1 100%;
-  justify-self: strech;
+  flex-wrap: wrap;
+`;
+
+const ItemContentDetailInfo = styled.div`
+  flex: 1 1 100%;
+
+  @media (min-width: 992px) {
+    flex: 1 1 auto;
+  }
 `;
 
 const ItemContentPrice = styled.div`
-  background-color: orange;
   bottom: 0;
   flex: 0 1 auto;
   position: absolute;
   right: 0;
 
   @media (min-width: 768px) {
+    margin-left: 1.5rem;
     position: relative;
   }
 `;
 
 const ItemRemoveButton = styled.button`
   align-self: flex-start;
-  background-color: red;
   border: none;
   color: ${applyTheme("color_coolGrey400")};
   cursor: pointer;
@@ -67,62 +72,6 @@ const ItemRemoveButton = styled.button`
   padding: 0;
   width: auto;
 `;
-
-// temp image component
-const Img = ({ src }) => (
-  <picture>
-    <source srcSet={`${src}/150`} media="(min-width: 768px)" />
-    <img src={`${src}/100`} />
-  </picture>
-);
-
-// temp cart detail component
-const CartItemDetailComponent = ({ attributes, title, productSlug }) => {
-  return (
-    <Fragment>
-      <h3>
-        <a href={productSlug}>{title}</a>
-      </h3>
-      {attributes.map(({ label, value }) => (
-        <p>
-          <b>{label}:</b> {value}
-        </p>
-      ))}
-    </Fragment>
-  );
-};
-
-let inputQuantity;
-// temp cart item quantity input component
-const CartItemQuantityInputComponent = ({ quantity: initQuantity }) => {
-  inputQuantity = 0;
-  const decreaseQuantity = (e) => {
-    inputQuantity--;
-    console.log("decrease inputQuantity", inputQuantity, initQuantity);
-  };
-  const increaseQuantity = (e) => {
-    inputQuantity++;
-    console.log("increase inputQuantity", inputQuantity, initQuantity);
-  };
-  return (
-    <Fragment>
-      <Button isShortHeight onClick={decreaseQuantity}>
-        <i className="fa fa-minus" />
-      </Button>
-      <input
-        type="number"
-        value={inputQuantity}
-        onChange={({ target: { value } }) => {
-          inputQuantity = value;
-          console.log("change inputQuantity", inputQuantity, initQuantity, value);
-        }}
-      />
-      <Button isShortHeight onClick={increaseQuantity}>
-        <i className="fa fa-plus" />
-      </Button>
-    </Fragment>
-  );
-};
 
 class CartItem extends Component {
   static propTypes = {
@@ -161,29 +110,49 @@ class CartItem extends Component {
     onRemoveItemFromCart() {}
   };
 
-  handleChangeCartItemQuantity = () => {};
+  handleChangeCartItemQuantity = () => {
+    const { onChangeCartItemQuantity } = this.props;
+    onChangeCartItemQuantity();
+  };
 
-  handleRemoveItemFromCart = () => {};
+  handleRemoveItemFromCart = () => {
+    const { onRemoveItemFromCart } = this.props;
+    onRemoveItemFromCart();
+  };
+
+  renderImage() {
+    const { item: { imageUrl, productSlug } } = this.props;
+    return (
+      <a href={productSlug}>
+        <picture>
+          <source srcSet={`${imageUrl}/150`} media="(min-width: 768px)" />
+          <img src={`${imageUrl}/100`} alt="" />
+        </picture>
+      </a>
+    );
+  }
 
   render() {
     const {
       components: {
-        //CartItemDetailComponent,
+        CartItemDetailComponent,
         CartItemStockWarningComponent,
-        CartItemPriceComponent
-        //CartItemQuantityInputComponent
+        CartItemPriceComponent,
+        CartItemQuantityInputComponent
       },
-      item: { attributes, imageUrl, productSlug, title, quantity }
+      item: { attributes, productSlug, title, quantity }
     } = this.props;
     return (
       <Item>
-        <Img src={imageUrl} />
+        {this.renderImage()}
         <ItemContent>
           <ItemContentDetail>
             <ItemContentDetailInner>
-              <CartItemDetailComponent title={title} productSlug={productSlug} attributes={attributes} />
+              <ItemContentDetailInfo>
+                <CartItemDetailComponent title={title} productSlug={productSlug} attributes={attributes} />
 
-              <CartItemStockWarningComponent inventoryQuantity={1} isLowInventoryQuantity={10} />
+                <CartItemStockWarningComponent inventoryQuantity={1} isLowInventoryQuantity={10} />
+              </ItemContentDetailInfo>
 
               <CartItemQuantityInputComponent quantity={quantity} />
             </ItemContentDetailInner>
