@@ -44,6 +44,14 @@ const ItemContentDetailInfo = styled.div`
   }
 `;
 
+const ItemContentQuantityInput = styled.div`
+  margin: 1rem 0;
+
+  @media (min-width: 992px) {
+    margin: 0;
+  }
+`;
+
 const ItemContentPrice = styled.div`
   bottom: 0;
   flex: 0 1 auto;
@@ -58,6 +66,7 @@ const ItemContentPrice = styled.div`
 
 const ItemRemoveButton = styled.button`
   align-self: flex-start;
+  background-color: transparent;
   border: none;
   color: ${applyTheme("color_coolGrey400")};
   cursor: pointer;
@@ -71,6 +80,11 @@ const ItemRemoveButton = styled.button`
   margin: 0.5rem 0 0;
   padding: 0;
   width: auto;
+
+  &:focus,
+  &:hover {
+    color: ${applyTheme("color_coolGrey")};
+  }
 `;
 
 class CartItem extends Component {
@@ -161,7 +175,9 @@ class CartItem extends Component {
                 />
               </ItemContentDetailInfo>
 
-              <CartItemQuantityInputComponent quantity={quantity} />
+              <ItemContentQuantityInput>
+                <CartItemQuantityInputComponent value={quantity} />
+              </ItemContentQuantityInput>
             </ItemContentDetailInner>
 
             <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>
