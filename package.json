@@ -99,6 +99,7 @@
     "lodash.get": "^4.4.2",
     "lodash.isempty": "^4.4.0",
     "lodash.isequal": "^4.5.0",
+    "mdi-material-ui": "^5.1.1",
     "polished": "^1.9.2",
     "react": "16.4.0",
     "react-dom": "16.4.0",

@@ -4,31 +4,32 @@ import { withStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import TextField from "@material-ui/core/TextField";
+import Minus from "mdi-material-ui/Minus";
+import Plus from "mdi-material-ui/Plus";
 import { applyTheme } from "../../../utils";
 
 const styles = (theme) => ({
   incrementButton: {
     backgroundColor: "#fafafa",
-    boxSizing: "border-box",
-    color: "#3c3c3c",
-    fontSize: "1rem",
-    lineHieght: 1,
+    boxSizing: "inherit",
+    color: "#666666",
+    fontSize: "12px",
     padding: 6
   },
   quantityContainer: {
-    padding: 0,
     border: `1px solid #d9d9d9`,
+    borderRadius: "2px",
     boxSizing: "border-box",
-    backgroundColor: theme.palette.common.white,
-    borderRadius: "2px"
+    overflow: "hidden",
+    padding: 0
   },
   quantityInput: {
     borderLeft: `1px solid #d9d9d9`,
     borderRight: `1px solid #d9d9d9`,
-    boxSizing: "border-box",
+    boxSizing: "inherit",
     color: "#3c3c3c",
     fontSize: "12px",
-    width: "40px",
+    maxWidth: "40px",
     textAlign: "center",
     "&:focus": {
       borderColor: "#80bdff",
@@ -96,7 +97,7 @@ class QuantityInput extends Component {
                 onClick={this.handleDecrementButton}
                 className={incrementButton}
               >
-                <i className="fa fa-minus" />
+                <Minus />
               </ButtonBase>
             </InputAdornment>
           ),
@@ -108,7 +109,7 @@ class QuantityInput extends Component {
                 onClick={this.handleIncrementButton}
                 className={incrementButton}
               >
-                <i className="fa fa-plus" />
+                <Plus />
               </ButtonBase>
             </InputAdornment>
           ),

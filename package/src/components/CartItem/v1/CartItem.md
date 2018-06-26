@@ -23,7 +23,7 @@ const item = {
     CartItemDetailComponent: CartItemDetail,
     CartItemStockWarningComponent: StockWarning,
     CartItemPriceComponent: Price,
-    CartItemQuantityInputComponent: () => "Quantity Input"
+    CartItemQuantityInputComponent: QuantityInput
   }}
   item={item}
 />
