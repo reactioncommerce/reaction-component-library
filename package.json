@@ -166,7 +166,6 @@
   },
   "snyk": true,
   "release": {
-    "dryRun": true,
     "pkgRoot": "package/dist"
   }
 }
