@@ -9,7 +9,7 @@ class CartCheckoutButton extends Component {
      */
     buttonText: PropTypes.string,
     /**
-     * On object of component children to pass into this component
+     * An object of component children to pass into this component
      */
     components: PropTypes.shape({
       Button: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
