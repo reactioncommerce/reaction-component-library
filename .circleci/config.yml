@@ -207,7 +207,7 @@ jobs:
       - run: yarn install
       - run: cd package && yarn install
       - run: cd package && yarn run build
-      - run: cd package && npx semantic-release
+      - run: npx semantic-release
 
 workflows:
   version: 2
