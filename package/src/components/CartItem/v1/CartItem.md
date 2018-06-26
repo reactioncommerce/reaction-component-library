@@ -6,7 +6,7 @@
 
 ```jsx
 const item = {
-  attributes: [{ value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
   imageUrl: "http://placehold.it",
   price: {

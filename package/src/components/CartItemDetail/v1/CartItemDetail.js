@@ -23,14 +23,47 @@ const Detail = styled.div`
   }
 `;
 
+const Vendor = styled.p`
+  color: ${applyTheme("color_black65")};
+  display: block;
+  font-family: ${applyTheme("font_family")};
+  font-size: ${applyTheme("font_size_small")};
+  margin: 0;
+`;
+
 const Attributes = styled.div`
   margin-bottom: 0.5rem;
 
-  p {
-    color: ${applyTheme("color_black65")};
-    font-family: ${applyTheme("font_family")};
-    font-size: ${applyTheme("font_size_small")};
-    margin: 0;
+  span {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: inline;
+    }
+  }
+`;
+
+const Attr = styled.p`
+  color: ${applyTheme("color_black65")};
+  display: inline;
+  font-family: ${applyTheme("font_family")};
+  font-size: ${applyTheme("font_size_small")};
+  margin: 0 0.05rem 0 0;
+
+  &:after {
+    content: ",";
+  }
+
+  &:last-of-type:after {
+    content: "";
+  }
+
+  @media (min-width: 768px) {
+    display: block;
+
+    &:after {
+      content: "";
+    }
   }
 `;
 
@@ -48,6 +81,22 @@ class CartItemDetail extends Component {
 
   static defaultProps = {};
 
+  renderAttributes() {
+    let { attributes } = this.props;
+    const { value: vendor } = attributes.find((attr) => attr.label === "vendor");
+    attributes = attributes.filter((attr) => attr.label !== "vendor");
+    return (
+      <Attributes>
+        {vendor ? <Vendor>{vendor}</Vendor> : null}
+        {attributes.map(({ label, value }) => (
+          <Attr key={label}>
+            <span>{label}:</span> {value}
+          </Attr>
+        ))}
+      </Attributes>
+    );
+  }
+
   render() {
     const { attributes, productSlug, title } = this.props;
     return (
@@ -55,14 +104,7 @@ class CartItemDetail extends Component {
         <h3>
           <a href={productSlug}>{title}</a>
         </h3>
-        <Attributes>
-          {attributes &&
-            attributes.map(({ label, value }) => (
-              <p key={label}>
-                {label ? `${label}:` : ""} {value}
-              </p>
-            ))}
-        </Attributes>
+        {attributes && this.renderAttributes()}
       </Detail>
     );
   }
