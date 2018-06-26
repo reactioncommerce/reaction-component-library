@@ -13,7 +13,6 @@ const styles = (theme) => ({
     backgroundColor: "#fafafa",
     boxSizing: "inherit",
     color: "#666666",
-    fontSize: "12px",
     padding: 6
   },
   quantityContainer: {
