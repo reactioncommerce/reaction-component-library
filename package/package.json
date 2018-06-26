@@ -68,9 +68,14 @@
     "promise": "8.0.1",
     "raf": "3.4.0",
     "react-dev-utils": "^5.0.0",
+    "semantic-release": "15.6.0",
     "whatwg-fetch": "2.0.3"
   },
   "publishConfig": {
     "access": "public"
+  },
+  "release": {
+    "dryRun": true,
+    "pkgRoot": "dist"
   }
 }
