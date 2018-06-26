@@ -106,6 +106,8 @@
     "styled-components": "3.1.6"
   },
   "devDependencies": {
+    "@commitlint/cli": "7.0.0",
+    "@commitlint/config-conventional": "7.0.1",
     "@reactioncommerce/eslint-config": "^1.0.1",
     "adr": "^1.0.6",
     "autoprefixer": "7.1.6",
@@ -142,6 +144,7 @@
     "file-loader": "1.1.5",
     "fs-extra": "^5.0.0",
     "html-webpack-plugin": "2.29.0",
+    "husky": "1.0.0-rc.9",
     "jest": "^22.4.3",
     "jest-junit": "^3.6.0",
     "jest-styled-components": "^5.0.0",
@@ -165,6 +168,16 @@
     "whatwg-fetch": "2.0.3"
   },
   "snyk": true,
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "release": {
     "pkgRoot": "package/dist"
   }
