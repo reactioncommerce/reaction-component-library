@@ -69,16 +69,9 @@ In a CI container, `npm test` will not run in watch mode. This is because the `C
 
 See [the docs](./docs/README.md)
 
-## Publish the Components Package
+## Components Package Publication
 
-Bump the version in package.json and then do these on your host machine (NOT in a Docker container):
-
-```bash
-yarn install
-cd package
-yarn install
-yarn release
-```
+The `@reactioncommerce/components` package is automatically published by CI when commits are merged or pushed to the `master` branch. This is done using [semantic-release](https://www.npmjs.com/package/semantic-release), which also determines version bumps based on conventional Git commit messages. To ensure that all contributors follow the correct message convention, each time you commit your message will be validated with the [commitlint](https://www.npmjs.com/package/@commitlint/cli) package, enabled by the [husky](https://www.npmjs.com/package/husky) Git hooks manager.
 
 ## License
 
