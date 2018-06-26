@@ -72,9 +72,22 @@ In a CI container, `npm test` will not run in watch mode. This is because the `C
 
 See [the docs](./docs/README.md)
 
+## Commit Messages
+
+To ensure that all contributors follow the correct message convention, each time you commit your message will be validated with the [commitlint](https://www.npmjs.com/package/@commitlint/cli) package, enabled by the [husky](https://www.npmjs.com/package/husky) Git hooks manager.
+
+Examples of commit messages: https://github.com/semantic-release/semantic-release
+
+For this project specifically:
+
+- Start with “feat:” for a new component, a new version of a component, or an improvement of a component.
+- Start with “fix:” for a component bug fix.
+- You should almost never include "BREAKING CHANGES" because we’re duplicating components to avoid that. Consult with others before doing it.
+- All other prefixes (docs, chore, etc.) do NOT trigger a release.
+
 ## Components Package Publication
 
-The `@reactioncommerce/components` package is automatically published by CI when commits are merged or pushed to the `master` branch. This is done using [semantic-release](https://www.npmjs.com/package/semantic-release), which also determines version bumps based on conventional Git commit messages. To ensure that all contributors follow the correct message convention, each time you commit your message will be validated with the [commitlint](https://www.npmjs.com/package/@commitlint/cli) package, enabled by the [husky](https://www.npmjs.com/package/husky) Git hooks manager.
+The `@reactioncommerce/components` package is automatically published by CI when commits are merged or pushed to the `master` branch. This is done using [semantic-release](https://www.npmjs.com/package/semantic-release), which also determines version bumps based on conventional Git commit messages.
 
 ## License
 
