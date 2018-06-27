@@ -1,1 +1,1 @@
-TODO Write introduction to Cart
+TODO: Add information related to the Cart
