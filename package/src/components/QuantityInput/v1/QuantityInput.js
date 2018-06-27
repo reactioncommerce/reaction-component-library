@@ -22,13 +22,13 @@ const styles = () => ({
     padding: 0
   },
   quantityInput: {
-    "borderLeft": "1px solid #d9d9d9",
-    "borderRight": "1px solid #d9d9d9",
-    "boxSizing": "inherit",
-    "color": "#3c3c3c",
-    "fontSize": "12px",
-    "maxWidth": "40px",
-    "textAlign": "center",
+    borderLeft: "1px solid #d9d9d9",
+    borderRight: "1px solid #d9d9d9",
+    boxSizing: "inherit",
+    color: "#3c3c3c",
+    fontSize: "12px",
+    maxWidth: "40px",
+    textAlign: "center",
     "&:focus": {
       borderColor: "#80bdff",
       boxShadow: "0 0 0 0.2rem rgba(0,123,255,.25)"
@@ -38,12 +38,23 @@ const styles = () => ({
 
 class QuantityInput extends Component {
   static propTypes = {
+    /**
+     * MUI theme classes
+     */
     classes: PropTypes.object,
+    /**
+     * On change hanlder for input
+     */
+    onChange: PropTypes.func,
+    /**
+     * Prepopulate the input's value.
+     */
     value: PropTypes.number
   };
 
   static defaultProps = {
-    classes: {}
+    classes: {},
+    onChange() {}
   };
 
   constructor(props) {
@@ -57,6 +68,11 @@ class QuantityInput extends Component {
     };
   }
 
+  handleChanged(value) {
+    const { onChange } = this.props;
+    onChange(value);
+  }
+
   handleQuantityInputChange = (event) => {
     const { value } = event.target;
 
@@ -66,13 +82,15 @@ class QuantityInput extends Component {
       return null;
     }
 
-    return this.setState({ value: numericValue });
+    this.setState({ value: numericValue });
+    this.handleChanged(numericValue);
   };
 
   handleIncrementButton = () => {
     const value = this.state.value + 1;
 
     this.setState({ value });
+    this.handleChanged(value);
   };
 
   handleDecrementButton = () => {
@@ -80,6 +98,7 @@ class QuantityInput extends Component {
 
     if (value >= 0) {
       this.setState({ value });
+      this.handleChanged(value);
     }
   };
 
