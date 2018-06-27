@@ -69,19 +69,34 @@ const Attr = styled.p`
 
 class CartItemDetail extends Component {
   static propTypes = {
-    attributes: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string,
-      value: PropTypes.string
-    })),
+    /**
+     * Array of additional attributes of the chosen item.
+     */
+    attributes: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
+         * Attribute label (i.e. "Color").
+         */
+        label: PropTypes.string,
+        /**
+         * Attribute value (i.e. "Red").
+         */
+        value: PropTypes.string
+      })
+    ),
+    /**
+     * Product slug of chosen item.
+     */
     productSlug: PropTypes.string,
+    /**
+     * Product title of chosen item.
+     */
     title: PropTypes.string
   };
 
-  static defaultProps = {};
-
   renderAttributes() {
     let { attributes } = this.props;
-    const { value: vendor } = attributes.find((attr) => attr.label === "vendor");
+    const { value: vendor } = attributes.find((attr) => attr.label === "vendor") || { value: undefined };
     attributes = attributes.filter((attr) => attr.label !== "vendor");
     return (
       <Attributes>
@@ -102,7 +117,7 @@ class CartItemDetail extends Component {
         <h3>
           <a href={productSlug}>{title}</a>
         </h3>
-        {attributes && this.renderAttributes()}
+        {attributes ? this.renderAttributes() : ""}
       </Detail>
     );
   }
