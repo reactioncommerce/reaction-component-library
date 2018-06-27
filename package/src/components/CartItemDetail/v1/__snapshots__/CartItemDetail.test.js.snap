@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  -webkit-flex: 0 0 fit;
+  -ms-flex: 0 0 fit;
+  flex: 0 0 fit;
+}
+
+.c0 h3 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.c0 a {
+  color: #3c3c3c;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 a:focus,
+.c0 a:hover {
+  color: #5d8ea9;
+}
+
+<div
+  className="c0"
+>
+  <h3>
+    <a
+      href={undefined}
+    />
+  </h3>
+</div>
+`;

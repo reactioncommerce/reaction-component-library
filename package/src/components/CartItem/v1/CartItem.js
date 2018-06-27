@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import Button from "../../Button/v1";
 import { applyTheme } from "../../../utils";
 
 const Item = styled.div`
@@ -93,17 +92,14 @@ class CartItem extends Component {
       CartItemDetailComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
       CartItemStockWarningComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
       CartItemPriceComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-      CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-      CartItemRemoveButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+      CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     item: PropTypes.shape({
       _id: PropTypes.string,
-      attributes: PropTypes.arrayOf(
-        PropTypes.shape({
-          label: PropTypes.string,
-          value: PropTypes.string
-        })
-      ),
+      attributes: PropTypes.arrayOf(PropTypes.shape({
+        label: PropTypes.string,
+        value: PropTypes.string
+      })),
       currentQuantity: PropTypes.number,
       imageUrl: PropTypes.string,
       price: PropTypes.shape({
@@ -119,7 +115,16 @@ class CartItem extends Component {
   };
 
   static defaultProps = {
-    item: {},
+    components: {
+      CartItemDetailComponent: "Cart Item Detail",
+      CartItemStockWarningComponent: "Cart Item Stock Warning",
+      CartItemPriceComponent: "Cart Item Price",
+      CartItemQuantityInputComponent: "Cart Item Quantity Input"
+    },
+    item: {
+      attributes: [],
+      price: {}
+    },
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
   };

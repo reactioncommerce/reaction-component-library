@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+<div
+  aria-describedby={undefined}
+  className="MuiFormControl-root-4"
+>
+  <div
+    className="MuiInput-root-8 QuantityInput-quantityContainer-2 MuiInput-formControl-9"
+  >
+    <div
+      className="MuiInputAdornment-root-21"
+    >
+      <button
+        className="MuiButtonBase-root-24 QuantityInput-incrementButton-1"
+        color="default"
+        disabled={undefined}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+        variant="outlined"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-27"
+          color={undefined}
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <g>
+            <path
+              d="M19,13H5V11H19V13Z"
+            />
+          </g>
+        </svg>
+        <span
+          className="MuiTouchRipple-root-33"
+        />
+      </button>
+    </div>
+    <input
+      aria-invalid={false}
+      aria-required={false}
+      autoComplete={undefined}
+      autoFocus={undefined}
+      className="MuiInput-input-16 QuantityInput-quantityInput-3"
+      defaultValue={undefined}
+      disabled={false}
+      id="addToCartQuantityInput"
+      name={undefined}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onFocus={[Function]}
+      onKeyDown={undefined}
+      onKeyUp={undefined}
+      placeholder={undefined}
+      readOnly={undefined}
+      required={undefined}
+      rows={undefined}
+      type="text"
+      value={0}
+    />
+    <div
+      className="MuiInputAdornment-root-21"
+    >
+      <button
+        className="MuiButtonBase-root-24 QuantityInput-incrementButton-1"
+        color="default"
+        disabled={undefined}
+        onBlur={[Function]}
+        onClick={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        tabIndex="0"
+        type="button"
+        variant="outlined"
+      >
+        <svg
+          aria-hidden="true"
+          className="MuiSvgIcon-root-27"
+          color={undefined}
+          focusable="false"
+          viewBox="0 0 24 24"
+        >
+          <g>
+            <path
+              d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+            />
+          </g>
+        </svg>
+        <span
+          className="MuiTouchRipple-root-33"
+        />
+      </button>
+    </div>
+  </div>
+</div>
+`;

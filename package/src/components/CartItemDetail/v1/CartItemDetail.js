@@ -69,12 +69,10 @@ const Attr = styled.p`
 
 class CartItemDetail extends Component {
   static propTypes = {
-    attributes: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string
-      })
-    ),
+    attributes: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string
+    })),
     productSlug: PropTypes.string,
     title: PropTypes.string
   };
