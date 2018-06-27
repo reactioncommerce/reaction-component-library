@@ -22,13 +22,13 @@ const styles = () => ({
     padding: 0
   },
   quantityInput: {
-    borderLeft: "1px solid #d9d9d9",
-    borderRight: "1px solid #d9d9d9",
-    boxSizing: "inherit",
-    color: "#3c3c3c",
-    fontSize: "12px",
-    maxWidth: "40px",
-    textAlign: "center",
+    "borderLeft": "1px solid #d9d9d9",
+    "borderRight": "1px solid #d9d9d9",
+    "boxSizing": "inherit",
+    "color": "#3c3c3c",
+    "fontSize": "12px",
+    "maxWidth": "40px",
+    "textAlign": "center",
     "&:focus": {
       borderColor: "#80bdff",
       boxShadow: "0 0 0 0.2rem rgba(0,123,255,.25)"

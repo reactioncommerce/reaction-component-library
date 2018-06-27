@@ -11,9 +11,7 @@ test("basic snapshot without props", () => {
 
 test("basic snapshot with props", () => {
   const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
-  const component = renderer.create(
-    <CartItemDetail title="Mock Product Title" productSlug="/product-slug" attributes={attributes} />
-  );
+  const component = renderer.create(<CartItemDetail title="Mock Product Title" productSlug="/product-slug" attributes={attributes} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -25,9 +23,7 @@ test("basic snapshot with vendor attribute", () => {
     { label: "Color", value: "Red" },
     { label: "Size", value: "Medium" }
   ];
-  const component = renderer.create(
-    <CartItemDetail title="Mock Product Title" productSlug="/product-slug" attributes={attributes} />
-  );
+  const component = renderer.create(<CartItemDetail title="Mock Product Title" productSlug="/product-slug" attributes={attributes} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
