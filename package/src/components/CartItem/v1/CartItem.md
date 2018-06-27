@@ -1,9 +1,10 @@
-### CartItem Overview
+### CartItem 
 
-#### General Usage
+#### Overview
+This component will be used when there is a need to show an item that customer has added to their cart.
+It could be used in the future to show items that are within a "Wish List", "Saved for Later", or other customer generated lists of unpurchased products. There's potential that with a few modifications could be used to show Order Items, though the type and amount of information shown within an order item may be different enough to warrent a separate component.
 
-#### Component Usage
-
+#### Basic Usage
 ```jsx
 const item = {
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
@@ -26,5 +27,7 @@ const item = {
     CartItemQuantityInputComponent: QuantityInput
   }}
   item={item}
+  onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
+  onRemoveItemFromCart={() => console.log("Item removed from cart")}
 />
 ```
