@@ -193,6 +193,22 @@ jobs:
               "$DOCKER_REPOSITORY:$CIRCLE_SHA1" \
               sh -c "cp reaction-app/package.json ./ && cp reaction-app/.snyk ./ && snyk test"
 
+  publish-npm-package:
+    docker:
+      - image: node:8
+
+    dependencies:
+      pre:
+        - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+
+    steps:
+      - checkout
+
+      - run: yarn install
+      - run: cd package && yarn install
+      - run: cd package && yarn run build
+      - run: npx semantic-release
+
 workflows:
   version: 2
   build_and_test:
@@ -215,3 +231,12 @@ workflows:
           context: reaction-validation
           requires:
             - docker-build
+      - publish-npm-package:
+          context: reaction-publish-semantic-release
+          requires:
+            - lint
+            - test
+            - snyk-security
+          filters:
+            branches:
+              only: master

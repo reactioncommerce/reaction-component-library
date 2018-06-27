@@ -2,7 +2,7 @@
 
 exports[`renders all error messages 1`] = `
 .c0 {
-  margin: 0.625rem 0 0;
+  margin: 0.625rem 0;
 }
 
 .c1 {
