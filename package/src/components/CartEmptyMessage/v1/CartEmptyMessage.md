@@ -5,7 +5,6 @@ The `CartEmptyMessage` displays when viewing an empty shopping cart.
 
 #### A cart empty message will be rendered when there are no items in your cart
 ```jsx
-const Button = require("../../Button/v1").default;
 const onClick = () => {};
 
   <CartEmptyMessage
@@ -16,7 +15,6 @@ const onClick = () => {};
 
 #### It's possible to customize message and button text
 ```jsx
-const Button = require("../../Button/v1").default;
 const onClick = () => {};
 
   <CartEmptyMessage

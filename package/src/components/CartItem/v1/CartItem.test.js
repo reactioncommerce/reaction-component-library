@@ -2,8 +2,8 @@ import React from "react";
 import renderer from "react-test-renderer";
 import CartItem from "./CartItem";
 
-test("basic snapshot without props", () => {
-  const component = renderer.create(<CartItem />);
+test("basic snapshot with empty props", () => {
+  const component = renderer.create(<CartItem item={{ price: {} }} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

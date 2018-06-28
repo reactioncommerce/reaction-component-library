@@ -139,6 +139,10 @@ class CartItem extends Component {
        */
       imageUrl: PropTypes.string,
       /**
+       * Is the chosen item have a low quantity
+       */
+      isLowInventoryQuantity: PropTypes.bool,
+      /**
        * Price object of chosen item
        */
       price: PropTypes.shape({
@@ -163,7 +167,7 @@ class CartItem extends Component {
        * Quantity of chosen item in cart
        */
       quantity: PropTypes.number
-    }),
+    }).isRequired,
     /**
      * On cart item quantity change handler
      */
@@ -181,10 +185,6 @@ class CartItem extends Component {
       CartItemPriceComponent: "Cart Item Price",
       CartItemQuantityInputComponent: "Cart Item Quantity Input"
     },
-    item: {
-      attributes: [],
-      price: {}
-    },
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
   };
@@ -199,8 +199,8 @@ class CartItem extends Component {
   };
 
   handleRemoveItemFromCart = () => {
-    const { onRemoveItemFromCart } = this.props;
-    onRemoveItemFromCart();
+    const { onRemoveItemFromCart, item: { _id } } = this.props;
+    onRemoveItemFromCart(_id);
   };
 
   renderImage() {
@@ -223,7 +223,15 @@ class CartItem extends Component {
         CartItemPriceComponent,
         CartItemQuantityInputComponent
       },
-      item: { attributes, currentQuantity, productSlug, title, quantity, price: { displayPrice, compareAtPrice } }
+      item: {
+        attributes,
+        currentQuantity,
+        productSlug,
+        title,
+        quantity,
+        isLowInventoryQuantity,
+        price: { displayPrice, compareAtPrice }
+      }
     } = this.props;
     return (
       <Item>
@@ -234,7 +242,10 @@ class CartItem extends Component {
               <ItemContentDetailInfo>
                 <CartItemDetailComponent title={title} productSlug={productSlug} attributes={attributes} />
 
-                <CartItemStockWarningComponent inventoryQuantity={currentQuantity} isLowInventoryQuantity />
+                <CartItemStockWarningComponent
+                  inventoryQuantity={currentQuantity}
+                  isLowInventoryQuantity={isLowInventoryQuantity}
+                />
               </ItemContentDetailInfo>
 
               <ItemContentQuantityInput>
