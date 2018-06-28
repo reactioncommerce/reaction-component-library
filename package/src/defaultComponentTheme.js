@@ -92,6 +92,9 @@ const teal600 = "#34584f";
  * Default Theme Typography
  */
 
+// font family
+const fontFamily = "'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif";
+
 // font scale
 const baseFontSize = 16; // pixels
 const fontSize12 = `${baseFontSize * 0.75}px`;
@@ -154,7 +157,10 @@ const defaultStyles = {
   rui_color_default: black55,
   rui_color_disabled: black25,
   rui_color_black02: black02,
+  rui_color_black05: black05,
+  rui_color_black15: black15,
   rui_color_black30: black30,
+  rui_color_black65: black65,
   rui_color_error: red,
   rui_color_stockWarning: red,
   rui_color_success: teal,
@@ -167,6 +173,8 @@ const defaultStyles = {
   rui_color_coolGrey600: coolGrey600,
   rui_color_forestGreen300: forestGreen300,
   rui_color_white: white,
+  rui_font_family: fontFamily,
+  rui_font_size_small: fontSize14,
   rui_font_weight_light: fontWeightLight,
   rui_font_weight_normal: fontWeightRegular,
   rui_font_weight_bold: fontWeightBold,

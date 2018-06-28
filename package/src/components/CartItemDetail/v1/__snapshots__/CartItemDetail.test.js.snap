@@ -1,0 +1,264 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot with props 1`] = `
+.c0 {
+  -webkit-flex: 0 0 fit;
+  -ms-flex: 0 0 fit;
+  flex: 0 0 fit;
+}
+
+.c0 h3 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.c0 a {
+  color: #3c3c3c;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 a:focus,
+.c0 a:hover {
+  color: #5d8ea9;
+}
+
+.c1 {
+  margin-bottom: 0.5rem;
+}
+
+.c1 span {
+  display: none;
+}
+
+.c2 {
+  color: #595959;
+  display: inline;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  margin: 0 0.05rem 0 0;
+}
+
+.c2:after {
+  content: ",";
+}
+
+.c2:last-of-type:after {
+  content: "";
+}
+
+@media (min-width:768px) {
+  .c1 span {
+    display: inline;
+  }
+}
+
+@media (min-width:768px) {
+  .c2 {
+    display: block;
+  }
+
+  .c2:after {
+    content: "";
+  }
+}
+
+<div
+  className="c0"
+>
+  <h3>
+    <a
+      href="/product-slug"
+    >
+      Mock Product Title
+    </a>
+  </h3>
+  <div
+    className="c1"
+  >
+    <p
+      className="c2"
+    >
+      <span>
+        Color
+        :
+      </span>
+       
+      Red
+    </p>
+    <p
+      className="c2"
+    >
+      <span>
+        Size
+        :
+      </span>
+       
+      Medium
+    </p>
+  </div>
+</div>
+`;
+
+exports[`basic snapshot with vendor attribute 1`] = `
+.c0 {
+  -webkit-flex: 0 0 fit;
+  -ms-flex: 0 0 fit;
+  flex: 0 0 fit;
+}
+
+.c0 h3 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.c0 a {
+  color: #3c3c3c;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 a:focus,
+.c0 a:hover {
+  color: #5d8ea9;
+}
+
+.c2 {
+  color: #595959;
+  display: block;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  margin: 0;
+}
+
+.c1 {
+  margin-bottom: 0.5rem;
+}
+
+.c1 span {
+  display: none;
+}
+
+.c3 {
+  color: #595959;
+  display: inline;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  margin: 0 0.05rem 0 0;
+}
+
+.c3:after {
+  content: ",";
+}
+
+.c3:last-of-type:after {
+  content: "";
+}
+
+@media (min-width:768px) {
+  .c1 span {
+    display: inline;
+  }
+}
+
+@media (min-width:768px) {
+  .c3 {
+    display: block;
+  }
+
+  .c3:after {
+    content: "";
+  }
+}
+
+<div
+  className="c0"
+>
+  <h3>
+    <a
+      href="/product-slug"
+    >
+      Mock Product Title
+    </a>
+  </h3>
+  <div
+    className="c1"
+  >
+    <p
+      className="c2"
+    >
+      Patagonia
+    </p>
+    <p
+      className="c3"
+    >
+      <span>
+        Color
+        :
+      </span>
+       
+      Red
+    </p>
+    <p
+      className="c3"
+    >
+      <span>
+        Size
+        :
+      </span>
+       
+      Medium
+    </p>
+  </div>
+</div>
+`;
+
+exports[`basic snapshot without props 1`] = `
+.c0 {
+  -webkit-flex: 0 0 fit;
+  -ms-flex: 0 0 fit;
+  flex: 0 0 fit;
+}
+
+.c0 h3 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+  line-height: 1;
+  margin: 0 0 10px;
+}
+
+.c0 a {
+  color: #3c3c3c;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c0 a:focus,
+.c0 a:hover {
+  color: #5d8ea9;
+}
+
+<div
+  className="c0"
+>
+  <h3>
+    <a
+      href={undefined}
+    />
+  </h3>
+  
+</div>
+`;
