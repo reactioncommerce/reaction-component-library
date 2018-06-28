@@ -342,13 +342,14 @@ exports[`basic snapshot without props 1`] = `
           />
           <Cart Item Stock Warning
             inventoryQuantity={undefined}
-            isLowInventoryQuantity={undefined}
+            isLowInventoryQuantity={true}
           />
         </div>
         <div
           className="c5"
         >
           <Cart Item Quantity Input
+            onChange={[Function]}
             value={undefined}
           />
         </div>
