@@ -1,5 +1,198 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`basic snapshot with empty props 1`] = `
+.c0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
+  border-bottom: solid 1px #f5f5f5;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1rem;
+  width: 100%;
+}
+
+.c0 > * {
+  box-sizing: border-box;
+}
+
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 1rem;
+  position: relative;
+  width: 100%;
+}
+
+.c2 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c3 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.c4 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+.c5 {
+  margin: 1rem 0;
+}
+
+.c7 {
+  bottom: 0;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  position: absolute;
+  right: 0;
+}
+
+.c6 {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  background-color: transparent;
+  border: none;
+  color: #3c5d6f;
+  cursor: pointer;
+  display: table;
+  -webkit-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
+  flex: 0 1 auto;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal;
+  -webkit-letter-spacing: normal;
+  -moz-letter-spacing: normal;
+  -ms-letter-spacing: normal;
+  letter-spacing: normal;
+  margin: 0.5rem 0 0;
+  padding: 0;
+  width: auto;
+}
+
+.c6:focus,
+.c6:hover {
+  color: #5e7480;
+}
+
+@media (min-width:992px) {
+  .c4 {
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+  }
+}
+
+@media (min-width:992px) {
+  .c5 {
+    margin: 0;
+  }
+}
+
+@media (min-width:768px) {
+  .c7 {
+    margin-left: 1.5rem;
+    position: relative;
+  }
+}
+
+<div
+  className="c0"
+>
+  <a
+    href={undefined}
+  >
+    <picture>
+      <source
+        media="(min-width: 768px)"
+        srcSet="undefined/150"
+      />
+      <img
+        alt=""
+        src="undefined/100"
+      />
+    </picture>
+  </a>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      <div
+        className="c3"
+      >
+        <div
+          className="c4"
+        >
+          <Cart Item Detail
+            attributes={undefined}
+            productSlug={undefined}
+            title={undefined}
+          />
+          <Cart Item Stock Warning
+            inventoryQuantity={undefined}
+            isLowInventoryQuantity={undefined}
+          />
+        </div>
+        <div
+          className="c5"
+        >
+          <Cart Item Quantity Input
+            onChange={[Function]}
+            value={undefined}
+          />
+        </div>
+      </div>
+      <button
+        className="c6"
+        onClick={[Function]}
+      >
+        Remove
+      </button>
+    </div>
+    <div
+      className="c7"
+    >
+      <Cart Item Price
+        displayCompareAtPrice={undefined}
+        displayPrice={undefined}
+      />
+    </div>
+  </div>
+</div>
+`;
+
 exports[`basic snapshot with props 1`] = `
 .c0 {
   -webkit-align-items: flex-start;
@@ -175,199 +368,6 @@ exports[`basic snapshot with props 1`] = `
       className="c7"
     >
        Cart Item Price
-    </div>
-  </div>
-</div>
-`;
-
-exports[`basic snapshot without props 1`] = `
-.c0 {
-  -webkit-align-items: flex-start;
-  -webkit-box-align: flex-start;
-  -ms-flex-align: flex-start;
-  align-items: flex-start;
-  border-bottom: solid 1px #f5f5f5;
-  box-sizing: border-box;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 1rem;
-  width: 100%;
-}
-
-.c0 > * {
-  box-sizing: border-box;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 1rem;
-  position: relative;
-  width: 100%;
-}
-
-.c2 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.c3 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex: 1 1 100%;
-  -ms-flex: 1 1 100%;
-  flex: 1 1 100%;
-  -webkit-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-}
-
-.c4 {
-  -webkit-flex: 1 1 100%;
-  -ms-flex: 1 1 100%;
-  flex: 1 1 100%;
-}
-
-.c5 {
-  margin: 1rem 0;
-}
-
-.c7 {
-  bottom: 0;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  position: absolute;
-  right: 0;
-}
-
-.c6 {
-  -webkit-align-self: flex-start;
-  -ms-flex-item-align: start;
-  align-self: flex-start;
-  background-color: transparent;
-  border: none;
-  color: #3c5d6f;
-  cursor: pointer;
-  display: table;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: normal;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
-  margin: 0.5rem 0 0;
-  padding: 0;
-  width: auto;
-}
-
-.c6:focus,
-.c6:hover {
-  color: #5e7480;
-}
-
-@media (min-width:992px) {
-  .c4 {
-    -webkit-flex: 1 1 auto;
-    -ms-flex: 1 1 auto;
-    flex: 1 1 auto;
-  }
-}
-
-@media (min-width:992px) {
-  .c5 {
-    margin: 0;
-  }
-}
-
-@media (min-width:768px) {
-  .c7 {
-    margin-left: 1.5rem;
-    position: relative;
-  }
-}
-
-<div
-  className="c0"
->
-  <a
-    href={undefined}
-  >
-    <picture>
-      <source
-        media="(min-width: 768px)"
-        srcSet="undefined/150"
-      />
-      <img
-        alt=""
-        src="undefined/100"
-      />
-    </picture>
-  </a>
-  <div
-    className="c1"
-  >
-    <div
-      className="c2"
-    >
-      <div
-        className="c3"
-      >
-        <div
-          className="c4"
-        >
-          <Cart Item Detail
-            attributes={Array []}
-            productSlug={undefined}
-            title={undefined}
-          />
-          <Cart Item Stock Warning
-            inventoryQuantity={undefined}
-            isLowInventoryQuantity={true}
-          />
-        </div>
-        <div
-          className="c5"
-        >
-          <Cart Item Quantity Input
-            onChange={[Function]}
-            value={undefined}
-          />
-        </div>
-      </div>
-      <button
-        className="c6"
-        onClick={[Function]}
-      >
-        Remove
-      </button>
-    </div>
-    <div
-      className="c7"
-    >
-      <Cart Item Price
-        displayCompareAtPrice={undefined}
-        displayPrice={undefined}
-      />
     </div>
   </div>
 </div>

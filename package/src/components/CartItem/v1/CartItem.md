@@ -7,9 +7,70 @@ It could be used in the future to show items that are within a "Wish List", "Sav
 #### Basic Usage
 ```jsx
 const item = {
+  _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
   imageUrl: "http://placehold.it",
+  isLowInventoryQuantity: true,
+  price: {
+    displayPrice: "$20.00",
+    compareAtPrice: "$45.00"
+  },
+  productSlug: "/product-slug",
+  title: "A Great Product",
+  quantity: 2
+};
+
+<CartItem
+  components={{
+    CartItemDetailComponent: CartItemDetail,
+    CartItemStockWarningComponent: StockWarning,
+    CartItemPriceComponent: Price,
+    CartItemQuantityInputComponent: QuantityInput
+  }}
+  item={item}
+  onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
+  onRemoveItemFromCart={() => console.log("Item removed from cart")}
+/>
+```
+
+#### Without Compare At Price
+```jsx
+const item = {
+  _id: "123",
+  attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  currentQuantity: 3,
+  imageUrl: "http://placehold.it",
+  isLowInventoryQuantity: true,
+  price: {
+    displayPrice: "$20.00"
+  },
+  productSlug: "/product-slug",
+  title: "A Great Product",
+  quantity: 2
+};
+
+<CartItem
+  components={{
+    CartItemDetailComponent: CartItemDetail,
+    CartItemStockWarningComponent: StockWarning,
+    CartItemPriceComponent: Price,
+    CartItemQuantityInputComponent: QuantityInput
+  }}
+  item={item}
+  onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
+  onRemoveItemFromCart={() => console.log("Item removed from cart")}
+/>
+```
+
+#### Without Stock Warning
+```jsx
+const item = {
+  _id: "123",
+  attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  currentQuantity: 3,
+  imageUrl: "http://placehold.it",
+  isLowInventoryQuantity: false,
   price: {
     displayPrice: "$20.00",
     compareAtPrice: "$45.00"
