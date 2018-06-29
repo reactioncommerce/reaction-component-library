@@ -11,6 +11,10 @@ const Item = styled.div`
   padding: 1rem;
   width: 100%;
 
+  &:first-of-type {
+    border-top: solid 1px ${applyTheme("color_black05")};
+  }
+
   > * {
     box-sizing: border-box;
   }
@@ -120,16 +124,18 @@ class CartItem extends Component {
       /**
        * Array of additional attributes of the chosen item.
        */
-      attributes: PropTypes.arrayOf(PropTypes.shape({
-        /**
+      attributes: PropTypes.arrayOf(
+        PropTypes.shape({
+          /**
            * Attribute label (i.e. "Color").
            */
-        label: PropTypes.string,
-        /**
+          label: PropTypes.string,
+          /**
            *  Attribute value (i.e. "Red").
            */
-        value: PropTypes.string
-      })),
+          value: PropTypes.string
+        })
+      ),
       /**
        * Current stock quantity of item
        */
@@ -209,7 +215,7 @@ class CartItem extends Component {
       <a href={productSlug}>
         <picture>
           <source srcSet={`${imageUrl}/150`} media="(min-width: 768px)" />
-          <img src={`${imageUrl}/100`} alt="" />
+          <img src={`${imageUrl}/100`} alt="" style={{ display: "block" }} />
         </picture>
       </a>
     );
