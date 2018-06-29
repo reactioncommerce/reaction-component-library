@@ -1,6 +1,7 @@
 ### CartItems
 
-### overview
+### Overview
+This component renders a list of items that are in a customers cart.
 
 #### Basic Usage
 ```jsx

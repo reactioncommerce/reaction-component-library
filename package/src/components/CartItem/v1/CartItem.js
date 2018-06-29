@@ -124,18 +124,16 @@ class CartItem extends Component {
       /**
        * Array of additional attributes of the chosen item.
        */
-      attributes: PropTypes.arrayOf(
-        PropTypes.shape({
-          /**
+      attributes: PropTypes.arrayOf(PropTypes.shape({
+        /**
            * Attribute label (i.e. "Color").
            */
-          label: PropTypes.string,
-          /**
+        label: PropTypes.string,
+        /**
            *  Attribute value (i.e. "Red").
            */
-          value: PropTypes.string
-        })
-      ),
+        value: PropTypes.string
+      })),
       /**
        * Current stock quantity of item
        */
