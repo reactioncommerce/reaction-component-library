@@ -275,7 +275,7 @@ module.exports = {
           name: "Forms"
         })
       ]
-    }, 
+    },
     {
       name: "Storefront Components",
       sections: [
@@ -285,7 +285,7 @@ module.exports = {
           name: "Product"
         }),
         generateSection({
-          componentNames: ["CartItem", "CartItemDetail", "CartSummary", "MiniCartSummary", "CartCheckoutButton","CartEmptyMessage"],
+          componentNames: ["CartItem", "CartItemDetail", "CartSummary", "MiniCartSummary", "CartCheckoutButton", "CartEmptyMessage"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         })
