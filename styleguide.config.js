@@ -20,8 +20,7 @@ const componentTree = {};
 //     //   documentation.set("displayName", "v1");
 
 //     //   // Calculate the key required to find the component in the module exports
-//     //   if (
-//     //     definition.parentPath.value.type === "ExportNamedDeclaration"
+//     //   if ( //     //     definition.parentPath.value.type === "ExportNamedDeclaration"
 //     //   ) {
 //     //     console.log("name", definition.value.id.name);
 //     //     documentation.set("path", `v1.${definition.value.id.name}`);
@@ -71,15 +70,198 @@ function generateSection({ componentNames, name, content }) {
 }
 
 module.exports = {
-  title: "Reaction UI Components Style Guide",
+  title: "Reaction Design System",
+  editorConfig: { theme: "oceanic-next" },
+  theme: {
+    sidebarWidth: 320,
+    maxWidth: 1000,
+    color: {
+      link: "#062a4e",
+      linkHover: "#fd8283",
+      codeBackground: "#233444"
+    },
+    fontFamily: {
+      base: [
+        "'PostGrotesk-Regular'",
+        "-apple-system",
+        "sans-serif"
+      ],
+      monospace: ["Overpass Mono", "Menlo", "monospace"]
+    },
+    fontSize: {
+      base: 16,
+      text: 16,
+      small: 14,
+      h1: 39,
+      h2: 31,
+      h3: 25,
+      h4: 20,
+      h5: 18,
+      h6: 16
+    }
+  },
+  styles: {
+    StyleGuide: {
+      content: {
+        maxWidth: "initial",
+        padding: "0 80px"
+      },
+      sidebar: {
+        backgroundColor: "#f7fdff",
+        border: [["#a7edff", "solid"]],
+        borderWidth: [[0, 2, 0, 0]],
+        paddingLeft: 25
+      },
+      logo: {
+        borderBottom: [[0]],
+        backgroundImage: "url(reaction-design-system-logo.svg)",
+        backgroundRepeat: "no-repeat",
+        height: 110,
+        backgroundPosition: "25% 50%",
+        backgroundSize: 235
+      }
+    },
+    EditorLoader: {
+      "@global": {
+        ".CodeMirror.CodeMirror": {
+          borderRadius: 5,
+          marginTop: 20
+        }
+      }
+    },
+    ComponentsList: {
+      item: {
+        "color": "#062a4e",
+        "fontSize": 14,
+        "& > a": {
+          display: "inline",
+          fontFamily: "PostGrotesk-Bold !important",
+          letterSpacing: "0.6px !important",
+          textDecoration: "none !important"
+        }
+      },
+      isChild: {
+        "& > a": {
+          fontFamily: "PostGrotesk-Regular !important",
+          letterSpacing: "0.4px !important"
+        },
+        "& > a:hover": {
+          cursor: "pointer",
+          backgroundImage: "linear-gradient(#f7fdff 50%, #a7edff 50%) !important",
+          backgroundRepeat: "repeat-x !important",
+          backgroundSize: "8px 4px !important",
+          backgroundPositionY: "0.9em !important",
+          transition: "background-image .3s ease-in"
+        }
+      }
+    },
+    Heading: {
+      heading: {
+        fontFamily: "PostGrotesk-Bold"
+      },
+      heading1: {
+        fontFamily: "PostGrotesk-Bold"
+      },
+      heading2: {
+        fontFamily: "PostGrotesk-Medium"
+      },
+      heading3: {
+        fontFamily: "PostGrotesk-Light"
+      }
+    },
+    ReactComponent: {
+      header: {
+        backgroundColor: "#fffbcc",
+        margin: "0 -80px 40px -80px",
+        padding: "20px 80px 40px 80px"
+      }
+    },
+    SectionHeading: {
+      sectionName: {
+        "color": "#052a4e",
+        "cursor": "text",
+        "pointerEvents": "none",
+        "fontFamily": ["Overpass Mono", "Menlo", "monospace"],
+        "fontSize": "50px",
+        "&:hover, &:active": {
+          cursor: "text",
+          pointerEvents: "none",
+          textDecoration: "none"
+        }
+      }
+    },
+    Link: {
+      link: {
+        "&, &:link, &:visited": {
+          color: "inherit",
+          textDecoration: "underline"
+        },
+        "&:hover, &:active": {
+          color: "inherit",
+          textDecoration: "none"
+        }
+      }
+    },
+    Logo: {
+      logo: {
+        display: "none"
+      }
+    },
+    TableOfContents: {
+      search: {
+        "paddingLeft": 0,
+        "position": "relative",
+        "&::before": {
+          border: "3px solid #052a4e",
+          borderRadius: "50%",
+          content: "' '",
+          display: "block",
+          height: 12,
+          left: 14,
+          width: 12,
+          position: "absolute",
+          top: "47%",
+          zIndex: 1,
+          transform: "translateY(-58%)"
+        },
+        "&::after": {
+          background: "#052a4e",
+          content: "' '",
+          display: "block",
+          height: 7,
+          left: 24,
+          position: "absolute",
+          transform: "rotate(-45deg)",
+          top: "52%",
+          width: 3,
+          zIndex: 1
+        }
+      },
+      input: {
+        "backgroundColor": "#f6f6f6",
+        "border": "1px solid #f6f6f6",
+        "borderRadius": 23,
+        "padding": 11,
+        "paddingLeft": 35,
+        "&:focus": {
+          borderColor: "#ebebeb"
+        }
+      }
+    }
+  },
   sections: [
     {
       name: "Introduction",
+      content: "styleguide/src/sections/Introduction.md",
       sections: [
         {
-          name: "Installing and Importing",
+          name: "Installing and Importing the Components",
           content: "styleguide/src/sections/InstallingandImporting.md"
           // description: ""
+        },
+        {
+          name: "Text Styles",
+          content: "styleguide/src/sections/Type.md"
         }
       ]
     },
@@ -92,7 +274,17 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["ErrorsBlock", "Field", "Select", "TextInput", "Checkbox"],
+          componentNames: ["Price", "StockWarning"],
+          content: "styleguide/src/sections/Product.md",
+          name: "Product"
+        }),
+        generateSection({
+          componentNames: ["CartCheckoutButton", "CartEmptyMessage", "CartSummary", "MiniCartSummary", "CartItem", "CartItemDetail"],
+          content: "styleguide/src/sections/Cart.md",
+          name: "Cart"
+        }),
+        generateSection({
+          componentNames: ["ErrorsBlock", "Field", "Select", "TextInput", "QuantityInput", "Checkbox"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -122,11 +314,14 @@ module.exports = {
   getComponentPathLine(componentPath) {
     const name = path.basename(componentPath, ".js");
     const dir = path.dirname(componentPath);
-    const lastPieceOfDirPath = dir.slice(dir.lastIndexOf("/") + 1);
-    return `import { ${name} } from "@reactioncommerce/components/${lastPieceOfDirPath}"`;
+    const version = dir.slice(dir.lastIndexOf("/") + 1);
+    return `import ${name} from "@reactioncommerce/components/${name}/${version}"`;
   },
   pagePerSection: true,
-  serverPort: 4000,
+  showCode: true,
+  showUsage: true,
+  serverPort: Number(process.env.PORT),
+  assetsDir: "styleguide/src/assets/",
   template: "styleguide/src/index.html"
   // handlers(componentPath) {
   //   return defaultHandlers.concat(

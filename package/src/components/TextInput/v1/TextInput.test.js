@@ -78,3 +78,25 @@ test("getValue with shouldTrimValue false", () => {
   const wrapper = mount(<TextInput name="test" shouldTrimValue={false} value=" " />);
   expect(wrapper.instance().getValue()).toBe(" ");
 });
+
+test("getValue with null value", () => {
+  const wrapper = mount(<TextInput name="test" shouldConvertEmptyStringToNull={false} value={null} />);
+  expect(wrapper.instance().getValue()).toBe("");
+});
+
+test("getValue with undefined value", () => {
+  const wrapper = mount(<TextInput name="test" shouldConvertEmptyStringToNull={false} value={undefined} />);
+  expect(wrapper.instance().getValue()).toBe("");
+});
+
+test("getValue with null value after changed prop", () => {
+  const wrapper = mount(<TextInput name="test" shouldConvertEmptyStringToNull={false} value="123" />);
+  wrapper.setProps({ value: null });
+  expect(wrapper.instance().getValue()).toBe("");
+});
+
+test("getValue with undefined value after changed prop", () => {
+  const wrapper = mount(<TextInput name="test" shouldConvertEmptyStringToNull={false} value="123" />);
+  wrapper.setProps({ value: undefined });
+  expect(wrapper.instance().getValue()).toBe("");
+});

@@ -92,17 +92,21 @@ const teal600 = "#34584f";
  * Default Theme Typography
  */
 
+// font family
+const fontFamily = "'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif";
+
 // font scale
-const fontSize12 = "0.75rem";
-const fontSize14 = "0.875rem";
-const fontSize16 = "1rem";
-const fontSize18 = "1.125rem";
-const fontSize20 = "1.25rem";
-const fontSize24 = "1.5rem";
-const fontSize28 = "1.75rem";
-const fontSize32 = "2rem";
-const fontSize36 = "2.25rem";
-const fontSize42 = "2.625rem";
+const baseFontSize = 16; // pixels
+const fontSize12 = `${baseFontSize * 0.75}px`;
+const fontSize14 = `${baseFontSize * 0.875}px`;
+const fontSize16 = `${baseFontSize * 1}px`;
+const fontSize18 = `${baseFontSize * 1.125}px`;
+const fontSize20 = `${baseFontSize * 1.25}px`;
+const fontSize24 = `${baseFontSize * 1.5}px`;
+const fontSize28 = `${baseFontSize * 1.75}px`;
+const fontSize32 = `${baseFontSize * 2}px`;
+const fontSize36 = `${baseFontSize * 2.25}px`;
+const fontSize42 = `${baseFontSize * 2.625}px`;
 
 // font weights
 const fontWeightLight = "200";
@@ -151,10 +155,29 @@ const borderRadius = baseUnit(0.2);
 
 const defaultStyles = {
   rui_color_default: black55,
+  rui_color_disabled: black25,
+  rui_color_black02: black02,
+  rui_color_black05: black05,
+  rui_color_black15: black15,
+  rui_color_black30: black30,
+  rui_color_black65: black65,
   rui_color_error: red,
+  rui_color_stockWarning: red,
   rui_color_success: teal,
   rui_color_coolGrey: coolGrey,
+  rui_color_coolGrey100: coolGrey100,
+  rui_color_coolGrey200: coolGrey200,
+  rui_color_coolGrey300: coolGrey300,
+  rui_color_coolGrey400: coolGrey400,
+  rui_color_coolGrey500: coolGrey500,
+  rui_color_coolGrey600: coolGrey600,
+  rui_color_forestGreen300: forestGreen300,
   rui_color_white: white,
+  rui_font_family: fontFamily,
+  rui_font_size_small: fontSize14,
+  rui_font_weight_light: fontWeightLight,
+  rui_font_weight_normal: fontWeightRegular,
+  rui_font_weight_bold: fontWeightBold,
   rui_leading_body: bodyLeading,
   rui_leading_header: headerLeading,
   rui_leading_flat: flatLeading
@@ -253,6 +276,7 @@ const inputStyles = {
   rui_inputColor_default: coolGrey500,
   rui_inputColor_disabled: black25,
   rui_inputColor_error: red,
+  rui_inputColor_focus: coolGrey500,
   rui_inputColor_success: black55,
   rui_inputPlaceholderColor: black20,
   rui_inputFontFamily: "inherit",
@@ -265,24 +289,20 @@ const inputStyles = {
 };
 
 const inputIcon = {
-  rui_inputIconBackgroundColor: black10,
   rui_inputIconColor_default: black55,
   rui_inputIconColor_disabled: black25,
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
-  rui_inputIconFontSize: fontSize14,
-  rui_inputIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
-  rui_inputIconRight: baseUnit(1.2),
-  rui_inputIconTop: baseUnit(1.2),
   rui_inputIconTextPadding: baseUnit(20)
 };
 
 // textarea
 const textareaStyles = {
+  rui_textareaClearButtonFontSize: fontSize12,
   rui_textareaHeight: baseUnit(6),
   rui_textareaLineHeight: bodyLeading,
-  rui_textareaIconPadding: `${baseUnit(0.75)} ${baseUnit(0.75)}`,
-  rui_textareaIconRight: "0",
+  rui_textareaIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
+  rui_textareaIconRight: 0,
   rui_textareaIconTop: baseUnit(1)
 };
 
@@ -311,8 +331,15 @@ const helpTextStyles = {
 const errorsBlockStyles = {
   rui_errorsBlockColor: red,
   rui_errorsBlockFontSize: fontSize14,
-  rui_errorsBlockMargin: `${baseUnit(1)} 0 0`,
+  rui_errorsBlockMargin: `${baseUnit(1)} 0`,
   rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
+};
+
+// cartEmptyMessage
+const cartEmptyMessage = {
+  rui_cartEmptyMessageFontSize: baseFontSize,
+  rui_cartEmptyMessageLetterSpacing: `${baseUnit(0.03)}`,
+  rui_cartEmptyMessageMarginBottom: `${baseUnit(5.4)}`
 };
 
 export default {
@@ -324,5 +351,6 @@ export default {
   ...fieldStyles,
   ...labelStyles,
   ...helpTextStyles,
-  ...errorsBlockStyles
+  ...errorsBlockStyles,
+  ...cartEmptyMessage
 };

@@ -8,20 +8,45 @@
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <!-- <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="shortcut icon" href="/favicon.ico"> -->
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-      -->
+    <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
+    <style>
+      @font-face {
+      font-family: "PostGrotesk-Light";
+      src: url("fonts/post-grotesk/PostGrotesk-Light.eot"); /* IE9 Compat Modes */
+      src: url("fonts/post-grotesk/PostGrotesk-Light.woff") format("woff"),
+          url("fonts/post-grotesk/PostGrotesk-Light.svg") format("svg");
+      font-weight: 300;
+    }
+
+    @font-face {
+      font-family: "PostGrotesk-Medium";
+      src: url("fonts/post-grotesk/PostGrotesk-Medium.eot"); /* IE9 Compat Modes */
+      src: url("fonts/post-grotesk/PostGrotesk-Medium.woff") format("woff"),
+          url("fonts/post-grotesk/PostGrotesk-Medium.svg") format("svg");
+      font-weight: normal;
+    }
+
+    @font-face {
+      font-family: "PostGrotesk-Bold";
+      src: url("fonts/post-grotesk/PostGrotesk-Bold.eot"); /* IE9 Compat Modes */
+      src: url("fonts/post-grotesk/PostGrotesk-Bold.woff") format("woff"),
+          url("fonts/post-grotesk/PostGrotesk-Bold.svg") format("svg");
+      font-weight: bold;
+    }
+
+    /* PostGrotesk-Regular is PostGrotesk-Book */
+    @font-face {
+      font-family: "PostGrotesk-Regular";
+      src: url("fonts/post-grotesk/PostGrotesk-Book.eot"); /* IE9 Compat Modes */
+      src: url("fonts/post-grotesk/PostGrotesk-Book.woff") format("woff"),
+          url("fonts/post-grotesk/PostGrotesk-Book.svg") format("svg");
+      font-weight: 800;
+    }
+    </style>
     <title><%=htmlWebpackPlugin.options.title%></title>
   </head>
   <body>

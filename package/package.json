@@ -1,10 +1,9 @@
 {
   "name": "@reactioncommerce/components",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Reaction Components",
-  "homepage": "https://github.com/reactioncommerce/styleguide",
-  "main": "./dist/components",
-  "repository": "https://github.com/reactioncommerce/styleguide",
+  "homepage": "https://github.com/reactioncommerce/reaction-component-library",
+  "repository": "https://github.com/reactioncommerce/reaction-component-library",
   "author": {
     "name": "Reaction Commerce",
     "email": "engineering@reactioncommerce.com",
@@ -12,22 +11,21 @@
   },
   "license": "GPL-3.0-only",
   "private": false,
-  "files": [
-    "dist",
-    "LICENSE.md",
-    "README.md"
-  ],
   "scripts": {
-    "build": "node ../.reaction/scripts/prepublish.js && rm -rf dist/** && BABEL_ENV=production babel src --out-dir dist --ignore *.test.js,__snapshots__,setupTests.js",
-    "lint": "eslint .",
-    "prepare": "npm run build",
-    "test": "jest"
+    "prebuild": "rimraf dist && node ./scripts/prebuild.js",
+    "build": "BABEL_ENV=production babel src --out-dir dist --ignore *.test.js,__snapshots__,setupTests.js",
+    "postbuild": "BABEL_ENV=production babel-node ./scripts/postbuild.js",
+    "release": "npm run build && npm publish dist"
   },
   "jest": {
     "setupFiles": [
       "<rootDir>/../config/polyfills.js"
     ],
-    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/src/setupTests.js",
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/dist/"
+    ]
   },
   "dependencies": {
     "lodash.debounce": "^4.0.8",
@@ -36,7 +34,7 @@
     "lodash.isequal": "^4.5.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-select": "^2.0.0-alpha.8",
+    "react-select": "2.0.0-alpha.8",
     "reacto-form": "^0.0.2",
     "styled-components": "^3.1.6"
   },
@@ -71,5 +69,8 @@
     "raf": "3.4.0",
     "react-dev-utils": "^5.0.0",
     "whatwg-fetch": "2.0.3"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

@@ -31,6 +31,14 @@ if (!componentName) {
 const BASE_PATH = path.join(process.cwd(), "package/src/components");
 const componentDirectory = path.join(BASE_PATH, componentName);
 
+function createComponentIndexFile(name) {
+  const filePath = path.join(componentDirectory, "v1", `index.js`);
+  let template = fs.readFileSync(".reaction/scripts/templates/index.js.template", { encoding: "utf8" });
+  template = template.replace(/COMPONENT/g, name);
+  fs.ensureFileSync(filePath);
+  fs.writeFileSync(filePath, template);
+}
+
 function createComponentFile(name) {
   const filePath = path.join(componentDirectory, "v1", `${name}.js`);
   let template = fs.readFileSync(".reaction/scripts/templates/Component.js.template", { encoding: "utf8" });
@@ -76,6 +84,7 @@ if (shouldBumpVersion) {
 } else {
   if (fs.existsSync(componentDirectory)) errorAndExit(`${componentDirectory} already exists`);
 
+  createComponentIndexFile(componentName);
   createComponentFile(componentName);
   createComponentTestFile(componentName);
   createComponentMarkdownFile(componentName);

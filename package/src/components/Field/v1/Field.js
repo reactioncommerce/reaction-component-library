@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import isEmpty from "lodash.isempty";
-import { applyTheme } from "helpers";
+import { applyTheme } from "../../../utils";
 
 function applyValidationColor(themeProp = "color") {
   return (props) => {
@@ -25,16 +25,20 @@ const StyledField = styled.div`
 `;
 
 const StyledLabel = styled.label`
+  -webkit-font-smoothing: antialiased;
   color: ${applyValidationColor("labelColor")};
   display: block;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   font-size: ${applyTheme("labelFontSize")};
   line-height: ${applyTheme("leading_header")};
   margin: ${applyTheme("labelMargin")};
 `;
 
 const StyledHelpText = styled.span`
+  -webkit-font-smoothing: antialiased;
   color: ${applyTheme("helpTextColor")};
   display: block;
+  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   font-size: ${applyTheme("helpTextFontSize")};
   margin: ${applyTheme("helpTextMargin")};
 `;

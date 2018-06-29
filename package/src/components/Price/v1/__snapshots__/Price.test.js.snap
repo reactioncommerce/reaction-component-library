@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Display error warning about required prop 1`] = `"Failed undefined type: The undefined \`displayPrice\` is marked as required in \`<<anonymous>>\`, but its value is \`undefined\`."`;
+
+exports[`Renders price with a compare at price 1`] = `
+.c0 {
+  display: block;
+}
+
+.c1 {
+  display: block;
+  color: #bfbfbf;
+}
+
+<div>
+  <span
+    className="c0"
+  >
+    $300.00
+  </span>
+  <del
+    className="c1"
+  >
+    $400.00
+  </del>
+</div>
+`;
+
+exports[`Renders price without a compare at price 1`] = `
+.c0 {
+  display: block;
+}
+
+<div>
+  <span
+    className="c0"
+  >
+    $300.00
+  </span>
+</div>
+`;
+
+exports[`Renders price without a compare at price, due to the fact that the prices are equal. 1`] = `
+.c0 {
+  display: block;
+}
+
+<div>
+  <span
+    className="c0"
+  >
+    $300.00
+  </span>
+</div>
+`;

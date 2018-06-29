@@ -1,3 +1,3 @@
-# Architecture Decision Records
+# Architecture Documentation
 
-* [1. use-adrs](0001-use-adrs.md)
+See [decision records](decisions/README.md)

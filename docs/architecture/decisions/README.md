@@ -7,3 +7,4 @@
 * [5. test-components](0005-test-components.md)
 * [6. style-components](0006-style-components.md)
 * [7. publish-components](0007-publish-components.md)
+* [8. keep-styles-with-components](0008-keep-styles-with-components.md)

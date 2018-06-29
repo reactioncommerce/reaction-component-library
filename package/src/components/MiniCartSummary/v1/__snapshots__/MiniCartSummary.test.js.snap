@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Renders only subtotal + computed taxes 1`] = `
+.c0 {
+  width: 100%;
+  padding: 1rem;
+}
+
+.c1 {
+  padding: 0.5rem 0.3rem 0.5rem 0.5rem;
+  color: #3c5d6f;
+  text-align: right;
+}
+
+.c2 {
+  text-align: left;
+  padding: 0.5rem 0.5rem 0.5rem 0.3rem;
+  color: #3c3c3c;
+  font-weight: 700;
+}
+
+<table
+  className="c0"
+>
+  <tbody>
+    <tr>
+      <td
+        className="c1"
+      >
+        Subtotal
+      </td>
+      <td
+        className="c2"
+      >
+        $24.42
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c1"
+      >
+        Tax
+      </td>
+      <td
+        className="c2"
+      >
+        $4.44
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;
+
+exports[`Renders only subtotal 1`] = `
+.c0 {
+  width: 100%;
+  padding: 1rem;
+}
+
+.c1 {
+  padding: 0.5rem 0.3rem 0.5rem 0.5rem;
+  color: #3c5d6f;
+  text-align: right;
+}
+
+.c2 {
+  text-align: left;
+  padding: 0.5rem 0.5rem 0.5rem 0.3rem;
+  color: #3c3c3c;
+  font-weight: 700;
+}
+
+<table
+  className="c0"
+>
+  <tbody>
+    <tr>
+      <td
+        className="c1"
+      >
+        Subtotal
+      </td>
+      <td
+        className="c2"
+      >
+        $24.42
+      </td>
+    </tr>
+  </tbody>
+</table>
+`;

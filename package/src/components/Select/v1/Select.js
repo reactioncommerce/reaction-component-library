@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import isEqual from "lodash.isequal";
 import PropTypes from "prop-types";
 import ReactSelect from "react-select";
-import { applyTheme, CustomPropTypes } from "helpers";
+import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const nullDefaultEquals = (value1, value2) => ((value1 || null) === (value2 || null));
 
@@ -366,8 +366,30 @@ class Select extends Component {
     }
   }
 
-  onChange = (event) => {
-    let { value } = event.target;
+  getValue() {
+    return this.state.value;
+  }
+
+  setValue(value) {
+    this.setState({ value });
+    this.handleChanged(value);
+  }
+
+  resetValue() {
+    this.setValue(this.props.value);
+  }
+
+  handleChanged = (value) => {
+    const { onChange, onChanging } = this.props;
+    if (value !== this.lastValue) {
+      this.lastValue = value;
+      onChanging(value);
+      onChange(value);
+    }
+  };
+
+  handleSelectLibChanged = (selection) => {
+    let { value } = selection || {};
 
     if (value !== undefined && value !== null) {
       switch (this.dataType) {
@@ -385,30 +407,8 @@ class Select extends Component {
       }
     }
 
-    this.setValue(value);
+    this.setValue(value || null);
   };
-
-  getValue() {
-    return this.state.value;
-  }
-
-  setValue(value) {
-    this.setState({ value });
-    this.handleChanged(value);
-  }
-
-  resetValue() {
-    this.setValue(this.props.value);
-  }
-
-  handleChanged(value) {
-    const { onChange, onChanging } = this.props;
-    if (value !== this.lastValue) {
-      this.lastValue = value;
-      onChanging(value);
-      onChange(value);
-    }
-  }
 
   // Input is dirty if value prop doesn't match value state. Whenever a changed
   // value prop comes in, we reset state to that, thus becoming clean.
@@ -466,7 +466,7 @@ class Select extends Component {
         {...passthroughProps}
         isDisabled={isReadOnly}
         value={optionValue}
-        onChange={this.handleChange}
+        onChange={this.handleSelectLibChanged}
         options={reactSelectOptions}
         styles={getCustomStyles(this.props)}
       />
