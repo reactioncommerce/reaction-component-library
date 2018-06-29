@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import uniqueId from "lodash.uniqueid";
-import styled from "styled-components";
-import { applyTheme } from "helpers";
+// import styled from "styled-components";
+// import { applyTheme } from "../../../utils";
 
-const StyledDiv = styled.div`
-  color: #333333;
-`;
+// const StyledDiv = styled.div`
+//   color: #333333;
+// `;
 
 class Checkbox extends Component {
   static propTypes = {

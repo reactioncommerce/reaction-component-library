@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+<div
+  className={undefined}
+>
+  <label
+    htmlFor="Checkbox_1"
+  >
+    <input
+      checked={false}
+      id="Checkbox_1"
+      onChange={[Function]}
+      readOnly={false}
+      type="checkbox"
+      value="true"
+    />
+  </label>
+</div>
+`;
