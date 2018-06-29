@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { withComponents } from "@reactioncommerce/components-context";
+import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const EmptyButton = styled.div`
   display: flex;
@@ -24,11 +25,18 @@ class CartEmptyMessage extends Component {
      */
     buttonText: PropTypes.string,
     /**
-     * On object of component children to pass into this component
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
-      ContinueShoppingButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-    }),
+      /**
+       * Pass either the Reaction Button component or your own component that
+       * accepts compatible props.
+       */
+      Button: CustomPropTypes.component.isRequired
+    }).isRequired,
     /**
      * Text to display inside the message area
      */
@@ -49,18 +57,18 @@ class CartEmptyMessage extends Component {
   }
 
   render() {
-    const { buttonText, messageText } = this.props;
-    const { ContinueShoppingButton } = this.props.components;
+    const { buttonText, components, messageText } = this.props;
+    const { Button } = components;
 
     return (
       <Fragment>
         <EmptyMessage>{messageText}</EmptyMessage>
         <EmptyButton>
-          <ContinueShoppingButton actionType="important" onClick={this.handleOnClick}>{buttonText}</ContinueShoppingButton>
+          <Button actionType="important" onClick={this.handleOnClick}>{buttonText}</Button>
         </EmptyButton>
       </Fragment>
     );
   }
 }
 
-export default CartEmptyMessage;
+export default withComponents(CartEmptyMessage);

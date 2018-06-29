@@ -160,10 +160,7 @@ exports[`basic snapshot with empty props 1`] = `
         <div
           className="c5"
         >
-          <Cart Item Quantity Input
-            onChange={[Function]}
-            value={undefined}
-          />
+          Quantity Input
         </div>
       </div>
       <button
@@ -351,12 +348,12 @@ exports[`basic snapshot with props 1`] = `
           className="c4"
         >
           Cart Item Detail
-          Cart Item Stock Warning
+          Stock Warning
         </div>
         <div
           className="c5"
         >
-          Cart Item Quantity Input
+          Quantity Input
         </div>
       </div>
       <button
@@ -369,7 +366,7 @@ exports[`basic snapshot with props 1`] = `
     <div
       className="c7"
     >
-       Cart Item Price
+      Price
     </div>
   </div>
 </div>

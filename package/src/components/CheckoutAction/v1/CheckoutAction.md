@@ -20,7 +20,6 @@ const Address = (
     activeStepElement="Placeholder: active step isn't yet available"
     completeStepElement={
       <CheckoutActionComplete
-        components={{ChangeButton: Button}}
         content={Address}
         onClickChangeButton={() => {}}
       />
@@ -52,7 +51,6 @@ const Address = (
     activeStepElement="Placeholder: active step isn't yet available"
     completeStepElement={
       <CheckoutActionComplete
-        components={{ChangeButton: Button}}
         content={Address}
         onClickChangeButton={() => {}}
       />
@@ -84,7 +82,6 @@ const Address = (
     activeStepElement="Placeholder: active step isn't yet available"
     completeStepElement={
       <CheckoutActionComplete
-        components={{ChangeButton: Button}}
         content={Address}
         onClickChangeButton={() => {}}
       />
@@ -118,7 +115,6 @@ const Address = (
     activeStepElement="Placeholder: active step isn't yet available"
     completeStepElement={
       <CheckoutActionComplete
-        components={{ChangeButton: Button}}
         content={Address}
         label="Label Override via props"
         onClickChangeButton={onClick}

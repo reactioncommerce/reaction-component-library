@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import isEmpty from "lodash.isempty";
+import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
 const ErrorWrapper = styled.div`
@@ -32,9 +33,20 @@ class ErrorsBlock extends Component {
 
   static propTypes = {
     className: PropTypes.string,
+    /**
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
+     */
+    components: PropTypes.shape({
+      /**
+       * An element to show as an icon with the error message
+       */
+      iconError: PropTypes.node
+    }),
     errorClassName: PropTypes.object, // eslint-disable-line react/forbid-prop-types
     errors: PropTypes.array,
-    iconError: PropTypes.node,
     names: PropTypes.arrayOf(PropTypes.string),
     shouldShowIcon: PropTypes.bool
   };
@@ -43,13 +55,12 @@ class ErrorsBlock extends Component {
     className: undefined,
     errorClassName: undefined,
     errors: undefined,
-    iconError: (<i className="fas fa-exclamation-triangle" />),
     names: undefined,
     shouldShowIcon: false
   };
 
   renderIcon() {
-    const { iconError } = this.props;
+    const { iconError } = this.props.components;
     return <IconWrapper>{iconError}</IconWrapper>;
   }
 
@@ -77,4 +88,8 @@ class ErrorsBlock extends Component {
   }
 }
 
-export default ErrorsBlock;
+const WrappedErrorsBlock = withComponents(ErrorsBlock);
+
+WrappedErrorsBlock.isFormErrors = true;
+
+export default WrappedErrorsBlock;

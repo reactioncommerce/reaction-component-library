@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Form } from "reacto-form";
 import styled from "styled-components";
-import { applyTheme, getRequiredValidator } from "../../../utils";
+import { withComponents } from "@reactioncommerce/components-context";
+import { applyTheme, CustomPropTypes, getRequiredValidator } from "../../../utils";
 
 const Grid = styled.div`
   display: flex;
@@ -25,30 +26,38 @@ const ColHalf = styled.div`
 class AddressForm extends Component {
   static propTypes = {
     /**
-     * Provided child components for form inputs
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
       /**
-       * ErrorsBlock component
+       * Pass either the Reaction ErrorsBlock component or your own component that is
+       * compatible with ReactoForm.
        */
-      ErrorsBlockComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      ErrorsBlock: CustomPropTypes.component.isRequired,
       /**
-       * Field component
+       * Pass either the Reaction Field component or your own component that is
+       * compatible with ReactoForm.
        */
-      FieldComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      Field: CustomPropTypes.component.isRequired,
       /**
-       * TextInput component
+       * Pass either the Reaction TextInput component or your own component that is
+       * compatible with ReactoForm.
        */
-      TextInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      TextInput: CustomPropTypes.component.isRequired,
       /**
-       * SelectInput component
+       * Pass either the Reaction Select component or your own component that is
+       * compatible with ReactoForm.
        */
-      SelectInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      Select: CustomPropTypes.component.isRequired,
       /**
-       * PhoneInput component
+       * Pass either the Reaction PhoneNumberInput component or your own component that is
+       * compatible with ReactoForm.
        */
-      PhoneInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-    }),
+      PhoneNumberInput: CustomPropTypes.component.isRequired
+    }).isRequired,
     /**
      * Country options
      */
@@ -125,13 +134,6 @@ class AddressForm extends Component {
   };
 
   static defaultProps = {
-    components: {
-      ErrorsBlockComponent: "Errors Block",
-      FieldComponent: "Filed",
-      PhoneInputComponent: "Phone Input",
-      SelectInputComponent: "Select Input",
-      TextInputComponent: "Text Input"
-    },
     errors: [],
     name: "address",
     onCancel() {},
@@ -173,11 +175,11 @@ class AddressForm extends Component {
     const {
       value,
       components: {
-        ErrorsBlockComponent,
-        FieldComponent,
-        TextInputComponent,
-        SelectInputComponent,
-        PhoneInputComponent
+        ErrorsBlock,
+        Field,
+        TextInput,
+        Select,
+        PhoneNumberInput
       },
       countries,
       errors,
@@ -198,73 +200,73 @@ class AddressForm extends Component {
       >
         <Grid>
           <ColFull>
-            <FieldComponent name="country" label="Country" isRequired>
-              <SelectInputComponent
+            <Field name="country" label="Country" isRequired>
+              <Select
                 name="country"
                 onChange={this.props.onCountryChange}
                 options={countries}
                 placeholder="Country"
                 isSearchable
               />
-              <ErrorsBlockComponent names={["country"]} />
-            </FieldComponent>
+              <ErrorsBlock names={["country"]} />
+            </Field>
           </ColFull>
 
           <ColHalf>
-            <FieldComponent name="firstName" label="First Name" isRequired>
-              <TextInputComponent name="firstName" placeholder="First Name" />
-              <ErrorsBlockComponent names={["firstName"]} />
-            </FieldComponent>
+            <Field name="firstName" label="First Name" isRequired>
+              <TextInput name="firstName" placeholder="First Name" />
+              <ErrorsBlock names={["firstName"]} />
+            </Field>
           </ColHalf>
           <ColHalf>
-            <FieldComponent name="lastName" label="Last Name" isRequired>
-              <TextInputComponent name="lastName" placeholder="Last Name" />
-              <ErrorsBlockComponent names={["lastName"]} />
-            </FieldComponent>
+            <Field name="lastName" label="Last Name" isRequired>
+              <TextInput name="lastName" placeholder="Last Name" />
+              <ErrorsBlock names={["lastName"]} />
+            </Field>
           </ColHalf>
 
           <ColFull>
-            <FieldComponent name="address1" label="Address" isRequired>
-              <TextInputComponent name="address1" placeholder="Address" />
-              <ErrorsBlockComponent names={["address1"]} />
-            </FieldComponent>
+            <Field name="address1" label="Address" isRequired>
+              <TextInput name="address1" placeholder="Address" />
+              <ErrorsBlock names={["address1"]} />
+            </Field>
           </ColFull>
 
           <ColFull>
-            <FieldComponent name="address2" label="Address Line 2" isOptional>
-              <TextInputComponent name="address2" placeholder="Address Line 2 (Optional)" />
-            </FieldComponent>
+            <Field name="address2" label="Address Line 2" isOptional>
+              <TextInput name="address2" placeholder="Address Line 2 (Optional)" />
+            </Field>
           </ColFull>
 
           <ColFull>
-            <FieldComponent name="city" label="City">
-              <TextInputComponent name="city" placeholder="City" />
-              <ErrorsBlockComponent names={["city"]} />
-            </FieldComponent>
+            <Field name="city" label="City">
+              <TextInput name="city" placeholder="City" />
+              <ErrorsBlock names={["city"]} />
+            </Field>
           </ColFull>
 
           <ColHalf>
-            <FieldComponent name="region" label="Region" isRequired>
+            <Field name="region" label="Region" isRequired>
               {regions && regions.length > 1 ? (
-                <SelectInputComponent name="region" options={regions} placeholder="Region" isSearchable />
+                <Select name="region" options={regions} placeholder="Region" isSearchable />
               ) : (
-                <TextInputComponent name="region" placeholder="Region" />
+                <TextInput name="region" placeholder="Region" />
               )}
-              <ErrorsBlockComponent names={["region"]} />
-            </FieldComponent>
+              <ErrorsBlock names={["region"]} />
+            </Field>
           </ColHalf>
           <ColHalf>
-            <FieldComponent name="postal" label="Postal Code" isRequired>
-              <TextInputComponent name="postal" placeholder="Postal Code" />
-              <ErrorsBlockComponent names={["postal"]} />
-            </FieldComponent>
+            <Field name="postal" label="Postal Code" isRequired>
+              <TextInput name="postal" placeholder="Postal Code" />
+              <ErrorsBlock names={["postal"]} />
+            </Field>
           </ColHalf>
 
           <ColFull>
-            <FieldComponent name="phone" label="Phone" isRequired>
-              <PhoneInputComponent name="phone" placeholder="Phone" />
-              <ErrorsBlockComponent names={["phone"]} />
-            </FieldComponent>
+            <Field name="phone" label="Phone" isRequired>
+              <PhoneNumberInput name="phone" placeholder="Phone" />
+              <ErrorsBlock names={["phone"]} />
+            </Field>
           </ColFull>
         </Grid>
       </Form>
@@ -272,4 +274,4 @@ class AddressForm extends Component {
   }
 }
 
-export default AddressForm;
+export default withComponents(AddressForm);

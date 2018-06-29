@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme, preventAccidentalDoubleClick, spinner } from "../../../utils";
+import { withComponents } from "@reactioncommerce/components-context";
+import { applyTheme, preventAccidentalDoubleClick } from "../../../utils";
 import applyThemeWithActionType from "./utils/applyThemeWithActionType";
 
 const paddingFunc = (props) => {
@@ -89,6 +90,19 @@ class Button extends Component {
      */
     className: PropTypes.string,
     /**
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
+     */
+    components: PropTypes.shape({
+      /**
+       * A spinner element to show on the button when `isWaiting` is true. You can also
+       * set this to `null` to prevent adding a spinner to the button while waiting.
+       */
+      spinner: PropTypes.node
+    }),
+    /**
      * Set to `true` to prevent the button from calling `onClick` when clicked
      */
     isDisabled: PropTypes.bool,
@@ -114,11 +128,6 @@ class Button extends Component {
      */
     onClick: PropTypes.func,
     /**
-     * A custom spinner component to show on the button when `isWaiting` is true. You can also
-     * set this to `null` to prevent adding a spinner to the button while waiting.
-     */
-    spinnerComponent: PropTypes.node,
-    /**
      * The string for the `title` attribute of the button element
      */
     title: PropTypes.string
@@ -129,8 +138,7 @@ class Button extends Component {
     isDisabled: false,
     isFullWidth: false,
     isWaiting: false,
-    onClick() {},
-    spinnerComponent: spinner
+    onClick() {}
   };
 
   handleClick = preventAccidentalDoubleClick((event) => {
@@ -146,7 +154,8 @@ class Button extends Component {
   };
 
   render() {
-    const { actionType, children, className, isDisabled, isFullWidth, isShortHeight, isTextOnly, isWaiting, spinnerComponent, title } = this.props;
+    const { actionType, children, className, components, isDisabled, isFullWidth, isShortHeight, isTextOnly, isWaiting, title } = this.props;
+    const { spinner } = components || {};
 
     const moreButtonDivProps = {};
     if (isDisabled) {
@@ -194,7 +203,7 @@ class Button extends Component {
             isTextOnly={isTextOnly}
             style={spinnerStyles}
           >
-            {spinnerComponent}
+            {spinner}
           </SpinnerWrap>
         }
         {!!isWaiting && <WaitingOverlay />}
@@ -203,4 +212,4 @@ class Button extends Component {
   }
 }
 
-export default Button;
+export default withComponents(Button);

@@ -1,27 +1,34 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
+import { CustomPropTypes } from "../../../utils";
 
 const Items = styled.div``;
 
 class CartItems extends Component {
   static propTypes = {
     /**
-     * Provided child components to display item data
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
       /**
-       * CartItem component
+       * Pass either the Reaction `CartItem` component or your own component
+       * that takes `items`, `isMiniCart`, `onChangeCartItemQuantity`, and
+       * `onRemoveItemFromCart` props and uses them to render a single cart item.
        */
-      CartItemComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-    }),
+      CartItem: CustomPropTypes.component.isRequired
+    }).isRequired,
     /**
      * Is in a MiniCart component
      */
     isMiniCart: PropTypes.bool,
     /**
      * CartItem data. Only the `_id` prop is required by this component. Each item is passed to
-     * CartItemComponent, which may require additional props.
+     * CartItem, which may require additional props.
      */
     items: PropTypes.arrayOf(PropTypes.shape({
       /**
@@ -40,22 +47,19 @@ class CartItems extends Component {
   };
 
   static defaultProps = {
-    components: {
-      CartItemComponent: "Cart Item"
-    },
     isMiniCart: false,
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
   };
 
   render() {
-    const { items, components: { CartItemComponent, ...components }, ...props } = this.props;
+    const { items, components: { CartItem, ...components }, ...props } = this.props;
     return (
       <Items>
-        {items.map((item) => <CartItemComponent key={item._id} item={item} components={components} {...props} />)}
+        {items.map((item) => <CartItem key={item._id} item={item} components={components} {...props} />)}
       </Items>
     );
   }
 }
 
-export default CartItems;
+export default withComponents(CartItems);

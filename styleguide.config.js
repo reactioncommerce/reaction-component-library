@@ -302,6 +302,9 @@ module.exports = {
       }
     }
   },
+  styleguideComponents: {
+    Wrapper: path.join(__dirname, "styleguide/src/components/Wrapper")
+  },
   sections: [
     {
       name: "Introduction",
@@ -322,7 +325,7 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "PhoneNumberInput", "Checkbox", "ErrorsBlock", "AddressForm"],
+          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "PhoneNumberInput", "Checkbox", "ErrorsBlock"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -342,12 +345,7 @@ module.exports = {
           name: "Product"
         }),
         generateSection({
-          componentNames: ["CartItem", "CartItems", "CartItemDetail", "CartSummary", "CartEmptyMessage"],
-          content: "styleguide/src/sections/Cart.md",
-          name: "Cart"
-        }),
-        generateSection({
-          componentNames: ["MiniCart", "MiniCartSummary"],
+          componentNames: ["CartEmptyMessage", "CartItem", "CartItems", "CartItemDetail", "CartSummary", "MiniCart", "MiniCartSummary"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         }),
@@ -355,6 +353,11 @@ module.exports = {
           componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
+        }),
+        generateSection({
+          componentNames: ["AddressForm"],
+          content: "styleguide/src/sections/StorefrontForms.md",
+          name: "Forms"
         })
       ]
     }

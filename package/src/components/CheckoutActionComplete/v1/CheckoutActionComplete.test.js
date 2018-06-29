@@ -13,7 +13,6 @@ test("basic snapshot", () => {
 
   const component = renderer.create((
     <CheckoutActionComplete
-      components={{ ChangeButton: Button }}
       label="Shipping address"
       content={Address}
       onClickChangeButton={onClick}

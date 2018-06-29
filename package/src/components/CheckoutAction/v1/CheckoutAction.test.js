@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Button from "../../Button/v1";
 import CheckoutActionComplete from "../../CheckoutActionComplete/v1";
 import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1";
 import CheckoutAction from "./CheckoutAction";
@@ -22,7 +21,6 @@ test("CheckoutAction with `active` status", () => {
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
-          components={{ ChangeButton: Button }}
           content={Address}
           onClickChangeButton={onClick}
         />
@@ -59,7 +57,6 @@ test("CheckoutAction with `complete` status", () => {
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
-          components={{ ChangeButton: Button }}
           content={Address}
           onClickChangeButton={onClick}
         />
@@ -96,7 +93,6 @@ test("CheckoutAction with `incomplete` status", () => {
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
-          components={{ ChangeButton: Button }}
           content={Address}
           onClickChangeButton={onClick}
         />
@@ -133,7 +129,6 @@ test("CheckoutAction with `complete` status and label override via props", () =>
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
-          components={{ ChangeButton: Button }}
           content={Address}
           label="Label override"
           onClickChangeButton={onClick}
@@ -171,7 +166,6 @@ test("CheckoutAction with `complete` status and stepNumber override via props", 
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
-          components={{ ChangeButton: Button }}
           content={Address}
           onClickChangeButton={onClick}
           stepNumber={500}
