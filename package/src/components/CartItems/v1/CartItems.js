@@ -116,9 +116,11 @@ class CartItems extends Component {
   };
 
   render() {
-    const { items, components: { CartItemComponent, ...components } } = this.props;
+    const { items, components: { CartItemComponent, ...components }, ...props } = this.props;
     return (
-      <Items>{items.map((item) => <CartItemComponent key={item._id} item={item} components={components} />)}</Items>
+      <Items>
+        {items.map((item) => <CartItemComponent key={item._id} item={item} components={components} {...props} />)}
+      </Items>
     );
   }
 }

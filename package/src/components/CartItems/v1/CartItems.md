@@ -40,5 +40,5 @@ const components = {
   CartItemQuantityInputComponent: QuantityInput
 };
 
-<CartItems items={items} components={components} />
+<CartItems items={items} components={components} onChangeCartItemQuantity={(value) => console.log("cart items new quantity", value)} onRemoveItemFromCart={(_id) => console.log("cart items remove this item", _id)}/>
 ```

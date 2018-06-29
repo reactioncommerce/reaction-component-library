@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot with empty props 1`] = `
+.c0 {
+  color: #333333;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`basic snapshot with props 1`] = `
+.c0 {
+  color: #333333;
+}
+
+<div
+  className="c0"
+>
+  Cart Item
+  Cart Item
+</div>
+`;
