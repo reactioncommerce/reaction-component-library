@@ -1,4 +1,4 @@
-Resolves #issueNumber  
+Resolves #issueNumber
 Impact: **breaking|critical|major|minor**  
 Type: **feature|bugfix|performance|test|style|refactor|docs|chore**
 
@@ -7,13 +7,12 @@ Type: **feature|bugfix|performance|test|style|refactor|docs|chore**
 <!-- Any PR with commits that start with `feat:` or `fix:` will trigger new major or minor release respectively -->
 
 ## Component
-Description of the issue this PR is solving, why it's happening, and how to reproduce it. This may differ from the original ticket as you now have more information at your disposal.
-
-## Solution
-Summarize your solution to the problem. Please include short descriptions of any solutions you tested before arriving at your final solution. This will help reviewers know why you decided to solve this problem in this particular way and will speed up the review process.
+Description of the issue this component this PR adds. Also include, as necessary:
+- Any other components this component requires
+- Any NPM dependencies added
 
 ## Screenshots
-Include mobile screenshots as well.
+Include mobile and desktop screenshots.
 
 ## Breaking changes
 You should almost never include "BREAKING CHANGES" because we’re duplicating components to avoid that. Consult with others before doing it.
