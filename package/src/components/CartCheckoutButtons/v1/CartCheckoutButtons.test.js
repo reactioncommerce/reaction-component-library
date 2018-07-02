@@ -2,14 +2,14 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import Button from "../../Button/v1";
-import CartCheckoutButton from "./CartCheckoutButton";
+import CartCheckoutButtons from "./CartCheckoutButtons";
 
 test("default cart checkout button", () => {
   const onClick = () => {};
   const isDisabled = false;
 
   const component = renderer.create((
-    <CartCheckoutButton
+    <CartCheckoutButtons
       components={{ Button }}
       isDisabled={isDisabled}
       onClick={onClick}
@@ -25,7 +25,7 @@ test("cart checkout button with custom text", () => {
   const isDisabled = false;
 
   const component = renderer.create((
-    <CartCheckoutButton
+    <CartCheckoutButtons
       buttonText="Custom button text"
       components={{ Button }}
       isDisabled={isDisabled}
@@ -43,7 +43,7 @@ test("cart checkout button onClick", () => {
   const testClick = jest.fn();
 
   const component = shallow((
-    <CartCheckoutButton
+    <CartCheckoutButtons
       buttonText="Custom button text"
       components={{ Button }}
       isDisabled={isDisabled}

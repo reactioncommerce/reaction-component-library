@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 
 
-class CartCheckoutButton extends Component {
+class CartCheckoutButtons extends Component {
   static propTypes = {
     /**
      * Text to display inside the button
@@ -49,4 +49,4 @@ class CartCheckoutButton extends Component {
   }
 }
 
-export default CartCheckoutButton;
+export default CartCheckoutButtons;
