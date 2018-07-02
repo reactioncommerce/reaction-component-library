@@ -43,7 +43,7 @@ const ItemContentDetailInfo = styled.div`
   flex: 1 1 100%;
 
   @media (min-width: 992px) {
-    flex: 1 1 auto;
+    flex: 1 1 ${({ isMiniCart }) => (isMiniCart ? "100%" : "auto")};
   }
 `;
 
@@ -51,7 +51,7 @@ const ItemContentQuantityInput = styled.div`
   margin: 0.5rem 0;
 
   @media (min-width: 992px) {
-    margin: 0;
+    margin: ${({ isMiniCart }) => (isMiniCart ? "0.5rem 0" : "0")};
   }
 `;
 
@@ -63,7 +63,7 @@ const ItemContentPrice = styled.div`
 
   @media (min-width: 768px) {
     margin-left: 1.5rem;
-    position: relative;
+    position: ${({ isMiniCart }) => (isMiniCart ? "absolute" : "relative")};
   }
 `;
 
@@ -114,6 +114,10 @@ class CartItem extends Component {
       CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
+     * Is in a MiniCart component
+     */
+    isMiniCart: PropTypes.bool,
+    /**
      * CartItem data
      */
     item: PropTypes.shape({
@@ -124,16 +128,18 @@ class CartItem extends Component {
       /**
        * Array of additional attributes of the chosen item.
        */
-      attributes: PropTypes.arrayOf(PropTypes.shape({
-        /**
+      attributes: PropTypes.arrayOf(
+        PropTypes.shape({
+          /**
            * Attribute label (i.e. "Color").
            */
-        label: PropTypes.string,
-        /**
+          label: PropTypes.string,
+          /**
            *  Attribute value (i.e. "Red").
            */
-        value: PropTypes.string
-      })),
+          value: PropTypes.string
+        })
+      ),
       /**
        * Current stock quantity of item
        */
@@ -208,11 +214,11 @@ class CartItem extends Component {
   };
 
   renderImage() {
-    const { item: { imageUrl, productSlug } } = this.props;
+    const { isMiniCart, item: { imageUrl, productSlug } } = this.props;
     return (
       <a href={productSlug}>
         <picture>
-          <source srcSet={`${imageUrl}/150`} media="(min-width: 768px)" />
+          {isMiniCart ? "" : <source srcSet={`${imageUrl}/150`} media="(min-width: 768px)" />}
           <img src={`${imageUrl}/100`} alt="" style={{ display: "block" }} />
         </picture>
       </a>
@@ -227,6 +233,7 @@ class CartItem extends Component {
         CartItemPriceComponent,
         CartItemQuantityInputComponent
       },
+      isMiniCart,
       item: {
         attributes,
         currentQuantity,
@@ -243,8 +250,13 @@ class CartItem extends Component {
         <ItemContent>
           <ItemContentDetail>
             <ItemContentDetailInner>
-              <ItemContentDetailInfo>
-                <CartItemDetailComponent title={title} productSlug={productSlug} attributes={attributes} />
+              <ItemContentDetailInfo isMiniCart={isMiniCart}>
+                <CartItemDetailComponent
+                  title={title}
+                  productSlug={productSlug}
+                  attributes={attributes}
+                  isMiniCart={isMiniCart}
+                />
 
                 <CartItemStockWarningComponent
                   inventoryQuantity={currentQuantity}
@@ -252,7 +264,7 @@ class CartItem extends Component {
                 />
               </ItemContentDetailInfo>
 
-              <ItemContentQuantityInput>
+              <ItemContentQuantityInput isMiniCart={isMiniCart}>
                 <CartItemQuantityInputComponent value={quantity} onChange={this.handleChangeCartItemQuantity} />
               </ItemContentQuantityInput>
             </ItemContentDetailInner>
@@ -260,7 +272,7 @@ class CartItem extends Component {
             <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>
           </ItemContentDetail>
 
-          <ItemContentPrice>
+          <ItemContentPrice isMiniCart={isMiniCart}>
             <CartItemPriceComponent displayPrice={displayPrice} displayCompareAtPrice={compareAtPrice} />
           </ItemContentPrice>
         </ItemContent>

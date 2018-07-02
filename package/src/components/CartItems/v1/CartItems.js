@@ -32,60 +32,68 @@ class CartItems extends Component {
       CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
+     * Is in a MiniCart component
+     */
+    isMiniCart: PropTypes.bool,
+    /**
      * CartItem data
      */
-    items: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    items: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * The cart item ID
          */
-      _id: PropTypes.string,
-      /**
+        _id: PropTypes.string,
+        /**
          * Array of additional attributes of the chosen item.
          */
-      attributes: PropTypes.arrayOf(PropTypes.shape({
-        /**
+        attributes: PropTypes.arrayOf(
+          PropTypes.shape({
+            /**
              * Attribute label (i.e. "Color").
              */
-        label: PropTypes.string,
-        /**
+            label: PropTypes.string,
+            /**
              *  Attribute value (i.e. "Red").
              */
-        value: PropTypes.string
-      })),
-      /**
+            value: PropTypes.string
+          })
+        ),
+        /**
          * Current stock quantity of item
          */
-      currentQuantity: PropTypes.number,
-      /**
+        currentQuantity: PropTypes.number,
+        /**
          * Image url of chosen item
          */
-      imageUrl: PropTypes.string,
-      /**
+        imageUrl: PropTypes.string,
+        /**
          * Price object of chosen item
          */
-      price: PropTypes.shape({
-        /**
+        price: PropTypes.shape({
+          /**
            * Chosen items compare at price
            */
-        compareAtPrice: PropTypes.string,
-        /**
+          compareAtPrice: PropTypes.string,
+          /**
            * Chosen items display price
            */
-        displayPrice: PropTypes.string
-      }),
-      /**
+          displayPrice: PropTypes.string
+        }),
+        /**
          * Chosen items slug
          */
-      productSlug: PropTypes.string,
-      /**
+        productSlug: PropTypes.string,
+        /**
          * Chosen items title
          */
-      title: PropTypes.string,
-      /**
+        title: PropTypes.string,
+        /**
          * Quantity of chosen item in cart
          */
-      quantity: PropTypes.number
-    })).isRequired,
+        quantity: PropTypes.number
+      })
+    ).isRequired,
     /**
      * On cart item quantity change handler
      */

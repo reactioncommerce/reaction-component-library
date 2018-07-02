@@ -4,14 +4,46 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const Cart = styled.div`
-  color: #333333;
+  border: 1px solid ${applyTheme("color_black10")};
+  max-width: 360px;
 `;
 
 const Items = styled.div`
   max-height: 420px;
+  overflow-x: hidden;
   overflow-y: auto;
 `;
-const Footer = styled.div``;
+
+const Footer = styled.div`
+  border-top: 1px solid ${applyTheme("color_black10")};
+  padding: 0 1rem 1rem;
+  position: relative;
+
+  &:before {
+    content: "";
+    mix-blend-mode: multiply;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #e9e9e9);
+    height: 15px;
+    left: 0;
+    position: absolute;
+    top: -15px;
+    width: 100%;
+  }
+
+  span {
+    color: ${applyTheme("color_black30")};
+    display: block;
+    font-family: ${applyTheme("font_family")};
+    font-size: ${applyTheme("font_size_small")};
+    font-weight: normal;
+    font-style: normal;
+    font-stretch: normal;
+    line-height: 1.25;
+    letter-spacing: 0.3px;
+    margin: 0.5rem 0 0;
+    text-align: center;
+  }
+`;
 
 class MiniCart extends Component {
   static propTypes = {
@@ -130,16 +162,27 @@ class MiniCart extends Component {
     console.log("props?", this.props);
     const {
       cart: { items },
-      components: { CartItemsComponent, CartSummaryComponent, ...components },
+      components: {
+        ButtonComponent,
+        CartCheckoutButtonComponent,
+        CartItemsComponent,
+        CartSummaryComponent,
+        ...components
+      },
       ...props
     } = this.props;
     return (
       <Cart>
         <Items>
-          <CartItemsComponent items={items} components={components} {...props} />
+          <CartItemsComponent items={items} components={components} {...props} isMiniCart />
         </Items>
         <Footer>
-          <CartSummaryComponent />
+          <CartSummaryComponent displaySubtotal="$275.77" />
+          <CartCheckoutButtonComponent
+            components={{ Button: ButtonComponent }}
+            onClick={() => console.log("checkout clicked!")}
+          />
+          <span>Shipping and tax calculated in checkout</span>
         </Footer>
       </Cart>
     );

@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-
 class CartCheckoutButton extends Component {
   static propTypes = {
     /**
@@ -22,7 +21,7 @@ class CartCheckoutButton extends Component {
      * On click function to pass to the Button component. Not handled internally, directly passed
      */
     onClick: PropTypes.func.isRequired
-  }
+  };
 
   static defaultProps = {
     buttonText: "Checkout"
@@ -30,19 +29,14 @@ class CartCheckoutButton extends Component {
 
   handleOnClick = () => {
     this.props.onClick();
-  }
+  };
 
   render() {
     const { buttonText, isDisabled } = this.props;
     const { Button } = this.props.components;
 
     return (
-      <Button
-        actionType="important"
-        isDisabled={isDisabled}
-        onClick={this.handleOnClick}
-        fullWidth
-      >
+      <Button actionType="important" isDisabled={isDisabled} onClick={this.handleOnClick} isFullWidth>
         {buttonText}
       </Button>
     );
