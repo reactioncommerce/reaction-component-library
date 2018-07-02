@@ -35,6 +35,11 @@ exports[`basic snapshot 1`] = `
           className="MuiSvgIcon-root-27"
           color={undefined}
           focusable="false"
+          style={
+            Object {
+              "fontSize": "16px",
+            }
+          }
           viewBox="0 0 24 24"
         >
           <g>
@@ -97,6 +102,11 @@ exports[`basic snapshot 1`] = `
           className="MuiSvgIcon-root-27"
           color={undefined}
           focusable="false"
+          style={
+            Object {
+              "fontSize": "16px",
+            }
+          }
           viewBox="0 0 24 24"
         >
           <g>
