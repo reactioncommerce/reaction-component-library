@@ -9,9 +9,9 @@ exports[`basic snapshot 1`] = `
   >
     <input
       checked={false}
+      disabled={false}
       id="Checkbox_1"
       onChange={[Function]}
-      readOnly={false}
       type="checkbox"
       value="true"
     />

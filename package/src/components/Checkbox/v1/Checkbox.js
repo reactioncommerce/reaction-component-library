@@ -94,7 +94,7 @@ class Checkbox extends Component {
             checked={value === true}
             id={id}
             onChange={this.onChange}
-            readOnly={isReadOnly}
+            disabled={isReadOnly}
             type="checkbox"
             value="true"
           />
