@@ -25,3 +25,16 @@ const onClick = () => {};
     onClick={onClick}
   />
 ```
+
+#### Pass props through to Button component
+For a list of all props available in the Button component click <a href="/#!/Button">here</a><br />
+This example demonstrates how to set the button to take up the full width of the containing element.
+```jsx
+const onClick = () => {};
+
+  <CartCheckoutButton
+    components={{Button}}
+    onClick={onClick}
+    isFullWidth
+  />
+```

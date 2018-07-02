@@ -54,3 +54,18 @@ test("cart checkout button onClick", () => {
   component.simulate("click");
   expect(testClick).toHaveBeenCalled();
 });
+
+test("full width cart checkout button ", () => {
+  const testClick = jest.fn();
+
+  const component = renderer.create((
+    <CartCheckoutButton
+      components={{ Button }}
+      onClick={testClick}
+      isFullWidth
+    />
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
