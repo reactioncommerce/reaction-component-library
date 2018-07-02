@@ -11,6 +11,10 @@ const Item = styled.div`
   padding: 1rem;
   width: 100%;
 
+  &:first-of-type {
+    border-top: solid 1px ${applyTheme("color_black05")};
+  }
+
   > * {
     box-sizing: border-box;
   }
@@ -44,7 +48,7 @@ const ItemContentDetailInfo = styled.div`
 `;
 
 const ItemContentQuantityInput = styled.div`
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 
   @media (min-width: 992px) {
     margin: 0;
@@ -209,7 +213,7 @@ class CartItem extends Component {
       <a href={productSlug}>
         <picture>
           <source srcSet={`${imageUrl}/150`} media="(min-width: 768px)" />
-          <img src={`${imageUrl}/100`} alt="" />
+          <img src={`${imageUrl}/100`} alt="" style={{ display: "block" }} />
         </picture>
       </a>
     );

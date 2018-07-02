@@ -5,6 +5,7 @@ import { applyTheme } from "../../../utils";
 
 const Span = styled.div`
   color: ${applyTheme("color_stockWarning")};
+  font-size: ${applyTheme("font_size_small")};
 `;
 
 class StockWarning extends Component {
@@ -25,9 +26,7 @@ class StockWarning extends Component {
 
     if (!isLowInventoryQuantity) return null;
 
-    return (
-      <Span>Only { inventoryQuantity } in stock</Span>
-    );
+    return <Span>Only {inventoryQuantity} in stock</Span>;
   }
 }
 
