@@ -29,6 +29,7 @@ const styles = () => ({
     "boxSizing": "inherit",
     "color": "#3c3c3c",
     "fontSize": "12px",
+    "maxHeight": "30px",
     "maxWidth": "40px",
     "textAlign": "center",
     "&:focus": {
@@ -121,7 +122,7 @@ class QuantityInput extends Component {
                 onClick={this.handleDecrementButton}
                 className={incrementButton}
               >
-                <Minus />
+                <Minus style={{ fontSize: "16px" }} />
               </ButtonBase>
             </InputAdornment>
           ),
@@ -133,7 +134,7 @@ class QuantityInput extends Component {
                 onClick={this.handleIncrementButton}
                 className={incrementButton}
               >
-                <Plus />
+                <Plus style={{ fontSize: "16px" }} />
               </ButtonBase>
             </InputAdornment>
           ),

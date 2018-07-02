@@ -48,7 +48,7 @@ const ItemContentDetailInfo = styled.div`
 `;
 
 const ItemContentQuantityInput = styled.div`
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 
   @media (min-width: 992px) {
     margin: 0;

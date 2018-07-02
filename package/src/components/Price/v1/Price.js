@@ -5,11 +5,13 @@ import { applyTheme } from "../../../utils";
 
 const Span = styled.span`
   display: block;
+  font-size: ${applyTheme("font_size_small")};
 `;
 
 const Del = styled.del`
-  display: block;
   color: ${applyTheme("color_disabled")};
+  display: block;
+  font-size: ${applyTheme("font_size_small")};
 `;
 
 class Price extends Component {
@@ -24,7 +26,7 @@ class Price extends Component {
      * This value is expected to have the currency symbol, i.e. $300.00
      */
     displayPrice: PropTypes.string.isRequired
-  }
+  };
 
   renderCompareAtPrice = () => {
     const { displayCompareAtPrice, displayPrice } = this.props;
@@ -32,21 +34,15 @@ class Price extends Component {
     // If there is no price difference, don't render compare at price.
     if (displayPrice === displayCompareAtPrice) return null;
 
-    return (
-      <Del>
-        {displayCompareAtPrice}
-      </Del>
-    );
-  }
+    return <Del>{displayCompareAtPrice}</Del>;
+  };
 
   render() {
     const { displayCompareAtPrice, displayPrice } = this.props;
 
     return (
       <div>
-        <Span>
-          {displayPrice}
-        </Span>
+        <Span>{displayPrice}</Span>
         {displayCompareAtPrice ? this.renderCompareAtPrice() : null}
       </div>
     );

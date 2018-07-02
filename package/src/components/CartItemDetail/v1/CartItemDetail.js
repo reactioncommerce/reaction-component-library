@@ -23,6 +23,10 @@ const Detail = styled.div`
   }
 `;
 
+const Title = styled.h3`
+  font-size: ${applyTheme("font_size_default")};
+`;
+
 const Vendor = styled.p`
   color: ${applyTheme("color_black65")};
   display: block;
@@ -112,9 +116,9 @@ class CartItemDetail extends Component {
     const { attributes, productSlug, title } = this.props;
     return (
       <Detail>
-        <h3>
+        <Title>
           <a href={productSlug}>{title}</a>
-        </h3>
+        </Title>
         {attributes ? this.renderAttributes() : ""}
       </Detail>
     );
