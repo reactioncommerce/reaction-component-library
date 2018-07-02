@@ -22,8 +22,10 @@ const styles = () => ({
     padding: 0
   },
   quantityInput: {
+    "appearance": "none",
     "borderLeft": "1px solid #d9d9d9",
     "borderRight": "1px solid #d9d9d9",
+    "borderRadius": 0,
     "boxSizing": "inherit",
     "color": "#3c3c3c",
     "fontSize": "12px",
