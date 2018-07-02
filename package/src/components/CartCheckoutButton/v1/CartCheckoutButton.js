@@ -33,7 +33,7 @@ class CartCheckoutButton extends Component {
   }
 
   render() {
-    const { buttonText, isDisabled } = this.props;
+    const { buttonText, isDisabled, ...rest } = this.props;
     const { Button } = this.props.components;
 
     return (
@@ -41,7 +41,7 @@ class CartCheckoutButton extends Component {
         actionType="important"
         isDisabled={isDisabled}
         onClick={this.handleOnClick}
-        fullWidth
+        {...rest}
       >
         {buttonText}
       </Button>
