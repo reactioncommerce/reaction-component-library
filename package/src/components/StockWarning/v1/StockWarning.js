@@ -5,6 +5,7 @@ import { applyTheme } from "../../../utils";
 
 const Span = styled.div`
   color: ${applyTheme("color_stockWarning")};
+  font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
 `;
 

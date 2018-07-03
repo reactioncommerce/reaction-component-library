@@ -5,12 +5,14 @@ import { applyTheme } from "../../../utils";
 
 const Span = styled.span`
   display: block;
+  font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
 `;
 
 const Del = styled.del`
   color: ${applyTheme("color_disabled")};
   display: block;
+  font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
 `;
 
