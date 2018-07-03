@@ -7,9 +7,14 @@
 
 ## Creating and Modifying Components
 
+- [Writing a Component ticket](../.github/ISSUE_TEMPLATE/component_request.md)
 - [Creating a New Component](./creating-new-component.md)
 - [Creating a New Version of a Component](./creating-new-component-version.md)
 - [Component Development Guidelines](./component-development-guidelines.md)
+
+## Component Review process
+
+- [Reviewing Components](./reviewing-components.md)
 
 ## Architectural Decisions Records
 
