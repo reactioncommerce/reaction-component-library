@@ -166,6 +166,7 @@ exports[`basic snapshot with empty props 1`] = `
         >
           <Cart Item Detail
             attributes={undefined}
+            isMiniCart={undefined}
             productSlug={undefined}
             title={undefined}
           />

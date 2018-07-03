@@ -68,7 +68,7 @@ exports[`basic snapshot with props 1`] = `
   }
 
   .c3:after {
-    content: "";
+    content: '';
   }
 }
 
@@ -187,7 +187,7 @@ exports[`basic snapshot with vendor attribute 1`] = `
   }
 
   .c4:after {
-    content: "";
+    content: '';
   }
 }
 

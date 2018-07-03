@@ -5,12 +5,14 @@ exports[`Display error warning about required prop 1`] = `"Failed undefined type
 exports[`Renders price with a compare at price 1`] = `
 .c0 {
   display: block;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
 }
 
 .c1 {
   color: #bfbfbf;
   display: block;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
 }
 
@@ -31,6 +33,7 @@ exports[`Renders price with a compare at price 1`] = `
 exports[`Renders price without a compare at price 1`] = `
 .c0 {
   display: block;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
 }
 
@@ -46,6 +49,7 @@ exports[`Renders price without a compare at price 1`] = `
 exports[`Renders price without a compare at price, due to the fact that the prices are equal. 1`] = `
 .c0 {
   display: block;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
 }
 

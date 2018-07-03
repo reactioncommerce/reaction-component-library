@@ -8,32 +8,38 @@ exports[`Displays a summary of the current items in the cart 1`] = `
 }
 
 .c1 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   text-align: left;
 }
 
 .c3 {
   text-align: right;
   color: #b3b3b3;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: normal;
 }
 
 .c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   text-align: right;
   padding: 1rem 0;
   color: #3c3c3c;
 }
 
 .c4 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
   color: #3c5d6f;
 }
 
 .c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
 }
 
 .c6 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
 }
@@ -125,32 +131,38 @@ exports[`Displays a summary with FREE shipping 1`] = `
 }
 
 .c1 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   text-align: left;
 }
 
 .c3 {
   text-align: right;
   color: #b3b3b3;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: normal;
 }
 
 .c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   text-align: right;
   padding: 1rem 0;
   color: #3c3c3c;
 }
 
 .c4 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
   color: #3c5d6f;
 }
 
 .c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
 }
 
 .c6 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
 }
@@ -242,37 +254,44 @@ exports[`Displays a summary with applied discount 1`] = `
 }
 
 .c1 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   text-align: left;
 }
 
 .c3 {
   text-align: right;
   color: #b3b3b3;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: normal;
 }
 
 .c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   text-align: right;
   padding: 1rem 0;
   color: #3c3c3c;
 }
 
 .c4 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
   color: #3c5d6f;
 }
 
 .c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
 }
 
 .c6 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   color: #0db781;
   font-weight: 700;
 }
 
 .c7 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
 }
@@ -380,32 +399,38 @@ exports[`Displays a summary with calculated taxes 1`] = `
 }
 
 .c1 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   text-align: left;
 }
 
 .c3 {
   text-align: right;
   color: #b3b3b3;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: normal;
 }
 
 .c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   text-align: right;
   padding: 1rem 0;
   color: #3c3c3c;
 }
 
 .c4 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
   color: #3c5d6f;
 }
 
 .c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
 }
 
 .c6 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
 }
