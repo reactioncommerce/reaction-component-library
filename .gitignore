@@ -7,3 +7,4 @@ node_modules
 reports/*
 **/package-lock.json
 dist
+styleguide
