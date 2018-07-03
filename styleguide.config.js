@@ -255,24 +255,30 @@ module.exports = {
       content: "styleguide/src/sections/Introduction.md",
       sections: [
         {
-          name: "Installing and Importing the Components",
+          name: "Using Components",
           content: "styleguide/src/sections/InstallingandImporting.md"
           // description: ""
-        },
-        {
-          name: "Text Styles",
-          content: "styleguide/src/sections/Type.md"
         }
       ]
     },
     {
-      name: "Components",
+      name: "Base Components",
       sections: [
         generateSection({
           componentNames: ["Button"],
           content: "styleguide/src/sections/Actions.md",
           name: "Actions"
         }),
+        generateSection({
+          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "ErrorsBlock"],
+          content: "styleguide/src/sections/Forms.md",
+          name: "Forms"
+        })
+      ]
+    },
+    {
+      name: "Storefront Components",
+      sections: [
         generateSection({
           componentNames: ["Price", "StockWarning"],
           content: "styleguide/src/sections/Product.md",
@@ -282,11 +288,6 @@ module.exports = {
           componentNames: ["CartCheckoutButton", "CartEmptyMessage", "CartSummary", "CartItem", "CartItems", "CartItemDetail", "MiniCartSummary", "MiniCart"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
-        }),
-        generateSection({
-          componentNames: ["ErrorsBlock", "Field", "Select", "TextInput", "QuantityInput"],
-          content: "styleguide/src/sections/Forms.md",
-          name: "Forms"
         })
       ]
     }
