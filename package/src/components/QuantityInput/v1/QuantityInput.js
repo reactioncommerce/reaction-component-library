@@ -22,11 +22,14 @@ const styles = () => ({
     padding: 0
   },
   quantityInput: {
+    "appearance": "none",
     "borderLeft": "1px solid #d9d9d9",
     "borderRight": "1px solid #d9d9d9",
+    "borderRadius": 0,
     "boxSizing": "inherit",
     "color": "#3c3c3c",
     "fontSize": "12px",
+    "maxHeight": "30px",
     "maxWidth": "40px",
     "textAlign": "center",
     "&:focus": {
@@ -119,7 +122,7 @@ class QuantityInput extends Component {
                 onClick={this.handleDecrementButton}
                 className={incrementButton}
               >
-                <Minus />
+                <Minus style={{ fontSize: "16px" }} />
               </ButtonBase>
             </InputAdornment>
           ),
@@ -131,7 +134,7 @@ class QuantityInput extends Component {
                 onClick={this.handleIncrementButton}
                 className={incrementButton}
               >
-                <Plus />
+                <Plus style={{ fontSize: "16px" }} />
               </ButtonBase>
             </InputAdornment>
           ),

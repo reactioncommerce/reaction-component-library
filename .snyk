@@ -238,6 +238,6 @@ ignore:
         expires: '2018-07-15T03:19:00.834Z'
   'npm:ua-parser-js:20180227':
     - '*':
-        reason: Waiting on fbjs to update to the latest ua-parser-js version
-        expires: 2018-06-30T00:00:00.000Z
+        reason: Waiting on deps to update to the latest fbjs version
+        expires: 2018-07-15T00:00:00.000Z
 patch: {}
