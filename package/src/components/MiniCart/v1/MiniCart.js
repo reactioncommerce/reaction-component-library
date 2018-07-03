@@ -21,6 +21,7 @@ const Footer = styled.div`
 
   &:before {
     content: "";
+    display: ${({ count }) => (count > 2 ? "inherit" : "none")};
     mix-blend-mode: multiply;
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #e9e9e9);
     height: 15px;
@@ -176,7 +177,7 @@ class MiniCart extends Component {
         <Items>
           <CartItemsComponent items={items} components={components} {...props} isMiniCart />
         </Items>
-        <Footer>
+        <Footer count={items.length}>
           <CartSummaryComponent displaySubtotal="$275.77" />
           <CartCheckoutButtonComponent
             components={{ Button: ButtonComponent }}
