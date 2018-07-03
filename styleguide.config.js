@@ -77,8 +77,7 @@ module.exports = {
     maxWidth: 1000,
     color: {
       link: "#062a4e",
-      linkHover: "#fd8283",
-      codeBackground: "#233444"
+      linkHover: "#fd8283"
     },
     fontFamily: {
       base: [
