@@ -67,7 +67,7 @@ exports[`basic snapshot with empty props 1`] = `
 }
 
 .c5 {
-  margin: 0.5rem 0;
+  margin: 0.75rem 0 0.5rem;
 }
 
 .c7 {
@@ -271,7 +271,7 @@ exports[`basic snapshot with props 1`] = `
 }
 
 .c5 {
-  margin: 0.5rem 0;
+  margin: 0.75rem 0 0.5rem;
 }
 
 .c7 {

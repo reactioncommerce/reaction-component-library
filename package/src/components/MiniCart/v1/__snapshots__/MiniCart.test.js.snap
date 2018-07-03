@@ -4,6 +4,7 @@ exports[`basic snapshot with props 1`] = `
 .c0 {
   border: 1px solid #e6e6e6;
   max-width: 360px;
+  overflow: hidden;
 }
 
 .c1 {
@@ -14,20 +15,9 @@ exports[`basic snapshot with props 1`] = `
 
 .c2 {
   border-top: 1px solid #e6e6e6;
+  box-shadow: none;
   padding: 0 1rem 1rem;
   position: relative;
-}
-
-.c2:before {
-  content: "";
-  display: none;
-  mix-blend-mode: multiply;
-  background-image: linear-gradient(to bottom,rgba(255,255,255,0),#e9e9e9);
-  height: 15px;
-  left: 0;
-  position: absolute;
-  top: -15px;
-  width: 100%;
 }
 
 .c2 span {
