@@ -6,6 +6,7 @@ import { applyTheme } from "../../../utils";
 const Cart = styled.div`
   border: 1px solid ${applyTheme("color_black10")};
   max-width: 360px;
+  overflow: hidden;
 `;
 
 const Items = styled.div`
@@ -16,20 +17,9 @@ const Items = styled.div`
 
 const Footer = styled.div`
   border-top: 1px solid ${applyTheme("color_black10")};
+  box-shadow: ${({ count }) => (count > 2 ? applyTheme("shadow_depth1") : "none")};
   padding: 0 1rem 1rem;
   position: relative;
-
-  &:before {
-    content: "";
-    display: ${({ count }) => (count > 2 ? "inherit" : "none")};
-    mix-blend-mode: multiply;
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), #e9e9e9);
-    height: 15px;
-    left: 0;
-    position: absolute;
-    top: -15px;
-    width: 100%;
-  }
 
   span {
     color: ${applyTheme("color_black30")};
@@ -83,58 +73,62 @@ class MiniCart extends Component {
       /**
        * CartItem data
        */
-      items: PropTypes.arrayOf(PropTypes.shape({
-        /**
+      items: PropTypes.arrayOf(
+        PropTypes.shape({
+          /**
            * The cart item ID
            */
-        _id: PropTypes.string,
-        /**
+          _id: PropTypes.string,
+          /**
            * Array of additional attributes of the chosen item.
            */
-        attributes: PropTypes.arrayOf(PropTypes.shape({
-          /**
+          attributes: PropTypes.arrayOf(
+            PropTypes.shape({
+              /**
                * Attribute label (i.e. "Color").
                */
-          label: PropTypes.string,
-          /**
+              label: PropTypes.string,
+              /**
                *  Attribute value (i.e. "Red").
                */
-          value: PropTypes.string
-        })),
-        /**
+              value: PropTypes.string
+            })
+          ),
+          /**
            * Current stock quantity of item
            */
-        currentQuantity: PropTypes.number,
-        /**
+          currentQuantity: PropTypes.number,
+          /**
            * Image url of chosen item
            */
-        imageUrl: PropTypes.string,
-        /**
+          imageUrl: PropTypes.string,
+          /**
            * Price object of chosen item
            */
-        price: PropTypes.shape({
-          /**
+          price: PropTypes.shape({
+            /**
              * Chosen items compare at price
              */
-          compareAtPrice: PropTypes.string,
-          /**
+            compareAtPrice: PropTypes.string,
+            /**
              * Chosen items display price
              */
-          displayPrice: PropTypes.string
-        }),
-        /**
+            displayPrice: PropTypes.string
+          }),
+          /**
            * Chosen items slug
            */
-        productSlug: PropTypes.string,
-        /**
+          productSlug: PropTypes.string,
+          /**
            * Chosen items title
            */
-        title: PropTypes.string,
-        /**
+          title: PropTypes.string,
+          /**
            * Quantity of chosen item in cart
            */
-        quantity: PropTypes.number
-      }))
+          quantity: PropTypes.number
+        })
+      )
     }).isRequired,
     /**
      * Provided child components to display item data

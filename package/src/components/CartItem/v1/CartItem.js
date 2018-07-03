@@ -48,10 +48,10 @@ const ItemContentDetailInfo = styled.div`
 `;
 
 const ItemContentQuantityInput = styled.div`
-  margin: 0.5rem 0;
+  margin: 0.75rem 0 0.5rem;
 
   @media (min-width: 992px) {
-    margin: ${({ isMiniCart }) => (isMiniCart ? "0.5rem 0" : "0")};
+    margin: ${({ isMiniCart }) => (isMiniCart ? "0.75rem 0 0.5rem" : "0")};
   }
 `;
 
@@ -128,16 +128,18 @@ class CartItem extends Component {
       /**
        * Array of additional attributes of the chosen item.
        */
-      attributes: PropTypes.arrayOf(PropTypes.shape({
-        /**
+      attributes: PropTypes.arrayOf(
+        PropTypes.shape({
+          /**
            * Attribute label (i.e. "Color").
            */
-        label: PropTypes.string,
-        /**
+          label: PropTypes.string,
+          /**
            *  Attribute value (i.e. "Red").
            */
-        value: PropTypes.string
-      })),
+          value: PropTypes.string
+        })
+      ),
       /**
        * Current stock quantity of item
        */
