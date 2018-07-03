@@ -25,7 +25,7 @@ The component expects string values of the prices to be strictly equal.
 </div>
 ```
 
-#### Usage with a price below compare at price.
+#### Usage with the price below the compare at price.
 ```jsx
 <div>
   <Price displayPrice="$200.00" displayCompareAtPrice="$300.00" hasPriceBottom />
