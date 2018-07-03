@@ -49,6 +49,94 @@ const Footer = styled.div`
 class MiniCart extends Component {
   static propTypes = {
     /**
+     * Cart data
+     */
+    cart: PropTypes.shape({
+      /**
+       * Cart checkout info
+       */
+      checkout: PropTypes.shape({
+        /**
+         * Checkout summary
+         */
+        summary: PropTypes.shape({
+          /**
+           * Checkout summary subtotal info
+           */
+          subtotal: PropTypes.shape({
+            /**
+             * Checkout summary subtotal display amount
+             */
+            displayAmmount: PropTypes.string
+          }),
+          /**
+           * Checkout summary tax info
+           */
+          tax: PropTypes.shape({
+            /**
+             * Checkout summary tax display amount
+             */
+            displayAmount: PropTypes.string
+          })
+        })
+      }),
+      /**
+       * CartItem data
+       */
+      items: PropTypes.arrayOf(PropTypes.shape({
+        /**
+           * The cart item ID
+           */
+        _id: PropTypes.string,
+        /**
+           * Array of additional attributes of the chosen item.
+           */
+        attributes: PropTypes.arrayOf(PropTypes.shape({
+          /**
+               * Attribute label (i.e. "Color").
+               */
+          label: PropTypes.string,
+          /**
+               *  Attribute value (i.e. "Red").
+               */
+          value: PropTypes.string
+        })),
+        /**
+           * Current stock quantity of item
+           */
+        currentQuantity: PropTypes.number,
+        /**
+           * Image url of chosen item
+           */
+        imageUrl: PropTypes.string,
+        /**
+           * Price object of chosen item
+           */
+        price: PropTypes.shape({
+          /**
+             * Chosen items compare at price
+             */
+          compareAtPrice: PropTypes.string,
+          /**
+             * Chosen items display price
+             */
+          displayPrice: PropTypes.string
+        }),
+        /**
+           * Chosen items slug
+           */
+        productSlug: PropTypes.string,
+        /**
+           * Chosen items title
+           */
+        title: PropTypes.string,
+        /**
+           * Quantity of chosen item in cart
+           */
+        quantity: PropTypes.number
+      }))
+    }).isRequired,
+    /**
      * Provided child components to display item data
      */
     components: PropTypes.shape({
@@ -74,70 +162,6 @@ class MiniCart extends Component {
       CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
-     *
-     */
-    cart: PropTypes.shape({
-      /**
-       * CartItem data
-       */
-      items: PropTypes.arrayOf(
-        PropTypes.shape({
-          /**
-           * The cart item ID
-           */
-          _id: PropTypes.string,
-          /**
-           * Array of additional attributes of the chosen item.
-           */
-          attributes: PropTypes.arrayOf(
-            PropTypes.shape({
-              /**
-               * Attribute label (i.e. "Color").
-               */
-              label: PropTypes.string,
-              /**
-               *  Attribute value (i.e. "Red").
-               */
-              value: PropTypes.string
-            })
-          ),
-          /**
-           * Current stock quantity of item
-           */
-          currentQuantity: PropTypes.number,
-          /**
-           * Image url of chosen item
-           */
-          imageUrl: PropTypes.string,
-          /**
-           * Price object of chosen item
-           */
-          price: PropTypes.shape({
-            /**
-             * Chosen items compare at price
-             */
-            compareAtPrice: PropTypes.string,
-            /**
-             * Chosen items display price
-             */
-            displayPrice: PropTypes.string
-          }),
-          /**
-           * Chosen items slug
-           */
-          productSlug: PropTypes.string,
-          /**
-           * Chosen items title
-           */
-          title: PropTypes.string,
-          /**
-           * Quantity of chosen item in cart
-           */
-          quantity: PropTypes.number
-        })
-      ).isRequired
-    }),
-    /**
      * On cart item quantity change handler
      */
     onChangeCartItemQuantity: PropTypes.func,
@@ -160,9 +184,8 @@ class MiniCart extends Component {
   };
 
   render() {
-    console.log("props?", this.props);
     const {
-      cart: { items },
+      cart: { checkout: { summary }, items },
       components: {
         ButtonComponent,
         CartCheckoutButtonComponent,
@@ -178,11 +201,8 @@ class MiniCart extends Component {
           <CartItemsComponent items={items} components={components} {...props} isMiniCart />
         </Items>
         <Footer count={items.length}>
-          <CartSummaryComponent displaySubtotal="$275.77" />
-          <CartCheckoutButtonComponent
-            components={{ Button: ButtonComponent }}
-            onClick={() => console.log("checkout clicked!")}
-          />
+          <CartSummaryComponent displaySubtotal={summary.subtotal.displayAmount} />
+          <CartCheckoutButtonComponent components={{ Button: ButtonComponent }} />
           <span>Shipping and tax calculated in checkout</span>
         </Footer>
       </Cart>

@@ -1,6 +1,17 @@
 ### MiniCart
 
 ```jsx
+const checkout = {
+  summary: {
+    subtotal: {
+      displayAmount: "$25.00"
+    },
+    tax: {
+      displayAmount: "$2.50"
+    }
+  }
+}
+
 const items = [
 {
   _id: "123",
@@ -42,10 +53,21 @@ const components = {
   CartItemQuantityInputComponent: QuantityInput
 };
 
-<MiniCart cart={{ items }} components={components} />
+<MiniCart cart={{ checkout, items }} components={components} />
 ```
 
 ```jsx
+const checkout = {
+  summary: {
+    subtotal: {
+      displayAmount: "$25.00"
+    },
+    tax: {
+      displayAmount: "$2.50"
+    }
+  }
+}
+
 const items = [{
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
@@ -140,5 +162,5 @@ const components = {
   CartItemQuantityInputComponent: QuantityInput
 };
 
-<MiniCart cart={{ items }} components={components} />
+<MiniCart cart={{ checkout, items }} components={components} />
 ```
