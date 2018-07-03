@@ -54,7 +54,8 @@
     "config",
     "reports",
     "package/dist",
-    "package/node_modules"
+    "package/node_modules",
+    "styleguide"
   ],
   "jest": {
     "collectCoverage": true,
