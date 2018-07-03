@@ -229,12 +229,12 @@ jobs:
       - run:
           name: Copy built files
           command: docker create "$DOCKER_REPOSITORY:$CIRCLE_SHA1" \
-            | xargs -t -I % docker cp %:/usr/local/src/reaction-app/styleguide/dist .
+            | xargs -t -I % docker cp %:/usr/local/src/reaction-app/styleguide/ .
       - run:
           name: "Deploy to Netlify"
           command: |
             ./netlifyctl deploy \
-              --publish-directory styleguide/dist \
+              --publish-directory styleguide/ \
               --access-token $NETLIFY_ACCESS_TOKEN \
               -y
 
