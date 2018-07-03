@@ -27,6 +27,7 @@ exports[`Renders price with a compare at price 1`] = `
   >
     $400.00
   </del>
+  
 </div>
 `;
 
@@ -43,6 +44,7 @@ exports[`Renders price without a compare at price 1`] = `
   >
     $300.00
   </span>
+  
 </div>
 `;
 
@@ -59,5 +61,6 @@ exports[`Renders price without a compare at price, due to the fact that the pric
   >
     $300.00
   </span>
+  
 </div>
 `;

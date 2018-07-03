@@ -197,6 +197,7 @@ exports[`basic snapshot with empty props 1`] = `
       <Cart Item Price
         displayCompareAtPrice={undefined}
         displayPrice={undefined}
+        hasPriceBottom={undefined}
       />
     </div>
   </div>
