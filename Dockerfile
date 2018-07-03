@@ -102,6 +102,6 @@ COPY --chown=node . $APP_SOURCE_DIR
 # our tools use "/home/node" as the HOME dir.
 USER node
 
-RUN yarn run build
+RUN yarn run styleguide:build
 
 CMD ["yarn start"]
