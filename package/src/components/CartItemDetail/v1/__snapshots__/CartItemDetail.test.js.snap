@@ -29,14 +29,18 @@ exports[`basic snapshot with props 1`] = `
 }
 
 .c1 {
-  margin-bottom: 0.5rem;
-}
-
-.c1 span {
-  display: none;
+  font-size: 16px;
 }
 
 .c2 {
+  margin-bottom: 0.5rem;
+}
+
+.c2 span {
+  display: none;
+}
+
+.c3 {
   color: #595959;
   display: inline;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -44,26 +48,26 @@ exports[`basic snapshot with props 1`] = `
   margin: 0 0.05rem 0 0;
 }
 
-.c2:after {
+.c3:after {
   content: ",";
 }
 
-.c2:last-of-type:after {
+.c3:last-of-type:after {
   content: "";
 }
 
 @media (min-width:768px) {
-  .c1 span {
+  .c2 span {
     display: inline;
   }
 }
 
 @media (min-width:768px) {
-  .c2 {
+  .c3 {
     display: block;
   }
 
-  .c2:after {
+  .c3:after {
     content: "";
   }
 }
@@ -71,7 +75,9 @@ exports[`basic snapshot with props 1`] = `
 <div
   className="c0"
 >
-  <h3>
+  <h3
+    className="c1"
+  >
     <a
       href="/product-slug"
     >
@@ -79,10 +85,10 @@ exports[`basic snapshot with props 1`] = `
     </a>
   </h3>
   <div
-    className="c1"
+    className="c2"
   >
     <p
-      className="c2"
+      className="c3"
     >
       <span>
         Color
@@ -92,7 +98,7 @@ exports[`basic snapshot with props 1`] = `
       Red
     </p>
     <p
-      className="c2"
+      className="c3"
     >
       <span>
         Size
@@ -133,7 +139,11 @@ exports[`basic snapshot with vendor attribute 1`] = `
   color: #5d8ea9;
 }
 
-.c2 {
+.c1 {
+  font-size: 16px;
+}
+
+.c3 {
   color: #595959;
   display: block;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -141,15 +151,15 @@ exports[`basic snapshot with vendor attribute 1`] = `
   margin: 0;
 }
 
-.c1 {
+.c2 {
   margin-bottom: 0.5rem;
 }
 
-.c1 span {
+.c2 span {
   display: none;
 }
 
-.c3 {
+.c4 {
   color: #595959;
   display: inline;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -157,26 +167,26 @@ exports[`basic snapshot with vendor attribute 1`] = `
   margin: 0 0.05rem 0 0;
 }
 
-.c3:after {
+.c4:after {
   content: ",";
 }
 
-.c3:last-of-type:after {
+.c4:last-of-type:after {
   content: "";
 }
 
 @media (min-width:768px) {
-  .c1 span {
+  .c2 span {
     display: inline;
   }
 }
 
 @media (min-width:768px) {
-  .c3 {
+  .c4 {
     display: block;
   }
 
-  .c3:after {
+  .c4:after {
     content: "";
   }
 }
@@ -184,7 +194,9 @@ exports[`basic snapshot with vendor attribute 1`] = `
 <div
   className="c0"
 >
-  <h3>
+  <h3
+    className="c1"
+  >
     <a
       href="/product-slug"
     >
@@ -192,15 +204,15 @@ exports[`basic snapshot with vendor attribute 1`] = `
     </a>
   </h3>
   <div
-    className="c1"
+    className="c2"
   >
     <p
-      className="c2"
+      className="c3"
     >
       Patagonia
     </p>
     <p
-      className="c3"
+      className="c4"
     >
       <span>
         Color
@@ -210,7 +222,7 @@ exports[`basic snapshot with vendor attribute 1`] = `
       Red
     </p>
     <p
-      className="c3"
+      className="c4"
     >
       <span>
         Size
@@ -251,10 +263,16 @@ exports[`basic snapshot without props 1`] = `
   color: #5d8ea9;
 }
 
+.c1 {
+  font-size: 16px;
+}
+
 <div
   className="c0"
 >
-  <h3>
+  <h3
+    className="c1"
+  >
     <a
       href={undefined}
     />

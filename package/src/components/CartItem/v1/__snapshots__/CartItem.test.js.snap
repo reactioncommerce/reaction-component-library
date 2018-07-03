@@ -16,6 +16,10 @@ exports[`basic snapshot with empty props 1`] = `
   width: 100%;
 }
 
+.c0:first-of-type {
+  border-top: solid 1px #f5f5f5;
+}
+
 .c0 > * {
   box-sizing: border-box;
 }
@@ -63,7 +67,7 @@ exports[`basic snapshot with empty props 1`] = `
 }
 
 .c5 {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .c7 {
@@ -140,6 +144,11 @@ exports[`basic snapshot with empty props 1`] = `
       <img
         alt=""
         src="undefined/100"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
       />
     </picture>
   </a>
@@ -209,6 +218,10 @@ exports[`basic snapshot with props 1`] = `
   width: 100%;
 }
 
+.c0:first-of-type {
+  border-top: solid 1px #f5f5f5;
+}
+
 .c0 > * {
   box-sizing: border-box;
 }
@@ -256,7 +269,7 @@ exports[`basic snapshot with props 1`] = `
 }
 
 .c5 {
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 }
 
 .c7 {
@@ -333,6 +346,11 @@ exports[`basic snapshot with props 1`] = `
       <img
         alt=""
         src="http://placehold.it/100"
+        style={
+          Object {
+            "display": "block",
+          }
+        }
       />
     </picture>
   </a>
