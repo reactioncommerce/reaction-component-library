@@ -77,8 +77,7 @@ module.exports = {
     maxWidth: 1000,
     color: {
       link: "#062a4e",
-      linkHover: "#fd8283",
-      codeBackground: "#233444"
+      linkHover: "#fd8283"
     },
     fontFamily: {
       base: [
@@ -285,8 +284,7 @@ module.exports = {
           name: "Product"
         }),
         generateSection({
-          componentNames: [
-            "CartCheckoutButton", "CartEmptyMessage", "CartSummary", "MiniCartSummary", "CartItem", "CartItems", "CartItemDetail"],
+          componentNames: ["CartEmptyMessage", "CartSummary", "CartItem", "CartItems", "CartItemDetail", "MiniCartSummary", "MiniCart"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         })

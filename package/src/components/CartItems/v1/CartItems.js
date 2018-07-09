@@ -32,6 +32,10 @@ class CartItems extends Component {
       CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
+     * Is in a MiniCart component
+     */
+    isMiniCart: PropTypes.bool,
+    /**
      * CartItem data
      */
     items: PropTypes.arrayOf(PropTypes.shape({

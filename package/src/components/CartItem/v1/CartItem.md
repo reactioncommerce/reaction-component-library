@@ -92,3 +92,34 @@ const item = {
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
 />
 ```
+
+#### In Mini Cart
+```jsx
+const item = {
+  _id: "123",
+  attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  currentQuantity: 3,
+  imageUrl: "http://placehold.it",
+  isLowInventoryQuantity: true,
+  price: {
+    displayPrice: "$20.00",
+    compareAtPrice: "$45.00"
+  },
+  productSlug: "/product-slug",
+  title: "A Great Product",
+  quantity: 2
+};
+
+<CartItem
+isMiniCart
+  components={{
+    CartItemDetailComponent: CartItemDetail,
+    CartItemStockWarningComponent: StockWarning,
+    CartItemPriceComponent: Price,
+    CartItemQuantityInputComponent: QuantityInput
+  }}
+  item={item}
+  onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
+  onRemoveItemFromCart={() => console.log("Item removed from cart")}
+/>
+```

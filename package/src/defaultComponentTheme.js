@@ -150,6 +150,13 @@ const baseUnit = (size) => `${spacingBase * size}rem`;
 const borderRadius = baseUnit(0.2);
 
 /**
+ * Default Theme Shadows
+ */
+const depth0 = "none";
+const depth1 = `0 0 1rem -0.5rem ${black50}`;
+const depth2 = `0 0 1rem ${black50}`;
+
+/**
  * Default Theme Elements
  */
 
@@ -158,8 +165,10 @@ const defaultStyles = {
   rui_color_disabled: black25,
   rui_color_black02: black02,
   rui_color_black05: black05,
+  rui_color_black10: black10,
   rui_color_black15: black15,
   rui_color_black30: black30,
+  rui_color_black50: black50,
   rui_color_black65: black65,
   rui_color_error: red,
   rui_color_stockWarning: red,
@@ -181,7 +190,8 @@ const defaultStyles = {
   rui_font_weight_bold: fontWeightBold,
   rui_leading_body: bodyLeading,
   rui_leading_header: headerLeading,
-  rui_leading_flat: flatLeading
+  rui_leading_flat: flatLeading,
+  rui_shadow_depth1: depth1
 };
 
 // buttons

@@ -15,3 +15,9 @@ If a `CartItemAttribute` has a label of `"vendor"` the `CartItemDetail` componen
 const attributes = [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
 <CartItemDetail title="Amazing Product Title" productSlug="/product-slug" attributes={attributes} />
 ```
+
+#### In Mini Cart
+```jsx
+const attributes = [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
+<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" attributes={attributes} isMiniCart />
+```
