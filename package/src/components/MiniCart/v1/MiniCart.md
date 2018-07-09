@@ -1,11 +1,19 @@
-### CartItems
+### MiniCart
 
-### Overview
-This component renders a list of items that are in a customers cart.
-
-#### Basic Usage
 ```jsx
-const items = [{
+const checkout = {
+  summary: {
+    subtotal: {
+      displayAmount: "$25.00"
+    },
+    tax: {
+      displayAmount: "$2.50"
+    }
+  }
+}
+
+const items = [
+{
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
@@ -34,6 +42,9 @@ const items = [{
 }];
 
 const components = {
+  CartCheckoutButtonComponent: () => <Button actionType="important" isFullWidth>Checkout</Button>,
+  CartSummaryComponent: MiniCartSummary,
+  CartItemsComponent: CartItems,
   CartItemComponent: CartItem,
   CartItemDetailComponent: CartItemDetail,
   CartItemStockWarningComponent: StockWarning,
@@ -41,12 +52,21 @@ const components = {
   CartItemQuantityInputComponent: QuantityInput
 };
 
-<CartItems items={items} components={components} onChangeCartItemQuantity={(value) => console.log("cart items new quantity", value)} onRemoveItemFromCart={(_id) => console.log("cart items remove this item", _id)}/>
+<MiniCart cart={{ checkout, items }} components={components} />
 ```
 
-
-#### In Mini Cart
 ```jsx
+const checkout = {
+  summary: {
+    subtotal: {
+      displayAmount: "$25.00"
+    },
+    tax: {
+      displayAmount: "$2.50"
+    }
+  }
+}
+
 const items = [{
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
@@ -73,9 +93,38 @@ const items = [{
   productSlug: "/product-slug",
   title: "Another Great Product",
   quantity: 1
+},
+{
+  _id: "789",
+  attributes: [{ label: "vendor", value: "Everlane" }, { label: "Color", value: "White" }, { label: "Size", value: "Medium" }],
+  currentQuantity: 3,
+  imageUrl: "http://placehold.it",
+  isLowInventoryQuantity: false,
+  price: {
+    displayPrice: "$20.00"
+  },
+  productSlug: "/product-slug",
+  title: "A Product",
+  quantity: 2
+},
+{
+  _id: "112",
+  attributes: [{ label: "vendor", value: "Greats" }, { label: "Color", value: "Black" }, { label: "Size", value: "10" }],
+  currentQuantity: 500,
+  imageUrl: "http://placehold.it",
+  isLowInventoryQuantity: false,
+  price: {
+    displayPrice: "$150.00"
+  },
+  productSlug: "/product-slug",
+  title: "Another Product",
+  quantity: 1
 }];
 
 const components = {
+  CartCheckoutButtonComponent: () => <Button actionType="important" isFullWidth>Checkout</Button>,
+  CartSummaryComponent: MiniCartSummary,
+  CartItemsComponent: CartItems,
   CartItemComponent: CartItem,
   CartItemDetailComponent: CartItemDetail,
   CartItemStockWarningComponent: StockWarning,
@@ -83,5 +132,5 @@ const components = {
   CartItemQuantityInputComponent: QuantityInput
 };
 
-<CartItems items={items} components={components} onChangeCartItemQuantity={(value) => console.log("cart items new quantity", value)} onRemoveItemFromCart={(_id) => console.log("cart items remove this item", _id)} isMiniCart />
+<MiniCart cart={{ checkout, items }} components={components} />
 ```

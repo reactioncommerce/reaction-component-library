@@ -5,7 +5,7 @@ import { applyTheme } from "../../../utils";
 
 const Table = styled.table`
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
 `;
 
 const Td = styled.td`
@@ -42,7 +42,7 @@ class MiniCartSummary extends Component {
         <TdValue>{displayTax}</TdValue>
       </tr>
     );
-  }
+  };
 
   render() {
     const { displaySubtotal, displayTax } = this.props;

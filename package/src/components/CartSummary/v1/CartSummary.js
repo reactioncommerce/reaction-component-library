@@ -10,37 +10,44 @@ const Table = styled.table`
 `;
 
 const Th = styled.th`
+  font-family: ${applyTheme("font_family")};
   text-align: left;
 `;
 
 const Thr = styled.th`
   text-align: right;
   color: ${applyTheme("color_black30")};
+  font-family: ${applyTheme("font_family")};
   font-weight: normal;
 `;
 
 const TdValue = styled.td`
+  font-family: ${applyTheme("font_family")};
   text-align: right;
   padding: 1rem 0;
   color: ${applyTheme("color_coolGrey500")};
 `;
 
 const Td = styled.td`
+  font-family: ${applyTheme("font_family")};
   padding: 1rem 0;
   color: ${applyTheme("color_coolGrey400")};
 `;
 
 const Title = styled.span`
+  font-family: ${applyTheme("font_family")};
   font-weight: ${applyTheme("font_weight_bold")};
   color: ${applyTheme("color_coolGrey500")};
 `;
 
 const Discount = styled.span`
+  font-family: ${applyTheme("font_family")};
   color: ${applyTheme("color_forestGreen300")};
   font-weight: ${applyTheme("font_weight_bold")};
 `;
 
 const Total = styled.span`
+  font-family: ${applyTheme("font_family")};
   font-weight: ${applyTheme("font_weight_bold")};
   color: ${applyTheme("color_coolGrey500")};
 `;
@@ -75,7 +82,7 @@ class CartSummary extends Component {
      * Quantity of products in shopping cart
      */
     itemsQuantity: PropTypes.number.isRequired
-  }
+  };
 
   renderDiscount = () => {
     const { displayDiscount } = this.props;
@@ -83,10 +90,12 @@ class CartSummary extends Component {
     return (
       <tr>
         <Td>Promo code applied</Td>
-        <TdValue><Discount>{displayDiscount}</Discount></TdValue>
+        <TdValue>
+          <Discount>{displayDiscount}</Discount>
+        </TdValue>
       </tr>
     );
-  }
+  };
 
   render() {
     const {
@@ -99,7 +108,7 @@ class CartSummary extends Component {
       itemsQuantity
     } = this.props;
 
-    const shipping = (isFreeShipping) ? "FREE" : displayShipping;
+    const shipping = isFreeShipping ? "FREE" : displayShipping;
     const tax = displayTax || "-";
     const discount = displayDiscount && this.renderDiscount();
 
@@ -108,13 +117,9 @@ class CartSummary extends Component {
         <thead>
           <tr>
             <Th>
-              <Title>
-                  Cart Summary
-              </Title>
+              <Title>Cart Summary</Title>
             </Th>
-            <Thr>
-              {itemsQuantity} items
-            </Thr>
+            <Thr>{itemsQuantity} items</Thr>
           </tr>
         </thead>
         <tbody>
@@ -133,7 +138,9 @@ class CartSummary extends Component {
           </tr>
           <tr>
             <Td>Total</Td>
-            <TdValue><Total>{displayTotal}</Total></TdValue>
+            <TdValue>
+              <Total>{displayTotal}</Total>
+            </TdValue>
           </tr>
         </tbody>
       </Table>

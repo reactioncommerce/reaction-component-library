@@ -42,7 +42,7 @@ const Attributes = styled.div`
     display: none;
 
     @media (min-width: 768px) {
-      display: inline;
+      display: ${({ isMiniCart }) => (isMiniCart ? "none" : "inline")};
     }
   }
 `;
@@ -63,10 +63,10 @@ const Attr = styled.p`
   }
 
   @media (min-width: 768px) {
-    display: block;
+    display: ${({ isMiniCart }) => (isMiniCart ? "inline" : "block")};
 
     &:after {
-      content: "";
+      content: ${({ isMiniCart }) => (isMiniCart ? "','" : "''")};
     }
   }
 `;
@@ -87,6 +87,10 @@ class CartItemDetail extends Component {
       value: PropTypes.string
     })),
     /**
+     * Is in a MiniCart component
+     */
+    isMiniCart: PropTypes.bool,
+    /**
      * Product slug of chosen item.
      */
     productSlug: PropTypes.string,
@@ -98,13 +102,14 @@ class CartItemDetail extends Component {
 
   renderAttributes() {
     let { attributes } = this.props;
+    const { isMiniCart } = this.props;
     const { value: vendor } = attributes.find((attr) => attr.label === "vendor") || { value: undefined };
     attributes = attributes.filter((attr) => attr.label !== "vendor");
     return (
-      <Attributes>
+      <Attributes isMiniCart={isMiniCart}>
         {vendor ? <Vendor>{vendor}</Vendor> : null}
         {attributes.map(({ label, value }) => (
-          <Attr key={label}>
+          <Attr key={label} isMiniCart={isMiniCart}>
             <span>{label}:</span> {value}
           </Attr>
         ))}

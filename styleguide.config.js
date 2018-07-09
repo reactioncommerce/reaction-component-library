@@ -284,7 +284,7 @@ module.exports = {
           name: "Product"
         }),
         generateSection({
-          componentNames: ["CartEmptyMessage", "CartSummary", "MiniCartSummary", "CartItem", "CartItems", "CartItemDetail"],
+          componentNames: ["CartEmptyMessage", "CartSummary", "CartItem", "CartItems", "CartItemDetail", "MiniCartSummary", "MiniCart"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         })

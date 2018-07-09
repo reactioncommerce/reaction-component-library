@@ -3,7 +3,7 @@
 exports[`Renders only subtotal + computed taxes 1`] = `
 .c0 {
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .c1 {
@@ -54,7 +54,7 @@ exports[`Renders only subtotal + computed taxes 1`] = `
 exports[`Renders only subtotal 1`] = `
 .c0 {
   width: 100%;
-  padding: 1rem;
+  padding: 0.5rem;
 }
 
 .c1 {
