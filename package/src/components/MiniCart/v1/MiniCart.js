@@ -131,6 +131,14 @@ class MiniCart extends Component {
      */
     components: PropTypes.shape({
       /**
+       * CartCheckoutButton component
+       */
+      CartCheckoutButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      /**
+       * CartSummary component
+       */
+      CartSummaryComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      /**
        * CartItem component
        */
       CartItemComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
@@ -163,6 +171,8 @@ class MiniCart extends Component {
 
   static defaultProps = {
     components: {
+      CartCheckoutButtonComponent: "Cart Checkout Button",
+      CartSummaryComponent: "Cart Summary",
       CartItemComponent: "Cart Item",
       CartItemDetailComponent: "Cart Item Detail",
       CartItemStockWarningComponent: "Cart Item Stock Warning",
