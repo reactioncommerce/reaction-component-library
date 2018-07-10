@@ -6,8 +6,8 @@ Checkboxes can be checked, unchecked and disabled.
 
 ```jsx
 <Field name="example">
-  <Checkbox name="example" label="Example Checkbox" />
-  <Checkbox name="example" label="Example Checkbox" />
+  <Checkbox name="example" label="Snow leopards" />
+  <Checkbox name="example" label="Bears" />
 </Field>
 ```
 
@@ -15,7 +15,7 @@ Checkboxes can be checked, unchecked and disabled.
 
 ```jsx
 <Field name="example">
-  <Checkbox name="example" label="Example Checkbox" />
+  <Checkbox name="example" label="Turtles (disabled)" />
 </Field>
 ```
 
