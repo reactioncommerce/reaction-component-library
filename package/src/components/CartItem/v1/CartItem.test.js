@@ -17,7 +17,7 @@ test("basic snapshot with props", () => {
       { label: "Size", value: "Medium" }
     ],
     currentQuantity: 3,
-    imageUrl: "http://placehold.it",
+    imageUrl: "//placehold.it",
     price: {
       displayPrice: "$20.00",
       compareAtPrice: "$45.00"

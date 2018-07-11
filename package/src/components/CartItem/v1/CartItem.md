@@ -1,4 +1,4 @@
-### CartItem 
+### CartItem
 
 #### Overview
 This component will be used when there is a need to show an item that customer has added to their cart.
@@ -10,7 +10,7 @@ const item = {
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: true,
   price: {
     displayPrice: "$20.00",
@@ -40,7 +40,7 @@ const item = {
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: true,
   price: {
     displayPrice: "$20.00"
@@ -69,7 +69,7 @@ const item = {
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: false,
   price: {
     displayPrice: "$20.00",
@@ -99,7 +99,7 @@ const item = {
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: true,
   price: {
     displayPrice: "$20.00",

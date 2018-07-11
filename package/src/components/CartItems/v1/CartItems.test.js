@@ -19,7 +19,7 @@ test("basic snapshot with props", () => {
         { label: "Size", value: "Medium" }
       ],
       currentQuantity: 3,
-      imageUrl: "http://placehold.it",
+      imageUrl: "//placehold.it",
       isLowInventoryQuantity: true,
       price: {
         displayPrice: "$20.00",
@@ -37,7 +37,7 @@ test("basic snapshot with props", () => {
         { label: "Size", value: "10" }
       ],
       currentQuantity: 500,
-      imageUrl: "http://placehold.it",
+      imageUrl: "//placehold.it",
       isLowInventoryQuantity: false,
       price: {
         displayPrice: "$78.00"
