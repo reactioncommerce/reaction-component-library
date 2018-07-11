@@ -343,11 +343,11 @@ exports[`basic snapshot with props 1`] = `
     <picture>
       <source
         media="(min-width: 768px)"
-        srcSet="http://placehold.it/150"
+        srcSet="//placehold.it/150"
       />
       <img
         alt=""
-        src="http://placehold.it/100"
+        src="//placehold.it/100"
         style={
           Object {
             "display": "block",

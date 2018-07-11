@@ -17,7 +17,7 @@ const items = [
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: true,
   price: {
     displayPrice: "$20.00",
@@ -31,7 +31,7 @@ const items = [
   _id: "456",
   attributes: [{ label: "vendor", value: "Nike" }, { label: "Color", value: "Black" }, { label: "Size", value: "10" }],
   currentQuantity: 500,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: false,
   price: {
     displayPrice: "$78.00"
@@ -71,7 +71,7 @@ const items = [{
   _id: "123",
   attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: true,
   price: {
     displayPrice: "$20.00",
@@ -85,7 +85,7 @@ const items = [{
   _id: "456",
   attributes: [{ label: "vendor", value: "Nike" }, { label: "Color", value: "Black" }, { label: "Size", value: "10" }],
   currentQuantity: 500,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: false,
   price: {
     displayPrice: "$78.00"
@@ -98,7 +98,7 @@ const items = [{
   _id: "789",
   attributes: [{ label: "vendor", value: "Everlane" }, { label: "Color", value: "White" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: false,
   price: {
     displayPrice: "$20.00"
@@ -111,7 +111,7 @@ const items = [{
   _id: "112",
   attributes: [{ label: "vendor", value: "Greats" }, { label: "Color", value: "Black" }, { label: "Size", value: "10" }],
   currentQuantity: 500,
-  imageUrl: "http://placehold.it",
+  imageUrl: "//placehold.it",
   isLowInventoryQuantity: false,
   price: {
     displayPrice: "$150.00"
