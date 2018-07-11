@@ -15,7 +15,7 @@ Checkboxes can be checked, unchecked and disabled.
 
 ```jsx
 <Field name="example">
-  <Checkbox name="example" label="Turtles (disabled)" />
+  <Checkbox name="example" label="Turtles (disabled)" isReadOnly />
 </Field>
 ```
 
