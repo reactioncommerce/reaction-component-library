@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  color: #a6a6a6;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+}
+
+<div
+  className="c0"
+>
+  <span>
+    2
+    . 
+  </span>
+  <span>
+    Shipping information
+  </span>
+</div>
+`;
