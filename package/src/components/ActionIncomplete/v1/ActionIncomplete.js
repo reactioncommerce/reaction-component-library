@@ -11,11 +11,11 @@ const ActionIncompleteContainer = styled.div`
 class ActionIncomplete extends Component {
   static propTypes = {
     /**
-     * The inconplete action name
+     * The incomplete action name
      */
     label: PropTypes.string.isRequired,
     /**
-     * Checkout step number
+     * Checkout process step number
      */
     stepNumber: PropTypes.number.isRequired
   };
