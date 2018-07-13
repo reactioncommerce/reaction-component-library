@@ -105,6 +105,7 @@ exports[`basic snapshot 1`] = `
 }
 
 .c2 {
+  color: #595959;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -112,6 +113,7 @@ exports[`basic snapshot 1`] = `
   -webkit-flex: 2 0 auto;
   -ms-flex: 2 0 auto;
   flex: 2 0 auto;
+  font-size: 14px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -129,6 +131,7 @@ exports[`basic snapshot 1`] = `
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
+  font-size: 14px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -143,6 +146,7 @@ exports[`basic snapshot 1`] = `
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
+    margin-bottom: 0.625rem;
   }
 }
 
@@ -162,6 +166,7 @@ exports[`basic snapshot 1`] = `
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
+    margin-bottom: 0.625rem;
     -webkit-order: 2;
     -ms-flex-order: 2;
     order: 2;
