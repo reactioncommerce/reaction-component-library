@@ -7,11 +7,13 @@ The CheckoutActionComplete component will show when a checkout action has been c
 ```jsx
 const onClick = () => {};
 
+const Address = "<div><p>123 Main Street</p><p>Anytown, USA 01776</p></div>";
+
 <div>
   <CheckoutActionComplete
     components={{ChangeButton: Button}}
     label="Action Label"
-    content={"hello"}
+    content={Address}
     onChange={onClick}
   />
 </div>
