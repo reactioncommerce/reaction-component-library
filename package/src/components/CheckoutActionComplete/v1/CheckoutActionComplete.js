@@ -52,7 +52,24 @@ const ActionButton = styled.div`
 
 class CheckoutActionComplete extends Component {
   static propTypes = {
-
+    /**
+     * On object of component children to pass into this component
+     */
+    components: PropTypes.shape({
+      ChangeButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    }),
+    /**
+     * On object of component children to pass into this component
+     */
+    content: PropTypes.instanceOf(Element),
+    /**
+     * Label of Action
+     */
+    label: PropTypes.string,
+    /**
+     * Onclick function to pass to the Button component. Not handled internally, directly passed
+     */
+    onChange: PropTypes.func.isRequired
   };
 
   static defaultProps = {
