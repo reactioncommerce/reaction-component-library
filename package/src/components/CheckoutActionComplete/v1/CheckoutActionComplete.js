@@ -15,6 +15,7 @@ const ActionTitle = styled.div`
   color: ${applyTheme("color_coolGrey500")};
   display: flex;
   flex: 1 0 auto;
+  font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
   font-weight: ${applyTheme("font_weight_bold")};
   justify-content: flex-start;
@@ -30,6 +31,7 @@ const ActionDetail = styled.div`
   color: ${applyTheme("color_black65")};
   display: flex;
   flex: 2 0 auto;
+  font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
   justify-content: flex-start;
   order: 2;
@@ -43,6 +45,7 @@ const ActionDetail = styled.div`
 const ActionButton = styled.div`
   display: flex;
   flex: 1 0 auto;
+  font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
   justify-content: flex-end;
   order: 3;
