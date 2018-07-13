@@ -19,6 +19,18 @@ const ActionTitle = styled.div`
     flex: 0 0 50%;
   }
 `;
+
+const ActionDetail = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  order: 2;
+
+  @media (max-width: 959px) {
+    flex: 0 0 100%;
+    order: 3;
+  }
+`;
+
 const ActionButton = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -28,6 +40,8 @@ const ActionButton = styled.div`
     flex: 0 0 50%;
     order: 2;
   }
+`;
+
 class CheckoutActionComplete extends Component {
   static propTypes = {
 
@@ -43,6 +57,9 @@ class CheckoutActionComplete extends Component {
         <ActionTitle>
           {label}
         </ActionTitle>
+        <ActionDetail>
+          ActionDetail
+        </ActionDetail>
         <ActionButton>
           <ChangeButton actionType="important" onClick={this.handleOnChange} isShortHeight isTextOnly>Change</ChangeButton>
         </ActionButton>
