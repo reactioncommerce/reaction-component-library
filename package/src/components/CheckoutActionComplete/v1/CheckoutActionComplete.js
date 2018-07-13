@@ -14,6 +14,7 @@ const ActionContainer = styled.div`
 const ActionTitle = styled.div`
   color: ${applyTheme("color_coolGrey500")};
   display: flex;
+  flex: 1 0 auto;
   font-size: ${applyTheme("font_size_small")};
   font-weight: ${applyTheme("font_weight_bold")};
   justify-content: flex-start;
@@ -26,6 +27,7 @@ const ActionTitle = styled.div`
 
 const ActionDetail = styled.div`
   display: flex;
+  flex: 2 0 auto;
   justify-content: flex-start;
   order: 2;
 
@@ -37,6 +39,7 @@ const ActionDetail = styled.div`
 
 const ActionButton = styled.div`
   display: flex;
+  flex: 1 0 auto;
   justify-content: flex-end;
   order: 3;
 
