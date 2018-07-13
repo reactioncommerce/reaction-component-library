@@ -4,6 +4,7 @@ import { Form } from "reacto-form";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
+import Button from "../../Button/v1";
 import Field from "../../Field/v1";
 import ErrorsBlock from "../../ErrorsBlock/v1";
 import TextInput from "../../TextInput/v1";
@@ -43,7 +44,7 @@ class AddressForm extends Component {
     countries: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string,
-        countryCode: PropTypes.string
+        value: PropTypes.string
       })
     ),
     isCancellable: PropTypes.bool,
@@ -60,10 +61,19 @@ class AddressForm extends Component {
 
   static defaultProps = {};
 
+  _form = null;
+
+  state = {};
+
   render() {
     return (
       <Fragment>
-        <Form onSubmit={(data) => console.log("form submit", data)}>
+        <Form
+          ref={(formEl) => {
+            this._form = formEl;
+          }}
+          onSubmit={(data) => console.log("form submit", data)}
+        >
           <Grid>
             <ColFull>
               <Field name="country" label="Country" isRequired>
@@ -71,16 +81,33 @@ class AddressForm extends Component {
               </Field>
             </ColFull>
             <ColHalf>
-              <Field name="address1" label="Address" isRequired>
-                <TextInput name="address1" placeholder="Address" />
+              <Field name="firstName" label="First Name" isRequired>
+                <TextInput name="firstName" placeholder="First Name" />
               </Field>
             </ColHalf>
             <ColHalf>
-              <Field name="adddress2" label="Address">
-                <TextInput name="address2" placeholder="Address" />
+              <Field name="lastName" label="Last Name" isRequired>
+                <TextInput name="lastName" placeholder="Last Name" />
               </Field>
             </ColHalf>
+            <ColFull>
+              <Field name="address1" label="Address" isRequired>
+                <TextInput name="address1" placeholder="Address" />
+              </Field>
+            </ColFull>
+            <ColFull>
+              <Field name="address2" label="Address">
+                <TextInput name="address2" placeholder="Address" />
+              </Field>
+            </ColFull>
           </Grid>
+          <Button
+            onClick={() => {
+              this._form.submit();
+            }}
+          >
+            {"button text prop"}
+          </Button>
         </Form>
       </Fragment>
     );
