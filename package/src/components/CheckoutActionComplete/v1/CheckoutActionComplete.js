@@ -76,9 +76,7 @@ class CheckoutActionComplete extends Component {
     onChange: PropTypes.func.isRequired
   };
 
-  handleOnChange = () => {
-    return this.props.onChange();
-  }
+  handleOnChange = () => this.props.onChange();
 
   render() {
     const { components: { ChangeButton }, content, label } = this.props;
