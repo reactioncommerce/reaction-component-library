@@ -72,9 +72,6 @@ class CheckoutActionComplete extends Component {
     onChange: PropTypes.func.isRequired
   };
 
-  static defaultProps = {
-
-  };
 
   render() {
     return (
