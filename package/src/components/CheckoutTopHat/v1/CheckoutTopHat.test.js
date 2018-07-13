@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow } from "enzyme";
 import CheckoutTopHat from "./CheckoutTopHat";
 
 test("render Top Hat with message", () => {
