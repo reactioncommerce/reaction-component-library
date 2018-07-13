@@ -77,6 +77,8 @@ class CheckoutActionComplete extends Component {
   }
 
   render() {
+    const { components: { ChangeButton }, label } = this.props;
+
     return (
       <ActionContainer>
         <ActionTitle>
