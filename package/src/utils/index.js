@@ -3,3 +3,4 @@ export { default as CustomPropTypes } from "./CustomPropTypes";
 export { default as getFromTheme } from "./getFromTheme";
 export { default as preventAccidentalDoubleClick } from "./preventAccidentalDoubleClick";
 export { default as spinner } from "./spinner";
+export { default as getRequiredValidator } from "./getRequiredValidator";

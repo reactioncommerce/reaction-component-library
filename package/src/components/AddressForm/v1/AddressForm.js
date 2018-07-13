@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Form } from "reacto-form";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { applyTheme, getRequiredValidator } from "../../../utils";
 
 import Button from "../../Button/v1";
 import Field from "../../Field/v1";
@@ -38,6 +38,17 @@ const Actions = styled.div`
     justify-content: flex-end;
   }
 `;
+
+const validator = getRequiredValidator(
+  "country",
+  "firstName",
+  "lastName",
+  "address1",
+  "city",
+  "country",
+  "postal",
+  "region"
+);
 
 class AddressForm extends Component {
   static propTypes = {
@@ -90,28 +101,33 @@ class AddressForm extends Component {
             this._form = formEl;
           }}
           onSubmit={(data) => console.log("form submit", data)}
+          validator={validator}
         >
           <Grid>
             <ColFull>
               <Field name="country" label="Country" isRequired>
                 <Select name="country" options={this.props.countries} placeholder="Country" isSearchable />
+                <ErrorsBlock names={["country"]} />
               </Field>
             </ColFull>
 
             <ColHalf>
               <Field name="firstName" label="First Name" isRequired>
                 <TextInput name="firstName" placeholder="First Name" />
+                <ErrorsBlock names={["firstName"]} />
               </Field>
             </ColHalf>
             <ColHalf>
               <Field name="lastName" label="Last Name" isRequired>
                 <TextInput name="lastName" placeholder="Last Name" />
+                <ErrorsBlock names={["lastName"]} />
               </Field>
             </ColHalf>
 
             <ColFull>
               <Field name="address1" label="Address" isRequired>
                 <TextInput name="address1" placeholder="Address" />
+                <ErrorsBlock names={["address1"]} />
               </Field>
             </ColFull>
 
@@ -124,17 +140,20 @@ class AddressForm extends Component {
             <ColFull>
               <Field name="city" label="City">
                 <TextInput name="city" placeholder="City" />
+                <ErrorsBlock names={["city"]} />
               </Field>
             </ColFull>
 
             <ColHalf>
               <Field name="region" label="Region" isRequired>
                 <TextInput name="region" placeholder="Region" />
+                <ErrorsBlock names={["region"]} />
               </Field>
             </ColHalf>
             <ColHalf>
               <Field name="postal" label="Postal Code" isRequired>
                 <TextInput name="postal" placeholder="Postal Code" />
+                <ErrorsBlock names={["postal"]} />
               </Field>
             </ColHalf>
 
