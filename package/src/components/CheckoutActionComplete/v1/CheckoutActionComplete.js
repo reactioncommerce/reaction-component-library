@@ -7,6 +7,14 @@ const StyledDiv = styled.div`
   color: #333333;
 `;
 
+const ActionContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem 0;
+  width: 100%;
+`;
+
 const ActionTitle = styled.div`
   color: ${applyTheme("color_coolGrey500")};
   display: flex;
@@ -53,7 +61,7 @@ class CheckoutActionComplete extends Component {
 
   render() {
     return (
-      <StyledDiv>TEST</StyledDiv>
+      <ActionContainer>
         <ActionTitle>
           {label}
         </ActionTitle>
@@ -63,6 +71,7 @@ class CheckoutActionComplete extends Component {
         <ActionButton>
           <ChangeButton actionType="important" onClick={this.handleOnChange} isShortHeight isTextOnly>Change</ChangeButton>
         </ActionButton>
+      </ActionContainer>
     );
   }
 }
