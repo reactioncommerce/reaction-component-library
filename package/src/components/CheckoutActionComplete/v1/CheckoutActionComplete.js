@@ -58,7 +58,7 @@ class CheckoutActionComplete extends Component {
       ChangeButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
-     * On object of component children to pass into this component
+     * Component to pass down to show as content
      */
     content: PropTypes.instanceOf(Element),
     /**
@@ -76,7 +76,7 @@ class CheckoutActionComplete extends Component {
   }
 
   render() {
-    const { components: { ChangeButton }, label } = this.props;
+    const { components: { ChangeButton }, content, label } = this.props;
 
     return (
       <ActionContainer>
@@ -84,7 +84,7 @@ class CheckoutActionComplete extends Component {
           {label}
         </ActionTitle>
         <ActionDetail>
-          ActionDetail
+          {content}
         </ActionDetail>
         <ActionButton>
           <ChangeButton actionType="important" onClick={this.handleOnChange} isShortHeight isTextOnly>Change</ChangeButton>
