@@ -80,6 +80,7 @@ class AddressForm extends Component {
                 <Select name="country" />
               </Field>
             </ColFull>
+
             <ColHalf>
               <Field name="firstName" label="First Name" isRequired>
                 <TextInput name="firstName" placeholder="First Name" />
@@ -90,14 +91,39 @@ class AddressForm extends Component {
                 <TextInput name="lastName" placeholder="Last Name" />
               </Field>
             </ColHalf>
+
             <ColFull>
               <Field name="address1" label="Address" isRequired>
                 <TextInput name="address1" placeholder="Address" />
               </Field>
             </ColFull>
+
             <ColFull>
               <Field name="address2" label="Address">
                 <TextInput name="address2" placeholder="Address" />
+              </Field>
+            </ColFull>
+
+            <ColFull>
+              <Field name="city" label="City">
+                <TextInput name="city" placeholder="City" />
+              </Field>
+            </ColFull>
+
+            <ColHalf>
+              <Field name="region" label="Region" isRequired>
+                <TextInput name="region" placeholder="Region" />
+              </Field>
+            </ColHalf>
+            <ColHalf>
+              <Field name="postal" label="Postal Code" isRequired>
+                <TextInput name="postal" placeholder="Postal Code" />
+              </Field>
+            </ColHalf>
+
+            <ColFull>
+              <Field name="phone" label="Phone">
+                <TextInput name="phone" placeholder="Phone" />
               </Field>
             </ColFull>
           </Grid>
@@ -106,7 +132,7 @@ class AddressForm extends Component {
               this._form.submit();
             }}
           >
-            {"button text prop"}
+            {"Submit and Continue"}
           </Button>
         </Form>
       </Fragment>
