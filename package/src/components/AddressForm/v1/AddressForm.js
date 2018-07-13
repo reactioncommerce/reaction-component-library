@@ -20,7 +20,11 @@ const ColFull = styled.div`
 `;
 
 const ColHalf = styled.div`
-  flex: 0 1 calc(50% - 9px);
+  flex: 1 1 100%;
+
+  @media (${applyTheme("bp_sm")}) {
+    flex: 0 1 calc(50% - 9px);
+  }
 `;
 
 class AddressForm extends Component {
@@ -62,18 +66,18 @@ class AddressForm extends Component {
         <Form onSubmit={(data) => console.log("form submit", data)}>
           <Grid>
             <ColFull>
-              <Field>
-                <Select />
+              <Field name="country" label="Country" isRequired>
+                <Select name="country" />
               </Field>
             </ColFull>
             <ColHalf>
-              <Field>
-                <TextInput />
+              <Field name="address1" label="Address" isRequired>
+                <TextInput name="address1" placeholder="Address" />
               </Field>
             </ColHalf>
             <ColHalf>
-              <Field>
-                <TextInput />
+              <Field name="adddress2" label="Address">
+                <TextInput name="address2" placeholder="Address" />
               </Field>
             </ColHalf>
           </Grid>
