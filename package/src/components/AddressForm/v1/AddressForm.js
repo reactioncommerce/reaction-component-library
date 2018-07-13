@@ -43,7 +43,7 @@ class AddressForm extends Component {
     }),
     countries: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string,
+        label: PropTypes.string,
         value: PropTypes.string
       })
     ),
@@ -52,14 +52,20 @@ class AddressForm extends Component {
     onSubmit: PropTypes.func,
     regions: PropTypes.arrayOf(
       PropTypes.shape({
-        name: PropTypes.string,
+        label: PropTypes.string,
         value: PropTypes.string
       })
     ),
     saveButtonText: PropTypes.string
   };
 
-  static defaultProps = {};
+  static defaultProps = {
+    countries: [
+      { value: "US", label: "United State" },
+      { value: "DE", label: "Germany" },
+      { value: "NU", label: "Nigeria" }
+    ]
+  };
 
   _form = null;
 
@@ -77,7 +83,7 @@ class AddressForm extends Component {
           <Grid>
             <ColFull>
               <Field name="country" label="Country" isRequired>
-                <Select name="country" />
+                <Select name="country" options={this.props.countries} placeholder="Country" isSearchable />
               </Field>
             </ColFull>
 
