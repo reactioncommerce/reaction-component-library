@@ -284,7 +284,7 @@ module.exports = {
           name: "Cart"
         }),
         generateSection({
-          componentNames: ["ActionIncomplete"],
+          componentNames: ["CheckoutActionIncomplete"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
         }),

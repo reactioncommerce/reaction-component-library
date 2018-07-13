@@ -3,12 +3,13 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
-const ActionIncompleteContainer = styled.div`
+const CheckoutActionIncompleteContainer = styled.div`
   color: ${applyTheme("color_black35")};
   font-family: ${applyTheme("font_family")};
+  font-size: ${applyTheme("font_size_small")}
 `;
 
-class ActionIncomplete extends Component {
+class CheckoutActionIncomplete extends Component {
   static propTypes = {
     /**
      * The incomplete action name
@@ -24,12 +25,12 @@ class ActionIncomplete extends Component {
     const { label, stepNumber } = this.props;
 
     return (
-      <ActionIncompleteContainer>
+      <CheckoutActionIncompleteContainer>
         <span>{stepNumber}.&nbsp;</span>
         <span>{label}</span>
-      </ActionIncompleteContainer>
+      </CheckoutActionIncompleteContainer>
     );
   }
 }
 
-export default ActionIncomplete;
+export default CheckoutActionIncomplete;

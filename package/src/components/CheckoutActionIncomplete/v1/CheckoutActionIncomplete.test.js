@@ -1,10 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import ActionIncomplete from "./ActionIncomplete";
+import CheckoutActionIncomplete from "./CheckoutActionIncomplete";
 
 test("basic snapshot", () => {
   const component = renderer.create((
-    <ActionIncomplete label="Shipping information" stepNumber={2} />
+    <CheckoutActionIncomplete label="Shipping information" stepNumber={2} />
   ));
 
   const tree = component.toJSON();
