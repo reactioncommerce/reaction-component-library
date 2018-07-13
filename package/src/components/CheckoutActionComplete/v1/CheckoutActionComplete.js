@@ -7,6 +7,18 @@ const StyledDiv = styled.div`
   color: #333333;
 `;
 
+const ActionTitle = styled.div`
+  color: ${applyTheme("color_coolGrey500")};
+  display: flex;
+  font-size: ${applyTheme("font_size_small")};
+  font-weight: ${applyTheme("font_weight_bold")};
+  justify-content: flex-start;
+  order: 1;
+
+  @media (max-width: 959px) {
+    flex: 0 0 50%;
+  }
+`;
 const ActionButton = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -28,6 +40,9 @@ class CheckoutActionComplete extends Component {
   render() {
     return (
       <StyledDiv>TEST</StyledDiv>
+        <ActionTitle>
+          {label}
+        </ActionTitle>
         <ActionButton>
           <ChangeButton actionType="important" onClick={this.handleOnChange} isShortHeight isTextOnly>Change</ChangeButton>
         </ActionButton>
