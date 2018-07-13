@@ -28,6 +28,17 @@ const ColHalf = styled.div`
   }
 `;
 
+const Actions = styled.div`
+  display: block;
+  margin: ${applyTheme("fieldMargin")};
+  width: 100%;
+
+  @media (${applyTheme("bp_sm")}) {
+    display: flex;
+    justify-content: flex-end;
+  }
+`;
+
 class AddressForm extends Component {
   static propTypes = {
     address: PropTypes.shape({
@@ -133,13 +144,16 @@ class AddressForm extends Component {
               </Field>
             </ColFull>
           </Grid>
-          <Button
-            onClick={() => {
-              this._form.submit();
-            }}
-          >
-            {"Submit and Continue"}
-          </Button>
+          <Actions>
+            <Button
+              onClick={() => {
+                this._form.submit();
+              }}
+              isFullWidth
+            >
+              {"Submit and continue"}
+            </Button>
+          </Actions>
         </Form>
       </Fragment>
     );
