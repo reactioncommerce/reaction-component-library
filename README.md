@@ -1,6 +1,6 @@
 # Reaction Core Component Library and Style Guide
 
-![npm (scoped)](https://img.shields.io/npm/v/@reactioncommerce/components.svg)
+[![npm (scoped)](https://img.shields.io/npm/v/@reactioncommerce/components.svg)](https://www.npmjs.com/package/@reactioncommerce/components)
  [![CircleCI](https://circleci.com/gh/reactioncommerce/reaction-component-library.svg?style=svg)](https://circleci.com/gh/reactioncommerce/reaction-component-library)
 
 This is a single project in which all reusable Reaction UI components AND our UI style guide are maintained. The components are published on NPM as an [`@reactioncommerce/components`](https://www.npmjs.com/package/@reactioncommerce/components) package. (See the package.json in `/package` folder.) The style guide is built and hosted on a `reactioncommerce.com` subdomain. (See the root package.json.)
