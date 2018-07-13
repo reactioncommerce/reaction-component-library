@@ -72,6 +72,9 @@ class CheckoutActionComplete extends Component {
     onChange: PropTypes.func.isRequired
   };
 
+  handleOnChange = () => {
+    return this.props.onChange();
+  }
 
   render() {
     return (
