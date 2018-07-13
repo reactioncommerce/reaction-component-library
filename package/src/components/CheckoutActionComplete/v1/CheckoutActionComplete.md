@@ -7,7 +7,13 @@ The CheckoutActionComplete component will show when a checkout action has been c
 ```jsx
 const onClick = () => {};
 
-const Address = "<div><p>123 Main Street</p><p>Anytown, USA 01776</p></div>";
+const Address = (
+  <div>
+    Ms. Jane Doe<br />
+    123 Main Street<br />
+    Anytown, USA 01776
+  </div>
+);
 
 <div>
   <CheckoutActionComplete

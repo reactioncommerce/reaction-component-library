@@ -22,12 +22,15 @@ const ActionTitle = styled.div`
 
   @media (max-width: 959px) {
     flex: 0 0 50%;
+    margin-bottom: ${applyTheme("checkoutActionCompleteMobileMargin")};
   }
 `;
 
 const ActionDetail = styled.div`
+  color: ${applyTheme("color_black65")};
   display: flex;
   flex: 2 0 auto;
+  font-size: ${applyTheme("font_size_small")};
   justify-content: flex-start;
   order: 2;
 
@@ -40,11 +43,13 @@ const ActionDetail = styled.div`
 const ActionButton = styled.div`
   display: flex;
   flex: 1 0 auto;
+  font-size: ${applyTheme("font_size_small")};
   justify-content: flex-end;
   order: 3;
 
   @media (max-width: 959px) {
     flex: 0 0 50%;
+    margin-bottom: ${applyTheme("checkoutActionCompleteMobileMargin")};
     order: 2;
   }
 `;

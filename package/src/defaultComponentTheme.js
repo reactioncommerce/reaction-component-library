@@ -353,6 +353,11 @@ const cartEmptyMessage = {
   rui_cartEmptyMessageMarginBottom: `${baseUnit(5.4)}`
 };
 
+// checkoutActionComplete
+const checkoutActions = {
+  rui_checkoutActionCompleteMobileMargin: `${baseUnit(1)}`
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -363,5 +368,6 @@ export default {
   ...labelStyles,
   ...helpTextStyles,
   ...errorsBlockStyles,
-  ...cartEmptyMessage
+  ...cartEmptyMessage,
+  ...checkoutActions
 };
