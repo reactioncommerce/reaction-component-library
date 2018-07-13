@@ -93,6 +93,7 @@ exports[`basic snapshot 1`] = `
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   font-weight: 700;
   -webkit-box-pack: start;
@@ -113,6 +114,7 @@ exports[`basic snapshot 1`] = `
   -webkit-flex: 2 0 auto;
   -ms-flex: 2 0 auto;
   flex: 2 0 auto;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
@@ -131,6 +133,7 @@ exports[`basic snapshot 1`] = `
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
