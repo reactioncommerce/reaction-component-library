@@ -12,7 +12,7 @@ const Address = "<div><p>123 Main Street</p><p>Anytown, USA 01776</p></div>";
 <div>
   <CheckoutActionComplete
     components={{ChangeButton: Button}}
-    label="Action Label"
+    label="Shipping address"
     content={Address}
     onChange={onClick}
   />
