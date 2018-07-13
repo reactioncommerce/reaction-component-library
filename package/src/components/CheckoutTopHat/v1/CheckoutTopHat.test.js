@@ -3,7 +3,14 @@ import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
 import CheckoutTopHat from "./CheckoutTopHat";
 
-test("basic snapshot", () => {
+test("render Top Hat with message", () => {
+  const component = renderer.create(<CheckoutTopHat checkoutMessage="Free Shipping + Free Returns" />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("render nothing when no message is present", () => {
   const component = renderer.create(<CheckoutTopHat />);
 
   const tree = component.toJSON();
