@@ -279,14 +279,19 @@ module.exports = {
       name: "Storefront Components",
       sections: [
         generateSection({
-          componentNames: ["Price", "StockWarning"],
-          content: "styleguide/src/sections/Product.md",
-          name: "Product"
-        }),
-        generateSection({
           componentNames: ["CartEmptyMessage", "CartSummary", "CartItem", "CartItems", "CartItemDetail", "MiniCartSummary", "MiniCart"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
+        }),
+        generateSection({
+          componentNames: ["CheckoutTopHat"],
+          content: "styleguide/src/sections/Checkout.md",
+          name: "Checkout"
+        }),
+        generateSection({
+          componentNames: ["Price", "StockWarning"],
+          content: "styleguide/src/sections/Product.md",
+          name: "Product"
         })
       ]
     }
