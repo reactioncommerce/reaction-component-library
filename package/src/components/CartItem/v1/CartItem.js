@@ -128,45 +128,51 @@ class CartItem extends Component {
       /**
        * Array of additional attributes of the chosen item.
        */
-      attributes: PropTypes.arrayOf(PropTypes.shape({
+      attributes: PropTypes.arrayOf(PropTypes.object),
+      /**
+       * The current compareAt price (MSRP)
+       */
+      compareAtPrice: PropTypes.shape({
         /**
-           * Attribute label (i.e. "Color").
-           */
-        label: PropTypes.string,
-        /**
-           *  Attribute value (i.e. "Red").
-           */
-        value: PropTypes.string
-      })),
+         * The display price
+         */
+        displayAmount: PropTypes.string.isRequired
+      }),
       /**
        * Current stock quantity of item
        */
       currentQuantity: PropTypes.number,
       /**
-       * Image url of chosen item
+       * Image URLs of chosen item
        */
-      imageUrl: PropTypes.string,
+      imageURLs: PropTypes.shape({
+        large: PropTypes.string,
+        medium: PropTypes.string,
+        original: PropTypes.string,
+        small: PropTypes.string,
+        thumbnail: PropTypes.string
+      }),
       /**
        * Is the chosen item have a low quantity
        */
-      isLowInventoryQuantity: PropTypes.bool,
+      isLowQuantity: PropTypes.bool,
       /**
        * Price object of chosen item
        */
       price: PropTypes.shape({
         /**
-         * Chosen items compare at price
+         * The display price
          */
-        compareAtPrice: PropTypes.string,
-        /**
-         * Chosen items display price
-         */
-        displayPrice: PropTypes.string
-      }),
+        displayAmount: PropTypes.string.isRequired
+      }).isRequired,
       /**
        * Chosen items slug
        */
       productSlug: PropTypes.string,
+      /**
+       * Chosen items vendor
+       */
+      productVendor: PropTypes.string,
       /**
        * Chosen items title
        */
@@ -193,6 +199,7 @@ class CartItem extends Component {
       CartItemPriceComponent: "Cart Item Price",
       CartItemQuantityInputComponent: "Cart Item Quantity Input"
     },
+    isMiniCart: false,
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
   };
@@ -212,12 +219,17 @@ class CartItem extends Component {
   };
 
   renderImage() {
-    const { isMiniCart, item: { imageUrl, productSlug } } = this.props;
+    const { isMiniCart, item: { imageURLs, productSlug } } = this.props;
+
+    const { small, thumbnail } = imageURLs || {};
+
+    if (!small || !thumbnail) return null;
+
     return (
       <a href={productSlug}>
         <picture>
-          {isMiniCart ? "" : <source srcSet={`${imageUrl}/150`} media="(min-width: 768px)" />}
-          <img src={`${imageUrl}/100`} alt="" style={{ display: "block" }} />
+          {isMiniCart ? "" : <source srcSet={small} media="(min-width: 768px)" />}
+          <img src={thumbnail} alt="" style={{ display: "block" }} />
         </picture>
       </a>
     );
@@ -234,14 +246,18 @@ class CartItem extends Component {
       isMiniCart,
       item: {
         attributes,
+        compareAtPrice,
         currentQuantity,
         productSlug,
+        productVendor,
         title,
         quantity,
-        isLowInventoryQuantity,
-        price: { displayPrice, compareAtPrice }
+        isLowQuantity,
+        price: { displayAmount: displayPrice }
       }
     } = this.props;
+    const { displayAmount: displayCompareAtPrice } = compareAtPrice || {};
+
     return (
       <Item>
         {this.renderImage()}
@@ -252,13 +268,14 @@ class CartItem extends Component {
                 <CartItemDetailComponent
                   title={title}
                   productSlug={productSlug}
+                  productVendor={productVendor}
                   attributes={attributes}
                   isMiniCart={isMiniCart}
                 />
 
                 <CartItemStockWarningComponent
                   inventoryQuantity={currentQuantity}
-                  isLowInventoryQuantity={isLowInventoryQuantity}
+                  isLowInventoryQuantity={isLowQuantity}
                 />
               </ItemContentDetailInfo>
 
@@ -273,7 +290,7 @@ class CartItem extends Component {
           <ItemContentPrice isMiniCart={isMiniCart}>
             <CartItemPriceComponent
               displayPrice={displayPrice}
-              displayCompareAtPrice={compareAtPrice}
+              displayCompareAtPrice={displayCompareAtPrice}
               hasPriceBottom={isMiniCart}
             />
           </ItemContentPrice>

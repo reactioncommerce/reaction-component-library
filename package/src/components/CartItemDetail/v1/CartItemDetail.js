@@ -78,12 +78,12 @@ class CartItemDetail extends Component {
      */
     attributes: PropTypes.arrayOf(PropTypes.shape({
       /**
-         * Attribute label (i.e. "Color").
-         */
+       * Attribute label (i.e. "Color").
+       */
       label: PropTypes.string,
       /**
-         * Attribute value (i.e. "Red").
-         */
+       * Attribute value (i.e. "Red").
+       */
       value: PropTypes.string
     })),
     /**
@@ -95,24 +95,34 @@ class CartItemDetail extends Component {
      */
     productSlug: PropTypes.string,
     /**
+     * Product vendor of chosen item.
+     */
+    productVendor: PropTypes.string,
+    /**
      * Product title of chosen item.
      */
     title: PropTypes.string
   };
 
   renderAttributes() {
-    let { attributes } = this.props;
-    const { isMiniCart } = this.props;
-    const { value: vendor } = attributes.find((attr) => attr.label === "vendor") || { value: undefined };
-    attributes = attributes.filter((attr) => attr.label !== "vendor");
+    let { attributes, isMiniCart, productVendor } = this.props;
+
+    if ((!attributes || attributes.length === 0) && !productVendor) return null;
+
     return (
       <Attributes isMiniCart={isMiniCart}>
-        {vendor ? <Vendor>{vendor}</Vendor> : null}
-        {attributes.map(({ label, value }) => (
-          <Attr key={label} isMiniCart={isMiniCart}>
-            <span>{label}:</span> {value}
-          </Attr>
-        ))}
+        {productVendor ? <Vendor>{productVendor}</Vendor> : null}
+        {(attributes || []).map(({ label, value }) => {
+          if (!label && !value) return null;
+
+          // For now, due to strange implementation of attributes/options in the product data,
+          // we allow labels without values and values without labels.
+          return (
+            <Attr key={label || value} isMiniCart={isMiniCart}>
+              {label ? <span>{label}:</span> : null} {value}
+            </Attr>
+          );
+        })}
       </Attributes>
     );
   }
@@ -124,7 +134,7 @@ class CartItemDetail extends Component {
         <Title>
           <a href={productSlug}>{title}</a>
         </Title>
-        {attributes ? this.renderAttributes() : ""}
+        {this.renderAttributes()}
       </Detail>
     );
   }

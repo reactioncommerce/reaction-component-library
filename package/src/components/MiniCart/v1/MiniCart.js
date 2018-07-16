@@ -57,7 +57,7 @@ class MiniCart extends Component {
             /**
              * Checkout summary subtotal display amount
              */
-            displayAmmount: PropTypes.string
+            displayAmount: PropTypes.string
           }),
           /**
            * Checkout summary tax info
@@ -71,61 +71,10 @@ class MiniCart extends Component {
         })
       }),
       /**
-       * CartItem data
+       * CartItem data. This is passed to CartItemComponent, which may require some props.
        */
-      items: PropTypes.arrayOf(PropTypes.shape({
-        /**
-           * The cart item ID
-           */
-        _id: PropTypes.string,
-        /**
-           * Array of additional attributes of the chosen item.
-           */
-        attributes: PropTypes.arrayOf(PropTypes.shape({
-          /**
-               * Attribute label (i.e. "Color").
-               */
-          label: PropTypes.string,
-          /**
-               *  Attribute value (i.e. "Red").
-               */
-          value: PropTypes.string
-        })),
-        /**
-           * Current stock quantity of item
-           */
-        currentQuantity: PropTypes.number,
-        /**
-           * Image url of chosen item
-           */
-        imageUrl: PropTypes.string,
-        /**
-           * Price object of chosen item
-           */
-        price: PropTypes.shape({
-          /**
-             * Chosen items compare at price
-             */
-          compareAtPrice: PropTypes.string,
-          /**
-             * Chosen items display price
-             */
-          displayPrice: PropTypes.string
-        }),
-        /**
-           * Chosen items slug
-           */
-        productSlug: PropTypes.string,
-        /**
-           * Chosen items title
-           */
-        title: PropTypes.string,
-        /**
-           * Quantity of chosen item in cart
-           */
-        quantity: PropTypes.number
-      }))
-    }).isRequired,
+      items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    }),
     /**
      * Provided child components to display item data
      */
@@ -139,25 +88,9 @@ class MiniCart extends Component {
        */
       CartSummaryComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
       /**
-       * CartItem component
+       * CartItems component
        */
-      CartItemComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-      /**
-       * CartItemDetail component
-       */
-      CartItemDetailComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-      /**
-       * Stock warning component
-       */
-      CartItemStockWarningComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-      /**
-       * Price component
-       */
-      CartItemPriceComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-      /**
-       * QuantityInput component
-       */
-      CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+      CartItemsComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
      * On cart item quantity change handler
@@ -173,11 +106,7 @@ class MiniCart extends Component {
     components: {
       CartCheckoutButtonComponent: "Cart Checkout Button",
       CartSummaryComponent: "Cart Summary",
-      CartItemComponent: "Cart Item",
-      CartItemDetailComponent: "Cart Item Detail",
-      CartItemStockWarningComponent: "Cart Item Stock Warning",
-      CartItemPriceComponent: "Cart Item Price",
-      CartItemQuantityInputComponent: "Cart Item Quantity Input"
+      CartItemsComponent: "Cart Items"
     },
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}

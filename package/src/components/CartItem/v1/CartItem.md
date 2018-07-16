@@ -8,15 +8,21 @@ It could be used in the future to show items that are within a "Wish List", "Sav
 ```jsx
 const item = {
   _id: "123",
-  attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  compareAtPrice: {
+    displayAmount: "$45.00"
+  },
   currentQuantity: 3,
-  imageUrl: "//placehold.it",
-  isLowInventoryQuantity: true,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: true,
   price: {
-    displayPrice: "$20.00",
-    compareAtPrice: "$45.00"
+    displayAmount: "$20.00"
   },
   productSlug: "/product-slug",
+  productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
 };
@@ -38,14 +44,18 @@ const item = {
 ```jsx
 const item = {
   _id: "123",
-  attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
   currentQuantity: 3,
-  imageUrl: "//placehold.it",
-  isLowInventoryQuantity: true,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: true,
   price: {
-    displayPrice: "$20.00"
+    displayAmount: "$20.00"
   },
   productSlug: "/product-slug",
+  productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
 };
@@ -67,15 +77,21 @@ const item = {
 ```jsx
 const item = {
   _id: "123",
-  attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  compareAtPrice: {
+    displayAmount: "$45.00"
+  },
   currentQuantity: 3,
-  imageUrl: "//placehold.it",
-  isLowInventoryQuantity: false,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: false,
   price: {
-    displayPrice: "$20.00",
-    compareAtPrice: "$45.00"
+    displayAmount: "$20.00"
   },
   productSlug: "/product-slug",
+  productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
 };
@@ -97,15 +113,21 @@ const item = {
 ```jsx
 const item = {
   _id: "123",
-  attributes: [{ label: "vendor", value: "Patagonia" }, { label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  compareAtPrice: {
+    displayAmount: "$45.00"
+  },
   currentQuantity: 3,
-  imageUrl: "//placehold.it",
-  isLowInventoryQuantity: true,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: true,
   price: {
-    displayPrice: "$20.00",
-    compareAtPrice: "$45.00"
+    displayAmount: "$20.00"
   },
   productSlug: "/product-slug",
+  productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
 };
