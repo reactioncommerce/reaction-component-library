@@ -21,6 +21,7 @@ const Address = (
     label="Shipping address"
     content={Address}
     onClickChangeButton={onClick}
+    stepNumber={2}
   />
 </div>
 ```
