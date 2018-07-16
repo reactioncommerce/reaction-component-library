@@ -101,7 +101,7 @@ class AddressForm extends Component {
   state = {};
 
   render() {
-    const { address, countries, regions, saveButtonText } = this.props;
+    const { address, countries, isCancellable, regions, saveButtonText } = this.props;
     return (
       <Fragment>
         <Form
@@ -163,7 +163,7 @@ class AddressForm extends Component {
             </ColHalf>
             <ColHalf>
               <Field name="postal" label="Postal Code" isRequired>
-                <TextInput name="postal" placeholder="Postal Code" value={address.potal} />
+                <TextInput name="postal" placeholder="Postal Code" value={address.postal} />
                 <ErrorsBlock names={["postal"]} />
               </Field>
             </ColHalf>
@@ -176,11 +176,24 @@ class AddressForm extends Component {
             </ColFull>
           </Grid>
           <Actions>
+            {isCancellable ? (
+              <Button
+                actionType="secondary"
+                onClick={() => {
+                  this._form.reset();
+                }}
+                isFullWidth
+                isShortHeight
+              >
+                Cancel
+              </Button>
+            ) : null}
             <Button
               onClick={() => {
                 this._form.submit();
               }}
               isFullWidth
+              isShortHeight
             >
               {saveButtonText}
             </Button>

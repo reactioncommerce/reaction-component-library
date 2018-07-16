@@ -21,3 +21,35 @@ const regions = [
 ```
 
 #### Editing Address
+```jsx
+const address = {
+ address1: "7742 Hwy 23",
+ address2: "",
+ country: "US",
+ city: "Belle Chasse",
+ firstName: "Salvos",
+ lastName: "Seafood",
+ postal: "70037",
+ region: "LA",
+ phone: "(504) 393-7303"
+}
+
+const countries = [
+  { value: "US", label: "United State" },
+  { value: "DE", label: "Germany" },
+  { value: "NU", label: "Nigeria" }
+];
+
+const regions = [
+  { value: "LA", label: "Llouisiana" },
+  { value: "CA", label: "California" }
+];
+
+<AddressForm
+  address={address}
+  countries={countries}
+  regions={regions}
+  isCancellable
+ />
+```
+
