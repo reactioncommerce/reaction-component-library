@@ -20,7 +20,7 @@ const Address = (
     components={{ChangeButton: Button}}
     label="Shipping address"
     content={Address}
-    onChange={onClick}
+    onClickChangeButton={onClick}
   />
 </div>
 ```

@@ -76,10 +76,10 @@ class CheckoutActionComplete extends Component {
     /**
      * Onclick function to pass to the Button component. Not handled internally, directly passed
      */
-    onChange: PropTypes.func.isRequired
+    onClickChangeButton: PropTypes.func.isRequired
   };
 
-  handleOnChange = () => this.props.onChange();
+  handleOnChange = () => this.props.onClickChangeButton();
 
   render() {
     const { components: { ChangeButton }, content, label } = this.props;
