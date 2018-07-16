@@ -17,6 +17,7 @@ const regions = [
 <AddressForm
   countries={countries}
   regions={regions}
+  onSubmit={(address) => console.log(address)}
  />
 ```
 
@@ -56,6 +57,7 @@ const onCountryChange = (country) => {
   countries={countries}
   regions={regions}
   onCountryChange={onCountryChange}
+  onSubmit={(address) => console.log(address)}
   isCancellable
  />
 ```

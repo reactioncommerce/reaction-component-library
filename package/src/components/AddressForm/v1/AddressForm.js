@@ -99,7 +99,9 @@ class AddressForm extends Component {
       region: "",
       phone: ""
     },
+    onCancel() {},
     onCountryChange() {},
+    onSubmit() {},
     saveButtonText: "Save and continue"
   };
 
@@ -112,12 +114,14 @@ class AddressForm extends Component {
     onCountryChange(country);
   };
 
-  handleCancel = (a) => {
-    console.log("handle cancel", a);
+  handleCancel = () => {
+    const { onCancel } = this.props;
+    onCancel();
   };
 
-  handleSubmit = (a) => {
-    console.log("handle submit", a);
+  handleSubmit = (address) => {
+    const { onSubmit } = this.props;
+    onSubmit(address);
   };
 
   render() {
