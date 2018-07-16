@@ -1,7 +1,7 @@
 import get from "lodash.get";
 
 export default function getRequiredValidator(...requiredFields) {
-  return (obj) => {
+  return async (obj) => {
     const errors = [];
     requiredFields.forEach((requiredField) => {
       const value = get(obj, requiredField);

@@ -50,7 +50,7 @@ const validator = getRequiredValidator(
   "lastName",
   "address1",
   "city",
-  "country",
+  "phone",
   "postal",
   "region"
 );
@@ -133,6 +133,7 @@ class AddressForm extends Component {
             this._form = formEl;
           }}
           onSubmit={this.handleSubmit}
+          validator={validator}
         >
           <Grid>
             <ColFull>
