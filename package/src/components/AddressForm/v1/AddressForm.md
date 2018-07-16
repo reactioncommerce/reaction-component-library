@@ -40,15 +40,22 @@ const countries = [
   { value: "NU", label: "Nigeria" }
 ];
 
-const regions = [
+let regions = [
   { value: "LA", label: "Llouisiana" },
   { value: "CA", label: "California" }
 ];
+
+const onCountryChange = (country) => {
+  if (country !== "US") {
+    regions = undefined;
+  }
+}
 
 <AddressForm
   address={address}
   countries={countries}
   regions={regions}
+  onCountryChange={onCountryChange}
   isCancellable
  />
 ```

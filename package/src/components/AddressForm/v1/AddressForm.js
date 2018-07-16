@@ -76,6 +76,7 @@ class AddressForm extends Component {
     ),
     isCancellable: PropTypes.bool,
     onCancel: PropTypes.func,
+    onCountryChange: PropTypes.func,
     onSubmit: PropTypes.func,
     regions: PropTypes.arrayOf(
       PropTypes.shape({
@@ -98,6 +99,7 @@ class AddressForm extends Component {
       region: "",
       phone: ""
     },
+    onCountryChange() {},
     saveButtonText: "Save and continue"
   };
 
@@ -105,8 +107,9 @@ class AddressForm extends Component {
 
   state = {};
 
-  handleCountryChange = (a) => {
-    console.log("handle country change", a);
+  handleCountryChange = (country) => {
+    const { onCountryChange } = this.props;
+    onCountryChange(country);
   };
 
   handleCancel = (a) => {
@@ -130,7 +133,14 @@ class AddressForm extends Component {
           <Grid>
             <ColFull>
               <Field name="country" label="Country" isRequired>
-                <Select name="country" options={countries} placeholder="Country" isSearchable value={address.country} />
+                <Select
+                  name="country"
+                  onChange={this.handleCountryChange}
+                  options={countries}
+                  placeholder="Country"
+                  isSearchable
+                  value={address.country}
+                />
                 <ErrorsBlock names={["country"]} />
               </Field>
             </ColFull>
