@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
@@ -18,16 +18,16 @@ class CheckoutActionIncomplete extends Component {
     /**
      * Checkout process step number
      */
-    stepNumber: PropTypes.number.isRequired
+    stepNumber: PropTypes.number
   };
 
   render() {
     const { label, stepNumber } = this.props;
+    const step = stepNumber ? <Fragment>{stepNumber}.&nbsp;</Fragment> : null;
 
     return (
       <CheckoutActionIncompleteContainer>
-        <span>{stepNumber}.&nbsp;</span>
-        <span>{label}</span>
+        {step}{label}
       </CheckoutActionIncompleteContainer>
     );
   }
