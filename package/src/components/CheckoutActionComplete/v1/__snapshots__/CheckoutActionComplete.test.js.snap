@@ -182,6 +182,8 @@ exports[`basic snapshot 1`] = `
   <div
     className="c1"
   >
+    2
+    . 
     Shipping address
   </div>
   <div

@@ -15,7 +15,8 @@ test("basic snapshot", () => {
     components={{ ChangeButton: Button }}
     label="Shipping address"
     content={Address}
-    onChange={onClick}
+    onClickChangeButton={onClick}
+    stepNumber={2}
   />);
 
   const tree = component.toJSON();

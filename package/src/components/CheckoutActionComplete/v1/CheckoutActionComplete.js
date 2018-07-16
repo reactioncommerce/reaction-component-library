@@ -68,7 +68,7 @@ class CheckoutActionComplete extends Component {
     /**
      * Component to pass down to show as content
      */
-    content: PropTypes.instanceOf(Element),
+    content: PropTypes.node,
     /**
      * Label of Action
      */
