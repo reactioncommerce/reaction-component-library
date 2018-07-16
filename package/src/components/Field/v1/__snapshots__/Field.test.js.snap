@@ -29,10 +29,10 @@ exports[`renders with help text 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   outline: none;
-  padding: 0.75rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   position: relative;
 }
 
@@ -45,6 +45,7 @@ exports[`renders with help text 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
+  font-size: inherit;
   line-height: 1;
   outline: none;
 }
@@ -157,10 +158,10 @@ exports[`renders with label 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   outline: none;
-  padding: 0.75rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   position: relative;
 }
 
@@ -173,6 +174,7 @@ exports[`renders with label 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
+  font-size: inherit;
   line-height: 1;
   outline: none;
 }
@@ -276,10 +278,10 @@ exports[`renders with no help text 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   outline: none;
-  padding: 0.75rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   position: relative;
 }
 
@@ -292,6 +294,7 @@ exports[`renders with no help text 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
+  font-size: inherit;
   line-height: 1;
   outline: none;
 }
@@ -389,10 +392,10 @@ exports[`renders with no label 1`] = `
   -ms-flex-direction: row;
   flex-direction: row;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1;
   outline: none;
-  padding: 0.75rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   position: relative;
 }
 
@@ -405,6 +408,7 @@ exports[`renders with no label 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
+  font-size: inherit;
   line-height: 1;
   outline: none;
 }

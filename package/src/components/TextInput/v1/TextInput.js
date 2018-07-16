@@ -170,6 +170,7 @@ const TextareaClearButton = styled.div`
   }
 `;
 
+/* eslint-disable max-len */
 const defaultClearIcon = (
   <svg
     version="1.1"
@@ -180,6 +181,7 @@ const defaultClearIcon = (
     <path d="M9.926 9.105l-2.105-2.105 2.105-2.105-0.82-0.82-2.105 2.105-2.105-2.105-0.82 0.82 2.105 2.105-2.105 2.105 0.82 0.82 2.105-2.105 2.105 2.105zM7 1.176c3.227 0 5.824 2.598 5.824 5.824s-2.598 5.824-5.824 5.824-5.824-2.598-5.824-5.824 2.598-5.824 5.824-5.824z" />
   </svg>
 );
+/* eslint-enable max-len */
 
 const stringDefaultEquals = (value1, value2) => (value1 || "") === (value2 || "");
 

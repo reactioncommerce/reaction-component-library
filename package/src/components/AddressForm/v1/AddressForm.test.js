@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow } from "enzyme";
 import AddressForm from "./AddressForm";
 
 test("basic snapshot", () => {

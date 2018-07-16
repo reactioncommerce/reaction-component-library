@@ -4,11 +4,8 @@ import { Form } from "reacto-form";
 import styled from "styled-components";
 import { applyTheme, getRequiredValidator } from "../../../utils";
 
-import Button from "../../Button/v1";
 import Field from "../../Field/v1";
 import ErrorsBlock from "../../ErrorsBlock/v1";
-import TextInput from "../../TextInput/v1";
-import Select from "../../Select/v1";
 
 const Grid = styled.div`
   display: flex;
@@ -74,22 +71,18 @@ class AddressForm extends Component {
       PhoneInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
       ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
-    countries: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string
-      })
-    ),
+    countries: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string
+    })),
     isCancellable: PropTypes.bool,
     onCancel: PropTypes.func,
     onCountryChange: PropTypes.func,
     onSubmit: PropTypes.func,
-    regions: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string
-      })
-    ),
+    regions: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string
+    })),
     saveButtonText: PropTypes.string
   };
 
@@ -105,15 +98,21 @@ class AddressForm extends Component {
       region: "",
       phone: ""
     },
+    components: {
+      ButtonComponent: "Button",
+      PhoneInputComponent: "Phone Input",
+      SelectInputComponent: "Select Input",
+      TextInputComponent: "Text Input"
+    },
     onCancel() {},
     onCountryChange() {},
     onSubmit() {},
     saveButtonText: "Save and continue"
   };
 
-  _form = null;
-
   state = {};
+
+  _form = null;
 
   handleCountryChange = (country) => {
     const { onCountryChange } = this.props;
