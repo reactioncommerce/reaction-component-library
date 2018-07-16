@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
@@ -77,10 +77,10 @@ class CheckoutActionComplete extends Component {
      * Onclick function to pass to the Button component. Not handled internally, directly passed
      */
     onClickChangeButton: PropTypes.func.isRequired,
-    /*
+    /**
      * Checkout process step number
      */
-    stepNumber: PropTypes.number.isRequired
+    stepNumber: PropTypes.number
   };
 
   handleOnChange = () => this.props.onClickChangeButton();
@@ -88,10 +88,12 @@ class CheckoutActionComplete extends Component {
   render() {
     const { components: { ChangeButton }, content, label, stepNumber } = this.props;
 
+    const step = stepNumber ? <Fragment>{stepNumber}.&nbsp;</Fragment> : null;
+
     return (
       <ActionContainer>
         <ActionTitle>
-          {stepNumber}.&nbsp;{label}
+          {step}{label}
         </ActionTitle>
         <ActionDetail>
           {content}

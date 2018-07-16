@@ -25,3 +25,25 @@ const Address = (
   />
 </div>
 ```
+
+#### Completed step without a step number
+```jsx
+const onClick = () => {};
+
+const Address = (
+  <div>
+    Ms. Jane Doe<br />
+    123 Main Street<br />
+    Anytown, USA 01776
+  </div>
+);
+
+<div>
+  <CheckoutActionComplete
+    components={{ChangeButton: Button}}
+    label="Shipping address"
+    content={Address}
+    onClickChangeButton={onClick}
+  />
+</div>
+```
