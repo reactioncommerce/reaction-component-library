@@ -39,6 +39,11 @@ const Actions = styled.div`
   }
 `;
 
+const ActionsSpacer = styled.div`
+  height: 10px;
+  width: 10px;
+`;
+
 const validator = getRequiredValidator(
   "country",
   "firstName",
@@ -100,6 +105,18 @@ class AddressForm extends Component {
 
   state = {};
 
+  handleCountryChange = (a) => {
+    console.log("handle country change", a);
+  };
+
+  handleCancel = (a) => {
+    console.log("handle cancel", a);
+  };
+
+  handleSubmit = (a) => {
+    console.log("handle submit", a);
+  };
+
   render() {
     const { address, countries, isCancellable, regions, saveButtonText } = this.props;
     return (
@@ -108,7 +125,7 @@ class AddressForm extends Component {
           ref={(formEl) => {
             this._form = formEl;
           }}
-          onSubmit={(data) => console.log("form submit", data)}
+          onSubmit={this.handleSubmit}
         >
           <Grid>
             <ColFull>
@@ -177,16 +194,12 @@ class AddressForm extends Component {
           </Grid>
           <Actions>
             {isCancellable ? (
-              <Button
-                actionType="secondary"
-                onClick={() => {
-                  this._form.reset();
-                }}
-                isFullWidth
-                isShortHeight
-              >
-                Cancel
-              </Button>
+              <Fragment>
+                <Button actionType="secondary" onClick={this.handleCancel} isFullWidth isShortHeight>
+                  Cancel
+                </Button>
+                <ActionsSpacer />
+              </Fragment>
             ) : null}
             <Button
               onClick={() => {
