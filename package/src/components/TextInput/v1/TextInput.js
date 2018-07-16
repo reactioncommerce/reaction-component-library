@@ -5,7 +5,7 @@ import { applyTheme } from "../../../utils";
 
 function applyThemeVariant(themeProp) {
   return (props) => {
-    const inputType = (props.isOnDarkBackground) ? "dark" : "default";
+    const inputType = props.isOnDarkBackground ? "dark" : "default";
     return applyTheme(`${themeProp}_${inputType}`);
   };
 }
@@ -58,6 +58,7 @@ const StyledInput = styled.input`
   box-sizing: border-box;
   color: inherit;
   flex-grow: 2;
+  font-size: inherit;
   line-height: ${applyTheme("inputLineHeight")};
   outline: none;
 
@@ -152,7 +153,7 @@ const TextareaClearButton = styled.div`
   cursor: pointer;
   display: inline-block;
   font-size: ${applyTheme("textareaClearButtonFontSize")};
-  height: ${applyTheme("textareaClearButtonFontSize")};;
+  height: ${applyTheme("textareaClearButtonFontSize")};
   margin: 0;
   padding: ${applyTheme("textareaIconPadding")};
   line-height: 0;
@@ -164,14 +165,23 @@ const TextareaClearButton = styled.div`
   }
 
   & span {
-    margin-left: .3125rem;
+    margin-left: 0.3125rem;
     vertical-align: middle;
   }
 `;
 
-const defaultClearIcon = <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" style={{ height: "100%", maxHeight: "100%", verticalAlign: "middle" }}><path d="M9.926 9.105l-2.105-2.105 2.105-2.105-0.82-0.82-2.105 2.105-2.105-2.105-0.82 0.82 2.105 2.105-2.105 2.105 0.82 0.82 2.105-2.105 2.105 2.105zM7 1.176c3.227 0 5.824 2.598 5.824 5.824s-2.598 5.824-5.824 5.824-5.824-2.598-5.824-5.824 2.598-5.824 5.824-5.824z" /></svg>;
+const defaultClearIcon = (
+  <svg
+    version="1.1"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 14 14"
+    style={{ height: "100%", maxHeight: "100%", verticalAlign: "middle" }}
+  >
+    <path d="M9.926 9.105l-2.105-2.105 2.105-2.105-0.82-0.82-2.105 2.105-2.105-2.105-0.82 0.82 2.105 2.105-2.105 2.105 0.82 0.82 2.105-2.105 2.105 2.105zM7 1.176c3.227 0 5.824 2.598 5.824 5.824s-2.598 5.824-5.824 5.824-5.824-2.598-5.824-5.824 2.598-5.824 5.824-5.824z" />
+  </svg>
+);
 
-const stringDefaultEquals = (value1, value2) => ((value1 || "") === (value2 || ""));
+const stringDefaultEquals = (value1, value2) => (value1 || "") === (value2 || "");
 
 class TextInput extends Component {
   static isFormInput = true;
@@ -264,12 +274,7 @@ class TextInput extends Component {
     /**
      * The HTML input type for the text input, the input only supports "email", "password", "text", "url" defaults to "text"
      */
-    type: PropTypes.oneOf([
-      "email",
-      "password",
-      "text",
-      "url"
-    ]),
+    type: PropTypes.oneOf(["email", "password", "text", "url"]),
     /**
      * Prepopulate the input's value
      */
@@ -280,8 +285,8 @@ class TextInput extends Component {
     hasBeenValidated: false,
     iconClear: defaultClearIcon,
     iconClearAccessibilityText: "Clear",
-    iconError: (<FontIcon className="fas fa-exclamation-triangle" />),
-    iconValid: (<FontIcon className="far fa-check-circle" />),
+    iconError: <FontIcon className="fas fa-exclamation-triangle" />,
+    iconValid: <FontIcon className="far fa-check-circle" />,
     isOnDarkBackground: false,
     isReadOnly: false,
     onChange() {},
@@ -357,11 +362,11 @@ class TextInput extends Component {
     }, 150);
 
     this.setValue(event.target.value, false);
-  }
+  };
 
   onButtonBlur = () => {
     this.setState({ isButtonFocused: false });
-  }
+  };
 
   onChange = (event) => {
     let { value } = event.target;
@@ -372,15 +377,15 @@ class TextInput extends Component {
 
   onInputFocus = () => {
     this.setState({ isInputFocused: true });
-  }
+  };
 
   onButtonFocus = () => {
     this.setState({ isButtonFocused: true });
-  }
+  };
 
   onClearValue = () => {
     this.setValue();
-  }
+  };
 
   getValue() {
     return this.cleanValue(this.state.value);
@@ -398,7 +403,7 @@ class TextInput extends Component {
 
   cleanValue(value) {
     const { shouldConvertEmptyStringToNull, shouldTrimValue } = this.props;
-    let outputValue = shouldTrimValue ? (value || "").trim() : (value || "");
+    let outputValue = shouldTrimValue ? (value || "").trim() : value || "";
     if (shouldConvertEmptyStringToNull && outputValue === "") outputValue = null;
     return outputValue;
   }
@@ -435,7 +440,7 @@ class TextInput extends Component {
   showClearButton() {
     const { isReadOnly } = this.props;
     const { isInputFocused, isButtonFocused } = this.state;
-    return (((this.getValue() && isInputFocused) || (this.getValue() && isButtonFocused)) && !isReadOnly);
+    return ((this.getValue() && isInputFocused) || (this.getValue() && isButtonFocused)) && !isReadOnly;
   }
 
   renderClearButton() {
@@ -457,18 +462,8 @@ class TextInput extends Component {
     }
 
     return (
-      <IconWrapper
-        errors={errors}
-        hasBeenValidated={hasBeenValidated}
-        isTextarea={shouldAllowLineBreaks}
-        value={value}
-      >
-        <ClearButton
-          onClick={this.onClearValue}
-          onFocus={this.onButtonFocus}
-          onBlur={this.onButtonBlur}
-          tabIndex={-1}
-        >
+      <IconWrapper errors={errors} hasBeenValidated={hasBeenValidated} isTextarea={shouldAllowLineBreaks} value={value}>
+        <ClearButton onClick={this.onClearValue} onFocus={this.onButtonFocus} onBlur={this.onButtonBlur} tabIndex={-1}>
           {iconClear}
           <span>{iconClearAccessibilityText}</span>
         </ClearButton>
@@ -477,14 +472,7 @@ class TextInput extends Component {
   }
 
   renderIcon() {
-    const {
-      shouldAllowLineBreaks,
-      errors,
-      hasBeenValidated,
-      icon, onIconClick,
-      iconValid,
-      iconError
-    } = this.props;
+    const { shouldAllowLineBreaks, errors, hasBeenValidated, icon, onIconClick, iconValid, iconError } = this.props;
     const { value } = this.state;
 
     let inputIcon;
@@ -510,7 +498,18 @@ class TextInput extends Component {
   }
 
   render() {
-    const { shouldAllowLineBreaks, className, isOnDarkBackground, errors, hasBeenValidated, isReadOnly, maxLength, name, placeholder, type } = this.props;
+    const {
+      shouldAllowLineBreaks,
+      className,
+      isOnDarkBackground,
+      errors,
+      hasBeenValidated,
+      isReadOnly,
+      maxLength,
+      name,
+      placeholder,
+      type
+    } = this.props;
     const { isButtonFocused, isInputFocused, value } = this.state;
     if (shouldAllowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.

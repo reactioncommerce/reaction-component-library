@@ -305,9 +305,9 @@ const inputStyles = {
   rui_inputColor_success: black55,
   rui_inputPlaceholderColor: black20,
   rui_inputFontFamily: "inherit",
-  rui_inputFontSize: fontSize14,
+  rui_inputFontSize: fontSize16,
   rui_inputLineHeight: flatLeading,
-  rui_inputVerticalPadding: baseUnit(1.2),
+  rui_inputVerticalPadding: baseUnit(0.8),
   rui_inputHorizontalPadding: baseUnit(1),
   rui_iconTop: baseUnit(1),
   rui_iconRight: baseUnit(1)
