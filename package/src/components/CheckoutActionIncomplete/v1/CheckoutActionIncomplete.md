@@ -7,3 +7,8 @@ The `CheckoutActionIncomplete` component will be used to display an incomplete s
 ```jsx
 <CheckoutActionIncomplete label="Shipping information" stepNumber={2}/>
 ```
+
+#### Without a step number
+```jsx
+<CheckoutActionIncomplete label="Shipping information" />
+```
