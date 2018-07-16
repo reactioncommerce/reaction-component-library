@@ -17,7 +17,7 @@ const countries = [
 ];
 
 const regions = [
-  { value: "LA", label: "Llouisiana" },
+  { value: "LA", label: "Louisiana" },
   { value: "CA", label: "California" }
 ];
 
