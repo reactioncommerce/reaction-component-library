@@ -3,6 +3,13 @@
 
 #### Basic Usage
 ```jsx
+const components = {
+ TextInputComponent: TextInput,
+ SelectInputComponent: Select,
+ PhoneInputComponent: TextInput,
+ ButtonComponent: Button
+};
+
 const countries = [
   { value: "US", label: "United State" },
   { value: "DE", label: "Germany" },
@@ -15,6 +22,7 @@ const regions = [
 ];
 
 <AddressForm
+  components={components}
   countries={countries}
   regions={regions}
   onSubmit={(address) => console.log(address)}
@@ -35,6 +43,13 @@ const address = {
  phone: "(504) 393-7303"
 }
 
+const components = {
+ TextInputComponent: TextInput,
+ SelectInputComponent: Select,
+ PhoneInputComponent: TextInput,
+ ButtonComponent: Button
+};
+
 const countries = [
   { value: "US", label: "United State" },
   { value: "DE", label: "Germany" },
@@ -54,6 +69,7 @@ const onCountryChange = (country) => {
 
 <AddressForm
   address={address}
+  components={components}
   countries={countries}
   regions={regions}
   onCountryChange={onCountryChange}

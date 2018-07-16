@@ -68,6 +68,12 @@ class AddressForm extends Component {
       region: PropTypes.string,
       phone: PropTypes.string
     }),
+    components: PropTypes.shape({
+      TextInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      SelectInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      PhoneInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    }),
     countries: PropTypes.arrayOf(
       PropTypes.shape({
         label: PropTypes.string,
@@ -125,7 +131,14 @@ class AddressForm extends Component {
   };
 
   render() {
-    const { address, countries, isCancellable, regions, saveButtonText } = this.props;
+    const {
+      address,
+      components: { TextInputComponent, SelectInputComponent, PhoneInputComponent, ButtonComponent },
+      countries,
+      isCancellable,
+      regions,
+      saveButtonText
+    } = this.props;
     return (
       <Fragment>
         <Form
@@ -138,7 +151,7 @@ class AddressForm extends Component {
           <Grid>
             <ColFull>
               <Field name="country" label="Country" isRequired>
-                <Select
+                <SelectInputComponent
                   name="country"
                   onChange={this.handleCountryChange}
                   options={countries}
@@ -152,33 +165,33 @@ class AddressForm extends Component {
 
             <ColHalf>
               <Field name="firstName" label="First Name" isRequired>
-                <TextInput name="firstName" placeholder="First Name" value={address.firstName} />
+                <TextInputComponent name="firstName" placeholder="First Name" value={address.firstName} />
                 <ErrorsBlock names={["firstName"]} />
               </Field>
             </ColHalf>
             <ColHalf>
               <Field name="lastName" label="Last Name" isRequired>
-                <TextInput name="lastName" placeholder="Last Name" value={address.lastName} />
+                <TextInputComponent name="lastName" placeholder="Last Name" value={address.lastName} />
                 <ErrorsBlock names={["lastName"]} />
               </Field>
             </ColHalf>
 
             <ColFull>
               <Field name="address1" label="Address" isRequired>
-                <TextInput name="address1" placeholder="Address" value={address.address1} />
+                <TextInputComponent name="address1" placeholder="Address" value={address.address1} />
                 <ErrorsBlock names={["address1"]} />
               </Field>
             </ColFull>
 
             <ColFull>
               <Field name="address2" label="Address">
-                <TextInput name="address2" placeholder="Address" value={address.address2} />
+                <TextInputComponent name="address2" placeholder="Address" value={address.address2} />
               </Field>
             </ColFull>
 
             <ColFull>
               <Field name="city" label="City">
-                <TextInput name="city" placeholder="City" value={address.city} />
+                <TextInputComponent name="city" placeholder="City" value={address.city} />
                 <ErrorsBlock names={["city"]} />
               </Field>
             </ColFull>
@@ -186,23 +199,29 @@ class AddressForm extends Component {
             <ColHalf>
               <Field name="region" label="Region" isRequired>
                 {regions && regions.length > 1 ? (
-                  <Select name="region" options={regions} placeholder="Region" isSearchable value={address.region} />
+                  <SelectInputComponent
+                    name="region"
+                    options={regions}
+                    placeholder="Region"
+                    isSearchable
+                    value={address.region}
+                  />
                 ) : (
-                  <TextInput name="region" placeholder="Region" value={address.region} />
+                  <TextInputComponent name="region" placeholder="Region" value={address.region} />
                 )}
                 <ErrorsBlock names={["region"]} />
               </Field>
             </ColHalf>
             <ColHalf>
               <Field name="postal" label="Postal Code" isRequired>
-                <TextInput name="postal" placeholder="Postal Code" value={address.postal} />
+                <TextInputComponent name="postal" placeholder="Postal Code" value={address.postal} />
                 <ErrorsBlock names={["postal"]} />
               </Field>
             </ColHalf>
 
             <ColFull>
               <Field name="phone" label="Phone" isRequired>
-                <TextInput name="phone" placeholder="Phone" value={address.phone} />
+                <PhoneInputComponent name="phone" placeholder="Phone" value={address.phone} />
                 <ErrorsBlock names={["phone"]} />
               </Field>
             </ColFull>
@@ -210,13 +229,13 @@ class AddressForm extends Component {
           <Actions>
             {isCancellable ? (
               <Fragment>
-                <Button actionType="secondary" onClick={this.handleCancel} isFullWidth isShortHeight>
+                <ButtonComponent actionType="secondary" onClick={this.handleCancel} isFullWidth isShortHeight>
                   Cancel
-                </Button>
+                </ButtonComponent>
                 <ActionsSpacer />
               </Fragment>
             ) : null}
-            <Button
+            <ButtonComponent
               onClick={() => {
                 this._form.submit();
               }}
@@ -224,7 +243,7 @@ class AddressForm extends Component {
               isShortHeight
             >
               {saveButtonText}
-            </Button>
+            </ButtonComponent>
           </Actions>
         </Form>
       </Fragment>
