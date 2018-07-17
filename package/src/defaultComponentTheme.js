@@ -359,6 +359,20 @@ const checkoutActions = {
   rui_checkoutActionCompleteMobileMargin: `${baseUnit(1)}`
 };
 
+// checkbox
+const checkbox = {
+  rui_checkboxHeightAndWidth: `${baseUnit(2)}`,
+  rui_checkboxBorderColor: coolGrey500,
+  rui_checkboxBorderRadius: "2px",
+  rui_checkboxBorderWidth: "2px",
+  rui_checkboxLabelSpacing: `${baseUnit(3)}`,
+  rui_checkboxLabelFontSize: fontSize14,
+  rui_checkboxIconColor: coolGrey500,
+  rui_checkboxIconSize: "0.875rem",
+  rui_checkboxIcon: "\f00c",
+  rui_checkboxVerticalSpacing: `${baseUnit(2)}`
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -370,5 +384,6 @@ export default {
   ...helpTextStyles,
   ...errorsBlockStyles,
   ...cartEmptyMessage,
-  ...checkoutActions
+  ...checkoutActions,
+  ...checkbox
 };

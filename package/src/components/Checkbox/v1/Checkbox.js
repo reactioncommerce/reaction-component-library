@@ -1,12 +1,46 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import uniqueId from "lodash.uniqueid";
-// import styled from "styled-components";
-// import { applyTheme } from "../../../utils";
+import styled from "styled-components";
+import { applyTheme } from "../../../utils";
 
-// const StyledDiv = styled.div`
-//   color: #333333;
-// `;
+const StyledDiv = styled.div`
+  margin-bottom: ${applyTheme("checkboxVerticalSpacing")};
+`;
+
+const StyledInput = styled.input`
+  opacity: 0;
+`;
+
+const StyledLabel = styled.label`
+  position: relative;
+  display: inline-block;
+  font-size: ${applyTheme("checkboxLabelFontSize")};
+  padding-left: ${applyTheme("checkboxLabelSpacing")};
+  &::before,
+  &::after {
+    position: absolute;
+  }
+  &::before {
+    content: " ";
+    display: inline-block;
+    height: ${applyTheme("checkboxHeightAndWidth")};
+    width: ${applyTheme("checkboxHeightAndWidth")};
+    border: ${applyTheme("checkboxBorderWidth")} solid ${applyTheme("checkboxBorderColor")};
+    border-radius: ${applyTheme("checkboxBorderRadius")};
+    left: 0;
+    top: -3px;
+  }
+  &::after {
+    content: "\f00c";
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: ${applyTheme("checkboxIconSize")};
+    color: ${applyTheme("checkboxIconColor")};
+    left: 5px;
+    top: 2px;
+  }
+`;
 
 class Checkbox extends Component {
   static propTypes = {
@@ -23,8 +57,8 @@ class Checkbox extends Component {
     className: undefined,
     isReadOnly: false,
     name: undefined,
-    onChange() {},
-    onChanging() {},
+    onChange() { },
+    onChanging() { },
     value: undefined
   };
 
@@ -88,19 +122,19 @@ class Checkbox extends Component {
     const { id, value } = this.state;
 
     return (
-      <div className={className}>
-        <label htmlFor={id}>
-          <input
-            checked={value === true}
-            id={id}
-            onChange={this.onChange}
-            disabled={isReadOnly}
-            type="checkbox"
-            value="true"
-          />
+      <StyledDiv className={className}>
+        <StyledInput
+          checked={value === true}
+          id={id}
+          onChange={this.onChange}
+          disabled={isReadOnly}
+          type="checkbox"
+          value="true"
+        />
+        <StyledLabel htmlFor={id}>
           {label}
-        </label>
-      </div>
+        </StyledLabel>
+      </StyledDiv>
     );
   }
 }
