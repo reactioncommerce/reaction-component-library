@@ -10,12 +10,8 @@ exports[`basic snapshot 1`] = `
 <div
   className="c0"
 >
-  <span>
-    2
-    . 
-  </span>
-  <span>
-    Shipping information
-  </span>
+  2
+  . 
+  Shipping information
 </div>
 `;
