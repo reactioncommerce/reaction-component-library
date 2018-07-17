@@ -16,6 +16,9 @@ const StyledInput = styled.input`
   &:checked + label::after {
     content: "\f00c";
   }
+  &:focus + label::before {
+    outline: ${applyTheme("checkboxFocusStyle")};
+  }
 `;
 
 const StyledLabel = styled.label`
