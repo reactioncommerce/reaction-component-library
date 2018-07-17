@@ -73,7 +73,7 @@ class MiniCart extends Component {
       /**
        * CartItem data. This is passed to CartItemComponent, which may require some props.
        */
-      items: PropTypes.arrayOf(PropTypes.object).isRequired,
+      items: PropTypes.arrayOf(PropTypes.object).isRequired
     }),
     /**
      * Provided child components to display item data
