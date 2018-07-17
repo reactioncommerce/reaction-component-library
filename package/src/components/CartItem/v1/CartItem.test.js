@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import CartItem from "./CartItem";
 
 test("basic snapshot with empty props", () => {
-  const component = renderer.create(<CartItem item={{ price: {} }} />);
+  const component = renderer.create(<CartItem item={{ price: { displayAmount: "$9.99" } }} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -12,17 +12,22 @@ test("basic snapshot with empty props", () => {
 test("basic snapshot with props", () => {
   const mockItem = {
     attributes: [
-      { label: "vendor", value: "Patagonia" },
       { label: "Color", value: "Red" },
       { label: "Size", value: "Medium" }
     ],
+    compareAtPrice: {
+      displayAmount: "$45.00"
+    },
     currentQuantity: 3,
-    imageUrl: "//placehold.it",
+    imageURLs: {
+      small: "//placehold.it/150",
+      thumbnail: "//placehold.it/100"
+    },
     price: {
-      displayPrice: "$20.00",
-      compareAtPrice: "$45.00"
+      displayAmount: "$20.00"
     },
     productSlug: "/product-slug",
+    productVendor: "Patagonia",
     title: "A Great Product",
     quantity: 2
   };
