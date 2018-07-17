@@ -113,7 +113,7 @@
     lodash "^4.17.5"
     to-fast-properties "^2.0.0"
 
-"@material-ui/core@1.4.0":
+"@material-ui/core@^1.4.0":
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/@material-ui/core/-/core-1.4.0.tgz#e535fef84576b096c46e1fb7d6c4c61895155fd3"
   dependencies:
@@ -3689,7 +3689,7 @@ math-random@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/math-random/-/math-random-1.0.1.tgz#8b3aac588b8a66e4975e3cdea67f7bb329601fac"
 
-mdi-material-ui@5.2.0:
+mdi-material-ui@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-5.2.0.tgz#494b4e2881605ebcff6510f31f3c386f6b12a151"
 
