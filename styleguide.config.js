@@ -325,7 +325,7 @@ module.exports = {
   pagePerSection: true,
   showCode: true,
   showUsage: true,
-  serverPort: 4040,
+  serverPort: Number(process.env.PORT),
   assetsDir: "styleguide/src/assets/",
   template: "styleguide/src/index.html"
   // handlers(componentPath) {
