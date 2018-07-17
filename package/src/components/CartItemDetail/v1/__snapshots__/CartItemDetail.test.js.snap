@@ -277,6 +277,5 @@ exports[`basic snapshot without props 1`] = `
       href={undefined}
     />
   </h3>
-  
 </div>
 `;
