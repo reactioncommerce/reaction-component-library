@@ -105,7 +105,7 @@ class CartItemDetail extends Component {
   };
 
   renderAttributes() {
-    let { attributes, isMiniCart, productVendor } = this.props;
+    const { attributes, isMiniCart, productVendor } = this.props;
 
     if ((!attributes || attributes.length === 0) && !productVendor) return null;
 
@@ -128,7 +128,7 @@ class CartItemDetail extends Component {
   }
 
   render() {
-    const { attributes, productSlug, title } = this.props;
+    const { productSlug, title } = this.props;
     return (
       <Detail>
         <Title>
