@@ -1,5 +1,12 @@
 import get from "lodash.get";
 
+/**
+ *
+ * @method getRequiredValidator
+ * @summary
+ * @param {String} requiredFields - name of required field you want to validate
+ * @return {Object[]} errors - array of field error objects
+ */
 export default function getRequiredValidator(...requiredFields) {
   return async (obj) => {
     const errors = [];

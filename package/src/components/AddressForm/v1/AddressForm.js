@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Form } from "reacto-form";
 import styled from "styled-components";
-import { applyTheme, getRequiredValidator } from "../../../utils";
+import { applyTheme, getRequiredValidator, getPhoneNumberValidator } from "../../../utils";
 
 import Field from "../../Field/v1";
 import ErrorsBlock from "../../ErrorsBlock/v1";
@@ -41,7 +41,7 @@ const ActionsSpacer = styled.div`
   width: 10px;
 `;
 
-const validator = getRequiredValidator(
+const requiredValidator = getRequiredValidator(
   "country",
   "firstName",
   "lastName",
@@ -51,6 +51,10 @@ const validator = getRequiredValidator(
   "postal",
   "region"
 );
+
+const phoneValidator = getPhoneNumberValidator("phone");
+
+const validator = async () => await Promise.all(requiredValidator, phoneValidator);
 
 class AddressForm extends Component {
   static propTypes = {
@@ -71,18 +75,22 @@ class AddressForm extends Component {
       PhoneInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
       ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
-    countries: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string,
-      value: PropTypes.string
-    })),
+    countries: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string,
+        value: PropTypes.string
+      })
+    ),
     isCancellable: PropTypes.bool,
     onCancel: PropTypes.func,
     onCountryChange: PropTypes.func,
     onSubmit: PropTypes.func,
-    regions: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string,
-      value: PropTypes.string
-    })),
+    regions: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string,
+        value: PropTypes.string
+      })
+    ),
     saveButtonText: PropTypes.string
   };
 
@@ -145,7 +153,7 @@ class AddressForm extends Component {
             this._form = formEl;
           }}
           onSubmit={this.handleSubmit}
-          validator={validator}
+          validator={requiredValidator}
         >
           <Grid>
             <ColFull>
