@@ -19,6 +19,16 @@ const StyledInput = styled.input`
   &:focus + label::before {
     outline: ${applyTheme("checkboxFocusStyle")};
   }
+  &:disabled + label {
+    opacity: ${applyTheme("checkboxDisabledOpacity")};
+  }
+  &:disabled + label::before {
+    background: ${applyTheme("checkboxDisabledColor")};
+    opacity: ${applyTheme("checkboxDisabledOpacity")};
+  }
+  &:disabled + label:hover {
+    cursor: not-allowed;
+  }
 `;
 
 const StyledLabel = styled.label`
