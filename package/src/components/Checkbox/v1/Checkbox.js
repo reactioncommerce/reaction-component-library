@@ -10,6 +10,12 @@ const StyledDiv = styled.div`
 
 const StyledInput = styled.input`
   opacity: 0;
+  + label::after {
+    content: none;
+  }
+  &:checked + label::after {
+    content: "\f00c";
+  }
 `;
 
 const StyledLabel = styled.label`
@@ -17,6 +23,9 @@ const StyledLabel = styled.label`
   display: inline-block;
   font-size: ${applyTheme("checkboxLabelFontSize")};
   padding-left: ${applyTheme("checkboxLabelSpacing")};
+  &:hover {
+    cursor: pointer;
+  }
   &::before,
   &::after {
     position: absolute;
