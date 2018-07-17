@@ -231,7 +231,7 @@ module.exports = {
           left: 24,
           position: "absolute",
           transform: "rotate(-45deg)",
-          top: "52%",
+          top: "50%",
           width: 3,
           zIndex: 1
         }
