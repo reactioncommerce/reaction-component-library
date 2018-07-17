@@ -1,3 +1,6 @@
 ### PhoneNumberInput
 
-Document component here. See https://react-styleguidist.js.org/docs/documenting.html
+#### Basic Usage
+```jsx
+<PhoneNumberInput />
+```

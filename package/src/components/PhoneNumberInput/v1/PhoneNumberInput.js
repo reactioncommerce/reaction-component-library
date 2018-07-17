@@ -1,25 +1,25 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
-import { applyTheme } from "../../../utils";
-
-const StyledDiv = styled.div`
-  color: #333333;
-`;
+import TextInput from "../../TextInput/v1";
 
 class PhoneNumberInput extends Component {
-  static propTypes = {
+  static propTypes = {};
 
+  static defaultProps = {};
+
+  state = {
+    value: this.props.value || ""
   };
 
-  static defaultProps = {
-
+  handdleChanging = (value) => {
+    if (!value) return;
+    const trimedValue = value.replace(/\D/g, "");
+    this.setState({ value: trimedValue });
   };
 
   render() {
-    return (
-      <StyledDiv>TEST</StyledDiv>
-    );
+    const { value } = this.state;
+    return <TextInput onChanging={this.handdleChanging} value={value} />;
   }
 }
 
