@@ -133,25 +133,6 @@ exports[`basic snapshot with empty props 1`] = `
 <div
   className="c0"
 >
-  <a
-    href={undefined}
-  >
-    <picture>
-      <source
-        media="(min-width: 768px)"
-        srcSet="undefined/150"
-      />
-      <img
-        alt=""
-        src="undefined/100"
-        style={
-          Object {
-            "display": "block",
-          }
-        }
-      />
-    </picture>
-  </a>
   <div
     className="c1"
   >
@@ -166,8 +147,9 @@ exports[`basic snapshot with empty props 1`] = `
         >
           <Cart Item Detail
             attributes={undefined}
-            isMiniCart={undefined}
+            isMiniCart={false}
             productSlug={undefined}
+            productVendor={undefined}
             title={undefined}
           />
           <Cart Item Stock Warning
@@ -196,8 +178,8 @@ exports[`basic snapshot with empty props 1`] = `
     >
       <Cart Item Price
         displayCompareAtPrice={undefined}
-        displayPrice={undefined}
-        hasPriceBottom={undefined}
+        displayPrice="$9.99"
+        hasPriceBottom={false}
       />
     </div>
   </div>
