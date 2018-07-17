@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.10.2
+version: v1.12.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:braces:20180219':
@@ -92,120 +92,53 @@ ignore:
         reason: None given
         expires: '2018-04-05T20:56:49.878Z'
   'npm:hoek:20180212':
-    - react-scripts > fsevents > node-pre-gyp > hawk > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.878Z'
-      boom > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > hawk > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.878Z'
-      cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.878Z'
-      hawk > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > fsevents > node-pre-gyp > hawk > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.878Z'
-      hawk > boom > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.878Z'
-      hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      node-pre-gyp > hawk > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      node-pre-gyp > hawk > boom > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      node-pre-gyp > hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      node-pre-gyp > hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      node-pre-gyp > request > hawk > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > request > hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      node-pre-gyp > request > hawk > boom > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > fsevents > node-pre-gyp > request > hawk > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      node-pre-gyp > request > hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-      node-pre-gyp > request > hawk > cryptiles > boom > hoek:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
-    - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > request > hawk > boom > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-    - react-scripts > fsevents > node-pre-gyp > hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-    - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-    - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.879Z'
-    - react-scripts > fsevents > node-pre-gyp > request > hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.880Z'
-    - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > request > hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.880Z'
-    - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > request > hawk > sntp > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.880Z'
-    - react-scripts > fsevents > node-pre-gyp > request > hawk > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.880Z'
-    - react-scripts > webpack-dev-server > chokidar > fsevents > node-pre-gyp > request > hawk > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.880Z'
-    - react-scripts > webpack > watchpack > chokidar > fsevents > node-pre-gyp > request > hawk > hoek:
-        reason: None given
-        expires: '2018-04-05T20:56:49.880Z'
+    - '*': null
+    - reason: >-
+        No direct dependency upgrade available. Issue filed here:
+        https://github.com/tus/tus-node-server/issues/119
+    - expires: '2018-08-26T20:23:03.274Z'
+    - hawk > boom > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - hawk > sntp > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - hawk > cryptiles > boom > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - node-pre-gyp > hawk > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - boom > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - node-pre-gyp > hawk > sntp > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - node-pre-gyp > request > hawk > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - node-pre-gyp > request > hawk > boom > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - node-pre-gyp > request > hawk > sntp > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - node-pre-gyp > hawk > boom > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.056Z'
+    - cryptiles > boom > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
+    - hawk > hoek:
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
   'npm:node-forge:20180226':
     - react-scripts > webpack-dev-server > selfsigned > node-forge:
         reason: None given
@@ -226,18 +159,18 @@ ignore:
         expires: '2018-04-26T14:37:00.839Z'
   'npm:deep-extend:20180409':
     - node-pre-gyp > rc > deep-extend:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
   'npm:sshpk:20180409':
     - node-pre-gyp > request > http-signature > sshpk:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
   'npm:stringstream:20180511':
     - node-pre-gyp > request > stringstream:
-        reason: None given
-        expires: '2018-07-15T03:19:00.834Z'
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:17:03.057Z'
   'npm:ua-parser-js:20180227':
     - '*':
-        reason: Waiting on deps to update to the latest fbjs version
-        expires: 2018-07-15T00:00:00.000Z
+        reason: No direct dependency upgrade available
+        expires: '2018-08-16T20:22:21.238Z'
 patch: {}
