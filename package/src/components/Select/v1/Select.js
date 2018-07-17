@@ -4,6 +4,11 @@ import PropTypes from "prop-types";
 import ReactSelect from "react-select";
 import { applyTheme, CustomPropTypes } from "../../../utils";
 
+// This is currently mostly to ensure that this stays above our code examples in the
+// style guide UI, which have zIndexes of 2 and 3 in some places. This might need to
+// be taken from the theme eventually, though, if people have problems in other places.
+const MENU_Z_INDEX = 4;
+
 const nullDefaultEquals = (value1, value2) => ((value1 || null) === (value2 || null));
 
 // Rather than pass through all props to react-select, we'll keep a whitelist
@@ -82,6 +87,12 @@ function getCustomStyles(props) {
         ...base,
         borderColor: getInputBorderColor({ ...props, isFocused: state.isFocused }),
         borderRadius: getInputBorderRadius(props)
+      };
+    },
+    menu(base) {
+      return {
+        ...base,
+        zIndex: MENU_Z_INDEX
       };
     }
   };
@@ -434,7 +445,8 @@ class Select extends Component {
   }
 
   render() {
-    const { isReadOnly, options, value } = this.props;
+    const { isReadOnly, options } = this.props;
+    const { value } = this.state;
 
     // Unfortunately right now, react-select optgroup support is just a tad different from the
     // composable form spec. Might be able to do a PR to get react-select updated.
