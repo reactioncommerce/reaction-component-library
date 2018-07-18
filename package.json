@@ -94,6 +94,7 @@
     "suiteName": "jest-tests"
   },
   "dependencies": {
+    "lodash.uniqueid": "^4.0.1",
     "prop-types": "15.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
