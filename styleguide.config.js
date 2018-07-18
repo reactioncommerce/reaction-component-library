@@ -246,6 +246,11 @@ module.exports = {
           borderColor: "#ebebeb"
         }
       }
+    },
+    Code: {
+      code: {
+        whiteSpace: "initial"
+      }
     }
   },
   sections: [
