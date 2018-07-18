@@ -98,6 +98,12 @@ COPY --chown=node ./.reaction/yarnrc-docker.template /home/node/.yarnrc
 WORKDIR $APP_SOURCE_DIR
 COPY --chown=node . $APP_SOURCE_DIR
 
+RUN set -ex; \
+    cd package && yarn install \
+      --frozen-lockfile \
+      --ignore-scripts \
+      --no-cache;
+
 # Important: Make sure we're the "node" user before we begin doing things because
 # our tools use "/home/node" as the HOME dir.
 USER node
