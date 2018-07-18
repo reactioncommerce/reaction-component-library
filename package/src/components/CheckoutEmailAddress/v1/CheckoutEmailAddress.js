@@ -15,8 +15,8 @@ const StyledSpan = styled.span`
 
 class CheckoutEmailAddress extends Component {
   static propTypes = {
-    emailAddress: PropTypes.string,
-    isAccountEmail: PropTypes.bool
+    emailAddress: PropTypes.string.isRequired,
+    isAccountEmail: PropTypes.bool.isRequired
   };
 
   renderAccountEmail = () => {
