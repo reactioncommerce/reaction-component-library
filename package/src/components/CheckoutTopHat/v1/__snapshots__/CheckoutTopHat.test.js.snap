@@ -2,6 +2,7 @@
 
 exports[`render Top Hat with message 1`] = `
 .c0 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   background-color: #f5f5f5;
   display: -webkit-box;
   display: -webkit-flex;
