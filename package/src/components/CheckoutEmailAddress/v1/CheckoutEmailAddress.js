@@ -5,6 +5,7 @@ import { applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
   color: ${applyTheme("color_coolGrey500")};
+  font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
 `;
 
