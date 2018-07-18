@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+<div>
+  <img
+    alt="Reaction"
+    src="http://placehold.it/60"
+  />
+</div>
+`;
