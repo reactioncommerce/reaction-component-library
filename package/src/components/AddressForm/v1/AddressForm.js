@@ -75,22 +75,18 @@ class AddressForm extends Component {
       PhoneInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
       ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
-    countries: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string
-      })
-    ),
+    countries: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string
+    })),
     isCancellable: PropTypes.bool,
     onCancel: PropTypes.func,
     onCountryChange: PropTypes.func,
     onSubmit: PropTypes.func,
-    regions: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string,
-        value: PropTypes.string
-      })
-    ),
+    regions: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.string
+    })),
     saveButtonText: PropTypes.string
   };
 
