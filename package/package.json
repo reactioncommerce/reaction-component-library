@@ -28,15 +28,13 @@
     ]
   },
   "dependencies": {
+    "@material-ui/core": "^1.4.0",
     "lodash.debounce": "^4.0.8",
     "lodash.get": "^4.4.2",
     "lodash.isempty": "^4.4.0",
     "lodash.isequal": "^4.5.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
-    "react-select": "2.0.0-alpha.8",
-    "reacto-form": "^0.0.2",
-    "styled-components": "^3.1.6"
+    "mdi-material-ui": "^5.2.0",
+    "react-select": "2.0.0-alpha.8"
   },
   "devDependencies": {
     "@reactioncommerce/eslint-config": "^1.0.1",
@@ -72,5 +70,10 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "peerDependencies": {
+    "prop-types": "^15.6.2",
+    "react": "^16.4.1",
+    "styled-components": "^3.3.3"
   }
 }
