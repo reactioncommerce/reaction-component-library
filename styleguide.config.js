@@ -289,6 +289,11 @@ module.exports = {
           name: "Checkout"
         }),
         generateSection({
+          componentNames: ["ShopLogo"],
+          content: "styleguide/src/sections/General.md",
+          name: "General"
+        }),
+        generateSection({
           componentNames: ["Price", "StockWarning"],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
