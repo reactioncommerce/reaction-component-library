@@ -7,9 +7,7 @@ The CheckoutActionComplete component will show when a checkout action has been c
 ```jsx
 const cart = {};
 const isLoading = false;
-
 const onClick = () => {};
-
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -18,32 +16,24 @@ const Address = (
   </div>
 );
 
-
-const activeAction = "This is a placeholder for when we have active actions";
-
 <div>
   <CheckoutAction
     ActiveStepComponent="Placeholder: active step isn't yet available"
     CompleteStepComponent={
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
-        label="Shipping address"
         content={Address}
         onClickChangeButton={onClick}
-        stepNumber={2}
       />
     }
     IncompleteStepComponent={
-      <CheckoutActionIncomplete
-        label="Shipping address"
-        stepNumber={2}
-      />
+      <CheckoutActionIncomplete />
     }
     cart={cart}
-    components={CheckoutActionComplete}
     isLoading={isLoading}
+    label="Shipping address"
     status="active"
-    stepNumber={2}
+    stepNumber={8}
   />
 </div>
 ```
@@ -52,9 +42,7 @@ const activeAction = "This is a placeholder for when we have active actions";
 ```jsx
 const cart = {};
 const isLoading = false;
-
 const onClick = () => {};
-
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -63,39 +51,24 @@ const Address = (
   </div>
 );
 
-const completeAction = (
-  <CheckoutActionComplete
-    components={{ChangeButton: Button}}
-    label="Shipping address"
-    content={Address}
-    onClickChangeButton={onClick}
-    stepNumber={2}
-  />
-);
-
 <div>
   <CheckoutAction
     ActiveStepComponent="Placeholder: active step isn't yet available"
     CompleteStepComponent={
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
-        label="Shipping address"
         content={Address}
         onClickChangeButton={onClick}
-        stepNumber={2}
       />
     }
     IncompleteStepComponent={
-      <CheckoutActionIncomplete
-        label="Shipping address"
-        stepNumber={2}
-      />
+      <CheckoutActionIncomplete />
     }
     cart={cart}
-    components={CheckoutActionComplete}
     isLoading={isLoading}
+    label="Shipping address"
     status="complete"
-    stepNumber={2}
+    stepNumber={8}
   />
 </div>
 ```
@@ -104,9 +77,7 @@ const completeAction = (
 ```jsx
 const cart = {};
 const isLoading = false;
-
 const onClick = () => {};
-
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -115,37 +86,24 @@ const Address = (
   </div>
 );
 
-
-const incompleteAction = (
-  <CheckoutActionIncomplete
-    label="Shipping address"
-    stepNumber={2}
-  />
-);
-
 <div>
   <CheckoutAction
     ActiveStepComponent="Placeholder: active step isn't yet available"
     CompleteStepComponent={
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
-        label="Shipping address"
         content={Address}
         onClickChangeButton={onClick}
-        stepNumber={2}
       />
     }
     IncompleteStepComponent={
-      <CheckoutActionIncomplete
-        label="Shipping address"
-        stepNumber={2}
-      />
+      <CheckoutActionIncomplete />
     }
     cart={cart}
-    components={CheckoutActionComplete}
     isLoading={isLoading}
+    label="Shipping address"
     status="incomplete"
-    stepNumber={2}
+    stepNumber={8}
   />
 </div>
 ```
