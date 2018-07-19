@@ -13,10 +13,10 @@ const TopHatContainer = styled.div`
 `;
 
 const TopHatMessage = styled.div`
+  display: flex;
   align-items: center;
   color: ${applyTheme("color_coolGrey500")};
-  display: flex;
-  font-size: 12px;
+  font-size: ${applyTheme("font_size_small")};
   font-weight: ${applyTheme("font_weight_bold")};
 `;
 
