@@ -2340,6 +2340,10 @@ clone-response@1.0.2:
   dependencies:
     mimic-response "^1.0.0"
 
+clone@2.1.1:
+  version "2.1.1"
+  resolved "https://registry.npmjs.org/clone/-/clone-2.1.1.tgz#d217d1e961118e3ac9a4b8bba3285553bf647cdb"
+
 clone@^1.0.2:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.3.tgz#298d7e2231660f40c003c2ed3140decf3f53085f"
@@ -6354,6 +6358,18 @@ lodash.flattendeep@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
 
+lodash.get@4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+
+lodash.isempty@4.4.0:
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/lodash.isempty/-/lodash.isempty-4.4.0.tgz#6f86cbedd8be4ec987be9aaf33c9684db1b31e7e"
+
+lodash.isequal@4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.isequal/-/lodash.isequal-4.5.0.tgz#415c4478f2bcc30120c22ce10ed3226f7d3e18e0"
+
 lodash.isfunction@^3.0.8:
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/lodash.isfunction/-/lodash.isfunction-3.0.9.tgz#06de25df4db327ac931981d1bdb067e5af68d051"
@@ -6385,6 +6401,10 @@ lodash.omit@4.5.0:
 lodash.pick@4.4.0:
   version "4.4.0"
   resolved "https://registry.npmjs.org/lodash.pick/-/lodash.pick-4.4.0.tgz#52f05610fff9ded422611441ed1fc123a03001b3"
+
+lodash.set@4.3.2:
+  version "4.3.2"
+  resolved "https://registry.npmjs.org/lodash.set/-/lodash.set-4.3.2.tgz#d8757b1da807dde24816b0d6a84bea1a76230b23"
 
 lodash.snakecase@4.1.1:
   version "4.1.1"
@@ -6423,13 +6443,33 @@ lodash.topairs@4.3.0:
   version "4.3.0"
   resolved "https://registry.npmjs.org/lodash.topairs/-/lodash.topairs-4.3.0.tgz#3b6deaa37d60fb116713c46c5f17ea190ec48d64"
 
+lodash.topath@^4.5.2:
+  version "4.5.2"
+  resolved "https://registry.npmjs.org/lodash.topath/-/lodash.topath-4.5.2.tgz#3616351f3bba61994a0931989660bd03254fd009"
+
+lodash.union@^4.6.0:
+  version "4.6.0"
+  resolved "https://registry.npmjs.org/lodash.union/-/lodash.union-4.6.0.tgz#48bb5088409f16f1821666641c44dd1aaae3cd88"
+
 lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
+lodash.uniqueid@4.0.1:
+  version "4.0.1"
+  resolved "https://registry.npmjs.org/lodash.uniqueid/-/lodash.uniqueid-4.0.1.tgz#3268f26a7c88e4f4b1758d679271814e31fa5b26"
+
+lodash.unset@4.5.2:
+  version "4.5.2"
+  resolved "https://registry.npmjs.org/lodash.unset/-/lodash.unset-4.5.2.tgz#370d1d3e85b72a7e1b0cdf2d272121306f23e4ed"
+
 lodash.upperfirst@4.3.1:
   version "4.3.1"
   resolved "https://registry.npmjs.org/lodash.upperfirst/-/lodash.upperfirst-4.3.1.tgz#1365edf431480481ef0d1c68957a5ed99d49f7ce"
+
+lodash.without@^4.4.0:
+  version "4.4.0"
+  resolved "https://registry.npmjs.org/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
 
 "lodash@>=3.5 <5", lodash@^4.0.0, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.15.0, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.3.0:
   version "4.17.5"
@@ -8446,6 +8486,22 @@ react@^16.0.0:
     loose-envify "^1.1.0"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+reacto-form@0.0.2:
+  version "0.0.2"
+  resolved "https://registry.npmjs.org/reacto-form/-/reacto-form-0.0.2.tgz#910801ff581384180d67ff37baee3ddd752d384d"
+  dependencies:
+    clone "2.1.1"
+    lodash.get "4.4.2"
+    lodash.isempty "4.4.0"
+    lodash.isequal "4.5.0"
+    lodash.set "4.3.2"
+    lodash.topath "^4.5.2"
+    lodash.union "^4.6.0"
+    lodash.uniqueid "4.0.1"
+    lodash.unset "4.5.2"
+    lodash.without "^4.4.0"
+    prop-types "^15.6.1"
 
 read-all-stream@^3.0.0:
   version "3.1.0"
