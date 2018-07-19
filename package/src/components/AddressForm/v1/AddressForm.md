@@ -56,25 +56,57 @@ const countries = [
   { value: "NU", label: "Nigeria" }
 ];
 
-let regions = [
-  { value: "LA", label: "Llouisiana" },
+const regions = [
+  { value: "LA", label: "Louisiana" },
   { value: "CA", label: "California" }
 ];
-
-const onCountryChange = (country) => {
-  if (country !== "US") {
-    regions = undefined;
-  }
-}
 
 <AddressForm
   address={address}
   components={components}
   countries={countries}
   regions={regions}
-  onCountryChange={onCountryChange}
-  onSubmit={(address) => console.log(address)}
+  onCountryChange={(country) => console.log("country changed", country)}
+  onSubmit={(address) => console.log("submited adddress", address)}
   isCancellable
  />
 ```
 
+
+#### Address Form without region options
+If a selecte country doesn't have any predefined region options then the region field input will render as a TextInput.
+
+```jsx
+const address = {
+ address1: "35 Akin Adesola St",
+ address2: "",
+ country: "NU",
+ city: "Lagos",
+ firstName: "Ocean Basket",
+ lastName: "Victoria Island",
+ postal: "101241",
+ region: "Victoria Island",
+ phone: "234 816 059 1821"
+}
+
+const components = {
+ TextInputComponent: TextInput,
+ SelectInputComponent: Select,
+ PhoneInputComponent: TextInput,
+ ButtonComponent: Button
+};
+
+const countries = [
+  { value: "US", label: "United State" },
+  { value: "DE", label: "Germany" },
+  { value: "NU", label: "Nigeria" }
+];
+
+<AddressForm
+  address={address}
+  components={components}
+  countries={countries}
+  onSubmit={(address) => console.log("submited adddress", address)}
+  isCancellable
+ />
+```
