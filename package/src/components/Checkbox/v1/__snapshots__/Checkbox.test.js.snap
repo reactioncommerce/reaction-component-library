@@ -14,7 +14,7 @@ exports[`renders with props 1`] = `
 }
 
 .c1:checked + label::after {
-  content: "\\f00c";
+  content: '\\f00c';
 }
 
 .c1:focus + label::before {
@@ -64,7 +64,7 @@ exports[`renders with props 1`] = `
 }
 
 .c2::after {
-  content: "\\f00c";
+  content: '\\f00c';
   display: inline-block;
   font-family: FontAwesome;
   font-size: 0.875rem;
@@ -109,7 +109,7 @@ exports[`renders disabled 1`] = `
 }
 
 .c1:checked + label::after {
-  content: "\\f00c";
+  content: '\\f00c';
 }
 
 .c1:focus + label::before {
@@ -159,7 +159,7 @@ exports[`renders disabled 1`] = `
 }
 
 .c2::after {
-  content: "\\f00c";
+  content: '\\f00c';
   display: inline-block;
   font-family: FontAwesome;
   font-size: 0.875rem;
