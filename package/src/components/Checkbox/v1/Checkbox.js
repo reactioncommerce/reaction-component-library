@@ -53,7 +53,7 @@ const StyledLabel = styled.label`
     border-radius: ${applyTheme("checkboxBorderRadius")};
     box-sizing: border-box;
     left: 0;
-    top: -3px;
+    top: -1px;
   }
   &::after {
     content: "\f00c";
@@ -61,7 +61,7 @@ const StyledLabel = styled.label`
     font-family: FontAwesome;
     font-size: ${applyTheme("checkboxIconSize")};
     color: ${applyTheme("checkboxIconColor")};
-    left: 5px;
+    left: 3px;
     top: 2px;
   }
 `;
