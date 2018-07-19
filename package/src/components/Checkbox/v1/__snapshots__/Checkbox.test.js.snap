@@ -58,6 +58,7 @@ exports[`renders with props 1`] = `
   width: 1.25rem;
   border: 2px solid #3c3c3c;
   border-radius: 2px;
+  box-sizing: border-box;
   left: 0;
   top: -3px;
 }
@@ -151,6 +152,7 @@ exports[`renders disabled 1`] = `
   width: 1.25rem;
   border: 2px solid #3c3c3c;
   border-radius: 2px;
+  box-sizing: border-box;
   left: 0;
   top: -3px;
 }

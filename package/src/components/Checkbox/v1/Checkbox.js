@@ -51,6 +51,7 @@ const StyledLabel = styled.label`
     width: ${applyTheme("checkboxHeightAndWidth")};
     border: ${applyTheme("checkboxBorderWidth")} solid ${applyTheme("checkboxBorderColor")};
     border-radius: ${applyTheme("checkboxBorderRadius")};
+    box-sizing: border-box;
     left: 0;
     top: -3px;
   }
