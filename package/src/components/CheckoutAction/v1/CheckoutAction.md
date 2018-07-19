@@ -33,7 +33,7 @@ const Address = (
     isLoading={isLoading}
     label="Shipping address"
     status="active"
-    stepNumber={8}
+    stepNumber={2}
   />
 </div>
 ```
@@ -68,7 +68,7 @@ const Address = (
     isLoading={isLoading}
     label="Shipping address"
     status="complete"
-    stepNumber={8}
+    stepNumber={2}
   />
 </div>
 ```
@@ -103,7 +103,7 @@ const Address = (
     isLoading={isLoading}
     label="Shipping address"
     status="incomplete"
-    stepNumber={8}
+    stepNumber={2}
   />
 </div>
 ```
