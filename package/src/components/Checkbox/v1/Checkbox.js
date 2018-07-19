@@ -61,6 +61,7 @@ const StyledLabel = styled.label`
     font-family: FontAwesome;
     font-size: ${applyTheme("checkboxIconSize")};
     color: ${applyTheme("checkboxIconColor")};
+    line-height: 1;
     left: 3px;
     top: 2px;
   }
