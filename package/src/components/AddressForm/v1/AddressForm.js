@@ -73,6 +73,10 @@ class AddressForm extends Component {
      */
     components: PropTypes.shape({
       /**
+       * Button component
+       */
+      ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      /**
        * TextInput component
        */
       TextInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
@@ -83,25 +87,23 @@ class AddressForm extends Component {
       /**
        * PhoneInput component
        */
-      PhoneInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-      /**
-       * Button component
-       */
-      ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+      PhoneInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
      * Country options
      */
-    countries: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    countries: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Country option label ("United States", "Nigeria")
          */
-      label: PropTypes.string,
-      /**
+        label: PropTypes.string,
+        /**
          * Country option value ("US", "NU")
          */
-      value: PropTypes.string
-    })),
+        value: PropTypes.string
+      })
+    ),
     /**
      * Can the form entry be canceled, when form is being used to edit an address
      */
@@ -121,16 +123,18 @@ class AddressForm extends Component {
     /**
      * Region options
      */
-    regions: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    regions: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Region option label ("Louisiana", "California")
          */
-      label: PropTypes.string,
-      /**
+        label: PropTypes.string,
+        /**
          * Region option value ("LA", "CA")
          */
-      value: PropTypes.string
-    })),
+        value: PropTypes.string
+      })
+    ),
     /**
      * Save/Submit button text.
      */
