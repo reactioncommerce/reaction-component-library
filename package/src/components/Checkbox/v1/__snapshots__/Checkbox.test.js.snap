@@ -38,6 +38,7 @@ exports[`renders with props 1`] = `
   position: relative;
   display: inline-block;
   font-size: 14px;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding-left: 1.875rem;
 }
 
@@ -130,6 +131,7 @@ exports[`renders disabled 1`] = `
   position: relative;
   display: inline-block;
   font-size: 14px;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding-left: 1.875rem;
 }
 
