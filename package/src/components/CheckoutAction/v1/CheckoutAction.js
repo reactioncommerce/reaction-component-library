@@ -9,45 +9,83 @@ const StyledDiv = styled.div`
 
 class CheckoutAction extends Component {
   static propTypes = {
-
-  };
-
-  static defaultProps = {
-
+    /**
+     * The component to display if workflow status is `active`
+     */
+    ActiveStepComponent: PropTypes.node.isRequired,
+    /**
+     * The component to display if workflow status is `complete`
+     */
+    CompleteStepComponent: PropTypes.node.isRequired,
+    /**
+     * The component to display if workflow status is `incomplete`
+     */
+    IncompleteStepComponent: PropTypes.node.isRequired,
+    /**
+     * Label of workflow step
+     */
+    label: PropTypes.string.isRequired,
+    /**
+     * Status of current checkout step
+     */
+    status: PropTypes.string.isRequired,
+    /**
+     * Checkout process step number
+     */
+    stepNumber: PropTypes.number.isRequired
   };
 
   renderActiveAction = () => {
-    const { status } = this.props;
+    const { ActiveStepComponent, status } = this.props;
+    // When component is ready, remove the previous line and uncomment following line
+    // const { ActiveStepComponent, label, status, stepNumber } = this.props;
+
+    // When component is ready,  uncomment following lines
+    // const component = React.cloneElement(ActiveStepComponent, {
+    //   label,
+    //   stepNumber
+    // });
 
     if (status === "active") {
-      return this.props.ActiveStepComponent;
+      return ActiveStepComponent;
+      // When component is ready, remove the previous line and uncomment following line
+      // return component;
     }
 
     return null;
   }
 
   renderCompleteAction = () => {
-    const { status } = this.props;
+    const { CompleteStepComponent, label, status, stepNumber } = this.props;
+
+    const component = React.cloneElement(CompleteStepComponent, {
+      label,
+      stepNumber
+    });
 
     if (status === "complete") {
-      return this.props.CompleteStepComponent;
+      return component;
     }
 
     return null;
   }
 
   renderIncompleteAction = () => {
-    const { status } = this.props;
+    const { IncompleteStepComponent, label, status, stepNumber } = this.props;
+
+    const component = React.cloneElement(IncompleteStepComponent, {
+      label,
+      stepNumber
+    });
 
     if (status === "incomplete") {
-      return this.props.IncompleteStepComponent;
+      return component;
     }
 
     return null;
   }
 
   render() {
-
     return (
       <StyledDiv>
         {this.renderActiveAction()}
