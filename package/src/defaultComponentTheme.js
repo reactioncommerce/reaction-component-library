@@ -362,6 +362,8 @@ const checkoutActions = {
 // checkbox
 const checkbox = {
   rui_checkboxHeightAndWidth: `${baseUnit(2)}`,
+  rui_checkboxLeftSpacing: "0",
+  rui_checkboxTopSpacing: "-1px",
   rui_checkboxBorderColor: coolGrey500,
   rui_checkboxBorderRadius: "2px",
   rui_checkboxBorderWidth: "2px",
@@ -373,7 +375,10 @@ const checkbox = {
   rui_checkboxIconColor: coolGrey500,
   rui_checkboxIconSize: "0.875rem",
   rui_checkboxIcon: "\f00c",
-  rui_checkboxVerticalSpacing: `${baseUnit(2)}`
+  rui_checkboxIconFont: "FontAwesome",
+  rui_checkboxIconLeftSpacing: "3px",
+  rui_checkboxIconTopSpacing: "2px",
+  rui_checkboxVerticalSpacing: `${baseUnit(2)}`,
 };
 
 export default {

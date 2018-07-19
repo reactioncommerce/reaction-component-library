@@ -14,7 +14,7 @@ const StyledInput = styled.input`
     content: none;
   }
   &:checked + label::after {
-    content: "\f00c";
+    content: ${applyTheme("checkboxIcon")};
   }
   &:focus + label::before {
     outline: ${applyTheme("checkboxFocusStyle")};
@@ -52,18 +52,18 @@ const StyledLabel = styled.label`
     border: ${applyTheme("checkboxBorderWidth")} solid ${applyTheme("checkboxBorderColor")};
     border-radius: ${applyTheme("checkboxBorderRadius")};
     box-sizing: border-box;
-    left: 0;
-    top: -1px;
+    left: ${applyTheme("checkboxLeftSpacing")};
+    top: ${applyTheme("checkboxTopSpacing")};
   }
   &::after {
-    content: "\f00c";
+    content: ${applyTheme("checkboxIcon")};
     display: inline-block;
-    font-family: FontAwesome;
+    font-family: ${applyTheme("checkboxIconFont")};
     font-size: ${applyTheme("checkboxIconSize")};
     color: ${applyTheme("checkboxIconColor")};
     line-height: 1;
-    left: 3px;
-    top: 2px;
+    left:  ${applyTheme("checkboxIconLeftSpacing")};
+    top:  ${applyTheme("checkboxIconTopSpacing")};
   }
 `;
 
