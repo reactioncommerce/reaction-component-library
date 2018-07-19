@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Form } from "reacto-form";
 import styled from "styled-components";
-import { applyTheme, getRequiredValidator, getPhoneNumberValidator } from "../../../utils";
+import { applyTheme, getRequiredValidator } from "../../../utils";
 
 import Field from "../../Field/v1";
 import ErrorsBlock from "../../ErrorsBlock/v1";
@@ -51,10 +51,6 @@ const requiredValidator = getRequiredValidator(
   "postal",
   "region"
 );
-
-const phoneValidator = getPhoneNumberValidator("phone");
-
-const validator = async () => await Promise.all(requiredValidator, phoneValidator);
 
 class AddressForm extends Component {
   static propTypes = {
