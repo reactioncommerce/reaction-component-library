@@ -11,7 +11,7 @@ const components = {
 };
 
 const countries = [
-  { value: "US", label: "United State" },
+  { value: "US", label: "United States" },
   { value: "DE", label: "Germany" },
   { value: "NU", label: "Nigeria" }
 ];
@@ -51,7 +51,7 @@ const components = {
 };
 
 const countries = [
-  { value: "US", label: "United State" },
+  { value: "US", label: "United States" },
   { value: "DE", label: "Germany" },
   { value: "NU", label: "Nigeria" }
 ];
@@ -97,7 +97,7 @@ const components = {
 };
 
 const countries = [
-  { value: "US", label: "United State" },
+  { value: "US", label: "United States" },
   { value: "DE", label: "Germany" },
   { value: "NU", label: "Nigeria" }
 ];
