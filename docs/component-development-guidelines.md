@@ -14,9 +14,7 @@
     ```
 - Wrap all `onClick` handlers in the `preventAccidentalDoubleClick` function from `utils`. See the `Button` component for an example.
 
-## Component Themes
-
-Components must use the [styled-components](https://www.styled-components.com/) package to style all HTML elements they render, and allow certain styles to be specified by a [styled-components theme](https://www.styled-components.com/docs/advanced#theming). Add the default values for any theme properties you use in /src/defaultComponentTheme.js. All theme properties must start with `rui_` followed by a camelcased identifier.
+## [Component Theme](./styling-conventions.md)
 
 ## Adding an NPM Dependency
 
