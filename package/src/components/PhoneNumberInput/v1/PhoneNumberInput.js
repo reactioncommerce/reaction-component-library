@@ -84,7 +84,7 @@ class PhoneNumberInput extends Component {
     value: this.props.value || ""
   };
 
-  handdleChanging = (value) => {
+  handleChanging = (value) => {
     if (!value) return;
     const trimedValue = value.replace(/\D/g, "");
     this.setState({ value: trimedValue });
@@ -93,7 +93,7 @@ class PhoneNumberInput extends Component {
   render() {
     const { ...props } = this.props;
     const { value } = this.state;
-    return <TextInput onChanging={this.handdleChanging} value={value} {...props} />;
+    return <TextInput onChanging={this.handleChanging} value={value} {...props} />;
   }
 }
 
