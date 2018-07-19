@@ -69,12 +69,33 @@ const StyledLabel = styled.label`
 
 class Checkbox extends Component {
   static propTypes = {
+    /**
+     * Custom class name
+     */
     className: PropTypes.string,
+    /**
+     * Enable to make the checkbox read-only / disabled by default
+     */
     isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
+    /**
+     * Label for checkbox for viewers to read
+     */
     label: PropTypes.string.isRequired,
+    /**
+     * Name of input
+     */
     name: PropTypes.string,
+    /**
+     * On change handler for input
+     */
     onChange: PropTypes.func,
+    /**
+     * On change handler for input
+     */
     onChanging: PropTypes.func,
+    /**
+     * True for a checked checkbox, undefined for an unchecked checkbox
+     */
     value: PropTypes.bool
   };
 
