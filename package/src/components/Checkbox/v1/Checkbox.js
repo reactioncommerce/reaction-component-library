@@ -35,6 +35,7 @@ const StyledLabel = styled.label`
   position: relative;
   display: inline-block;
   font-size: ${applyTheme("checkboxLabelFontSize")};
+  font-family: ${applyTheme("font_family")};
   padding-left: ${applyTheme("checkboxLabelSpacing")};
   &:hover {
     cursor: pointer;
