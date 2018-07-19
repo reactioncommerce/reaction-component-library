@@ -186,6 +186,7 @@ const defaultStyles = {
   rui_font_family: fontFamily,
   rui_font_size_small: fontSize14,
   rui_font_size_default: fontSize16,
+  rui_font_size_h2: fontSize24,
   rui_font_weight_light: fontWeightLight,
   rui_font_weight_normal: fontWeightRegular,
   rui_font_weight_bold: fontWeightBold,

@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render email address of a guest 1`] = `
+.c0 {
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+}
+
+.c1 {
+  font-weight: 700;
+}
+
+<div
+  className="c0"
+>
+   
+  <span
+    className="c1"
+  >
+    guest.email@example.com
+  </span>
+</div>
+`;
+
+exports[`render email address of a user with an account 1`] = `
+.c0 {
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+}
+
+.c1 {
+  font-weight: 700;
+}
+
+<div
+  className="c0"
+>
+  Signed in as
+   
+  <span
+    className="c1"
+  >
+    account.email@example.com
+  </span>
+</div>
+`;

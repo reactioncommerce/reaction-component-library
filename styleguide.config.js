@@ -284,9 +284,14 @@ module.exports = {
           name: "Cart"
         }),
         generateSection({
-          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutTopHat"],
+          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
+        }),
+        generateSection({
+          componentNames: ["ShopLogo"],
+          content: "styleguide/src/sections/General.md",
+          name: "General"
         }),
         generateSection({
           componentNames: ["Price", "StockWarning"],
