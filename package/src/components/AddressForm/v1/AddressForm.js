@@ -65,24 +65,72 @@ class AddressForm extends Component {
       region: PropTypes.string,
       phone: PropTypes.string
     }),
+    /**
+     * Provided child components for form inputs
+     */
     components: PropTypes.shape({
+      /**
+       * TextInput component
+       */
       TextInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      /**
+       * SelectInput component
+       */
       SelectInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      /**
+       * PhoneInput component
+       */
       PhoneInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      /**
+       * Button component
+       */
       ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
+    /**
+     * Country options
+     */
     countries: PropTypes.arrayOf(PropTypes.shape({
+      /**
+         * Country option label ("United States", "Nigeria")
+         */
       label: PropTypes.string,
+      /**
+         * Country option value ("US", "NU")
+         */
       value: PropTypes.string
     })),
+    /**
+     * Can the form entry be canceled, when form is being used to edit an address
+     */
     isCancellable: PropTypes.bool,
+    /**
+     * Cancel event callback
+     */
     onCancel: PropTypes.func,
+    /**
+     * Country change event callback, used to fetch new list of regions if country has changed.
+     */
     onCountryChange: PropTypes.func,
+    /**
+     * Form submit event callback
+     */
     onSubmit: PropTypes.func,
+    /**
+     * Region options
+     */
     regions: PropTypes.arrayOf(PropTypes.shape({
+      /**
+         * Region option label ("Louisiana", "California")
+         */
       label: PropTypes.string,
+      /**
+         * Region option value ("LA", "CA")
+         */
       value: PropTypes.string
     })),
+    /**
+     * Save/Submit button text.
+     */
     saveButtonText: PropTypes.string
   };
 
