@@ -1,0 +1,195 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders with props 1`] = `
+.c0 {
+  margin-bottom: 1.25rem;
+}
+
+.c1 {
+  opacity: 0;
+}
+
+.c1 + label::after {
+  content: none;
+}
+
+.c1:checked + label::after {
+  content: '\\f00c';
+}
+
+.c1:focus + label::before {
+  outline: rgb(59,153,252) auto 5px;
+}
+
+.c1:disabled + label {
+  opacity: .5;
+}
+
+.c1:disabled + label::before {
+  background: #e6e6e6;
+  opacity: .5;
+}
+
+.c1:disabled + label:hover {
+  cursor: not-allowed;
+}
+
+.c2 {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding-left: 1.875rem;
+}
+
+.c2:hover {
+  cursor: pointer;
+}
+
+.c2::before,
+.c2::after {
+  position: absolute;
+}
+
+.c2::before {
+  content: " ";
+  display: inline-block;
+  height: 1.25rem;
+  width: 1.25rem;
+  border: 2px solid #3c3c3c;
+  border-radius: 2px;
+  box-sizing: border-box;
+  left: 0;
+  top: -1px;
+}
+
+.c2::after {
+  content: '\\f00c';
+  display: inline-block;
+  font-family: 'Font Awesome 5 Free';
+  font-size: 0.8rem;
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  line-height: 1;
+  left: 4px;
+  top: 4px;
+}
+
+<div
+  className="c0"
+>
+  <input
+    checked={false}
+    className="c1"
+    disabled={false}
+    id="Checkbox_1"
+    onChange={[Function]}
+    type="checkbox"
+    value="true"
+  />
+  <label
+    className="c2"
+    htmlFor="Checkbox_1"
+  >
+    Label
+  </label>
+</div>
+`;
+
+exports[`renders disabled 1`] = `
+.c0 {
+  margin-bottom: 1.25rem;
+}
+
+.c1 {
+  opacity: 0;
+}
+
+.c1 + label::after {
+  content: none;
+}
+
+.c1:checked + label::after {
+  content: '\\f00c';
+}
+
+.c1:focus + label::before {
+  outline: rgb(59,153,252) auto 5px;
+}
+
+.c1:disabled + label {
+  opacity: .5;
+}
+
+.c1:disabled + label::before {
+  background: #e6e6e6;
+  opacity: .5;
+}
+
+.c1:disabled + label:hover {
+  cursor: not-allowed;
+}
+
+.c2 {
+  position: relative;
+  display: inline-block;
+  font-size: 14px;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding-left: 1.875rem;
+}
+
+.c2:hover {
+  cursor: pointer;
+}
+
+.c2::before,
+.c2::after {
+  position: absolute;
+}
+
+.c2::before {
+  content: " ";
+  display: inline-block;
+  height: 1.25rem;
+  width: 1.25rem;
+  border: 2px solid #3c3c3c;
+  border-radius: 2px;
+  box-sizing: border-box;
+  left: 0;
+  top: -1px;
+}
+
+.c2::after {
+  content: '\\f00c';
+  display: inline-block;
+  font-family: 'Font Awesome 5 Free';
+  font-size: 0.8rem;
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  line-height: 1;
+  left: 4px;
+  top: 4px;
+}
+
+<div
+  className="c0"
+>
+  <input
+    checked={false}
+    className="c1"
+    disabled={true}
+    id="Checkbox_2"
+    onChange={[Function]}
+    type="checkbox"
+    value="true"
+  />
+  <label
+    className="c2"
+    htmlFor="Checkbox_2"
+  >
+    Disabled
+  </label>
+</div>
+`;
