@@ -332,6 +332,7 @@ module.exports = {
   showUsage: true,
   serverPort: Number(process.env.PORT),
   assetsDir: "styleguide/src/assets/",
+  styleguideDir: "styleguide/dist",
   template: "styleguide/src/index.html"
   // handlers(componentPath) {
   //   return defaultHandlers.concat(
