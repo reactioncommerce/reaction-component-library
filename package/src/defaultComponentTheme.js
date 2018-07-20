@@ -378,7 +378,7 @@ const checkbox = {
   rui_checkboxIconFont: "FontAwesome",
   rui_checkboxIconLeftSpacing: "3px",
   rui_checkboxIconTopSpacing: "2px",
-  rui_checkboxVerticalSpacing: `${baseUnit(2)}`,
+  rui_checkboxVerticalSpacing: `${baseUnit(2)}`
 };
 
 export default {
