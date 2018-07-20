@@ -3,11 +3,11 @@
 Checkboxes can be checked, unchecked and disabled.
 
 ```jsx
-<Field name="example">
+<div>
   <Checkbox name="example-checked" label="Checked" value={true} />
   <Checkbox name="example-unchecked" label="Unchecked" />
   <Checkbox name="example-disabled" label="Disabled" isReadOnly />
-</Field>
+</div>
 ```
 
 #### Usage
