@@ -71,7 +71,7 @@ function generateSection({ componentNames, name, content }) {
 
 module.exports = {
   title: "Reaction Design System",
-  editorConfig: { theme: "yeti" },
+  editorConfig: { theme: "duotone-light" },
   theme: {
     sidebarWidth: 320,
     maxWidth: 1000,
@@ -124,7 +124,8 @@ module.exports = {
       "@global": {
         ".CodeMirror.CodeMirror": {
           borderRadius: 5,
-          marginTop: 20
+          marginTop: 20,
+          fontSize: 12
         }
       }
     },
@@ -155,17 +156,21 @@ module.exports = {
       }
     },
     Heading: {
-      heading: {
-        fontFamily: "PostGrotesk-Bold"
-      },
       heading1: {
-        fontFamily: "PostGrotesk-Bold"
+        fontFamily: "PostGrotesk-Medium",
+        color: "#052a4e",
+        marginBottom: "30px",
+        marginTop: "40px"
       },
       heading2: {
-        fontFamily: "PostGrotesk-Medium"
+        fontFamily: "PostGrotesk-Regular",
+        color: "#052a4e",
+        marginBottom: "30px",
+        marginTop: "40px"
       },
-      heading3: {
-        fontFamily: "PostGrotesk-Light"
+      heading5: {
+        fontFamily: "PostGrotesk-Bold",
+        color: "#4d4d4d"
       }
     },
     ReactComponent: {
