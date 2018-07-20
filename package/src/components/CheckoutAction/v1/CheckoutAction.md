@@ -18,15 +18,15 @@ const Address = (
 
 <div>
   <CheckoutAction
-    ActiveStepComponent="Placeholder: active step isn't yet available"
-    CompleteStepComponent={
+    activeStepElement="Placeholder: active step isn't yet available"
+    completeStepElement={
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
         content={Address}
         onClickChangeButton={onClick}
       />
     }
-    IncompleteStepComponent={
+    incompleteStepEomponent={
       <CheckoutActionIncomplete />
     }
     cart={cart}
@@ -53,15 +53,15 @@ const Address = (
 
 <div>
   <CheckoutAction
-    ActiveStepComponent="Placeholder: active step isn't yet available"
-    CompleteStepComponent={
+    activeStepElement="Placeholder: active step isn't yet available"
+    completeStepElement={
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
         content={Address}
         onClickChangeButton={onClick}
       />
     }
-    IncompleteStepComponent={
+    incompleteStepEomponent={
       <CheckoutActionIncomplete />
     }
     cart={cart}
@@ -88,15 +88,15 @@ const Address = (
 
 <div>
   <CheckoutAction
-    ActiveStepComponent="Placeholder: active step isn't yet available"
-    CompleteStepComponent={
+    activeStepElement="Placeholder: active step isn't yet available"
+    completeStepElement={
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
         content={Address}
         onClickChangeButton={onClick}
       />
     }
-    IncompleteStepComponent={
+    incompleteStepEomponent={
       <CheckoutActionIncomplete />
     }
     cart={cart}

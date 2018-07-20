@@ -6,15 +6,15 @@ class CheckoutAction extends Component {
     /**
      * The component to display if workflow status is `active`
      */
-    ActiveStepComponent: PropTypes.node.isRequired,
+    activeStepElement: PropTypes.node.isRequired,
     /**
      * The component to display if workflow status is `complete`
      */
-    CompleteStepComponent: PropTypes.node.isRequired,
+    completeStepElement: PropTypes.node.isRequired,
     /**
      * The component to display if workflow status is `incomplete`
      */
-    IncompleteStepComponent: PropTypes.node.isRequired,
+    incompleteStepElement: PropTypes.node.isRequired,
     /**
      * Label of workflow step
      */
@@ -30,18 +30,18 @@ class CheckoutAction extends Component {
   };
 
   renderActiveAction = () => {
-    const { ActiveStepComponent, status } = this.props;
+    const { activeStepElement, status } = this.props;
     // When component is ready, remove the previous line and uncomment following line
-    // const { ActiveStepComponent, label, status, stepNumber } = this.props;
+    // const { activeStepElement, label, status, stepNumber } = this.props;
 
     // When component is ready,  uncomment following lines
-    // const component = React.cloneElement(ActiveStepComponent, {
+    // const component = React.cloneElement(activeStepElement, {
     //   label,
     //   stepNumber
     // });
 
     if (status === "active") {
-      return ActiveStepComponent;
+      return activeStepElement;
       // When component is ready, remove the previous line and uncomment following line
       // return component;
     }
@@ -50,9 +50,9 @@ class CheckoutAction extends Component {
   }
 
   renderCompleteAction = () => {
-    const { CompleteStepComponent, label, status, stepNumber } = this.props;
+    const { completeStepElement, label, status, stepNumber } = this.props;
 
-    const component = React.cloneElement(CompleteStepComponent, {
+    const component = React.cloneElement(completeStepElement, {
       label,
       stepNumber
     });
@@ -65,9 +65,9 @@ class CheckoutAction extends Component {
   }
 
   renderIncompleteAction = () => {
-    const { IncompleteStepComponent, label, status, stepNumber } = this.props;
+    const { incompleteStepElement, label, status, stepNumber } = this.props;
 
-    const component = React.cloneElement(IncompleteStepComponent, {
+    const component = React.cloneElement(incompleteStepElement, {
       label,
       stepNumber
     });
