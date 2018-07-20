@@ -71,7 +71,7 @@ function generateSection({ componentNames, name, content }) {
 
 module.exports = {
   title: "Reaction Design System",
-  editorConfig: { theme: "oceanic-next" },
+  editorConfig: { theme: "yeti" },
   theme: {
     sidebarWidth: 320,
     maxWidth: 1000,
@@ -219,7 +219,7 @@ module.exports = {
           left: 14,
           width: 12,
           position: "absolute",
-          top: "47%",
+          top: "49%",
           zIndex: 1,
           transform: "translateY(-58%)"
         },
@@ -231,7 +231,7 @@ module.exports = {
           left: 24,
           position: "absolute",
           transform: "rotate(-45deg)",
-          top: "50%",
+          top: "52%",
           width: 3,
           zIndex: 1
         }
