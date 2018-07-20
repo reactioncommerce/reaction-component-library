@@ -22,7 +22,7 @@ class CheckoutAction extends Component {
     /**
      * Status of current checkout step
      */
-    status: PropTypes.string.isRequired,
+    status: PropTypes.oneOf(["active", "complete", "incomplete"]).isRequired,
     /**
      * Checkout process step number
      */
