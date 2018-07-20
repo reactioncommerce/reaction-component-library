@@ -1,13 +1,8 @@
-### CheckoutAction
-
 #### Overview
 The CheckoutActionComplete component will show when a checkout action has been completed. It is a summary of the information inside the completed action.
 
 #### Basic usage, `active` status
 ```jsx
-const cart = {};
-const isLoading = false;
-const onClick = () => {};
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -23,14 +18,14 @@ const Address = (
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
         content={Address}
-        onClickChangeButton={onClick}
+        onClickChangeButton={() => {}}
       />
     }
     incompleteStepElement={
       <CheckoutActionIncomplete />
     }
-    cart={cart}
-    isLoading={isLoading}
+    cart={{}}
+    isLoading={false}
     label="Shipping address"
     status="active"
     stepNumber={2}
@@ -40,9 +35,6 @@ const Address = (
 
 #### Basic usage, `complete` status
 ```jsx
-const cart = {};
-const isLoading = false;
-const onClick = () => {};
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -58,14 +50,14 @@ const Address = (
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
         content={Address}
-        onClickChangeButton={onClick}
+        onClickChangeButton={() => {}}
       />
     }
     incompleteStepElement={
       <CheckoutActionIncomplete />
     }
-    cart={cart}
-    isLoading={isLoading}
+    cart={{}}
+    isLoading={false}
     label="Shipping address"
     status="complete"
     stepNumber={2}
@@ -75,9 +67,6 @@ const Address = (
 
 #### Basic usage, `incomplete` status
 ```jsx
-const cart = {};
-const isLoading = false;
-const onClick = () => {};
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -93,14 +82,14 @@ const Address = (
       <CheckoutActionComplete
         components={{ChangeButton: Button}}
         content={Address}
-        onClickChangeButton={onClick}
+        onClickChangeButton={() => {}}
       />
     }
     incompleteStepElement={
       <CheckoutActionIncomplete />
     }
-    cart={cart}
-    isLoading={isLoading}
+    cart={{}}
+    isLoading={false}
     label="Shipping address"
     status="incomplete"
     stepNumber={2}
@@ -110,8 +99,6 @@ const Address = (
 
 #### Passing in `label` or `stepNumber` props on an element to override default
 ```jsx
-const cart = {};
-const isLoading = false;
 const onClick = () => {};
 const Address = (
   <div>
@@ -136,8 +123,8 @@ const Address = (
     incompleteStepElement={
       <CheckoutActionIncomplete />
     }
-    cart={cart}
-    isLoading={isLoading}
+    cart={{}}
+    isLoading={false}
     label="Shipping address"
     status="complete"
     stepNumber={2}
