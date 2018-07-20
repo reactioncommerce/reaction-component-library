@@ -249,7 +249,7 @@ module.exports = {
     },
     Code: {
       code: {
-        whiteSpace: "initial"
+        whiteSpace: "pre-wrap"
       }
     }
   },
