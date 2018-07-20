@@ -7,3 +7,11 @@ node_modules
 reports/*
 **/package-lock.json
 dist
+
+styleguide/build/
+styleguide/favicon.ico
+styleguide/favicon.png
+styleguide/fonts/
+styleguide/index.html
+styleguide/manifest.json
+styleguide/reaction-design-system-logo.svg

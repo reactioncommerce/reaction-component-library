@@ -49,13 +49,12 @@ exports[`basic snapshot 1`] = `
           </g>
         </svg>
         <span
-          className="MuiTouchRipple-root-33"
+          className="MuiTouchRipple-root-34"
         />
       </button>
     </div>
     <input
       aria-invalid={false}
-      aria-required={false}
       autoComplete={undefined}
       autoFocus={undefined}
       className="MuiInput-input-16 QuantityInput-quantityInput-3"
@@ -116,7 +115,7 @@ exports[`basic snapshot 1`] = `
           </g>
         </svg>
         <span
-          className="MuiTouchRipple-root-33"
+          className="MuiTouchRipple-root-34"
         />
       </button>
     </div>

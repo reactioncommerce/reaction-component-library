@@ -12,6 +12,10 @@
 - [Creating a New Version of a Component](./creating-new-component-version.md)
 - [Component Development Guidelines](./component-development-guidelines.md)
 
+## Component Styling Conventions
+
+- [Styling Conventions](./styling-conventions.md)
+
 ## Component Review process
 
 - [Reviewing Components](./reviewing-components.md)

@@ -1,14 +1,16 @@
 With NPM:
 
 ```bash
-npm install @reactioncommerce/components
+npm install --save react@16.4.1 prop-types@15.6.2 styled-components@3.3.3 @reactioncommerce/components
 ```
 
 With Yarn:
 
 ```bash
-yarn add @reactioncommerce/components
+yarn add react@16.4.1 prop-types@15.6.2 styled-components@3.3.3 @reactioncommerce/components
 ```
+
+Note that the minimum required React version is 16.4.1 because this package uses newer APIs like `createContext` and `forwardRef`. The `react`, `prop-types`, and `styled-components` packages are peer dependencies, which means that you must install the proper versions in your app. They are not included with this package.
 
 In your React component code:
 
@@ -21,5 +23,9 @@ Notice that you must specify what version of the component you want. If you upda
 In your HTML:
 
 ```html
+<!-- Font for display type -->
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700" rel="stylesheet">
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-O8whS3fhG2OnA5Kas0Y9l3cfpmYjapjI0E4theH4iuMD+pLhbf6JI0jIMfYcK3yZ" crossorigin="anonymous">
 ```
