@@ -36,8 +36,8 @@ class CheckoutAction extends Component {
 
     // When component is ready,  uncomment following lines
     // const component = React.cloneElement(activeStepElement, {
-    //   label,
-    //   stepNumber
+    // label: (activeStepElement.props && activeStepElement.props.label) || label,
+    // stepNumber: (activeStepElement.props && activeStepElement.props.stepNumber) || stepNumber
     // });
 
     if (status === "active") {
@@ -53,8 +53,8 @@ class CheckoutAction extends Component {
     const { completeStepElement, label, status, stepNumber } = this.props;
 
     const component = React.cloneElement(completeStepElement, {
-      label,
-      stepNumber
+      label: (completeStepElement.props && completeStepElement.props.label) || label,
+      stepNumber: (completeStepElement.props && completeStepElement.props.stepNumber) || stepNumber
     });
 
     if (status === "complete") {
@@ -68,8 +68,8 @@ class CheckoutAction extends Component {
     const { incompleteStepElement, label, status, stepNumber } = this.props;
 
     const component = React.cloneElement(incompleteStepElement, {
-      label,
-      stepNumber
+      label: (incompleteStepElement.props && incompleteStepElement.props.label) || label,
+      stepNumber: (incompleteStepElement.props && incompleteStepElement.props.stepNumber) || stepNumber
     });
 
     if (status === "incomplete") {

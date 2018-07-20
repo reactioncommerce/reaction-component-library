@@ -26,7 +26,7 @@ const Address = (
         onClickChangeButton={onClick}
       />
     }
-    incompleteStepEomponent={
+    incompleteStepElement={
       <CheckoutActionIncomplete />
     }
     cart={cart}
@@ -61,7 +61,7 @@ const Address = (
         onClickChangeButton={onClick}
       />
     }
-    incompleteStepEomponent={
+    incompleteStepElement={
       <CheckoutActionIncomplete />
     }
     cart={cart}
@@ -96,13 +96,50 @@ const Address = (
         onClickChangeButton={onClick}
       />
     }
-    incompleteStepEomponent={
+    incompleteStepElement={
       <CheckoutActionIncomplete />
     }
     cart={cart}
     isLoading={isLoading}
     label="Shipping address"
     status="incomplete"
+    stepNumber={2}
+  />
+</div>
+```
+
+#### Passing in `label` or `stepNumber` props on an element to override default
+```jsx
+const cart = {};
+const isLoading = false;
+const onClick = () => {};
+const Address = (
+  <div>
+    Ms. Jane Doe<br />
+    123 Main Street<br />
+    Anytown, USA 01776
+  </div>
+);
+
+<div>
+  <CheckoutAction
+    activeStepElement="Placeholder: active step isn't yet available"
+    completeStepElement={
+      <CheckoutActionComplete
+        components={{ChangeButton: Button}}
+        content={Address}
+        label="Label Override via props"
+        onClickChangeButton={onClick}
+        stepNumber={500}
+      />
+    }
+    incompleteStepElement={
+      <CheckoutActionIncomplete />
+    }
+    cart={cart}
+    isLoading={isLoading}
+    label="Shipping address"
+    status="complete"
     stepNumber={2}
   />
 </div>
