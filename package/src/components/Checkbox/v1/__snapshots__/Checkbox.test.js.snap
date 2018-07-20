@@ -66,12 +66,14 @@ exports[`renders with props 1`] = `
 .c2::after {
   content: '\\f00c';
   display: inline-block;
-  font-family: FontAwesome;
-  font-size: 0.875rem;
+  font-family: 'Font Awesome 5 Free';
+  font-size: 0.8rem;
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   line-height: 1;
-  left: 3px;
-  top: 2px;
+  left: 4px;
+  top: 4px;
 }
 
 <div
@@ -161,12 +163,14 @@ exports[`renders disabled 1`] = `
 .c2::after {
   content: '\\f00c';
   display: inline-block;
-  font-family: FontAwesome;
-  font-size: 0.875rem;
+  font-family: 'Font Awesome 5 Free';
+  font-size: 0.8rem;
+  font-weight: 900;
+  -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   line-height: 1;
-  left: 3px;
-  top: 2px;
+  left: 4px;
+  top: 4px;
 }
 
 <div

@@ -60,6 +60,8 @@ const StyledLabel = styled.label`
     display: inline-block;
     font-family: ${applyTheme("checkboxIconFont")};
     font-size: ${applyTheme("checkboxIconSize")};
+    font-weight: ${applyTheme("checkboxIconFontWeight")};
+    -webkit-font-smoothing: antialiased;
     color: ${applyTheme("checkboxIconColor")};
     line-height: 1;
     left:  ${applyTheme("checkboxIconLeftSpacing")};
