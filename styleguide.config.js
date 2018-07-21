@@ -213,7 +213,8 @@ module.exports = {
     },
     Table: {
       tableHead: {
-        borderBottom: [[2, "#a7edff", "solid"]]
+        borderBottom: [[2, "#a7edff", "solid"]],
+        fontFamily: "PostGrotesk-Medium"
       },
       cell: {
         paddingTop: "8px",
@@ -230,7 +231,8 @@ module.exports = {
     },
     TableHead: {
       thead: {
-        borderBottom: [[2, "#a7edff", "solid"]]
+        borderBottom: [[2, "#a7edff", "solid"]],
+        fontFamily: "PostGrotesk-Medium"
       }
     },
     TableOfContents: {
