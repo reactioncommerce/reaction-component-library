@@ -124,8 +124,8 @@ module.exports = {
       "@global": {
         ".CodeMirror.CodeMirror": {
           borderRadius: 3,
-          marginTop: 20,
-          background: "#fdfdfd"
+          marginTop: 60,
+          marginBottom: 60
         }
       }
     },
