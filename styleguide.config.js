@@ -212,9 +212,6 @@ module.exports = {
       }
     },
     Table: {
-      table: {
-        marginBottom: "30px"
-      },
       tableHead: {
         borderBottom: [[2, "#a7edff", "solid"]]
       },
@@ -222,6 +219,18 @@ module.exports = {
         paddingTop: "8px",
         paddingBottom: "8px",
         borderBottom: [[1, "#e7e7e7", "solid"]]
+      }
+    },
+    TableCell: {
+      td: {
+        paddingTop: "8px",
+        paddingBottom: "8px",
+        borderBottom: [[1, "#e7e7e7", "solid"]]
+      }
+    },
+    TableHead: {
+      thead: {
+        borderBottom: [[2, "#a7edff", "solid"]]
       }
     },
     TableOfContents: {
