@@ -71,7 +71,7 @@ function generateSection({ componentNames, name, content }) {
 
 module.exports = {
   title: "Reaction Design System",
-  editorConfig: { theme: "duotone-light" },
+  editorConfig: { theme: "base16-light" },
   theme: {
     sidebarWidth: 320,
     maxWidth: 1000,
@@ -123,9 +123,9 @@ module.exports = {
     EditorLoader: {
       "@global": {
         ".CodeMirror.CodeMirror": {
-          borderRadius: 5,
+          borderRadius: 3,
           marginTop: 20,
-          fontSize: 12
+          background: "#fdfdfd"
         }
       }
     },
@@ -209,6 +209,19 @@ module.exports = {
     Logo: {
       logo: {
         display: "none"
+      }
+    },
+    Table: {
+      table: {
+        marginBottom: "30px"
+      },
+      tableHead: {
+        borderBottom: [[2, "#a7edff", "solid"]]
+      },
+      cell: {
+        paddingTop: "8px",
+        paddingBottom: "8px",
+        borderBottom: [[1, "#e7e7e7", "solid"]]
       }
     },
     TableOfContents: {
