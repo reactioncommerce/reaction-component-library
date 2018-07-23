@@ -91,7 +91,7 @@ module.exports = {
       base: 16,
       text: 16,
       small: 14,
-      h1: 39,
+      h1: 40,
       h2: 31,
       h3: 25,
       h4: 20,
@@ -124,8 +124,8 @@ module.exports = {
       "@global": {
         ".CodeMirror.CodeMirror": {
           borderRadius: 3,
-          marginTop: 60,
-          marginBottom: 60
+          marginTop: 20,
+          marginBottom: 20
         }
       }
     },
