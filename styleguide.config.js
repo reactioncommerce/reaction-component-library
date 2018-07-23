@@ -269,7 +269,7 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["AddressForm", "ErrorsBlock", "Field", "PhoneNumberInput", "QuantityInput", "Select", "TextInput"],
+          componentNames: ["AddressForm", "Checkbox", "ErrorsBlock", "Field", "PhoneNumberInput", "QuantityInput", "Select", "TextInput"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -284,7 +284,7 @@ module.exports = {
           name: "Cart"
         }),
         generateSection({
-          componentNames: ["CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
+          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
         }),
@@ -332,6 +332,7 @@ module.exports = {
   showUsage: true,
   serverPort: Number(process.env.PORT),
   assetsDir: "styleguide/src/assets/",
+  styleguideDir: "styleguide/dist",
   template: "styleguide/src/index.html"
   // handlers(componentPath) {
   //   return defaultHandlers.concat(

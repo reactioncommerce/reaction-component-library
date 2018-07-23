@@ -374,6 +374,29 @@ const checkoutActions = {
   rui_checkoutActionCompleteMobileMargin: `${baseUnit(1)}`
 };
 
+// checkbox
+const checkbox = {
+  rui_checkboxHeightAndWidth: `${baseUnit(2)}`,
+  rui_checkboxLeftSpacing: "0",
+  rui_checkboxTopSpacing: "-1px",
+  rui_checkboxBorderColor: coolGrey500,
+  rui_checkboxBorderRadius: "2px",
+  rui_checkboxBorderWidth: "2px",
+  rui_checkboxFocusStyle: "rgb(59, 153, 252) auto 5px",
+  rui_checkboxDisabledColor: black10,
+  rui_checkboxDisabledOpacity: ".5",
+  rui_checkboxLabelSpacing: `${baseUnit(3)}`,
+  rui_checkboxLabelFontSize: fontSize14,
+  rui_checkboxIconColor: coolGrey500,
+  rui_checkboxIconSize: "0.8rem",
+  rui_checkboxIcon: "'\f00c'",
+  rui_checkboxIconFont: "'Font Awesome 5 Free'",
+  rui_checkboxIconFontWeight: 900,
+  rui_checkboxIconLeftSpacing: "4px",
+  rui_checkboxIconTopSpacing: "4px",
+  rui_checkboxVerticalSpacing: `${baseUnit(2)}`
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -385,5 +408,6 @@ export default {
   ...helpTextStyles,
   ...errorsBlockStyles,
   ...cartEmptyMessage,
-  ...checkoutActions
+  ...checkoutActions,
+  ...checkbox
 };

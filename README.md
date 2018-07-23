@@ -89,6 +89,12 @@ For this project specifically:
 
 The `@reactioncommerce/components` package is automatically published by CI when commits are merged or pushed to the `master` branch. This is done using [semantic-release](https://www.npmjs.com/package/semantic-release), which also determines version bumps based on conventional Git commit messages.
 
+## Style Guide Publication
+
+The site is built by [`react-styleguidist`](https://github.com/styleguidist/react-styleguidist) and automatically published by CI and Netlify when commits are pushed to pull requests and the `master` branch.
+
+Test the build locally by running `docker-compose run --rm web yarn run styleguide:build` and opening `styleguide/dist/index.html` in your browser.
+
 ## License
 
 Copyright © [GNU General Public License v3.0](./LICENSE.md)
