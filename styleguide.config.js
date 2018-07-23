@@ -212,6 +212,9 @@ module.exports = {
       }
     },
     Table: {
+      table: {
+        marginBottom: "30px"
+      },
       tableHead: {
         borderBottom: [[2, "#a7edff", "solid"]],
         fontFamily: "PostGrotesk-Medium"
