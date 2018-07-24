@@ -38,17 +38,6 @@ const ActionsSpacer = styled.div`
   width: 10px;
 `;
 
-const requiredValidator = getRequiredValidator(
-  "country",
-  "firstName",
-  "lastName",
-  "address1",
-  "city",
-  "phone",
-  "postal",
-  "region"
-);
-
 class AddressForm extends Component {
   static propTypes = {
     /**
@@ -143,7 +132,11 @@ class AddressForm extends Component {
     /**
      * Save/Submit button text.
      */
-    saveButtonText: PropTypes.string
+    saveButtonText: PropTypes.string,
+    /**
+     * Validator method
+     */
+    validator: PropTypes.func
   };
 
   static defaultProps = {
@@ -167,7 +160,8 @@ class AddressForm extends Component {
     onCancel() {},
     onCountryChange() {},
     onSubmit() {},
-    saveButtonText: "Save and continue"
+    saveButtonText: "Save and continue",
+    validator: getRequiredValidator("country", "firstName", "lastName", "address1", "city", "phone", "postal", "region")
   };
 
   state = {};
@@ -204,7 +198,8 @@ class AddressForm extends Component {
       countries,
       isCancellable,
       regions,
-      saveButtonText
+      saveButtonText,
+      validator
     } = this.props;
     return (
       <Fragment>
@@ -213,7 +208,7 @@ class AddressForm extends Component {
             this._form = formEl;
           }}
           onSubmit={this.handleSubmit}
-          validator={requiredValidator}
+          validator={validator}
         >
           <Grid>
             <ColFull>
