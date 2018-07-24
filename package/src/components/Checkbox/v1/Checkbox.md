@@ -1,4 +1,4 @@
-# Overview
+### Overview
 
 Checkboxes can be checked, unchecked and disabled.
 
@@ -10,7 +10,7 @@ Checkboxes can be checked, unchecked and disabled.
 </div>
 ```
 
-## Usage
+#### Usage
 
 ##### Checkbox
 
@@ -23,7 +23,7 @@ Checkboxes can be checked, unchecked and disabled.
 - All labels should be written in sentence caps.
 - Labels should be left-aligned in forms.
 
-## Specs
+#### Specs
 
 ##### Checkbox
 

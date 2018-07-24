@@ -17,11 +17,6 @@ body {
  * or any of the HTML elements they render. (In general, only style .rsg--* classes here.)
  */
 
-/* Do not add default h2 margins to the component name headings */
-header > div > h2 {
-  margin: 0 !important;
-}
-
 .columns {
   display: flex;
   flex-wrap: wrap;

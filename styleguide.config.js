@@ -92,11 +92,11 @@ module.exports = {
       text: 16,
       small: 14,
       h1: 40,
-      h2: 31,
-      h3: 25,
-      h4: 20,
-      h5: 18,
-      h6: 16
+      h2: 40,
+      h3: 40,
+      h4: 25,
+      h5: 20,
+      h6: 18
     }
   },
   styles: {
@@ -163,11 +163,18 @@ module.exports = {
     Heading: {
       heading1: {
         fontFamily: "PostGrotesk-Medium",
+        marginTop: "20px"
+      },
+      heading2: {
+        fontFamily: "PostGrotesk-Medium",
+      },
+      heading3: {
+        fontFamily: "PostGrotesk-Medium",
         color: "#052a4e",
         marginBottom: "30px",
         marginTop: "40px"
       },
-      heading2: {
+      heading4: {
         fontFamily: "PostGrotesk-Regular",
         color: "#052a4e",
         marginBottom: "30px",
