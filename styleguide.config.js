@@ -129,6 +129,11 @@ module.exports = {
         }
       }
     },
+    Playground: {
+      controls: {
+        marginTop: "40px"
+      }
+    },
     ComponentsList: {
       item: {
         "color": "#062a4e",
