@@ -202,113 +202,111 @@ class AddressForm extends Component {
       validator
     } = this.props;
     return (
-      <Fragment>
-        <Form
-          ref={(formEl) => {
-            this._form = formEl;
-          }}
-          onSubmit={this.handleSubmit}
-          validator={validator}
-        >
-          <Grid>
-            <ColFull>
-              <FieldComponent name="country" label="Country" isRequired>
+      <Form
+        ref={(formEl) => {
+          this._form = formEl;
+        }}
+        onSubmit={this.handleSubmit}
+        validator={validator}
+      >
+        <Grid>
+          <ColFull>
+            <FieldComponent name="country" label="Country" isRequired>
+              <SelectInputComponent
+                name="country"
+                onChange={this.handleCountryChange}
+                options={countries}
+                placeholder="Country"
+                isSearchable
+                value={address.country}
+              />
+              <ErrorsBlockComponent names={["country"]} />
+            </FieldComponent>
+          </ColFull>
+
+          <ColHalf>
+            <FieldComponent name="firstName" label="First Name" isRequired>
+              <TextInputComponent name="firstName" placeholder="First Name" value={address.firstName} />
+              <ErrorsBlockComponent names={["firstName"]} />
+            </FieldComponent>
+          </ColHalf>
+          <ColHalf>
+            <FieldComponent name="lastName" label="Last Name" isRequired>
+              <TextInputComponent name="lastName" placeholder="Last Name" value={address.lastName} />
+              <ErrorsBlockComponent names={["lastName"]} />
+            </FieldComponent>
+          </ColHalf>
+
+          <ColFull>
+            <FieldComponent name="address1" label="Address" isRequired>
+              <TextInputComponent name="address1" placeholder="Address" value={address.address1} />
+              <ErrorsBlockComponent names={["address1"]} />
+            </FieldComponent>
+          </ColFull>
+
+          <ColFull>
+            <FieldComponent name="address2" label="Address">
+              <TextInputComponent name="address2" placeholder="Address" value={address.address2} />
+            </FieldComponent>
+          </ColFull>
+
+          <ColFull>
+            <FieldComponent name="city" label="City">
+              <TextInputComponent name="city" placeholder="City" value={address.city} />
+              <ErrorsBlockComponent names={["city"]} />
+            </FieldComponent>
+          </ColFull>
+
+          <ColHalf>
+            <FieldComponent name="region" label="Region" isRequired>
+              {regions && regions.length > 1 ? (
                 <SelectInputComponent
-                  name="country"
-                  onChange={this.handleCountryChange}
-                  options={countries}
-                  placeholder="Country"
+                  name="region"
+                  options={regions}
+                  placeholder="Region"
                   isSearchable
-                  value={address.country}
+                  value={address.region}
                 />
-                <ErrorsBlockComponent names={["country"]} />
-              </FieldComponent>
-            </ColFull>
+              ) : (
+                <TextInputComponent name="region" placeholder="Region" value={address.region} />
+              )}
+              <ErrorsBlockComponent names={["region"]} />
+            </FieldComponent>
+          </ColHalf>
+          <ColHalf>
+            <FieldComponent name="postal" label="Postal Code" isRequired>
+              <TextInputComponent name="postal" placeholder="Postal Code" value={address.postal} />
+              <ErrorsBlockComponent names={["postal"]} />
+            </FieldComponent>
+          </ColHalf>
 
-            <ColHalf>
-              <FieldComponent name="firstName" label="First Name" isRequired>
-                <TextInputComponent name="firstName" placeholder="First Name" value={address.firstName} />
-                <ErrorsBlockComponent names={["firstName"]} />
-              </FieldComponent>
-            </ColHalf>
-            <ColHalf>
-              <FieldComponent name="lastName" label="Last Name" isRequired>
-                <TextInputComponent name="lastName" placeholder="Last Name" value={address.lastName} />
-                <ErrorsBlockComponent names={["lastName"]} />
-              </FieldComponent>
-            </ColHalf>
-
-            <ColFull>
-              <FieldComponent name="address1" label="Address" isRequired>
-                <TextInputComponent name="address1" placeholder="Address" value={address.address1} />
-                <ErrorsBlockComponent names={["address1"]} />
-              </FieldComponent>
-            </ColFull>
-
-            <ColFull>
-              <FieldComponent name="address2" label="Address">
-                <TextInputComponent name="address2" placeholder="Address" value={address.address2} />
-              </FieldComponent>
-            </ColFull>
-
-            <ColFull>
-              <FieldComponent name="city" label="City">
-                <TextInputComponent name="city" placeholder="City" value={address.city} />
-                <ErrorsBlockComponent names={["city"]} />
-              </FieldComponent>
-            </ColFull>
-
-            <ColHalf>
-              <FieldComponent name="region" label="Region" isRequired>
-                {regions && regions.length > 1 ? (
-                  <SelectInputComponent
-                    name="region"
-                    options={regions}
-                    placeholder="Region"
-                    isSearchable
-                    value={address.region}
-                  />
-                ) : (
-                  <TextInputComponent name="region" placeholder="Region" value={address.region} />
-                )}
-                <ErrorsBlockComponent names={["region"]} />
-              </FieldComponent>
-            </ColHalf>
-            <ColHalf>
-              <FieldComponent name="postal" label="Postal Code" isRequired>
-                <TextInputComponent name="postal" placeholder="Postal Code" value={address.postal} />
-                <ErrorsBlockComponent names={["postal"]} />
-              </FieldComponent>
-            </ColHalf>
-
-            <ColFull>
-              <FieldComponent name="phone" label="Phone" isRequired>
-                <PhoneInputComponent name="phone" placeholder="Phone" value={address.phone} />
-                <ErrorsBlockComponent names={["phone"]} />
-              </FieldComponent>
-            </ColFull>
-          </Grid>
-          <Actions>
-            {isCancellable ? (
-              <Fragment>
-                <ButtonComponent actionType="secondary" onClick={this.handleCancel} isFullWidth isShortHeight>
-                  Cancel
-                </ButtonComponent>
-                <ActionsSpacer />
-              </Fragment>
-            ) : null}
-            <ButtonComponent
-              onClick={() => {
-                this._form.submit();
-              }}
-              isFullWidth
-              isShortHeight
-            >
-              {saveButtonText}
-            </ButtonComponent>
-          </Actions>
-        </Form>
-      </Fragment>
+          <ColFull>
+            <FieldComponent name="phone" label="Phone" isRequired>
+              <PhoneInputComponent name="phone" placeholder="Phone" value={address.phone} />
+              <ErrorsBlockComponent names={["phone"]} />
+            </FieldComponent>
+          </ColFull>
+        </Grid>
+        <Actions>
+          {isCancellable ? (
+            <Fragment>
+              <ButtonComponent actionType="secondary" onClick={this.handleCancel} isFullWidth isShortHeight>
+                Cancel
+              </ButtonComponent>
+              <ActionsSpacer />
+            </Fragment>
+          ) : null}
+          <ButtonComponent
+            onClick={() => {
+              this._form.submit();
+            }}
+            isFullWidth
+            isShortHeight
+          >
+            {saveButtonText}
+          </ButtonComponent>
+        </Actions>
+      </Form>
     );
   }
 }
