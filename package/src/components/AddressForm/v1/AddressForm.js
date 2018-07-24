@@ -77,6 +77,14 @@ class AddressForm extends Component {
        */
       ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
       /**
+       * ErrorsBlock component
+       */
+      ErrorsBlockComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      /**
+       * Field component
+       */
+      FieldComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      /**
        * TextInput component
        */
       TextInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
@@ -92,16 +100,18 @@ class AddressForm extends Component {
     /**
      * Country options
      */
-    countries: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    countries: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Country option label ("United States", "Nigeria")
          */
-      label: PropTypes.string,
-      /**
+        label: PropTypes.string,
+        /**
          * Country option value ("US", "NU")
          */
-      value: PropTypes.string
-    })),
+        value: PropTypes.string
+      })
+    ),
     /**
      * Can the form entry be canceled, when form is being used to edit an address
      */
@@ -121,16 +131,18 @@ class AddressForm extends Component {
     /**
      * Region options
      */
-    regions: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    regions: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Region option label ("Louisiana", "California")
          */
-      label: PropTypes.string,
-      /**
+        label: PropTypes.string,
+        /**
          * Region option value ("LA", "CA")
          */
-      value: PropTypes.string
-    })),
+        value: PropTypes.string
+      })
+    ),
     /**
      * Save/Submit button text.
      */
@@ -178,12 +190,20 @@ class AddressForm extends Component {
   handleSubmit = (address) => {
     const { onSubmit } = this.props;
     onSubmit(address);
+    this._form.reset();
   };
 
   render() {
     const {
       address,
-      components: { TextInputComponent, SelectInputComponent, PhoneInputComponent, ButtonComponent },
+      components: {
+        ErrorsBlockComponent,
+        FieldComponent,
+        TextInputComponent,
+        SelectInputComponent,
+        PhoneInputComponent,
+        ButtonComponent
+      },
       countries,
       isCancellable,
       regions,
@@ -200,7 +220,7 @@ class AddressForm extends Component {
         >
           <Grid>
             <ColFull>
-              <Field name="country" label="Country" isRequired>
+              <FieldComponent name="country" label="Country" isRequired>
                 <SelectInputComponent
                   name="country"
                   onChange={this.handleCountryChange}
@@ -209,45 +229,45 @@ class AddressForm extends Component {
                   isSearchable
                   value={address.country}
                 />
-                <ErrorsBlock names={["country"]} />
-              </Field>
+                <ErrorsBlockComponent names={["country"]} />
+              </FieldComponent>
             </ColFull>
 
             <ColHalf>
-              <Field name="firstName" label="First Name" isRequired>
+              <FieldComponent name="firstName" label="First Name" isRequired>
                 <TextInputComponent name="firstName" placeholder="First Name" value={address.firstName} />
-                <ErrorsBlock names={["firstName"]} />
-              </Field>
+                <ErrorsBlockComponent names={["firstName"]} />
+              </FieldComponent>
             </ColHalf>
             <ColHalf>
-              <Field name="lastName" label="Last Name" isRequired>
+              <FieldComponent name="lastName" label="Last Name" isRequired>
                 <TextInputComponent name="lastName" placeholder="Last Name" value={address.lastName} />
-                <ErrorsBlock names={["lastName"]} />
-              </Field>
+                <ErrorsBlockComponent names={["lastName"]} />
+              </FieldComponent>
             </ColHalf>
 
             <ColFull>
-              <Field name="address1" label="Address" isRequired>
+              <FieldComponent name="address1" label="Address" isRequired>
                 <TextInputComponent name="address1" placeholder="Address" value={address.address1} />
-                <ErrorsBlock names={["address1"]} />
-              </Field>
+                <ErrorsBlockComponent names={["address1"]} />
+              </FieldComponent>
             </ColFull>
 
             <ColFull>
-              <Field name="address2" label="Address">
+              <FieldComponent name="address2" label="Address">
                 <TextInputComponent name="address2" placeholder="Address" value={address.address2} />
-              </Field>
+              </FieldComponent>
             </ColFull>
 
             <ColFull>
-              <Field name="city" label="City">
+              <FieldComponent name="city" label="City">
                 <TextInputComponent name="city" placeholder="City" value={address.city} />
-                <ErrorsBlock names={["city"]} />
-              </Field>
+                <ErrorsBlockComponent names={["city"]} />
+              </FieldComponent>
             </ColFull>
 
             <ColHalf>
-              <Field name="region" label="Region" isRequired>
+              <FieldComponent name="region" label="Region" isRequired>
                 {regions && regions.length > 1 ? (
                   <SelectInputComponent
                     name="region"
@@ -259,21 +279,21 @@ class AddressForm extends Component {
                 ) : (
                   <TextInputComponent name="region" placeholder="Region" value={address.region} />
                 )}
-                <ErrorsBlock names={["region"]} />
-              </Field>
+                <ErrorsBlockComponent names={["region"]} />
+              </FieldComponent>
             </ColHalf>
             <ColHalf>
-              <Field name="postal" label="Postal Code" isRequired>
+              <FieldComponent name="postal" label="Postal Code" isRequired>
                 <TextInputComponent name="postal" placeholder="Postal Code" value={address.postal} />
-                <ErrorsBlock names={["postal"]} />
-              </Field>
+                <ErrorsBlockComponent names={["postal"]} />
+              </FieldComponent>
             </ColHalf>
 
             <ColFull>
-              <Field name="phone" label="Phone" isRequired>
+              <FieldComponent name="phone" label="Phone" isRequired>
                 <PhoneInputComponent name="phone" placeholder="Phone" value={address.phone} />
-                <ErrorsBlock names={["phone"]} />
-              </Field>
+                <ErrorsBlockComponent names={["phone"]} />
+              </FieldComponent>
             </ColFull>
           </Grid>
           <Actions>

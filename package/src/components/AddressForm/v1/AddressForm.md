@@ -4,6 +4,8 @@
 #### Basic Usage
 ```jsx
 const components = {
+ ErrorsBlockComponent: ErrorsBlock,
+ FieldComponent: Field,
  TextInputComponent: TextInput,
  SelectInputComponent: Select,
  PhoneInputComponent: TextInput,
@@ -44,6 +46,8 @@ const address = {
 }
 
 const components = {
+ ErrorsBlockComponent: ErrorsBlock,
+ FieldComponent: Field,
  TextInputComponent: TextInput,
  SelectInputComponent: Select,
  PhoneInputComponent: TextInput,
@@ -90,6 +94,8 @@ const address = {
 }
 
 const components = {
+ ErrorsBlockComponent: ErrorsBlock,
+ FieldComponent: Field,
  TextInputComponent: TextInput,
  SelectInputComponent: Select,
  PhoneInputComponent: TextInput,
