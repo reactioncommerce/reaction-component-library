@@ -1,20 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot 1`] = `
-.c2 {
-  margin: 0.9375rem 0;
-}
-
-.c3 {
-  -webkit-font-smoothing: antialiased;
-  color: #737373;
-  display: block;
-  font-family: "Source Sans Pro","Helvetica Neue",Helvetica,sans-serif;
-  font-size: 14px;
-  line-height: 1.25;
-  margin: 0 0 0.625rem;
-}
-
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -35,20 +21,20 @@ exports[`basic snapshot 1`] = `
   flex: 1 1 100%;
 }
 
-.c4 {
+.c2 {
   -webkit-flex: 1 1 100%;
   -ms-flex: 1 1 100%;
   flex: 1 1 100%;
 }
 
-.c5 {
+.c3 {
   display: block;
   margin: 0.9375rem 0;
   width: 100%;
 }
 
 @media (min-width:600px) {
-  .c4 {
+  .c2 {
     -webkit-flex: 0 1 calc(50% - 9px);
     -ms-flex: 0 1 calc(50% - 9px);
     flex: 0 1 calc(50% - 9px);
@@ -56,7 +42,7 @@ exports[`basic snapshot 1`] = `
 }
 
 @media (min-width:600px) {
-  .c5 {
+  .c3 {
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
@@ -78,180 +64,189 @@ exports[`basic snapshot 1`] = `
     <div
       className="c1"
     >
-      <div
-        className="required c2"
+      <Filed
+        isRequired={true}
+        label="Country"
+        name="country"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          Country
-        </label>
         <Select Input
           isSearchable={true}
           name="country"
           onChange={[Function]}
           options={undefined}
           placeholder="Country"
-          value=""
         />
-      </div>
+        <Errors Block
+          names={
+            Array [
+              "country",
+            ]
+          }
+        />
+      </Filed>
     </div>
     <div
-      className="c4"
+      className="c2"
     >
-      <div
-        className="required c2"
+      <Filed
+        isRequired={true}
+        label="First Name"
+        name="firstName"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          First Name
-        </label>
         <Text Input
           name="firstName"
           placeholder="First Name"
-          value=""
         />
-      </div>
+        <Errors Block
+          names={
+            Array [
+              "firstName",
+            ]
+          }
+        />
+      </Filed>
     </div>
     <div
-      className="c4"
+      className="c2"
     >
-      <div
-        className="required c2"
+      <Filed
+        isRequired={true}
+        label="Last Name"
+        name="lastName"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          Last Name
-        </label>
         <Text Input
           name="lastName"
           placeholder="Last Name"
-          value=""
         />
-      </div>
+        <Errors Block
+          names={
+            Array [
+              "lastName",
+            ]
+          }
+        />
+      </Filed>
     </div>
     <div
       className="c1"
     >
-      <div
-        className="required c2"
+      <Filed
+        isRequired={true}
+        label="Address"
+        name="address1"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          Address
-        </label>
         <Text Input
           name="address1"
           placeholder="Address"
-          value=""
         />
-      </div>
+        <Errors Block
+          names={
+            Array [
+              "address1",
+            ]
+          }
+        />
+      </Filed>
     </div>
     <div
       className="c1"
     >
-      <div
-        className="c2"
+      <Filed
+        label="Address"
+        name="address2"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          Address
-        </label>
         <Text Input
           name="address2"
           placeholder="Address"
-          value=""
         />
-      </div>
+      </Filed>
     </div>
     <div
       className="c1"
     >
-      <div
-        className="c2"
+      <Filed
+        label="City"
+        name="city"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          City
-        </label>
         <Text Input
           name="city"
           placeholder="City"
-          value=""
         />
-      </div>
+        <Errors Block
+          names={
+            Array [
+              "city",
+            ]
+          }
+        />
+      </Filed>
     </div>
     <div
-      className="c4"
+      className="c2"
     >
-      <div
-        className="required c2"
+      <Filed
+        isRequired={true}
+        label="Region"
+        name="region"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          Region
-        </label>
         <Text Input
           name="region"
           placeholder="Region"
-          value=""
         />
-      </div>
+        <Errors Block
+          names={
+            Array [
+              "region",
+            ]
+          }
+        />
+      </Filed>
     </div>
     <div
-      className="c4"
+      className="c2"
     >
-      <div
-        className="required c2"
+      <Filed
+        isRequired={true}
+        label="Postal Code"
+        name="postal"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          Postal Code
-        </label>
         <Text Input
           name="postal"
           placeholder="Postal Code"
-          value=""
         />
-      </div>
+        <Errors Block
+          names={
+            Array [
+              "postal",
+            ]
+          }
+        />
+      </Filed>
     </div>
     <div
       className="c1"
     >
-      <div
-        className="required c2"
+      <Filed
+        isRequired={true}
+        label="Phone"
+        name="phone"
       >
-        <label
-          className="c3"
-          htmlFor={undefined}
-        >
-          Phone
-        </label>
         <Phone Input
           name="phone"
           placeholder="Phone"
-          value=""
         />
-      </div>
+        <Errors Block
+          names={
+            Array [
+              "phone",
+            ]
+          }
+        />
+      </Filed>
     </div>
   </div>
   <div
-    className="c5"
+    className="c3"
   >
     <Button
       isFullWidth={true}
