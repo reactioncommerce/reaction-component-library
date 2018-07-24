@@ -28,3 +28,7 @@ In your HTML:
 // Font for display type
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700" rel="stylesheet">
 ```
+
+## SVGs
+
+Several components in this library use [Font Awesome](https://fontawesome.com/) icons in scalable vector graphic format (SVGs), under the [Font Awesome Free License](https://fontawesome.com/license/free).
