@@ -4,9 +4,6 @@ import { Form } from "reacto-form";
 import styled from "styled-components";
 import { applyTheme, getRequiredValidator } from "../../../utils";
 
-import Field from "../../Field/v1";
-import ErrorsBlock from "../../ErrorsBlock/v1";
-
 const Grid = styled.div`
   display: flex;
   flex-wrap: wrap;
