@@ -1,4 +1,4 @@
-## Overview
+# Overview
 
 Checkboxes can be checked, unchecked and disabled.
 
@@ -10,9 +10,9 @@ Checkboxes can be checked, unchecked and disabled.
 </div>
 ```
 
-#### Usage
+## Usage
 
-###### Checkbox
+##### Checkbox
 
 - Checkboxes should be used when more than one option can be enabled.
 - Generally, checkboxes should be used when there are 3 or more options that can be selected in a row.
@@ -23,7 +23,7 @@ Checkboxes can be checked, unchecked and disabled.
 - All labels should be written in sentence caps.
 - Labels should be left-aligned in forms.
 
-#### Specs
+## Specs
 
 ##### Checkbox
 
