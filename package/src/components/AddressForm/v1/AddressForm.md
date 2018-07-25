@@ -66,12 +66,12 @@ const regions = [
 ];
 
 <AddressForm
-  address={address}
   components={components}
   countries={countries}
   regions={regions}
   onCountryChange={(country) => console.log("country changed", country)}
   onSubmit={(address) => console.log("submited adddress", address)}
+  value={address}
   isCancellable
  />
 ```
@@ -108,11 +108,11 @@ const countries = [
   { value: "NU", label: "Nigeria" }
 ];
 
-<AddressForm
-  address={address}
+<AddressForm  
   components={components}
   countries={countries}
   onSubmit={(address) => console.log("submited adddress", address)}
+  value={address}
   isCancellable
  />
 ```

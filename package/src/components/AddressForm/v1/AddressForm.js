@@ -43,7 +43,7 @@ class AddressForm extends Component {
     /**
      * Address object to be edited
      */
-    address: PropTypes.shape({
+    value: PropTypes.shape({
       address1: PropTypes.string,
       address2: PropTypes.string,
       country: PropTypes.string,
@@ -86,16 +86,18 @@ class AddressForm extends Component {
     /**
      * Country options
      */
-    countries: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    countries: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Country option label ("United States", "Nigeria")
          */
-      label: PropTypes.string,
-      /**
+        label: PropTypes.string,
+        /**
          * Country option value ("US", "NU")
          */
-      value: PropTypes.string
-    })),
+        value: PropTypes.string
+      })
+    ),
     /**
      * Can the form entry be canceled, when form is being used to edit an address
      */
@@ -115,16 +117,18 @@ class AddressForm extends Component {
     /**
      * Region options
      */
-    regions: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    regions: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Region option label ("Louisiana", "California")
          */
-      label: PropTypes.string,
-      /**
+        label: PropTypes.string,
+        /**
          * Region option value ("LA", "CA")
          */
-      value: PropTypes.string
-    })),
+        value: PropTypes.string
+      })
+    ),
     /**
      * Save/Submit button text.
      */
@@ -136,7 +140,7 @@ class AddressForm extends Component {
   };
 
   static defaultProps = {
-    address: {
+    value: {
       address1: "",
       address2: "",
       country: "",
@@ -178,7 +182,7 @@ class AddressForm extends Component {
 
   render() {
     const {
-      address,
+      value,
       components: {
         ErrorsBlockComponent,
         FieldComponent,
@@ -200,7 +204,7 @@ class AddressForm extends Component {
         }}
         onSubmit={this.props.onSubmit}
         validator={validator}
-        value={address}
+        value={value}
       >
         <Grid>
           <ColFull>
