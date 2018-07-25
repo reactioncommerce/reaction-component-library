@@ -66,7 +66,6 @@ class AddressExample extends React.Component {
     
     handleCountryChange(country ) {
       const activeCountry = this.state.countries.find((cnty) => cnty.value === country);
-      console.log("hey", country, activeCountry)
       
       if (activeCountry) {
         this.setState({

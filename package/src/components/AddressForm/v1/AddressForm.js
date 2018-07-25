@@ -85,6 +85,21 @@ class AddressForm extends Component {
       })
     ),
     /**
+     * Errors array
+     */
+    errors: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
+         * Error message
+         */
+        message: PropTypes.string.isRequired,
+        /**
+         * Error name
+         */
+        name: PropTypes.string.isRequired
+      })
+    ),
+    /**
      * Can the form entry be canceled, when form is being used to edit an address
      */
     isCancellable: PropTypes.bool,
@@ -178,11 +193,6 @@ class AddressForm extends Component {
   state = {};
 
   _form = null;
-
-  handleCountryChange = (country) => {
-    const { onCountryChange } = this.props;
-    onCountryChange(country);
-  };
 
   handleCancel = () => {
     const { onCancel } = this.props;
