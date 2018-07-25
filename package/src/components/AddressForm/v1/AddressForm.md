@@ -31,6 +31,69 @@ const regions = [
  />
 ```
 
+#### Adding Address
+```jsx
+class AddressExample extends React.Component {
+    constructor(props) {
+      super(props);
+      this.components = {
+        ErrorsBlockComponent: ErrorsBlock,
+        FieldComponent: Field,
+        TextInputComponent: TextInput,
+        SelectInputComponent: Select,
+        PhoneInputComponent: TextInput,
+        ButtonComponent: Button
+      };
+    
+      this.state = {
+        activeCountry: "US",
+        countries: [
+          { value: "US", label: "United States" },
+          { value: "DE", label: "Germany" },
+          { value: "NU", label: "Nigeria" }
+        ],
+        regions: {
+          US: [
+            { value: "LA", label: "Louisiana" },
+            { value: "CA", label: "California" }
+          ]
+        }
+      };
+      
+      this.handleCountryChange.bind(this)
+    }
+  
+    
+    handleCountryChange(country ) {
+      const activeCountry = this.state.countries.find((cnty) => cnty.value === country);
+      console.log("hey", country, activeCountry)
+      
+      if (activeCountry) {
+        this.setState({
+          activeCountry: activeCountry.value
+        });
+      }
+    }
+    
+    render() {
+      return (
+      <div>
+<AddressForm
+components={this.components}
+countries={this.state.countries}
+regions={this.state.regions[this.state.activeCountry]}
+onCountryChange={(value) => this.handleCountryChange(value)}
+onSubmit={(address) => console.log(address)}
+/>
+</div>
+);
+    }
+  }
+
+  <AddressExample />
+
+```
+
 #### Editing Address
 ```jsx
 const address = {
@@ -87,7 +150,7 @@ const address = {
  country: "NU",
  city: "Lagos",
  firstName: "Ocean Basket",
- lastName: "Victoria Island",
+ lastName: "Victoria Island", 
  postal: "101241",
  region: "Victoria Island",
  phone: "234 816 059 1821"

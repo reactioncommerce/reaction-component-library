@@ -41,20 +41,6 @@ const ActionsSpacer = styled.div`
 class AddressForm extends Component {
   static propTypes = {
     /**
-     * Address object to be edited
-     */
-    value: PropTypes.shape({
-      address1: PropTypes.string,
-      address2: PropTypes.string,
-      country: PropTypes.string,
-      city: PropTypes.string,
-      firstName: PropTypes.string,
-      lastName: PropTypes.string,
-      postal: PropTypes.string,
-      region: PropTypes.string,
-      phone: PropTypes.string
-    }),
-    /**
      * Provided child components for form inputs
      */
     components: PropTypes.shape({
@@ -136,21 +122,24 @@ class AddressForm extends Component {
     /**
      * Validator method
      */
-    validator: PropTypes.func
+    validator: PropTypes.func,
+    /**
+     * Address object to be edited
+     */
+    value: PropTypes.shape({
+      address1: PropTypes.string,
+      address2: PropTypes.string,
+      country: PropTypes.string,
+      city: PropTypes.string,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      postal: PropTypes.string,
+      region: PropTypes.string,
+      phone: PropTypes.string
+    })
   };
 
   static defaultProps = {
-    value: {
-      address1: "",
-      address2: "",
-      country: "",
-      city: "",
-      firstName: "",
-      lastName: "",
-      postal: "",
-      region: "",
-      phone: ""
-    },
     components: {
       ButtonComponent: "Button",
       ErrorsBlockComponent: "Errors Block",
@@ -163,7 +152,27 @@ class AddressForm extends Component {
     onCountryChange() {},
     onSubmit() {},
     saveButtonText: "Save and continue",
-    validator: getRequiredValidator("country", "firstName", "lastName", "address1", "city", "phone", "postal", "region")
+    validator: getRequiredValidator(
+      "country",
+      "firstName",
+      "lastName",
+      "address1",
+      "city",
+      "phone",
+      "postal",
+      "region"
+    ),
+    value: {
+      address1: "",
+      address2: "",
+      country: "",
+      city: "",
+      firstName: "",
+      lastName: "",
+      postal: "",
+      region: "",
+      phone: ""
+    }
   };
 
   state = {};
@@ -211,7 +220,7 @@ class AddressForm extends Component {
             <FieldComponent name="country" label="Country" isRequired>
               <SelectInputComponent
                 name="country"
-                onChange={this.handleCountryChange}
+                onChange={this.props.onCountryChange}
                 options={countries}
                 placeholder="Country"
                 isSearchable
