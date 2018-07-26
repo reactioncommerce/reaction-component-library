@@ -4,7 +4,7 @@ The Reaction Commerce component library aims to support all browsers supported b
 
 Browser list:
 - Google Chrome
-- Internet Explorer (11+)
+- Internet Explorer 11
 - Microsoft Edge
 - Mozilla Firefox
 - Safari
