@@ -78,8 +78,6 @@ class PhoneNumberInput extends Component {
     value: PropTypes.string
   };
 
-  static defaultProps = {};
-
   state = {
     value: this.props.value || ""
   };
@@ -91,9 +89,8 @@ class PhoneNumberInput extends Component {
   };
 
   render() {
-    const { ...props } = this.props;
     const { value } = this.state;
-    return <TextInput onChanging={this.handleChanging} value={value} {...props} />;
+    return <TextInput {...this.props} onChanging={this.handleChanging} value={value} />;
   }
 }
 

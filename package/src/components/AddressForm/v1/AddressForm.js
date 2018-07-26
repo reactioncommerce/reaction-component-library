@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Form } from "reacto-form";
 import styled from "styled-components";
@@ -20,22 +20,6 @@ const ColHalf = styled.div`
   @media (${applyTheme("bp_sm")}) {
     flex: 0 1 calc(50% - 9px);
   }
-`;
-
-const Actions = styled.div`
-  display: block;
-  margin: ${applyTheme("fieldMargin")};
-  width: 100%;
-
-  @media (${applyTheme("bp_sm")}) {
-    display: flex;
-    justify-content: flex-end;
-  }
-`;
-
-const ActionsSpacer = styled.div`
-  height: 10px;
-  width: 10px;
 `;
 
 class AddressForm extends Component {
@@ -68,33 +52,29 @@ class AddressForm extends Component {
     /**
      * Country options
      */
-    countries: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    countries: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Country option label ("United States", "Nigeria")
          */
-        label: PropTypes.string,
-        /**
+      label: PropTypes.string,
+      /**
          * Country option value ("US", "NU")
          */
-        value: PropTypes.string
-      })
-    ),
+      value: PropTypes.string
+    })),
     /**
      * Errors array
      */
-    errors: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    errors: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Error message
          */
-        message: PropTypes.string.isRequired,
-        /**
+      message: PropTypes.string.isRequired,
+      /**
          * Error name
          */
-        name: PropTypes.string.isRequired
-      })
-    ),
+      name: PropTypes.string.isRequired
+    })),
     /**
      * Form name
      */
@@ -114,18 +94,16 @@ class AddressForm extends Component {
     /**
      * Region options
      */
-    regions: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    regions: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Region option label ("Louisiana", "California")
          */
-        label: PropTypes.string,
-        /**
+      label: PropTypes.string,
+      /**
          * Region option value ("LA", "CA")
          */
-        value: PropTypes.string
-      })
-    ),
+      value: PropTypes.string
+    })),
     /**
      * Validator method
      */

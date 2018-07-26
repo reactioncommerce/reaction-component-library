@@ -27,30 +27,11 @@ exports[`basic snapshot 1`] = `
   flex: 1 1 100%;
 }
 
-.c3 {
-  display: block;
-  margin: 0.9375rem 0;
-  width: 100%;
-}
-
 @media (min-width:600px) {
   .c2 {
     -webkit-flex: 0 1 calc(50% - 9px);
     -ms-flex: 0 1 calc(50% - 9px);
     flex: 0 1 calc(50% - 9px);
-  }
-}
-
-@media (min-width:600px) {
-  .c3 {
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-    -webkit-justify-content: flex-end;
-    -ms-flex-pack: end;
-    justify-content: flex-end;
   }
 }
 
@@ -244,17 +225,6 @@ exports[`basic snapshot 1`] = `
         />
       </Filed>
     </div>
-  </div>
-  <div
-    className="c3"
-  >
-    <Button
-      isFullWidth={true}
-      isShortHeight={true}
-      onClick={[Function]}
-    >
-      Save and continue
-    </Button>
   </div>
 </div>
 `;
