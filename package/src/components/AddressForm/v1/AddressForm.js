@@ -52,33 +52,29 @@ class AddressForm extends Component {
     /**
      * Country options
      */
-    countries: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    countries: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Country option label ("United States", "Nigeria")
          */
-        label: PropTypes.string,
-        /**
+      label: PropTypes.string,
+      /**
          * Country option value ("US", "NU")
          */
-        value: PropTypes.string
-      })
-    ),
+      value: PropTypes.string
+    })),
     /**
      * Errors array
      */
-    errors: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    errors: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Error message
          */
-        message: PropTypes.string.isRequired,
-        /**
+      message: PropTypes.string.isRequired,
+      /**
          * Error name
          */
-        name: PropTypes.string.isRequired
-      })
-    ),
+      name: PropTypes.string.isRequired
+    })),
     /**
      * Form name
      */
@@ -98,18 +94,16 @@ class AddressForm extends Component {
     /**
      * Region options
      */
-    regions: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    regions: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Region option label ("Louisiana", "California")
          */
-        label: PropTypes.string,
-        /**
+      label: PropTypes.string,
+      /**
          * Region option value ("LA", "CA")
          */
-        value: PropTypes.string
-      })
-    ),
+      value: PropTypes.string
+    })),
     /**
      * Validator method
      */
