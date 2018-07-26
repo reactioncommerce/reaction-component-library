@@ -31,6 +31,40 @@ const regions = [
  />
 ```
 
+
+#### Errors Usage
+```jsx
+const components = {
+ ErrorsBlockComponent: ErrorsBlock,
+ FieldComponent: Field,
+ TextInputComponent: TextInput,
+ SelectInputComponent: Select,
+ PhoneInputComponent: TextInput,
+ ButtonComponent: Button
+};
+
+const countries = [
+  { value: "US", label: "United States" },
+  { value: "DE", label: "Germany" },
+  { value: "NU", label: "Nigeria" }
+];
+
+const regions = [
+  { value: "LA", label: "Louisiana" },
+  { value: "CA", label: "California" }
+];
+
+const errors = [{ message: "error message", name: "address1"}];
+
+<AddressForm
+  components={components}
+  countries={countries}
+  errors={errors}
+  regions={regions}
+  onSubmit={(address) => console.log(address)}
+ />
+```
+
 #### Adding Address
 ```jsx
 class AddressExample extends React.Component {

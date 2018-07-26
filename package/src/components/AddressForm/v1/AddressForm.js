@@ -45,10 +45,6 @@ class AddressForm extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Button component
-       */
-      ButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-      /**
        * ErrorsBlock component
        */
       ErrorsBlockComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
@@ -100,9 +96,9 @@ class AddressForm extends Component {
       })
     ),
     /**
-     * Can the form entry be canceled, when form is being used to edit an address
+     * Form name
      */
-    isCancellable: PropTypes.bool,
+    name: PropTypes.string,
     /**
      * Cancel event callback
      */
@@ -131,10 +127,6 @@ class AddressForm extends Component {
       })
     ),
     /**
-     * Save/Submit button text.
-     */
-    saveButtonText: PropTypes.string,
-    /**
      * Validator method
      */
     validator: PropTypes.func,
@@ -156,17 +148,17 @@ class AddressForm extends Component {
 
   static defaultProps = {
     components: {
-      ButtonComponent: "Button",
       ErrorsBlockComponent: "Errors Block",
       FieldComponent: "Filed",
       PhoneInputComponent: "Phone Input",
       SelectInputComponent: "Select Input",
       TextInputComponent: "Text Input"
     },
+    errors: [],
+    name: "address",
     onCancel() {},
     onCountryChange() {},
     onSubmit() {},
-    saveButtonText: "Save and continue",
     validator: getRequiredValidator(
       "country",
       "firstName",
@@ -207,13 +199,12 @@ class AddressForm extends Component {
         FieldComponent,
         TextInputComponent,
         SelectInputComponent,
-        PhoneInputComponent,
-        ButtonComponent
+        PhoneInputComponent
       },
       countries,
-      isCancellable,
+      errors,
+      name,
       regions,
-      saveButtonText,
       validator
     } = this.props;
     return (
@@ -221,6 +212,8 @@ class AddressForm extends Component {
         ref={(formEl) => {
           this._form = formEl;
         }}
+        errors={errors}
+        name={name}
         onSubmit={this.props.onSubmit}
         validator={validator}
         value={value}
@@ -296,25 +289,6 @@ class AddressForm extends Component {
             </FieldComponent>
           </ColFull>
         </Grid>
-        <Actions>
-          {isCancellable ? (
-            <Fragment>
-              <ButtonComponent actionType="secondary" onClick={this.handleCancel} isFullWidth isShortHeight>
-                Cancel
-              </ButtonComponent>
-              <ActionsSpacer />
-            </Fragment>
-          ) : null}
-          <ButtonComponent
-            onClick={() => {
-              this._form.submit();
-            }}
-            isFullWidth
-            isShortHeight
-          >
-            {saveButtonText}
-          </ButtonComponent>
-        </Actions>
       </Form>
     );
   }
