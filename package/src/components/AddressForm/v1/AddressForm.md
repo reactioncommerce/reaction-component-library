@@ -146,7 +146,7 @@ const errors = [{ message: "error message", name: "address1"}];
 ```
 
 #### Address Form Implementation Example
-
+Simple `AddressForm` implementation example. Bind to the form element via a `ref` method that can be used my any `Button` to trigger `submit` & `validate` form methods.
 ```jsx
 class AddressExample extends React.Component {
     constructor(props) {
@@ -205,7 +205,7 @@ class AddressExample extends React.Component {
             countries={this.state.countries}
             regions={this.state.regions[this.state.activeCountry]}
             onCountryChange={(value) => this.handleCountryChange(value)}
-            onSubmit={(address) => console.log(address)}
+            onSubmit={(address) => console.log("Address submitted", address)}
           />
           <Button onClick={() => this._addressForm.submit()}>Submit</Button>
         </div>
