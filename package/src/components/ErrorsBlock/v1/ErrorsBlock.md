@@ -1,4 +1,4 @@
-### ErrorsBlock Overview
+### Overview
 
 ```jsx
 const errors = [{ name: "example", message: "This field is required" }];
@@ -7,6 +7,8 @@ const errors = [{ name: "example", message: "This field is required" }];
  <ErrorsBlock names={["example"]} errors={errors} />
 </Field>
 ```
+
+#### Usage
 
 ```jsx
 const errors = [{ name: "example", message: "This field is required" }, { name: "example", message: "Another error" }];

@@ -1,9 +1,12 @@
-### CartSummary
-
 ### Overview
-Displays a summary of the current current items in the cart.
+Displays a summary of the current current items in the cart, with cost and other optional information.
 
-#### Basic usage
+#### Usage
+
+The CartSummary displays item quantity, subtotal, shipping, tax and total. The cart can also display a free shipping message, calculated taxes and any applied discounts.
+
+##### Default 
+
 ```jsx
 <CartSummary
   displayShipping="$10.99"
@@ -13,7 +16,8 @@ Displays a summary of the current current items in the cart.
 />
 ```
 
-#### Renders summary with FREE shipping
+##### Display free shipping
+
 ```jsx
 <CartSummary
   displaySubtotal="$275.77"
@@ -23,7 +27,8 @@ Displays a summary of the current current items in the cart.
 />
 ```
 
-#### Renders summary with calculated taxes
+##### Display calculated taxes
+
 ```jsx
 <CartSummary
   displayShipping="$5.25"
@@ -34,7 +39,8 @@ Displays a summary of the current current items in the cart.
 />
 ```
 
-#### Renders summary with applied discount
+##### Display applied discount
+
 ```jsx
 <CartSummary
   displayDiscount="-$83.42"
