@@ -171,7 +171,7 @@ module.exports = {
         marginTop: "20px"
       },
       heading2: {
-        fontFamily: "PostGrotesk-Medium",
+        fontFamily: "PostGrotesk-Medium"
       },
       heading3: {
         fontFamily: "PostGrotesk-Medium",
