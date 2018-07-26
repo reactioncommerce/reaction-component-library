@@ -68,10 +68,8 @@ const regions = [
   components={components}
   countries={countries}
   regions={regions}
-  onCountryChange={(country) => console.log("country changed", country)}
   onSubmit={(address) => console.log("submited adddress", address)}
   value={address}
-  isCancellable
  />
 ```
 
@@ -111,7 +109,6 @@ const countries = [
   countries={countries}
   onSubmit={(address) => console.log("submited adddress", address)}
   value={address}
-  isCancellable
  />
 ```
 
@@ -184,10 +181,8 @@ class AddressExample extends React.Component {
     }
     
     bindForm(formEl) {
-      console.log("ref", formEl)
       if (formEl) {
         this._addressForm = formEl._form;
-              console.log("hey?!?!", this._addressForm)
       }
     }
   
@@ -202,7 +197,6 @@ class AddressExample extends React.Component {
     }
     
     render() {
-    console.log("example form render", this._addressForm)
       return (
         <div>
           <AddressForm

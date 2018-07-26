@@ -88,7 +88,6 @@ class Field extends Component {
 
   render() {
     const { children, helpText, label } = this.props;
-
     return (
       <StyledField className={this.getClassName()}>
         {!isEmpty(label) && this.renderLabel()}
