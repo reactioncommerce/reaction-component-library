@@ -100,6 +100,11 @@ module.exports = {
     }
   },
   styles: {
+    Text: {
+      strong: {
+        fontFamily: ["'PostGrotesk-Bold'", "-apple-system", "sans-serif"]
+      }
+    },
     StyleGuide: {
       content: {
         maxWidth: "initial",
@@ -305,7 +310,6 @@ module.exports = {
         {
           name: "Using Components",
           content: "styleguide/src/sections/InstallingandImporting.md"
-          // description: ""
         }
       ]
     },
@@ -318,7 +322,7 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "ErrorsBlock", "Checkbox"],
+          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "Checkbox", "ErrorsBlock"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -328,16 +332,6 @@ module.exports = {
       name: "Storefront Components",
       sections: [
         generateSection({
-          componentNames: ["CartEmptyMessage", "CartSummary", "CartItem", "CartItems", "CartItemDetail", "MiniCartSummary", "MiniCart"],
-          content: "styleguide/src/sections/Cart.md",
-          name: "Cart"
-        }),
-        generateSection({
-          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
-          content: "styleguide/src/sections/Checkout.md",
-          name: "Checkout"
-        }),
-        generateSection({
           componentNames: ["ShopLogo"],
           content: "styleguide/src/sections/General.md",
           name: "General"
@@ -346,6 +340,21 @@ module.exports = {
           componentNames: ["Price", "StockWarning"],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
+        }),
+        generateSection({
+          componentNames: ["CartItem", "CartItems", "CartItemDetail", "CartSummary", "CartEmptyMessage"],
+          content: "styleguide/src/sections/Cart.md",
+          name: "Cart"
+        }),
+        generateSection({
+          componentNames: ["MiniCart", "MiniCartSummary"],
+          content: "styleguide/src/sections/Cart.md",
+          name: "Cart"
+        }),
+        generateSection({
+          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
+          content: "styleguide/src/sections/Checkout.md",
+          name: "Checkout"
         })
       ]
     }
