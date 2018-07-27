@@ -1,6 +1,6 @@
 # Browser compatibility
 
-The Reaction Commerce component library aims to support all modern libraries and Internet Explorer 11.
+The Reaction Commerce component library aims to support all modern browsers and Internet Explorer 11.
 
 Our browser compatibility list:
 - Google Chrome
