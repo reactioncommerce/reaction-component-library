@@ -1,9 +1,11 @@
-### CheckoutActionComplete
+### Overview
 
-#### Overview
-The CheckoutActionComplete component will show when a checkout action has been completed. It is a summary of the information inside the completed action.
+The `CheckoutActionComplete` component will show when a checkout action has been completed. It is a summary of the information inside the completed action.
 
-#### Basic usage
+#### Usage
+
+##### Default
+
 ```jsx
 const onClick = () => {};
 
@@ -26,7 +28,7 @@ const Address = (
 </div>
 ```
 
-#### Completed step without a step number
+##### Completed step without a step number
 ```jsx
 const onClick = () => {};
 

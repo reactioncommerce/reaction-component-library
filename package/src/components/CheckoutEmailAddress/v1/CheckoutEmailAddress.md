@@ -1,9 +1,10 @@
-### CheckoutEmailAddress
-
 ### Overview
-Displays a customers email address inside the checkout flow
+Displays a customers email address inside the checkout flow.
 
-#### Basic usage when user has an account
+#### Usage
+
+##### Account user
+
 ```jsx
 <CheckoutEmailAddress
   emailAddress="account.email@example.com"
@@ -11,7 +12,8 @@ Displays a customers email address inside the checkout flow
 />
 ```
 
-#### Basic usage as a guest
+##### Guest user
+
 ```jsx
 <CheckoutEmailAddress
   emailAddress="guest.email@example.com"

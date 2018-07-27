@@ -1,10 +1,13 @@
-### CartItem
+### Overview
 
-#### Overview
-This component will be used when there is a need to show an item that customer has added to their cart.
-It could be used in the future to show items that are within a "Wish List", "Saved for Later", or other customer generated lists of un-purchased products. There's potential that with a few modifications could be used to show Order Items, though the type and amount of information shown within an order item may be different enough to warrant a separate component.
+This component will be used when there is a need to show an item that customer has added to their cart. A CartItem displays an item's image, name, quantity, price and attributes. CartItem can also display a compare at price and stock quantity warning label. A CartItem allows users to change the quantity of the item and remove the item.
 
-#### Basic Usage
+#### Usage
+
+CartItem can be used in CartItems and also in MiniCart. It could be used in the future to show items that are within a "Wish List", "Saved for Later", or other customer generated lists of un-purchased products. There's potential that with a few modifications could be used to show Order Items, though the type and amount of information shown within an order item may be different enough to warrant a separate component.
+
+##### Default
+
 ```jsx
 const item = {
   _id: "123",
@@ -40,7 +43,7 @@ const item = {
 />
 ```
 
-#### Without Compare At Price
+##### Without Compare At Price
 ```jsx
 const item = {
   _id: "123",
@@ -73,7 +76,7 @@ const item = {
 />
 ```
 
-#### Without Stock Warning
+##### Without Stock Warning
 ```jsx
 const item = {
   _id: "123",
@@ -109,7 +112,7 @@ const item = {
 />
 ```
 
-#### In Mini Cart
+##### In Mini Cart
 ```jsx
 const item = {
   _id: "123",

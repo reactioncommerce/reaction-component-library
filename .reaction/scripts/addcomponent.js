@@ -58,7 +58,7 @@ function createComponentTestFile(name) {
 function createComponentMarkdownFile(name) {
   const filePath = path.join(componentDirectory, "v1", `${name}.md`);
   fs.ensureFileSync(filePath);
-  fs.writeFileSync(filePath, `### ${name}
+  fs.writeFileSync(filePath, `### Overview\n#### Usage
 
 Document component here. See https://react-styleguidist.js.org/docs/documenting.html`);
 }
