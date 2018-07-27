@@ -231,8 +231,8 @@ class AddressForm extends Component {
           </ColFull>
 
           <ColFull>
-            <FieldComponent name="address2" label="Address">
-              <TextInputComponent name="address2" placeholder="Address" />
+            <FieldComponent name="address2" label="Address Line 2 (Optional)">
+              <TextInputComponent name="address2" placeholder="Address Line 2 (Optional)" />
             </FieldComponent>
           </ColFull>
 
