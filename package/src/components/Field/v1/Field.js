@@ -51,6 +51,7 @@ class Field extends Component {
     className: PropTypes.string,
     errors: PropTypes.array,
     helpText: PropTypes.string,
+    isOptional: PropTypes.bool,
     isRequired: PropTypes.bool,
     label: PropTypes.node,
     labelClassName: PropTypes.string,
@@ -63,6 +64,7 @@ class Field extends Component {
     label: undefined,
     labelClassName: undefined,
     labelFor: undefined,
+    isOptional: false,
     isRequired: false
   };
 
@@ -74,10 +76,13 @@ class Field extends Component {
   }
 
   renderLabel() {
-    const { errors, label, labelClassName, labelFor } = this.props;
+    const { errors, label, labelClassName, labelFor, isOptional } = this.props;
 
     return (
-      <StyledLabel className={labelClassName} errors={errors} htmlFor={labelFor}>{label}</StyledLabel>
+      <StyledLabel className={labelClassName} errors={errors} htmlFor={labelFor}>
+        {label}
+        {isOptional ? " (Optional)" : null}
+      </StyledLabel>
     );
   }
 
