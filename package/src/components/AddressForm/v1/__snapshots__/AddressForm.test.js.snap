@@ -133,12 +133,12 @@ exports[`basic snapshot 1`] = `
       className="c1"
     >
       <Filed
-        label="Address"
+        label="Address Line 2 (Optional)"
         name="address2"
       >
         <Text Input
           name="address2"
-          placeholder="Address"
+          placeholder="Address Line 2 (Optional)"
         />
       </Filed>
     </div>
