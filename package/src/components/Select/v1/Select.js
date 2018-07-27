@@ -9,7 +9,7 @@ import { applyTheme, CustomPropTypes } from "../../../utils";
 // be taken from the theme eventually, though, if people have problems in other places.
 const MENU_Z_INDEX = 4;
 
-const nullDefaultEquals = (value1, value2) => ((value1 || null) === (value2 || null));
+const nullDefaultEquals = (value1, value2) => (value1 || null) === (value2 || null);
 
 // Rather than pass through all props to react-select, we'll keep a whitelist
 // to better control the usage and appearance of this component.
@@ -73,6 +73,7 @@ function applyValidationColor(themeProp = "color") {
 
 const getInputBorderColor = applyValidationColor("inputBorderColor");
 const getInputBorderRadius = applyTheme("inputBorderRadius");
+const getInputFontSize = applyTheme("inputFontSize");
 
 function getCustomStyles(props) {
   const { maxWidth } = props;
@@ -80,7 +81,7 @@ function getCustomStyles(props) {
   // TODO isDark change bg color
   return {
     container(base) {
-      return { ...base, maxWidth };
+      return { ...base, maxWidth, fontSize: getInputFontSize() };
     },
     control(base, state) {
       return {
@@ -332,11 +333,7 @@ class Select extends Component {
      * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
      * the Composable Forms spec will pass this automatically.
      */
-    value: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.bool
-    ])
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
   };
 
   static defaultProps = {
@@ -414,7 +411,7 @@ class Select extends Component {
           value = value === "" ? null : Boolean(value);
           break;
         default:
-          // do nothing
+        // do nothing
       }
     }
 
@@ -437,8 +434,8 @@ class Select extends Component {
         if (!this.dataType) {
           this.dataType = checkDataType;
         } else if (checkDataType !== this.dataType) {
-          throw new Error(`All option values must have the same data type. The data type of the first option is "${this.dataType}" while the` +
-            ` data type of the ${option.label} option is "${checkDataType}"`);
+          // eslint-disable-next-line
+          throw new Error(`All option values must have the same data type. The data type of the first option is "${this.dataType}" while the data type of the ${option.label} option is "${checkDataType}"`);
         }
       }
     });
