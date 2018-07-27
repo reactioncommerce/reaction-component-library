@@ -92,14 +92,19 @@ module.exports = {
       text: 16,
       small: 14,
       h1: 40,
-      h2: 31,
-      h3: 25,
-      h4: 20,
-      h5: 18,
-      h6: 16
+      h2: 40,
+      h3: 40,
+      h4: 25,
+      h5: 20,
+      h6: 18
     }
   },
   styles: {
+    Text: {
+      strong: {
+        fontFamily: ["'PostGrotesk-Bold'", "-apple-system", "sans-serif"]
+      }
+    },
     StyleGuide: {
       content: {
         maxWidth: "initial",
@@ -163,11 +168,18 @@ module.exports = {
     Heading: {
       heading1: {
         fontFamily: "PostGrotesk-Medium",
+        marginTop: "20px"
+      },
+      heading2: {
+        fontFamily: "PostGrotesk-Medium"
+      },
+      heading3: {
+        fontFamily: "PostGrotesk-Medium",
         color: "#052a4e",
         marginBottom: "30px",
         marginTop: "40px"
       },
-      heading2: {
+      heading4: {
         fontFamily: "PostGrotesk-Regular",
         color: "#052a4e",
         marginBottom: "30px",
@@ -298,7 +310,6 @@ module.exports = {
         {
           name: "Using Components",
           content: "styleguide/src/sections/InstallingandImporting.md"
-          // description: ""
         }
       ]
     },
@@ -311,7 +322,7 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "ErrorsBlock", "Checkbox"],
+          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "Checkbox", "ErrorsBlock"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -321,16 +332,6 @@ module.exports = {
       name: "Storefront Components",
       sections: [
         generateSection({
-          componentNames: ["CartEmptyMessage", "CartSummary", "CartItem", "CartItems", "CartItemDetail", "MiniCartSummary", "MiniCart"],
-          content: "styleguide/src/sections/Cart.md",
-          name: "Cart"
-        }),
-        generateSection({
-          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
-          content: "styleguide/src/sections/Checkout.md",
-          name: "Checkout"
-        }),
-        generateSection({
           componentNames: ["ShopLogo"],
           content: "styleguide/src/sections/General.md",
           name: "General"
@@ -339,6 +340,21 @@ module.exports = {
           componentNames: ["Price", "StockWarning"],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
+        }),
+        generateSection({
+          componentNames: ["CartItem", "CartItems", "CartItemDetail", "CartSummary", "CartEmptyMessage"],
+          content: "styleguide/src/sections/Cart.md",
+          name: "Cart"
+        }),
+        generateSection({
+          componentNames: ["MiniCart", "MiniCartSummary"],
+          content: "styleguide/src/sections/Cart.md",
+          name: "Cart"
+        }),
+        generateSection({
+          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
+          content: "styleguide/src/sections/Checkout.md",
+          name: "Checkout"
         })
       ]
     }

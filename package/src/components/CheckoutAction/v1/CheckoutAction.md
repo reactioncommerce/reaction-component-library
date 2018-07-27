@@ -1,7 +1,11 @@
-#### Overview
-The CheckoutActionComplete component will show when a checkout action has been completed. It is a summary of the information inside the completed action.
+### Overview
 
-#### Basic usage, `active` status
+The `CheckoutAction` component wraps the `CheckoutActionComplete` and `CheckoutActionIncomplete` components.
+
+#### Usage
+
+##### Default: `Active` status
+
 ```jsx
 const Address = (
   <div>
@@ -33,7 +37,7 @@ const Address = (
 </div>
 ```
 
-#### Basic usage, `complete` status
+##### Default: `Complete` status
 ```jsx
 const Address = (
   <div>
@@ -65,7 +69,7 @@ const Address = (
 </div>
 ```
 
-#### Basic usage, `incomplete` status
+##### Default: `Incomplete` status
 ```jsx
 const Address = (
   <div>
@@ -97,7 +101,8 @@ const Address = (
 </div>
 ```
 
-#### Passing in `label` or `stepNumber` props on an element to override default
+#### Override default `label` or `stepNumber`
+
 ```jsx
 const onClick = () => {};
 const Address = (

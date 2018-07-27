@@ -1,4 +1,8 @@
-### MiniCart
+### Overview
+
+#### Usage
+
+##### Default
 
 ```jsx
 const checkout = {
@@ -64,6 +68,8 @@ const components = {
 
 <MiniCart cart={{ checkout, items }} components={components} />
 ```
+
+##### Scrolling
 
 ```jsx
 const checkout = {
