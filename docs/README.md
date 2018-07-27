@@ -19,6 +19,7 @@
 ## Component Review process
 
 - [Reviewing Components](./reviewing-components.md)
+- [Browser Compatibility](./browser-compatibility.md)
 
 ## Architectural Decisions Records
 
