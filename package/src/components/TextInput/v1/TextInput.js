@@ -58,7 +58,8 @@ const StyledInput = styled.input`
   box-sizing: border-box;
   color: inherit;
   flex-grow: 2;
-  font-size: inherit;
+  font-family: ${applyTheme("inputFontFamily")};
+  font-size: ${applyTheme("inputFontSize")};
   line-height: ${applyTheme("inputLineHeight")};
   outline: none;
 
