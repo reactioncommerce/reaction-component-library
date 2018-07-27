@@ -146,7 +146,7 @@ const errors = [{ message: "error message", name: "address1"}];
 ```
 
 #### Address Form Implementation Example
-Simple `AddressForm` implementation example. Bind to the form element via a `ref` method that can be used my any `Button` to trigger `submit` & `validate` form methods.
+Simple `AddressForm` implementation example. Bind to the form element via a `ref` method that can be used by any `Button` to trigger `submit` & `validate` form methods.
 ```jsx
 class AddressExample extends React.Component {
     constructor(props) {
