@@ -133,7 +133,8 @@ exports[`basic snapshot 1`] = `
       className="c1"
     >
       <Filed
-        label="Address Line 2 (Optional)"
+        isOptional={true}
+        label="Address Line 2"
         name="address2"
       >
         <Text Input
