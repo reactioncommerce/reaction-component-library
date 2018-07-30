@@ -78,19 +78,18 @@ When a user has clicked, pressed or tabbed into an input, it’s in focused stat
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" />
-  <TextInput name="example" placeholder="Hint" isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" />
+    <TextInput name="example" placeholder="Hint" isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 ##### Idle Filled / Focused Filled
@@ -99,20 +98,18 @@ When a field has been filled in by the user, and has been unfocused it shows idl
 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="value" />
-  <TextInput name="example" placeholder="Hint" value="value" isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" value="value" />
+    <TextInput name="example" placeholder="Hint" value="value" isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 ##### Valid
@@ -122,19 +119,18 @@ When information is required and/or needs to be formatted in a specific way the 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated />
-  <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated />
+    <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 ##### Invalid
@@ -144,19 +140,18 @@ When information is required and/or needs to be formatted in a specific way the 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} />
-  <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} />
+    <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 ##### Read Only / Disabled
@@ -166,19 +161,18 @@ A disabled input is used when an action needs to be taken before the input can b
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="value" isReadOnly />
-  <TextInput name="example" placeholder="Hint" value="value" isReadOnly isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" value="value" isReadOnly />
+    <TextInput name="example" placeholder="Hint" value="value" isReadOnly isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 #### Input Icons
