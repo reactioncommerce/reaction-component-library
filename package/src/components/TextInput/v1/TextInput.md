@@ -193,7 +193,7 @@ const icon = <i className="fab fa-pied-piper" />;
 ```
 
 The default valid, invalid and clear icons can be overwritten by passing values to these props of the text input.
- - `iconClear, iconError, iconSuccess`
+ - `iconClear, iconError`
  - `iconClearAccessibilityText`
 
 ```jsx
