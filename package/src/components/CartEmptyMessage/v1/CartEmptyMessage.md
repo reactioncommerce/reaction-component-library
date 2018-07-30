@@ -1,9 +1,10 @@
-### CartEmptyMessage
-
-#### Overview
+### Overview
 The `CartEmptyMessage` displays when viewing an empty shopping cart.
 
-#### A cart empty message will be rendered when there are no items in your cart
+#### Usage 
+
+##### Default
+
 ```jsx
 const onClick = () => {};
 
@@ -13,7 +14,10 @@ const onClick = () => {};
   />
 ```
 
-#### It's possible to customize message and button text
+##### Custom cart and button message
+
+Pass in custom copy in `buttonText` and `messageText`.
+
 ```jsx
 const onClick = () => {};
 

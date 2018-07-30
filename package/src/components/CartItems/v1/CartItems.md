@@ -1,9 +1,12 @@
-### CartItems
-
 ### Overview
-This component renders a list of items that are in a customers cart.
+This component renders a list of CartItems that are in a customers cart.
 
-#### Basic Usage
+#### Usage
+
+CartItems can be used in the Cart or the MiniCart.
+
+#### In Cart
+
 ```jsx
 const items = [{
   _id: "123",
