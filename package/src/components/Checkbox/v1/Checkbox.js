@@ -8,13 +8,15 @@ const StyledDiv = styled.div`
   margin-bottom: ${applyTheme("checkboxVerticalSpacing")};
 `;
 
+const checkboxIcon = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'></path></svg>`;
+
 const StyledInput = styled.input`
   opacity: 0;
   + label::after {
     content: none;
   }
   &:checked + label::after {
-    content: ${applyTheme("checkboxIcon")};
+    content:url("data:image/svg+xml;utf8,${checkboxIcon}");
   }
   &:focus + label::before {
     outline: ${applyTheme("checkboxFocusStyle")};
@@ -56,16 +58,14 @@ const StyledLabel = styled.label`
     top: ${applyTheme("checkboxTopSpacing")};
   }
   &::after {
-    content: ${applyTheme("checkboxIcon")};
+    content: " ";
     display: inline-block;
-    font-family: ${applyTheme("checkboxIconFont")};
-    font-size: ${applyTheme("checkboxIconSize")};
-    font-weight: ${applyTheme("checkboxIconFontWeight")};
-    -webkit-font-smoothing: antialiased;
-    color: ${applyTheme("checkboxIconColor")};
+    width: 1em;
+    height: 1em;
+    position: absolute;
+    top: 2px;
+    left: 3px;
     line-height: 1;
-    left:  ${applyTheme("checkboxIconLeftSpacing")};
-    top:  ${applyTheme("checkboxIconTopSpacing")};
   }
 `;
 
@@ -76,7 +76,7 @@ class Checkbox extends Component {
      */
     className: PropTypes.string,
     /**
-     * Enable to make the checkbox read-only / disabled by default
+     * Enable to make the checkboxp read-only / disabled by default
      */
     isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
     /**
