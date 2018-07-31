@@ -4,6 +4,10 @@ import CheckoutActionComplete from "../../CheckoutActionComplete/v1";
 import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1";
 import CheckoutAction from "./CheckoutAction";
 
+const mockComponents = {
+  Button: (props) => `Button${JSON.stringify(props)}`
+};
+
 test("CheckoutAction with `active` status", () => {
   const cart = {};
   const isLoading = false;
@@ -21,6 +25,7 @@ test("CheckoutAction with `active` status", () => {
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
+          components={mockComponents}
           content={Address}
           onClickChangeButton={onClick}
         />
@@ -57,6 +62,7 @@ test("CheckoutAction with `complete` status", () => {
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
+          components={mockComponents}
           content={Address}
           onClickChangeButton={onClick}
         />
@@ -93,6 +99,7 @@ test("CheckoutAction with `incomplete` status", () => {
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
+          components={mockComponents}
           content={Address}
           onClickChangeButton={onClick}
         />
@@ -129,6 +136,7 @@ test("CheckoutAction with `complete` status and label override via props", () =>
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
+          components={mockComponents}
           content={Address}
           label="Label override"
           onClickChangeButton={onClick}
@@ -166,6 +174,7 @@ test("CheckoutAction with `complete` status and stepNumber override via props", 
       activeStepElement="Placeholder: active step isn't yet available"
       completeStepElement={
         <CheckoutActionComplete
+          components={mockComponents}
           content={Address}
           onClickChangeButton={onClick}
           stepNumber={500}
