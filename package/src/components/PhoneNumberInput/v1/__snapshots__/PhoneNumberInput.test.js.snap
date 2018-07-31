@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  -webkit-font-smoothing: antialiased;
+  background-color: #fafafa;
+  border: 1px solid #cccccc;
+  border-radius: 0.125rem;
+  box-sizing: border-box;
+  color: #3c3c3c;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1;
+  outline: none;
+  padding: 0.5rem 0.625rem;
+  position: relative;
+}
+
+.c1 {
+  background-color: inherit;
+  border: none;
+  box-sizing: border-box;
+  color: inherit;
+  -webkit-box-flex: 2;
+  -webkit-flex-grow: 2;
+  -ms-flex-positive: 2;
+  flex-grow: 2;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1;
+  outline: none;
+}
+
+.c1::-webkit-input-placeholder {
+  color: #cccccc;
+}
+
+.c1::-moz-placeholder {
+  color: #cccccc;
+}
+
+.c1:-ms-input-placeholder {
+  color: #cccccc;
+}
+
+.c1::placeholder {
+  color: #cccccc;
+}
+
+.c1:-moz-read-only {
+  color: #bfbfbf;
+}
+
+.c1:read-only {
+  color: #bfbfbf;
+}
+
+.c2 {
+  box-sizing: border-box;
+  color: #737373;
+  fill: currentColor;
+  margin-left: 0.625rem;
+  position: relative;
+  right: 0;
+  top: 0;
+}
+
+.c2 * {
+  display: inline-block;
+}
+
+<div
+  className="c0"
+  value=""
+>
+  <input
+    className="c1"
+    maxLength={undefined}
+    name={undefined}
+    onBlur={[Function]}
+    onChange={[Function]}
+    onFocus={[Function]}
+    onKeyPress={[Function]}
+    placeholder={undefined}
+    readOnly={false}
+    type="text"
+    value=""
+  />
+  <div
+    className="c2"
+    onClick={[Function]}
+    value=""
+  />
+</div>
+`;

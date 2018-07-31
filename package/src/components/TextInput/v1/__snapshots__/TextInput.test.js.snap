@@ -19,7 +19,7 @@ exports[`renders 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.75rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   position: relative;
 }
 
@@ -32,6 +32,8 @@ exports[`renders 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
+  font-family: inherit;
+  font-size: 14px;
   line-height: 1;
   outline: none;
 }
@@ -118,7 +120,7 @@ exports[`renders textarea 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.75rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   position: relative;
 }
 
@@ -131,6 +133,8 @@ exports[`renders textarea 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
+  font-family: inherit;
+  font-size: 14px;
   line-height: 1;
   outline: none;
 }
@@ -217,7 +221,7 @@ exports[`renders textarea with props 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.75rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   position: relative;
 }
 
@@ -230,6 +234,8 @@ exports[`renders textarea with props 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
+  font-family: inherit;
+  font-size: 14px;
   line-height: 1;
   outline: none;
 }
@@ -316,7 +322,7 @@ exports[`renders with props 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.75rem 0.625rem;
+  padding: 0.5rem 0.625rem;
   position: relative;
 }
 
@@ -329,6 +335,8 @@ exports[`renders with props 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
+  font-family: inherit;
+  font-size: 14px;
   line-height: 1;
   outline: none;
 }
