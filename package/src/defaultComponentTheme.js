@@ -388,12 +388,9 @@ const checkbox = {
   rui_checkboxLabelSpacing: `${baseUnit(3)}`,
   rui_checkboxLabelFontSize: fontSize14,
   rui_checkboxIconColor: coolGrey500,
-  rui_checkboxIconSize: "0.8rem",
-  rui_checkboxIcon: "'\f00c'",
-  rui_checkboxIconFont: "'Font Awesome 5 Free'",
-  rui_checkboxIconFontWeight: 900,
+  rui_checkboxIconSize: "0.875em",
   rui_checkboxIconLeftSpacing: "4px",
-  rui_checkboxIconTopSpacing: "4px",
+  rui_checkboxIconTopSpacing: "3px",
   rui_checkboxVerticalSpacing: `${baseUnit(2)}`
 };
 
