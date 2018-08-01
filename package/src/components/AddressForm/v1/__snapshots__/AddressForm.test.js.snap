@@ -45,186 +45,47 @@ exports[`basic snapshot 1`] = `
     <div
       className="c1"
     >
-      <Filed
-        isRequired={true}
-        label="Country"
-        name="country"
-      >
-        <Select Input
-          isSearchable={true}
-          name="country"
-          onChange={[Function]}
-          options={undefined}
-          placeholder="Country"
-        />
-        <Errors Block
-          names={
-            Array [
-              "country",
-            ]
-          }
-        />
-      </Filed>
+      Field(undefined)
     </div>
     <div
       className="c2"
     >
-      <Filed
-        isRequired={true}
-        label="First Name"
-        name="firstName"
-      >
-        <Text Input
-          name="firstName"
-          placeholder="First Name"
-        />
-        <Errors Block
-          names={
-            Array [
-              "firstName",
-            ]
-          }
-        />
-      </Filed>
+      Field(undefined)
     </div>
     <div
       className="c2"
     >
-      <Filed
-        isRequired={true}
-        label="Last Name"
-        name="lastName"
-      >
-        <Text Input
-          name="lastName"
-          placeholder="Last Name"
-        />
-        <Errors Block
-          names={
-            Array [
-              "lastName",
-            ]
-          }
-        />
-      </Filed>
+      Field(undefined)
     </div>
     <div
       className="c1"
     >
-      <Filed
-        isRequired={true}
-        label="Address"
-        name="address1"
-      >
-        <Text Input
-          name="address1"
-          placeholder="Address"
-        />
-        <Errors Block
-          names={
-            Array [
-              "address1",
-            ]
-          }
-        />
-      </Filed>
+      Field(undefined)
     </div>
     <div
       className="c1"
     >
-      <Filed
-        isOptional={true}
-        label="Address Line 2"
-        name="address2"
-      >
-        <Text Input
-          name="address2"
-          placeholder="Address Line 2 (Optional)"
-        />
-      </Filed>
+      Field(undefined)
     </div>
     <div
       className="c1"
     >
-      <Filed
-        label="City"
-        name="city"
-      >
-        <Text Input
-          name="city"
-          placeholder="City"
-        />
-        <Errors Block
-          names={
-            Array [
-              "city",
-            ]
-          }
-        />
-      </Filed>
+      Field(undefined)
     </div>
     <div
       className="c2"
     >
-      <Filed
-        isRequired={true}
-        label="Region"
-        name="region"
-      >
-        <Text Input
-          name="region"
-          placeholder="Region"
-        />
-        <Errors Block
-          names={
-            Array [
-              "region",
-            ]
-          }
-        />
-      </Filed>
+      Field(undefined)
     </div>
     <div
       className="c2"
     >
-      <Filed
-        isRequired={true}
-        label="Postal Code"
-        name="postal"
-      >
-        <Text Input
-          name="postal"
-          placeholder="Postal Code"
-        />
-        <Errors Block
-          names={
-            Array [
-              "postal",
-            ]
-          }
-        />
-      </Filed>
+      Field(undefined)
     </div>
     <div
       className="c1"
     >
-      <Filed
-        isRequired={true}
-        label="Phone"
-        name="phone"
-      >
-        <Phone Input
-          name="phone"
-          placeholder="Phone"
-        />
-        <Errors Block
-          names={
-            Array [
-              "phone",
-            ]
-          }
-        />
-      </Filed>
+      Field(undefined)
     </div>
   </div>
 </div>

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { withComponents } from "@reactioncommerce/components-context";
+import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const Item = styled.div`
   align-items: flex-start;
@@ -93,26 +94,33 @@ const ItemRemoveButton = styled.button`
 class CartItem extends Component {
   static propTypes = {
     /**
-     * Provided child components to display item data
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
       /**
-       * CartItemDetail component
+       * Pass either the Reaction CartItemDetail component or your own component that
+       * accepts compatible props.
        */
-      CartItemDetailComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      CartItemDetail: CustomPropTypes.component.isRequired,
       /**
-       * Stock warning component
+       * Pass either the Reaction Price component or your own component that
+       * accepts compatible props.
        */
-      CartItemStockWarningComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      Price: CustomPropTypes.component.isRequired,
       /**
-       * Price component
+       * Pass either the Reaction QuantityInput component or your own component that
+       * accepts compatible props.
        */
-      CartItemPriceComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      QuantityInput: CustomPropTypes.component.isRequired,
       /**
-       * QuantityInput component
+       * Pass either the Reaction StockWarning component or your own component that
+       * accepts compatible props.
        */
-      CartItemQuantityInputComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-    }),
+      StockWarning: CustomPropTypes.component.isRequired
+    }).isRequired,
     /**
      * Is in a MiniCart component
      */
@@ -193,12 +201,6 @@ class CartItem extends Component {
   };
 
   static defaultProps = {
-    components: {
-      CartItemDetailComponent: "Cart Item Detail",
-      CartItemStockWarningComponent: "Cart Item Stock Warning",
-      CartItemPriceComponent: "Cart Item Price",
-      CartItemQuantityInputComponent: "Cart Item Quantity Input"
-    },
     isMiniCart: false,
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
@@ -237,12 +239,7 @@ class CartItem extends Component {
 
   render() {
     const {
-      components: {
-        CartItemDetailComponent,
-        CartItemStockWarningComponent,
-        CartItemPriceComponent,
-        CartItemQuantityInputComponent
-      },
+      components,
       isMiniCart,
       item: {
         attributes,
@@ -256,7 +253,15 @@ class CartItem extends Component {
         price: { displayAmount: displayPrice }
       }
     } = this.props;
+
     const { displayAmount: displayCompareAtPrice } = compareAtPrice || {};
+
+    const {
+      CartItemDetail,
+      Price,
+      QuantityInput,
+      StockWarning
+    } = components || {};
 
     return (
       <Item>
@@ -265,22 +270,22 @@ class CartItem extends Component {
           <ItemContentDetail>
             <ItemContentDetailInner>
               <ItemContentDetailInfo isMiniCart={isMiniCart}>
-                <CartItemDetailComponent
-                  title={title}
-                  productSlug={productSlug}
-                  productVendor={productVendor}
+                <CartItemDetail
                   attributes={attributes}
                   isMiniCart={isMiniCart}
+                  productSlug={productSlug}
+                  productVendor={productVendor}
+                  title={title}
                 />
 
-                <CartItemStockWarningComponent
+                <StockWarning
                   inventoryQuantity={currentQuantity}
                   isLowInventoryQuantity={isLowQuantity}
                 />
               </ItemContentDetailInfo>
 
               <ItemContentQuantityInput isMiniCart={isMiniCart}>
-                <CartItemQuantityInputComponent value={quantity} onChange={this.handleChangeCartItemQuantity} />
+                <QuantityInput value={quantity} onChange={this.handleChangeCartItemQuantity} />
               </ItemContentQuantityInput>
             </ItemContentDetailInner>
 
@@ -288,7 +293,7 @@ class CartItem extends Component {
           </ItemContentDetail>
 
           <ItemContentPrice isMiniCart={isMiniCart}>
-            <CartItemPriceComponent
+            <Price
               displayPrice={displayPrice}
               displayCompareAtPrice={displayCompareAtPrice}
               hasPriceBottom={isMiniCart}
@@ -300,4 +305,4 @@ class CartItem extends Component {
   }
 }
 
-export default CartItem;
+export default withComponents(CartItem);

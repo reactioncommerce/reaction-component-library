@@ -198,16 +198,27 @@ const icon = <i className="fab fa-pied-piper" />;
 </TwoColumnExamples>
 ```
 
-The default valid, invalid and clear icons can be overwritten by passing values to these props of the text input.
- - `iconClear, iconError, iconSuccess`
- - `iconClearAccessibilityText`
+The default valid, invalid and clear icons can be overwritten by passing values to these props of the `components` prop:
+ - `iconClear`
+ - `iconError`
+ - `iconValid`
+
+These can also be provided through the main components context for your app.
+
+You can also provide the `iconClearAccessibilityText` prop with accessibility text for the clear icon.
 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
+const iconComponents = {
+  iconClear: <i className="fas fa-gavel" />,
+  iconError: <i className="fa fa-thumbs-down" />,
+  iconValid: <i className="fa fa-thumbs-up" />
+};
+
 <TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="Valid" hasBeenValidated iconClear={<i className="fas fa-gavel" />} iconValid={<i className="fa fa-thumbs-up" />}  />
-  <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} iconClear={<i className="fas fa-gavel" />} iconError={<i className="fa fa-thumbs-down" />}  isOnDarkBackground />
+  <TextInput name="example" placeholder="Hint" value="Valid" hasBeenValidated components={iconComponents} />
+  <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} components={iconComponents} isOnDarkBackground />
 </TwoColumnExamples>
 ```
 
