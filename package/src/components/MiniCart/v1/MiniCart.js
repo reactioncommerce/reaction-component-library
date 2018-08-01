@@ -130,7 +130,7 @@ class MiniCart extends Component {
           <CartItemsComponent items={items} components={components} {...props} isMiniCart />
         </Items>
         <Footer count={items.length}>
-          <CartSummaryComponent displaySubtotal={summary.subtotal.displayAmount} />
+          <CartSummaryComponent displaySubtotal={summary.itemTotal.displayAmount} />
           <CartCheckoutButtonComponent components={{ Button: ButtonComponent }} />
           <span>Shipping and tax calculated in checkout</span>
         </Footer>
