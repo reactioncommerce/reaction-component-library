@@ -72,28 +72,6 @@ const StyledInput = styled.input`
   }
 `;
 
-const Textarea = StyledInput.withComponent("textarea");
-
-const StyledTextarea = Textarea.extend`
-  -webkit-font-smoothing: antialiased;
-  background-color: ${applyThemeVariant("inputBackgroundColor")};
-  border-radius: ${applyTheme("inputBorderRadius")};
-  border: 1px solid ${applyValidationColor("inputBorderColor")};
-  color: ${applyValidationColor("inputColor")};
-  font-family: ${applyTheme("inputFontFamily")};
-  font-size: ${applyTheme("inputFontSize")};
-  line-height: ${applyTheme("textareaLineHeight")};
-  min-height: ${applyTheme("textareaHeight")};
-  outline: none;
-  padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
-  resize: vertical;
-  width: 100%;
-
-  &:read-only {
-    color: ${applyTheme("inputColor_disabled")};
-  }
-`;
-
 const IconWrapper = styled.div`
   box-sizing: border-box;
   color: ${applyValidationColor("inputIconColor")};
@@ -145,34 +123,7 @@ const ClearButton = styled.div`
   }
 }`;
 
-const TextareaClearButton = styled.div`
-  background-color: ${applyTheme("color_white")};
-  border-radius: ${applyTheme("inputBorderRadius")};
-  border: 1px solid ${applyTheme("color_coolGrey")};
-  box-sizing: content-box;
-  color: ${applyTheme("color_coolGrey")};
-  cursor: pointer;
-  display: inline-block;
-  font-size: ${applyTheme("textareaClearButtonFontSize")};
-  height: ${applyTheme("textareaClearButtonFontSize")};
-  margin: 0;
-  padding: ${applyTheme("textareaIconPadding")};
-  line-height: 0;
-
-  &:hover,
-  &:focus {
-    background-color: "transparent";
-    outline: none;
-  }
-
-  & span {
-    margin-left: 0.3125rem;
-    vertical-align: middle;
-  }
-`;
-
 /* eslint-disable max-len */
-
 const defaultClearIcon = (
   <svg
     version="1.1"
@@ -183,40 +134,11 @@ const defaultClearIcon = (
     <path d="M9.926 9.105l-2.105-2.105 2.105-2.105-0.82-0.82-2.105 2.105-2.105-2.105-0.82 0.82 2.105 2.105-2.105 2.105 0.82 0.82 2.105-2.105 2.105 2.105zM7 1.176c3.227 0 5.824 2.598 5.824 5.824s-2.598 5.824-5.824 5.824-5.824-2.598-5.824-5.824 2.598-5.824 5.824-5.824z" />
   </svg>
 );
-
-const defaultValidIcon = (
-  // check-circle regular, FontAwesome v5
-  // https://fontawesome.com/icons/check-circle?style=regular
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 512 512"
-    style={{ height: "0.875em", verticalAlign: "middle" }}
-  >
-    <path
-      fill="currentColor"
-      d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z" />
-  </svg>
-);
-
-const defaultInvalidIcon = (
-  // exclamation-triangle, FontAwesome v5
-  // from https://fontawesome.com/icons/exclamation-triangle?style=solid
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 576 512"
-    style={{ height: "0.875em", verticalAlign: "middle" }}
-  >
-    <path
-      fill="currentColor"
-      d="M569.517 440.013C587.975 472.007 564.806 512 527.94 512H48.054c-36.937 0-59.999-40.055-41.577-71.987L246.423 23.985c18.467-32.009 64.72-31.951 83.154 0l239.94 416.028zM288 354c-25.405 0-46 20.595-46 46s20.595 46 46 46 46-20.595 46-46-20.595-46-46-46zm-43.673-165.346l7.418 136c.347 6.364 5.609 11.346 11.982 11.346h48.546c6.373 0 11.635-4.982 11.982-11.346l7.418-136c.375-6.874-5.098-12.654-11.982-12.654h-63.383c-6.884 0-12.356 5.78-11.981 12.654z" />
-  </svg>
-);
-
 /* eslint-enable max-len */
 
 const stringDefaultEquals = (value1, value2) => (value1 || "") === (value2 || "");
 
-class TextInput extends Component {
+class PhoneNumberInput extends Component {
   static isFormInput = true;
 
   static propTypes = {
@@ -293,10 +215,6 @@ class TextInput extends Component {
      */
     placeholder: PropTypes.string,
     /**
-     * Enable this when you need a textarea for multi line values, disabled by default
-     */
-    shouldAllowLineBreaks: PropTypes.bool,
-    /**
      * If the input returns an empty string value convert it to a null value, enabled by default
      */
     shouldConvertEmptyStringToNull: PropTypes.bool,
@@ -318,15 +236,14 @@ class TextInput extends Component {
     hasBeenValidated: false,
     iconClear: defaultClearIcon,
     iconClearAccessibilityText: "Clear",
-    iconError: defaultInvalidIcon,
-    iconValid: defaultValidIcon,
+    iconError: <FontIcon className="fas fa-exclamation-triangle" />,
+    iconValid: <FontIcon className="far fa-check-circle" />,
     isOnDarkBackground: false,
     isReadOnly: false,
-    onChange() { },
-    onChanging() { },
-    onIconClick() { },
-    onSubmit() { },
-    shouldAllowLineBreaks: false,
+    onChange() {},
+    onChanging() {},
+    onIconClick() {},
+    onSubmit() {},
     shouldConvertEmptyStringToNull: true,
     shouldTrimValue: true,
     type: "text"
@@ -403,7 +320,7 @@ class TextInput extends Component {
 
   onChange = (event) => {
     let { value } = event.target;
-    value = value || "";
+    value = value.replace(/\D/g, "") || "";
     this.setState({ value });
     this.handleChanging(value);
   };
@@ -477,25 +394,11 @@ class TextInput extends Component {
   }
 
   renderClearButton() {
-    const { shouldAllowLineBreaks, errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
+    const { errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
     const { value } = this.state;
 
-    if (shouldAllowLineBreaks) {
-      return (
-        <TextareaClearButton
-          onClick={this.onClearValue}
-          onFocus={this.onButtonFocus}
-          onBlur={this.onButtonBlur}
-          tabIndex={-1}
-        >
-          {iconClear}
-          <span>{iconClearAccessibilityText}</span>
-        </TextareaClearButton>
-      );
-    }
-
     return (
-      <IconWrapper errors={errors} hasBeenValidated={hasBeenValidated} isTextarea={shouldAllowLineBreaks} value={value}>
+      <IconWrapper errors={errors} hasBeenValidated={hasBeenValidated} value={value}>
         <ClearButton onClick={this.onClearValue} onFocus={this.onButtonFocus} onBlur={this.onButtonBlur} tabIndex={-1}>
           {iconClear}
           <span>{iconClearAccessibilityText}</span>
@@ -505,7 +408,7 @@ class TextInput extends Component {
   }
 
   renderIcon() {
-    const { shouldAllowLineBreaks, errors, hasBeenValidated, icon, onIconClick, iconValid, iconError } = this.props;
+    const { errors, hasBeenValidated, icon, onIconClick, iconValid, iconError } = this.props;
     const { value } = this.state;
 
     let inputIcon;
@@ -518,13 +421,7 @@ class TextInput extends Component {
     }
 
     return (
-      <IconWrapper
-        errors={errors}
-        hasBeenValidated={hasBeenValidated}
-        onClick={onIconClick}
-        isTextarea={shouldAllowLineBreaks}
-        value={value}
-      >
+      <IconWrapper errors={errors} hasBeenValidated={hasBeenValidated} onClick={onIconClick} value={value}>
         {inputIcon}
       </IconWrapper>
     );
@@ -532,7 +429,6 @@ class TextInput extends Component {
 
   render() {
     const {
-      shouldAllowLineBreaks,
       className,
       isOnDarkBackground,
       errors,
@@ -544,30 +440,6 @@ class TextInput extends Component {
       type
     } = this.props;
     const { isButtonFocused, isInputFocused, value } = this.state;
-    if (shouldAllowLineBreaks) {
-      // Same as "input" but without `onKeyPress` and `type` props.
-      // We don"t support rows; use style to set height instead
-      return (
-        <div style={{ position: "relative" }}>
-          <StyledTextarea
-            className={className}
-            isOnDarkBackground={isOnDarkBackground}
-            errors={errors}
-            hasBeenValidated={hasBeenValidated}
-            fieldIsDirty={this.isDirty()}
-            readOnly={isReadOnly}
-            maxLength={maxLength}
-            name={name}
-            onBlur={this.onInputBlur}
-            onChange={this.onChange}
-            onFocus={this.onInputFocus}
-            placeholder={placeholder}
-            value={value}
-          />
-          {this.showClearButton() ? this.renderClearButton() : null}
-        </div>
-      );
-    }
 
     return (
       <InputWrapper
@@ -600,4 +472,4 @@ class TextInput extends Component {
   }
 }
 
-export default TextInput;
+export default PhoneNumberInput;

@@ -1,0 +1,231 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+@media (min-width:600px) {
+  .c2 {
+    -webkit-flex: 0 1 calc(50% - 9px);
+    -ms-flex: 0 1 calc(50% - 9px);
+    flex: 0 1 calc(50% - 9px);
+  }
+}
+
+<div
+  className={null}
+  style={Object {}}
+>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      <Filed
+        isRequired={true}
+        label="Country"
+        name="country"
+      >
+        <Select Input
+          isSearchable={true}
+          name="country"
+          onChange={[Function]}
+          options={undefined}
+          placeholder="Country"
+        />
+        <Errors Block
+          names={
+            Array [
+              "country",
+            ]
+          }
+        />
+      </Filed>
+    </div>
+    <div
+      className="c2"
+    >
+      <Filed
+        isRequired={true}
+        label="First Name"
+        name="firstName"
+      >
+        <Text Input
+          name="firstName"
+          placeholder="First Name"
+        />
+        <Errors Block
+          names={
+            Array [
+              "firstName",
+            ]
+          }
+        />
+      </Filed>
+    </div>
+    <div
+      className="c2"
+    >
+      <Filed
+        isRequired={true}
+        label="Last Name"
+        name="lastName"
+      >
+        <Text Input
+          name="lastName"
+          placeholder="Last Name"
+        />
+        <Errors Block
+          names={
+            Array [
+              "lastName",
+            ]
+          }
+        />
+      </Filed>
+    </div>
+    <div
+      className="c1"
+    >
+      <Filed
+        isRequired={true}
+        label="Address"
+        name="address1"
+      >
+        <Text Input
+          name="address1"
+          placeholder="Address"
+        />
+        <Errors Block
+          names={
+            Array [
+              "address1",
+            ]
+          }
+        />
+      </Filed>
+    </div>
+    <div
+      className="c1"
+    >
+      <Filed
+        isOptional={true}
+        label="Address Line 2"
+        name="address2"
+      >
+        <Text Input
+          name="address2"
+          placeholder="Address Line 2 (Optional)"
+        />
+      </Filed>
+    </div>
+    <div
+      className="c1"
+    >
+      <Filed
+        label="City"
+        name="city"
+      >
+        <Text Input
+          name="city"
+          placeholder="City"
+        />
+        <Errors Block
+          names={
+            Array [
+              "city",
+            ]
+          }
+        />
+      </Filed>
+    </div>
+    <div
+      className="c2"
+    >
+      <Filed
+        isRequired={true}
+        label="Region"
+        name="region"
+      >
+        <Text Input
+          name="region"
+          placeholder="Region"
+        />
+        <Errors Block
+          names={
+            Array [
+              "region",
+            ]
+          }
+        />
+      </Filed>
+    </div>
+    <div
+      className="c2"
+    >
+      <Filed
+        isRequired={true}
+        label="Postal Code"
+        name="postal"
+      >
+        <Text Input
+          name="postal"
+          placeholder="Postal Code"
+        />
+        <Errors Block
+          names={
+            Array [
+              "postal",
+            ]
+          }
+        />
+      </Filed>
+    </div>
+    <div
+      className="c1"
+    >
+      <Filed
+        isRequired={true}
+        label="Phone"
+        name="phone"
+      >
+        <Phone Input
+          name="phone"
+          placeholder="Phone"
+        />
+        <Errors Block
+          names={
+            Array [
+              "phone",
+            ]
+          }
+        />
+      </Filed>
+    </div>
+  </div>
+</div>
+`;
