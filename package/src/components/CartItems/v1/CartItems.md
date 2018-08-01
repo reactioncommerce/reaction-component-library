@@ -46,17 +46,15 @@ const items = [{
   quantity: 1
 }];
 
-const components = {
-  CartItemComponent: CartItem,
-  CartItemDetailComponent: CartItemDetail,
-  CartItemStockWarningComponent: StockWarning,
-  CartItemPriceComponent: Price,
-  CartItemQuantityInputComponent: QuantityInput
-};
+const handleChangeCartItemQuantity = (value) => console.log("cart items new quantity", value);
+const handleRemoveItemFromCart = (_id) => console.log("cart items remove this item", _id);
 
-<CartItems items={items} components={components} onChangeCartItemQuantity={(value) => console.log("cart items new quantity", value)} onRemoveItemFromCart={(_id) => console.log("cart items remove this item", _id)}/>
+<CartItems
+  items={items}
+  onChangeCartItemQuantity={handleChangeCartItemQuantity}
+  onRemoveItemFromCart={handleRemoveItemFromCart}
+/>
 ```
-
 
 #### In Mini Cart
 ```jsx
@@ -98,13 +96,13 @@ const items = [{
   quantity: 1
 }];
 
-const components = {
-  CartItemComponent: CartItem,
-  CartItemDetailComponent: CartItemDetail,
-  CartItemStockWarningComponent: StockWarning,
-  CartItemPriceComponent: Price,
-  CartItemQuantityInputComponent: QuantityInput
-};
+const handleChangeCartItemQuantity = (value) => console.log("cart items new quantity", value);
+const handleRemoveItemFromCart = (_id) => console.log("cart items remove this item", _id);
 
-<CartItems items={items} components={components} onChangeCartItemQuantity={(value) => console.log("cart items new quantity", value)} onRemoveItemFromCart={(_id) => console.log("cart items remove this item", _id)} isMiniCart />
+<CartItems
+  isMiniCart
+  items={items}
+  onChangeCartItemQuantity={handleChangeCartItemQuantity}
+  onRemoveItemFromCart={handleRemoveItemFromCart}
+/>
 ```

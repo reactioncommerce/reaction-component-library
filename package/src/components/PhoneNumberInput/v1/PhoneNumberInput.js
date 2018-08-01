@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
 function applyThemeVariant(themeProp) {
@@ -87,11 +88,6 @@ const IconWrapper = styled.div`
   }
 `;
 
-const FontIcon = styled.i`
-  font-size: 1em;
-  vertical-align: middle;
-`;
-
 const ClearButton = styled.div`
   background-color: transparent;
   border: none;
@@ -123,19 +119,6 @@ const ClearButton = styled.div`
   }
 }`;
 
-/* eslint-disable max-len */
-const defaultClearIcon = (
-  <svg
-    version="1.1"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 14 14"
-    style={{ height: "100%", maxHeight: "100%", verticalAlign: "middle" }}
-  >
-    <path d="M9.926 9.105l-2.105-2.105 2.105-2.105-0.82-0.82-2.105 2.105-2.105-2.105-0.82 0.82 2.105 2.105-2.105 2.105 0.82 0.82 2.105-2.105 2.105 2.105zM7 1.176c3.227 0 5.824 2.598 5.824 5.824s-2.598 5.824-5.824 5.824-5.824-2.598-5.824-5.824 2.598-5.824 5.824-5.824z" />
-  </svg>
-);
-/* eslint-enable max-len */
-
 const stringDefaultEquals = (value1, value2) => (value1 || "") === (value2 || "");
 
 class PhoneNumberInput extends Component {
@@ -146,6 +129,26 @@ class PhoneNumberInput extends Component {
      * Custom class name
      */
     className: PropTypes.string,
+    /**
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
+     */
+    components: PropTypes.shape({
+      /**
+       * Pass an element (e.g., rendered SVG) to use as the clear button icon
+       */
+      iconClear: PropTypes.node,
+      /**
+       * Pass an element (e.g., rendered SVG) to use as the error icon
+       */
+      iconError: PropTypes.node,
+      /**
+       * Pass an element (e.g., rendered SVG) to use as the valid icon
+       */
+      iconValid: PropTypes.node
+    }),
     /**
      * An array of validation errors
      */
@@ -163,21 +166,9 @@ class PhoneNumberInput extends Component {
      */
     iconAccessibilityText: PropTypes.string,
     /**
-     * Overwrite the default clear input icon by passing an icon node
-     */
-    iconClear: PropTypes.node,
-    /**
-     * Overwrite the default clear input icon accessibilty text
+     * Overwrite the default clear input icon accessibility text
      */
     iconClearAccessibilityText: PropTypes.string,
-    /**
-     * Overwrite the default error input icon by passing an icon node
-     */
-    iconError: PropTypes.node,
-    /**
-     * Overwrite the default valid input icon by passing an icon node
-     */
-    iconValid: PropTypes.node,
     /**
      * Enable when using the input on a dark background, disabled by default
      */
@@ -234,10 +225,7 @@ class PhoneNumberInput extends Component {
 
   static defaultProps = {
     hasBeenValidated: false,
-    iconClear: defaultClearIcon,
     iconClearAccessibilityText: "Clear",
-    iconError: <FontIcon className="fas fa-exclamation-triangle" />,
-    iconValid: <FontIcon className="far fa-check-circle" />,
     isOnDarkBackground: false,
     isReadOnly: false,
     onChange() {},
@@ -266,6 +254,8 @@ class PhoneNumberInput extends Component {
     const { value } = this.state;
     this.handleChanging(value);
     this.handleChanged(value);
+
+    this._isMounted = true;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -298,6 +288,10 @@ class PhoneNumberInput extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
   onKeyPress = (event) => {
     const { onSubmit } = this.props;
     if (event.which === 13) onSubmit();
@@ -308,7 +302,9 @@ class PhoneNumberInput extends Component {
     // and remove the button before the onClick event fires. This timeout will
     // keep the button rendered long enough for the onClick event to fire.
     setTimeout(() => {
-      this.setState({ isInputFocused: false });
+      if (this._isMounted) {
+        this.setState({ isInputFocused: false });
+      }
     }, 150);
 
     this.setValue(event.target.value, false);
@@ -394,7 +390,8 @@ class PhoneNumberInput extends Component {
   }
 
   renderClearButton() {
-    const { errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
+    const { components, errors, hasBeenValidated, iconClearAccessibilityText } = this.props;
+    const { iconClear } = components;
     const { value } = this.state;
 
     return (
@@ -408,7 +405,8 @@ class PhoneNumberInput extends Component {
   }
 
   renderIcon() {
-    const { errors, hasBeenValidated, icon, onIconClick, iconValid, iconError } = this.props;
+    const { components, errors, hasBeenValidated, icon, onIconClick } = this.props;
+    const { iconError, iconValid } = components;
     const { value } = this.state;
 
     let inputIcon;
@@ -472,4 +470,4 @@ class PhoneNumberInput extends Component {
   }
 }
 
-export default PhoneNumberInput;
+export default withComponents(PhoneNumberInput);

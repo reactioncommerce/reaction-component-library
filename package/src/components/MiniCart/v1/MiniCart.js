@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { withComponents } from "@reactioncommerce/components-context";
+import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const Cart = styled.div`
   border: 1px solid ${applyTheme("color_black10")};
@@ -71,26 +72,37 @@ class MiniCart extends Component {
         })
       }),
       /**
-       * CartItem data. This is passed to CartItemComponent, which may require some props.
+       * CartItem data. This is passed to CartItems, which may require some props.
        */
       items: PropTypes.arrayOf(PropTypes.object).isRequired
     }),
     /**
-     * Provided child components to display item data
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
       /**
-       * CartCheckoutButton component
+       * Pass either the Reaction Button component or your own component that
+       * accepts compatible props.
        */
-      CartCheckoutButtonComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      Button: CustomPropTypes.component.isRequired,
       /**
-       * CartSummary component
+       * An element to show as the cart checkout button. If this isn't provided,
+       * a button will be rendered using Button component.
        */
-      CartSummaryComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      cartCheckoutButton: PropTypes.node,
       /**
-       * CartItems component
+       * Pass either the Reaction CartItems component or your own component that
+       * accepts compatible props.
        */
-      CartItemsComponent: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+      CartItems: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction MiniCartSummary component or your own component that
+       * accepts compatible props.
+       */
+      MiniCartSummary: CustomPropTypes.component.isRequired
     }),
     /**
      * On cart item quantity change handler
@@ -103,11 +115,6 @@ class MiniCart extends Component {
   };
 
   static defaultProps = {
-    components: {
-      CartCheckoutButtonComponent: "Cart Checkout Button",
-      CartSummaryComponent: "Cart Summary",
-      CartItemsComponent: "Cart Items"
-    },
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
   };
@@ -116,10 +123,10 @@ class MiniCart extends Component {
     const {
       cart: { checkout: { summary }, items },
       components: {
-        ButtonComponent,
-        CartCheckoutButtonComponent,
-        CartItemsComponent,
-        CartSummaryComponent,
+        Button,
+        cartCheckoutButton,
+        CartItems,
+        MiniCartSummary,
         ...components
       },
       ...props
@@ -127,11 +134,11 @@ class MiniCart extends Component {
     return (
       <Cart>
         <Items>
-          <CartItemsComponent items={items} components={components} {...props} isMiniCart />
+          <CartItems items={items} components={components} {...props} isMiniCart />
         </Items>
         <Footer count={items.length}>
-          <CartSummaryComponent displaySubtotal={summary.itemTotal.displayAmount} />
-          <CartCheckoutButtonComponent components={{ Button: ButtonComponent }} />
+          <MiniCartSummary components={components} displaySubtotal={summary.itemTotal.displayAmount} />
+          {cartCheckoutButton || <Button actionType="important" components={components} isFullWidth>Checkout</Button>}
           <span>Shipping and tax calculated in checkout</span>
         </Footer>
       </Cart>
@@ -139,4 +146,4 @@ class MiniCart extends Component {
   }
 }
 
-export default MiniCart;
+export default withComponents(MiniCart);

@@ -43,13 +43,13 @@ exports[`basic snapshot with props 1`] = `
   <div
     className="c1"
   >
-    Cart Items
+    CartItems(undefined)
   </div>
   <div
     className="c2"
   >
-    Cart Summary
-    Cart Checkout Button
+    MiniCartSummary(undefined)
+    Button(undefined)
     <span>
       Shipping and tax calculated in checkout
     </span>

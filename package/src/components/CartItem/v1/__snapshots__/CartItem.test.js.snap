@@ -145,25 +145,13 @@ exports[`basic snapshot with empty props 1`] = `
         <div
           className="c4"
         >
-          <Cart Item Detail
-            attributes={undefined}
-            isMiniCart={false}
-            productSlug={undefined}
-            productVendor={undefined}
-            title={undefined}
-          />
-          <Cart Item Stock Warning
-            inventoryQuantity={undefined}
-            isLowInventoryQuantity={undefined}
-          />
+          CartItemDetail(undefined)
+          StockWarning(undefined)
         </div>
         <div
           className="c5"
         >
-          <Cart Item Quantity Input
-            onChange={[Function]}
-            value={undefined}
-          />
+          QuantityInput(undefined)
         </div>
       </div>
       <button
@@ -176,11 +164,7 @@ exports[`basic snapshot with empty props 1`] = `
     <div
       className="c7"
     >
-      <Cart Item Price
-        displayCompareAtPrice={undefined}
-        displayPrice="$9.99"
-        hasPriceBottom={false}
-      />
+      Price(undefined)
     </div>
   </div>
 </div>
@@ -350,13 +334,13 @@ exports[`basic snapshot with props 1`] = `
         <div
           className="c4"
         >
-          Cart Item Detail
-          Cart Item Stock Warning
+          CartItemDetail(undefined)
+          StockWarning(undefined)
         </div>
         <div
           className="c5"
         >
-          Cart Item Quantity Input
+          QuantityInput(undefined)
         </div>
       </div>
       <button
@@ -369,7 +353,7 @@ exports[`basic snapshot with props 1`] = `
     <div
       className="c7"
     >
-       Cart Item Price
+      Price(undefined)
     </div>
   </div>
 </div>

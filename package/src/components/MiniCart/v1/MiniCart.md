@@ -55,18 +55,7 @@ const items = [
   quantity: 1
 }];
 
-const components = {
-  CartCheckoutButtonComponent: () => <Button actionType="important" isFullWidth>Checkout</Button>,
-  CartSummaryComponent: MiniCartSummary,
-  CartItemsComponent: CartItems,
-  CartItemComponent: CartItem,
-  CartItemDetailComponent: CartItemDetail,
-  CartItemStockWarningComponent: StockWarning,
-  CartItemPriceComponent: Price,
-  CartItemQuantityInputComponent: QuantityInput
-};
-
-<MiniCart cart={{ checkout, items }} components={components} />
+<MiniCart cart={{ checkout, items }} />
 ```
 
 ##### Scrolling
@@ -155,16 +144,5 @@ const items = [{
   quantity: 1
 }];
 
-const components = {
-  CartCheckoutButtonComponent: () => <Button actionType="important" isFullWidth>Checkout</Button>,
-  CartSummaryComponent: MiniCartSummary,
-  CartItemsComponent: CartItems,
-  CartItemComponent: CartItem,
-  CartItemDetailComponent: CartItemDetail,
-  CartItemStockWarningComponent: StockWarning,
-  CartItemPriceComponent: Price,
-  CartItemQuantityInputComponent: QuantityInput
-};
-
-<MiniCart cart={{ checkout, items }} components={components} />
+<MiniCart cart={{ checkout, items }} />
 ```

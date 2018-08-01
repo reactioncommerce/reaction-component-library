@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { withComponents } from "@reactioncommerce/components-context";
+import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const ActionContainer = styled.div`
   display: flex;
@@ -60,11 +61,18 @@ const ActionButton = styled.div`
 class CheckoutActionComplete extends Component {
   static propTypes = {
     /**
-     * On object of component children to pass into this component
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
-      ChangeButton: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
-    }),
+      /**
+       * Pass either the Reaction Button component or your own component that
+       * accepts compatible props.
+       */
+      Button: CustomPropTypes.component.isRequired
+    }).isRequired,
     /**
      * Component to pass down to show as content
      */
@@ -86,7 +94,7 @@ class CheckoutActionComplete extends Component {
   handleOnChange = () => this.props.onClickChangeButton();
 
   render() {
-    const { components: { ChangeButton }, content, label, stepNumber } = this.props;
+    const { components: { Button }, content, label, stepNumber } = this.props;
 
     const step = stepNumber ? <Fragment>{stepNumber}.&nbsp;</Fragment> : null;
 
@@ -99,11 +107,11 @@ class CheckoutActionComplete extends Component {
           {content}
         </ActionDetail>
         <ActionButton>
-          <ChangeButton actionType="important" onClick={this.handleOnChange} isShortHeight isTextOnly>Change</ChangeButton>
+          <Button actionType="important" onClick={this.handleOnChange} isShortHeight isTextOnly>Change</Button>
         </ActionButton>
       </ActionContainer>
     );
   }
 }
 
-export default CheckoutActionComplete;
+export default withComponents(CheckoutActionComplete);

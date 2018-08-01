@@ -31,12 +31,6 @@ const item = {
 };
 
 <CartItem
-  components={{
-    CartItemDetailComponent: CartItemDetail,
-    CartItemStockWarningComponent: StockWarning,
-    CartItemPriceComponent: Price,
-    CartItemQuantityInputComponent: QuantityInput
-  }}
   item={item}
   onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
@@ -64,12 +58,6 @@ const item = {
 };
 
 <CartItem
-  components={{
-    CartItemDetailComponent: CartItemDetail,
-    CartItemStockWarningComponent: StockWarning,
-    CartItemPriceComponent: Price,
-    CartItemQuantityInputComponent: QuantityInput
-  }}
   item={item}
   onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
@@ -100,12 +88,6 @@ const item = {
 };
 
 <CartItem
-  components={{
-    CartItemDetailComponent: CartItemDetail,
-    CartItemStockWarningComponent: StockWarning,
-    CartItemPriceComponent: Price,
-    CartItemQuantityInputComponent: QuantityInput
-  }}
   item={item}
   onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
@@ -136,13 +118,7 @@ const item = {
 };
 
 <CartItem
-isMiniCart
-  components={{
-    CartItemDetailComponent: CartItemDetail,
-    CartItemStockWarningComponent: StockWarning,
-    CartItemPriceComponent: Price,
-    CartItemQuantityInputComponent: QuantityInput
-  }}
+  isMiniCart
   item={item}
   onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
