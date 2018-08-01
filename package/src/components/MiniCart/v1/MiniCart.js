@@ -51,18 +51,18 @@ class MiniCart extends Component {
          */
         summary: PropTypes.shape({
           /**
-           * Checkout summary subtotal info
+           * Checkout summary item total info
            */
-          subtotal: PropTypes.shape({
+          itemTotal: PropTypes.shape({
             /**
-             * Checkout summary subtotal display amount
+             * Checkout summary item total display amount
              */
             displayAmount: PropTypes.string
           }),
           /**
            * Checkout summary tax info
            */
-          tax: PropTypes.shape({
+          taxTotal: PropTypes.shape({
             /**
              * Checkout summary tax display amount
              */
