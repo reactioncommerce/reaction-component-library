@@ -1,12 +1,9 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import mockComponents from "../../../tests/mockComponents";
 import CheckoutActionComplete from "../../CheckoutActionComplete/v1";
 import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1";
 import CheckoutAction from "./CheckoutAction";
-
-const mockComponents = {
-  Button: (props) => `Button${JSON.stringify(props)}`
-};
 
 test("CheckoutAction with `active` status", () => {
   const cart = {};

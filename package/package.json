@@ -54,7 +54,7 @@
     "babel-runtime": "6.26.0",
     "composable-form-tests": "^0.2.0",
     "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "https://github.com/reactioncommerce/enzyme/raw/master/packages/enzyme-adapter-react-16/enzyme-adapter-react-16-1.1.1.tgz",
+    "enzyme-adapter-react-16": "https://github.com/reactioncommerce/enzyme/raw/master/packages/enzyme-adapter-react-16/enzyme-adapter-react-16-1.1.2.tgz",
     "eslint": "^4.18.1",
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-import": "^2.8.0",
@@ -68,6 +68,7 @@
     "promise": "8.0.1",
     "raf": "3.4.0",
     "react-dev-utils": "^5.0.0",
+    "react-test-renderer": "https://github.com/reactioncommerce/react/raw/master/react-test-renderer-16.4.1.tgz",
     "whatwg-fetch": "2.0.3"
   },
   "publishConfig": {

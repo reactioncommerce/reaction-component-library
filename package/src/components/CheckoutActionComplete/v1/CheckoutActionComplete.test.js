@@ -1,10 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import { shallow } from "enzyme";
-import Button from "../../Button/v1";
+import mockComponents from "../../../tests/mockComponents";
 import CheckoutActionComplete from "./CheckoutActionComplete";
-
-const fakeEvent = { preventDefault() {} };
 
 test("basic snapshot", () => {
   const onClick = () => {};
@@ -13,6 +11,7 @@ test("basic snapshot", () => {
 
   const component = renderer.create((
     <CheckoutActionComplete
+      components={mockComponents}
       label="Shipping address"
       content={Address}
       onClickChangeButton={onClick}
@@ -22,14 +21,4 @@ test("basic snapshot", () => {
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
-});
-
-test("calls onClick when clicked", () => {
-  const clickSpy = jest.fn();
-
-  const item = shallow(<Button onClick={clickSpy} />);
-
-  item.simulate("click", fakeEvent);
-
-  expect(clickSpy).toHaveBeenCalled();
 });

@@ -1,13 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import mockComponents from "../../../tests/mockComponents";
 import CartItem from "./CartItem";
-
-const mockComponents = {
-  CartItemDetail: () => "Cart Item Detail",
-  Price: () => "Price",
-  QuantityInput: () => "Quantity Input",
-  StockWarning: () => "Stock Warning"
-};
 
 test("basic snapshot with empty props", () => {
   const component = renderer.create(<CartItem components={mockComponents} item={{ price: { displayAmount: "$9.99" } }} />);
