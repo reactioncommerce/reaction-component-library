@@ -4,10 +4,10 @@ import MiniCart from "./MiniCart";
 
 const mockCheckout = {
   summary: {
-    subtotal: {
+    itemTotal: {
       displayAmount: "$25.00"
     },
-    tax: {
+    taxTotal: {
       displayAmount: "$2.50"
     }
   }
