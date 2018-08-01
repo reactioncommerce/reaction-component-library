@@ -322,6 +322,7 @@ class TextInput extends Component {
   static defaultProps = {
     hasBeenValidated: false,
     iconClearAccessibilityText: "Clear",
+    iconClear: defaultClearIcon,
     iconError: defaultInvalidIcon,
     iconValid: defaultValidIcon,
     isOnDarkBackground: false,
