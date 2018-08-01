@@ -10,21 +10,24 @@ const StyledDiv = styled.div`
 
 /* eslint-disable max-len */
 /* eslint-disable quotes */
-const StyledInput = styled.input`
-  opacity: 0;
-  + label::after {
-    content: " ";
-  }
-  &:checked + label::after {
-    background-image: url("data:image/svg+xml; utf8,
-      <svg 
+const checkboxIcon = `<svg 
         xmlns='http://www.w3.org/2000/svg' 
         viewBox='0 0 512 512'
       >
         <path 
           d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'>
         </path>
-      </svg>");
+      </svg>`;
+/* eslint-enable quotes */
+/* eslint-enable max-len */
+
+const StyledInput = styled.input`
+  opacity: 0;
+  + label::after {
+    content: " ";
+  }
+  &:checked + label::after {
+    background-image: url("data:image/svg+xml; utf8,${checkboxIcon}");
   }
   &:focus + label::before {
     outline: ${applyTheme("checkboxFocusStyle")};
@@ -40,8 +43,6 @@ const StyledInput = styled.input`
     cursor: not-allowed;
   }
 `;
-/* eslint-enable quotes */
-/* eslint-enable max-len */
 
 const StyledLabel = styled.label`
   position: relative;
