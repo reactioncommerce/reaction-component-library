@@ -97,6 +97,7 @@
     "prop-types": "15.6.2",
     "react": "16.4.1",
     "react-dom": "16.4.1",
+    "reacto-form": "0.0.2",
     "styled-components": "3.3.3"
   },
   "devDependencies": {
@@ -152,7 +153,7 @@
     "replace-in-files": "^1.1.1",
     "rimraf": "2.6.2",
     "semantic-release": "15.6.0",
-    "snyk": "^1.69.10",
+    "snyk": "1.89.1",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",

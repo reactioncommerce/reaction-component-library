@@ -157,10 +157,24 @@ const depth1 = `0 0 1rem -0.5rem ${black50}`;
 const depth2 = `0 0 1rem ${black50}`;
 
 /**
+ * Default Theme Breakpoints
+ */
+const xs = "min-width: 320px";
+const sm = "min-width: 600px";
+const md = "min-width: 960px";
+const lg = "min-width: 1280px";
+const xl = "min-widdth: 1920px";
+
+/**
  * Default Theme Elements
  */
 
 const defaultStyles = {
+  rui_bp_xs: xs,
+  rui_bp_sm: sm,
+  rui_bp_md: md,
+  rui_bp_lg: lg,
+  rui_bp_xl: xl,
   rui_color_default: black55,
   rui_color_disabled: black25,
   rui_color_black02: black02,
@@ -295,7 +309,7 @@ const inputStyles = {
   rui_inputFontFamily: "inherit",
   rui_inputFontSize: fontSize14,
   rui_inputLineHeight: flatLeading,
-  rui_inputVerticalPadding: baseUnit(1.2),
+  rui_inputVerticalPadding: baseUnit(0.8),
   rui_inputHorizontalPadding: baseUnit(1),
   rui_iconTop: baseUnit(1),
   rui_iconRight: baseUnit(1)

@@ -72,28 +72,6 @@ const StyledInput = styled.input`
   }
 `;
 
-const Textarea = StyledInput.withComponent("textarea");
-
-const StyledTextarea = Textarea.extend`
-  -webkit-font-smoothing: antialiased;
-  background-color: ${applyThemeVariant("inputBackgroundColor")};
-  border-radius: ${applyTheme("inputBorderRadius")};
-  border: 1px solid ${applyValidationColor("inputBorderColor")};
-  color: ${applyValidationColor("inputColor")};
-  font-family: ${applyTheme("inputFontFamily")};
-  font-size: ${applyTheme("inputFontSize")};
-  line-height: ${applyTheme("textareaLineHeight")};
-  min-height: ${applyTheme("textareaHeight")};
-  outline: none;
-  padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
-  resize: vertical;
-  width: 100%;
-
-  &:read-only {
-    color: ${applyTheme("inputColor_disabled")};
-  }
-`;
-
 const IconWrapper = styled.div`
   box-sizing: border-box;
   color: ${applyValidationColor("inputIconColor")};
@@ -145,32 +123,6 @@ const ClearButton = styled.div`
   }
 }`;
 
-const TextareaClearButton = styled.div`
-  background-color: ${applyTheme("color_white")};
-  border-radius: ${applyTheme("inputBorderRadius")};
-  border: 1px solid ${applyTheme("color_coolGrey")};
-  box-sizing: content-box;
-  color: ${applyTheme("color_coolGrey")};
-  cursor: pointer;
-  display: inline-block;
-  font-size: ${applyTheme("textareaClearButtonFontSize")};
-  height: ${applyTheme("textareaClearButtonFontSize")};
-  margin: 0;
-  padding: ${applyTheme("textareaIconPadding")};
-  line-height: 0;
-
-  &:hover,
-  &:focus {
-    background-color: "transparent";
-    outline: none;
-  }
-
-  & span {
-    margin-left: 0.3125rem;
-    vertical-align: middle;
-  }
-`;
-
 /* eslint-disable max-len */
 const defaultClearIcon = (
   <svg
@@ -186,7 +138,7 @@ const defaultClearIcon = (
 
 const stringDefaultEquals = (value1, value2) => (value1 || "") === (value2 || "");
 
-class TextInput extends Component {
+class PhoneNumberInput extends Component {
   static isFormInput = true;
 
   static propTypes = {
@@ -263,10 +215,6 @@ class TextInput extends Component {
      */
     placeholder: PropTypes.string,
     /**
-     * Enable this when you need a textarea for multi line values, disabled by default
-     */
-    shouldAllowLineBreaks: PropTypes.bool,
-    /**
      * If the input returns an empty string value convert it to a null value, enabled by default
      */
     shouldConvertEmptyStringToNull: PropTypes.bool,
@@ -296,7 +244,6 @@ class TextInput extends Component {
     onChanging() {},
     onIconClick() {},
     onSubmit() {},
-    shouldAllowLineBreaks: false,
     shouldConvertEmptyStringToNull: true,
     shouldTrimValue: true,
     type: "text"
@@ -373,7 +320,7 @@ class TextInput extends Component {
 
   onChange = (event) => {
     let { value } = event.target;
-    value = value || "";
+    value = value.replace(/\D/g, "") || "";
     this.setState({ value });
     this.handleChanging(value);
   };
@@ -447,25 +394,11 @@ class TextInput extends Component {
   }
 
   renderClearButton() {
-    const { shouldAllowLineBreaks, errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
+    const { errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
     const { value } = this.state;
 
-    if (shouldAllowLineBreaks) {
-      return (
-        <TextareaClearButton
-          onClick={this.onClearValue}
-          onFocus={this.onButtonFocus}
-          onBlur={this.onButtonBlur}
-          tabIndex={-1}
-        >
-          {iconClear}
-          <span>{iconClearAccessibilityText}</span>
-        </TextareaClearButton>
-      );
-    }
-
     return (
-      <IconWrapper errors={errors} hasBeenValidated={hasBeenValidated} isTextarea={shouldAllowLineBreaks} value={value}>
+      <IconWrapper errors={errors} hasBeenValidated={hasBeenValidated} value={value}>
         <ClearButton onClick={this.onClearValue} onFocus={this.onButtonFocus} onBlur={this.onButtonBlur} tabIndex={-1}>
           {iconClear}
           <span>{iconClearAccessibilityText}</span>
@@ -475,7 +408,7 @@ class TextInput extends Component {
   }
 
   renderIcon() {
-    const { shouldAllowLineBreaks, errors, hasBeenValidated, icon, onIconClick, iconValid, iconError } = this.props;
+    const { errors, hasBeenValidated, icon, onIconClick, iconValid, iconError } = this.props;
     const { value } = this.state;
 
     let inputIcon;
@@ -488,13 +421,7 @@ class TextInput extends Component {
     }
 
     return (
-      <IconWrapper
-        errors={errors}
-        hasBeenValidated={hasBeenValidated}
-        onClick={onIconClick}
-        isTextarea={shouldAllowLineBreaks}
-        value={value}
-      >
+      <IconWrapper errors={errors} hasBeenValidated={hasBeenValidated} onClick={onIconClick} value={value}>
         {inputIcon}
       </IconWrapper>
     );
@@ -502,7 +429,6 @@ class TextInput extends Component {
 
   render() {
     const {
-      shouldAllowLineBreaks,
       className,
       isOnDarkBackground,
       errors,
@@ -514,30 +440,6 @@ class TextInput extends Component {
       type
     } = this.props;
     const { isButtonFocused, isInputFocused, value } = this.state;
-    if (shouldAllowLineBreaks) {
-      // Same as "input" but without `onKeyPress` and `type` props.
-      // We don"t support rows; use style to set height instead
-      return (
-        <div style={{ position: "relative" }}>
-          <StyledTextarea
-            className={className}
-            isOnDarkBackground={isOnDarkBackground}
-            errors={errors}
-            hasBeenValidated={hasBeenValidated}
-            fieldIsDirty={this.isDirty()}
-            readOnly={isReadOnly}
-            maxLength={maxLength}
-            name={name}
-            onBlur={this.onInputBlur}
-            onChange={this.onChange}
-            onFocus={this.onInputFocus}
-            placeholder={placeholder}
-            value={value}
-          />
-          {this.showClearButton() ? this.renderClearButton() : null}
-        </div>
-      );
-    }
 
     return (
       <InputWrapper
@@ -570,4 +472,4 @@ class TextInput extends Component {
   }
 }
 
-export default TextInput;
+export default PhoneNumberInput;
