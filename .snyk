@@ -2,9 +2,76 @@
 version: v1.12.0
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
-  'npm:ua-parser-js:20180227':
-    - '*':
-        reason: Waiting on deps to update to the latest fbjs version
-        expires: 2018-07-30T00:00:00.000Z
+  'npm:hoek:20180212':
+    - boom > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.655Z'
+    - cryptiles > boom > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.655Z'
+    - hawk > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.655Z'
+    - hawk > boom > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.655Z'
+    - hawk > sntp > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.655Z'
+    - hawk > cryptiles > boom > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.655Z'
+    - node-pre-gyp > hawk > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > hawk > boom > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > hawk > sntp > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > hawk > cryptiles > boom > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > request > hawk > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > request > hawk > boom > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > request > hawk > sntp > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > request > hawk > cryptiles > boom > hoek:
+        reason: No path to fix
+        expires: '2018-08-31T14:45:41.656Z'
+  'npm:stringstream:20180511':
+    - node-pre-gyp > request > stringstream:
+        reason: No way to fix
+        expires: '2018-08-31T14:45:41.656Z'
+  'npm:cryptiles:20180710':
+    - cryptiles:
+        reason: No way to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - hawk > cryptiles:
+        reason: No way to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > hawk > cryptiles:
+        reason: No way to fix
+        expires: '2018-08-31T14:45:41.656Z'
+    - node-pre-gyp > request > hawk > cryptiles:
+        reason: No way to fix
+        expires: '2018-08-31T14:45:41.656Z'
+  'npm:deep-extend:20180409':
+    - node-pre-gyp > rc > deep-extend:
+        reason: No way to fix
+        expires: '2018-08-31T14:45:41.656Z'
+  'npm:extend:20180424':
+    - node-pre-gyp > request > extend:
+        reason: No way to fix
+        expires: '2018-08-31T14:45:41.656Z'
+  'npm:sshpk:20180409':
+    - node-pre-gyp > request > http-signature > sshpk:
+        reason: No way to fix
+        expires: '2018-08-31T14:45:41.656Z'
 patch: {}
-
