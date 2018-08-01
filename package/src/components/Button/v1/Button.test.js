@@ -1,12 +1,13 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
+import mockComponents from "../../../tests/mockComponents";
 import Button from "./Button";
 
 const fakeEvent = { preventDefault() {} };
 
 test("basic snapshot", () => {
-  const component = renderer.create(<Button title="title" className="a b">Submit</Button>);
+  const component = renderer.create(<Button components={mockComponents} title="title" className="a b">Submit</Button>);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -14,7 +15,7 @@ test("basic snapshot", () => {
 
 test("calls onClick when clicked", () => {
   const clickSpy = jest.fn();
-  const item = shallow(<Button onClick={clickSpy} />);
+  const item = mount(<Button components={mockComponents} onClick={clickSpy} />);
 
   item.simulate("click", fakeEvent);
 
@@ -23,7 +24,7 @@ test("calls onClick when clicked", () => {
 
 test("calls onClick only once when double-clicked before timeout", () => {
   const clickSpy = jest.fn();
-  const item = shallow(<Button onClick={clickSpy} />);
+  const item = mount(<Button components={mockComponents} onClick={clickSpy} />);
 
   item.simulate("click", fakeEvent);
   item.simulate("click", fakeEvent);
@@ -33,7 +34,7 @@ test("calls onClick only once when double-clicked before timeout", () => {
 
 test("calls onClick twice when double-clicked after timeout", (done) => {
   const clickSpy = jest.fn();
-  const item = shallow(<Button onClick={clickSpy} />);
+  const item = mount(<Button components={mockComponents} onClick={clickSpy} />);
 
   item.simulate("click", fakeEvent);
   // The debounce timeout for double clicking the button is 600ms

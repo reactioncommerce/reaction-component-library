@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
@@ -6,7 +6,7 @@ import { applyTheme } from "../../../utils";
 const CheckoutActionIncompleteContainer = styled.div`
   color: ${applyTheme("color_black35")};
   font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")}
+  font-size: ${applyTheme("font_size_small")};
 `;
 
 class CheckoutActionIncomplete extends Component {
@@ -14,7 +14,7 @@ class CheckoutActionIncomplete extends Component {
     /**
      * The incomplete action name
      */
-    label: PropTypes.string.isRequired,
+    label: PropTypes.string,
     /**
      * Checkout process step number
      */
@@ -23,11 +23,11 @@ class CheckoutActionIncomplete extends Component {
 
   render() {
     const { label, stepNumber } = this.props;
-    const step = stepNumber ? <Fragment>{stepNumber}.&nbsp;</Fragment> : null;
+    const stepAndLabel = stepNumber ? `${stepNumber}. ${label || ""}` : label;
 
     return (
       <CheckoutActionIncompleteContainer>
-        {step}{label}
+        {stepAndLabel}
       </CheckoutActionIncompleteContainer>
     );
   }

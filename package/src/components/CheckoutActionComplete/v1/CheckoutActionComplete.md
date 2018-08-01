@@ -19,7 +19,6 @@ const Address = (
 
 <div>
   <CheckoutActionComplete
-    components={{ChangeButton: Button}}
     label="Shipping address"
     content={Address}
     onClickChangeButton={onClick}
@@ -42,7 +41,6 @@ const Address = (
 
 <div>
   <CheckoutActionComplete
-    components={{ChangeButton: Button}}
     label="Shipping address"
     content={Address}
     onClickChangeButton={onClick}

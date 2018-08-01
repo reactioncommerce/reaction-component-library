@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
 function applyThemeVariant(themeProp) {
@@ -210,7 +211,7 @@ const defaultInvalidIcon = (
 
 /* eslint-enable max-len */
 
-const stringDefaultEquals = (value1, value2) => (value1 || "") === (value2 || "");
+const stringDefaultEquals = (value1, value2) => ((value1 || "") === (value2 || ""));
 
 class TextInput extends Component {
   static isFormInput = true;
@@ -221,6 +222,26 @@ class TextInput extends Component {
      */
     className: PropTypes.string,
     /**
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
+     */
+    components: PropTypes.shape({
+      /**
+       * Pass an element (e.g., rendered SVG) to use as the clear button icon
+       */
+      iconClear: PropTypes.node,
+      /**
+       * Pass an element (e.g., rendered SVG) to use as the error icon
+       */
+      iconError: PropTypes.node,
+      /**
+       * Pass an element (e.g., rendered SVG) to use as the valid icon
+       */
+      iconValid: PropTypes.node
+    }),
+    /**
      * An array of validation errors
      */
     errors: PropTypes.array,
@@ -230,28 +251,16 @@ class TextInput extends Component {
     hasBeenValidated: PropTypes.bool,
     /**
      * Add an icon to the input by passing an icon node,
-     */
+    */
     icon: PropTypes.node,
     /**
      * Add extra context to your icon for assistive technologies
      */
     iconAccessibilityText: PropTypes.string,
     /**
-     * Overwrite the default clear input icon by passing an icon node
-     */
-    iconClear: PropTypes.node,
-    /**
-     * Overwrite the default clear input icon accessibilty text
+     * Overwrite the default clear input icon accessibility text
      */
     iconClearAccessibilityText: PropTypes.string,
-    /**
-     * Overwrite the default error input icon by passing an icon node
-     */
-    iconError: PropTypes.node,
-    /**
-     * Overwrite the default valid input icon by passing an icon node
-     */
-    iconValid: PropTypes.node,
     /**
      * Enable when using the input on a dark background, disabled by default
      */
@@ -269,19 +278,19 @@ class TextInput extends Component {
      */
     name: PropTypes.string,
     /**
-     * On change hanlder for input
+     * On change handler for input
      */
     onChange: PropTypes.func,
     /**
-     * On changing hanlder for input
+     * On changing handler for input
      */
     onChanging: PropTypes.func,
     /**
-     * Custome click hanlder for added icon
+     * Custom click handler for added icon
      */
     onIconClick: PropTypes.func,
     /**
-     * On submit hanlder for input
+     * On submit handler for input
      */
     onSubmit: PropTypes.func,
     /**
@@ -312,7 +321,6 @@ class TextInput extends Component {
 
   static defaultProps = {
     hasBeenValidated: false,
-    iconClear: defaultClearIcon,
     iconClearAccessibilityText: "Clear",
     iconError: defaultInvalidIcon,
     iconValid: defaultValidIcon,
@@ -345,6 +353,8 @@ class TextInput extends Component {
     const { value } = this.state;
     this.handleChanging(value);
     this.handleChanged(value);
+
+    this._isMounted = true;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -377,6 +387,10 @@ class TextInput extends Component {
     }
   }
 
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
   onKeyPress = (event) => {
     const { onSubmit } = this.props;
     if (event.which === 13) onSubmit();
@@ -387,7 +401,9 @@ class TextInput extends Component {
     // and remove the button before the onClick event fires. This timeout will
     // keep the button rendered long enough for the onClick event to fire.
     setTimeout(() => {
-      this.setState({ isInputFocused: false });
+      if (this._isMounted) {
+        this.setState({ isInputFocused: false });
+      }
     }, 150);
 
     this.setValue(event.target.value, false);
@@ -459,7 +475,7 @@ class TextInput extends Component {
     }
   }
 
-  // Input is dirty if value prop doesn"t match value state. Whenever a changed
+  // Input is dirty if value prop doesn't match value state. Whenever a changed
   // value prop comes in, we reset state to that, thus becoming clean.
   isDirty() {
     const { initialValue, value } = this.state;
@@ -473,8 +489,11 @@ class TextInput extends Component {
   }
 
   renderClearButton() {
-    const { shouldAllowLineBreaks, errors, hasBeenValidated, iconClear, iconClearAccessibilityText } = this.props;
+    const { components, shouldAllowLineBreaks, errors, hasBeenValidated, iconClearAccessibilityText } = this.props;
+    const { iconClear } = components || {};
     const { value } = this.state;
+
+    if (!iconClear) return null;
 
     if (shouldAllowLineBreaks) {
       return (
@@ -501,7 +520,18 @@ class TextInput extends Component {
   }
 
   renderIcon() {
-    const { shouldAllowLineBreaks, errors, hasBeenValidated, icon, onIconClick, iconValid, iconError } = this.props;
+    const {
+      components,
+      errors,
+      hasBeenValidated,
+      icon,
+      onIconClick,
+      shouldAllowLineBreaks
+    } = this.props;
+    const {
+      iconValid,
+      iconError
+    } = components || {};
     const { value } = this.state;
 
     let inputIcon;
@@ -512,6 +542,8 @@ class TextInput extends Component {
     } else {
       inputIcon = icon;
     }
+
+    if (!inputIcon) return null;
 
     return (
       <IconWrapper
@@ -540,6 +572,7 @@ class TextInput extends Component {
       type
     } = this.props;
     const { isButtonFocused, isInputFocused, value } = this.state;
+
     if (shouldAllowLineBreaks) {
       // Same as "input" but without `onKeyPress` and `type` props.
       // We don"t support rows; use style to set height instead
@@ -596,4 +629,8 @@ class TextInput extends Component {
   }
 }
 
-export default TextInput;
+const WrappedTextInput = withComponents(TextInput);
+
+WrappedTextInput.isFormInput = true;
+
+export default WrappedTextInput;

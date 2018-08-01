@@ -1,13 +1,14 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import mockComponents from "../../../tests/mockComponents";
 import MiniCart from "./MiniCart";
 
 const mockCheckout = {
   summary: {
-    subtotal: {
+    itemTotal: {
       displayAmount: "$25.00"
     },
-    tax: {
+    taxTotal: {
       displayAmount: "$2.50"
     }
   }
@@ -58,18 +59,6 @@ const mockItems = [
     quantity: 1
   }
 ];
-
-const mockComponents = {
-  ButtonComponent: () => "Button",
-  CartCheckoutButtonComponent: () => "Cart Checkout Button",
-  CartSummaryComponent: () => "Cart Summary",
-  CartItemsComponent: () => "Cart Items",
-  CartItemComponent: () => "Cart Item",
-  CartItemDetailComponent: () => "Cart Item Detail",
-  CartItemStockWarningComponent: () => "Cart Item Stock Warning",
-  CartItemPriceComponent: () => " Cart Item Price",
-  CartItemQuantityInputComponent: () => "Cart Item Quantity Input"
-};
 
 test("basic snapshot with props", () => {
   const component = renderer.create(<MiniCart cart={{ checkout: mockCheckout, items: mockItems }} components={mockComponents} />);

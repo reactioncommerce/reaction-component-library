@@ -5,7 +5,7 @@ exports[`renders with help text 1`] = `
   margin: 0.9375rem 0;
 }
 
-.c4 {
+.c3 {
   -webkit-font-smoothing: antialiased;
   color: #737373;
   display: block;
@@ -75,20 +75,6 @@ exports[`renders with help text 1`] = `
   color: #bfbfbf;
 }
 
-.c3 {
-  box-sizing: border-box;
-  color: #737373;
-  fill: currentColor;
-  margin-left: 0.625rem;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-
-.c3 * {
-  display: inline-block;
-}
-
 <div
   className="c0"
 >
@@ -112,17 +98,12 @@ exports[`renders with help text 1`] = `
       type="text"
       value=""
     />
-    <div
-      className="c3"
-      onClick={[Function]}
-      value=""
-    />
   </div>
   <p>
     Text below
   </p>
   <span
-    className="c4"
+    className="c3"
   >
     Foo
   </span>
@@ -205,20 +186,6 @@ exports[`renders with label 1`] = `
   color: #bfbfbf;
 }
 
-.c4 {
-  box-sizing: border-box;
-  color: #737373;
-  fill: currentColor;
-  margin-left: 0.625rem;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-
-.c4 * {
-  display: inline-block;
-}
-
 <div
   className="c0"
 >
@@ -246,11 +213,6 @@ exports[`renders with label 1`] = `
       placeholder={undefined}
       readOnly={false}
       type="text"
-      value=""
-    />
-    <div
-      className="c4"
-      onClick={[Function]}
       value=""
     />
   </div>
@@ -326,20 +288,6 @@ exports[`renders with no help text 1`] = `
   color: #bfbfbf;
 }
 
-.c3 {
-  box-sizing: border-box;
-  color: #737373;
-  fill: currentColor;
-  margin-left: 0.625rem;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-
-.c3 * {
-  display: inline-block;
-}
-
 <div
   className="c0"
 >
@@ -361,11 +309,6 @@ exports[`renders with no help text 1`] = `
       placeholder={undefined}
       readOnly={false}
       type="text"
-      value=""
-    />
-    <div
-      className="c3"
-      onClick={[Function]}
       value=""
     />
   </div>
@@ -441,20 +384,6 @@ exports[`renders with no label 1`] = `
   color: #bfbfbf;
 }
 
-.c3 {
-  box-sizing: border-box;
-  color: #737373;
-  fill: currentColor;
-  margin-left: 0.625rem;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-
-.c3 * {
-  display: inline-block;
-}
-
 <div
   className="c0"
 >
@@ -476,11 +405,6 @@ exports[`renders with no label 1`] = `
       placeholder={undefined}
       readOnly={false}
       type="text"
-      value=""
-    />
-    <div
-      className="c3"
-      onClick={[Function]}
       value=""
     />
   </div>

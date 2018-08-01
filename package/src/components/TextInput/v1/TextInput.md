@@ -180,9 +180,41 @@ You can add a custom icon to the right side of any text input and optionally pro
  - `icon` The icon node you want to display
  - `onIconClick` Click event handler for icon clicks.
 
-The default valid, invalid and clear icons can be overwritten by passing values to these props of the text input.
- - `iconValid, iconError, iconClear`
- - `iconClearAccessibilityText`
+```jsx
+const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
+
+const handleClick = (event) => alert("Input Icon Clicked!");
+const icon = <i className="fab fa-pied-piper" />;
+
+<TwoColumnExamples hasDarkRightBackground>
+  <TextInput name="example" placeholder="Hint" icon={icon} onIconClick={handleClick} />
+  <TextInput name="example" placeholder="Hint" icon={icon} onIconClick={handleClick} isOnDarkBackground />
+</TwoColumnExamples>
+```
+
+The default valid, invalid and clear icons can be overwritten by passing values to these props of the `components` prop:
+ - `iconClear`
+ - `iconError`
+ - `iconValid`
+
+These can also be provided through the main components context for your app.
+
+You can also provide the `iconClearAccessibilityText` prop with accessibility text for the clear icon.
+
+```jsx
+const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
+
+const iconComponents = {
+  iconClear: <i className="fas fa-gavel" />,
+  iconError: <i className="fa fa-thumbs-down" />,
+  iconValid: <i className="fa fa-thumbs-up" />
+};
+
+<TwoColumnExamples hasDarkRightBackground>
+  <TextInput name="example" placeholder="Hint" value="Valid" hasBeenValidated components={iconComponents} />
+  <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} components={iconComponents} isOnDarkBackground />
+</TwoColumnExamples>
+```
 
 All of the icon props will accept a few different types of nodes to create the input icon.
  - React Component

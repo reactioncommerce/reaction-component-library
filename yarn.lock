@@ -238,6 +238,10 @@
     node-fetch "^2.1.1"
     url-template "^2.0.8"
 
+"@reactioncommerce/components-context@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@reactioncommerce/components-context/-/components-context-1.0.0.tgz#587764cf0d1b0312c786b8e4657379de02e13845"
+
 "@reactioncommerce/eslint-config@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@reactioncommerce/eslint-config/-/eslint-config-1.0.1.tgz#81dfa108d46604b8604aa9c5e4d77c89b38c0321"
@@ -3373,24 +3377,25 @@ env-ci@^2.0.0:
     execa "^0.10.0"
     java-properties "^0.2.9"
 
-enzyme-adapter-react-16@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/enzyme-adapter-react-16/-/enzyme-adapter-react-16-1.1.1.tgz#a8f4278b47e082fbca14f5bfb1ee50ee650717b4"
+"enzyme-adapter-react-16@https://github.com/reactioncommerce/enzyme/raw/master/packages/enzyme-adapter-react-16/enzyme-adapter-react-16-1.1.2.tgz":
+  version "1.1.2"
+  resolved "https://github.com/reactioncommerce/enzyme/raw/master/packages/enzyme-adapter-react-16/enzyme-adapter-react-16-1.1.2.tgz#973b3327f863c5de408fe93d0ecaa6ea70f3d15b"
   dependencies:
-    enzyme-adapter-utils "^1.3.0"
-    lodash "^4.17.4"
-    object.assign "^4.0.4"
+    enzyme-adapter-utils "https://github.com/reactioncommerce/enzyme/raw/master/packages/enzyme-adapter-utils/enzyme-adapter-utils-1.4.0.tgz"
+    function.prototype.name "^1.0.3"
+    object.assign "^4.1.0"
     object.values "^1.0.4"
     prop-types "^15.6.0"
+    react-is "^16.4.1"
     react-reconciler "^0.7.0"
     react-test-renderer "^16.0.0-0"
 
-enzyme-adapter-utils@^1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/enzyme-adapter-utils/-/enzyme-adapter-utils-1.3.0.tgz#d6c85756826c257a8544d362cc7a67e97ea698c7"
+"enzyme-adapter-utils@https://github.com/reactioncommerce/enzyme/raw/master/packages/enzyme-adapter-utils/enzyme-adapter-utils-1.4.0.tgz":
+  version "1.4.0"
+  resolved "https://github.com/reactioncommerce/enzyme/raw/master/packages/enzyme-adapter-utils/enzyme-adapter-utils-1.4.0.tgz#d6676d37e214248e481e08af9ed5be54b518aa9e"
   dependencies:
-    lodash "^4.17.4"
-    object.assign "^4.0.4"
+    function.prototype.name "^1.0.3"
+    object.assign "^4.1.0"
     prop-types "^15.6.0"
 
 enzyme@^3.3.0:
@@ -7193,7 +7198,7 @@ object-visit@^1.0.0:
   dependencies:
     isobject "^3.0.0"
 
-object.assign@^4.0.4, object.assign@^4.1.0:
+object.assign@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/object.assign/-/object.assign-4.1.0.tgz#968bf1100d7956bb3ca086f006f846b3bc4008da"
   dependencies:
@@ -8070,7 +8075,7 @@ promise@8.0.1:
   dependencies:
     asap "~2.0.3"
 
-prop-types@15.6.2:
+prop-types@15.6.2, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -8359,7 +8364,7 @@ react-icons@^2.2.7:
   dependencies:
     react-icon-base "2.1.0"
 
-react-is@^16.3.1:
+react-is@^16.3.1, react-is@^16.4.1:
   version "16.4.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
 
@@ -8441,6 +8446,14 @@ react-test-renderer@^16.0.0-0:
     fbjs "^0.8.16"
     object-assign "^4.1.1"
     prop-types "^15.6.0"
+
+"react-test-renderer@https://github.com/reactioncommerce/react/raw/master/react-test-renderer-16.4.1.tgz":
+  version "16.4.1"
+  resolved "https://github.com/reactioncommerce/react/raw/master/react-test-renderer-16.4.1.tgz#6175191d94c0474b9cbfd5597323d2979e78ea37"
+  dependencies:
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    react-is "^16.4.1"
 
 react@16.4.1:
   version "16.4.1"

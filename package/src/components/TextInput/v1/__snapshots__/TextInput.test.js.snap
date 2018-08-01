@@ -62,20 +62,6 @@ exports[`renders 1`] = `
   color: #bfbfbf;
 }
 
-.c2 {
-  box-sizing: border-box;
-  color: #737373;
-  fill: currentColor;
-  margin-left: 0.625rem;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-
-.c2 * {
-  display: inline-block;
-}
-
 <div
   className="c0"
   value=""
@@ -91,11 +77,6 @@ exports[`renders 1`] = `
     placeholder={undefined}
     readOnly={false}
     type="text"
-    value=""
-  />
-  <div
-    className="c2"
-    onClick={[Function]}
     value=""
   />
 </div>
@@ -163,20 +144,6 @@ exports[`renders textarea 1`] = `
   color: #bfbfbf;
 }
 
-.c2 {
-  box-sizing: border-box;
-  color: #737373;
-  fill: currentColor;
-  margin-left: 0.625rem;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-
-.c2 * {
-  display: inline-block;
-}
-
 <div
   className="c0"
   value=""
@@ -192,11 +159,6 @@ exports[`renders textarea 1`] = `
     placeholder={undefined}
     readOnly={false}
     type="text"
-    value=""
-  />
-  <div
-    className="c2"
-    onClick={[Function]}
     value=""
   />
 </div>
@@ -264,20 +226,6 @@ exports[`renders textarea with props 1`] = `
   color: #bfbfbf;
 }
 
-.c2 {
-  box-sizing: border-box;
-  color: #737373;
-  fill: currentColor;
-  margin-left: 0.625rem;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-
-.c2 * {
-  display: inline-block;
-}
-
 <div
   className="c0"
   value="VALUE"
@@ -293,11 +241,6 @@ exports[`renders textarea with props 1`] = `
     placeholder="PLACEHOLDER"
     readOnly={true}
     type="text"
-    value="VALUE"
-  />
-  <div
-    className="c2"
-    onClick={[Function]}
     value="VALUE"
   />
 </div>
@@ -365,20 +308,6 @@ exports[`renders with props 1`] = `
   color: #bfbfbf;
 }
 
-.c2 {
-  box-sizing: border-box;
-  color: #737373;
-  fill: currentColor;
-  margin-left: 0.625rem;
-  position: relative;
-  right: 0;
-  top: 0;
-}
-
-.c2 * {
-  display: inline-block;
-}
-
 <div
   className="c0"
   value="VALUE"
@@ -394,11 +323,6 @@ exports[`renders with props 1`] = `
     placeholder="PLACEHOLDER"
     readOnly={true}
     type="text"
-    value="VALUE"
-  />
-  <div
-    className="c2"
-    onClick={[Function]}
     value="VALUE"
   />
 </div>

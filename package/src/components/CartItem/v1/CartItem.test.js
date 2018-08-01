@@ -1,9 +1,10 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import mockComponents from "../../../tests/mockComponents";
 import CartItem from "./CartItem";
 
 test("basic snapshot with empty props", () => {
-  const component = renderer.create(<CartItem item={{ price: { displayAmount: "$9.99" } }} />);
+  const component = renderer.create(<CartItem components={mockComponents} item={{ price: { displayAmount: "$9.99" } }} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -30,12 +31,6 @@ test("basic snapshot with props", () => {
     productVendor: "Patagonia",
     title: "A Great Product",
     quantity: 2
-  };
-  const mockComponents = {
-    CartItemDetailComponent: () => "Cart Item Detail",
-    CartItemStockWarningComponent: () => "Cart Item Stock Warning",
-    CartItemPriceComponent: () => " Cart Item Price",
-    CartItemQuantityInputComponent: () => "Cart Item Quantity Input"
   };
   const component = renderer.create(<CartItem components={mockComponents} item={mockItem} />);
 

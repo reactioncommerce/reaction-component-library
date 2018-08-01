@@ -6,7 +6,7 @@ services:
       context: .
       args:
         BUILD_ENV: "development"
-    command: sh -c "yarn install && yarn start"
+    command: sh -c "yarn install && (cd package && yarn install) && yarn start"
     env_file:
       - ./.env
     environment:
