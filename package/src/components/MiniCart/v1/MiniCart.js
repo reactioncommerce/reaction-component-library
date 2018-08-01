@@ -52,18 +52,18 @@ class MiniCart extends Component {
          */
         summary: PropTypes.shape({
           /**
-           * Checkout summary subtotal info
+           * Checkout summary item total info
            */
-          subtotal: PropTypes.shape({
+          itemTotal: PropTypes.shape({
             /**
-             * Checkout summary subtotal display amount
+             * Checkout summary item total display amount
              */
             displayAmount: PropTypes.string
           }),
           /**
            * Checkout summary tax info
            */
-          tax: PropTypes.shape({
+          taxTotal: PropTypes.shape({
             /**
              * Checkout summary tax display amount
              */
@@ -137,7 +137,7 @@ class MiniCart extends Component {
           <CartItems items={items} components={components} {...props} isMiniCart />
         </Items>
         <Footer count={items.length}>
-          <MiniCartSummary components={components} displaySubtotal={summary.subtotal.displayAmount} />
+          <MiniCartSummary components={components} displaySubtotal={summary.itemTotal.displayAmount} />
           {cartCheckoutButton || <Button actionType="important" components={components} isFullWidth>Checkout</Button>}
           <span>Shipping and tax calculated in checkout</span>
         </Footer>

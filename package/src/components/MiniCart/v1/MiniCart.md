@@ -7,10 +7,10 @@
 ```jsx
 const checkout = {
   summary: {
-    subtotal: {
+    itemTotal: {
       displayAmount: "$25.00"
     },
-    tax: {
+    taxTotal: {
       displayAmount: "$2.50"
     }
   }
@@ -63,10 +63,10 @@ const items = [
 ```jsx
 const checkout = {
   summary: {
-    subtotal: {
+    itemTotal: {
       displayAmount: "$25.00"
     },
-    tax: {
+    taxTotal: {
       displayAmount: "$2.50"
     }
   }
