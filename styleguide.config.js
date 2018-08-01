@@ -105,6 +105,22 @@ module.exports = {
         fontFamily: ["'PostGrotesk-Bold'", "-apple-system", "sans-serif"]
       }
     },
+    Para: {
+      para: {
+        width: "60%"
+      }
+    },
+    List: {
+      list: {
+        width: "60%"
+      },
+      ordered: {
+        width: "60%"
+      },
+      unordered: {
+        width: "60%"
+      }
+    },
     StyleGuide: {
       content: {
         maxWidth: "initial",
