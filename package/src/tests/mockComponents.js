@@ -2,8 +2,8 @@ const mockComponents = {};
 
 function stringifyJSONCircularSafe(obj) {
   const cache = [];
-  JSON.stringify(obj, function(key, value) {
-    if (typeof value === 'object' && value !== null) {
+  JSON.stringify(obj, (key, value) => {
+    if (typeof value === "object" && value !== null) {
       if (cache.indexOf(value) !== -1) {
         // Circular reference found, discard key
         return;

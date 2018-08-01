@@ -32,15 +32,16 @@ const optionsSyntax = PropTypes.arrayOf(PropTypes.shape({
 function getComponentValidator() {
   function checkType(isRequired, props, propName, componentName, location, propFullName) {
     const val = props[propName];
-    if (val == null) {
+    if (val === null || val === undefined) {
       if (isRequired) {
-        if (props[propName] === null) {
+        if (val === null) {
           return new PropTypeError(`The ${location} '${propFullName}' is marked as required in '${componentName}', but its value is 'null'.`);
         }
         return new PropTypeError(`The ${location} '${propFullName}' is marked as required in '${componentName}', but its value is 'undefined'.`);
       }
     } else if (!isValidElementType(val)) {
-      return new PropTypeError(`Invalid ${location} '${propFullName}' supplied to ${componentName}. Expected a string (for built-in components) or a class/function (for composite components).`);
+      return new PropTypeError(`Invalid ${location} '${propFullName}' supplied to ${componentName}. ` +
+        "Expected a string (for built-in components) or a class/function (for composite components).");
     }
     return null;
   }

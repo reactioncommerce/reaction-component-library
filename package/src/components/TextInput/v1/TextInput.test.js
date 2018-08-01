@@ -1,8 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import styled from "styled-components";
-import { mount } from "enzyme";
-import { testInput } from "composable-form-tests";
+// import styled from "styled-components";
+// import { mount } from "enzyme";
+// import { testInput } from "composable-form-tests";
 import mockComponents from "../../../tests/mockComponents";
 import TextInput from "./TextInput";
 
