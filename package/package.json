@@ -36,7 +36,7 @@
     "lodash.uniqueid": "^4.0.1",
     "mdi-material-ui": "^5.2.0",
     "react-is": "^16.4.1",
-    "react-select": "2.0.0-alpha.8"
+    "react-select": "^2.0.0"
   },
   "devDependencies": {
     "@reactioncommerce/eslint-config": "^1.0.1",

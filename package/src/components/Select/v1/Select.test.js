@@ -10,10 +10,16 @@ const OPTIONS = [
   { label: "C", value: "c" }
 ];
 
+const PROPS = {
+  className: "react-select",
+  classNamePrefix: "react-select",
+  menuIsOpen: true
+};
+
 function simulateChanged(wrapper, value) {
   const labelToSelect = value.toString().toUpperCase();
   const selectOption = wrapper
-    .find("div.react-select__option")
+    .find("[role=\"option\"]")
     .findWhere((n) => (n.props().children || "").trim() === labelToSelect);
   wrapper.setState({ focusedOption: undefined });
 
@@ -28,14 +34,12 @@ testInput({
   exampleValueTwo: "b",
   mount,
   options: OPTIONS,
-  props: {
-    menuIsOpen: true
-  },
+  props: PROPS,
   simulateChanged
 });
 
 test("basic snapshot", () => {
-  const component = renderer.create(<Select />);
+  const component = renderer.create(<Select {...PROPS} options={OPTIONS} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
