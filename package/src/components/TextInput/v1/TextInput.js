@@ -61,7 +61,6 @@ const StyledInput = styled.input`
   flex-grow: 2;
   font-family: ${applyTheme("inputFontFamily")};
   font-size: ${applyTheme("inputFontSize")};
-  line-height: ${applyTheme("inputLineHeight")};
   outline: none;
 
   &::placeholder {
@@ -100,7 +99,8 @@ const IconWrapper = styled.div`
   color: ${applyValidationColor("inputIconColor")};
   fill: currentColor;
   margin-left: ${applyTheme("inputHorizontalPadding")};
-
+  height: ${applyTheme("inputIconWrapperSize")};
+  width: ${applyTheme("inputIconWrapperSize")};
   position: relative;
   right: ${applyTextareaVariant(applyTheme("textareaIconRight"), 0)};
   top: ${applyTextareaVariant(applyTheme("textareaIconTop"), 0)};

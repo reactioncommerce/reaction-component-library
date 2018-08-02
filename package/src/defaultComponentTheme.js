@@ -320,7 +320,8 @@ const inputIcon = {
   rui_inputIconColor_disabled: black25,
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
-  rui_inputIconTextPadding: baseUnit(20)
+  rui_inputIconTextPadding: baseUnit(20),
+  rui_inputIconWrapperSize: "1.429em"
 };
 
 // textarea
