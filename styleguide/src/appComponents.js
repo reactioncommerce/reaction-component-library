@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components";
 import Button from "../../package/src/components/Button/v1";
 import CartItem from "../../package/src/components/CartItem/v1";
 import CartItemDetail from "../../package/src/components/CartItemDetail/v1";
@@ -15,11 +14,6 @@ import Select from "../../package/src/components/Select/v1";
 import StockWarning from "../../package/src/components/StockWarning/v1";
 import spinner from "../../package/src/utils/spinner";
 import TextInput from "../../package/src/components/TextInput/v1";
-
-const FontIcon = styled.i`
-  font-size: 1em;
-  vertical-align: middle;
-`;
 
 /* eslint-disable max-len */
 
