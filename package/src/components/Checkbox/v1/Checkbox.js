@@ -77,7 +77,7 @@ class Checkbox extends Component {
      */
     className: PropTypes.string,
     /**
-     * Enable to make the checkboxp read-only / disabled by default
+     * Enable to make the checkbox read-only / disabled by default
      */
     isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
     /**
@@ -99,9 +99,7 @@ class Checkbox extends Component {
     /**
      * True for a checked checkbox, undefined for an unchecked checkbox
      */
-    /* eslint-disable react/boolean-prop-naming */
-    value: PropTypes.bool
-    /* eslint-enable react/boolean-prop-naming */
+    value: PropTypes.bool // eslint-disable-line react/boolean-prop-naming
   };
 
   static defaultProps = {
