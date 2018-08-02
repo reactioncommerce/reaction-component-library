@@ -96,8 +96,6 @@ const StyledTextarea = Textarea.extend`
 
 const IconWrapper = styled.div`
   box-sizing: border-box;
-  color: ${applyValidationColor("inputIconColor")};
-  fill: currentColor;
   margin-left: ${applyTheme("inputHorizontalPadding")};
   height: ${applyTheme("inputIconWrapperSize")};
   width: ${applyTheme("inputIconWrapperSize")};
