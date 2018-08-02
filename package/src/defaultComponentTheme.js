@@ -360,6 +360,7 @@ const errorsBlockStyles = {
   rui_errorsBlockColor: red,
   rui_errorsBlockFontSize: fontSize14,
   rui_errorsBlockMargin: `${baseUnit(1)} 0`,
+  rui_errorsBlockIconColor: red,
   rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
 };
 

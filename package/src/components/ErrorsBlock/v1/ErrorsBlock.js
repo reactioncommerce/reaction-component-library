@@ -17,14 +17,11 @@ const Error = styled.div`
 `;
 
 const IconWrapper = styled.div`
-  color: ${applyTheme("errorsBlockColor")};
   display: inline-block;
-  fill: currentColor;
   margin: ${applyTheme("errorsBlockIconMargin")};
 
-  & * {
-   color: inherit;
-   fill: inherit;
+  path {
+   fill: ${applyTheme("errorsBlockIconColor")};
   }
 
   svg {
