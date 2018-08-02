@@ -7,7 +7,7 @@ const TopHatContainer = styled.div`
   font-family: ${applyTheme("font_family")};
   background-color: ${applyTheme("color_black05")};
   display: flex;
-  height: 30px;
+  height: 35px;
   justify-content: center;
   width: 100%;
 `;
