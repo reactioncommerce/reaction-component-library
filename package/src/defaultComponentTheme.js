@@ -333,6 +333,12 @@ const textareaStyles = {
   rui_textareaIconTop: baseUnit(1)
 };
 
+// select
+
+const selectStyles = {
+  rui_selectHoverColor: reactionBlue100
+};
+
 // field
 const fieldStyles = {
   rui_fieldMargin: `${baseUnit(1.5)} 0`
@@ -403,6 +409,7 @@ export default {
   ...inputStyles,
   ...inputIcon,
   ...textareaStyles,
+  ...selectStyles,
   ...fieldStyles,
   ...labelStyles,
   ...helpTextStyles,

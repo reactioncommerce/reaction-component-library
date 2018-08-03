@@ -74,6 +74,7 @@ function applyValidationColor(themeProp = "color") {
 const getInputBorderColor = applyValidationColor("inputBorderColor");
 const getInputBorderRadius = applyTheme("inputBorderRadius");
 const getInputFontSize = applyTheme("inputFontSize");
+const getSelectHoverColor = applyTheme("selectHoverColor");
 
 function getCustomStyles(props) {
   const { maxWidth } = props;
@@ -81,13 +82,29 @@ function getCustomStyles(props) {
   // TODO isDark change bg color
   return {
     container(base) {
-      return { ...base, maxWidth, fontSize: getInputFontSize() };
+      return {
+        ...base,
+        maxWidth,
+        fontSize: getInputFontSize()
+      };
     },
     control(base, state) {
       return {
         ...base,
         borderColor: getInputBorderColor({ ...props, isFocused: state.isFocused }),
-        borderRadius: getInputBorderRadius(props)
+        borderRadius: getInputBorderRadius(props),
+        cursor: "pointer"
+      };
+    },
+    option(base, state) {
+      return {
+        ...base,
+        "cursor": "pointer",
+        "color": "#3c3c3c",
+        ":hover": {
+          backgroundColor: getSelectHoverColor()
+        },
+        "backgroundColor": (state.isSelected ? getSelectHoverColor() : "#FFFFFF")
       };
     },
     menu(base) {
@@ -339,8 +356,8 @@ class Select extends Component {
   static defaultProps = {
     isReadOnly: false,
     isSearchable: false,
-    onChange() {},
-    onChanging() {},
+    onChange() { },
+    onChanging() { },
     options: []
   };
 
