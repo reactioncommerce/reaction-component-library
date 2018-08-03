@@ -32,7 +32,7 @@ const item = {
 
 <CartItem
   item={item}
-  onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
+  onChangeCartItemQuantity={(value, _id) => console.log("cart item quantity changed to", value, "for item", _id)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
 />
 ```
@@ -59,7 +59,7 @@ const item = {
 
 <CartItem
   item={item}
-  onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
+  onChangeCartItemQuantity={(value, _id) => console.log("cart item quantity changed to", value, "for item", _id)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
 />
 ```
@@ -89,7 +89,7 @@ const item = {
 
 <CartItem
   item={item}
-  onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
+  onChangeCartItemQuantity={(value, _id) => console.log("cart item quantity changed to", value, "for item", _id)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
 />
 ```
@@ -120,7 +120,7 @@ const item = {
 <CartItem
   isMiniCart
   item={item}
-  onChangeCartItemQuantity={value => console.log("cart item quantity changed to", value)}
+  onChangeCartItemQuantity={(value, _id) => console.log("cart item quantity changed to", value, "for item", _id)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
 />
 ```
