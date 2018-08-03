@@ -72,9 +72,15 @@ function applyValidationColor(themeProp = "color") {
 }
 
 const getInputBorderColor = applyValidationColor("inputBorderColor");
-const getInputBorderRadius = applyTheme("inputBorderRadius");
+const getSelectBorderRadius = applyTheme("selectBorderRadius");
+const getSelectMenuBorderRadius = applyTheme("selectMenuBorderRadius");
 const getInputFontSize = applyTheme("inputFontSize");
 const getSelectHoverColor = applyTheme("selectHoverColor");
+const getSelectHoverBorderColor = applyTheme("selectHoverBorderColor");
+const getSelectIndicatorColor = applyTheme("selectIndicatorColor");
+const getSelectMenuBorder = applyTheme("selectMenuBorder");
+const getSelectLetterSpacing = applyTheme("selectLetterSpacing");
+const getSelectTextColor = applyTheme("selectTextColor");
 
 function getCustomStyles(props) {
   const { maxWidth } = props;
@@ -91,25 +97,61 @@ function getCustomStyles(props) {
     control(base, state) {
       return {
         ...base,
-        borderColor: getInputBorderColor({ ...props, isFocused: state.isFocused }),
-        borderRadius: getInputBorderRadius(props),
-        cursor: "pointer"
+        "borderColor": getInputBorderColor({ ...props, isFocused: state.isFocused }),
+        "borderRadius": getSelectBorderRadius(),
+        "boxShadow": "none",
+        "cursor": "pointer",
+        "&:hover": {
+          borderColor: getSelectHoverBorderColor()
+        }
+      };
+    },
+    singleValue(base) {
+      return {
+        ...base,
+        letterSpacing: getSelectLetterSpacing()
+      };
+    },
+    placeholder(base) {
+      return {
+        ...base,
+        letterSpacing: getSelectLetterSpacing()
       };
     },
     option(base, state) {
       return {
         ...base,
+        "color": getSelectTextColor(),
         "cursor": "pointer",
-        "color": "#3c3c3c",
+        "letterSpacing": getSelectLetterSpacing(),
         ":hover": {
           backgroundColor: getSelectHoverColor()
         },
         "backgroundColor": (state.isSelected ? getSelectHoverColor() : "#FFFFFF")
       };
     },
+    dropdownIndicator(base) {
+      return {
+        ...base,
+        color: getSelectIndicatorColor()
+      };
+    },
+    menuList(base) {
+      return {
+        ...base,
+        paddingTop: 0,
+        paddingBottom: 0
+      };
+    },
     menu(base) {
       return {
         ...base,
+        borderRadius: getSelectMenuBorderRadius(),
+        borderBottom: getSelectMenuBorder(),
+        borderLeft: getSelectMenuBorder(),
+        borderRight: getSelectMenuBorder(),
+        marginTop: 0,
+        boxShadow: "none",
         zIndex: MENU_Z_INDEX
       };
     }
@@ -492,6 +534,7 @@ class Select extends Component {
         {...passthroughProps}
         isDisabled={isReadOnly}
         value={optionValue}
+        components={{ IndicatorSeparator: null }}
         onChange={this.handleSelectLibChanged}
         options={reactSelectOptions}
         styles={getCustomStyles(this.props)}
