@@ -8,7 +8,7 @@ exports[`render Top Hat with message 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  height: 30px;
+  height: 35px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
