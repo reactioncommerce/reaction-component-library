@@ -1,0 +1,63 @@
+###### Admin uses a small set of typographic styles, which map to key elements and functions in the user interface. Designed with consistency - not rigidity - in mind, the base type style set is extensible using our type scale and typographic treatments.
+
+#### Choosing a type style
+
+Type styles are generally named for their usage within the UI. The Body text style is the most generic, and is used throughout the UI in various capacities.
+
+##### Usage
+
+These are the typographic styles used in the main admin panel, action panel, cards, modals, and forms.
+
+These typographic styles do not cover the styles used in the storefront. 
+
+##### Base styles
+
+- Title
+- Heading
+- Sub-heading
+- Body
+- Label
+- Caption
+
+<div style="width: 30%; border: 4px solid #f7f7f7; text-align: center; box-sizing: border-box; display: inline-block; margin: 10px 0; padding: 50px 0">
+    Title Text
+</div>
+<div style="width: 30%; border: 4px solid #f7f7f7; text-align: center; box-sizing: border-box; display: inline-block; margin: 10px 3%; padding: 50px 0">
+    Title Text
+</div>
+<div style="width: 30%; border: 4px solid #f7f7f7; text-align: center; box-sizing: border-box; display: inline-block; margin: 10px 0; padding: 50px 0">
+    Title Text
+</div>
+<div style="width: 30%; border: 4px solid #f7f7f7; text-align: center; box-sizing: border-box; display: inline-block; margin: 10px 0; padding: 50px 0">
+    Title Text
+</div>
+<div style="width: 30%; border: 4px solid #f7f7f7; text-align: center; box-sizing: border-box; display: inline-block; margin: 10px 3%; padding: 50px 0">
+    Title Text
+</div>
+<div style="width: 30%; border: 4px solid #f7f7f7; text-align: center; box-sizing: border-box; display: inline-block; margin: 10px 0; padding: 50px 0">
+    Title Text
+</div>
+
+#### Type scale
+
+This type scale defines the font sizes that can be used by the admin UI. Admin panel type generally does not exceed 1.5rem/24px. 
+
+#### Typographic treatments
+
+##### Font weight
+
+The admin UI uses [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) in Regular and Bold weights, which can be used to create content hierarchy. 
+
+Generally used for emphasis, the bold weight shouldn’t be applied to anything longer than short text strings.
+
+##### Line-height
+
+Leading, or line-height, is an important factor in the legibility of copy. The admin panel uses two line-heights for text:
+- 1.5 for body copy
+- 1.25 for labels, captions, headings, subheadings and titles. 
+
+Body copy benefits from more spacing between lines for improved legibility, while the other styles rarely run for multiple lines and don’t require as much leading.
+
+#### Type styles specs and usage
+
+

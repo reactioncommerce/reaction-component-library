@@ -333,6 +333,15 @@ module.exports = {
       ]
     },
     {
+      name: "Style",
+      sections: [
+        {
+          name: "Typography",
+          content: "styleguide/src/sections/Typography.md"
+        }
+      ]
+    },
+    {
       name: "Base Components",
       sections: [
         generateSection({
