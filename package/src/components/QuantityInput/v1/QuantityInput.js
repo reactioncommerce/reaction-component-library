@@ -59,7 +59,7 @@ class QuantityInput extends Component {
 
   static defaultProps = {
     classes: {},
-    onChange() {}
+    onChange() { }
   };
 
   constructor(props) {
@@ -123,6 +123,8 @@ class QuantityInput extends Component {
                 variant="outlined"
                 onClick={this.handleDecrementButton}
                 className={incrementButton}
+                disableRipple={true}
+                disableTouchRipple={true}
               >
                 <Minus style={{ fontSize: "14px" }} />
               </ButtonBase>
@@ -135,6 +137,8 @@ class QuantityInput extends Component {
                 color="default"
                 onClick={this.handleIncrementButton}
                 className={incrementButton}
+                disableRipple={true}
+                disableTouchRipple={true}
               >
                 <Plus style={{ fontSize: "14px" }} />
               </ButtonBase>
