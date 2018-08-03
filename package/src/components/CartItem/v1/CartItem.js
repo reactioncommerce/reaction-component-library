@@ -211,8 +211,8 @@ class CartItem extends Component {
   };
 
   handleChangeCartItemQuantity = (value) => {
-    const { onChangeCartItemQuantity } = this.props;
-    onChangeCartItemQuantity(value);
+    const { onChangeCartItemQuantity, item: { _id }  } = this.props;
+    onChangeCartItemQuantity(value, _id);
   };
 
   handleRemoveItemFromCart = () => {
