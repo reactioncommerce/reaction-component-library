@@ -123,8 +123,8 @@ class QuantityInput extends Component {
                 variant="outlined"
                 onClick={this.handleDecrementButton}
                 className={incrementButton}
-                disableRipple={true}
-                disableTouchRipple={true}
+                disableRipple
+                disableTouchRipple
               >
                 <Minus style={{ fontSize: "14px" }} />
               </ButtonBase>
