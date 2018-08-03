@@ -131,10 +131,11 @@ function getCustomStyles(props) {
         "backgroundColor": (state.isSelected ? getSelectHoverColor() : "#FFFFFF")
       };
     },
-    dropdownIndicator(base) {
+    dropdownIndicator(base, state) {
       return {
         ...base,
-        color: getSelectIndicatorColor()
+        color: getSelectIndicatorColor(),
+        transform: (state.isSelected || state.isFocused ? "rotateX(-180deg)" : "")
       };
     },
     menuList(base) {
