@@ -333,6 +333,15 @@ module.exports = {
       ]
     },
     {
+      name: "Style",
+      sections: [
+        {
+          name: "Colors",
+          content: "styleguide/src/sections/Colors.md"
+        }
+      ]
+    },
+    {
       name: "Base Components",
       sections: [
         generateSection({
