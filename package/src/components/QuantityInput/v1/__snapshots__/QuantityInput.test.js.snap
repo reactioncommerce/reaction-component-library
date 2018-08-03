@@ -48,9 +48,6 @@ exports[`basic snapshot 1`] = `
             />
           </g>
         </svg>
-        <span
-          className="MuiTouchRipple-root-34"
-        />
       </button>
     </div>
     <input
@@ -114,9 +111,6 @@ exports[`basic snapshot 1`] = `
             />
           </g>
         </svg>
-        <span
-          className="MuiTouchRipple-root-34"
-        />
       </button>
     </div>
   </div>
