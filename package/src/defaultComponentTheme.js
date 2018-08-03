@@ -337,10 +337,11 @@ const textareaStyles = {
 
 const selectStyles = {
   rui_selectHoverColor: reactionBlue100,
-  rui_selectHoverBorderColor: teal,
+  rui_selectFocusBorderColor: teal,
   rui_selectBorderRadius: baseUnit(0.2),
   rui_selectMenuBorderRadius: `0 ${baseUnit(0.2)}`,
   rui_selectIndicatorColor: coolGrey500,
+  rui_selectBorderColor: black20,
   rui_selectMenuBorder: `${baseUnit(0.1)} solid ${black20}`,
   rui_selectLetterSpacing: `${baseUnit(0.03)}`,
   rui_selectTextColor: coolGrey500

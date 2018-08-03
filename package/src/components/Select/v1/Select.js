@@ -74,9 +74,10 @@ function applyValidationColor(themeProp = "color") {
 const getInputBorderColor = applyValidationColor("inputBorderColor");
 const getSelectBorderRadius = applyTheme("selectBorderRadius");
 const getSelectMenuBorderRadius = applyTheme("selectMenuBorderRadius");
+const getSelectBorderColor = applyTheme("selectBorderColor");
 const getInputFontSize = applyTheme("inputFontSize");
 const getSelectHoverColor = applyTheme("selectHoverColor");
-const getSelectHoverBorderColor = applyTheme("selectHoverBorderColor");
+const getSelecFocusBorderColor = applyTheme("selectFocusBorderColor");
 const getSelectIndicatorColor = applyTheme("selectIndicatorColor");
 const getSelectMenuBorder = applyTheme("selectMenuBorder");
 const getSelectLetterSpacing = applyTheme("selectLetterSpacing");
@@ -102,7 +103,7 @@ function getCustomStyles(props) {
         "boxShadow": "none",
         "cursor": "pointer",
         "&:hover": {
-          borderColor: getSelectHoverBorderColor()
+          borderColor: state.isFocused ? getSelecFocusBorderColor() : getSelectBorderColor()
         }
       };
     },
