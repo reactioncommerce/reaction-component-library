@@ -135,7 +135,7 @@ function getCustomStyles(props) {
       return {
         ...base,
         color: getSelectIndicatorColor(),
-        transform: (state.isSelected || state.isFocused ? "rotateX(-180deg)" : "")
+        transform: (state.selectProps.menuIsOpen ? "rotateX(-180deg)" : "")
       };
     },
     menuList(base) {
