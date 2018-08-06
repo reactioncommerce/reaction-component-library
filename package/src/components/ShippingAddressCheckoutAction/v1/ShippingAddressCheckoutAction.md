@@ -64,3 +64,4 @@ const fullfillment = {
 };
 
 <ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} status="active" />
+```
