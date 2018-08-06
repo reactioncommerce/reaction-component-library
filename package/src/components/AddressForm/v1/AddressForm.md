@@ -141,7 +141,7 @@ class AddressExample extends React.Component {
 
   bindForm(formEl) {
     if (formEl) {
-      this._addressForm = formEl._form;
+      this._addressForm = formEl;
     }
   }
 
