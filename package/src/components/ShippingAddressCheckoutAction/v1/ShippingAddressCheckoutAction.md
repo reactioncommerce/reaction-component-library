@@ -52,7 +52,6 @@ const fullfillment = {
 };
 
 <ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} status="active" />
-
 ```
 
 #### Active without Address
