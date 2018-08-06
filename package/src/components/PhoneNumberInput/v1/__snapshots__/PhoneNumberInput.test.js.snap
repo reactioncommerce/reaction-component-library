@@ -65,8 +65,9 @@ exports[`basic snapshot 1`] = `
 .c2 {
   box-sizing: border-box;
   color: #737373;
-  fill: currentColor;
   margin-left: 0.625rem;
+  height: 1.429em;
+  width: 1.429em;
   position: relative;
   right: 0;
   top: 0;
