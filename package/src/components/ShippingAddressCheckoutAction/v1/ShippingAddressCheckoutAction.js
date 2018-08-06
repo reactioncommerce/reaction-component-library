@@ -43,6 +43,7 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   state = {
+    // eslint-disable-next-line
     actionStatus: this.props.status
       ? this.props.status
       : this.props.fullfillmentGroup.data.shippingAddress ? "complete" : "incomplete",
@@ -58,12 +59,12 @@ class ShippingAddressCheckoutAction extends Component {
     }
   };
 
-  _addressForm = null;
-
   componentDidMount() {
     const { onReadyForSaveChange } = this.props;
     onReadyForSaveChange(true);
   }
+
+  _addressForm = null;
 
   changeStatus = () => {
     const { actionStatus, activeAddress } = this.state;
