@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
@@ -17,6 +17,7 @@ class ShippingAddressCheckoutAction extends Component {
        * accepts compatible props.
        */
       AddressForm: CustomPropTypes.component.isRequired,
+      Button: CustomPropTypes.component.isRequired,
       CheckoutAction: CustomPropTypes.component.isRequired,
       CheckoutActionComplete: CustomPropTypes.component.isRequired,
       CheckoutActionIncomplete: CustomPropTypes.component.isRequired
@@ -27,7 +28,8 @@ class ShippingAddressCheckoutAction extends Component {
       })
     }).isRequired,
     isSaving: PropTypes.bool,
-    onReadyForSaveChange: PropTypes.func
+    onReadyForSaveChange: PropTypes.func,
+    status: PropTypes.oneOf(["active", "complete", "incomplete"])
   };
 
   static defaultProps = {
@@ -35,8 +37,21 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   state = {
-    actionStatus: this.props.fullfillmentGroup.data.shippingAddress ? "complete" : "incomplete"
+    actionStatus: this.props.status
+      ? this.props.status
+      : this.props.fullfillmentGroup.data.shippingAddress ? "complete" : "incomplete",
+    activeCountry: "US",
+    countries: [
+      { value: "US", label: "United States" },
+      { value: "DE", label: "Germany" },
+      { value: "NU", label: "Nigeria" }
+    ],
+    regions: {
+      US: [{ value: "LA", label: "Louisiana" }, { value: "CA", label: "California" }]
+    }
   };
+
+  _addressForm = null;
 
   componentDidMount() {
     const { onReadyForSaveChange } = this.props;
@@ -49,9 +64,38 @@ class ShippingAddressCheckoutAction extends Component {
 
   getFullfillmentData() {}
 
+  handleCountryChange(country) {
+    const activeCountry = this.state.countries.find((cnty) => cnty.value === country);
+
+    if (activeCountry) {
+      this.setState({
+        activeCountry: activeCountry.value
+      });
+    }
+  }
+
   renderActive() {
-    const { components: { AddressForm } } = this.props;
-    return <AddressForm />;
+    const { components: { AddressForm, Button }, fullfillmentGroup: { data: { shippingAddress } } } = this.props;
+    return (
+      <Fragment>
+        <AddressForm
+          ref={(formEl) => {
+            this._addressForm = formEl;
+          }}
+          countries={this.state.countries}
+          regions={this.state.regions[this.state.activeCountry]}
+          onCountryChange={(value) => this.handleCountryChange(value)}
+          onSubmit={(address) => console.log("Address submitted", address)}
+          value={shippingAddress}
+        />
+        <Button actionType="secondary" isTextOnly isShortHeight>
+          Cancel
+        </Button>
+        <Button actionType="important" isShortHeight onClick={() => this._addressForm.submit()}>
+          Save and continue
+        </Button>
+      </Fragment>
+    );
   }
 
   renderComplete() {
