@@ -39,14 +39,12 @@ The checkbox is a styled `::before` pseudoelement on `<input>`. The native `<inp
 
 ##### Checkbox check
 
-The checkbox's check icon an `::after` pseudoelement on `<input>`, with a `content` set to FontAwesome's [check](https://fontawesome.com/icons/check?style=solid): <i class="fas fa-check"></i>
+The checkbox's check icon an `::after` pseudoelement on `<input>`, with a `content` set to FontAwesome's [check](https://fontawesome.com/icons/check?style=solid) as an SVG.
 
 |Property     |Style               |
 |-------------|:------------------:|
 |Color        |`@cool-grey-500`    |
-|Font family  |`FontAwesome`       |
-|Font size    |`0.875rem`          |
-|Content      |`\f00c`             |
+|Icon size    |`0.875rem`          |
 
 ##### Label
 

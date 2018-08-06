@@ -61,7 +61,6 @@ const StyledInput = styled.input`
   flex-grow: 2;
   font-family: ${applyTheme("inputFontFamily")};
   font-size: ${applyTheme("inputFontSize")};
-  line-height: ${applyTheme("inputLineHeight")};
   outline: none;
 
   &::placeholder {
@@ -97,10 +96,9 @@ const StyledTextarea = Textarea.extend`
 
 const IconWrapper = styled.div`
   box-sizing: border-box;
-  color: ${applyValidationColor("inputIconColor")};
-  fill: currentColor;
   margin-left: ${applyTheme("inputHorizontalPadding")};
-
+  height: ${applyTheme("inputIconWrapperSize")};
+  width: ${applyTheme("inputIconWrapperSize")};
   position: relative;
   right: ${applyTextareaVariant(applyTheme("textareaIconRight"), 0)};
   top: ${applyTextareaVariant(applyTheme("textareaIconTop"), 0)};
@@ -280,10 +278,10 @@ class TextInput extends Component {
     iconClearAccessibilityText: "Clear",
     isOnDarkBackground: false,
     isReadOnly: false,
-    onChange() {},
-    onChanging() {},
-    onIconClick() {},
-    onSubmit() {},
+    onChange() { },
+    onChanging() { },
+    onIconClick() { },
+    onSubmit() { },
     shouldAllowLineBreaks: false,
     shouldConvertEmptyStringToNull: true,
     shouldTrimValue: true,
