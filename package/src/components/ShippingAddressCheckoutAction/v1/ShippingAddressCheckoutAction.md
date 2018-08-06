@@ -4,17 +4,7 @@
 ```jsx
 const fullfillment = {
   data: {
-    shippingAddress: {
-      address1: "",
-      address2: "",
-      country: "",
-      city: "",
-      firstName: "",
-      lastName: "",
-      postal: "",
-      region: "",
-      phone: ""
-    }
+    shippingAddress: null
   }
 };
 
