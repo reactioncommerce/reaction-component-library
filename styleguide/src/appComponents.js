@@ -6,6 +6,9 @@ import CartItem from "../../package/src/components/CartItem/v1";
 import CartItemDetail from "../../package/src/components/CartItemDetail/v1";
 import CartItems from "../../package/src/components/CartItems/v1";
 import CartSummary from "../../package/src/components/CartSummary/v1";
+import CheckoutAction from "../../package/src/components/CheckoutAction/v1";
+import CheckoutActionComplete from "../../package/src/components/CheckoutActionComplete/v1";
+import CheckoutActionIncomplete from "../../package/src/components/CheckoutActionIncomplete/v1";
 import ErrorsBlock from "../../package/src/components/ErrorsBlock/v1";
 import Field from "../../package/src/components/Field/v1";
 import MiniCartSummary from "../../package/src/components/MiniCartSummary/v1";
@@ -42,6 +45,9 @@ export default {
   CartItemDetail,
   CartItems,
   CartSummary,
+  CheckoutAction,
+  CheckoutActionComplete,
+  CheckoutActionIncomplete,
   ErrorsBlock,
   Field,
   iconClear,
