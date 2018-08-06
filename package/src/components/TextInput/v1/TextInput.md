@@ -196,7 +196,7 @@ All of the icon props will accept a few different types of nodes to create the i
  - `<svg>` tag for inline SVG
  - Plain text, Unicode symbols
 
-Here is how to use an SVG icon to replace the default `iconValid`, `iconError`, `iconClear` and `iconClearAccessibilityText`:
+Here is how to use an SVG icon to replace `iconValid`, `iconError`, `iconClear` and `iconClearAccessibilityText` for TextField:
 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
