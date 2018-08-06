@@ -34,7 +34,6 @@ exports[`renders 1`] = `
   flex-grow: 2;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
   outline: none;
 }
 
@@ -116,7 +115,6 @@ exports[`renders textarea 1`] = `
   flex-grow: 2;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
   outline: none;
 }
 
@@ -198,7 +196,6 @@ exports[`renders textarea with props 1`] = `
   flex-grow: 2;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
   outline: none;
 }
 
@@ -280,7 +277,6 @@ exports[`renders with props 1`] = `
   flex-grow: 2;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
   outline: none;
 }
 

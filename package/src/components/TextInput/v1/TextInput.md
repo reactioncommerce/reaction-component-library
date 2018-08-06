@@ -78,19 +78,18 @@ When a user has clicked, pressed or tabbed into an input, it’s in focused stat
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" />
-  <TextInput name="example" placeholder="Hint" isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" />
+    <TextInput name="example" placeholder="Hint" isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 ##### Idle Filled / Focused Filled
@@ -99,20 +98,18 @@ When a field has been filled in by the user, and has been unfocused it shows idl
 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="value" />
-  <TextInput name="example" placeholder="Hint" value="value" isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" value="value" />
+    <TextInput name="example" placeholder="Hint" value="value" isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 ##### Valid
@@ -122,19 +119,18 @@ When information is required and/or needs to be formatted in a specific way the 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated />
-  <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated />
+    <TextInput name="example" placeholder="Hint" value="value" hasBeenValidated isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" hasBeenValidated isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 ##### Invalid
@@ -144,19 +140,18 @@ When information is required and/or needs to be formatted in a specific way the 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} />
-  <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} />
+    <TextInput name="example" placeholder="Hint" value="value" errors={["error"]} isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" errors={["error"]} isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 ##### Read Only / Disabled
@@ -166,19 +161,18 @@ A disabled input is used when an action needs to be taken before the input can b
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="value" isReadOnly />
-  <TextInput name="example" placeholder="Hint" value="value" isReadOnly isOnDarkBackground />
-</TwoColumnExamples>
-```
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly />
-  <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly isOnDarkBackground />
-</TwoColumnExamples>
+<div>
+  <h4>Single-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" value="value" isReadOnly />
+    <TextInput name="example" placeholder="Hint" value="value" isReadOnly isOnDarkBackground />
+  </TwoColumnExamples>
+  <h4>Multi-line</h4>
+  <TwoColumnExamples hasDarkRightBackground>
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly />
+    <TextInput name="example" placeholder="Hint" shouldAllowLineBreaks value="value" isReadOnly isOnDarkBackground />
+  </TwoColumnExamples>
+</div>
 ```
 
 #### Input Icons
@@ -186,17 +180,7 @@ You can add a custom icon to the right side of any text input and optionally pro
  - `icon` The icon node you want to display
  - `onIconClick` Click event handler for icon clicks.
 
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-const handleClick = (event) => alert("Input Icon Clicked!");
-const icon = <i className="fab fa-pied-piper" />;
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" icon={icon} onIconClick={handleClick} />
-  <TextInput name="example" placeholder="Hint" icon={icon}  onIconClick={handleClick} isOnDarkBackground />
-</TwoColumnExamples>
-```
+You can also provide the `iconClearAccessibilityText` prop with accessibility text for the clear icon.
 
 The default valid, invalid and clear icons can be overwritten by passing values to these props of the `components` prop:
  - `iconClear`
@@ -205,41 +189,31 @@ The default valid, invalid and clear icons can be overwritten by passing values 
 
 These can also be provided through the main components context for your app.
 
-You can also provide the `iconClearAccessibilityText` prop with accessibility text for the clear icon.
-
-```jsx
-const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
-
-const iconComponents = {
-  iconClear: <i className="fas fa-gavel" />,
-  iconError: <i className="fa fa-thumbs-down" />,
-  iconValid: <i className="fa fa-thumbs-up" />
-};
-
-<TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" value="Valid" hasBeenValidated components={iconComponents} />
-  <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} components={iconComponents} isOnDarkBackground />
-</TwoColumnExamples>
-```
 
 All of the icon props will accept a few different types of nodes to create the input icon.
  - React Component
  - `<i/>` tag used for icon fonts
  - `<svg>` tag for inline SVG
- - Plain text
+ - Plain text, Unicode symbols
 
-Inline SVG icon
+Here is how to use an SVG icon to replace `iconValid`, `iconError`, `iconClear` and `iconClearAccessibilityText` for TextField:
 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
-const svg = <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" style={{ height: "100%" }}><path d="M9.926 9.105l-2.105-2.105 2.105-2.105-0.82-0.82-2.105 2.105-2.105-2.105-0.82 0.82 2.105 2.105-2.105 2.105 0.82 0.82 2.105-2.105 2.105 2.105zM7 1.176c3.227 0 5.824 2.598 5.824 5.824s-2.598 5.824-5.824 5.824-5.824-2.598-5.824-5.824 2.598-5.824 5.824-5.824z"></path></svg>;
+const iconComponents = {
+  iconClear: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"  style={{ height: "100%", verticalAlign: "middle" }}> <path fill="currentColor" d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm-80-216c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160 0c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm4 72.6c-20.8 25-51.5 39.4-84 39.4s-63.2-14.3-84-39.4c-8.5-10.2-23.7-11.5-33.8-3.1-10.2 8.5-11.5 23.6-3.1 33.8 30 36 74.1 56.6 120.9 56.6s90.9-20.6 120.9-56.6c8.5-10.2 7.1-25.3-3.1-33.8-10.1-8.4-25.3-7.1-33.8 3.1z" /></svg>,
+  iconError: "X",
+  iconValid: "\u2714"
+};
 
 <TwoColumnExamples hasDarkRightBackground>
-  <TextInput name="example" placeholder="Hint" icon={svg} />
-  <TextInput name="example" placeholder="Hint" icon={svg} isOnDarkBackground />
+  <TextInput name="example" placeholder="Hint" value="I'm a unicode checkmark" hasBeenValidated components={iconComponents} />
+  <TextInput name="example" placeholder="Hint" value="Invalid" errors={["error"]} components={iconComponents} isOnDarkBackground />
 </TwoColumnExamples>
 ```
+
+To replace an icon, like` iconValid`, across all components, update the icons in the `components` prop. Learn more [here](https://github.com/reactioncommerce/reaction-component-library/blob/master/docs/component-development-guidelines.md#using-other-components-in-a-component).
 
 #### Component usage
 

@@ -46,7 +46,7 @@ const items = [{
   quantity: 1
 }];
 
-const handleChangeCartItemQuantity = (value) => console.log("cart items new quantity", value);
+const handleChangeCartItemQuantity = (value, _id) => console.log("cart items new quantity", value, "for item", _id);
 const handleRemoveItemFromCart = (_id) => console.log("cart items remove this item", _id);
 
 <CartItems
@@ -96,7 +96,7 @@ const items = [{
   quantity: 1
 }];
 
-const handleChangeCartItemQuantity = (value) => console.log("cart items new quantity", value);
+const handleChangeCartItemQuantity = (value, _id) => console.log("cart items new quantity", value, "for item", _id);
 const handleRemoveItemFromCart = (_id) => console.log("cart items remove this item", _id);
 
 <CartItems
