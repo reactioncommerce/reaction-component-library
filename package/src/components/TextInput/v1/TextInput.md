@@ -213,6 +213,8 @@ const iconComponents = {
 </TwoColumnExamples>
 ```
 
+To replace an icon, like` iconValid`, across all components, update the icons in the `components` prop. Learn more [here](https://github.com/reactioncommerce/reaction-component-library/blob/master/docs/component-development-guidelines.md#using-other-components-in-a-component).
+
 #### Component usage
 
 The text input theme styles are broken out into three groups
