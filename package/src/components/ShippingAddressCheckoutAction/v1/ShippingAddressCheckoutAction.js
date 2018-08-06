@@ -23,9 +23,25 @@ class ShippingAddressCheckoutAction extends Component {
        * accepts compatible props.
        */
       AddressForm: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction Button component or your own component that
+       * accepts compatible props.
+       */
       Button: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction CheckoutAction component or your own component that
+       * accepts compatible props.
+       */
       CheckoutAction: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction CheckoutActionComplete component or your own component that
+       * accepts compatible props.
+       */
       CheckoutActionComplete: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction CheckboxActionIncomplete component or your own component that
+       * accepts compatible props.
+       */
       CheckoutActionIncomplete: CustomPropTypes.component.isRequired
     }).isRequired,
     fullfillmentGroup: PropTypes.shape({
@@ -68,15 +84,15 @@ class ShippingAddressCheckoutAction extends Component {
 
   onStatusChange = () => {
     const { actionStatus, activeAddress } = this.state;
-    if (actionStatus === "active" && activeAddress) {
-      this.setState({ actionStatus: "complete" });
-    } else if (actionStatus === "active" && !activeAddress) {
-      this.setState({ actionStatus: "incomplete" });
-    } else if (actionStatus === "complete") {
-      this.setState({ actionStatus: "active" });
-    } else {
-      this.setState({ actionStatus: "complete" });
+    let status;
+    switch (actionStatus) {
+      case "active":
+        status = activeAddress ? "complete" : "incomplete";
+        break;
+      default:
+        status = "active";
     }
+    this.setState({ actionStatus: status });
   };
 
   getFullfillmentData = (address) => {
