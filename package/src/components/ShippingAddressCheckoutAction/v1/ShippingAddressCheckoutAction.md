@@ -33,7 +33,7 @@ const fullfillment = {
 ```
 
 
-#### Active
+#### Active with Address
 ```jsx
 const fullfillment = {
   data: {
@@ -52,4 +52,15 @@ const fullfillment = {
 };
 
 <ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} status="active" />
+
 ```
+
+#### Active without Address
+```jsx
+const fullfillment = {
+  data: {
+    shippingAddress: null
+  }
+};
+
+<ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} status="active" />
