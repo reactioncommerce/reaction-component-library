@@ -77,7 +77,10 @@ class ShippingAddressCheckoutAction extends Component {
     }
   };
 
-  getFullfillmentData() {}
+  getFullfillmentData = (address) => {
+    // eslint-disable-next-line
+    console.log("submited shipping address", address);
+  };
 
   handleCountryChange(country) {
     const activeCountry = this.state.countries.find((cnty) => cnty.value === country);
@@ -100,7 +103,7 @@ class ShippingAddressCheckoutAction extends Component {
           countries={this.state.countries}
           regions={this.state.regions[this.state.activeCountry]}
           onCountryChange={(value) => this.handleCountryChange(value)}
-          onSubmit={(address) => console.log("Address submitted", address)}
+          onSubmit={this.getFullfillmentData}
           value={shippingAddress}
         />
         <FormActions>
