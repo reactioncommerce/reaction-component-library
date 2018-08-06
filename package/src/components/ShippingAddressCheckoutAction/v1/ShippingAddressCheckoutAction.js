@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
@@ -43,6 +43,10 @@ class ShippingAddressCheckoutAction extends Component {
     onReadyForSaveChange(true);
   }
 
+  changeStatus = () => {
+    this.setState({ actionStatus: "active" });
+  };
+
   getFullfillmentData() {}
 
   renderActive() {
@@ -51,8 +55,19 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   renderComplete() {
-    const { components: { CheckoutActionComplete } } = this.props;
-    return <CheckoutActionComplete />;
+    const { components: { CheckoutActionComplete }, fullfillmentGroup: { data: { shippingAddress } } } = this.props;
+    if (shippingAddress === null) return "";
+    const addressEl = (
+      <address>
+        {shippingAddress.firstName} {shippingAddress.lastName}
+        <br />
+        {shippingAddress.address1}
+        <br />
+        {shippingAddress.address2 !== "" ? `${shippingAddress.address2}${<br />}` : ""}
+        {shippingAddress.city}, {shippingAddress.country} {shippingAddress.postal}
+      </address>
+    );
+    return <CheckoutActionComplete content={addressEl} onClickChangeButton={this.changeStatus} />;
   }
 
   renderIncomplete() {
