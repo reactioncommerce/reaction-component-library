@@ -7,7 +7,7 @@ exports[`basic snapshot 1`] = `
   onKeyDown={[Function]}
 >
   <div
-    className="css-esms6n"
+    className="css-168y8dr"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
   >
@@ -15,7 +15,7 @@ exports[`basic snapshot 1`] = `
       className="css-1rtrksz"
     >
       <div
-        className="css-1492t68"
+        className="css-tg64lk"
       >
         Select...
       </div>
@@ -33,12 +33,9 @@ exports[`basic snapshot 1`] = `
     <div
       className="css-1wy0on6"
     >
-      <span
-        className="css-d8oujb"
-      />
       <div
         aria-hidden="true"
-        className="css-1ep9fjw"
+        className="css-1lm7jx8"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -59,15 +56,15 @@ exports[`basic snapshot 1`] = `
   </div>
   <div>
     <div
-      className="css-k2z65"
+      className="css-5ks0v5"
       onMouseDown={[Function]}
       onMouseMove={[Function]}
     >
       <div
-        className="css-11unzgr"
+        className="css-1x0y3y4"
       >
         <div
-          className="css-v73v8k"
+          className="css-1baujv3"
           id="react-select-9-option-0"
           onClick={[Function]}
           onMouseMove={[Function]}
@@ -78,7 +75,7 @@ exports[`basic snapshot 1`] = `
           A
         </div>
         <div
-          className="css-v73v8k"
+          className="css-1baujv3"
           id="react-select-9-option-1"
           onClick={[Function]}
           onMouseMove={[Function]}
@@ -89,7 +86,7 @@ exports[`basic snapshot 1`] = `
           B
         </div>
         <div
-          className="css-v73v8k"
+          className="css-1baujv3"
           id="react-select-9-option-2"
           onClick={[Function]}
           onMouseMove={[Function]}

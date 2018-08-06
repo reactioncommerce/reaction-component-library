@@ -6,6 +6,7 @@ import { applyTheme } from "../../../utils";
 const Table = styled.table`
   width: 100%;
   padding: 0.5rem;
+  font-family: ${applyTheme("font_family")};
 `;
 
 const Td = styled.td`

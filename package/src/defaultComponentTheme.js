@@ -333,6 +333,20 @@ const textareaStyles = {
   rui_textareaIconTop: baseUnit(1)
 };
 
+// select
+
+const selectStyles = {
+  rui_selectHoverColor: reactionBlue100,
+  rui_selectFocusBorderColor: teal,
+  rui_selectBorderRadius: baseUnit(0.2),
+  rui_selectMenuBorderRadius: `0 ${baseUnit(0.2)}`,
+  rui_selectIndicatorColor: coolGrey500,
+  rui_selectBorderColor: black20,
+  rui_selectMenuBorder: `${baseUnit(0.1)} solid ${black20}`,
+  rui_selectLetterSpacing: `${baseUnit(0.03)}`,
+  rui_selectTextColor: coolGrey500
+};
+
 // field
 const fieldStyles = {
   rui_fieldMargin: `${baseUnit(1.5)} 0`
@@ -403,6 +417,7 @@ export default {
   ...inputStyles,
   ...inputIcon,
   ...textareaStyles,
+  ...selectStyles,
   ...fieldStyles,
   ...labelStyles,
   ...helpTextStyles,
