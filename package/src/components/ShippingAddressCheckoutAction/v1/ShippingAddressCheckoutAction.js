@@ -66,12 +66,14 @@ class ShippingAddressCheckoutAction extends Component {
 
   _addressForm = null;
 
-  changeStatus = () => {
+  onStatusChange = () => {
     const { actionStatus, activeAddress } = this.state;
     if (actionStatus === "active" && activeAddress) {
       this.setState({ actionStatus: "complete" });
     } else if (actionStatus === "active" && !activeAddress) {
       this.setState({ actionStatus: "incomplete" });
+    } else if (actionStatus === "complete") {
+      this.setState({ actionStatus: "active" });
     } else {
       this.setState({ actionStatus: "complete" });
     }
@@ -107,7 +109,7 @@ class ShippingAddressCheckoutAction extends Component {
           value={shippingAddress}
         />
         <FormActions>
-          <Button actionType="secondary" isTextOnly isShortHeight onClick={this.changeStatus}>
+          <Button actionType="secondary" isTextOnly isShortHeight onClick={this.onStatusChange}>
             Cancel
           </Button>
           <Button actionType="important" isShortHeight onClick={() => this._addressForm.submit()}>
@@ -131,7 +133,7 @@ class ShippingAddressCheckoutAction extends Component {
         {shippingAddress.city}, {shippingAddress.country} {shippingAddress.postal}
       </address>
     );
-    return <CheckoutActionComplete content={addressEl} onClickChangeButton={this.changeStatus} />;
+    return <CheckoutActionComplete content={addressEl} onClickChangeButton={this.onStatusChange} />;
   }
 
   renderIncomplete() {
