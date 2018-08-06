@@ -1,7 +1,13 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
+
+const FormActions = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
 
 class ShippingAddressCheckoutAction extends Component {
   static propTypes = {
@@ -40,6 +46,7 @@ class ShippingAddressCheckoutAction extends Component {
     actionStatus: this.props.status
       ? this.props.status
       : this.props.fullfillmentGroup.data.shippingAddress ? "complete" : "incomplete",
+    activeAddress: this.props.fullfillmentGroup.data.shippingAddress,
     activeCountry: "US",
     countries: [
       { value: "US", label: "United States" },
@@ -59,7 +66,14 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   changeStatus = () => {
-    this.setState({ actionStatus: "active" });
+    const { actionStatus, activeAddress } = this.state;
+    if (actionStatus === "active" && activeAddress) {
+      this.setState({ actionStatus: "complete" });
+    } else if (actionStatus === "active" && !activeAddress) {
+      this.setState({ actionStatus: "incomplete" });
+    } else {
+      this.setState({ actionStatus: "complete" });
+    }
   };
 
   getFullfillmentData() {}
@@ -88,12 +102,14 @@ class ShippingAddressCheckoutAction extends Component {
           onSubmit={(address) => console.log("Address submitted", address)}
           value={shippingAddress}
         />
-        <Button actionType="secondary" isTextOnly isShortHeight>
-          Cancel
-        </Button>
-        <Button actionType="important" isShortHeight onClick={() => this._addressForm.submit()}>
-          Save and continue
-        </Button>
+        <FormActions>
+          <Button actionType="secondary" isTextOnly isShortHeight onClick={this.changeStatus}>
+            Cancel
+          </Button>
+          <Button actionType="important" isShortHeight onClick={() => this._addressForm.submit()}>
+            Save and continue
+          </Button>
+        </FormActions>
       </Fragment>
     );
   }
