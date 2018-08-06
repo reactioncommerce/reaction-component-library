@@ -42,6 +42,21 @@ These typographic styles do not cover the styles used in the storefront.
 
 This type scale defines the font sizes that can be used by the admin UI. Admin panel type generally does not exceed 1.5rem/24px. 
 
+|rem       |px   | Actual size                                                                  |
+|----------|-----|------------------------------------------------------------------------------|
+|0.75rem   |12px |<span style="font-size: 0.75rem">Connecting the world through commerce</span> |
+|0.875rem  |14px |<span style="font-size: 0.875rem">Connecting the world through commerce</span>|
+|1rem      |16px |<span style="font-size: 1rem">Connecting the world through commerce</span>    |
+|1.125rem  |18px |<span style="font-size: 1.125rem">Connecting the world through commerce</span>|
+|1.25rem   |20px |<span style="font-size: 1.25rem">Connecting the world through commerce</span> |
+|1.5rem    |24px |<span style="font-size: 1.5rem">Connecting the world through commerce</span>  |
+|1.75rem   |28px |<span style="font-size: 1.75rem">Connecting the world through commerce</span> |
+|2rem      |32px |<span style="font-size: 2rem">Connecting the world through commerce</span>    |
+|2.25rem   |36px |<span style="font-size: 2.25rem">Connecting the world through commerce</span> |
+|2.625rem  |42px |<span style="font-size: 2.625em">Connecting the world through commerce</span> |
+
+
+
 #### Typographic treatments
 
 ##### Font weight
