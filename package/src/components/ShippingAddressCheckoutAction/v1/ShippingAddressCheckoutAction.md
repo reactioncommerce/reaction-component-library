@@ -2,5 +2,42 @@
 #### Usage
 
 ```jsx
-<ShippingAddressCheckoutAction />
+const fullfillment = {
+  data: {
+    shippingAddress: {
+      address1: "",
+      address2: "",
+      country: "",
+      city: "",
+      firstName: "",
+      lastName: "",
+      postal: "",
+      region: "",
+      phone: ""
+    }
+  }
+};
+
+<ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} />
+```
+
+#### Complete
+```jsx
+const fullfillment = {
+  data: {
+    shippingAddress: {
+      address1: "7742 Hwy 23",
+      address2: "",
+      country: "US",
+      city: "Belle Chasse",
+      firstName: "Salvos",
+      lastName: "Seafood",
+      postal: "70037",
+      region: "LA",
+      phone: "(504) 393-7303"
+    }
+  }
+};
+
+<ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} />
 ```
