@@ -171,6 +171,14 @@ class AddressForm extends Component {
     onCancel();
   };
 
+  submit() {
+    this._form.submit();
+  }
+
+  validate() {
+    this._form.validate();
+  }
+
   render() {
     const {
       value,
