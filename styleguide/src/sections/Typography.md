@@ -55,13 +55,19 @@ This type scale defines the font sizes that can be used by the admin UI. Admin p
 |2.25rem   |36px |<span style="font-size: 2.25rem">Connecting the world through commerce</span> |
 |2.625rem  |42px |<span style="font-size: 2.625em">Connecting the world through commerce</span> |
 
-
-
 #### Typographic treatments
 
 ##### Font weight
 
-The admin UI uses [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) in Regular and Bold weights, which can be used to create content hierarchy. 
+The admin UI uses [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) in Regular and Bold weights, which can be used to create content hierarchy.
+
+|Title     |Light 200|Regular 400|Bold 700|
+|----------|---------|-----------|--------|
+|Heading   |Light 200|Regular 400|Bold 700|
+|Subheading|Light 200|Regular 400|Bold 700|
+|Body      |Light 200|Regular 400|Bold 700|
+|Label     |Light 200|Regular 400|Bold 700|
+|Caption   |Light 200|Regular 400|Bold 700|
 
 Generally used for emphasis, the bold weight shouldn’t be applied to anything longer than short text strings.
 
