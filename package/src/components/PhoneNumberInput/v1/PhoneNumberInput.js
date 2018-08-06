@@ -76,9 +76,9 @@ const StyledInput = styled.input`
 const IconWrapper = styled.div`
   box-sizing: border-box;
   color: ${applyValidationColor("inputIconColor")};
-  fill: currentColor;
   margin-left: ${applyTheme("inputHorizontalPadding")};
-
+  height: ${applyTheme("inputIconWrapperSize")};
+  width: ${applyTheme("inputIconWrapperSize")};
   position: relative;
   right: ${applyTextareaVariant(applyTheme("textareaIconRight"), 0)};
   top: ${applyTextareaVariant(applyTheme("textareaIconTop"), 0)};
@@ -228,10 +228,10 @@ class PhoneNumberInput extends Component {
     iconClearAccessibilityText: "Clear",
     isOnDarkBackground: false,
     isReadOnly: false,
-    onChange() {},
-    onChanging() {},
-    onIconClick() {},
-    onSubmit() {},
+    onChange() { },
+    onChanging() { },
+    onIconClick() { },
+    onSubmit() { },
     shouldConvertEmptyStringToNull: true,
     shouldTrimValue: true,
     type: "text"
