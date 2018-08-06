@@ -31,3 +31,25 @@ const fullfillment = {
 
 <ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} />
 ```
+
+
+#### Active
+```jsx
+const fullfillment = {
+  data: {
+    shippingAddress: {
+      address1: "7742 Hwy 23",
+      address2: "",
+      country: "US",
+      city: "Belle Chasse",
+      firstName: "Salvos",
+      lastName: "Seafood",
+      postal: "70037",
+      region: "LA",
+      phone: "(504) 393-7303"
+    }
+  }
+};
+
+<ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} status="active" />
+```
