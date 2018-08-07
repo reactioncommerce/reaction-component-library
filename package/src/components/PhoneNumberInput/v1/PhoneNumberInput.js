@@ -228,10 +228,10 @@ class PhoneNumberInput extends Component {
     iconClearAccessibilityText: "Clear",
     isOnDarkBackground: false,
     isReadOnly: false,
-    onChange() { },
-    onChanging() { },
-    onIconClick() { },
-    onSubmit() { },
+    onChange() {},
+    onChanging() {},
+    onIconClick() {},
+    onSubmit() {},
     shouldConvertEmptyStringToNull: true,
     shouldTrimValue: true,
     type: "text"
@@ -470,4 +470,8 @@ class PhoneNumberInput extends Component {
   }
 }
 
-export default withComponents(PhoneNumberInput);
+const WrappedPhoneNumberInput = withComponents(PhoneNumberInput);
+
+WrappedPhoneNumberInput.isFormInput = true;
+
+export default WrappedPhoneNumberInput;
