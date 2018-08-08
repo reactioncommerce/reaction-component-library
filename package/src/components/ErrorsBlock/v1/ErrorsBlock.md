@@ -8,12 +8,12 @@ const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoC
 const errors = [{ name: "example", message: "This field is required" }];
 
 <TwoColumnExamples hasDarkRightBackground>
-    <Field name="example" label="Label" errors={errors}>
-        <TextInput name="example" errors={errors} placeholder="I'm a single-line input."/>
+    <Field name="example" label="Label" labelFor="exampleInput1" errors={errors}>
+        <TextInput id="exampleInput1" name="example" errors={errors} placeholder="I'm a single-line input."/>
         <ErrorsBlock names={["example"]} errors={errors} />
     </Field>
-    <Field name="example" label="Label" errors={errors}>
-        <TextInput name="example" errors={errors} placeholder="I'm a multi-line input with a dark background." shouldAllowLineBreaks />
+    <Field name="example" label="Label" labelFor="exampleInput2" errors={errors}>
+        <TextInput id="exampleInput2" name="example" errors={errors} placeholder="I'm a multi-line input with a dark background." shouldAllowLineBreaks />
         <ErrorsBlock names={["example"]} errors={errors} shouldShowIcon />
     </Field>
 </TwoColumnExamples>
@@ -29,8 +29,8 @@ Pass `shouldShowIcon` to show an icon before each error message.
 
 ```jsx
 const errors = [{ name: "example", message: "This field is required" }, { name: "example", message: "Another error" }];
-<Field name="example" label="Label" errors={errors}>
- <TextInput name="example" errors={errors} shouldAllowLineBreaks />
+<Field name="example" label="Label" labelFor="exampleInput3" errors={errors}>
+ <TextInput id="exampleInput3" name="example" errors={errors} shouldAllowLineBreaks />
  <ErrorsBlock names={["example"]} errors={errors} shouldShowIcon />
 </Field>
 ```

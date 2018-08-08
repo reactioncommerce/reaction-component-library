@@ -170,6 +170,12 @@ class PhoneNumberInput extends Component {
      */
     iconClearAccessibilityText: PropTypes.string,
     /**
+     * This should be used only for connecting the input with a label. Generate a
+     * globally unique ID string and pass it to this prop and the `labelFor` prop
+     * of `Field`.
+     */
+    id: PropTypes.string,
+    /**
      * Enable when using the input on a dark background, disabled by default
      */
     isOnDarkBackground: PropTypes.bool,
@@ -428,9 +434,10 @@ class PhoneNumberInput extends Component {
   render() {
     const {
       className,
-      isOnDarkBackground,
       errors,
       hasBeenValidated,
+      id,
+      isOnDarkBackground,
       isReadOnly,
       maxLength,
       name,
@@ -450,17 +457,18 @@ class PhoneNumberInput extends Component {
       >
         <StyledInput
           className={className}
-          isOnDarkBackground={isOnDarkBackground}
           errors={errors}
           hasBeenValidated={hasBeenValidated}
-          readOnly={isReadOnly}
+          id={id}
+          isOnDarkBackground={isOnDarkBackground}
           maxLength={maxLength}
           name={name}
-          onKeyPress={this.onKeyPress}
           onBlur={this.onInputBlur}
           onChange={this.onChange}
           onFocus={this.onInputFocus}
+          onKeyPress={this.onKeyPress}
           placeholder={placeholder}
+          readOnly={isReadOnly}
           type={type}
           value={value}
         />

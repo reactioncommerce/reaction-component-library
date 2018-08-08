@@ -216,6 +216,12 @@ class TextInput extends Component {
      */
     iconClearAccessibilityText: PropTypes.string,
     /**
+     * This should be used only for connecting the input with a label. Generate a
+     * globally unique ID string and pass it to this prop and the `labelFor` prop
+     * of `Field`.
+     */
+    id: PropTypes.string,
+    /**
      * Enable when using the input on a dark background, disabled by default
      */
     isOnDarkBackground: PropTypes.bool,
@@ -512,15 +518,16 @@ class TextInput extends Component {
 
   render() {
     const {
-      shouldAllowLineBreaks,
       className,
-      isOnDarkBackground,
       errors,
       hasBeenValidated,
+      id,
+      isOnDarkBackground,
       isReadOnly,
       maxLength,
       name,
       placeholder,
+      shouldAllowLineBreaks,
       type
     } = this.props;
     const { isButtonFocused, isInputFocused, value } = this.state;
@@ -532,17 +539,18 @@ class TextInput extends Component {
         <div style={{ position: "relative" }}>
           <StyledTextarea
             className={className}
-            isOnDarkBackground={isOnDarkBackground}
             errors={errors}
-            hasBeenValidated={hasBeenValidated}
             fieldIsDirty={this.isDirty()}
-            readOnly={isReadOnly}
+            hasBeenValidated={hasBeenValidated}
+            id={id}
+            isOnDarkBackground={isOnDarkBackground}
             maxLength={maxLength}
             name={name}
             onBlur={this.onInputBlur}
             onChange={this.onChange}
             onFocus={this.onInputFocus}
             placeholder={placeholder}
+            readOnly={isReadOnly}
             value={value}
           />
           {this.showClearButton() ? this.renderClearButton() : null}
@@ -561,17 +569,18 @@ class TextInput extends Component {
       >
         <StyledInput
           className={className}
-          isOnDarkBackground={isOnDarkBackground}
           errors={errors}
           hasBeenValidated={hasBeenValidated}
-          readOnly={isReadOnly}
+          id={id}
+          isOnDarkBackground={isOnDarkBackground}
           maxLength={maxLength}
           name={name}
-          onKeyPress={this.onKeyPress}
           onBlur={this.onInputBlur}
           onChange={this.onChange}
           onFocus={this.onInputFocus}
+          onKeyPress={this.onKeyPress}
           placeholder={placeholder}
+          readOnly={isReadOnly}
           type={type}
           value={value}
         />
