@@ -15,11 +15,11 @@
 |Property                                |Style                                |
 |----------------------------------------|:-----------------------------------:|
 |Label font                              | `@rui-label-text` capitalized       |
-|Color                                   | `@cool-grey-500`                    |
-|Radio button height and width           | `@base-unit(2)`                     |
-|Radio button and label spacing          | `@base-unit(1)`                     |
-|Selected icon                           | 0.875rem, `@cool-grey-500`          |
-|Vertical spacing                        | `@base-unit(2)`                     |
-|Disabled radio button fill              | `@black10`                          |
-|Disabled radio button and label opacity | .5                                  |
+|Label color                             | `@cool-grey-500`                    |
+|Border color                            | `@cool-grey-500`                    |
+|Radio button color                      | `@cool-grey-500`                    |
+|Radio button height and width           | 20px                                |
+|Radio button and label spacing          | 11px                                |
+|Radio button border                     | 2px solid `@cool-grey-500`          |
+|Selected circle size                    | 11px                                |
 |Cursor                                  | Pointer (radio button and label)    |
