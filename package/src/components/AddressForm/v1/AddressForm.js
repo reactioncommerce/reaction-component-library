@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import uniqueId from "lodash.uniqueid";
 import { Form } from "reacto-form";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
@@ -166,6 +167,8 @@ class AddressForm extends Component {
 
   _form = null;
 
+  uniqueInstanceIdentifier = uniqueId("AddressForm_");
+
   handleCancel = () => {
     const { onCancel } = this.props;
     onCancel();
@@ -187,6 +190,17 @@ class AddressForm extends Component {
       regions,
       validator
     } = this.props;
+
+    const countryInputId = `country_${this.uniqueInstanceIdentifier}`;
+    const firstNameInputId = `firstName_${this.uniqueInstanceIdentifier}`;
+    const lastNameInputId = `lastName_${this.uniqueInstanceIdentifier}`;
+    const address1InputId = `address1_${this.uniqueInstanceIdentifier}`;
+    const address2InputId = `address2_${this.uniqueInstanceIdentifier}`;
+    const cityInputId = `city_${this.uniqueInstanceIdentifier}`;
+    const regionInputId = `region_${this.uniqueInstanceIdentifier}`;
+    const postalInputId = `postal_${this.uniqueInstanceIdentifier}`;
+    const phoneInputId = `phone_${this.uniqueInstanceIdentifier}`;
+
     return (
       <Form
         ref={(formEl) => {
@@ -200,71 +214,78 @@ class AddressForm extends Component {
       >
         <Grid>
           <ColFull>
-            <Field name="country" label="Country" isRequired>
+            <Field name="country" label="Country" labelFor={countryInputId} isRequired>
               <Select
+                id={countryInputId}
+                isSearchable
                 name="country"
                 onChange={this.props.onCountryChange}
                 options={countries}
                 placeholder="Country"
-                isSearchable
               />
               <ErrorsBlock names={["country"]} />
             </Field>
           </ColFull>
 
           <ColHalf>
-            <Field name="firstName" label="First Name" isRequired>
-              <TextInput name="firstName" placeholder="First Name" />
+            <Field name="firstName" label="First Name" labelFor={firstNameInputId} isRequired>
+              <TextInput id={firstNameInputId} name="firstName" placeholder="First Name" />
               <ErrorsBlock names={["firstName"]} />
             </Field>
           </ColHalf>
           <ColHalf>
-            <Field name="lastName" label="Last Name" isRequired>
-              <TextInput name="lastName" placeholder="Last Name" />
+            <Field name="lastName" label="Last Name" labelFor={lastNameInputId} isRequired>
+              <TextInput id={lastNameInputId} name="lastName" placeholder="Last Name" />
               <ErrorsBlock names={["lastName"]} />
             </Field>
           </ColHalf>
 
           <ColFull>
-            <Field name="address1" label="Address" isRequired>
-              <TextInput name="address1" placeholder="Address" />
+            <Field name="address1" label="Address" labelFor={address1InputId} isRequired>
+              <TextInput id={address1InputId} name="address1" placeholder="Address" />
               <ErrorsBlock names={["address1"]} />
             </Field>
           </ColFull>
 
           <ColFull>
-            <Field name="address2" label="Address Line 2" isOptional>
-              <TextInput name="address2" placeholder="Address Line 2 (Optional)" />
+            <Field name="address2" label="Address Line 2" labelFor={address2InputId} isOptional>
+              <TextInput id={address2InputId} name="address2" placeholder="Address Line 2 (Optional)" />
             </Field>
           </ColFull>
 
           <ColFull>
-            <Field name="city" label="City">
-              <TextInput name="city" placeholder="City" />
+            <Field name="city" label="City" labelFor={cityInputId}>
+              <TextInput id={cityInputId} name="city" placeholder="City" />
               <ErrorsBlock names={["city"]} />
             </Field>
           </ColFull>
 
           <ColHalf>
-            <Field name="region" label="Region" isRequired>
+            <Field name="region" label="Region" labelFor={regionInputId} isRequired>
               {regions && regions.length > 1 ? (
-                <Select name="region" options={regions} placeholder="Region" isSearchable />
+                <Select
+                  id={regionInputId}
+                  isSearchable
+                  name="region"
+                  options={regions}
+                  placeholder="Region"
+                />
               ) : (
-                <TextInput name="region" placeholder="Region" />
+                <TextInput id={regionInputId} name="region" placeholder="Region" />
               )}
               <ErrorsBlock names={["region"]} />
             </Field>
           </ColHalf>
           <ColHalf>
-            <Field name="postal" label="Postal Code" isRequired>
-              <TextInput name="postal" placeholder="Postal Code" />
+            <Field name="postal" label="Postal Code" labelFor={postalInputId} isRequired>
+              <TextInput id={postalInputId} name="postal" placeholder="Postal Code" />
               <ErrorsBlock names={["postal"]} />
             </Field>
           </ColHalf>
 
           <ColFull>
-            <Field name="phone" label="Phone" isRequired>
-              <PhoneNumberInput name="phone" placeholder="Phone" />
+            <Field name="phone" label="Phone" labelFor={phoneInputId} isRequired>
+              <PhoneNumberInput id={phoneInputId} name="phone" placeholder="Phone" />
               <ErrorsBlock names={["phone"]} />
             </Field>
           </ColFull>
