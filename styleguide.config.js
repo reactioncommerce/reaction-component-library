@@ -380,7 +380,7 @@ module.exports = {
           name: "Checkout"
         }),
         generateSection({
-          componentNames: ["AddressForm"],
+          componentNames: ["AddressForm", "StripeForm"],
           content: "styleguide/src/sections/StorefrontForms.md",
           name: "Forms"
         })
