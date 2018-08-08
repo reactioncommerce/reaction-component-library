@@ -58,7 +58,10 @@ class SelectableItem extends Component {
      * Custom class name
      */
     className: PropTypes.string,
-    detail: PropTypes.string,
+    /**
+     * Optional text, SVG or element displayed on the right-hand side
+     */
+    detail: PropTypes.node,
     /**
      * Label for SelectableItem
      */
@@ -145,7 +148,7 @@ class SelectableItem extends Component {
   }
 
   render() {
-    const { className, label, name } = this.props;
+    const { className, label, name, detail } = this.props;
     const { id, value } = this.state;
 
     return (
@@ -163,7 +166,7 @@ class SelectableItem extends Component {
           <span />
           {label}
         </label>
-        <div>Edit</div>
+        <div>{detail}</div>
       </StyledItem >
     );
   }
