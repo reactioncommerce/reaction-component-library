@@ -410,6 +410,20 @@ const checkbox = {
   rui_checkboxVerticalSpacing: `${baseUnit(2)}`
 };
 
+// selectableItem
+const selectableItem = {
+  rui_selectableItemRadioButtonCheckSize: "11px",
+  rui_selectableItemRadioButtonColor: coolGrey500,
+  rui_selectableItemLabelColor: coolGrey500,
+  rui_selectableItemLabelLetterSpacing: "0.3px",
+  rui_selectableItemLabelFontSize: "14px",
+  rui_selectableItemRadioButtonBorder: `2px solid ${coolGrey500}`,
+  rui_selectableItemRadioButtonSize: "20px",
+  rui_selectableItemRadioButtonMargin: "0 10px 0 0",
+  rui_selectableItemRadioButtonBackgroundColor: white,
+  rui_selectableItemLabelFontFamily: fontFamily
+}
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -423,5 +437,6 @@ export default {
   ...errorsBlockStyles,
   ...cartEmptyMessage,
   ...checkoutActions,
-  ...checkbox
+  ...checkbox,
+  ...selectableItem
 };
