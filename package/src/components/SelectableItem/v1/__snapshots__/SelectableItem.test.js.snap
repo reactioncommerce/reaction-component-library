@@ -93,8 +93,6 @@ exports[`basic snapshot 1`] = `
   >
     <span />
   </label>
-  <div>
-    Edit
-  </div>
+  <div />
 </div>
 `;
