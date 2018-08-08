@@ -1,10 +1,11 @@
 import React, { Component } from "react";
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import styled from "styled-components";
 // import { applyTheme } from "../../../utils";
 
 const StyledItem = styled.div`
-  color: #333333;
+  display: flex;
+  justify-content: space-between;
   input {
     cursor: pointer;
     position: absolute;
@@ -55,24 +56,38 @@ const StyledItem = styled.div`
 `;
 
 class SelectableItem extends Component {
+  static propTypes = {
+    /**
+     * Custom class name
+     */
+    className: PropTypes.string,
+    detail: PropTypes.string,
+    /**
+     * Label for SelectableItem
+     */
+    label: PropTypes.string.isRequired,
+    /**
+     * Name for input
+     */
+    name: PropTypes.string
+  }
   render() {
+    const { label } = this.props;
     return (
-      <StyledItem>
+      <StyledItem className="className">
         <input
           id="radio-button-1"
-          className="bx--radio-button"
           type="radio"
           name="radio-button"
           tabIndex="0"
         />
         <label
           htmlFor="radio-button-1"
-          className="bx--radio-button-1"
         >
           <span />
-          One shot
+          {label}
         </label>
-        {/* <span>Detail</span> */}
+        <div>Edit</div>
       </StyledItem >
     );
   }

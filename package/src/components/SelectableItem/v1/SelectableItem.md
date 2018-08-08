@@ -3,7 +3,7 @@
 `SelectableItems` in a `SelectableList` are used to select shipping methods, addresses and credit cards. Each item consists of a radio button, label and display value. The label and display value can both support text or render other elements, like icons and links.
 
 ```jsx noeditor
-<SelectableItem/>
+<SelectableItem label="One thing"/>
 ```
 
 #### Usage
