@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import uniqueId from "lodash.uniqueid";
 import styled from "styled-components";
 // import { applyTheme } from "../../../utils";
 
@@ -69,20 +70,99 @@ class SelectableItem extends Component {
     /**
      * Name for input
      */
-    name: PropTypes.string
+    name: PropTypes.string,
+    /**
+     * On change handler for input
+     */
+    onChange: PropTypes.func,
+    /**
+     * On change handler for input
+     */
+    onChanging: PropTypes.func,
+    /**
+     * True for a checked item, undefined for an unchecked item
+     */
+    value: PropTypes.bool  // eslint-disable-line react/boolean-prop-naming
   }
+
+  static defaultProps = {
+    className: undefined,
+    name: undefined,
+    onChange() { },
+    onChanging() { },
+    value: undefined
+  };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      id: uniqueId("Radio_"),
+      value: props.value || false
+    };
+  }
+
+  componentWillMount() {
+    this.handleChange(this.props.value || false);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { value } = this.props;
+    const { value: nextValue } = nextProps;
+
+    // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
+    if (value !== nextValue) {
+      this.setState({ value: nextValue || false });
+      this.handleChange(nextValue || false);
+    }
+  }
+
+  onChange = (event) => {
+    this.setValue(event.target.checked);
+  };
+
+  getValue() {
+    return this.state.value;
+  }
+
+  setValue(value) {
+    this.setState({ value });
+    this.handleChange(value);
+  }
+
+  resetValue() {
+    this.setValue(this.props.value || false);
+  }
+
+  handleChange(checked) {
+    if (this.lastValue === checked) return;
+    this.lastValue = checked;
+    const { onChanging, onChange } = this.props;
+    onChanging(checked);
+    onChange(checked);
+  }
+
+  // Input is dirty if value prop doesn't match value state. Whenever a changed
+  // value prop comes in, we reset state to that, thus becoming clean.
+  isDirty() {
+    return this.state.value !== this.props.value;
+  }
+
   render() {
-    const { label } = this.props;
+    const { className, label, name } = this.props;
+    const { id, value } = this.state;
+
     return (
-      <StyledItem className="className">
+      <StyledItem className={className} >
         <input
-          id="radio-button-1"
+          checked={value === true}
+          id={id}
+          onChange={this.onChange}
           type="radio"
-          name="radio-button"
-          tabIndex="0"
+          name={name}
         />
         <label
-          htmlFor="radio-button-1"
+          htmlFor={id}
         >
           <span />
           {label}
