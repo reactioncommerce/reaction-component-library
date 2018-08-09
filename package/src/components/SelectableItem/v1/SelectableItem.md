@@ -14,7 +14,7 @@
 
 ##### SelectableItem without `detail`
 
-```jsx noeditor
+```jsx
 <SelectableItem label="Default address"/>
 ```
 
