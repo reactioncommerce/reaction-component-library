@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import {
   CardNumberElement,
@@ -51,10 +51,16 @@ class StripeForm extends Component {
      */
     postalCodePlaceholder: PropTypes.string,
     /**
-     * The stripe object which provides methods for tokenizing data and more. 
+     * The stripe object which provides methods for tokenizing data, it's
+     * provided by the StripeProvider component.
      * See https://stripe.com/docs/stripe-js/reference#the-stripe-object for more details.
      */
-    stripeRef: PropTypes.func
+    stripe: PropTypes.object.isRequired,
+    /**
+     * Used to pass a reference of the stripe object to the containing component.
+     * The containing component will handle tokenizing payment data and sending data to server.
+     */
+    stripeRef: PropTypes.func.isRequired
   };
 
   static defaultProps = {
@@ -79,35 +85,37 @@ class StripeForm extends Component {
       postalCodePlaceholder
     } = this.props;
 
+    const commonStyles = createOptions();
+
     return (
-      <form onSubmit={() => true}>
+      <Fragment>
         <Field>
           <CardNumberElement
             placeholder={cardNumberPlaceholder}
-            {...createOptions()}
+            {...commonStyles}
           />
         </Field>
         <FlexContainer>
           <Field style={{ flexGrow: 1, marginRight: "1rem" }}>
             <CardExpiryElement
               placeholder={cardExpiryPlaceholder}
-              {...createOptions()}
+              {...commonStyles}
             />
           </Field>
           <Field style={{ flexGrow: 1 }}>
             <CardCVCElement
               placeholder={cardCVCPlaceholder}
-              {...createOptions()}
+              {...commonStyles}
             />
           </Field>
         </FlexContainer>
         <Field>
           <PostalCodeElement
             placeholder={postalCodePlaceholder}
-            {...createOptions()}
+            {...commonStyles}
           />
         </Field>
-      </form>
+      </Fragment>
     );
   }
 }
