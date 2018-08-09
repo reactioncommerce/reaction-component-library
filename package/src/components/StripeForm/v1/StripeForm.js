@@ -12,9 +12,10 @@ import { applyTheme, withStripeElements } from "../../../utils";
 
 const Field = styled.div`
   background-color: ${applyTheme("color_black02")};
-  padding: 10px;
+  padding: 10px 12px 10px 12px;
+  border-radius: 2px;
   border-bottom: solid 1px rgba(0, 0, 0, 0.12);
-  margin-bottom: 2rem;
+  margin-bottom: 20px;
 `;
 
 const FlexContainer = styled.div`
@@ -48,18 +49,26 @@ class StripeForm extends Component {
     /**
      * Card's billing postal code text placeholder
      */
-    postalCodePlaceholder: PropTypes.string
+    postalCodePlaceholder: PropTypes.string,
+    /**
+     * The stripe object which provides methods for tokenizing data and more. 
+     * See https://stripe.com/docs/stripe-js/reference#the-stripe-object for more details.
+     */
+    stripeRef: PropTypes.func
   };
 
   static defaultProps = {
     cardNumberPlaceholder: "Card Number",
     cardExpiryPlaceholder: "Expiry Date MM/YY",
     cardCVCPlaceholder: "CVV",
-    postalCodePlaceholder: "Postal Code"
+    postalCodePlaceholder: "Postal Code",
+    stripeRef: () => true
   };
 
-  handleOnChange = (change) => {
-    console.log("change", change);
+  componentDidUpdate = () => {
+    if (this.props.stripe) {
+      this.props.stripeRef(this.props.stripe);
+    }
   }
 
   render() {
@@ -75,7 +84,6 @@ class StripeForm extends Component {
         <Field>
           <CardNumberElement
             placeholder={cardNumberPlaceholder}
-            onChange={this.handleOnChange}
             {...createOptions()}
           />
         </Field>
@@ -83,14 +91,12 @@ class StripeForm extends Component {
           <Field style={{ flexGrow: 1, marginRight: "1rem" }}>
             <CardExpiryElement
               placeholder={cardExpiryPlaceholder}
-              onChange={this.handleOnChange}
               {...createOptions()}
             />
           </Field>
           <Field style={{ flexGrow: 1 }}>
             <CardCVCElement
               placeholder={cardCVCPlaceholder}
-              onChange={this.handleOnChange}
               {...createOptions()}
             />
           </Field>
@@ -98,7 +104,6 @@ class StripeForm extends Component {
         <Field>
           <PostalCodeElement
             placeholder={postalCodePlaceholder}
-            onChange={this.onChange}
             {...createOptions()}
           />
         </Field>
