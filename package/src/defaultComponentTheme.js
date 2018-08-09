@@ -422,7 +422,7 @@ const selectableItem = {
   rui_selectableItemRadioButtonMargin: "0 10px 0 0",
   rui_selectableItemRadioButtonBackgroundColor: white,
   rui_selectableItemLabelFontFamily: fontFamily
-}
+};
 
 export default {
   ...defaultStyles,
