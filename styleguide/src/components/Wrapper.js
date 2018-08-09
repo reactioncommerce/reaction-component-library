@@ -7,7 +7,7 @@ import { StripeProvider } from "react-stripe-elements";
 class Wrapper extends Component {
   render() {
     return (
-      <StripeProvider apiKey="api_key_122">
+      <StripeProvider apiKey="pk_test_zggzXnHNapGS1EKUV7BSLn3p">
         <ComponentsProvider value={appComponents}>
           <DefaultWrapper {...this.props} />
         </ComponentsProvider>
