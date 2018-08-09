@@ -1,4 +1,18 @@
 ### Overview
 #### Usage
 
-Document component here. See https://react-styleguidist.js.org/docs/documenting.html
+```jsx
+const actions = [
+  {
+    label: "Shipping Information",
+    component: ShippingAddressCheckoutAction
+  },
+   {
+    label: "Something Else",
+    component: ShippingAddressCheckoutAction
+  }
+];
+
+
+<CheckoutActions actions={actions} />
+```

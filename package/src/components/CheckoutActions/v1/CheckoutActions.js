@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { withComponents } from "@reactioncommerce/components-context";
+import { CustomPropTypes } from "../../../utils";
 
 const StyledDiv = styled.div`
   color: #333333;
@@ -9,18 +10,119 @@ const StyledDiv = styled.div`
 
 class CheckoutActions extends Component {
   static propTypes = {
-
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        component: CustomPropTypes.component.isRequired
+      })
+    ),
+    /**
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
+     */
+    components: PropTypes.shape({
+      /**
+       * Pass either the Reaction AddressForm component or your own component that
+       * accepts compatible props.
+       */
+      AddressForm: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction Button component or your own component that
+       * accepts compatible props.
+       */
+      Button: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction CheckoutAction component or your own component that
+       * accepts compatible props.
+       */
+      CheckoutAction: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction CheckoutActionComplete component or your own component that
+       * accepts compatible props.
+       */
+      CheckoutActionComplete: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction CheckboxActionIncomplete component or your own component that
+       * accepts compatible props.
+       */
+      CheckoutActionIncomplete: CustomPropTypes.component.isRequired
+    }).isRequired
   };
 
   static defaultProps = {
+    cart: {
+      fullfillmentGroup: {
+        data: {
+          shippingAddress: null
+        }
+      }
+    },
+    something: "some string"
+  };
 
+  state = {
+    currentActions: this.props.actions.map(({ label }) => ({
+      label,
+      status: "complete",
+      capturedData: "something"
+    }))
+  };
+
+  getCurrentActionByLabel(label) {
+    const { currentActions } = this.state;
+    const actionIndex = currentActions.findIndex((action) => action.label === label);
+    return currentActions[actionIndex];
+  }
+
+  getCurrentActionIndex(label) {
+    const { currentActions } = this.state;
+    return currentActions.findIndex((action) => action.label === label);
+  }
+
+  toggleActionStatus = (label, status) => {
+    const { currentActions } = this.state;
+    const actionIndex = currentActions.findIndex((action) => action.label === label);
+    currentActions[actionIndex].status = status;
+    this.setState({ currentActions });
+  };
+
+  renderCompleteAction = ({ label, component }) => {
+    const { components: { CheckoutActionComplete } } = this.props;
+    const { currentActions } = this.state;
+    const { capturedData } = currentActions[this.getCurrentActionIndex(label)];
+    return (
+      <CheckoutActionComplete
+        content={component.renderComplete(capturedData)}
+        onClickChangeButton={(e) => {
+          this.toggleActionStatus(label, "active");
+        }}
+      />
+    );
+  };
+
+  renderAction = ({ label, component: Comp }) => {
+    const { cart, components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
+    const { currentActions } = this.state;
+    const { status } = currentActions[this.getCurrentActionIndex(label)];
+    console.log(status, Comp);
+    return (
+      <CheckoutAction
+        status={status}
+        label={label}
+        stepNumber={this.getCurrentActionIndex(label) + 1}
+        activeStepElement={<Comp fullfillmentGroup={cart.fullfillmentGroup} />}
+        completeStepElement={this.renderCompleteAction({ label, component: Comp })}
+        incompleteStepElement={<CheckoutActionIncomplete />}
+      />
+    );
   };
 
   render() {
-    return (
-      <StyledDiv>TEST</StyledDiv>
-    );
+    const { actions } = this.props;
+    return actions.map(this.renderAction);
   }
 }
 
-export default CheckoutActions;
+export default withComponents(CheckoutActions);
