@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot 1`] = `
+exports[`basic snapshot with empty props 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -92,7 +92,10 @@ exports[`basic snapshot 1`] = `
     htmlFor="Radio_1"
   >
     <span />
+    Label
   </label>
-  <div />
+  <div>
+    Detail
+  </div>
 </div>
 `;

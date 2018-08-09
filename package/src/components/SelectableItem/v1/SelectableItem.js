@@ -62,6 +62,7 @@ class SelectableItem extends Component {
      * Item data
      */
     item: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
       /**
        * Label
        */
@@ -157,6 +158,7 @@ class SelectableItem extends Component {
       className,
       name,
       item: {
+        _id,
         label,
         detail
       }

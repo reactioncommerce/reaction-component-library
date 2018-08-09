@@ -18,26 +18,44 @@ class SelectableList extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction `CartItem` component or your own component
-       * that takes `items`, `isMiniCart`, `onChangeCartItemQuantity`, and
-       * `onRemoveItemFromCart` props and uses them to render a single cart item.
+       * Pass either the Reaction `SelectableItem` component or your own component
+       * that takes `items` props and uses them to render a single item.
        */
       SelectableItem: CustomPropTypes.component.isRequired
     }).isRequired,
     items: PropTypes.arrayOf(PropTypes.shape({
       /**
-       * The cart item ID
+       * The item ID
        */
       _id: PropTypes.string.isRequired
-    })).isRequired
+    })).isRequired,
+    name: PropTypes.string.isRequired
   };
 
   render() {
-    const { items, components: { SelectableItem, ...components }, ...props } = this.props;
+    const {
+      items,
+      name,
+      components: {
+        SelectableItem,
+        ...components
+      },
+      ...props
+    } = this.props;
 
     return (
       <StyledList>
-        {items.map((item) => <SelectableItem key={item._id} item={item} components={components} {...props} />)}
+        <legend>Legend</legend>
+        <fieldset>
+          {items.map((item) =>
+            <SelectableItem
+              name={name}
+              key={item._id}
+              item={item}
+              component={components}
+              {...props}
+            />)}
+        </fieldset>
       </StyledList>
     );
   }
