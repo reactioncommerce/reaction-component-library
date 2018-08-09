@@ -412,7 +412,7 @@ const checkbox = {
 
 // selectableItem
 const selectableItem = {
-  rui_selectableItemRadioButtonCheckSize: "11px",
+  rui_selectableItemRadioButtonCheckSize: "10px",
   rui_selectableItemRadioButtonColor: coolGrey500,
   rui_selectableItemLabelColor: coolGrey500,
   rui_selectableItemLabelLetterSpacing: "0.3px",
