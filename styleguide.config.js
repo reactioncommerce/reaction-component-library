@@ -370,12 +370,12 @@ module.exports = {
           name: "Product"
         }),
         generateSection({
-          componentNames: ["CartEmptyMessage", "CartItem", "CartItems", "CartItemDetail", "CartSummary", "MiniCart", "MiniCartSummary"],
+          componentNames: ["CartItem", "CartItems", "CartItemDetail", "CartEmptyMessage", "CartSummary", "MiniCart", "MiniCartSummary"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         }),
         generateSection({
-          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat"],
+          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "SelectableItem"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
         }),
