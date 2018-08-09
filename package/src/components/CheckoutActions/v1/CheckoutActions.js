@@ -1,11 +1,12 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
 
-const StyledDiv = styled.div`
-  color: #333333;
+const FormActions = styled.div`
+  display: flex;
+  justify-content: space-between;
 `;
 
 class CheckoutActions extends Component {
@@ -63,10 +64,13 @@ class CheckoutActions extends Component {
   };
 
   state = {
-    currentActions: this.props.actions.map(({ label }) => ({
+    currentActions: this.props.actions.map(({ label }, i) => ({
       label,
-      status: "complete",
-      capturedData: "something"
+      status: i === 0 ? "active" : "incomplete",
+      readyForSave: false,
+      capturedData: {
+        firstName: "Nat"
+      }
     }))
   };
 
@@ -88,6 +92,18 @@ class CheckoutActions extends Component {
     this.setState({ currentActions });
   };
 
+  actionReadyForSave = (label, ready) => {
+    const { currentActions } = this.state;
+    currentActions[this.getCurrentActionIndex(label)].readyForSave = ready;
+    this.setState({
+      currentActions
+    });
+  };
+
+  captureActionData = ({ label }) => {
+    this[label].getFullfillmentData();
+  };
+
   renderCompleteAction = ({ label, component }) => {
     const { components: { CheckoutActionComplete } } = this.props;
     const { currentActions } = this.state;
@@ -102,6 +118,36 @@ class CheckoutActions extends Component {
     );
   };
 
+  renderActiveAction = ({ label, component: Comp }) => {
+    const { cart, components: { Button } } = this.props;
+    return (
+      <Fragment>
+        <Comp
+          fullfillmentGroup={cart.fullfillmentGroup}
+          readyForSave={(ready) => {
+            this.setState({ currentActions: { readyForSave: ready } });
+          }}
+          ref={(el) => {
+            this[label] = el;
+          }}
+        />
+        <FormActions>
+          <Button
+            actionType="secondary"
+            isTextOnly
+            isShortHeight
+            onClick={() => this.toggleActionStatus(label, "complete")}
+          >
+            Cancel
+          </Button>
+          <Button actionType="important" isShortHeight onClick={() => this.captureActionData({ label })}>
+            Save and continue
+          </Button>
+        </FormActions>
+      </Fragment>
+    );
+  };
+
   renderAction = ({ label, component: Comp }) => {
     const { cart, components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
     const { currentActions } = this.state;
@@ -112,7 +158,7 @@ class CheckoutActions extends Component {
         status={status}
         label={label}
         stepNumber={this.getCurrentActionIndex(label) + 1}
-        activeStepElement={<Comp fullfillmentGroup={cart.fullfillmentGroup} />}
+        activeStepElement={this.renderActiveAction({ label, component: Comp })}
         completeStepElement={this.renderCompleteAction({ label, component: Comp })}
         incompleteStepElement={<CheckoutActionIncomplete />}
       />

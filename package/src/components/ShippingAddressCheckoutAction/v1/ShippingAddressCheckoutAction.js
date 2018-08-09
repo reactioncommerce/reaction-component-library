@@ -95,9 +95,19 @@ class ShippingAddressCheckoutAction extends Component {
     this.setState({ actionStatus: status });
   };
 
-  getFullfillmentData = (address) => {
+  handleSubmit = (address) => {
     // eslint-disable-next-line
     console.log("submited shipping address", address);
+    this.setState({
+      activeAddress: address
+    });
+  };
+
+  getFullfillmentData = async () => {
+    await this._addressForm.submit();
+    const { activeAddress } = this.state;
+    // eslint-disable-next-line
+    console.log("getting fullfillment data", activeAddress);
   };
 
   handleCountryChange(country) {
@@ -111,7 +121,7 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   renderActive() {
-    const { components: { AddressForm, Button }, fullfillmentGroup: { data: { shippingAddress } } } = this.props;
+    const { components: { AddressForm }, fullfillmentGroup: { data: { shippingAddress } } } = this.props;
     return (
       <Fragment>
         <AddressForm
@@ -121,56 +131,31 @@ class ShippingAddressCheckoutAction extends Component {
           countries={this.state.countries}
           regions={this.state.regions[this.state.activeCountry]}
           onCountryChange={(value) => this.handleCountryChange(value)}
-          onSubmit={this.getFullfillmentData}
+          onSubmit={this.handleSubmit}
           value={shippingAddress}
         />
-        <FormActions>
-          <Button actionType="secondary" isTextOnly isShortHeight onClick={this.onStatusChange}>
-            Cancel
-          </Button>
-          <Button actionType="important" isShortHeight onClick={() => this._addressForm.submit()}>
-            Save and continue
-          </Button>
-        </FormActions>
       </Fragment>
     );
-  }
-
-  renderComplete() {
-    const { components: { CheckoutActionComplete }, fullfillmentGroup: { data: { shippingAddress } } } = this.props;
-    if (shippingAddress === null) return "";
-    const addressEl = (
-      <address>
-        {shippingAddress.firstName} {shippingAddress.lastName}
-        <br />
-        {shippingAddress.address1}
-        <br />
-        {shippingAddress.address2 !== "" ? `${shippingAddress.address2}${<br />}` : ""}
-        {shippingAddress.city}, {shippingAddress.country} {shippingAddress.postal}
-      </address>
-    );
-    return <CheckoutActionComplete content={addressEl} onClickChangeButton={this.onStatusChange} />;
-  }
-
-  renderIncomplete() {
-    const { components: { CheckoutActionIncomplete } } = this.props;
-    return <CheckoutActionIncomplete />;
   }
 
   render() {
     const { components: { CheckoutAction } } = this.props;
     const { actionStatus } = this.state;
-    return (
-      <CheckoutAction
-        status={actionStatus}
-        label="Shipping Information"
-        stepNumber={2}
-        activeStepElement={this.renderActive()}
-        completeStepElement={this.renderComplete()}
-        incompleteStepElement={this.renderIncomplete()}
-      />
-    );
+    return this.renderActive();
   }
 }
 
-export default withComponents(ShippingAddressCheckoutAction);
+const WrappedShippingAddressCheckoutAction = withComponents(ShippingAddressCheckoutAction);
+
+WrappedShippingAddressCheckoutAction.renderComplete = (shippingAddress) => (
+  <address>
+    {shippingAddress.firstName} {shippingAddress.lastName}
+    <br />
+    {shippingAddress.address1}
+    <br />
+    {shippingAddress.address2 !== "" ? `${shippingAddress.address2}${<br />}` : ""}
+    {shippingAddress.city}, {shippingAddress.country} {shippingAddress.postal}
+  </address>
+);
+
+export default WrappedShippingAddressCheckoutAction;
