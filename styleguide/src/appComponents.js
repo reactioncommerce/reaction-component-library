@@ -14,6 +14,7 @@ import Select from "../../package/src/components/Select/v1";
 import StockWarning from "../../package/src/components/StockWarning/v1";
 import spinner from "../../package/src/utils/spinner";
 import TextInput from "../../package/src/components/TextInput/v1";
+import SelectableItem from "../../package/src/components/SelectableItem/v1";
 
 /* eslint-disable max-len */
 
@@ -87,5 +88,6 @@ export default {
   Select,
   spinner,
   StockWarning,
-  TextInput
+  TextInput,
+  SelectableItem
 };

@@ -59,13 +59,18 @@ class SelectableItem extends Component {
      */
     className: PropTypes.string,
     /**
-     * Optional text, SVG or element displayed on the right-hand side
+     * Item data
      */
-    detail: PropTypes.node,
-    /**
-     * Label for SelectableItem
-     */
-    label: PropTypes.string.isRequired,
+    item: PropTypes.shape({
+      /**
+       * Label
+       */
+      label: PropTypes.string.isRequired,
+      /**
+       * Optional text, SVG or element displayed on the right-hand side
+       */
+      detail: PropTypes.node
+    }),
     /**
      * Name for input
      */
@@ -148,7 +153,14 @@ class SelectableItem extends Component {
   }
 
   render() {
-    const { className, label, name, detail } = this.props;
+    const {
+      className,
+      name,
+      item: {
+        label,
+        detail
+      }
+    } = this.props;
     const { id, value } = this.state;
 
     return (
@@ -166,7 +178,7 @@ class SelectableItem extends Component {
           <span />
           {label}
         </label>
-        <div>{detail}</div>
+        {detail ? <div>{detail}</div> : null}
       </StyledItem >
     );
   }
