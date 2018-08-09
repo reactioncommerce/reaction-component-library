@@ -9,6 +9,7 @@ Array [
   display: -ms-flexbox;
   display: flex;
   font-size: 16;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -136,6 +137,7 @@ Array [
   display: -ms-flexbox;
   display: flex;
   font-size: 16;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;

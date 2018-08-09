@@ -4,6 +4,7 @@ exports[`Renders only subtotal + computed taxes 1`] = `
 .c0 {
   width: 100%;
   padding: 0.5rem;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
 }
 
 .c1 {
@@ -55,6 +56,7 @@ exports[`Renders only subtotal 1`] = `
 .c0 {
   width: 100%;
   padding: 0.5rem;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
 }
 
 .c1 {
