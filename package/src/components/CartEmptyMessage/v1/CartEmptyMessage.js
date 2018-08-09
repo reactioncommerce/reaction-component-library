@@ -13,6 +13,7 @@ const EmptyMessage = styled.div`
   color: ${applyTheme("color_coolGrey500")};
   display: flex;
   font-size: ${applyTheme("cartEmptyMessageFontSize")};
+  font-family: ${applyTheme("font_family")};
   justify-content: center;
   letter-spacing: ${applyTheme("cartEmptyMessageLetterSpacing")};
   margin-bottom: ${applyTheme("cartEmptyMessageMarginBottom")};
