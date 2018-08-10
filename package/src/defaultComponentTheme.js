@@ -401,7 +401,6 @@ export default {
   ...labelStyles,
   ...helpTextStyles,
   ...errorsBlockStyles,
-  ...cartEmptyMessage,
   ...checkoutActions,
   ...checkbox
 };
