@@ -76,9 +76,9 @@ const StyledInput = styled.input`
 const IconWrapper = styled.div`
   box-sizing: border-box;
   color: ${applyValidationColor("inputIconColor")};
-  fill: currentColor;
   margin-left: ${applyTheme("inputHorizontalPadding")};
-
+  height: ${applyTheme("inputIconWrapperSize")};
+  width: ${applyTheme("inputIconWrapperSize")};
   position: relative;
   right: ${applyTextareaVariant(applyTheme("textareaIconRight"), 0)};
   top: ${applyTextareaVariant(applyTheme("textareaIconTop"), 0)};
@@ -169,6 +169,12 @@ class PhoneNumberInput extends Component {
      * Overwrite the default clear input icon accessibility text
      */
     iconClearAccessibilityText: PropTypes.string,
+    /**
+     * This should be used only for connecting the input with a label. Generate a
+     * globally unique ID string and pass it to this prop and the `labelFor` prop
+     * of `Field`.
+     */
+    id: PropTypes.string,
     /**
      * Enable when using the input on a dark background, disabled by default
      */
@@ -428,9 +434,10 @@ class PhoneNumberInput extends Component {
   render() {
     const {
       className,
-      isOnDarkBackground,
       errors,
       hasBeenValidated,
+      id,
+      isOnDarkBackground,
       isReadOnly,
       maxLength,
       name,
@@ -450,17 +457,18 @@ class PhoneNumberInput extends Component {
       >
         <StyledInput
           className={className}
-          isOnDarkBackground={isOnDarkBackground}
           errors={errors}
           hasBeenValidated={hasBeenValidated}
-          readOnly={isReadOnly}
+          id={id}
+          isOnDarkBackground={isOnDarkBackground}
           maxLength={maxLength}
           name={name}
-          onKeyPress={this.onKeyPress}
           onBlur={this.onInputBlur}
           onChange={this.onChange}
           onFocus={this.onInputFocus}
+          onKeyPress={this.onKeyPress}
           placeholder={placeholder}
+          readOnly={isReadOnly}
           type={type}
           value={value}
         />
@@ -470,4 +478,8 @@ class PhoneNumberInput extends Component {
   }
 }
 
-export default withComponents(PhoneNumberInput);
+const WrappedPhoneNumberInput = withComponents(PhoneNumberInput);
+
+WrappedPhoneNumberInput.isFormInput = true;
+
+export default WrappedPhoneNumberInput;

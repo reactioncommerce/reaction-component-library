@@ -321,7 +321,8 @@ const inputIcon = {
   rui_inputIconColor_disabled: black25,
   rui_inputIconColor_error: red,
   rui_inputIconColor_success: forestGreen,
-  rui_inputIconTextPadding: baseUnit(20)
+  rui_inputIconTextPadding: baseUnit(20),
+  rui_inputIconWrapperSize: "1.429em"
 };
 
 // textarea
@@ -374,6 +375,7 @@ const errorsBlockStyles = {
   rui_errorsBlockColor: red,
   rui_errorsBlockFontSize: fontSize14,
   rui_errorsBlockMargin: `${baseUnit(1)} 0`,
+  rui_errorsBlockIconColor: red,
   rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
 };
 
@@ -403,13 +405,24 @@ const checkbox = {
   rui_checkboxLabelSpacing: `${baseUnit(3)}`,
   rui_checkboxLabelFontSize: fontSize14,
   rui_checkboxIconColor: coolGrey500,
-  rui_checkboxIconSize: "0.8rem",
-  rui_checkboxIcon: "'\f00c'",
-  rui_checkboxIconFont: "'Font Awesome 5 Free'",
-  rui_checkboxIconFontWeight: 900,
+  rui_checkboxIconSize: "0.875em",
   rui_checkboxIconLeftSpacing: "4px",
-  rui_checkboxIconTopSpacing: "4px",
+  rui_checkboxIconTopSpacing: "3px",
   rui_checkboxVerticalSpacing: `${baseUnit(2)}`
+};
+
+// selectableItem
+const selectableItem = {
+  rui_selectableItemRadioButtonCheckSize: "10px",
+  rui_selectableItemRadioButtonColor: coolGrey500,
+  rui_selectableItemLabelColor: coolGrey500,
+  rui_selectableItemLabelLetterSpacing: "0.3px",
+  rui_selectableItemLabelFontSize: "14px",
+  rui_selectableItemRadioButtonBorder: `2px solid ${coolGrey500}`,
+  rui_selectableItemRadioButtonSize: "20px",
+  rui_selectableItemRadioButtonMargin: "0 10px 0 0",
+  rui_selectableItemRadioButtonBackgroundColor: white,
+  rui_selectableItemLabelFontFamily: fontFamily
 };
 
 export default {
@@ -425,5 +438,6 @@ export default {
   ...errorsBlockStyles,
   ...cartEmptyMessage,
   ...checkoutActions,
-  ...checkbox
+  ...checkbox,
+  ...selectableItem
 };

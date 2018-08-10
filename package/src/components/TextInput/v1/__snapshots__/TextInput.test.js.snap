@@ -34,7 +34,6 @@ exports[`renders 1`] = `
   flex-grow: 2;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
   outline: none;
 }
 
@@ -68,6 +67,7 @@ exports[`renders 1`] = `
 >
   <input
     className="c1"
+    id={undefined}
     maxLength={undefined}
     name="test"
     onBlur={[Function]}
@@ -116,7 +116,6 @@ exports[`renders textarea 1`] = `
   flex-grow: 2;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
   outline: none;
 }
 
@@ -150,6 +149,7 @@ exports[`renders textarea 1`] = `
 >
   <input
     className="c1"
+    id={undefined}
     maxLength={undefined}
     name="test"
     onBlur={[Function]}
@@ -198,7 +198,6 @@ exports[`renders textarea with props 1`] = `
   flex-grow: 2;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
   outline: none;
 }
 
@@ -232,6 +231,7 @@ exports[`renders textarea with props 1`] = `
 >
   <input
     className="CLASSNAME c1"
+    id={undefined}
     maxLength={20}
     name="test"
     onBlur={[Function]}
@@ -280,7 +280,6 @@ exports[`renders with props 1`] = `
   flex-grow: 2;
   font-family: inherit;
   font-size: 14px;
-  line-height: 1;
   outline: none;
 }
 
@@ -314,6 +313,7 @@ exports[`renders with props 1`] = `
 >
   <input
     className="CLASSNAME c1"
+    id={undefined}
     maxLength={20}
     name="test"
     onBlur={[Function]}

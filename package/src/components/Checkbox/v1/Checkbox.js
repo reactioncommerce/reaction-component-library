@@ -8,13 +8,26 @@ const StyledDiv = styled.div`
   margin-bottom: ${applyTheme("checkboxVerticalSpacing")};
 `;
 
+/* eslint-disable max-len */
+/* eslint-disable quotes */
+// credit https://fontawesome.com/icons/check?style=solid
+const checkboxIconSVG = encodeURIComponent(`<svg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='${applyTheme("checkboxIconColor")()}' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'></path></svg>`);
+/* eslint-enable quotes */
+/* eslint-enable max-len */
+
 const StyledInput = styled.input`
   opacity: 0;
   + label::after {
-    content: none;
+    content: " ";
   }
   &:checked + label::after {
-    content: ${applyTheme("checkboxIcon")};
+    background-image: url("data:image/svg+xml; utf8,${checkboxIconSVG}");
+    display: inline-block;
+    position: absolute;
+    width: ${applyTheme("checkboxIconSize")};
+    height: ${applyTheme("checkboxIconSize")};
+    top: ${applyTheme("checkboxIconTopSpacing")};
+    left: ${applyTheme("checkboxIconLeftSpacing")};
   }
   &:focus + label::before {
     outline: ${applyTheme("checkboxFocusStyle")};
@@ -55,18 +68,6 @@ const StyledLabel = styled.label`
     left: ${applyTheme("checkboxLeftSpacing")};
     top: ${applyTheme("checkboxTopSpacing")};
   }
-  &::after {
-    content: ${applyTheme("checkboxIcon")};
-    display: inline-block;
-    font-family: ${applyTheme("checkboxIconFont")};
-    font-size: ${applyTheme("checkboxIconSize")};
-    font-weight: ${applyTheme("checkboxIconFontWeight")};
-    -webkit-font-smoothing: antialiased;
-    color: ${applyTheme("checkboxIconColor")};
-    line-height: 1;
-    left:  ${applyTheme("checkboxIconLeftSpacing")};
-    top:  ${applyTheme("checkboxIconTopSpacing")};
-  }
 `;
 
 class Checkbox extends Component {
@@ -98,7 +99,7 @@ class Checkbox extends Component {
     /**
      * True for a checked checkbox, undefined for an unchecked checkbox
      */
-    value: PropTypes.bool
+    value: PropTypes.bool // eslint-disable-line react/boolean-prop-naming
   };
 
   static defaultProps = {

@@ -11,7 +11,7 @@ There are four types of buttons you can choose from, and which one you choose sh
 1. **Danger button**: The danger button is used for a destructive action that is difficult to recover from such as deleting information. The danger button should be used at the point that the destructive action actually takes place. For example, you can have a delete button as a secondary action on a page and in this case you would use a an outline button, the outline button would then trigger a modal confirmation, which is where you would use the danger button.
 1. **Important button**: The important button is used when there needs to be particular importance put on an action or in a view where there are multiple actions and more emphasis needs to be drawn to specific or most common action in a view.
 
-```jsx
+```jsx noeditor
 <div style={{ display: "flex" }}>
   <div style={{ marginRight: "1rem" }}>
     <Button title="Default" className="myBtn">Default</Button>
@@ -34,7 +34,7 @@ And there are a couple possible variations:
 - **Text-only**: The default button can be rendered as text only (similar to a link) by using the "text" style variant. Use this in rare cases where having a solid or outline button for an action would be cluttered and visually confusing.
 - **Waiting**: This disables clicks and shows a spinner to the right of the button content when `isWaiting` is set to `true`.
 
-```jsx
+```jsx noeditor
 <div style={{ display: "flex" }}>
   <div style={{ marginRight: "1rem" }}>
     <Button title="Default" className="myBtn" isShortHeight>Default Short</Button>
