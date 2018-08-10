@@ -15,8 +15,8 @@ const EmptyMessage = styled.div`
   font-size: ${applyTheme("font_size_default")};
   font-family: ${applyTheme("font_family")};
   justify-content: center;
-  letter-spacing: ${applyTheme("cartEmptyMessageLetterSpacing")};
-  margin-bottom: ${applyTheme("cartEmptyMessageMarginBottom")};
+  letter-spacing: 0.01875rem;
+  margin-bottom: 3.375rem;
 `;
 
 class CartEmptyMessage extends Component {
