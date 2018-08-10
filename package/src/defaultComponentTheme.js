@@ -378,12 +378,6 @@ const errorsBlockStyles = {
   rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
 };
 
-// cartEmptyMessage
-const cartEmptyMessage = {
-  rui_cartEmptyMessageFontSize: baseFontSize,
-  rui_cartEmptyMessageLetterSpacing: `${baseUnit(0.03)}`,
-  rui_cartEmptyMessageMarginBottom: `${baseUnit(5.4)}`
-};
 
 // checkoutActionComplete
 const checkoutActions = {
@@ -435,7 +429,6 @@ export default {
   ...labelStyles,
   ...helpTextStyles,
   ...errorsBlockStyles,
-  ...cartEmptyMessage,
   ...checkoutActions,
   ...checkbox,
   ...selectableItem
