@@ -1,4 +1,3 @@
-import "babel-polyfill";
 import React from "react";
 import Button from "../../package/src/components/Button/v1";
 import CartItem from "../../package/src/components/CartItem/v1";
