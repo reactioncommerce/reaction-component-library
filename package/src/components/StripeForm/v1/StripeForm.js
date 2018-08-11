@@ -10,12 +10,29 @@ import {
 import styled from "styled-components";
 import { applyTheme, withStripeElements } from "../../../utils";
 
+function fieldBorderColor(themeProp = "color") {
+  return (props) => {
+    let status = "default";
+
+    if (props.isFocused) {
+      status = "focus";
+    }
+
+    return applyTheme(`${themeProp}_${status}`);
+  };
+}
+
 const Field = styled.div`
-  background-color: ${applyTheme("color_black02")};
-  padding: 10px 12px 10px 12px;
+  -webkit-font-smoothing: antialiased;
+  background-color: ${applyTheme("inputBackgroundColor_default")};
+  border: 1px solid ${fieldBorderColor("inputBorderColor")};
+  box-sizing: border-box;
+  color: ${applyTheme("inputColor_default")};
+  line-height: ${applyTheme("inputLineHeight")};
   border-radius: 2px;
-  border-bottom: solid 1px rgba(0, 0, 0, 0.12);
   margin-bottom: 20px;
+  outline: none;
+  padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
 `;
 
 const FlexContainer = styled.div`
@@ -25,9 +42,12 @@ const FlexContainer = styled.div`
 const createOptions = () => ({
   style: {
     base: {
-      fontSize: applyTheme("font_size_default")(),
-      color: applyTheme("color_black55")(),
-      fontFamily: applyTheme("font_family")()
+      "fontSize": applyTheme("inputFontSize")(),
+      "color": applyTheme("color_black55")(),
+      "fontFamily": applyTheme("inputFontFamily")(),
+      "::placeholder": {
+        color: applyTheme("inputPlaceholderColor")()
+      }
     }
   }
 });
@@ -37,7 +57,7 @@ class StripeForm extends Component {
     /**
      * Card's CVV text placeholder
      */
-    cardCVCPlaceholder: PropTypes.string,
+    cardCvcPlaceholder: PropTypes.string,
     /**
      * Card's expiry date text placeholder
      */
@@ -66,10 +86,17 @@ class StripeForm extends Component {
   static defaultProps = {
     cardNumberPlaceholder: "Card Number",
     cardExpiryPlaceholder: "Expiry Date MM/YY",
-    cardCVCPlaceholder: "CVV",
+    cardCvcPlaceholder: "CVV",
     postalCodePlaceholder: "Postal Code",
     stripeRef: () => true
   };
+
+  state = {
+    cardNumberIsFocused: false,
+    cardExpiryIsFocused: false,
+    cardCvcIsFocused: false,
+    postalCodeIsFocused: false
+  }
 
   componentDidUpdate = () => {
     if (this.props.stripe) {
@@ -77,42 +104,61 @@ class StripeForm extends Component {
     }
   }
 
+  handleOnFocus = (event) => {
+    this.setState({ [`${event.elementType}IsFocused`]: true });
+  }
+
+  handleOnBlur = (event) => {
+    this.setState({ [`${event.elementType}IsFocused`]: false });
+  }
+
   render() {
     const {
       cardNumberPlaceholder,
       cardExpiryPlaceholder,
-      cardCVCPlaceholder,
+      cardCvcPlaceholder,
       postalCodePlaceholder
     } = this.props;
 
-    const commonStyles = createOptions();
+    const {
+      cardNumberIsFocused,
+      cardExpiryIsFocused,
+      cardCvcIsFocused,
+      postalCodeIsFocused
+    } = this.state;
+
+    const commonProps = {
+      ...createOptions(),
+      onFocus: this.handleOnFocus,
+      onBlur: this.handleOnBlur
+    };
 
     return (
       <Fragment>
-        <Field>
+        <Field isFocused={cardNumberIsFocused}>
           <CardNumberElement
             placeholder={cardNumberPlaceholder}
-            {...commonStyles}
+            {...commonProps}
           />
         </Field>
         <FlexContainer>
-          <Field style={{ flexGrow: 1, marginRight: "1rem" }}>
+          <Field isFocused={cardExpiryIsFocused} style={{ flexGrow: 1, marginRight: "1rem" }}>
             <CardExpiryElement
               placeholder={cardExpiryPlaceholder}
-              {...commonStyles}
+              {...commonProps}
             />
           </Field>
-          <Field style={{ flexGrow: 1 }}>
+          <Field isFocused={cardCvcIsFocused} style={{ flexGrow: 1 }}>
             <CardCVCElement
-              placeholder={cardCVCPlaceholder}
-              {...commonStyles}
+              placeholder={cardCvcPlaceholder}
+              {...commonProps}
             />
           </Field>
         </FlexContainer>
-        <Field>
+        <Field isFocused={postalCodeIsFocused}>
           <PostalCodeElement
             placeholder={postalCodePlaceholder}
-            {...commonStyles}
+            {...commonProps}
           />
         </Field>
       </Fragment>
