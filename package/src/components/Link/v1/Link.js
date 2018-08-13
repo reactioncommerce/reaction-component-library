@@ -15,17 +15,14 @@ class Link extends Component {
     /**
      * Called with a single event parameter when a user clicks the link
      */
-    onClick: PropTypes.func.isRequired
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
-    onClick(event) {
-      window.location = event.currentTarget.getAttribute("href");
-    }
+    onClick() {}
   };
 
   onClick = preventAccidentalDoubleClick((event) => {
-    event.preventDefault();
     this.props.onClick(event);
   });
 
