@@ -34,6 +34,16 @@ const Td = styled.td`
   color: ${applyTheme("color_coolGrey400")};
 `;
 
+const TdBorder = Td.extend`
+  border-top: 1px solid ${applyTheme("color_black10")};
+  border-bottom: 1px solid ${applyTheme("color_black10")};
+`;
+
+const TdValueBorder = TdValue.extend`
+  border-top: 1px solid ${applyTheme("color_black10")};
+  border-bottom: 1px solid ${applyTheme("color_black10")};
+`;
+
 const Title = styled.span`
   font-family: ${applyTheme("font_family")};
   font-weight: ${applyTheme("font_weight_bold")};
@@ -137,10 +147,10 @@ class CartSummary extends Component {
             <TdValue>{tax}</TdValue>
           </tr>
           <tr>
-            <Td>Total</Td>
-            <TdValue>
+            <TdBorder>Total</TdBorder>
+            <TdValueBorder>
               <Total>{displayTotal}</Total>
-            </TdValue>
+            </TdValueBorder>
           </tr>
         </tbody>
       </Table>
