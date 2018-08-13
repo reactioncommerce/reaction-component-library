@@ -1,14 +1,24 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot 1`] = `
+exports[`Link component with image snapshot 1`] = `
 <a
   href="http://google.com"
   onClick={[Function]}
 >
   <img
+    alt="Reaction Design System Logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
   />
+</a>
+`;
+
+exports[`Link component with text snapshot 1`] = `
+<a
+  href="http://google.com"
+  onClick={[Function]}
+>
+  Click here
 </a>
 `;
