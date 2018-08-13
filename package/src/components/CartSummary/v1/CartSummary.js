@@ -134,7 +134,7 @@ class CartSummary extends Component {
         </thead>
         <tbody>
           <tr>
-            <Td>Subtotal</Td>
+            <Td>Item total</Td>
             <TdValue>{displaySubtotal}</TdValue>
           </tr>
           <tr>
@@ -147,7 +147,7 @@ class CartSummary extends Component {
             <TdValue>{tax}</TdValue>
           </tr>
           <tr>
-            <TdBorder>Total</TdBorder>
+            <TdBorder>Order total</TdBorder>
             <TdValueBorder>
               <Total>{displayTotal}</Total>
             </TdValueBorder>
