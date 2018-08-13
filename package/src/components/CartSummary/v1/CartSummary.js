@@ -3,10 +3,14 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
+const Surface = styled.div`
+  background-color: ${props => props.isDense ? "transparent" : applyTheme("color_black02")(props)};
+  padding: ${props => props.isDense ? "0" : "1rem"};
+`
+
 const Table = styled.table`
   width: 100%;
-  background-color: ${applyTheme("color_black02")};
-  padding: 1rem;
+  border-collapse: collapse;
 `;
 
 const Th = styled.th`
@@ -21,27 +25,18 @@ const Thr = styled.th`
   font-weight: normal;
 `;
 
-const TdValue = styled.td`
-  font-family: ${applyTheme("font_family")};
-  text-align: right;
-  padding: 1rem 0;
-  color: ${applyTheme("color_coolGrey500")};
-`;
-
 const Td = styled.td`
   font-family: ${applyTheme("font_family")};
-  padding: 1rem 0;
+  padding: ${props => props.isDense ? "0.5rem 0" : "1rem 0"};
   color: ${applyTheme("color_coolGrey400")};
+  border-top: ${props => props.isBorder ? `1px solid ${applyTheme("color_black10")(props)}` : "initial" };
+  border-bottom: ${props => props.isBorder ? `1px solid ${applyTheme("color_black10")(props)}` : "initial"};
 `;
 
-const TdBorder = Td.extend`
-  border-top: 1px solid ${applyTheme("color_black10")};
-  border-bottom: 1px solid ${applyTheme("color_black10")};
-`;
-
-const TdValueBorder = TdValue.extend`
-  border-top: 1px solid ${applyTheme("color_black10")};
-  border-bottom: 1px solid ${applyTheme("color_black10")};
+const TdValue = Td.extend`
+  font-family: ${applyTheme("font_family")};
+  text-align: right;
+  color: ${applyTheme("color_coolGrey500")};
 `;
 
 const Title = styled.span`
@@ -85,6 +80,10 @@ class CartSummary extends Component {
      */
     displayTotal: PropTypes.string.isRequired,
     /**
+     * Dense layout with a transparent background color
+     */
+    isDense: PropTypes.bool,
+    /**
      * If a product qualifies for free shipping, display "FREE" for shipping method
      */
     isFreeShipping: PropTypes.bool,
@@ -94,18 +93,35 @@ class CartSummary extends Component {
     itemsQuantity: PropTypes.number.isRequired
   };
 
-  renderDiscount = () => {
-    const { displayDiscount } = this.props;
+  renderHeader() {
+    const { itemsQuantity } = this.props;
+
+    return (
+      <thead>
+        <tr>
+          <Th>
+            <Title>Cart Summary</Title>
+          </Th>
+          <Thr>{itemsQuantity} items</Thr>
+        </tr>
+      </thead>
+    )
+  }
+
+  renderDiscount() {
+    const { displayDiscount, isDense } = this.props;
 
     return (
       <tr>
-        <Td>Promo code applied</Td>
-        <TdValue>
+        <Td isDense={isDense}>Promo code applied</Td>
+        <TdValue isDense={isDense}>
           <Discount>{displayDiscount}</Discount>
         </TdValue>
       </tr>
     );
   };
+
+  tdComponent
 
   render() {
     const {
@@ -114,46 +130,43 @@ class CartSummary extends Component {
       displaySubtotal,
       displayTax,
       displayTotal,
+      isDense,
       isFreeShipping,
       itemsQuantity
     } = this.props;
 
     const shipping = isFreeShipping ? "FREE" : displayShipping;
     const tax = displayTax || "-";
+    const header = !isDense && this.renderHeader();
     const discount = displayDiscount && this.renderDiscount();
 
     return (
-      <Table>
-        <thead>
-          <tr>
-            <Th>
-              <Title>Cart Summary</Title>
-            </Th>
-            <Thr>{itemsQuantity} items</Thr>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <Td>Item total</Td>
-            <TdValue>{displaySubtotal}</TdValue>
-          </tr>
-          <tr>
-            <Td>Shipping</Td>
-            <TdValue>{shipping}</TdValue>
-          </tr>
-          {discount}
-          <tr>
-            <Td>Tax</Td>
-            <TdValue>{tax}</TdValue>
-          </tr>
-          <tr>
-            <TdBorder>Order total</TdBorder>
-            <TdValueBorder>
-              <Total>{displayTotal}</Total>
-            </TdValueBorder>
-          </tr>
-        </tbody>
-      </Table>
+      <Surface isDense={isDense}>
+        <Table>
+          {header}
+          <tbody>
+            <tr>
+              <Td isDense={isDense}>Item total</Td>
+              <TdValue isDense={isDense}>{displaySubtotal}</TdValue>
+            </tr>
+            <tr>
+              <Td isDense={isDense}>Shipping</Td>
+              <TdValue isDense={isDense}>{shipping}</TdValue>
+            </tr>
+            {discount}
+            <tr>
+              <Td isDense={isDense}>Tax</Td>
+              <TdValue isDense={isDense}>{tax}</TdValue>
+            </tr>
+            <tr>
+              <Td isDense={isDense} isBorder>Order total</Td>
+              <TdValue isDense={isDense} isBorder>
+                <Total>{displayTotal}</Total>
+              </TdValue>
+            </tr>
+          </tbody>
+        </Table>
+      </Surface>
     );
   }
 }
