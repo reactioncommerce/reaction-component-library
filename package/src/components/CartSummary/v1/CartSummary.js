@@ -3,14 +3,11 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
-const Surface = styled.div`
-  background-color: ${props => props.isDense ? "transparent" : applyTheme("color_black02")(props)};
-  padding: ${props => props.isDense ? "0" : "1rem"};
-`
-
 const Table = styled.table`
   width: 100%;
-  border-collapse: collapse;
+  border-spacing: 0;
+  background-color: ${props => props.isDense ? "transparent" : applyTheme("color_black02")(props)};
+  padding: ${props => props.isDense ? "0" : "1rem"};
 `;
 
 const Th = styled.th`
@@ -141,32 +138,30 @@ class CartSummary extends Component {
     const discount = displayDiscount && this.renderDiscount();
 
     return (
-      <Surface isDense={isDense}>
-        <Table>
-          {header}
-          <tbody>
-            <tr>
-              <Td isDense={isDense}>Item total</Td>
-              <TdValue isDense={isDense}>{displaySubtotal}</TdValue>
-            </tr>
-            <tr>
-              <Td isDense={isDense}>Shipping</Td>
-              <TdValue isDense={isDense}>{shipping}</TdValue>
-            </tr>
-            {discount}
-            <tr>
-              <Td isDense={isDense}>Tax</Td>
-              <TdValue isDense={isDense}>{tax}</TdValue>
-            </tr>
-            <tr>
-              <Td isDense={isDense} isBorder>Order total</Td>
-              <TdValue isDense={isDense} isBorder>
-                <Total>{displayTotal}</Total>
-              </TdValue>
-            </tr>
-          </tbody>
-        </Table>
-      </Surface>
+      <Table isDense={isDense}>
+        {header}
+        <tbody>
+          <tr>
+            <Td isDense={isDense}>Item total</Td>
+            <TdValue isDense={isDense}>{displaySubtotal}</TdValue>
+          </tr>
+          <tr>
+            <Td isDense={isDense}>Shipping</Td>
+            <TdValue isDense={isDense}>{shipping}</TdValue>
+          </tr>
+          {discount}
+          <tr>
+            <Td isDense={isDense}>Tax</Td>
+            <TdValue isDense={isDense}>{tax}</TdValue>
+          </tr>
+          <tr>
+            <Td isDense={isDense} isBorder>Order total</Td>
+            <TdValue isDense={isDense} isBorder>
+              <Total>{displayTotal}</Total>
+            </TdValue>
+          </tr>
+        </tbody>
+      </Table>
     );
   }
 }
