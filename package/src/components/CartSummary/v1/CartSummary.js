@@ -99,7 +99,7 @@ class CartSummary extends Component {
           <Th>
             <Title>Cart Summary</Title>
           </Th>
-          <Thr>{itemsQuantity} items</Thr>
+          <Thr>{itemsQuantity >= 0 && `${itemsQuantity} items`}</Thr>
         </tr>
       </thead>
     )
