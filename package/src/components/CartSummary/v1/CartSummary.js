@@ -26,8 +26,8 @@ const Td = styled.td`
   font-family: ${applyTheme("font_family")};
   padding: ${props => props.isDense ? "0.5rem 0" : "1rem 0"};
   color: ${applyTheme("color_coolGrey400")};
-  border-top: ${props => props.isBorder ? `1px solid ${applyTheme("color_black10")(props)}` : "initial" };
-  border-bottom: ${props => props.isBorder ? `1px solid ${applyTheme("color_black10")(props)}` : "initial"};
+  border-top: ${props => props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial" };
+  border-bottom: ${props => props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial"};
 `;
 
 const TdValue = Td.extend`
@@ -155,8 +155,8 @@ class CartSummary extends Component {
             <TdValue isDense={isDense}>{tax}</TdValue>
           </tr>
           <tr>
-            <Td isDense={isDense} isBorder>Order total</Td>
-            <TdValue isDense={isDense} isBorder>
+            <Td isDense={isDense} isBordered>Order total</Td>
+            <TdValue isDense={isDense} isBordered>
               <Total>{displayTotal}</Total>
             </TdValue>
           </tr>
