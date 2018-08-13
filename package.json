@@ -96,6 +96,7 @@
   },
   "dependencies": {
     "@reactioncommerce/components-context": "1.0.0",
+    "babel-polyfill": "^6.26.0",
     "prop-types": "15.6.2",
     "react": "16.4.2",
     "react-dom": "16.4.2",
