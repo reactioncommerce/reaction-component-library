@@ -17,6 +17,36 @@ const StyledList = styled.div`
     border-bottom: 1px solid #e6e6e6;
     padding-left: 10px;
     padding-right: 10px;
+    .leftAligned {
+      justify-content: flex-start;
+      label {
+        font-weight: 600
+      }
+      .detail {
+        font-size: 14px;
+        font-family: "Source Sans Pro";
+        margin-left: 2px;
+      }
+    }
+    .amex,
+    .visa {
+      label {
+        position: relative;
+      }
+      span {
+        margin-right: 60px;
+      }
+      label span:after {
+        left: 30px;
+        position: absolute;
+        content: " ";
+        width: 38px;
+        height: 24px;
+        display: inline-block;
+        border-radius: 2px;
+        border: 1px solid #e6e6e6;
+      }
+    }
   }
 `;
 

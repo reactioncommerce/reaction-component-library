@@ -16,6 +16,45 @@ exports[`basic snapshot 1`] = `
   padding-right: 10px;
 }
 
+.c0 .wrapper .leftAligned {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c0 .wrapper .leftAligned label {
+  font-weight: 600;
+}
+
+.c0 .wrapper .leftAligned .detail {
+  font-size: 14px;
+  font-family: "Source Sans Pro";
+  margin-left: 2px;
+}
+
+.c0 .wrapper .amex label,
+.c0 .wrapper .visa label {
+  position: relative;
+}
+
+.c0 .wrapper .amex span,
+.c0 .wrapper .visa span {
+  margin-right: 60px;
+}
+
+.c0 .wrapper .amex label span:after,
+.c0 .wrapper .visa label span:after {
+  left: 30px;
+  position: absolute;
+  content: " ";
+  width: 38px;
+  height: 24px;
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid #e6e6e6;
+}
+
 <div
   className="c0"
 >

@@ -1,5 +1,11 @@
 ### Overview
 
+A `SelectableList` takes an array of `SelectableItems`.
+
+#### Usage
+
+##### Shipping
+
 ```jsx noeditor
 const items = [{
   _id: "1",
@@ -25,6 +31,21 @@ const items = [{
 <SelectableList items={items} name="Form"/>
 ```
 
-#### Usage
+##### Payment
 
-Document component here. See https://react-styleguidist.js.org/docs/documenting.html
+```jsx noeditor
+const items = [{
+  _id: "5",
+  label: "American Express",
+  detail: "ending in 0000",
+  className: "leftAligned amex"
+},
+{
+  _id: "6",
+  label: "Visa",
+  detail: " ending in 0000",
+  className: "leftAligned visa"
+}];
+
+<SelectableList items={items} name="Form"/>
+```

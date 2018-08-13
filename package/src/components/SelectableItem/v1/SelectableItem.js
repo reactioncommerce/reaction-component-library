@@ -61,10 +61,6 @@ const StyledItem = styled.div`
 class SelectableItem extends Component {
   static propTypes = {
     /**
-     * Custom class name
-     */
-    className: PropTypes.string,
-    /**
      * Item data
      */
     item: PropTypes.shape({
@@ -76,7 +72,11 @@ class SelectableItem extends Component {
       /**
        * Optional text, SVG or element displayed on the right-hand side
        */
-      detail: PropTypes.node
+      detail: PropTypes.node,
+      /**
+       * Custom class name
+       */
+      className: PropTypes.string
     }),
     /**
      * Name for input
@@ -161,10 +161,10 @@ class SelectableItem extends Component {
 
   render() {
     const {
-      className,
       name,
       item: {
         _id,
+        className,
         label,
         detail
       }
