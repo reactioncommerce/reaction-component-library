@@ -3,48 +3,52 @@
 exports[`basic snapshot 1`] = `
 .c0 fieldset {
   border-top: 1px solid #e6e6e6;
-  border-left: 1px solid #e6e6e6;
-  border-right: 1px solid #e6e6e6;
+  border-left: none;
+  border-right: none;
   border-bottom: none;
-  border-radius: 2px;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
   padding: 0;
+  margin: 0;
 }
 
-.c0 .wrapper {
+.c0 fieldset .wrapper {
   border-bottom: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.c0 .wrapper .leftAligned {
+.c0 fieldset .wrapper .leftAligned {
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
   justify-content: flex-start;
 }
 
-.c0 .wrapper .leftAligned label {
+.c0 fieldset .wrapper .leftAligned label {
   font-weight: 600;
 }
 
-.c0 .wrapper .leftAligned .detail {
+.c0 fieldset .wrapper .leftAligned .detail {
   font-size: 14px;
   font-family: "Source Sans Pro";
   margin-left: 2px;
 }
 
-.c0 .wrapper .amex label,
-.c0 .wrapper .visa label {
+.c0 fieldset .wrapper .amex label,
+.c0 fieldset .wrapper .visa label {
   position: relative;
 }
 
-.c0 .wrapper .amex span,
-.c0 .wrapper .visa span {
+.c0 fieldset .wrapper .amex span,
+.c0 fieldset .wrapper .visa span {
   margin-right: 60px;
 }
 
-.c0 .wrapper .amex label span:after,
-.c0 .wrapper .visa label span:after {
+.c0 fieldset .wrapper .amex label span:after,
+.c0 fieldset .wrapper .visa label span:after {
   left: 30px;
   position: absolute;
   content: " ";
@@ -53,6 +57,24 @@ exports[`basic snapshot 1`] = `
   display: inline-block;
   border-radius: 2px;
   border: 1px solid #e6e6e6;
+}
+
+.c0 .listAction {
+  border-bottom: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.c0 > *:last-child {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.c0 > *:last-child .wrapper:last-child {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
 }
 
 <div

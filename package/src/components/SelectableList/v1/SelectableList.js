@@ -7,45 +7,64 @@ import { CustomPropTypes } from "../../../utils";
 const StyledList = styled.div`
   fieldset {
     border-top: 1px solid #e6e6e6;
-    border-left: 1px solid #e6e6e6;
-    border-right: 1px solid #e6e6e6;
+    border-left: none;
+    border-right: none;
     border-bottom: none;
-    border-radius: 2px;
+    border-top-right-radius: 2px;
+    border-top-left-radius: 2px;
     padding: 0;
-  }
-  .wrapper {
-    border-bottom: 1px solid #e6e6e6;
-    padding-left: 10px;
-    padding-right: 10px;
-    .leftAligned {
-      justify-content: flex-start;
-      label {
-        font-weight: 600
+    margin: 0;
+    .wrapper {
+      border-bottom: 1px solid #e6e6e6;
+      border-left: 1px solid #e6e6e6;
+      border-right: 1px solid #e6e6e6;
+      padding-left: 10px;
+      padding-right: 10px;
+      .leftAligned {
+        justify-content: flex-start;
+        label {
+          font-weight: 600
+        }
+        .detail {
+          font-size: 14px;
+          font-family: "Source Sans Pro";
+          margin-left: 2px;
+        }
       }
-      .detail {
-        font-size: 14px;
-        font-family: "Source Sans Pro";
-        margin-left: 2px;
+      .amex,
+      .visa {
+        label {
+          position: relative;
+        }
+        span {
+          margin-right: 60px;
+        }
+        label span:after {
+          left: 30px;
+          position: absolute;
+          content: " ";
+          width: 38px;
+          height: 24px;
+          display: inline-block;
+          border-radius: 2px;
+          border: 1px solid #e6e6e6;
+        }
       }
     }
-    .amex,
-    .visa {
-      label {
-        position: relative;
-      }
-      span {
-        margin-right: 60px;
-      }
-      label span:after {
-        left: 30px;
-        position: absolute;
-        content: " ";
-        width: 38px;
-        height: 24px;
-        display: inline-block;
-        border-radius: 2px;
-        border: 1px solid #e6e6e6;
-      }
+  }
+  .listAction {
+    border-bottom: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  > *:last-child {
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
+    .wrapper:last-child {
+      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 2px;
     }
   }
 `;
@@ -71,6 +90,7 @@ class SelectableList extends Component {
        */
       _id: PropTypes.string.isRequired
     })).isRequired,
+    listAction: PropTypes.node,
     name: PropTypes.string.isRequired
   };
 
@@ -78,6 +98,7 @@ class SelectableList extends Component {
     const {
       items,
       name,
+      listAction,
       components: {
         SelectableItem,
         ...components
@@ -100,6 +121,7 @@ class SelectableList extends Component {
               />
             </div>)}
         </fieldset>
+        {listAction ? <div className="listAction">{listAction}</div> : null}
       </StyledList>
     );
   }
