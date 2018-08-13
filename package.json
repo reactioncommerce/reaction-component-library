@@ -58,7 +58,6 @@
     "styleguide/dist"
   ],
   "jest": {
-    "testEnvironment": "node",
     "collectCoverage": true,
     "collectCoverageFrom": [
       "**/*.{js,jsx}",
