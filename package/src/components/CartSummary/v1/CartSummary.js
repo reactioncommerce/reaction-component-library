@@ -87,7 +87,7 @@ class CartSummary extends Component {
     /**
      * Quantity of products in shopping cart
      */
-    itemsQuantity: PropTypes.number.isRequired
+    itemsQuantity: PropTypes.number
   };
 
   renderHeader() {
