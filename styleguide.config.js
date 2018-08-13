@@ -345,7 +345,7 @@ module.exports = {
       name: "Base Components",
       sections: [
         generateSection({
-          componentNames: ["Button"],
+          componentNames: ["Button", "Link"],
           content: "styleguide/src/sections/Actions.md",
           name: "Actions"
         }),

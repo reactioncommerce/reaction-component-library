@@ -1,0 +1,40 @@
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { preventAccidentalDoubleClick } from "../../../utils";
+
+class Link extends Component {
+  static propTypes = {
+    /**
+     * The contents of the link, such as text, icons, or any combination of React and HTML components
+     */
+    children: PropTypes.node.isRequired,
+    /**
+     * The URL the link should navigate to
+     */
+    href: PropTypes.string.isRequired,
+    /**
+     * Called with a single event parameter when a user clicks the link
+     */
+    onClick: PropTypes.func.isRequired
+  };
+
+  static defaultProps = {
+    onClick(event) {
+      window.location = event.currentTarget.getAttribute("href");
+    }
+  };
+
+  onClick = preventAccidentalDoubleClick((event) => {
+    event.preventDefault();
+    this.props.onClick(event);
+  });
+
+  render() {
+    const { children, href } = this.props;
+    return (
+      <a href={href} onClick={this.onClick}>{children}</a>
+    );
+  }
+}
+
+export default Link;

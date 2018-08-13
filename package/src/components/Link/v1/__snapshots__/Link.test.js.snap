@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+<a
+  href="http://google.com"
+  onClick={[Function]}
+>
+  <img
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</a>
+`;
