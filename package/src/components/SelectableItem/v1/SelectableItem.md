@@ -3,7 +3,7 @@
 `SelectableItems` in a `SelectableList` are used to select shipping methods, addresses and credit cards. Each item consists of a radio button, label and display value. The label and display value can both support text or render other elements, like icons and links.
 
 ```jsx noeditor
-const item = { label: "Default address" };
+const item = { _id: "1", label: "Default address" };
 <SelectableItem item={item} />
 ```
 
@@ -16,7 +16,7 @@ const item = { label: "Default address" };
 ##### SelectableItem without `detail`
 
 ```jsx
-const item = { label: "Default address" };
+const item = { _id: "2", label: "Default address" };
 <SelectableItem item={item} />
 ```
 
@@ -27,12 +27,12 @@ Pass any element - text, SVGs or React elements - into `detail` to display a sec
 ###### Plain text
 
 ```jsx
-const item = {label: "Free shipping", detail: "$0.00"};
+const item = {_id: "3", label: "Free shipping", detail: "$0.00"};
 <SelectableItem item={item}/>
 ```
 
 ```jsx
-const item = {label: "Free shipping", detail: "\u2714"};
+const item = {_id: "4", label: "Free shipping", detail: "\u2714"};
 <SelectableItem item={item}/>
 ```
 
@@ -42,7 +42,7 @@ const item = {label: "Free shipping", detail: "\u2714"};
 const link = (
     <Button title="Default" className="myBtn" isTextOnly isShortHeight>Default Text</Button>
 );
-const item = {label: "Default", detail: link};
+const item = {_id: "5", label: "Default", detail: link};
 
 <SelectableItem item={item}/>
 ```
@@ -62,7 +62,7 @@ const iconClear = (
     />
   </svg>
 );
-const item = {label: "Free shipping", detail: iconClear};
+const item = {_id: "6", label: "Free shipping", detail: iconClear};
 <SelectableItem item={item}/>
 ```
 

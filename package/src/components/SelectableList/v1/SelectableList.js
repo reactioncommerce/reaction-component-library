@@ -5,7 +5,19 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
 
 const StyledList = styled.div`
-  color: #333333;
+  fieldset {
+    border-top: 1px solid #e6e6e6;
+    border-left: 1px solid #e6e6e6;
+    border-right: 1px solid #e6e6e6;
+    border-bottom: none;
+    border-radius: 2px;
+    padding: 0;
+  }
+  .wrapper {
+    border-bottom: 1px solid #e6e6e6;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 `;
 
 class SelectableList extends Component {
@@ -48,13 +60,15 @@ class SelectableList extends Component {
         <legend>Legend</legend>
         <fieldset>
           {items.map((item) =>
-            <SelectableItem
-              name={name}
-              key={item._id}
-              item={item}
-              component={components}
-              {...props}
-            />)}
+            <div className="wrapper">
+              <SelectableItem
+                name={name}
+                key={item._id}
+                item={item}
+                component={components}
+                {...props}
+              />
+            </div>)}
         </fieldset>
       </StyledList>
     );

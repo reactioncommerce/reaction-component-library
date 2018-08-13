@@ -1,8 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot 1`] = `
-.c0 {
-  color: #333333;
+.c0 fieldset {
+  border-top: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  border-bottom: none;
+  border-radius: 2px;
+  padding: 0;
+}
+
+.c0 .wrapper {
+  border-bottom: 1px solid #e6e6e6;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
 <div
@@ -12,9 +23,21 @@ exports[`basic snapshot 1`] = `
     Legend
   </legend>
   <fieldset>
-    SelectableItem(undefined)
-    SelectableItem(undefined)
-    SelectableItem(undefined)
+    <div
+      className="wrapper"
+    >
+      SelectableItem(undefined)
+    </div>
+    <div
+      className="wrapper"
+    >
+      SelectableItem(undefined)
+    </div>
+    <div
+      className="wrapper"
+    >
+      SelectableItem(undefined)
+    </div>
   </fieldset>
 </div>
 `;

@@ -7,6 +7,7 @@ import { applyTheme } from "../../../utils";
 const StyledItem = styled.div`
   display: flex;
   justify-content: space-between;
+  height: 50px;
   input {
     cursor: pointer;
     position: absolute;
@@ -49,6 +50,11 @@ const StyledItem = styled.div`
     margin: ${applyTheme("selectableItemRadioButtonMargin")};
     border-radius: 50%;
     box-sizing: border-box;
+  }
+  .detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -163,24 +169,24 @@ class SelectableItem extends Component {
         detail
       }
     } = this.props;
-    const { id, value } = this.state;
+    const { value } = this.state;
 
     return (
       <StyledItem className={className} >
         <input
           checked={value === true}
-          id={id}
+          id={_id}
           onChange={this.onChange}
           type="radio"
           name={name}
         />
         <label
-          htmlFor={id}
+          htmlFor={_id}
         >
           <span />
           {label}
         </label>
-        {detail ? <div>{detail}</div> : null}
+        {detail ? <div className="detail">{detail}</div> : null}
       </StyledItem >
     );
   }

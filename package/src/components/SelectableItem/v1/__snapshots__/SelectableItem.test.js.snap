@@ -10,6 +10,7 @@ exports[`basic snapshot with empty props 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  height: 50px;
 }
 
 .c0 input {
@@ -78,23 +79,40 @@ exports[`basic snapshot with empty props 1`] = `
   box-sizing: border-box;
 }
 
+.c0 .detail {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
 <div
   className="c0"
 >
   <input
     checked={false}
-    id="Radio_1"
+    id={1}
     name={undefined}
     onChange={[Function]}
     type="radio"
   />
   <label
-    htmlFor="Radio_1"
+    htmlFor={1}
   >
     <span />
     Label
   </label>
-  <div>
+  <div
+    className="detail"
+  >
     Detail
   </div>
 </div>
