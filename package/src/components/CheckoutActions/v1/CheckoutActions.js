@@ -2,11 +2,15 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { CustomPropTypes } from "../../../utils";
+import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const Action = styled.div`
-  border-top: 1px solid black;
+  border-bottom: solid 1px ${applyTheme("color_black10")};
   padding: 1rem 0;
+
+  &:first-of-type {
+    border-top: solid 1px ${applyTheme("color_black10")};
+  }
 `;
 
 const FormActions = styled.div`
