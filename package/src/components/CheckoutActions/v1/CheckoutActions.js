@@ -22,12 +22,10 @@ const FormActions = styled.div`
 
 class CheckoutActions extends Component {
   static propTypes = {
-    actions: PropTypes.arrayOf(
-      PropTypes.shape({
-        label: PropTypes.string.isRequired,
-        component: CustomPropTypes.component.isRequired
-      })
-    ),
+    actions: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      component: CustomPropTypes.component.isRequired
+    })),
     /**
      * Cart object from GQL
      */
