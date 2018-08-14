@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Basic Image snapshot 1`] = `
+exports[`Basic ProgressiveImage snapshot 1`] = `
 .c0 {
   background-color: #ffffff;
   display: block;
@@ -16,7 +16,7 @@ exports[`Basic Image snapshot 1`] = `
 />
 `;
 
-exports[`Image with progressive loading snapshot 1`] = `
+exports[`ProgressiveImage with progressive loading snapshot 1`] = `
 .c0 {
   background-color: #ffffff;
   display: block;
@@ -55,7 +55,7 @@ exports[`Image with progressive loading snapshot 1`] = `
 </div>
 `;
 
-exports[`Responsive Image with progressive loading snapshot 1`] = `
+exports[`Responsive ProgressiveImage with progressive loading snapshot 1`] = `
 .c0 {
   background-color: #ffffff;
   display: block;

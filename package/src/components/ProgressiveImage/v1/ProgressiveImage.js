@@ -51,7 +51,7 @@ const Img = styled.img`
   }}
 `;
 
-class Image extends Component {
+class ProgressiveImage extends Component {
   static propTypes = {
     /**
      * Image text alternative - https://www.w3.org/TR/WCAG20-TECHS/H37.html
@@ -153,7 +153,7 @@ class Image extends Component {
    */
   loadImage() {
     const { src, srcs } = this.props;
-    const buffer = document.createElement("img");
+    const buffer = new Image();
     buffer.onload = () => {
       this._mounted && this.setState({ ready: true });
     };
@@ -230,4 +230,4 @@ class Image extends Component {
   }
 }
 
-export default Image;
+export default ProgressiveImage;

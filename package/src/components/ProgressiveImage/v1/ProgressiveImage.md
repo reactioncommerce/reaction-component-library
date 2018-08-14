@@ -1,22 +1,22 @@
 ### Overview
 
-The Image component renders an image with a Medium/Instagram-like progressive loading effect. It also provides support for responsive images via the HTML `<picture />` tag.
+The ProgressiveImage component renders an image with a Medium/Instagram-like progressive loading effect. It also provides support for responsive images via the HTML `<picture />` tag.
 
 #### Usage
 
 ##### Simple image without progressive loading effect
 
-Image can be used as a drop-in replacement for the HTML `<img />` tag.
+ProgressiveImage can be used as a drop-in replacement for the HTML `<img />` tag.
 
 ```jsx
-<Image src="/reaction-design-system-logo.svg" alt="Reaction Design System Logo" />
+<ProgressiveImage src="/reaction-design-system-logo.svg" alt="Reaction Design System Logo" />
 ```
 
 ##### Image with progressive loading effect
 Set the `presrc` prop to enable the progressive loading effect when the image is within 50x of the viewport.
 
 ```jsx
-<Image
+<ProgressiveImage
   src="/images/responsive-sticker/medium.jpg"
   presrc="/images/responsive-sticker/small.png"
 />
@@ -26,7 +26,7 @@ Set the `presrc` prop to enable the progressive loading effect when the image is
 To create a responsive image, set the `srcs` prop to an object that references small, medium, and large image URLs.
 
 ```jsx
-<Image
+<ProgressiveImage
   presrc="/images/responsive-sticker/small.png"
   srcs={{
     large: "/images/responsive-sticker/large.jpg",
