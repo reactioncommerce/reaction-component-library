@@ -8,7 +8,7 @@ const fullfillment = {
   }
 };
 
-<ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} />
+<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} />
 ```
 
 #### Complete
@@ -29,7 +29,7 @@ const fullfillment = {
   }
 };
 
-<ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} />
+<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} />
 ```
 
 
@@ -51,7 +51,7 @@ const fullfillment = {
   }
 };
 
-<ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} status="active" />
+<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} status="active" />
 ```
 
 #### Active without Address
@@ -62,5 +62,5 @@ const fullfillment = {
   }
 };
 
-<ShippingAddressCheckoutAction fullfillmentGroup={fullfillment} status="active" />
+<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} status="active" />
 ```
