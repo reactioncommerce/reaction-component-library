@@ -75,7 +75,7 @@ class CheckoutActions extends Component {
     }
   };
 
-  static initActionStatus(i) {
+  static initActionStatus = (i) => {
     if (i === 0) {
       if (this.props.cart.fulfillmentGroup.data.shippingAddress) {
         return "complete";
@@ -88,7 +88,8 @@ class CheckoutActions extends Component {
   state = {
     currentActions: this.props.actions.map(({ label }, i) => ({
       label,
-      status: this.initActionStatus(i),
+      // eslint-disable-next-line
+      status: i === 0 ? (this.props.cart.fulfillmentGroup.data.shippingAddress ? "complete" : "active") : "incomplete",
       readyForSave: false,
       capturedData: null
     }))
@@ -142,7 +143,7 @@ class CheckoutActions extends Component {
   renderCompleteAction = ({ label, component }) => {
     const { components: { CheckoutActionComplete } } = this.props;
     const { data } = this.getActionData(label);
-    return data ? (
+    return data.shippingAddress ? (
       <CheckoutActionComplete
         content={component.renderComplete(data)}
         onClickChangeButton={() => {
