@@ -61,29 +61,33 @@ class AddressForm extends Component {
     /**
      * Country options
      */
-    countries: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    countries: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Country option label ("United States", "Nigeria")
          */
-      label: PropTypes.string,
-      /**
+        label: PropTypes.string,
+        /**
          * Country option value ("US", "NU")
          */
-      value: PropTypes.string
-    })),
+        value: PropTypes.string
+      })
+    ),
     /**
      * Errors array
      */
-    errors: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    errors: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Error message
          */
-      message: PropTypes.string.isRequired,
-      /**
+        message: PropTypes.string.isRequired,
+        /**
          * Error name
          */
-      name: PropTypes.string.isRequired
-    })),
+        name: PropTypes.string.isRequired
+      })
+    ),
     /**
      * Form name
      */
@@ -92,6 +96,10 @@ class AddressForm extends Component {
      * Cancel event callback
      */
     onCancel: PropTypes.func,
+    /**
+     * OnChange event callback
+     */
+    onChange: PropTypes.func,
     /**
      * Country change event callback, used to fetch new list of regions if country has changed.
      */
@@ -103,16 +111,18 @@ class AddressForm extends Component {
     /**
      * Region options
      */
-    regions: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    regions: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Region option label ("Louisiana", "California")
          */
-      label: PropTypes.string,
-      /**
+        label: PropTypes.string,
+        /**
          * Region option value ("LA", "CA")
          */
-      value: PropTypes.string
-    })),
+        value: PropTypes.string
+      })
+    ),
     /**
      * Validator method
      */
@@ -137,6 +147,7 @@ class AddressForm extends Component {
     errors: [],
     name: "address",
     onCancel() {},
+    onChange() {},
     onCountryChange() {},
     onSubmit() {},
     validator: getRequiredValidator(
@@ -171,29 +182,28 @@ class AddressForm extends Component {
     onCancel();
   };
 
+  getValue = () => {
+    return this._form.getValue();
+  };
+
   submit() {
     this._form.submit();
   }
 
   validate() {
-    this._form.validate();
+    return this._form.validate();
   }
 
   render() {
     const {
       value,
-      components: {
-        ErrorsBlock,
-        Field,
-        TextInput,
-        Select,
-        PhoneNumberInput
-      },
+      components: { ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       countries,
       errors,
       name,
       regions,
-      validator
+      validator,
+      onChange
     } = this.props;
     return (
       <Form
@@ -202,8 +212,10 @@ class AddressForm extends Component {
         }}
         errors={errors}
         name={name}
+        onChange={onChange}
         onSubmit={this.props.onSubmit}
         validator={validator}
+        revalidateOn="changed"
         value={value}
       >
         <Grid>
@@ -272,7 +284,7 @@ class AddressForm extends Component {
 
           <ColFull>
             <Field name="phone" label="Phone" isRequired>
-              <PhoneNumberInput name="phone" placeholder="Phone" />
+              <PhoneNumberInput name="phone" placeholder="Phone" onBlur={() => this._form.submit()} />
               <ErrorsBlock names={["phone"]} />
             </Field>
           </ColFull>
