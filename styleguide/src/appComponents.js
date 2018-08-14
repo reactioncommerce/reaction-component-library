@@ -13,6 +13,7 @@ import QuantityInput from "../../package/src/components/QuantityInput/v1";
 import Select from "../../package/src/components/Select/v1";
 import StockWarning from "../../package/src/components/StockWarning/v1";
 import spinner from "../../package/src/utils/spinner";
+import StripeForm from "../../package/src/components/StripeForm/v1";
 import TextInput from "../../package/src/components/TextInput/v1";
 
 /* eslint-disable max-len */
@@ -87,5 +88,6 @@ export default {
   Select,
   spinner,
   StockWarning,
+  StripeForm,
   TextInput
 };

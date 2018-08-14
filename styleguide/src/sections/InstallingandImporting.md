@@ -43,6 +43,7 @@ import QuantityInput from "@reactioncommerce/components/QuantityInput/v1";
 import Select from "@reactioncommerce/components/Select/v1";
 import StockWarning from "@reactioncommerce/components/StockWarning/v1";
 import spinner from "@reactioncommerce/components/utils/spinner";
+import StripeForm from "@reactioncommerce/components/StripeForm/v1";
 import TextInput from "@reactioncommerce/components/TextInput/v1";
 
 /* eslint-disable max-len */
