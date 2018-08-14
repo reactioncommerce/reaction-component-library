@@ -360,7 +360,7 @@ module.exports = {
       name: "Storefront Components",
       sections: [
         generateSection({
-          componentNames: ["ShopLogo"],
+          componentNames: ["ShopLogo", "Image"],
           content: "styleguide/src/sections/General.md",
           name: "General"
         }),

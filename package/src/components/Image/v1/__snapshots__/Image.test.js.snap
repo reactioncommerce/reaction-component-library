@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Basic Image snapshot 1`] = `
+.c0 {
+  background-color: #ffffff;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 100%;
+  position: relative;
+  width: 100%;
+}
+
+<div
+  className="c0"
+/>
+`;
+
+exports[`Image with progressive loading snapshot 1`] = `
+.c0 {
+  background-color: #ffffff;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.c1 {
+  height: auto;
+  left: 50%;
+  opacity: 1;
+  position: absolute;
+  -webkit-transition: opacity 300ms cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 300ms cubic-bezier(0.4,0,0.2,1);
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 100%;
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+  z-index: 1100;
+}
+
+<div
+  className="c0"
+>
+  <img
+    alt=""
+    className="c1"
+    src="/images/responsive-sticker/small.png"
+  />
+</div>
+`;
+
+exports[`Responsive Image with progressive loading snapshot 1`] = `
+.c0 {
+  background-color: #ffffff;
+  display: block;
+  height: 0;
+  overflow: hidden;
+  padding-top: 100%;
+  position: relative;
+  width: 100%;
+}
+
+.c1 {
+  height: auto;
+  left: 50%;
+  opacity: 1;
+  position: absolute;
+  -webkit-transition: opacity 300ms cubic-bezier(0.4,0,0.2,1);
+  transition: opacity 300ms cubic-bezier(0.4,0,0.2,1);
+  top: 50%;
+  -webkit-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+  width: 100%;
+  -webkit-filter: blur(8px);
+  filter: blur(8px);
+  z-index: 1100;
+}
+
+<div
+  className="c0"
+>
+  <img
+    alt=""
+    className="c1"
+    src="/images/responsive-sticker/small.png"
+  />
+</div>
+`;
