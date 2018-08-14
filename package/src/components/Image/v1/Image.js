@@ -41,10 +41,10 @@ const Img = styled.img`
         z-index: 1100;`;
     }
     if (isLoaded) {
-      styles += `z-index: 1000;`;
+      styles += "z-index: 1000;";
     }
     if (isHidden) {
-      styles += `opacity: 0;`;
+      styles += "opacity: 0;";
     }
 
     return styles;
