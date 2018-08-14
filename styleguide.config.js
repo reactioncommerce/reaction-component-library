@@ -358,6 +358,11 @@ module.exports = {
           name: "Actions"
         }),
         generateSection({
+          componentNames: ["ProgressiveImage"],
+          content: "styleguide/src/sections/Content.md",
+          name: "Content"
+        }),
+        generateSection({
           componentNames: ["Field", "Select", "TextInput", "QuantityInput", "PhoneNumberInput", "Checkbox", "ErrorsBlock"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
