@@ -6,10 +6,7 @@ import ShippingAddressCheckoutAction from "./ShippingAddressCheckoutAction";
 test("basic snapshot with empty address", () => {
   /* eslint-disable */
   const component = renderer.create(
-    <ShippingAddressCheckoutAction
-      components={mockComponents}
-      fullfillmentGroup={{ data: { shippingAddress: null } }}
-    />
+    <ShippingAddressCheckoutAction components={mockComponents} fulfillmentGroup={{ data: { shippingAddress: null } }} />
   );
   /* eslint-enable */
 
@@ -33,7 +30,7 @@ test("basic snapshot with address", () => {
   const component = renderer.create(
     <ShippingAddressCheckoutAction
       components={mockComponents}
-      fullfillmentGroup={{ data: { shippingAddress: address } }}
+      fulfillmentGroup={{ data: { shippingAddress: address } }}
     />
   );
   /* eslint-enable */

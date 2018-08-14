@@ -1,5 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot with address 1`] = `"CheckoutAction(undefined)"`;
+exports[`basic snapshot with address 1`] = `"AddressForm(undefined)"`;
 
-exports[`basic snapshot with empty address 1`] = `"CheckoutAction(undefined)"`;
+exports[`basic snapshot with empty address 1`] = `"AddressForm(undefined)"`;
