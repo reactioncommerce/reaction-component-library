@@ -5,8 +5,9 @@ import { applyTheme } from "../../../utils";
 
 const Table = styled.table`
   width: 100%;
-  background-color: ${applyTheme("color_black02")};
-  padding: 1rem;
+  border-spacing: 0;
+  background-color: ${(props) => (props.isDense ? "transparent" : applyTheme("color_black02")(props))};
+  padding: ${(props) => (props.isDense ? "0" : "1rem")};
 `;
 
 const Th = styled.th`
@@ -21,17 +22,18 @@ const Thr = styled.th`
   font-weight: normal;
 `;
 
-const TdValue = styled.td`
-  font-family: ${applyTheme("font_family")};
-  text-align: right;
-  padding: 1rem 0;
-  color: ${applyTheme("color_coolGrey500")};
-`;
-
 const Td = styled.td`
   font-family: ${applyTheme("font_family")};
-  padding: 1rem 0;
+  padding: ${(props) => (props.isDense ? "0.5rem 0" : "1rem 0")};
   color: ${applyTheme("color_coolGrey400")};
+  border-top: ${(props) => (props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial")};
+  border-bottom: ${(props) => (props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial")};
+`;
+
+const TdValue = Td.extend`
+  font-family: ${applyTheme("font_family")};
+  text-align: right;
+  color: ${applyTheme("color_coolGrey500")};
 `;
 
 const Title = styled.span`
@@ -75,27 +77,47 @@ class CartSummary extends Component {
      */
     displayTotal: PropTypes.string.isRequired,
     /**
+     * Dense layout with a transparent background color
+     */
+    isDense: PropTypes.bool,
+    /**
      * If a product qualifies for free shipping, display "FREE" for shipping method
      */
     isFreeShipping: PropTypes.bool,
     /**
      * Quantity of products in shopping cart
      */
-    itemsQuantity: PropTypes.number.isRequired
-  };
+    itemsQuantity: PropTypes.number
+  }
 
-  renderDiscount = () => {
-    const { displayDiscount } = this.props;
+  renderHeader() {
+    const { itemsQuantity } = this.props;
+    const itemsLabel = itemsQuantity >= 0 ? `${itemsQuantity} items` : null;
+
+    return (
+      <thead>
+        <tr>
+          <Th>
+            <Title>Cart Summary</Title>
+          </Th>
+          <Thr>{itemsLabel}</Thr>
+        </tr>
+      </thead>
+    );
+  }
+
+  renderDiscount() {
+    const { displayDiscount, isDense } = this.props;
 
     return (
       <tr>
-        <Td>Promo code applied</Td>
-        <TdValue>
+        <Td isDense={isDense}>Promo code applied</Td>
+        <TdValue isDense={isDense}>
           <Discount>{displayDiscount}</Discount>
         </TdValue>
       </tr>
     );
-  };
+  }
 
   render() {
     const {
@@ -104,41 +126,35 @@ class CartSummary extends Component {
       displaySubtotal,
       displayTax,
       displayTotal,
-      isFreeShipping,
-      itemsQuantity
+      isDense,
+      isFreeShipping
     } = this.props;
 
     const shipping = isFreeShipping ? "FREE" : displayShipping;
     const tax = displayTax || "-";
+    const header = !isDense && this.renderHeader();
     const discount = displayDiscount && this.renderDiscount();
 
     return (
-      <Table>
-        <thead>
-          <tr>
-            <Th>
-              <Title>Cart Summary</Title>
-            </Th>
-            <Thr>{itemsQuantity} items</Thr>
-          </tr>
-        </thead>
+      <Table isDense={isDense}>
+        {header}
         <tbody>
           <tr>
-            <Td>Subtotal</Td>
-            <TdValue>{displaySubtotal}</TdValue>
+            <Td isDense={isDense}>Item total</Td>
+            <TdValue isDense={isDense}>{displaySubtotal}</TdValue>
           </tr>
           <tr>
-            <Td>Shipping</Td>
-            <TdValue>{shipping}</TdValue>
+            <Td isDense={isDense}>Shipping</Td>
+            <TdValue isDense={isDense}>{shipping}</TdValue>
           </tr>
           {discount}
           <tr>
-            <Td>Tax</Td>
-            <TdValue>{tax}</TdValue>
+            <Td isDense={isDense}>Tax</Td>
+            <TdValue isDense={isDense}>{tax}</TdValue>
           </tr>
           <tr>
-            <Td>Total</Td>
-            <TdValue>
+            <Td isDense={isDense} isBordered>Order total</Td>
+            <TdValue isDense={isDense} isBordered>
               <Total>{displayTotal}</Total>
             </TdValue>
           </tr>
