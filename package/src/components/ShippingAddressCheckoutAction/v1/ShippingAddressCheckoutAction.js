@@ -77,21 +77,18 @@ class ShippingAddressCheckoutAction extends Component {
   _addressForm = null;
 
   handleSubmit = (address) => {
-    // eslint-disable-next-line
-    console.log("submited shipping address", address);
     this.setState({
       activeAddress: address
     });
   };
 
-  getFullfillmentData = () => {
-    return this._addressForm.validate().then((errs) => {
+  getFullfillmentData = () =>
+    this._addressForm.validate().then((errs) => {
       if (errs.length <= 0) {
         return this._addressForm.getValue();
       }
       return;
     });
-  };
 
   handleChange = (values) => {
     const { onReadyForSaveChange } = this.props;

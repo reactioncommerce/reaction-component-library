@@ -17,6 +17,7 @@ const FormActions = styled.div`
   align-items: flex-end;
   display: flex;
   justify-content: space-between;
+  padding: 1rem 0;
 `;
 
 class CheckoutActions extends Component {
@@ -76,10 +77,20 @@ class CheckoutActions extends Component {
     }
   };
 
+  static initActionStatus(i) {
+    if (i === 0) {
+      if (this.props.cart.fulfillmentGroup.data.shippingAddress) {
+        return "complete";
+      }
+      return "active";
+    }
+    return "incomplete";
+  }
+
   state = {
     currentActions: this.props.actions.map(({ label }, i) => ({
       label,
-      status: i === 0 ? (this.props.cart.fulfillmentGroup.data.shippingAddress ? "complete" : "active") : "incomplete",
+      status: this.initActionStatus(i),
       readyForSave: false,
       capturedData: null
     }))
