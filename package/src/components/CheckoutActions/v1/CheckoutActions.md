@@ -8,6 +8,8 @@ The `CheckoutActions` component is responsible for:
 #### Usage
 `CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checout action component that will be responsible to capturing a piece of checkout data.
 
+**Note:** These examples are only use the `ShippingAddressCheckoutAction` as the actions component. This will be updated with more actions as they get created.
+
 ```jsx
 const actions = [
   {
