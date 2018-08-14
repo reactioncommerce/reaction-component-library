@@ -1,4 +1,11 @@
 ### Overview
+The `ShippingAddressCheckoutAction` serves 3 purposes:
+1. To normalize data input/editing between the `CheckoutActions` component and the `AddressForm` components.
+2. To provide `CheckoutActions` with a `renderComplete` method that renders the captured checkout data.
+3. To provide `ChecoutActions` a way to know the action is ready for save,
+
+For a full implementation example see the [CheckoutActions](/#!/CheckoutActions)
+
 #### Usage
 
 ```jsx
@@ -11,7 +18,7 @@ const fullfillment = {
 <ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} />
 ```
 
-#### Complete
+#### With Address
 ```jsx
 const fullfillment = {
   data: {
@@ -32,29 +39,7 @@ const fullfillment = {
 <ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} />
 ```
 
-
-#### Active with Address
-```jsx
-const fullfillment = {
-  data: {
-    shippingAddress: {
-      address1: "7742 Hwy 23",
-      address2: "",
-      country: "US",
-      city: "Belle Chasse",
-      firstName: "Salvos",
-      lastName: "Seafood",
-      postal: "70037",
-      region: "LA",
-      phone: "(504) 393-7303"
-    }
-  }
-};
-
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} status="active" />
-```
-
-#### Active without Address
+#### Without Address
 ```jsx
 const fullfillment = {
   data: {
@@ -62,5 +47,40 @@ const fullfillment = {
   }
 };
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} status="active" />
+<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} />
+```
+
+#### Ready For Save
+Open the browser terminal and fill out this form to see the `onReadyForSaveChange` callback fire.
+```jsx
+const fullfillment = {
+  data: {
+    shippingAddress: null
+  }
+};
+
+const isReady = (ready) => console.log("is action ready for save?", ready);
+
+<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} onReadyForSaveChange={isReady} />
+```
+
+#### Render Complete Method
+```jsx
+const capturedData = {
+  shippingAddress: {
+    address1: "7742 Hwy 23",
+    address2: "",
+    country: "US",
+    city: "Belle Chasse",
+    firstName: "Salvos",
+    lastName: "Seafood",
+    postal: "70037",
+    region: "LA",
+    phone: "(504) 393-7303"
+  }
+};
+const action = ShippingAddressCheckoutAction;
+
+action.renderComplete(capturedData);
+
 ```
