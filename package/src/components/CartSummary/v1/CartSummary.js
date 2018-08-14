@@ -6,8 +6,8 @@ import { applyTheme } from "../../../utils";
 const Table = styled.table`
   width: 100%;
   border-spacing: 0;
-  background-color: ${props => props.isDense ? "transparent" : applyTheme("color_black02")(props)};
-  padding: ${props => props.isDense ? "0" : "1rem"};
+  background-color: ${(props) => (props.isDense ? "transparent" : applyTheme("color_black02")(props))};
+  padding: ${(props) => (props.isDense ? "0" : "1rem")};
 `;
 
 const Th = styled.th`
@@ -24,10 +24,10 @@ const Thr = styled.th`
 
 const Td = styled.td`
   font-family: ${applyTheme("font_family")};
-  padding: ${props => props.isDense ? "0.5rem 0" : "1rem 0"};
+  padding: ${(props) => (props.isDense ? "0.5rem 0" : "1rem 0")};
   color: ${applyTheme("color_coolGrey400")};
-  border-top: ${props => props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial" };
-  border-bottom: ${props => props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial"};
+  border-top: ${(props) => (props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial")};
+  border-bottom: ${(props) => (props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial")};
 `;
 
 const TdValue = Td.extend`
@@ -88,10 +88,11 @@ class CartSummary extends Component {
      * Quantity of products in shopping cart
      */
     itemsQuantity: PropTypes.number
-  };
+  }
 
   renderHeader() {
     const { itemsQuantity } = this.props;
+    const itemsLabel = itemsQuantity >= 0 ? `${itemsQuantity} items` : null;
 
     return (
       <thead>
@@ -99,10 +100,10 @@ class CartSummary extends Component {
           <Th>
             <Title>Cart Summary</Title>
           </Th>
-          <Thr>{itemsQuantity >= 0 && `${itemsQuantity} items`}</Thr>
+          <Thr>{itemsLabel}</Thr>
         </tr>
       </thead>
-    )
+    );
   }
 
   renderDiscount() {
@@ -116,9 +117,7 @@ class CartSummary extends Component {
         </TdValue>
       </tr>
     );
-  };
-
-  tdComponent
+  }
 
   render() {
     const {
@@ -128,8 +127,7 @@ class CartSummary extends Component {
       displayTax,
       displayTotal,
       isDense,
-      isFreeShipping,
-      itemsQuantity
+      isFreeShipping
     } = this.props;
 
     const shipping = isFreeShipping ? "FREE" : displayShipping;
