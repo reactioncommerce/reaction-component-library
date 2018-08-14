@@ -43,6 +43,7 @@ const StyledItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     background-color: ${applyTheme("selectableItemRadioButtonBackgroundColor")};
     border: ${applyTheme("selectableItemRadioButtonBorder")};
     height: ${applyTheme("selectableItemRadioButtonSize")};

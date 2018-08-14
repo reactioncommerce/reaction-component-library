@@ -58,6 +58,9 @@ const StyledList = styled.div`
     border-right: 1px solid #e6e6e6;
     padding-left: 10px;
     padding-right: 10px;
+    height: 50px;
+    display: flex;
+    align-items: center;
   }
   > *:last-child {
     border-bottom-right-radius: 2px;
