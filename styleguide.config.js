@@ -61,7 +61,15 @@ if (fs.statSync(componentsDir).isDirectory()) {
 //   return { content, name, sections };
 // }
 
-// This one renders only version 1 for now
+/**
+ * @name generateSection
+ * @summary generates an object that builds a section in the styleguide
+ * @param {Object} options - Function parameters
+ * @param {[String]} componentNames - Array of strings of component names
+ * @param {String} name - Name of section
+ * @param {String} content - path to markdown content file
+ * @returns {Object} with content, name, components keys
+ */
 function generateSection({ componentNames, name, content }) {
   const components = componentNames.map((componentName) =>
     Object.keys(componentTree[componentName]).map((version) => componentTree[componentName][version])[0]);
@@ -345,7 +353,7 @@ module.exports = {
       name: "Base Components",
       sections: [
         generateSection({
-          componentNames: ["Button"],
+          componentNames: ["Button", "Link"],
           content: "styleguide/src/sections/Actions.md",
           name: "Actions"
         }),

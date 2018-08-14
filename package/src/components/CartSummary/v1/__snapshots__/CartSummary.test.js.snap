@@ -3,6 +3,7 @@
 exports[`Displays a summary of the current items in the cart 1`] = `
 .c0 {
   width: 100%;
+  border-spacing: 0;
   background-color: #fafafa;
   padding: 1rem;
 }
@@ -19,17 +20,42 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   font-weight: normal;
 }
 
-.c5 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  text-align: right;
-  padding: 1rem 0;
-  color: #3c3c3c;
-}
-
 .c4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
   color: #3c5d6f;
+  border-top: initial;
+  border-bottom: initial;
+}
+
+.c6 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: initial;
+  border-bottom: initial;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  text-align: right;
+  color: #3c3c3c;
+}
+
+.c7 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  text-align: right;
+  color: #3c3c3c;
 }
 
 .c2 {
@@ -38,7 +64,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   color: #3c3c3c;
 }
 
-.c6 {
+.c8 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
@@ -61,8 +87,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <th
         className="c3"
       >
-        3
-         items
+        3 items
       </th>
     </tr>
   </thead>
@@ -71,7 +96,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c4"
       >
-        Subtotal
+        Item total
       </td>
       <td
         className="c5"
@@ -105,15 +130,15 @@ exports[`Displays a summary of the current items in the cart 1`] = `
     </tr>
     <tr>
       <td
-        className="c4"
+        className="c6"
       >
-        Total
+        Order total
       </td>
       <td
-        className="c5"
+        className="c7"
       >
         <span
-          className="c6"
+          className="c8"
         >
           $300.424
         </span>
@@ -126,6 +151,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
 exports[`Displays a summary with FREE shipping 1`] = `
 .c0 {
   width: 100%;
+  border-spacing: 0;
   background-color: #fafafa;
   padding: 1rem;
 }
@@ -142,17 +168,42 @@ exports[`Displays a summary with FREE shipping 1`] = `
   font-weight: normal;
 }
 
-.c5 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  text-align: right;
-  padding: 1rem 0;
-  color: #3c3c3c;
-}
-
 .c4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
   color: #3c5d6f;
+  border-top: initial;
+  border-bottom: initial;
+}
+
+.c6 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: initial;
+  border-bottom: initial;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  text-align: right;
+  color: #3c3c3c;
+}
+
+.c7 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  text-align: right;
+  color: #3c3c3c;
 }
 
 .c2 {
@@ -161,7 +212,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
   color: #3c3c3c;
 }
 
-.c6 {
+.c8 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
@@ -184,8 +235,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <th
         className="c3"
       >
-        3
-         items
+        3 items
       </th>
     </tr>
   </thead>
@@ -194,7 +244,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c4"
       >
-        Subtotal
+        Item total
       </td>
       <td
         className="c5"
@@ -228,15 +278,15 @@ exports[`Displays a summary with FREE shipping 1`] = `
     </tr>
     <tr>
       <td
-        className="c4"
+        className="c6"
       >
-        Total
+        Order total
       </td>
       <td
-        className="c5"
+        className="c7"
       >
         <span
-          className="c6"
+          className="c8"
         >
           $300.424
         </span>
@@ -249,6 +299,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
 exports[`Displays a summary with applied discount 1`] = `
 .c0 {
   width: 100%;
+  border-spacing: 0;
   background-color: #fafafa;
   padding: 1rem;
 }
@@ -265,17 +316,42 @@ exports[`Displays a summary with applied discount 1`] = `
   font-weight: normal;
 }
 
-.c5 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  text-align: right;
-  padding: 1rem 0;
-  color: #3c3c3c;
-}
-
 .c4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
   color: #3c5d6f;
+  border-top: initial;
+  border-bottom: initial;
+}
+
+.c7 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: initial;
+  border-bottom: initial;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  text-align: right;
+  color: #3c3c3c;
+}
+
+.c8 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  text-align: right;
+  color: #3c3c3c;
 }
 
 .c2 {
@@ -290,7 +366,7 @@ exports[`Displays a summary with applied discount 1`] = `
   font-weight: 700;
 }
 
-.c7 {
+.c9 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
@@ -313,8 +389,7 @@ exports[`Displays a summary with applied discount 1`] = `
       <th
         className="c3"
       >
-        3
-         items
+        3 items
       </th>
     </tr>
   </thead>
@@ -323,7 +398,7 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Subtotal
+        Item total
       </td>
       <td
         className="c5"
@@ -373,15 +448,15 @@ exports[`Displays a summary with applied discount 1`] = `
     </tr>
     <tr>
       <td
-        className="c4"
+        className="c7"
       >
-        Total
+        Order total
       </td>
       <td
-        className="c5"
+        className="c8"
       >
         <span
-          className="c7"
+          className="c9"
         >
           $300.424
         </span>
@@ -394,6 +469,7 @@ exports[`Displays a summary with applied discount 1`] = `
 exports[`Displays a summary with calculated taxes 1`] = `
 .c0 {
   width: 100%;
+  border-spacing: 0;
   background-color: #fafafa;
   padding: 1rem;
 }
@@ -410,17 +486,42 @@ exports[`Displays a summary with calculated taxes 1`] = `
   font-weight: normal;
 }
 
-.c5 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  text-align: right;
-  padding: 1rem 0;
-  color: #3c3c3c;
-}
-
 .c4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
   color: #3c5d6f;
+  border-top: initial;
+  border-bottom: initial;
+}
+
+.c6 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.c5 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: initial;
+  border-bottom: initial;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  text-align: right;
+  color: #3c3c3c;
+}
+
+.c7 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding: 1rem 0;
+  color: #3c5d6f;
+  border-top: 1px solid #e6e6e6;
+  border-bottom: 1px solid #e6e6e6;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  text-align: right;
+  color: #3c3c3c;
 }
 
 .c2 {
@@ -429,7 +530,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
   color: #3c3c3c;
 }
 
-.c6 {
+.c8 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-weight: 700;
   color: #3c3c3c;
@@ -452,8 +553,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <th
         className="c3"
       >
-        3
-         items
+        3 items
       </th>
     </tr>
   </thead>
@@ -462,7 +562,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c4"
       >
-        Subtotal
+        Item total
       </td>
       <td
         className="c5"
@@ -496,15 +596,15 @@ exports[`Displays a summary with calculated taxes 1`] = `
     </tr>
     <tr>
       <td
-        className="c4"
+        className="c6"
       >
-        Total
+        Order total
       </td>
       <td
-        className="c5"
+        className="c7"
       >
         <span
-          className="c6"
+          className="c8"
         >
           $300.424
         </span>
