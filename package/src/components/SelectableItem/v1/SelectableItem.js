@@ -7,7 +7,10 @@ import { applyTheme } from "../../../utils";
 const StyledItem = styled.div`
   display: flex;
   justify-content: space-between;
-  height: 50px;
+  height: ${applyTheme("selectableListHeight")};
+  @media (max-width: 768px) {
+    height: ${applyTheme("selectableListHeightMobile")};
+  }
   input {
     cursor: pointer;
     position: absolute;
@@ -29,7 +32,11 @@ const StyledItem = styled.div`
     height: ${applyTheme("selectableItemRadioButtonCheckSize")};
     border-radius: 50%;
     background-color: ${applyTheme("selectableItemRadioButtonColor")};
-   }
+  }
+  input:focus + label span {
+    box-shadow: 0 0 0 2px #8ce0c9;
+    outline: 1px solid transparent;
+  }
   label {
     font-family: ${applyTheme("selectableItemLabelFontFamily")};
     color: ${applyTheme("selectableItemLabelColor")};
@@ -56,6 +63,9 @@ const StyledItem = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: ${applyTheme("selectableItemLabelFontFamily")};
+    font-size: 16px;
+    letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
   }
 `;
 

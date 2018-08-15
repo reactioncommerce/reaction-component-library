@@ -2,32 +2,32 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { CustomPropTypes } from "../../../utils";
+import { CustomPropTypes, applyTheme } from "../../../utils";
 
 const StyledList = styled.div`
+  width: 100%;
   fieldset {
-    border-top: 1px solid #e6e6e6;
+    border-top: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
     border-left: none;
     border-right: none;
     border-bottom: none;
-    border-top-right-radius: 2px;
-    border-top-left-radius: 2px;
-    padding: 0;
-    margin: 0;
+    border-top-right-radius: ${applyTheme("selectableListBorderRadius")};
+    border-top-left-radius: ${applyTheme("selectableListBorderRadius")};
+    padding: ${applyTheme("selectableListPadding")};
+    margin: ${applyTheme("selectableListMargin")};
     .wrapper {
-      border-bottom: 1px solid #e6e6e6;
-      border-left: 1px solid #e6e6e6;
-      border-right: 1px solid #e6e6e6;
-      padding-left: 10px;
-      padding-right: 10px;
+      border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+      border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+      border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+      padding: ${applyTheme("selectableListItemPadding")};
       .leftAligned {
         justify-content: flex-start;
         label {
-          font-weight: 600
+          font-weight: ${applyTheme("selectableListLabelFontWeight")}
         }
         .detail {
-          font-size: 14px;
-          font-family: "Source Sans Pro";
+          font-size: ${applyTheme("selectableListDetailFontSize")};
+          font-family: ${applyTheme("selectableListFontFamily")};
           margin-left: 2px;
         }
       }
@@ -37,37 +37,40 @@ const StyledList = styled.div`
           position: relative;
         }
         span {
-          margin-right: 60px;
+          margin: ${applyTheme("selectableListIconMargin")}
         }
         label span:after {
-          left: 30px;
+          left: ${applyTheme("selectableListIconLeft")};
           position: absolute;
           content: " ";
-          width: 38px;
-          height: 24px;
+          width: ${applyTheme("selectableListIconWidth")};
+          height: ${applyTheme("selectableListIconHeight")};
           display: inline-block;
-          border-radius: 2px;
-          border: 1px solid #e6e6e6;
+          border-radius: ${applyTheme("selectableListBorderRadius")};;
+          border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
         }
       }
     }
   }
   .listAction {
-    border-bottom: 1px solid #e6e6e6;
-    border-left: 1px solid #e6e6e6;
-    border-right: 1px solid #e6e6e6;
-    padding-left: 10px;
-    padding-right: 10px;
-    height: 50px;
+    border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    padding: ${applyTheme("selectableListItemPadding")};
+    height: ${applyTheme("selectableListHeight")};
     display: flex;
     align-items: center;
+    box-sizing: border-box;
+    @media (max-width: 768px) {
+      height: ${applyTheme("selectableListHeightMobile")};
+    }
   }
   > *:last-child {
-    border-bottom-right-radius: 2px;
-    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
+    border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
     .wrapper:last-child {
-      border-bottom-right-radius: 2px;
-      border-bottom-left-radius: 2px;
+      border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
+      border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
     }
   }
 `;
@@ -111,7 +114,6 @@ class SelectableList extends Component {
 
     return (
       <StyledList>
-        <legend>Legend</legend>
         <fieldset>
           {items.map((item) =>
             <div className="wrapper">
