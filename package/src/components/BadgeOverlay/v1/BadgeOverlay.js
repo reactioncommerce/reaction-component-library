@@ -47,14 +47,14 @@ const PrimaryBadge = styled.div`
         return "";
     }
   }}
-`;
+  `;
 
 const SecondaryBadge = styled.div`
   ${baseBadgeStyles}
   color: ${applyTheme("color_coolGrey")};
   top: 8px;
   right: 8px;
-`;
+  `;
 
 const Overlay = styled.div`
   position: relative;
@@ -64,7 +64,7 @@ const Overlay = styled.div`
     }
     return "";
   }}
-`;
+  `;
 
 const BadgeLabel = styled.span`
   font-weight: 700;
@@ -73,7 +73,7 @@ const BadgeLabel = styled.span`
   padding: 0;
   letter-spacing: 0.5px;
   font-size: 11px;
-`;
+  `;
 
 class BadgeOverlay extends Component {
   static propTypes = {
