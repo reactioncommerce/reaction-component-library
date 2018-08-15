@@ -6,7 +6,7 @@ The `CheckoutActions` component is responsible for:
   * Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
 
 #### Usage
-`CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checouk action component that will be responsible to capturing a piece of checkout data as well as a `props` object. Each `props` object will include the piece of `cart.checkout` data the action needs to capture/display and the cart mutation that needs to be called during capture.
+`CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checkout action component that will be responsible to capturing a piece of checkout data as well as a `props` object. Each `props` object will include the piece of `cart.checkout` data the action needs to display and the cart mutation that needs to be called during capture.
 
 **Example of Actions array**
 ```js static
@@ -53,7 +53,6 @@ const mockAddress = {
   region: "LA",
   phone: "(504) 393-7303"
 }
-
 
 let cart = {
   fulfillmentGroup: {
