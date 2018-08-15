@@ -26,6 +26,7 @@ const supportedPassthroughProps = [
   "getOptionLabel",
   "getOptionValue",
   "hideSelectedOptions",
+  "id",
   "inputValue",
   "isClearable",
   "isLoading",

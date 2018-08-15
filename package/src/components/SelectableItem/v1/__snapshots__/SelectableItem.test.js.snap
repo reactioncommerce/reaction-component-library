@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c0 input {
+  cursor: pointer;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  -webkit-clip: rect(0,0,0,0);
+  clip: rect(0,0,0,0);
+  border: 0;
+  visibility: visible;
+  white-space: nowrap;
+}
+
+.c0 input:checked + label span::before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #3c3c3c;
+}
+
+.c0 label {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  color: #3c3c3c;
+  font-size: 14px;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c0 span {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 2px solid #3c3c3c;
+  height: 20px;
+  width: 20px;
+  margin: 0 10px 0 0;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+<div
+  className="c0"
+>
+  <input
+    checked={false}
+    id="Radio_1"
+    name={undefined}
+    onChange={[Function]}
+    type="radio"
+  />
+  <label
+    htmlFor="Radio_1"
+  >
+    <span />
+  </label>
+  <div />
+</div>
+`;

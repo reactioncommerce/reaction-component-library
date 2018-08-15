@@ -83,6 +83,7 @@ exports[`basic snapshot 1`] = `
 >
   <input
     className="c1"
+    id={undefined}
     maxLength={undefined}
     name={undefined}
     onBlur={[Function]}
