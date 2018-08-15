@@ -1,0 +1,547 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BadgeOverlay with backorder primary badge 1`] = `
+.c1 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #ffffff;
+  top: 8px;
+  left: 8px;
+  background-color: #5e7480;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c2 {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    type="BACKORDER"
+  >
+    <span
+      className="c2"
+    >
+      Backorder
+    </span>
+  </div>
+  <img
+    alt="Reaction Design System Logo"
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</div>
+`;
+
+exports[`BadgeOverlay with best seller primary badge 1`] = `
+.c1 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #ffffff;
+  top: 8px;
+  left: 8px;
+  background-color: #8ce0c9;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c2 {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    type="BESTSELLER"
+  >
+    <span
+      className="c2"
+    >
+      Best Seller
+    </span>
+  </div>
+  <img
+    alt="Reaction Design System Logo"
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</div>
+`;
+
+exports[`BadgeOverlay with low quantity primary badge 1`] = `
+.c1 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #ffffff;
+  top: 8px;
+  left: 8px;
+  background-color: #5e7480;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c2 {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    type="LOW_QUANTITY"
+  >
+    <span
+      className="c2"
+    >
+      Low Inventory
+    </span>
+  </div>
+  <img
+    alt="Reaction Design System Logo"
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</div>
+`;
+
+exports[`BadgeOverlay with low quantity primary badge and best seller secondary badge 1`] = `
+.c1 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #ffffff;
+  top: 8px;
+  left: 8px;
+  background-color: #5e7480;
+}
+
+.c3 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #5e7480;
+  top: 8px;
+  right: 8px;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c2 {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    type="LOW_QUANTITY"
+  >
+    <span
+      className="c2"
+    >
+      Low Inventory
+    </span>
+  </div>
+  <div
+    className="c3"
+  >
+    <span
+      className="c2"
+    >
+      Bestseller
+    </span>
+  </div>
+  <img
+    alt="Reaction Design System Logo"
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</div>
+`;
+
+exports[`BadgeOverlay with on sale primary badge 1`] = `
+.c1 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #ffffff;
+  top: 8px;
+  left: 8px;
+  background-color: #e54f5d;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c2 {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    type="SALE"
+  >
+    <span
+      className="c2"
+    >
+      Sale
+    </span>
+  </div>
+  <img
+    alt="Reaction Design System Logo"
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</div>
+`;
+
+exports[`BadgeOverlay with on sale primary badge and best seller secondary badge 1`] = `
+.c1 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #ffffff;
+  top: 8px;
+  left: 8px;
+  background-color: #e54f5d;
+}
+
+.c3 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #5e7480;
+  top: 8px;
+  right: 8px;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c2 {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    type="SALE"
+  >
+    <span
+      className="c2"
+    >
+      Sale
+    </span>
+  </div>
+  <div
+    className="c3"
+  >
+    <span
+      className="c2"
+    >
+      Bestseller
+    </span>
+  </div>
+  <img
+    alt="Reaction Design System Logo"
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</div>
+`;
+
+exports[`BadgeOverlay with on sale primary badge and low quantity secondary badge 1`] = `
+.c1 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #ffffff;
+  top: 8px;
+  left: 8px;
+  background-color: #e54f5d;
+}
+
+.c3 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #5e7480;
+  top: 8px;
+  right: 8px;
+}
+
+.c0 {
+  position: relative;
+}
+
+.c2 {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    type="SALE"
+  >
+    <span
+      className="c2"
+    >
+      Sale
+    </span>
+  </div>
+  <div
+    className="c3"
+  >
+    <span
+      className="c2"
+    >
+      Low Inventory
+    </span>
+  </div>
+  <img
+    alt="Reaction Design System Logo"
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</div>
+`;
+
+exports[`BadgeOverlay with sold out primary badge 1`] = `
+.c1 {
+  line-height: 1.375em;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  border-radius: 4px;
+  height: auto;
+  font-size: 0.7rem;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 4px;
+  position: absolute;
+  z-index: 1200;
+  color: #ffffff;
+  top: 8px;
+  left: 8px;
+  background-color: #5e7480;
+}
+
+.c0 {
+  position: relative;
+  opacity: 0.5;
+}
+
+.c2 {
+  font-weight: 700;
+  position: relative;
+  white-space: nowrap;
+  padding: 0;
+  -webkit-letter-spacing: 0.5px;
+  -moz-letter-spacing: 0.5px;
+  -ms-letter-spacing: 0.5px;
+  letter-spacing: 0.5px;
+  font-size: 11px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    type="SOLD_OUT"
+  >
+    <span
+      className="c2"
+    >
+      Sold Out
+    </span>
+  </div>
+  <img
+    alt="Reaction Design System Logo"
+    height="200"
+    src="/reaction-design-system-logo.svg"
+    width="200"
+  />
+</div>
+`;

@@ -26,7 +26,7 @@ test("Link component with text snapshot", () => {
 test("Link component with onClick hander", () => {
   const testClickHandler = jest.fn();
   const component = shallow((
-    <Link href="http://google.com" onClick={testClickHandler} />
+    <Link href="http://google.com" onClick={testClickHandler}>Click here</Link>
   ));
 
   component.find("a").simulate("click");
