@@ -94,14 +94,6 @@ const ItemRemoveButton = styled.button`
 class CartItem extends Component {
   static propTypes = {
     /**
-     * Display remove button
-     */
-    canRemoveItem: PropTypes.bool,
-    /**
-     * Display quantity update input
-     */
-    canUpdateItemQuantity: PropTypes.bool,
-    /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
@@ -213,8 +205,6 @@ class CartItem extends Component {
   };
 
   static defaultProps = {
-    canRemoveItem: true,
-    canUpdateItemQuantity: true,
     isMiniCart: false,
     isReadOnly: false,
     onChangeCartItemQuantity() {},
@@ -254,8 +244,6 @@ class CartItem extends Component {
 
   render() {
     const {
-      canRemoveItem,
-      canUpdateItemQuantity,
       components,
       isMiniCart,
       isReadOnly,
@@ -281,9 +269,6 @@ class CartItem extends Component {
       StockWarning
     } = components || {};
 
-    const shouldShowQuantityInput = isReadOnly === false && canUpdateItemQuantity;
-    const shouldShowRemoveButton = isReadOnly === false && canRemoveItem;
-
     return (
       <Item>
         {this.renderImage()}
@@ -296,7 +281,7 @@ class CartItem extends Component {
                   isMiniCart={isMiniCart}
                   productSlug={productSlug}
                   productVendor={productVendor}
-                  quantity={!shouldShowQuantityInput ? quantity : null}
+                  quantity={isReadOnly ? quantity : null}
                   title={title}
                 />
 
@@ -307,14 +292,14 @@ class CartItem extends Component {
               </ItemContentDetailInfo>
 
 
-              {shouldShowQuantityInput &&
+              {!isReadOnly &&
                 <ItemContentQuantityInput isMiniCart={isMiniCart}>
                   <QuantityInput value={quantity} onChange={this.handleChangeCartItemQuantity} />
                 </ItemContentQuantityInput>
               }
             </ItemContentDetailInner>
 
-            {shouldShowRemoveButton && <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>}
+            {!isReadOnly && <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>}
           </ItemContentDetail>
 
           <ItemContentPrice isMiniCart={isMiniCart}>
