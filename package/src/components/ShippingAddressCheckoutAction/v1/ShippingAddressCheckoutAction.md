@@ -11,58 +11,50 @@ For a full implementation example see the [CheckoutActions](/#!/CheckoutActions)
 
 ```jsx
 const fullfillment = {
-  data: {
-    shippingAddress: null
-  }
+  shippingAddress: null
 };
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} />
+<ShippingAddressCheckoutAction value={fullfillment} label="Shipping Address" stepNumber={1} />
 ```
 
 #### With Address
 ```jsx
 const fullfillment = {
-  data: {
-    shippingAddress: {
-      address1: "7742 Hwy 23",
-      address2: "",
-      country: "US",
-      city: "Belle Chasse",
-      firstName: "Salvos",
-      lastName: "Seafood",
-      postal: "70037",
-      region: "LA",
-      phone: "(504) 393-7303"
-    }
+  shippingAddress: {
+    address1: "7742 Hwy 23",
+    address2: "",
+    country: "US",
+    city: "Belle Chasse",
+    firstName: "Salvos",
+    lastName: "Seafood",
+    postal: "70037",
+    region: "LA",
+    phone: "(504) 393-7303"
   }
 };
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} />
+<ShippingAddressCheckoutAction value={fullfillment} label="Shipping Address" stepNumber={1} />
 ```
 
 #### Without Address
 ```jsx
 const fullfillment = {
-  data: {
-    shippingAddress: null
-  }
+  shippingAddress: null
 };
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} />
+<ShippingAddressCheckoutAction value={fullfillment} label="Shipping Address" stepNumber={1} />
 ```
 
 #### Ready For Save
 Open the browser terminal and fill out this form to see the `onReadyForSaveChange` callback fire.
 ```jsx
 const fullfillment = {
-  data: {
-    shippingAddress: null
-  }
+  shippingAddress: null
 };
 
 const isReady = (ready) => console.log("is action ready for save?", ready);
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} onReadyForSaveChange={isReady} />
+<ShippingAddressCheckoutAction value={fullfillment} onReadyForSaveChange={isReady} label="Shipping Address" stepNumber={1} />
 ```
 
 #### Render Complete Method
