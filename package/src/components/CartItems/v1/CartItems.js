@@ -27,6 +27,10 @@ class CartItems extends Component {
      */
     isMiniCart: PropTypes.bool,
     /**
+     * Hide remove button and quantity input
+     */
+    isReadOnly: PropTypes.bool,
+    /**
      * CartItem data. Only the `_id` prop is required by this component. Each item is passed to
      * CartItem, which may require additional props.
      */
@@ -48,6 +52,7 @@ class CartItems extends Component {
 
   static defaultProps = {
     isMiniCart: false,
+    isReadOnly: false,
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
   };
