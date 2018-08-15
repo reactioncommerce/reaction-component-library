@@ -1,5 +1,5 @@
 import React from "react";
-
+/* eslint-disable */
 export default [
   <svg
     width="32"
@@ -119,3 +119,4 @@ export default [
     </g>
   </svg>
 ];
+/* eslint-enable */

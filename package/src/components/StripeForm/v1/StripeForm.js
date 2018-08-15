@@ -9,7 +9,7 @@ import {
 } from "react-stripe-elements";
 import styled from "styled-components";
 import { applyTheme, withStripeElements } from "../../../utils";
-import icons from "./cc_icons";
+import ccIcons from "./cc_icons";
 
 function fieldBorderColor(themeProp = "color") {
   return (props) => {
@@ -124,13 +124,11 @@ class StripeForm extends Component {
     this.setState({ [`${event.elementType}IsFocused`]: false });
   }
 
-  renderIcons = () => {
-    return (
-      <div>
-        {icons.map((icon, index) => <Span key={index}>{icon}</Span>)}
-      </div>
-    );
-  };
+  renderIcons = () => (
+    <div>
+      {ccIcons.map((icon, index) => <Span key={index}>{icon}</Span>)}
+    </div>
+  );
 
   render() {
     const {
