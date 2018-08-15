@@ -6,7 +6,38 @@ The `CheckoutActions` component is responsible for:
   * Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
 
 #### Usage
-`CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checout action component that will be responsible to capturing a piece of checkout data.
+`CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checouk action component that will be responsible to capturing a piece of checkout data as well as a `props` object. Each `props` object will include the piece of `cart.checkout` data the action needs to capture/display and the cart mutation that needs to be called during capture.
+
+**Example of Actions array**
+```js static
+const actions = [
+  {
+    label: "Shipping Information",
+    component: ShippingAddressCheckoutAction,
+    props: {
+      cartData: cart.checkout.fulfillmentGroup,
+      cartMutation: setShippingAddress
+    }
+  },
+  {
+    label: "Shipping Options",
+    component: ShippingOptionCheckoutAction,
+    props: {
+      cartData: cart.checkout.fulfillmentGroup.avalibleFulfilmentGroups,
+      cartMutation: setShippingOption
+    }
+  },
+  { 
+    label: "Payment Information", 
+    component: PaymentCheckoutAction, 
+    props: { 
+      cartData: cart.checkout.payments[0], 
+      cartMutation: setPayment
+    } 
+  }
+];
+
+```
 
 **Note:** These examples are only use the `ShippingAddressCheckoutAction` as the actions component. This will be updated with more actions as they get created.
 
@@ -23,62 +54,47 @@ const mockAddress = {
   phone: "(504) 393-7303"
 }
 
-const cart = {
- fulfillmentGroup: {
-   data: {
-    shippingAddress: mockAddress
-  }
- }
-};
 
-const mockMutationCall = (data) => new Promise((resolve, reject) => {
-  setTimeout(resolve, 2000, { mockAddress });
-});
-
-
-class CheckoutExample extends React.Component {
-  constructor(props) {
-    super(props);
-    
-    this.actions = [
-      {
-        label: "Second Shipping Information",
-        component: ShippingAddressCheckoutAction,
-        props: {
-          cartData: { data: null },
-          cartMutation: mockMutationCall
-        }
-      }
-    ];
-    
-    this.onClick.bind(this);
-  }
-  
-  onClick() {
-    mockMutationCall({ thing: 1 }).then((success) => {
-      console.log("hey response", success)
-    })
-  }
-
-  render() {
-    return (
-      <div>
-      <button onClick={this.onClick}>click</button>
-        <CheckoutActions actions={this.actions} />
-      </div>
-    );
+let cart = {
+  fulfillmentGroup: {
+    data: null
   }
 }
 
-<CheckoutExample cart={cart} />
-```
+const getCart = () => cart;
 
+const mockMutation = (data) => new Promise((resolve, reject) => {
+  setTimeout(() => {
+    cart.fulfillmentGroup.data = { shippingAddress: mockAddress };
+    console.log("updating car data", cart.fulfillmentGroup)
+    resolve(mockAddress);
+  }, 2000, { mockAddress });
+});
 
-{
-        label: "Shipping Information",
-        component: ShippingAddressCheckoutAction,
-        props: {
-          cartData: props.cart.fulfillmentGroup,
-          cartMutation: mockMutationCall
+const actions = [
+  {
+    label: "Shipping Information",
+    component: ShippingAddressCheckoutAction,
+    props: {
+      cartData: getCart().fulfillmentGroup,
+      cartMutation: mockMutation
+    }
+  },
+  { 
+    label: "Second Shipping Information", 
+    component: ShippingAddressCheckoutAction, 
+    props: { 
+      cartData: {
+        data: {
+          shippingAddress: mockAddress
         }
-      },
+      }, 
+      cartMutation: mockMutation 
+    } 
+  }
+];
+
+
+<CheckoutActions actions={actions} />
+
+```
