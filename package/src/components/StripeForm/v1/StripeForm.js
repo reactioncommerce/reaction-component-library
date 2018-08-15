@@ -9,6 +9,7 @@ import {
 } from "react-stripe-elements";
 import styled from "styled-components";
 import { applyTheme, withStripeElements } from "../../../utils";
+import icons from "./cc_icons";
 
 function fieldBorderColor(themeProp = "color") {
   return (props) => {
@@ -33,6 +34,17 @@ const Field = styled.div`
   margin-bottom: 20px;
   outline: none;
   padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
+`;
+
+
+const AcceptedPaymentMethods = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+`;
+
+const Span = styled.span`
+  margin-left: 5px;
 `;
 
 const FlexContainer = styled.div`
@@ -112,6 +124,14 @@ class StripeForm extends Component {
     this.setState({ [`${event.elementType}IsFocused`]: false });
   }
 
+  renderIcons = () => {
+    return (
+      <div>
+        {icons.map((icon, index) => <Span key={index}>{icon}</Span>)}
+      </div>
+    );
+  };
+
   render() {
     const {
       cardNumberPlaceholder,
@@ -135,6 +155,9 @@ class StripeForm extends Component {
 
     return (
       <Fragment>
+        <AcceptedPaymentMethods>
+          {this.renderIcons()}
+        </AcceptedPaymentMethods>
         <Field isFocused={cardNumberIsFocused}>
           <CardNumberElement
             placeholder={cardNumberPlaceholder}
