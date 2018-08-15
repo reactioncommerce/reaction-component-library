@@ -24,14 +24,6 @@ class ShippingAddressCheckoutAction extends Component {
       AddressForm: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
-     * Selected fulfillment group from cart
-     */
-    fulfillmentGroup: PropTypes.shape({
-      data: PropTypes.shape({
-        shippingAddress: PropTypes.object
-      })
-    }).isRequired,
-    /**
      * Is the shipping address being saved
      */
     isSaving: PropTypes.bool,
@@ -39,7 +31,13 @@ class ShippingAddressCheckoutAction extends Component {
      * When action is ready for save call this prop method to
      * enable the save button with in the `CheckoutActions`
      */
-    onReadyForSaveChange: PropTypes.func
+    onReadyForSaveChange: PropTypes.func,
+    /**
+     * Checkout data needed for form
+     */
+    value: PropTypes.shape({
+      shippingAddress: PropTypes.object
+    })
   };
 
   static defaultProps = {
@@ -48,7 +46,7 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   state = {
-    activeAddress: this.props.fulfillmentGroup.data.shippingAddress,
+    activeAddress: this.props.value ? this.props.value.shippingAddress : null,
     activeCountry: "US",
     countries: [
       { value: "US", label: "United States" },
@@ -99,7 +97,8 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   render() {
-    const { components: { AddressForm }, fulfillmentGroup: { data: { shippingAddress } }, isSaving } = this.props;
+    const { components: { AddressForm }, value, isSaving } = this.props;
+    const shippingAddress = value ? value.shippingAddress : null;
     return (
       <Fragment>
         <AddressForm
@@ -109,7 +108,7 @@ class ShippingAddressCheckoutAction extends Component {
           countries={this.state.countries}
           isDisabled={isSaving}
           regions={this.state.regions[this.state.activeCountry]}
-          onCountryChange={(value) => this.handleCountryChange(value)}
+          onCountryChange={(val) => this.handleCountryChange(val)}
           onSubmit={this.handleSubmit}
           onChange={this.handleChange}
           value={shippingAddress}
