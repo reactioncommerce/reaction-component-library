@@ -13,7 +13,13 @@ class mockCheckoutAction extends React.Component {
 const mockActions = [
   {
     label: "mock action one",
-    component: mockCheckoutAction
+    component: mockCheckoutAction,
+    props: {
+      cartData: {
+        data: null
+      },
+      cartMutation() {}
+    }
   }
 ];
 
