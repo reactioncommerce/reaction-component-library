@@ -8,7 +8,7 @@ import {
   badgeStatus,
   isProductBestseller,
   isProductLowQuantity
- } from "./utils"
+} from "./utils";
 
 const baseBadgeStyles = css`
   line-height: 1.375em;
@@ -43,6 +43,8 @@ const PrimaryBadge = styled.div`
         return css`background-color: ${applyTheme("color_coolGrey")};`;
       case BADGE_TYPES.SALE:
         return css`background-color: ${applyTheme("color_red300")};`;
+      default:
+        return "";
     }
   }}
 `;
@@ -60,6 +62,7 @@ const Overlay = styled.div`
     if (isFaded) {
       return "opacity: 0.5;";
     }
+    return "";
   }}
 `;
 
@@ -134,13 +137,11 @@ class BadgeOverlay extends Component {
     );
   }
 
-  renderPrimaryBadge = (type, label) => {
-    return (
-      <PrimaryBadge type={type}>
-        <BadgeLabel>{label}</BadgeLabel>
-      </PrimaryBadge>
-    );
-  }
+  renderPrimaryBadge = (type, label) => (
+    <PrimaryBadge type={type}>
+      <BadgeLabel>{label}</BadgeLabel>
+    </PrimaryBadge>
+  );
 
   renderSecondaryBadgeIfNeeded = (primaryBadgeType) => {
     const { product } = this.props;
@@ -163,13 +164,11 @@ class BadgeOverlay extends Component {
     return null;
   }
 
-  renderSecondaryBadge = (label) => {
-    return (
-      <SecondaryBadge>
-        <BadgeLabel>{label}</BadgeLabel>
-      </SecondaryBadge>
-    );
-  };
+  renderSecondaryBadge = (label) => (
+    <SecondaryBadge>
+      <BadgeLabel>{label}</BadgeLabel>
+    </SecondaryBadge>
+  );
 
   render() {
     const { children, product } = this.props;
