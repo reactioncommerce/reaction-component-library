@@ -34,8 +34,8 @@ const StyledItem = styled.div`
     background-color: ${applyTheme("selectableItemRadioButtonColor")};
   }
   input:focus + label span {
-    box-shadow: 0 0 0 2px #8ce0c9;
-    outline: 1px solid transparent;
+    box-shadow: ${applyTheme("selectableItemRadioFocus")};
+    outline: ${applyTheme("selectableItemRadioFocusOutline")}
   }
   label {
     font-family: ${applyTheme("selectableItemLabelFontFamily")};
@@ -64,7 +64,7 @@ const StyledItem = styled.div`
     align-items: center;
     justify-content: center;
     font-family: ${applyTheme("selectableItemLabelFontFamily")};
-    font-size: 16px;
+    font-size: ${applyTheme("selectableItemDetailFontSize")};
     letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
   }
 `;

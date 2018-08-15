@@ -421,7 +421,10 @@ const selectableItem = {
   rui_selectableItemRadioButtonSize: "20px",
   rui_selectableItemRadioButtonMargin: "0 10px 0 0",
   rui_selectableItemRadioButtonBackgroundColor: white,
-  rui_selectableItemLabelFontFamily: fontFamily
+  rui_selectableItemLabelFontFamily: fontFamily,
+  rui_selectableItemDetailFontSize: fontSize16,
+  rui_selectableItemRadioFocus: `0 0 0 2px ${teal}`,
+  rui_selectableItemRadioFocusOutline: "1px solid transparent"
 };
 
 // selectableList
