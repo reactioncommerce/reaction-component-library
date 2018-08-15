@@ -39,7 +39,7 @@ const actions = [
 
 ```
 
-**Note:** These examples are only use the `ShippingAddressCheckoutAction` as the actions component. This will be updated with more actions as they get created.
+**Note:** These examples only use the `ShippingAddressCheckoutAction` as the actions component. This will be updated with more actions as they get created.
 
 ```jsx
 const mockAddress = {
