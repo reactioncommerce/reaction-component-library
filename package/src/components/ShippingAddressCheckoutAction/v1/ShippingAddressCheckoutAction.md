@@ -1,9 +1,10 @@
 ### Overview
-The `ShippingAddressCheckoutAction` serves 3 purposes:
-1. To normalize data input/editing between the `CheckoutActions` component and the `AddressForm` components.
-2. To provide `CheckoutActions` with a `renderComplete` method that renders the captured checkout data.
-3. To provide `ChecoutActions` a way to know the action is ready for save,
-
+The `ShippingAddressCheckoutAction` serves 4 purposes:
+  * To normalize data input/editing between the `CheckoutActions` component and the `AddressForm` components.
+  * To provide `CheckoutActions` with a `renderComplete` method that renders the captured checkout data.
+  * To provide `ChecoutActions` a way to know the action is ready for save,
+  * To Provide `CheckoutActions` a way to capture the `AddressForm` values.
+ 
 For a full implementation example see the [CheckoutActions](/#!/CheckoutActions)
 
 #### Usage

@@ -1,6 +1,6 @@
 ### Overview
 The `CheckoutActions` component is responsible for:
-  * Displaying each `CheckoutAction` and managing it's status. (complte, incomplete, active)
+  * Displaying each `CheckoutAction` and managing it's status. (complete, incomplete, active)
   * Providing each  `CheckoutAction` with any data it may need from the `cart` object.
   * Capturing/Editing of `CheckoutAction` data.
   * Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
