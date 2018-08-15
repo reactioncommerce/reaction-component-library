@@ -1,9 +1,9 @@
 ### Overview
 The `CheckoutActions` component is responsible for:
-1. Displaying each `CheckoutAction` and managing it's status. (complte, incomplete, active)
-2. Providing each  `CheckoutAction` with any data it may need from the `cart` object.
-3. Capturing/Editing of `CheckoutAction` data.
-4. Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
+  * Displaying each `CheckoutAction` and managing it's status. (complte, incomplete, active)
+  * Providing each  `CheckoutAction` with any data it may need from the `cart` object.
+  * Capturing/Editing of `CheckoutAction` data.
+  * Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
 
 #### Usage
 `CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checout action component that will be responsible to capturing a piece of checkout data.
@@ -11,79 +11,74 @@ The `CheckoutActions` component is responsible for:
 **Note:** These examples are only use the `ShippingAddressCheckoutAction` as the actions component. This will be updated with more actions as they get created.
 
 ```jsx
-const actions = [
-  {
-    label: "Shipping Information",
-    component: ShippingAddressCheckoutAction
-  },
-   {
-    label: "Another Step",
-    component: ShippingAddressCheckoutAction
-  }
-];
-
-
-<CheckoutActions actions={actions} />
-```
-
-#### With Cart
-
-```jsx
-const actions = [
-  {
-    label: "Shipping Information",
-    component: ShippingAddressCheckoutAction
-  },
-   {
-    label: "Another Step",
-    component: ShippingAddressCheckoutAction
-  }
-];
+const mockAddress = {
+  address1: "7742 Hwy 23",
+  address2: "",
+  country: "US",
+  city: "Belle Chasse",
+  firstName: "Salvos",
+  lastName: "Seafood",
+  postal: "70037",
+  region: "LA",
+  phone: "(504) 393-7303"
+}
 
 const cart = {
  fulfillmentGroup: {
    data: {
-    shippingAddress: null
-   }
- }
-};
-
-
-<CheckoutActions actions={actions} cart={cart} />
-```
-
-#### With Cart Data
-
-```jsx
-const actions = [
-  {
-    label: "Shipping Information",
-    component: ShippingAddressCheckoutAction
-  },
-   {
-    label: "Another Step",
-    component: ShippingAddressCheckoutAction
-  }
-];
-
-const cart = {
- fulfillmentGroup: {
-   data: {
-    shippingAddress: {
-      address1: "7742 Hwy 23",
-      address2: "",
-      country: "US",
-      city: "Belle Chasse",
-      firstName: "Salvos",
-      lastName: "Seafood",
-      postal: "70037",
-      region: "LA",
-      phone: "(504) 393-7303"
-    }
+    shippingAddress: mockAddress
   }
  }
 };
 
+const mockMutationCall = (data) => new Promise((resolve, reject) => {
+  setTimeout(resolve, 2000, { mockAddress });
+});
 
-<CheckoutActions actions={actions} cart={cart} />
+
+class CheckoutExample extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.actions = [
+      {
+        label: "Second Shipping Information",
+        component: ShippingAddressCheckoutAction,
+        props: {
+          cartData: { data: null },
+          cartMutation: mockMutationCall
+        }
+      }
+    ];
+    
+    this.onClick.bind(this);
+  }
+  
+  onClick() {
+    mockMutationCall({ thing: 1 }).then((success) => {
+      console.log("hey response", success)
+    })
+  }
+
+  render() {
+    return (
+      <div>
+      <button onClick={this.onClick}>click</button>
+        <CheckoutActions actions={this.actions} />
+      </div>
+    );
+  }
+}
+
+<CheckoutExample cart={cart} />
 ```
+
+
+{
+        label: "Shipping Information",
+        component: ShippingAddressCheckoutAction,
+        props: {
+          cartData: props.cart.fulfillmentGroup,
+          cartMutation: mockMutationCall
+        }
+      },

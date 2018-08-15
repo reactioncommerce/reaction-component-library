@@ -22,14 +22,16 @@ const FormActions = styled.div`
 
 class CheckoutActions extends Component {
   static propTypes = {
-    actions: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      component: CustomPropTypes.component.isRequired
-    })),
-    /**
-     * Cart object from GQL
-     */
-    cart: PropTypes.object,
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        component: CustomPropTypes.component.isRequired,
+        props: PropTypes.shape({
+          cartData: PropTypes.object,
+          cartMutation: PropTypes.func
+        })
+      })
+    ),
     /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
@@ -37,11 +39,6 @@ class CheckoutActions extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
-      /**
-       * Pass either the Reaction AddressForm component or your own component that
-       * accepts compatible props.
-       */
-      AddressForm: CustomPropTypes.component.isRequired,
       /**
        * Pass either the Reaction Button component or your own component that
        * accepts compatible props.
@@ -65,31 +62,13 @@ class CheckoutActions extends Component {
     }).isRequired
   };
 
-  static defaultProps = {
-    cart: {
-      fulfillmentGroup: {
-        data: {
-          shippingAddress: null
-        }
-      }
-    }
-  };
-
-  static initActionStatus = (i) => {
-    if (i === 0) {
-      if (this.props.cart.fulfillmentGroup.data.shippingAddress) {
-        return "complete";
-      }
-      return "active";
-    }
-    return "incomplete";
-  }
+  static defaultProps = {};
 
   state = {
-    currentActions: this.props.actions.map(({ label }, i) => ({
+    currentActions: this.props.actions.map(({ label, props }, i) => ({
       label,
       // eslint-disable-next-line
-      status: i === 0 ? (this.props.cart.fulfillmentGroup.data.shippingAddress ? "complete" : "active") : "incomplete",
+      status: i === 0 ? (props.cartData ? "complete" : "active") : "incomplete",
       readyForSave: false,
       capturedData: null
     }))
@@ -103,16 +82,6 @@ class CheckoutActions extends Component {
   getCurrentActionByLabel(label) {
     const { currentActions } = this.state;
     return currentActions[this.getCurrentActionIndex(label)];
-  }
-
-  getActionData(label) {
-    // TODO: this actionData var is tightly scoped to the shipping address action,
-    // we'll need to figure out how to handle this a little better as we add more action types
-    const { cart } = this.props;
-    const { capturedData } = this.getCurrentActionByLabel(label);
-    return cart.fulfillmentGroup.data.shippingAddress
-      ? cart.fulfillmentGroup
-      : { data: { shippingAddress: capturedData } };
   }
 
   toggleActionStatus = (label, status) => {
@@ -140,12 +109,12 @@ class CheckoutActions extends Component {
     });
   };
 
-  renderCompleteAction = ({ label, component }) => {
+  renderCompleteAction = ({ label, component, props: { cartData } }) => {
     const { components: { CheckoutActionComplete } } = this.props;
-    const { data } = this.getActionData(label);
-    return data.shippingAddress ? (
+    return cartData.data ? (
       <CheckoutActionComplete
-        content={component.renderComplete(data)}
+        key={label}
+        content={component.renderComplete(cartData.data)}
         onClickChangeButton={() => {
           this.toggleActionStatus(label, "active");
         }}
@@ -155,28 +124,28 @@ class CheckoutActions extends Component {
     );
   };
 
-  renderActiveAction = ({ label, component: Comp }) => {
+  renderActiveAction = ({ component: Comp, props: { cartData }, ...action }) => {
     const { components: { Button } } = this.props;
-    const { readyForSave } = this.getCurrentActionByLabel(label);
-    const actionData = this.getActionData(label);
+    const { readyForSave } = this.getCurrentActionByLabel(action.label);
+
     return (
       <Fragment>
         <Comp
-          fulfillmentGroup={actionData}
+          fulfillmentGroup={cartData.data}
           onReadyForSaveChange={(ready) => {
-            this.actionReadyForSave(label, ready);
+            this.actionReadyForSave(action.label, ready);
           }}
           ref={(el) => {
-            this[label] = el;
+            this[action.label] = el;
           }}
         />
         <FormActions>
-          {actionData.data.shippingAddress ? (
+          {cartData.data ? (
             <Button
               actionType="secondary"
               isTextOnly
               isShortHeight
-              onClick={() => this.toggleActionStatus(label, "complete")}
+              onClick={() => this.toggleActionStatus(action.label, "complete")}
             >
               Cancel
             </Button>
@@ -186,7 +155,7 @@ class CheckoutActions extends Component {
           <Button
             actionType="important"
             isShortHeight
-            onClick={() => this.captureActionData({ label })}
+            onClick={() => this.captureActionData(action)}
             isDisabled={!readyForSave}
           >
             Save and continue
@@ -196,19 +165,18 @@ class CheckoutActions extends Component {
     );
   };
 
-  renderAction = ({ label, component: Comp }) => {
+  renderAction = (action) => {
     const { components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
-    const { currentActions } = this.state;
-    const { status } = currentActions[this.getCurrentActionIndex(label)];
+    const { status } = this.getCurrentActionByLabel(action.label);
     return (
       <Action>
         <CheckoutAction
-          key={label}
+          key={action.label}
           status={status}
-          label={label}
-          stepNumber={this.getCurrentActionIndex(label) + 1}
-          activeStepElement={this.renderActiveAction({ label, component: Comp })}
-          completeStepElement={this.renderCompleteAction({ label, component: Comp })}
+          label={action.label}
+          stepNumber={this.getCurrentActionIndex(action.label) + 1}
+          activeStepElement={this.renderActiveAction(action)}
+          completeStepElement={this.renderCompleteAction(action)}
           incompleteStepElement={<CheckoutActionIncomplete />}
         />
       </Action>
