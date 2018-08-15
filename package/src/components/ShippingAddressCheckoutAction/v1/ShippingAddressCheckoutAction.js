@@ -21,38 +21,29 @@ class ShippingAddressCheckoutAction extends Component {
        * Pass either the Reaction AddressForm component or your own component that
        * accepts compatible props.
        */
-      AddressForm: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction Button component or your own component that
-       * accepts compatible props.
-       */
-      Button: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction CheckoutAction component or your own component that
-       * accepts compatible props.
-       */
-      CheckoutAction: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction CheckoutActionComplete component or your own component that
-       * accepts compatible props.
-       */
-      CheckoutActionComplete: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction CheckboxActionIncomplete component or your own component that
-       * accepts compatible props.
-       */
-      CheckoutActionIncomplete: CustomPropTypes.component.isRequired
+      AddressForm: CustomPropTypes.component.isRequired
     }).isRequired,
+    /**
+     * Selected fulfillment group from cart
+     */
     fulfillmentGroup: PropTypes.shape({
       data: PropTypes.shape({
         shippingAddress: PropTypes.object
       })
     }).isRequired,
+    /**
+     * Is the shipping address being saved
+     */
     isSaving: PropTypes.bool,
+    /**
+     * When action is ready for save call this prop method to
+     * enable the save button with in the `CheckoutActions`
+     */
     onReadyForSaveChange: PropTypes.func
   };
 
   static defaultProps = {
+    isSaving: false,
     onReadyForSaveChange() {}
   };
 
@@ -87,6 +78,8 @@ class ShippingAddressCheckoutAction extends Component {
       if (errs.length <= 0) {
         return this._addressForm.getValue();
       }
+      // returning nothing since validation failed
+      // the child Form will handle displaying validation errors
       return;
     });
 
@@ -106,7 +99,7 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   render() {
-    const { components: { AddressForm }, fulfillmentGroup: { data: { shippingAddress } } } = this.props;
+    const { components: { AddressForm }, fulfillmentGroup: { data: { shippingAddress } }, isSaving } = this.props;
     return (
       <Fragment>
         <AddressForm
@@ -114,6 +107,7 @@ class ShippingAddressCheckoutAction extends Component {
             this._addressForm = formEl;
           }}
           countries={this.state.countries}
+          isDisabled={isSaving}
           regions={this.state.regions[this.state.activeCountry]}
           onCountryChange={(value) => this.handleCountryChange(value)}
           onSubmit={this.handleSubmit}
