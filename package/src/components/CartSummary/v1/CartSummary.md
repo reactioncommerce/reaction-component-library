@@ -5,7 +5,7 @@ Displays a summary of the current current items in the cart, with cost and other
 
 The CartSummary displays item quantity, subtotal, shipping, tax and total. The cart can also display a free shipping message, calculated taxes and any applied discounts.
 
-##### Default 
+##### Default
 
 ```jsx
 <CartSummary
@@ -49,5 +49,16 @@ The CartSummary displays item quantity, subtotal, shipping, tax and total. The c
   displayTotal="$288.64"
   itemsQuantity={3}
   displayTax="$7.62"
+/>
+```
+
+##### Dense layout
+
+```jsx
+<CartSummary
+  displayShipping="$10.99"
+  displaySubtotal="$275.77"
+  displayTotal="$286.10"
+  isDense
 />
 ```
