@@ -68,8 +68,9 @@ class CheckoutActions extends Component {
     currentActions: this.props.actions.map(({ label, props }, i) => ({
       label,
       // eslint-disable-next-line
-      status: i === 0 ? (props.cartData ? "complete" : "active") : "incomplete",
+      status: props.cartData.data ? "complete" : i === 0 ? "active" : "incomplete",
       readyForSave: false,
+      isSaving: false,
       capturedData: null
     }))
   };
@@ -99,13 +100,20 @@ class CheckoutActions extends Component {
     });
   };
 
-  captureActionData = async ({ label }) => {
+  captureActionData = async ({ label, props: { cartMutation } }) => {
     const actionData = await this[label].getFullfillmentData();
     const { currentActions } = this.state;
-    currentActions[this.getCurrentActionIndex(label)].capturedData = actionData;
-    currentActions[this.getCurrentActionIndex(label)].status = "complete";
+    currentActions[this.getCurrentActionIndex(label)].isSaving = true;
     this.setState({
       currentActions
+    });
+
+    cartMutation(actionData).then(() => {
+      currentActions[this.getCurrentActionIndex(label)].isSaving = false;
+      currentActions[this.getCurrentActionIndex(label)].status = "complete";
+      this.setState({
+        currentActions
+      });
     });
   };
 
@@ -120,27 +128,28 @@ class CheckoutActions extends Component {
         }}
       />
     ) : (
-      ""
+      <span />
     );
   };
 
-  renderActiveAction = ({ component: Comp, props: { cartData }, ...action }) => {
+  renderActiveAction = ({ component: Comp, ...action }) => {
     const { components: { Button } } = this.props;
-    const { readyForSave } = this.getCurrentActionByLabel(action.label);
+    const { readyForSave, isSaving } = this.getCurrentActionByLabel(action.label);
 
     return (
       <Fragment>
         <Comp
-          fulfillmentGroup={cartData.data}
+          value={action.props.cartData.data}
           onReadyForSaveChange={(ready) => {
             this.actionReadyForSave(action.label, ready);
           }}
+          isSaving={isSaving}
           ref={(el) => {
             this[action.label] = el;
           }}
         />
         <FormActions>
-          {cartData.data ? (
+          {action.props.cartData.data ? (
             <Button
               actionType="secondary"
               isTextOnly
@@ -168,10 +177,10 @@ class CheckoutActions extends Component {
   renderAction = (action) => {
     const { components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
     const { status } = this.getCurrentActionByLabel(action.label);
+
     return (
-      <Action>
+      <Action key={action.label}>
         <CheckoutAction
-          key={action.label}
           status={status}
           label={action.label}
           stepNumber={this.getCurrentActionIndex(action.label) + 1}
