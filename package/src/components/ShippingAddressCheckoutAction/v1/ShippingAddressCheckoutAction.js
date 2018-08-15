@@ -2,7 +2,16 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { CustomPropTypes } from "../../../utils";
+import { applyTheme, CustomPropTypes } from "../../../utils";
+
+const Title = styled.h3`
+  font-size: ${applyTheme("font_size_h3")};
+  font-weight: ${applyTheme("font_weight_bold")};
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.4px;
+`;
 
 const Address = styled.address`
   font-style: normal;
@@ -28,10 +37,18 @@ class ShippingAddressCheckoutAction extends Component {
      */
     isSaving: PropTypes.bool,
     /**
+     * Label of workflow step
+     */
+    label: PropTypes.string.isRequired,
+    /**
      * When action is ready for save call this prop method to
      * enable the save button with in the `CheckoutActions`
      */
     onReadyForSaveChange: PropTypes.func,
+    /**
+     * Checkout process step number
+     */
+    stepNumber: PropTypes.number.isRequired,
     /**
      * Checkout data needed for form
      */
@@ -97,10 +114,13 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   render() {
-    const { components: { AddressForm }, value, isSaving } = this.props;
+    const { components: { AddressForm }, value, isSaving, label, stepNumber } = this.props;
     const shippingAddress = value ? value.shippingAddress : null;
     return (
       <Fragment>
+        <Title>
+          {stepNumber}. {label}
+        </Title>
         <AddressForm
           ref={(formEl) => {
             this._addressForm = formEl;
