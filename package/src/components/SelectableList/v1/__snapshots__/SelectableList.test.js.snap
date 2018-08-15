@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot 1`] = `
+.c0 {
+  width: 100%;
+}
+
 .c0 fieldset {
   border-top: 1px solid #e6e6e6;
   border-left: none;
@@ -16,8 +20,7 @@ exports[`basic snapshot 1`] = `
   border-bottom: 1px solid #e6e6e6;
   border-left: 1px solid #e6e6e6;
   border-right: 1px solid #e6e6e6;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
 }
 
 .c0 fieldset .wrapper .leftAligned {
@@ -28,12 +31,12 @@ exports[`basic snapshot 1`] = `
 }
 
 .c0 fieldset .wrapper .leftAligned label {
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .c0 fieldset .wrapper .leftAligned .detail {
   font-size: 14px;
-  font-family: "Source Sans Pro";
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   margin-left: 2px;
 }
 
@@ -44,7 +47,7 @@ exports[`basic snapshot 1`] = `
 
 .c0 fieldset .wrapper .amex span,
 .c0 fieldset .wrapper .visa span {
-  margin-right: 60px;
+  margin: 0 60px 0 0;
 }
 
 .c0 fieldset .wrapper .amex label span:after,
@@ -63,8 +66,17 @@ exports[`basic snapshot 1`] = `
   border-bottom: 1px solid #e6e6e6;
   border-left: 1px solid #e6e6e6;
   border-right: 1px solid #e6e6e6;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding: 0 10px;
+  height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
 }
 
 .c0 > *:last-child {
@@ -77,12 +89,15 @@ exports[`basic snapshot 1`] = `
   border-bottom-left-radius: 2px;
 }
 
+@media (max-width:768px) {
+  .c0 .listAction {
+    height: 60px;
+  }
+}
+
 <div
   className="c0"
 >
-  <legend>
-    Legend
-  </legend>
   <fieldset>
     <div
       className="wrapper"

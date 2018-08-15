@@ -38,6 +38,11 @@ exports[`basic snapshot with empty props 1`] = `
   background-color: #3c3c3c;
 }
 
+.c0 input:focus + label span {
+  box-shadow: 0 0 0 2px #8ce0c9;
+  outline: 1px solid transparent;
+}
+
 .c0 label {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   color: #3c3c3c;
@@ -70,6 +75,9 @@ exports[`basic snapshot with empty props 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   background-color: #ffffff;
   border: 2px solid #3c3c3c;
   height: 20px;
@@ -92,6 +100,18 @@ exports[`basic snapshot with empty props 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width:768px) {
+  .c0 {
+    height: 60px;
+  }
 }
 
 <div
@@ -99,13 +119,12 @@ exports[`basic snapshot with empty props 1`] = `
 >
   <input
     checked={false}
-    id={1}
     name={undefined}
     onChange={[Function]}
     type="radio"
   />
   <label
-    htmlFor={1}
+    htmlFor="1"
   >
     <span />
     Label

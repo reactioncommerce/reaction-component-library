@@ -186,7 +186,7 @@ class SelectableItem extends Component {
       <StyledItem className={className} >
         <input
           checked={value === true}
-          id={_id}
+          key={_id}
           onChange={this.onChange}
           type="radio"
           name={name}

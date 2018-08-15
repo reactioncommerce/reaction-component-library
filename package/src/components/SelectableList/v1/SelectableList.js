@@ -116,10 +116,9 @@ class SelectableList extends Component {
       <StyledList>
         <fieldset>
           {items.map((item) =>
-            <div className="wrapper">
+            <div className="wrapper" key={item._id}>
               <SelectableItem
                 name={name}
-                key={item._id}
                 item={item}
                 component={components}
                 {...props}
