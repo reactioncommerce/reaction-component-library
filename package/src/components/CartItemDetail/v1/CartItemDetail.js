@@ -27,7 +27,7 @@ const Title = styled.h3`
   font-size: ${applyTheme("font_size_default")};
 `;
 
-const Vendor = styled.p`
+const Text = styled.p`
   color: ${applyTheme("color_black65")};
   display: block;
   font-family: ${applyTheme("font_family")};
@@ -99,19 +99,23 @@ class CartItemDetail extends Component {
      */
     productVendor: PropTypes.string,
     /**
+     * Item quantity
+     */
+    quantity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    /**
      * Product title of chosen item.
      */
     title: PropTypes.string
   };
 
   renderAttributes() {
-    const { attributes, isMiniCart, productVendor } = this.props;
+    const { attributes, isMiniCart, productVendor, quantity } = this.props;
 
     if ((!attributes || attributes.length === 0) && !productVendor) return null;
 
     return (
       <Attributes isMiniCart={isMiniCart}>
-        {productVendor ? <Vendor>{productVendor}</Vendor> : null}
+        {productVendor ? <Text>{productVendor}</Text> : null}
         {(attributes || []).map(({ label, value }) => {
           if (!label && !value) return null;
 
@@ -123,6 +127,7 @@ class CartItemDetail extends Component {
             </Attr>
           );
         })}
+        {quantity ? <Text>Quantity: {quantity}</Text> : null}
       </Attributes>
     );
   }
