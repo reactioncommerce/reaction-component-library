@@ -86,6 +86,10 @@ class AddressForm extends Component {
       name: PropTypes.string.isRequired
     })),
     /**
+     * Is the shipping address being saved
+     */
+    isSaving: PropTypes.bool,
+    /**
      * Form name
      */
     name: PropTypes.string,
@@ -195,6 +199,7 @@ class AddressForm extends Component {
       components: { ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       countries,
       errors,
+      isSaving,
       name,
       regions,
       validator,
@@ -234,6 +239,7 @@ class AddressForm extends Component {
                 onChange={this.props.onCountryChange}
                 options={countries}
                 placeholder="Country"
+                isReadOnly={isSaving}
               />
               <ErrorsBlock names={["country"]} />
             </Field>
@@ -241,33 +247,33 @@ class AddressForm extends Component {
 
           <ColHalf>
             <Field name="firstName" label="First Name" labelFor={firstNameInputId} isRequired>
-              <TextInput id={firstNameInputId} name="firstName" placeholder="First Name" />
+              <TextInput id={firstNameInputId} name="firstName" placeholder="First Name" isReadOnly={isSaving} />
               <ErrorsBlock names={["firstName"]} />
             </Field>
           </ColHalf>
           <ColHalf>
             <Field name="lastName" label="Last Name" labelFor={lastNameInputId} isRequired>
-              <TextInput id={lastNameInputId} name="lastName" placeholder="Last Name" />
+              <TextInput id={lastNameInputId} name="lastName" placeholder="Last Name" isReadOnly={isSaving} />
               <ErrorsBlock names={["lastName"]} />
             </Field>
           </ColHalf>
 
           <ColFull>
             <Field name="address1" label="Address" labelFor={address1InputId} isRequired>
-              <TextInput id={address1InputId} name="address1" placeholder="Address" />
+              <TextInput id={address1InputId} name="address1" placeholder="Address" isReadOnly={isSaving} />
               <ErrorsBlock names={["address1"]} />
             </Field>
           </ColFull>
 
           <ColFull>
             <Field name="address2" label="Address Line 2" labelFor={address2InputId} isOptional>
-              <TextInput id={address2InputId} name="address2" placeholder="Address Line 2 (Optional)" />
+              <TextInput id={address2InputId} name="address2" placeholder="Address Line 2 (Optional)" isReadOnly={isSaving} />
             </Field>
           </ColFull>
 
           <ColFull>
             <Field name="city" label="City" labelFor={cityInputId}>
-              <TextInput id={cityInputId} name="city" placeholder="City" />
+              <TextInput id={cityInputId} name="city" placeholder="City" isReadOnly={isSaving} />
               <ErrorsBlock names={["city"]} />
             </Field>
           </ColFull>
@@ -281,23 +287,24 @@ class AddressForm extends Component {
                   name="region"
                   options={regions}
                   placeholder="Region"
+                  isReadOnly={isSaving}
                 />
               ) : (
-                <TextInput id={regionInputId} name="region" placeholder="Region" />
+                <TextInput id={regionInputId} name="region" placeholder="Region" isReadOnly={isSaving} />
               )}
               <ErrorsBlock names={["region"]} />
             </Field>
           </ColHalf>
           <ColHalf>
             <Field name="postal" label="Postal Code" labelFor={postalInputId} isRequired>
-              <TextInput id={postalInputId} name="postal" placeholder="Postal Code" />
+              <TextInput id={postalInputId} name="postal" placeholder="Postal Code" isReadOnly={isSaving} />
               <ErrorsBlock names={["postal"]} />
             </Field>
           </ColHalf>
 
           <ColFull>
             <Field name="phone" label="Phone" labelFor={phoneInputId} isRequired>
-              <PhoneNumberInput id={phoneInputId} name="phone" placeholder="Phone" />
+              <PhoneNumberInput id={phoneInputId} name="phone" placeholder="Phone" isReadOnly={isSaving} />
               <ErrorsBlock names={["phone"]} />
             </Field>
           </ColFull>
