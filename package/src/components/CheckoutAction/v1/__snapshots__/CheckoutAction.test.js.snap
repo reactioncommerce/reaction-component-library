@@ -2,7 +2,7 @@
 
 exports[`CheckoutAction with \`active\` status 1`] = `
 <div>
-  Placeholder: active step isn't yet available
+  <span />
 </div>
 `;
 
