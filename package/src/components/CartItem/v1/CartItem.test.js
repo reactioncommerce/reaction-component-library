@@ -45,17 +45,3 @@ test("basic snapshot with isReadOnly prop", () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
-
-test("basic snapshot with no quantity input", () => {
-  const component = renderer.create(<CartItem components={mockComponents} item={mockItem} canUpdateItemQuantity={false} />);
-
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test("basic snapshot with no remove button", () => {
-  const component = renderer.create(<CartItem components={mockComponents} item={mockItem} canRemoveItem={false} />);
-
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
