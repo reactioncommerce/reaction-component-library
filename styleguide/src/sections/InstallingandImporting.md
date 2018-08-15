@@ -29,6 +29,7 @@ Check out the [@reactioncommerce/components-context](https://github.com/reaction
 ```jsx static
 import React from "react";
 import styled from "styled-components";
+import AddressForm from "@reactioncommerce/components/AddressForm/v1";
 import Button from "@reactioncommerce/components/Button/v1";
 import CartItem from "@reactioncommerce/components/CartItem/v1";
 import CartItemDetail from "@reactioncommerce/components/CartItemDetail/v1";
@@ -101,6 +102,7 @@ const iconValid = (
 /* eslint-enable max-len */
 
 export default {
+  AddressForm,
   Button,
   CartItem,
   CartItemDetail,

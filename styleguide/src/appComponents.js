@@ -1,4 +1,5 @@
 import React from "react";
+import AddressForm from "../../package/src/components/AddressForm/v1";
 import Button from "../../package/src/components/Button/v1";
 import CartItem from "../../package/src/components/CartItem/v1";
 import CartItemDetail from "../../package/src/components/CartItemDetail/v1";
@@ -71,6 +72,7 @@ const iconValid = (
 /* eslint-enable max-len */
 
 export default {
+  AddressForm,
   Button,
   CartItem,
   CartItemDetail,

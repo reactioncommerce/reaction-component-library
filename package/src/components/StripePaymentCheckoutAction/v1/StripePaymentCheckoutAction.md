@@ -2,5 +2,7 @@
 #### Usage
 
 ```jsx
-<StripePaymentCheckoutAction />
+const isReady = (ready) => true;
+
+<StripePaymentCheckoutAction onReadyForSaveChange={isReady} />
 ```
