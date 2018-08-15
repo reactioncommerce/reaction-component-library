@@ -22,14 +22,16 @@ const FormActions = styled.div`
 
 class CheckoutActions extends Component {
   static propTypes = {
-    actions: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      component: CustomPropTypes.component.isRequired,
-      props: PropTypes.shape({
-        cartData: PropTypes.object,
-        cartMutation: PropTypes.func
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        component: CustomPropTypes.component.isRequired,
+        props: PropTypes.shape({
+          cartData: PropTypes.object,
+          cartMutation: PropTypes.func
+        })
       })
-    })),
+    ),
     /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
@@ -68,8 +70,7 @@ class CheckoutActions extends Component {
       // eslint-disable-next-line
       status: props.cartData.data ? "complete" : i === 0 ? "active" : "incomplete",
       readyForSave: false,
-      isSaving: false,
-      capturedData: null
+      isSaving: false
     }))
   };
 
@@ -145,6 +146,8 @@ class CheckoutActions extends Component {
           ref={(el) => {
             this[action.label] = el;
           }}
+          label={action.label}
+          stepNumber={this.getCurrentActionIndex(action.label) + 1}
         />
         <FormActions>
           {action.props.cartData.data ? (
