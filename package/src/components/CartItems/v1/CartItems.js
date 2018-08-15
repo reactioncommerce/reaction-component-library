@@ -9,6 +9,14 @@ const Items = styled.div``;
 class CartItems extends Component {
   static propTypes = {
     /**
+     * Display remove button
+     */
+    canRemoveItem: PropTypes.bool,
+    /**
+     * Display quantity update input
+     */
+    canUpdateItemQuantity: PropTypes.bool,
+    /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
@@ -26,6 +34,10 @@ class CartItems extends Component {
      * Is in a MiniCart component
      */
     isMiniCart: PropTypes.bool,
+    /**
+     * Hide remove button and quantity input
+     */
+    isReadOnly: PropTypes.bool,
     /**
      * CartItem data. Only the `_id` prop is required by this component. Each item is passed to
      * CartItem, which may require additional props.
@@ -47,7 +59,10 @@ class CartItems extends Component {
   };
 
   static defaultProps = {
+    canRemoveItem: true,
+    canUpdateItemQuantity: true,
     isMiniCart: false,
+    isReadOnly: false,
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
   };
