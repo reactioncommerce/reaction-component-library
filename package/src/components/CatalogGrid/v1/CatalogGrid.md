@@ -196,7 +196,7 @@ Note: displays best at full-width of page
           price: 19.99,
           displayPrice: "$12.99 - $19.99"
         }],
-        isSoldOut: true,
+        isSoldOut: false,
         isBackorder: false,
         isOnSale: false,
         isLowQuantity: false,
