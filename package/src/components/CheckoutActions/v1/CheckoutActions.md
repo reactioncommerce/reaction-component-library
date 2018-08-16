@@ -15,19 +15,25 @@ const actions = [
     label: "Shipping Information",
     component: ShippingAddressCheckoutAction,
     onSubmit: setShippingAddress
-    props: cart.checkout.fulfillmentGroup
+    props: {
+      fulfillmentGroup: cart.checkout.fulfillmentGroup
+    }
   },
   {
     label: "Shipping Options",
     component: ShippingOptionCheckoutAction,
     onSubmit: setShippingOption
-    props: cart.checkout.fulfillmentGroup.avalibleFulfilmentGroups
+    props: {
+      avalibleFulfilmentGroups : cart.checkout.fulfillmentGroup.avalibleFulfilmentGroups
+    }
   },
   { 
     label: "Payment Information", 
     component: PaymentCheckoutAction,
     onSubmit: setPayment,
-    props: cart.checkout.payments[0]
+    props: {
+      payment: cart.checkout.payments[0]
+    }
   }
 ];
 
