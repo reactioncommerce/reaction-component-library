@@ -1,6 +1,5 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow } from "enzyme";
 import mockComponents from "../../../tests/mockComponents";
 import CatalogGrid from "./CatalogGrid";
 
@@ -98,7 +97,7 @@ test("CatalogGrid basic snapshot", () => {
           isOnSale: false,
           isLowQuantity: false,
           isBestseller: false
-        },
+        }
       ]}
     />
   ));
@@ -202,7 +201,7 @@ test("CatalogGrid custom placeholder image snapshot", () => {
           isOnSale: false,
           isLowQuantity: false,
           isBestseller: true
-        },
+        }
       ]}
     />
   ));
@@ -308,7 +307,7 @@ test("CatalogGrid custom min-width breakpoints snapshot", () => {
           isOnSale: false,
           isLowQuantity: false,
           isBestseller: false
-        },
+        }
       ]}
     />
   ));

@@ -2,15 +2,14 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, getFromTheme, CustomPropTypes } from "../../../utils";
+import { getFromTheme, CustomPropTypes } from "../../../utils";
 
 const GridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
   width: calc(100% + 24px);
-  margin: -12px;
-`;
+  margin: -12px;`;
 
 const GridItem = styled.div`
   padding: 12px;
@@ -36,9 +35,9 @@ const GridItem = styled.div`
         flex-grow: 0;
         max-width: 33.33333%;
         flex-basis: 33.33333%;
-      }
-    `;
+      }`;
   }}
+
 
   ${(props) => {
     // Media query for when to display 4 products per row
@@ -56,8 +55,7 @@ const GridItem = styled.div`
         flex-grow: 0;
         max-width: 25%;
         flex-basis: 25%;
-      }
-    `;
+      }`;
   }}
 `;
 
