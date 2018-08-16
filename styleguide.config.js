@@ -363,7 +363,7 @@ module.exports = {
           name: "Content"
         }),
         generateSection({
-          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "PhoneNumberInput", "Checkbox", "SelectableItem", "SelectableList", "ErrorsBlock"],
+          componentNames: ["Checkbox", "ErrorsBlock", "Field", "PhoneNumberInput", "QuantityInput", "Select", "TextInput", "SelectableItem", "SelectableList"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -378,12 +378,12 @@ module.exports = {
           name: "General"
         }),
         generateSection({
-          componentNames: ["Price", "StockWarning"],
+          componentNames: ["Price", "StockWarning", "BadgeOverlay"],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
         }),
         generateSection({
-          componentNames: ["CartItem", "CartItems", "CartItemDetail", "CartEmptyMessage", "CartSummary", "MiniCart", "MiniCartSummary"],
+          componentNames: ["CartEmptyMessage", "CartItem", "CartItems", "CartItemDetail", "CartSummary", "MiniCart", "MiniCartSummary"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         }),

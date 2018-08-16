@@ -188,6 +188,7 @@ const defaultStyles = {
   rui_color_black65: black65,
   rui_color_error: red,
   rui_color_stockWarning: red,
+  rui_color_red300: red300,
   rui_color_success: teal,
   rui_color_coolGrey: coolGrey,
   rui_color_coolGrey100: coolGrey100,
@@ -387,22 +388,22 @@ const checkoutActions = {
 
 // checkbox
 const checkbox = {
-  rui_checkboxHeightAndWidth: `${baseUnit(2)}`,
+  rui_checkboxHeightAndWidth: "1.4em",
   rui_checkboxLeftSpacing: "0",
-  rui_checkboxTopSpacing: "-1px",
+  rui_checkboxTopSpacing: "0",
   rui_checkboxBorderColor: coolGrey500,
   rui_checkboxBorderRadius: "2px",
   rui_checkboxBorderWidth: "2px",
   rui_checkboxFocusStyle: "rgb(59, 153, 252) auto 5px",
   rui_checkboxDisabledColor: black10,
   rui_checkboxDisabledOpacity: ".5",
-  rui_checkboxLabelSpacing: `${baseUnit(3)}`,
+  rui_checkboxLabelSpacing: "2.2em",
   rui_checkboxLabelFontSize: fontSize14,
   rui_checkboxIconColor: coolGrey500,
   rui_checkboxIconSize: "0.875em",
-  rui_checkboxIconLeftSpacing: "4px",
-  rui_checkboxIconTopSpacing: "3px",
-  rui_checkboxVerticalSpacing: `${baseUnit(2)}`
+  rui_checkboxIconLeftSpacing: "0.3em",
+  rui_checkboxIconTopSpacing: "0.25em",
+  rui_checkboxVerticalSpacing: "17px"
 };
 
 // selectableItem
