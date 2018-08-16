@@ -26,6 +26,7 @@ class CheckoutActions extends Component {
       PropTypes.shape({
         label: PropTypes.string.isRequired,
         component: CustomPropTypes.component.isRequired,
+        onSubmit: PropTypes.func,
         props: PropTypes.shape({
           cartData: PropTypes.object,
           cartMutation: PropTypes.func
@@ -99,19 +100,18 @@ class CheckoutActions extends Component {
     });
   };
 
-  handleActionSubmit = (label, onSubmit, actionValue) => {
+  handleActionSubmit = async (label, onSubmit, actionValue) => {
     const { currentActions } = this.state;
     currentActions[this.getCurrentActionIndex(label)].isSaving = true;
     this.setState({
       currentActions
     });
 
-    onSubmit(actionValue).then(() => {
-      currentActions[this.getCurrentActionIndex(label)].isSaving = false;
-      currentActions[this.getCurrentActionIndex(label)].status = "complete";
-      this.setState({
-        currentActions
-      });
+    await onSubmit(actionValue);
+    currentActions[this.getCurrentActionIndex(label)].isSaving = false;
+    currentActions[this.getCurrentActionIndex(label)].status = "complete";
+    this.setState({
+      currentActions
     });
   };
 
@@ -151,9 +151,7 @@ class CheckoutActions extends Component {
           }}
           label={action.label}
           stepNumber={this.getCurrentActionIndex(action.label) + 1}
-          onSubmit={(value) => {
-            this.handleActionSubmit(action.label, action.onSubmit, value);
-          }}
+          onSubmit={(value) => this.handleActionSubmit(action.label, action.onSubmit, value)}
         />
         <FormActions>
           {action.props.cartData.data ? (

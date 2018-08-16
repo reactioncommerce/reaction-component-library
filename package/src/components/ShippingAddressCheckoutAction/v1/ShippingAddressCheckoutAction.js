@@ -91,10 +91,9 @@ class ShippingAddressCheckoutAction extends Component {
     this._addressForm.submit();
   };
 
-  handleSubmit = (value) => {
+  handleSubmit = async (value) => {
     const { onSubmit } = this.props;
-    this.setState({ activeAddress: value });
-    onSubmit(value);
+    await onSubmit(value);
   };
 
   handleChange = (values) => {
@@ -113,8 +112,8 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   render() {
-    const { components: { AddressForm }, isSaving, label, stepNumber } = this.props;
-    const { activeAddress } = this.state;
+    const { components: { AddressForm }, value, isSaving, label, stepNumber } = this.props;
+    const shippingAddress = value ? value.shippingAddress : null;
     return (
       <Fragment>
         <Title>
@@ -130,7 +129,7 @@ class ShippingAddressCheckoutAction extends Component {
           onCountryChange={(val) => this.handleCountryChange(val)}
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
-          value={activeAddress}
+          value={shippingAddress}
         />
       </Fragment>
     );
