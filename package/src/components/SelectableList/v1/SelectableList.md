@@ -6,7 +6,7 @@ A `SelectableList` takes an array of `SelectableItems`.
 
 ##### Shipping
 
-```jsx noeditor
+```jsx
 const items = [{
   _id: "1",
   label: "Standard (5-9 days)",
@@ -33,7 +33,7 @@ const items = [{
 
 ##### Payment
 
-```jsx noeditor
+```jsx
 const items = [{
   _id: "5",
   label: "American Express",
@@ -52,7 +52,7 @@ const items = [{
 
 ##### Address
 
-```jsx noeditor
+```jsx
 const link = (
     <Button title="Default" className="myBtn" isTextOnly isShortHeight>Edit</Button>
 );
