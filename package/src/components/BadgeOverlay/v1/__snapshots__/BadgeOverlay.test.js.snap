@@ -247,7 +247,7 @@ exports[`BadgeOverlay with low quantity primary badge and best seller secondary 
     <span
       className="c2"
     >
-      Bestseller
+      Best Seller
     </span>
   </div>
   <img
@@ -390,7 +390,7 @@ exports[`BadgeOverlay with on sale primary badge and best seller secondary badge
     <span
       className="c2"
     >
-      Bestseller
+      Best Seller
     </span>
   </div>
   <img

@@ -2,7 +2,7 @@ import BADGE_LABELS from "./badgeLabels";
 
 const BADGE_LABELS_VALUES = {
   BACKORDER: "Backorder",
-  BESTSELLER: "Bestseller",
+  BESTSELLER: "Best Seller",
   LOW_QUANTITY: "Low Inventory",
   SOLD_OUT: "Sold out",
   SALE: "Sale"
