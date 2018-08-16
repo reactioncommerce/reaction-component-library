@@ -14,23 +14,39 @@ const Action = styled.div`
 `;
 
 const FormActions = styled.div`
-  align-items: flex-end;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 1rem 0;
+
+  > div:last-of-type {
+    margin-left: 1rem;
+  }
 `;
 
 class CheckoutActions extends Component {
   static propTypes = {
+    /**
+     * Checkout actions is an array of action objects, the order of this array
+     * will be the render order.
+     */
     actions: PropTypes.arrayOf(
       PropTypes.shape({
+        /**
+         * Checkout action label
+         */
         label: PropTypes.string.isRequired,
+        /**
+         * The checkout action's active  component
+         */
         component: CustomPropTypes.component.isRequired,
-        onSubmit: PropTypes.func,
-        props: PropTypes.shape({
-          cartData: PropTypes.object,
-          cartMutation: PropTypes.func
-        })
+        /**
+         * Callback function called after the active action submits.
+         */
+        onSubmit: PropTypes.func.isRequired,
+        /**
+         * Cart checkout data that the action needs to display.
+         */
+        props: PropTypes.object.isRequired
       })
     ),
     /**
@@ -69,7 +85,7 @@ class CheckoutActions extends Component {
     currentActions: this.props.actions.map(({ label, props }, i) => ({
       label,
       // eslint-disable-next-line
-      status: props.cartData.data ? "complete" : i === 0 ? "active" : "incomplete",
+      status: props ? "complete" : i === 0 ? "active" : "incomplete",
       readyForSave: false,
       isSaving: false
     }))
@@ -119,12 +135,12 @@ class CheckoutActions extends Component {
     this[label].submit();
   };
 
-  renderCompleteAction = ({ label, component, props: { cartData } }) => {
+  renderCompleteAction = ({ label, component, props }) => {
     const { components: { CheckoutActionComplete } } = this.props;
-    return cartData.data ? (
+    return props ? (
       <CheckoutActionComplete
         key={label}
-        content={component.renderComplete(cartData.data)}
+        content={component.renderComplete(props)}
         onClickChangeButton={() => {
           this.toggleActionStatus(label, "active");
         }}
@@ -141,7 +157,7 @@ class CheckoutActions extends Component {
     return (
       <Fragment>
         <Comp
-          value={action.props.cartData.data}
+          {...action.props}
           onReadyForSaveChange={(ready) => {
             this.actionReadyForSave(action.label, ready);
           }}
@@ -154,25 +170,14 @@ class CheckoutActions extends Component {
           onSubmit={(value) => this.handleActionSubmit(action.label, action.onSubmit, value)}
         />
         <FormActions>
-          {action.props.cartData.data ? (
-            <Button
-              actionType="secondary"
-              isTextOnly
-              isShortHeight
-              onClick={() => this.toggleActionStatus(action.label, "complete")}
-            >
+          {action.props ? (
+            <Button actionType="secondary" onClick={() => this.toggleActionStatus(action.label, "complete")}>
               Cancel
             </Button>
           ) : (
             ""
           )}
-          <Button
-            actionType="important"
-            isShortHeight
-            onClick={() => this.actionSubmit(action.label)}
-            isDisabled={!readyForSave}
-            isWaiting={isSaving}
-          >
+          <Button onClick={() => this.actionSubmit(action.label)} isDisabled={!readyForSave} isWaiting={isSaving}>
             Save and continue
           </Button>
         </FormActions>

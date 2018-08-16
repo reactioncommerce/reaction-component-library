@@ -6,7 +6,7 @@ The `CheckoutActions` component is responsible for:
   * Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
 
 #### Usage
-`CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checkout action component that will be responsible to capturing a piece of checkout data as well as a `props` object. Each `props` object will include the piece of `cart.checkout` data the action needs to display and the cart mutation that needs to be called during capture.
+`CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checkout action component that will be responsible to capturing a piece of checkout data as well as a `props` object to include the piece of `cart.checkout` data the action needs to display and a `onSubmit` funciton that needs to be called during action submission.
 
 **Example of Actions array**
 ```js static
@@ -14,26 +14,20 @@ const actions = [
   {
     label: "Shipping Information",
     component: ShippingAddressCheckoutAction,
-    props: {
-      cartData: cart.checkout.fulfillmentGroup,
-      cartMutation: setShippingAddress
-    }
+    onSubmit: setShippingAddress
+    props: cart.checkout.fulfillmentGroup
   },
   {
     label: "Shipping Options",
     component: ShippingOptionCheckoutAction,
-    props: {
-      cartData: cart.checkout.fulfillmentGroup.avalibleFulfilmentGroups,
-      cartMutation: setShippingOption
-    }
+    onSubmit: setShippingOption
+    props: cart.checkout.fulfillmentGroup.avalibleFulfilmentGroups
   },
   { 
     label: "Payment Information", 
-    component: PaymentCheckoutAction, 
-    props: { 
-      cartData: cart.checkout.payments[0], 
-      cartMutation: setPayment
-    } 
+    component: PaymentCheckoutAction,
+    onSubmit: setPayment,
+    props: cart.checkout.payments[0]
   }
 ];
 
@@ -42,6 +36,7 @@ const actions = [
 **Note:** These examples only use the `ShippingAddressCheckoutAction` as the actions component. This will be updated with more actions as they get created.
 
 ```jsx
+initialState = { cart: null }
 const mockAddress = {
   address1: "7742 Hwy 23",
   address2: "",
@@ -54,17 +49,17 @@ const mockAddress = {
   phone: "(504) 393-7303"
 }
 
-let cart = {
-  fulfillmentGroup: {
-    data: null
-  }
-}
-
-const getCart = () => cart;
-
 const mockMutation = (data) => new Promise((resolve, reject) => {
   setTimeout(() => {
-    cart.fulfillmentGroup.data = { shippingAddress: mockAddress };
+    setState({
+      cart: {
+        fulfillmentGroup: {
+          data: {
+            shippingAddress: mockAddress
+          }
+        }
+      }
+    });
     resolve(mockAddress);
   }, 2000, { mockAddress });
 });
@@ -74,22 +69,18 @@ const actions = [
     label: "Shipping Information",
     component: ShippingAddressCheckoutAction,
     onSubmit: mockMutation,
-    props: {
-      cartData: getCart().fulfillmentGroup,
-      cartMutation: mockMutation
-    }
+    props: state.cart
   },
   { 
     label: "Second Shipping Information", 
     component: ShippingAddressCheckoutAction,
     onSubmit: mockMutation,
-    props: { 
-      cartData: {
+    props: {
+      fulfillmentGroup: {
         data: {
           shippingAddress: mockAddress
         }
-      }, 
-      cartMutation: mockMutation 
+      }
     } 
   }
 ];

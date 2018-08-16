@@ -33,6 +33,14 @@ class ShippingAddressCheckoutAction extends Component {
       AddressForm: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
+     * Checkout data needed for form
+     */
+    fulfillmentGroup: PropTypes.shape({
+      data: {
+        shippingAddress: PropTypes.oneOfType([null, PropTypes.object]).isRequired
+      }
+    }),
+    /**
      * Is the shipping address being saved
      */
     isSaving: PropTypes.bool,
@@ -48,18 +56,14 @@ class ShippingAddressCheckoutAction extends Component {
     /**
      * When an action form passes validation and submits
      * the value will be passed to this callback
+     * this funciton needs to return a Promise
+     * if being used with reacto-form
      */
     onSubmit: PropTypes.func,
     /**
      * Checkout process step number
      */
-    stepNumber: PropTypes.number.isRequired,
-    /**
-     * Checkout data needed for form
-     */
-    value: PropTypes.shape({
-      shippingAddress: PropTypes.object
-    })
+    stepNumber: PropTypes.number.isRequired
   };
 
   static defaultProps = {
@@ -68,7 +72,6 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   state = {
-    activeAddress: this.props.value ? this.props.value.shippingAddress : null,
     activeCountry: "US",
     countries: [
       { value: "US", label: "United States" },
@@ -112,8 +115,8 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   render() {
-    const { components: { AddressForm }, value, isSaving, label, stepNumber } = this.props;
-    const shippingAddress = value ? value.shippingAddress : null;
+    const { components: { AddressForm }, fulfillmentGroup, isSaving, label, stepNumber } = this.props;
+    const shippingAddress = fulfillmentGroup ? fulfillmentGroup.data.shippingAddress : null;
     return (
       <Fragment>
         <Title>
@@ -139,7 +142,7 @@ class ShippingAddressCheckoutAction extends Component {
 const WrappedShippingAddressCheckoutAction = withComponents(ShippingAddressCheckoutAction);
 
 // eslint-disable-next-line
-WrappedShippingAddressCheckoutAction.renderComplete = ({ shippingAddress }) => (
+WrappedShippingAddressCheckoutAction.renderComplete = ({ fulfillmentGroup: { data: { shippingAddress } } }) => (
   <Address>
     {shippingAddress.firstName} {shippingAddress.lastName}
     <br />
