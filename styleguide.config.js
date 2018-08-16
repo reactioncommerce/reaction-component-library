@@ -363,7 +363,7 @@ module.exports = {
           name: "Content"
         }),
         generateSection({
-          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "PhoneNumberInput", "Checkbox", "ErrorsBlock"],
+          componentNames: ["Checkbox", "ErrorsBlock", "Field", "PhoneNumberInput", "QuantityInput", "Select", "TextInput"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -383,7 +383,7 @@ module.exports = {
           name: "Product"
         }),
         generateSection({
-          componentNames: ["CartItem", "CartItems", "CartItemDetail", "CartEmptyMessage", "CartSummary", "MiniCart", "MiniCartSummary"],
+          componentNames: ["CartEmptyMessage", "CartItem", "CartItems", "CartItemDetail", "CartSummary", "MiniCart", "MiniCartSummary"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         }),
