@@ -5,6 +5,7 @@ import { applyTheme } from "../../../utils";
 
 const Span = styled.span`
   display: block;
+  color: rgba(0, 0, 0, 0.87);
   font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
 `;

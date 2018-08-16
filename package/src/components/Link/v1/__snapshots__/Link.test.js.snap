@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Link component with image snapshot 1`] = `
+.c0 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <a
+  className="c0"
   href="http://google.com"
   onClick={[Function]}
 >
@@ -15,7 +21,13 @@ exports[`Link component with image snapshot 1`] = `
 `;
 
 exports[`Link component with text snapshot 1`] = `
+.c0 {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 <a
+  className="c0"
   href="http://google.com"
   onClick={[Function]}
 >

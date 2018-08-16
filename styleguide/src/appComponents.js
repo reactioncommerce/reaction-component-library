@@ -1,14 +1,19 @@
 import React from "react";
+import BadgeOverlay from "../../package/src/components/BadgeOverlay/v1";
 import Button from "../../package/src/components/Button/v1";
 import CartItem from "../../package/src/components/CartItem/v1";
 import CartItemDetail from "../../package/src/components/CartItemDetail/v1";
 import CartItems from "../../package/src/components/CartItems/v1";
 import CartSummary from "../../package/src/components/CartSummary/v1";
+import CatalogGrid from "../../package/src/components/CatalogGrid/v1";
+import CatalogItem from "../../package/src/components/CatalogItem/v1";
 import ErrorsBlock from "../../package/src/components/ErrorsBlock/v1";
 import Field from "../../package/src/components/Field/v1";
+import Link from "../../package/src/components/Link/v1";
 import MiniCartSummary from "../../package/src/components/MiniCartSummary/v1";
 import PhoneNumberInput from "../../package/src/components/PhoneNumberInput/v1";
 import Price from "../../package/src/components/Price/v1";
+import ProgressiveImage from "../../package/src/components/ProgressiveImage/v1";
 import QuantityInput from "../../package/src/components/QuantityInput/v1";
 import Select from "../../package/src/components/Select/v1";
 import StockWarning from "../../package/src/components/StockWarning/v1";
@@ -70,19 +75,24 @@ const iconValid = (
 /* eslint-enable max-len */
 
 export default {
+  BadgeOverlay,
   Button,
   CartItem,
   CartItemDetail,
   CartItems,
   CartSummary,
+  CatalogGrid,
+  CatalogItem,
   ErrorsBlock,
   Field,
   iconClear,
   iconError,
   iconValid,
+  Link,
   MiniCartSummary,
   PhoneNumberInput,
   Price,
+  ProgressiveImage,
   QuantityInput,
   Select,
   spinner,
