@@ -56,7 +56,8 @@ const GridItem = styled.div`
         max-width: 25%;
         flex-basis: 25%;
       }`;
-  }}`;
+  }}
+  `;
 
 class CatalogGrid extends Component {
   static propTypes = {
