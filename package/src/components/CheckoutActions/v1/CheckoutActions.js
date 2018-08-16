@@ -29,26 +29,24 @@ class CheckoutActions extends Component {
      * Checkout actions is an array of action objects, the order of this array
      * will be the render order.
      */
-    actions: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    actions: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Checkout action label
          */
-        label: PropTypes.string.isRequired,
-        /**
+      label: PropTypes.string.isRequired,
+      /**
          * The checkout action's active  component
          */
-        component: CustomPropTypes.component.isRequired,
-        /**
+      component: CustomPropTypes.component.isRequired,
+      /**
          * Callback function called after the active action submits.
          */
-        onSubmit: PropTypes.func.isRequired,
-        /**
+      onSubmit: PropTypes.func.isRequired,
+      /**
          * Cart checkout data that the action needs to display.
          */
-        props: PropTypes.object.isRequired
-      })
-    ),
+      props: PropTypes.object.isRequired
+    })),
     /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
