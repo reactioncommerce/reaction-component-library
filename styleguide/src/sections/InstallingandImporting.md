@@ -29,25 +29,25 @@ Check out the [@reactioncommerce/components-context](https://github.com/reaction
 ```jsx static
 import React from "react";
 import styled from "styled-components";
-import AddressForm from "../../package/src/components/AddressForm/v1";
-import Button from "../../package/src/components/Button/v1";
-import CartItem from "../../package/src/components/CartItem/v1";
-import CartItemDetail from "../../package/src/components/CartItemDetail/v1";
-import CartItems from "../../package/src/components/CartItems/v1";
-import CartSummary from "../../package/src/components/CartSummary/v1";
-import CheckoutAction from "../../package/src/components/CheckoutAction/v1";
-import CheckoutActionComplete from "../../package/src/components/CheckoutActionComplete/v1";
-import CheckoutActionIncomplete from "../../package/src/components/CheckoutActionIncomplete/v1";
-import ErrorsBlock from "../../package/src/components/ErrorsBlock/v1";
-import Field from "../../package/src/components/Field/v1";
-import MiniCartSummary from "../../package/src/components/MiniCartSummary/v1";
-import PhoneNumberInput from "../../package/src/components/PhoneNumberInput/v1";
-import Price from "../../package/src/components/Price/v1";
-import QuantityInput from "../../package/src/components/QuantityInput/v1";
-import Select from "../../package/src/components/Select/v1";
-import StockWarning from "../../package/src/components/StockWarning/v1";
+import AddressForm from "@reactioncommerce/components/AddressForm/v1";
+import Button from "@reactioncommerce/components/Button/v1";
+import CartItem from "@reactioncommerce/components/CartItem/v1";
+import CartItemDetail from "@reactioncommerce/components/CartItemDetail/v1";
+import CartItems from "@reactioncommerce/components/CartItems/v1";
+import CartSummary from "@reactioncommerce/components/CartSummary/v1";
+import CheckoutAction from "@reactioncommerce/components/CheckoutAction/v1";
+import CheckoutActionComplete from "@reactioncommerce/components/CheckoutActionComplete/v1";
+import CheckoutActionIncomplete from "@reactioncommerce/components/CheckoutActionIncomplete/v1";
+import ErrorsBlock from "@reactioncommerce/components/ErrorsBlock/v1";
+import Field from "@reactioncommerce/components/Field/v1";
+import MiniCartSummary from "@reactioncommerce/components/MiniCartSummary/v1";
+import PhoneNumberInput from "@reactioncommerce/components/PhoneNumberInput/v1";
+import Price from "@reactioncommerce/components/Price/v1";
+import QuantityInput from "@reactioncommerce/components/QuantityInput/v1";
+import Select from "@reactioncommerce/components/Select/v1";
+import StockWarning from "@reactioncommerce/components/StockWarning/v1";
 import spinner from "../../package/src/utils/spinner";
-import TextInput from "../../package/src/components/TextInput/v1";
+import TextInput from "@reactioncommerce/components/TextInput/v1";
 
 /* eslint-disable max-len */
 
