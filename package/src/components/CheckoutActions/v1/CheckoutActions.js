@@ -22,14 +22,16 @@ const FormActions = styled.div`
 
 class CheckoutActions extends Component {
   static propTypes = {
-    actions: PropTypes.arrayOf(PropTypes.shape({
-      label: PropTypes.string.isRequired,
-      component: CustomPropTypes.component.isRequired,
-      props: PropTypes.shape({
-        cartData: PropTypes.object,
-        cartMutation: PropTypes.func
+    actions: PropTypes.arrayOf(
+      PropTypes.shape({
+        label: PropTypes.string.isRequired,
+        component: CustomPropTypes.component.isRequired,
+        props: PropTypes.shape({
+          cartData: PropTypes.object,
+          cartMutation: PropTypes.func
+        })
       })
-    })),
+    ),
     /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
@@ -97,21 +99,24 @@ class CheckoutActions extends Component {
     });
   };
 
-  captureActionData = async ({ label, props: { cartMutation } }) => {
-    const actionData = await this[label].getFullfillmentData();
+  handleActionSubmit = (label, onSubmit, actionValue) => {
     const { currentActions } = this.state;
     currentActions[this.getCurrentActionIndex(label)].isSaving = true;
     this.setState({
       currentActions
     });
 
-    cartMutation(actionData).then(() => {
+    onSubmit(actionValue).then(() => {
       currentActions[this.getCurrentActionIndex(label)].isSaving = false;
       currentActions[this.getCurrentActionIndex(label)].status = "complete";
       this.setState({
         currentActions
       });
     });
+  };
+
+  actionSubmit = (label) => {
+    this[label].submit();
   };
 
   renderCompleteAction = ({ label, component, props: { cartData } }) => {
@@ -146,6 +151,9 @@ class CheckoutActions extends Component {
           }}
           label={action.label}
           stepNumber={this.getCurrentActionIndex(action.label) + 1}
+          onSubmit={(value) => {
+            this.handleActionSubmit(action.label, action.onSubmit, value);
+          }}
         />
         <FormActions>
           {action.props.cartData.data ? (
@@ -163,7 +171,7 @@ class CheckoutActions extends Component {
           <Button
             actionType="important"
             isShortHeight
-            onClick={() => this.captureActionData(action)}
+            onClick={() => this.actionSubmit(action.label)}
             isDisabled={!readyForSave}
             isWaiting={isSaving}
           >

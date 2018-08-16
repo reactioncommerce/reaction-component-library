@@ -46,6 +46,11 @@ class ShippingAddressCheckoutAction extends Component {
      */
     onReadyForSaveChange: PropTypes.func,
     /**
+     * When an action form passes validation and submits
+     * the value will be passed to this callback
+     */
+    onSubmit: PropTypes.func,
+    /**
      * Checkout process step number
      */
     stepNumber: PropTypes.number.isRequired,
@@ -82,21 +87,15 @@ class ShippingAddressCheckoutAction extends Component {
 
   _addressForm = null;
 
-  handleSubmit = (address) => {
-    this.setState({
-      activeAddress: address
-    });
+  submit = () => {
+    this._addressForm.submit();
   };
 
-  getFullfillmentData = () =>
-    this._addressForm.validate().then((errs) => {
-      if (errs.length <= 0) {
-        return this._addressForm.getValue();
-      }
-      // returning nothing since validation failed
-      // the child Form will handle displaying validation errors
-      return;
-    });
+  handleSubmit = (value) => {
+    const { onSubmit } = this.props;
+    this.setState({ activeAddress: value });
+    onSubmit(value);
+  };
 
   handleChange = (values) => {
     const { onReadyForSaveChange } = this.props;
@@ -114,8 +113,8 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   render() {
-    const { components: { AddressForm }, value, isSaving, label, stepNumber } = this.props;
-    const shippingAddress = value ? value.shippingAddress : null;
+    const { components: { AddressForm }, isSaving, label, stepNumber } = this.props;
+    const { activeAddress } = this.state;
     return (
       <Fragment>
         <Title>
@@ -129,9 +128,9 @@ class ShippingAddressCheckoutAction extends Component {
           isDisabled={isSaving}
           regions={this.state.regions[this.state.activeCountry]}
           onCountryChange={(val) => this.handleCountryChange(val)}
-          onSubmit={this.handleSubmit}
           onChange={this.handleChange}
-          value={shippingAddress}
+          onSubmit={this.handleSubmit}
+          value={activeAddress}
         />
       </Fragment>
     );

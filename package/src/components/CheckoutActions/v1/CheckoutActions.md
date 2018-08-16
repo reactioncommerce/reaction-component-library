@@ -65,7 +65,6 @@ const getCart = () => cart;
 const mockMutation = (data) => new Promise((resolve, reject) => {
   setTimeout(() => {
     cart.fulfillmentGroup.data = { shippingAddress: mockAddress };
-    console.log("updating car data", cart.fulfillmentGroup)
     resolve(mockAddress);
   }, 2000, { mockAddress });
 });
@@ -74,6 +73,7 @@ const actions = [
   {
     label: "Shipping Information",
     component: ShippingAddressCheckoutAction,
+    onSubmit: mockMutation,
     props: {
       cartData: getCart().fulfillmentGroup,
       cartMutation: mockMutation
@@ -81,7 +81,8 @@ const actions = [
   },
   { 
     label: "Second Shipping Information", 
-    component: ShippingAddressCheckoutAction, 
+    component: ShippingAddressCheckoutAction,
+    onSubmit: mockMutation,
     props: { 
       cartData: {
         data: {
