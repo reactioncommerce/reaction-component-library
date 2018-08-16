@@ -96,7 +96,13 @@ class SelectableList extends Component {
        */
       _id: PropTypes.string.isRequired
     })).isRequired,
+    /**
+     * An extra row at the bottom of the list for an action, like Add an address
+     */
     listAction: PropTypes.node,
+    /**
+     * Name for input
+     */
     name: PropTypes.string.isRequired
   };
 
