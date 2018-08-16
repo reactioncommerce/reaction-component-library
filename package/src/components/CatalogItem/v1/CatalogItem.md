@@ -1,0 +1,63 @@
+### Overview
+The `CatalogItem` component is used for displaying a product in a catalog.
+
+#### Usage
+
+##### With product image
+```jsx
+  <CatalogItem
+  placeholderImageURL="/resources/placeholder.gif"
+    product={{
+      title: "Basic Reaction Product",
+      vendor: "Example Manufacturer",
+      primaryImage: {
+        URLs: {
+          large: "/images/responsive-sticker/large.jpg",
+          medium: "/images/responsive-sticker/medium.jpg",
+          small: "/images/responsive-sticker/small.png",
+          thumbnail: "/images/responsive-sticker/thumbnail.png"
+        }
+      },
+      pricing: [{
+        currency: {
+          code: "USD"
+        },
+        compareAtPrice: null,
+        price: 19.99,
+        displayPrice: "$12.99 - $19.99"
+      }],
+      isSoldOut: false,
+      isBackorder: false,
+      isOnSale: false,
+      isLowQuantity: false,
+      isBestseller: true
+    }}
+    currencyCode="USD"
+  />
+```
+
+##### With placeholder image
+```jsx
+  <CatalogItem
+    placeholderImageURL="/images/placeholder.gif"
+    product={{
+      title: "Basic Reaction Product",
+      vendor: "Example Manufacturer",
+      primaryImage: null,
+      pricing: [{
+        currency: {
+          code: "USD"
+        },
+        compareAtPrice: null,
+        price: 19.99,
+        displayPrice: "$12.99 - $19.99"
+      }],
+      isSoldOut: false,
+      isBackorder: false,
+      isOnSale: false,
+      isLowQuantity: false,
+      isBestseller: true
+    }}
+    currencyCode="USD"
+  />
+```
