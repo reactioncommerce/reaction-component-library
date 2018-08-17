@@ -247,6 +247,7 @@ class SelectableItem extends Component {
     return (
       <StyledItem className={className} >
         <input
+          id={_id}
           checked={value === true}
           key={_id}
           onChange={this.onChange}

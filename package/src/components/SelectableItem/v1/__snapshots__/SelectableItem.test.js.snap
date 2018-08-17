@@ -132,6 +132,7 @@ exports[`basic snapshot with empty props 1`] = `
 >
   <input
     checked={false}
+    id="1"
     name={undefined}
     onChange={[Function]}
     type="radio"
