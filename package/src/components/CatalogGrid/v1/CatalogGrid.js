@@ -1,15 +1,30 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { ContainerQuery } from "react-container-query";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { getFromTheme, CustomPropTypes } from "../../../utils";
+
+const mdWidth = getFromTheme({}, "rui_md");
+const containerQueries = {
+  is2PerRowWidth: {
+    minWidth: 450, // Min width that item w/ 2 badges renders appropriately
+    maxWidth: 649
+  },
+  is3PerRowWidth: {
+    minWidth: 650,
+    maxWidth: mdWidth - 1
+  },
+  is4PerRowWidth: {
+    minWidth: mdWidth
+  }
+};
 
 const GridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  width: calc(100% + 24px);
-  margin: -12px;`;
+  width: 100%`;
 
 const GridItem = styled.div`
   padding: 12px;
@@ -19,43 +34,24 @@ const GridItem = styled.div`
   margin: 0;
   box-sizing: border-box;
 
-  ${(props) => {
-    // Media query for when to display 3 products per row
-    const { threePerRowWidth } = props;
-
-    let mediaQuery = "";
-    if (threePerRowWidth) {
-      mediaQuery = `min-width: ${threePerRowWidth}px`;
-    } else {
-      mediaQuery = `${getFromTheme(props, "rui_bp_sm")}`;
-    }
-
-    return `
-      @media (${mediaQuery}) {
-        flex-grow: 0;
+  ${({ containerParams }) => {
+    const { is2PerRowWidth, is3PerRowWidth, is4PerRowWidth } = containerParams;
+    if (is2PerRowWidth) {
+      return `
+        max-width: 50%;
+        flex-basis: 50%;
+      `;
+    } else if (is3PerRowWidth) {
+      return `
         max-width: 33.33333%;
         flex-basis: 33.33333%;
-      }`;
-  }}
-
-
-  ${(props) => {
-    // Media query for when to display 4 products per row
-    const { fourPerRowWidth } = props;
-
-    let mediaQuery = "";
-    if (fourPerRowWidth) {
-      mediaQuery = `min-width: ${fourPerRowWidth}px`;
-    } else {
-      mediaQuery = `${getFromTheme(props, "rui_bp_md")}`;
-    }
-
-    return `
-      @media (${mediaQuery}) {
-        flex-grow: 0;
+      `;
+    } else if (is4PerRowWidth) {
+      return `
         max-width: 25%;
         flex-basis: 25%;
-      }`;
+      `;
+    }
   }}
   `;
 
@@ -75,21 +71,13 @@ class CatalogGrid extends Component {
      */
     currencyCode: PropTypes.string,
     /**
-     * Minimum width (in px) to display 4 products per row. Defaults to value from theme (600px)
-     */
-    fourPerRowWidth: PropTypes.number,
-    /**
      * Image to display when product doesn't have a primary image
      */
     placeholderImageURL: PropTypes.string,
     /**
      * Products to display in the grid. Refer to `CatalogGridItem`'s documentation
      */
-    products: PropTypes.arrayOf(PropTypes.object),
-    /**
-     * Minimum width (in px) to display 3 products per row. Defaults to value from theme (960px)
-     */
-    threePerRowWidth: PropTypes.number
+    products: PropTypes.arrayOf(PropTypes.object)
   };
 
   static defaultProps = {
@@ -107,17 +95,21 @@ class CatalogGrid extends Component {
     } = this.props;
 
     return (
-      <GridContainer>
-        {products.map((product, index) => (
-          <GridItem key={`grid-item-${index}`} {...this.props}>
-            <CatalogGridItem
-              currencyCode={currencyCode}
-              placeholderImageURL={placeholderImageURL}
-              product={product}
-            />
-          </GridItem>
-        ))}
-      </GridContainer>
+      <ContainerQuery query={containerQueries}>
+        {(params) => (
+          <GridContainer>
+            {products.map((product, index) => (
+              <GridItem containerParams={params} key={`grid-item-${index}`} {...this.props}>
+                <CatalogGridItem
+                  currencyCode={currencyCode}
+                  placeholderImageURL={placeholderImageURL}
+                  product={product}
+                />
+              </GridItem>
+            ))}
+          </GridContainer>
+        )}
+      </ContainerQuery>
     );
   }
 }

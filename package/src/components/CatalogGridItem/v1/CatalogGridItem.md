@@ -12,10 +12,10 @@ The `CatalogGridItem` component is used for displaying a product in a catalog.
       vendor: "Example Manufacturer",
       primaryImage: {
         URLs: {
-          large: "/images/responsive-sticker/large.jpg",
-          medium: "/images/responsive-sticker/medium.jpg",
-          small: "/images/responsive-sticker/small.png",
-          thumbnail: "/images/responsive-sticker/thumbnail.png"
+          large: "/images/sticker/large.jpg",
+          medium: "/images/sticker/medium.jpg",
+          small: "/images/sticker/small.png",
+          thumbnail: "/images/sticker/thumbnail.png"
         }
       },
       pricing: [{

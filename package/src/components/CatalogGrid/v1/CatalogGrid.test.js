@@ -2,104 +2,70 @@ import React from "react";
 import renderer from "react-test-renderer";
 import mockComponents from "../../../tests/mockComponents";
 import CatalogGrid from "./CatalogGrid";
+import mockProducts from "./__mocks__/products";
 
-test("CatalogGrid basic snapshot", () => {
+test("CatalogGrid default responsive snapshot", () => {
   const component = renderer.create((
     <CatalogGrid
       components={mockComponents}
-      products={[
-        {
-          title: "Product A",
-          slug: "product-a",
-          vendor: "Vendor A",
-          primaryImage: {
-            URLs: {
-              large: "/images/responsive-sticker/large.jpg",
-              medium: "/images/responsive-sticker/medium.jpg",
-              small: "/images/responsive-sticker/small.png",
-              thumbnail: "/images/responsive-sticker/thumbnail.png"
-            }
-          },
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: true
-        },
-        {
-          title: "Product B",
-          slug: "product-b",
-          vendor: "Vendor B",
-          primaryImage: null,
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: true,
-          isBestseller: false
-        },
-        {
-          title: "Sticker",
-          slug: "sticker",
-          vendor: "Reaction",
-          primaryImage: {
-            URLs: {
-              large: "/images/responsive-sticker/large.jpg",
-              medium: "/images/responsive-sticker/medium.jpg",
-              small: "/images/responsive-sticker/small.png",
-              thumbnail: "/images/responsive-sticker/thumbnail.png"
-            }
-          },
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: true
-        },
-        {
-          title: "Product C",
-          slug: "product-c",
-          vendor: "Vendor C",
-          primaryImage: null,
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: true,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: false
-        }
-      ]}
+      products={mockProducts}
     />
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("CatalogGrid 325px fixed-width snapshot", () => {
+  const component = renderer.create((
+    <div style={{ width: 325, borderWidth: 1, borderColor: "black", borderStyle: "solid", margin: "0 auto" }}>
+      <CatalogGrid
+        components={mockComponents}
+        products={mockProducts}
+      />
+    </div>
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("CatalogGrid 450px fixed-width snapshot", () => {
+  const component = renderer.create((
+    <div style={{ width: 450, borderWidth: 1, borderColor: "black", borderStyle: "solid", margin: "0 auto" }}>
+      <CatalogGrid
+        components={mockComponents}
+        products={mockProducts}
+      />
+    </div>
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("CatalogGrid 650px fixed-width snapshot", () => {
+  const component = renderer.create((
+    <div style={{ width: 650, borderWidth: 1, borderColor: "black", borderStyle: "solid", margin: "0 auto" }}>
+      <CatalogGrid
+        components={mockComponents}
+        products={mockProducts}
+      />
+    </div>
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("CatalogGrid 960px fixed-width snapshot", () => {
+  const component = renderer.create((
+    <div style={{ width: 960, borderWidth: 1, borderColor: "black", borderStyle: "solid", margin: "0 auto" }}>
+      <CatalogGrid
+        components={mockComponents}
+        products={mockProducts}
+      />
+    </div>
   ));
 
   const tree = component.toJSON();
@@ -110,205 +76,8 @@ test("CatalogGrid custom placeholder image snapshot", () => {
   const component = renderer.create((
     <CatalogGrid
       components={mockComponents}
-      placeholderImageURL="/images/placeholder.gif"
-      products={[
-        {
-          title: "Product A",
-          slug: "product-a",
-          vendor: "Vendor A",
-          primaryImage: {
-            URLs: {
-              large: "/images/responsive-sticker/large.jpg",
-              medium: "/images/responsive-sticker/medium.jpg",
-              small: "/images/responsive-sticker/small.png",
-              thumbnail: "/images/responsive-sticker/thumbnail.png"
-            }
-          },
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: true
-        },
-        {
-          title: "Product B",
-          slug: "product-b",
-          vendor: "Vendor B",
-          primaryImage: null,
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: true
-        },
-        {
-          title: "Sticker",
-          slug: "sticker",
-          vendor: "Reaction",
-          primaryImage: {
-            URLs: {
-              large: "/images/responsive-sticker/large.jpg",
-              medium: "/images/responsive-sticker/medium.jpg",
-              small: "/images/responsive-sticker/small.png",
-              thumbnail: "/images/responsive-sticker/thumbnail.png"
-            }
-          },
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: true
-        },
-        {
-          title: "Product C",
-          slug: "product-c",
-          vendor: "Vendor C",
-          primaryImage: null,
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: true
-        }
-      ]}
-    />
-  ));
-
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
-
-test("CatalogGrid custom min-width breakpoints snapshot", () => {
-  const component = renderer.create((
-    <CatalogGrid
-      components={mockComponents}
-      threePerRowWidth={960}
-      fourPerRowWidth={1280}
-      placeholderImageURL="/images/placeholder.gif"
-      products={[
-        {
-          title: "Product A",
-          slug: "product-a",
-          vendor: "Vendor A",
-          primaryImage: {
-            URLs: {
-              large: "/images/responsive-sticker/large.jpg",
-              medium: "/images/responsive-sticker/medium.jpg",
-              small: "/images/responsive-sticker/small.png",
-              thumbnail: "/images/responsive-sticker/thumbnail.png"
-            }
-          },
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: true
-        },
-        {
-          title: "Product B",
-          slug: "product-b",
-          vendor: "Vendor B",
-          primaryImage: null,
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: true,
-          isBestseller: false
-        },
-        {
-          title: "Sticker",
-          slug: "sticker",
-          vendor: "Reaction",
-          primaryImage: {
-            URLs: {
-              large: "/images/responsive-sticker/large.jpg",
-              medium: "/images/responsive-sticker/medium.jpg",
-              small: "/images/responsive-sticker/small.png",
-              thumbnail: "/images/responsive-sticker/thumbnail.png"
-            }
-          },
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: true,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: false
-        },
-        {
-          title: "Product C",
-          slug: "product-c",
-          vendor: "Vendor C",
-          primaryImage: null,
-          pricing: [{
-            currency: {
-              code: "USD"
-            },
-            compareAtPrice: null,
-            price: 19.99,
-            displayPrice: "$12.99 - $19.99"
-          }],
-          isSoldOut: false,
-          isBackorder: false,
-          isOnSale: false,
-          isLowQuantity: false,
-          isBestseller: false
-        }
-      ]}
+      products={mockProducts}
+      placeholderImageURL={"/path/to/custom/placeholder.png"}
     />
   ));
 

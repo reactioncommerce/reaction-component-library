@@ -3,205 +3,67 @@ The `CatalogGrid` component creates a responsive grid that displays `CatalogGrid
 
 #### Usage
 
-##### Grid with default min-width breakpoints (600px = 3 per row, 960px = 4 per row)
-Note: displays best at full-width of page
+##### Default - responsive grid
+`CatalogGrid` automatically adjusts itself based on the width of its container. This ensures
+that products always render appropriately regardless of where the grid is rendered.
 
-```jsx
-  <CatalogGrid
-    placeholderImageURL="/images/placeholder.gif"
-    products={[
-      {
-        title: "Product A",
-        slug: "product-a",
-        vendor: "Vendor A",
-        primaryImage: {
-          URLs: {
-            large: "/images/responsive-sticker/large.jpg",
-            medium: "/images/responsive-sticker/medium.jpg",
-            small: "/images/responsive-sticker/small.png",
-            thumbnail: "/images/responsive-sticker/thumbnail.png"
-          }
-        },
-        pricing: [{
-          currency: {
-            code: "USD"
-          },
-          compareAtPrice: null,
-          price: 19.99,
-          displayPrice: "$12.99 - $19.99"
-        }],
-        isSoldOut: false,
-        isBackorder: false,
-        isOnSale: false,
-        isLowQuantity: false,
-        isBestseller: true
-      },
-      {
-        title: "Product B",
-        slug: "product-b",
-        vendor: "Vendor B",
-        primaryImage: null,
-        pricing: [{
-          currency: {
-            code: "USD"
-          },
-          compareAtPrice: null,
-          price: 19.99,
-          displayPrice: "$12.99 - $19.99"
-        }],
-        isSoldOut: false,
-        isBackorder: false,
-        isOnSale: false,
-        isLowQuantity: true,
-        isBestseller: false
-      },
-      {
-        title: "Sticker",
-        slug: "sticker",
-        vendor: "Reaction",
-        primaryImage: {
-          URLs: {
-            large: "/images/responsive-sticker/large.jpg",
-            medium: "/images/responsive-sticker/medium.jpg",
-            small: "/images/responsive-sticker/small.png",
-            thumbnail: "/images/responsive-sticker/thumbnail.png"
-          }
-        },
-        pricing: [{
-          currency: {
-            code: "USD"
-          },
-          compareAtPrice: null,
-          price: 19.99,
-          displayPrice: "$12.99 - $19.99"
-        }],
-        isSoldOut: true,
-        isBackorder: false,
-        isOnSale: false,
-        isLowQuantity: false,
-        isBestseller: false
-      },
-      {
-        title: "Product C",
-        slug: "product-c",
-        vendor: "Vendor C",
-        primaryImage: null,
-        pricing: [{
-          currency: {
-            code: "USD"
-          },
-          compareAtPrice: null,
-          price: 19.99,
-          displayPrice: "$12.99 - $19.99"
-        }],
-        isSoldOut: false,
-        isBackorder: false,
-        isOnSale: false,
-        isLowQuantity: false,
-        isBestseller: false
-      },
-    ]}
-  />
+```js noeditor
+  // Import mock products behind the scenes
+  products = require("./__mocks__/products").default; ""
 ```
 
-##### Grid with custom min-width breakpoints (960px = 3 per row, 1280px = 4 per row)
+```jsx
+  <CatalogGrid products={products} />
+```
+
+##### Fixed-width container, 1 product per row (325px width)
+
+```jsx
+  <div style={{ width: 325, borderWidth: 1, borderColor: "black", borderStyle: "solid", margin: "0 auto" }}>
+    <CatalogGrid products={products} />
+  </div>
+```
+
+##### Fixed-width container, 2 per row (450px width)
+
+```jsx
+  <div style={{ width: 450, borderWidth: 1, borderColor: "black", borderStyle: "solid", margin: "0 auto" }}>
+    <CatalogGrid products={products} />
+  </div>
+```
+
+##### Fixed-width container, 3 per row (650px width)
+
+```jsx
+  <div style={{ width: 650, borderWidth: 1, borderColor: "black", borderStyle: "solid", margin: "0 auto" }}>
+    <CatalogGrid products={products} />
+  </div>
+```
+
+##### Fixed-width container, 4 per row (960px width)
+
+```jsx
+  <div style={{ width: 960, borderWidth: 1, borderColor: "black", borderStyle: "solid", margin: "0 auto" }}>
+    <CatalogGrid products={products} />
+  </div>
+```
+
+##### Custom placeholder image
+By default, `CatalogGrid` expects a placeholder image to be located at /resources/placeholder.gif.
+Specify the `placeholderImageURL` to override:
+
+```js noeditor
+  // Clone products and remove images
+  productsWithoutImages = products.slice().map((product) => {
+    const clonedProduct = Object.assign({}, product);
+    clonedProduct.primaryImage = null;
+    return clonedProduct;
+  });""
+```
 
 ```jsx
   <CatalogGrid
-    threePerRowWidth={960}
-    fourPerRowWidth={1280}
     placeholderImageURL="/images/placeholder.gif"
-    products={[
-      {
-        title: "Product A",
-        slug: "product-a",
-        vendor: "Vendor A",
-        primaryImage: {
-          URLs: {
-            large: "/images/responsive-sticker/large.jpg",
-            medium: "/images/responsive-sticker/medium.jpg",
-            small: "/images/responsive-sticker/small.png",
-            thumbnail: "/images/responsive-sticker/thumbnail.png"
-          }
-        },
-        pricing: [{
-          currency: {
-            code: "USD"
-          },
-          compareAtPrice: null,
-          price: 19.99,
-          displayPrice: "$12.99 - $19.99"
-        }],
-        isSoldOut: false,
-        isBackorder: false,
-        isOnSale: false,
-        isLowQuantity: false,
-        isBestseller: true
-      },
-      {
-        title: "Product B",
-        slug: "product-b",
-        vendor: "Vendor B",
-        primaryImage: null,
-        pricing: [{
-          currency: {
-            code: "USD"
-          },
-          compareAtPrice: null,
-          price: 19.99,
-          displayPrice: "$12.99 - $19.99"
-        }],
-        isSoldOut: false,
-        isBackorder: false,
-        isOnSale: false,
-        isLowQuantity: true,
-        isBestseller: false
-      },
-      {
-        title: "Sticker",
-        slug: "sticker",
-        vendor: "Reaction",
-        primaryImage: {
-          URLs: {
-            large: "/images/responsive-sticker/large.jpg",
-            medium: "/images/responsive-sticker/medium.jpg",
-            small: "/images/responsive-sticker/small.png",
-            thumbnail: "/images/responsive-sticker/thumbnail.png"
-          }
-        },
-        pricing: [{
-          currency: {
-            code: "USD"
-          },
-          compareAtPrice: null,
-          price: 19.99,
-          displayPrice: "$12.99 - $19.99"
-        }],
-        isSoldOut: true,
-        isBackorder: false,
-        isOnSale: false,
-        isLowQuantity: false,
-        isBestseller: false
-      },
-      {
-        title: "Product C",
-        slug: "product-c",
-        vendor: "Vendor C",
-        primaryImage: null,
-        pricing: [{
-          currency: {
-            code: "USD"
-          },
-          compareAtPrice: null,
-          price: 19.99,
-          displayPrice: "$12.99 - $19.99"
-        }],
-        isSoldOut: false,
-        isBackorder: false,
-        isOnSale: false,
-        isLowQuantity: false,
-        isBestseller: false
-      },
-    ]}
+    products={productsWithoutImages}
   />
 ```
