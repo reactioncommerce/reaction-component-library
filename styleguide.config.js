@@ -115,18 +115,30 @@ module.exports = {
     },
     Para: {
       para: {
-        width: "60%"
+        "width": "60%",
+        "@media screen and (max-width: 800px)": {
+          width: "100%"
+        }
       }
     },
     List: {
       list: {
-        width: "60%"
+        "width": "60%",
+        "@media screen and (max-width: 800px)": {
+          width: "100%"
+        }
       },
       ordered: {
-        width: "60%"
+        "width": "60%",
+        "@media screen and (max-width: 800px)": {
+          width: "100%"
+        }
       },
       unordered: {
-        width: "60%"
+        "width": "60%",
+        "@media screen and (max-width: 800px)": {
+          width: "100%"
+        }
       }
     },
     StyleGuide: {
@@ -140,7 +152,7 @@ module.exports = {
         "maxWidth": "initial",
         "padding": "0 80px",
         "@media screen and (max-width: 800px)": {
-          padding: [0, 16]
+          padding: "0 16px"
         }
       },
       sidebar: {
@@ -231,9 +243,13 @@ module.exports = {
     },
     ReactComponent: {
       header: {
-        backgroundColor: "#fffbcc",
-        margin: "0 -80px 40px -80px",
-        padding: "20px 80px 40px 80px"
+        "backgroundColor": "#fffbcc",
+        "margin": "0 -80px 40px -80px",
+        "padding": "20px 80px 40px 80px",
+        "@media screen and (max-width: 800px)": {
+          margin: "0 -16px 40px -16px",
+          padding: "20px"
+        }
       }
     },
     SectionHeading: {
@@ -243,6 +259,8 @@ module.exports = {
         "pointerEvents": "none",
         "fontFamily": ["Overpass Mono", "Menlo", "monospace"],
         "fontSize": "50px",
+        "word-wrap": "break-word",
+        "hyphens": "auto",
         "&:hover, &:active": {
           cursor: "text",
           pointerEvents: "none",
