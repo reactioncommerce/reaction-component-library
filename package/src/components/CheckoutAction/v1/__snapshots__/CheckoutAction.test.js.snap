@@ -8,6 +8,10 @@ exports[`CheckoutAction with \`active\` status 1`] = `
 
 exports[`CheckoutAction with \`complete\` status 1`] = `
 .c0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -148,6 +152,10 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
 
 exports[`CheckoutAction with \`complete\` status and label override via props 1`] = `
 .c0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -288,6 +296,10 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
 
 exports[`CheckoutAction with \`complete\` status and stepNumber override via props 1`] = `
 .c0 {
+  -webkit-align-items: flex-start;
+  -webkit-box-align: flex-start;
+  -ms-flex-align: flex-start;
+  align-items: flex-start;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
