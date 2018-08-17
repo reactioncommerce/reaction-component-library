@@ -1,5 +1,5 @@
 ### Overview
-The `CatalogGrid` component creates a responsive grid that displays `CatalogItem`s.
+The `CatalogGrid` component creates a responsive grid that displays `CatalogGridItem`s.
 
 #### Usage
 

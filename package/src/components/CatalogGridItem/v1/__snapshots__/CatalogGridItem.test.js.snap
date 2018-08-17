@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CatalogItem basic snapshot 1`] = `
+exports[`CatalogGridItem basic snapshot 1`] = `
 <div>
   Link(undefined)
 </div>
 `;
 
-exports[`CatalogItem with placeholder image 1`] = `
+exports[`CatalogGridItem with placeholder image 1`] = `
 <div>
   Link(undefined)
 </div>

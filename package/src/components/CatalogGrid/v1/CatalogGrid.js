@@ -68,7 +68,7 @@ class CatalogGrid extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
-      CatalogItem: CustomPropTypes.component.isRequired
+      CatalogGridItem: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Currency code to display the price for. Product must include a pricing object with the code in `product.pricing`
@@ -83,7 +83,7 @@ class CatalogGrid extends Component {
      */
     placeholderImageURL: PropTypes.string,
     /**
-     * Products to display in the grid. Refer to `CatalogItem`'s documentation
+     * Products to display in the grid. Refer to `CatalogGridItem`'s documentation
      */
     products: PropTypes.arrayOf(PropTypes.object),
     /**
@@ -100,7 +100,7 @@ class CatalogGrid extends Component {
 
   render() {
     const {
-      components: { CatalogItem },
+      components: { CatalogGridItem },
       currencyCode,
       placeholderImageURL,
       products
@@ -110,7 +110,7 @@ class CatalogGrid extends Component {
       <GridContainer>
         {products.map((product, index) => (
           <GridItem key={`grid-item-${index}`} {...this.props}>
-            <CatalogItem
+            <CatalogGridItem
               currencyCode={currencyCode}
               placeholderImageURL={placeholderImageURL}
               product={product}

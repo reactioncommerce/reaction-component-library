@@ -60,22 +60,22 @@ exports[`CatalogGrid basic snapshot 1`] = `
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
 </div>
 `;
@@ -140,22 +140,22 @@ exports[`CatalogGrid custom min-width breakpoints snapshot 1`] = `
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
 </div>
 `;
@@ -220,22 +220,22 @@ exports[`CatalogGrid custom placeholder image snapshot 1`] = `
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
   <div
     className="c1"
   >
-    CatalogItem(undefined)
+    CatalogGridItem(undefined)
   </div>
 </div>
 `;

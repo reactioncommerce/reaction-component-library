@@ -33,7 +33,7 @@ const ProductVendor = styled.span`
   line-height: 23px;
 `;
 
-class CatalogItem extends Component {
+class CatalogGridItem extends Component {
   static propTypes = {
     /**
      * If you've set up a components context using @reactioncommerce/components-context
@@ -167,4 +167,4 @@ class CatalogItem extends Component {
   }
 }
 
-export default withComponents(CatalogItem);
+export default withComponents(CatalogGridItem);

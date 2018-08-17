@@ -1,11 +1,11 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import mockComponents from "../../../tests/mockComponents";
-import CatalogItem from "./CatalogItem";
+import CatalogGridItem from "./CatalogGridItem";
 
-test("CatalogItem basic snapshot", () => {
+test("CatalogGridItem basic snapshot", () => {
   const component = renderer.create((
-    <CatalogItem
+    <CatalogGridItem
       components={mockComponents}
       placeholderImageURL="/resources/placeholder.gif"
       product={{
@@ -40,9 +40,9 @@ test("CatalogItem basic snapshot", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("CatalogItem with placeholder image", () => {
+test("CatalogGridItem with placeholder image", () => {
   const component = renderer.create((
-    <CatalogItem
+    <CatalogGridItem
       components={mockComponents}
       placeholderImageURL="/resources/placeholder.gif"
       product={{

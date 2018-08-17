@@ -26,7 +26,7 @@ function stringifyJSONCircularSafe(obj) {
   "CartItems",
   "CartSummary",
   "CatalogGrid",
-  "CatalogItem",
+  "CatalogGridItem",
   "ErrorsBlock",
   "Field",
   "Link",

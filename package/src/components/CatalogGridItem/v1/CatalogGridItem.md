@@ -1,11 +1,11 @@
 ### Overview
-The `CatalogItem` component is used for displaying a product in a catalog.
+The `CatalogGridItem` component is used for displaying a product in a catalog.
 
 #### Usage
 
 ##### With product image
 ```jsx
-  <CatalogItem
+  <CatalogGridItem
   placeholderImageURL="/resources/placeholder.gif"
     product={{
       title: "Basic Reaction Product",
@@ -38,7 +38,7 @@ The `CatalogItem` component is used for displaying a product in a catalog.
 
 ##### With placeholder image
 ```jsx
-  <CatalogItem
+  <CatalogGridItem
     placeholderImageURL="/images/placeholder.gif"
     product={{
       title: "Basic Reaction Product",

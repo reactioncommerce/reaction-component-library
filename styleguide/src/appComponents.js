@@ -6,7 +6,7 @@ import CartItemDetail from "../../package/src/components/CartItemDetail/v1";
 import CartItems from "../../package/src/components/CartItems/v1";
 import CartSummary from "../../package/src/components/CartSummary/v1";
 import CatalogGrid from "../../package/src/components/CatalogGrid/v1";
-import CatalogItem from "../../package/src/components/CatalogItem/v1";
+import CatalogGridItem from "../../package/src/components/CatalogGridItem/v1";
 import ErrorsBlock from "../../package/src/components/ErrorsBlock/v1";
 import Field from "../../package/src/components/Field/v1";
 import Link from "../../package/src/components/Link/v1";
@@ -82,7 +82,7 @@ export default {
   CartItems,
   CartSummary,
   CatalogGrid,
-  CatalogItem,
+  CatalogGridItem,
   ErrorsBlock,
   Field,
   iconClear,
