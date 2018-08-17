@@ -1,4 +1,5 @@
 import React from "react";
+import AddressForm from "../../package/src/components/AddressForm/v1";
 import BadgeOverlay from "../../package/src/components/BadgeOverlay/v1";
 import Button from "../../package/src/components/Button/v1";
 import CartItem from "../../package/src/components/CartItem/v1";
@@ -7,6 +8,9 @@ import CartItems from "../../package/src/components/CartItems/v1";
 import CartSummary from "../../package/src/components/CartSummary/v1";
 import CatalogGrid from "../../package/src/components/CatalogGrid/v1";
 import CatalogGridItem from "../../package/src/components/CatalogGridItem/v1";
+import CheckoutAction from "../../package/src/components/CheckoutAction/v1";
+import CheckoutActionComplete from "../../package/src/components/CheckoutActionComplete/v1";
+import CheckoutActionIncomplete from "../../package/src/components/CheckoutActionIncomplete/v1";
 import ErrorsBlock from "../../package/src/components/ErrorsBlock/v1";
 import Field from "../../package/src/components/Field/v1";
 import Link from "../../package/src/components/Link/v1";
@@ -75,6 +79,7 @@ const iconValid = (
 /* eslint-enable max-len */
 
 export default {
+  AddressForm,
   BadgeOverlay,
   Button,
   CartItem,
@@ -83,6 +88,9 @@ export default {
   CartSummary,
   CatalogGrid,
   CatalogGridItem,
+  CheckoutAction,
+  CheckoutActionComplete,
+  CheckoutActionIncomplete,
   ErrorsBlock,
   Field,
   iconClear,

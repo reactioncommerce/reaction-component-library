@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot with address 1`] = `
+Array [
+  .c0 {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  -webkit-letter-spacing: 0.4px;
+  -moz-letter-spacing: 0.4px;
+  -ms-letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
+}
+
+<h3
+    className="c0"
+  >
+    . 
+  </h3>,
+  "AddressForm(undefined)",
+]
+`;
+
+exports[`basic snapshot with empty address 1`] = `
+Array [
+  .c0 {
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  -webkit-letter-spacing: 0.4px;
+  -moz-letter-spacing: 0.4px;
+  -ms-letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
+}
+
+<h3
+    className="c0"
+  >
+    . 
+  </h3>,
+  "AddressForm(undefined)",
+]
+`;

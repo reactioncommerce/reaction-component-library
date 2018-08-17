@@ -29,6 +29,7 @@ Check out the [@reactioncommerce/components-context](https://github.com/reaction
 ```jsx static
 import React from "react";
 import styled from "styled-components";
+import AddressForm from "@reactioncommerce/components/AddressForm/v1";
 import BadgeOverlay from "@reactioncommerce/components/BadgeOverlay/v1";
 import Button from "@reactioncommerce/components/Button/v1";
 import CartItem from "@reactioncommerce/components/CartItem/v1";
@@ -37,6 +38,9 @@ import CartItems from "@reactioncommerce/components/CartItems/v1";
 import CartSummary from "@reactioncommerce/components/CartSummary/v1";
 import CatalogGrid from "@reactioncommerce/components/CatalogGrid/v1";
 import CatalogGridItem from "@reactioncommerce/components/CatalogGridItem/v1";
+import CheckoutAction from "@reactioncommerce/components/CheckoutAction/v1";
+import CheckoutActionComplete from "@reactioncommerce/components/CheckoutActionComplete/v1";
+import CheckoutActionIncomplete from "@reactioncommerce/components/CheckoutActionIncomplete/v1";
 import ErrorsBlock from "@reactioncommerce/components/ErrorsBlock/v1";
 import Field from "@reactioncommerce/components/Field/v1";
 import Link from "@reactioncommerce/components/Link/v1";
@@ -47,7 +51,7 @@ import ProgressiveImage from "@reactioncommerce/components/ProgressiveImage/v1";
 import QuantityInput from "@reactioncommerce/components/QuantityInput/v1";
 import Select from "@reactioncommerce/components/Select/v1";
 import StockWarning from "@reactioncommerce/components/StockWarning/v1";
-import spinner from "@reactioncommerce/components/utils/spinner";
+import spinner from "../../package/src/utils/spinner";
 import TextInput from "@reactioncommerce/components/TextInput/v1";
 
 /* eslint-disable max-len */
@@ -105,6 +109,7 @@ const iconValid = (
 /* eslint-enable max-len */
 
 export default {
+  AddressForm,
   BadgeOverlay,
   Button,
   CartItem,
@@ -113,6 +118,9 @@ export default {
   CartSummary,
   CatalogGrid,
   CatalogGridItem,
+  CheckoutAction,
+  CheckoutActionComplete,
+  CheckoutActionIncomplete,
   ErrorsBlock,
   Field,
   Link,

@@ -30,24 +30,19 @@ class CheckoutAction extends Component {
   };
 
   renderActiveAction = () => {
-    const { activeStepElement, status } = this.props;
-    // When component is ready, remove the previous line and uncomment following line
-    // const { activeStepElement, label, status, stepNumber } = this.props;
+    const { activeStepElement, label, status, stepNumber } = this.props;
 
-    // When component is ready,  uncomment following lines
-    // const component = React.cloneElement(activeStepElement, {
-    // label: (activeStepElement.props && activeStepElement.props.label) || label,
-    // stepNumber: (activeStepElement.props && activeStepElement.props.stepNumber) || stepNumber
-    // });
+    const component = React.cloneElement(activeStepElement, {
+      label: (activeStepElement.props && activeStepElement.props.label) || label,
+      stepNumber: (activeStepElement.props && activeStepElement.props.stepNumber) || stepNumber
+    });
 
     if (status === "active") {
-      return activeStepElement;
-      // When component is ready, remove the previous line and uncomment following line
-      // return component;
+      return component;
     }
 
     return null;
-  }
+  };
 
   renderCompleteAction = () => {
     const { completeStepElement, label, status, stepNumber } = this.props;
@@ -62,7 +57,7 @@ class CheckoutAction extends Component {
     }
 
     return null;
-  }
+  };
 
   renderIncompleteAction = () => {
     const { incompleteStepElement, label, status, stepNumber } = this.props;
@@ -77,7 +72,7 @@ class CheckoutAction extends Component {
     }
 
     return null;
-  }
+  };
 
   render() {
     return (

@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  border-bottom: solid 1px #e6e6e6;
+  padding: 1rem 0;
+}
+
+.c0:first-of-type {
+  border-top: solid 1px #e6e6e6;
+}
+
+<div
+  className="c0"
+>
+  CheckoutAction(undefined)
+</div>
+`;
