@@ -115,30 +115,57 @@ module.exports = {
     },
     Para: {
       para: {
-        width: "60%"
+        "width": "60%",
+        "@media screen and (max-width: 800px)": {
+          width: "100%"
+        }
       }
     },
     List: {
       list: {
-        width: "60%"
+        "width": "60%",
+        "@media screen and (max-width: 800px)": {
+          width: "100%"
+        }
       },
       ordered: {
-        width: "60%"
+        "width": "60%",
+        "@media screen and (max-width: 800px)": {
+          width: "100%"
+        }
       },
       unordered: {
-        width: "60%"
+        "width": "60%",
+        "@media screen and (max-width: 800px)": {
+          width: "100%"
+        }
       }
     },
     StyleGuide: {
+      hasSidebar: {
+        "paddingLeft": "320px",
+        "@media screen and (max-width: 800px)": {
+          paddingLeft: 0
+        }
+      },
       content: {
-        maxWidth: "initial",
-        padding: "0 80px"
+        "maxWidth": "initial",
+        "padding": "0 80px",
+        "@media screen and (max-width: 800px)": {
+          padding: "0 16px"
+        }
       },
       sidebar: {
-        backgroundColor: "#f7fdff",
-        border: [["#a7edff", "solid"]],
-        borderWidth: [[0, 2, 0, 0]],
-        paddingLeft: 25
+        "backgroundColor": "#f7fdff",
+        "border": [["#a7edff", "solid"]],
+        "borderWidth": [[0, 2, 0, 0]],
+        "paddingLeft": 25,
+        "@media screen and (max-width: 800px)": {
+          position: "static",
+          width: "auto",
+          borderWidth: [[1, 0, 0, 0]],
+          paddingBottom: "4px"
+        }
       },
       logo: {
         borderBottom: [[0]],
@@ -216,9 +243,13 @@ module.exports = {
     },
     ReactComponent: {
       header: {
-        backgroundColor: "#fffbcc",
-        margin: "0 -80px 40px -80px",
-        padding: "20px 80px 40px 80px"
+        "backgroundColor": "#fffbcc",
+        "margin": "0 -80px 40px -80px",
+        "padding": "20px 80px 40px 80px",
+        "@media screen and (max-width: 800px)": {
+          margin: "0 -16px 40px -16px",
+          padding: "20px"
+        }
       }
     },
     SectionHeading: {
@@ -228,6 +259,8 @@ module.exports = {
         "pointerEvents": "none",
         "fontFamily": ["Overpass Mono", "Menlo", "monospace"],
         "fontSize": "50px",
+        "word-wrap": "break-word",
+        "hyphens": "auto",
         "&:hover, &:active": {
           cursor: "text",
           pointerEvents: "none",
