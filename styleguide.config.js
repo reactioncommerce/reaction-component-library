@@ -135,10 +135,16 @@ module.exports = {
         padding: "0 80px"
       },
       sidebar: {
-        backgroundColor: "#f7fdff",
-        border: [["#a7edff", "solid"]],
-        borderWidth: [[0, 2, 0, 0]],
-        paddingLeft: 25
+        "backgroundColor": "#f7fdff",
+        "border": [["#a7edff", "solid"]],
+        "borderWidth": [[0, 2, 0, 0]],
+        "paddingLeft": 25,
+        "@media screen and (max-width: 800px)": {
+          position: "static",
+          width: "auto",
+          borderWidth: [[1, 0, 0, 0]],
+          paddingBottom: "4px"
+        }
       },
       logo: {
         borderBottom: [[0]],
