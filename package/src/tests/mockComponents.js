@@ -45,7 +45,11 @@ function stringifyJSONCircularSafe(obj) {
   "iconClear",
   "iconError",
   "iconValid",
-  "spinner"
+  "spinner",
+  "iconVisa",
+  "iconAmericanExpress",
+  "iconMastercard",
+  "iconDiscover"
 ].forEach((componentName) => {
   mockComponents[componentName] = componentName;
 });
