@@ -346,6 +346,10 @@ module.exports = {
         {
           name: "Colors",
           content: "styleguide/src/sections/Colors.md"
+        },
+        {
+          name: "Typography",
+          content: "styleguide/src/sections/Typography.md"
         }
       ]
     },
