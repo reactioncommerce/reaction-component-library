@@ -130,9 +130,18 @@ module.exports = {
       }
     },
     StyleGuide: {
+      hasSidebar: {
+        "paddingLeft": "320px",
+        "@media screen and (max-width: 800px)": {
+          paddingLeft: 0
+        }
+      },
       content: {
-        maxWidth: "initial",
-        padding: "0 80px"
+        "maxWidth": "initial",
+        "padding": "0 80px",
+        "@media screen and (max-width: 800px)": {
+          padding: [0, 16]
+        }
       },
       sidebar: {
         "backgroundColor": "#f7fdff",
