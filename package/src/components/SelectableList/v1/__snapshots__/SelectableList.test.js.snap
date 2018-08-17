@@ -47,7 +47,7 @@ exports[`basic snapshot 1`] = `
 
 .c0 fieldset .wrapper .amex span,
 .c0 fieldset .wrapper .visa span {
-  margin: 0 60px 0 0;
+  margin: 0 10px 0 0;
 }
 
 .c0 fieldset .wrapper .amex label span:after,

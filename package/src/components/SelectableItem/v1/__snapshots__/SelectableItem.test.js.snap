@@ -62,7 +62,7 @@ exports[`basic snapshot with empty props 1`] = `
   align-items: center;
 }
 
-.c0 span {
+.c0 .radio {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -85,6 +85,19 @@ exports[`basic snapshot with empty props 1`] = `
   margin: 0 10px 0 0;
   border-radius: 50%;
   box-sizing: border-box;
+}
+
+.c0 .icon {
+  border-radius: 2px;
+  border: 1px solid #e6e6e6;
+  margin: 0 10px 0 0;
+  width: 38px;
+  height: 24px;
+}
+
+.c0 .icon svg {
+  width: 38px;
+  height: 24px;
 }
 
 .c0 .detail {
@@ -126,7 +139,9 @@ exports[`basic snapshot with empty props 1`] = `
   <label
     htmlFor="1"
   >
-    <span />
+    <span
+      className="radio"
+    />
     Label
   </label>
   <div
