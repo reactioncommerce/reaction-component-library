@@ -333,7 +333,7 @@ class AddressForm extends Component {
                 <Checkbox
                   id={isCommercialInputId}
                   name="isCommercial"
-                  label="Is a commercial address."
+                  label="This is a commercial address."
                   isReadOnly={isSaving}
                 />
               </Field>
