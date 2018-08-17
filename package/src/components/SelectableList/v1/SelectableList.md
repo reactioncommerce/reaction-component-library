@@ -73,7 +73,7 @@ const link = (
 );
 
 const addLink = (
-    <Button title="Default" className="myBtn" isTextOnly isShortHeight>Add a new card</Button>
+    <Button title="Default" className="myBtn" isTextOnly isShortHeight>Add a new address</Button>
 );
 
 const items = [{
