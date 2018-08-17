@@ -19,6 +19,10 @@ function stringifyJSONCircularSafe(obj) {
  * Components
  */
 [
+  "AddressForm",
+  "CheckoutAction",
+  "CheckoutActionComplete",
+  "CheckoutActionIncomplete",
   "Button",
   "CartItem",
   "CartItemDetail",

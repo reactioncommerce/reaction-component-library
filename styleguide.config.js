@@ -392,7 +392,7 @@ module.exports = {
           name: "Cart"
         }),
         generateSection({
-          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "SelectableItem"],
+          componentNames: ["CheckoutAction", "CheckoutActions", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "SelectableItem", "ShippingAddressCheckoutAction"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
         }),
