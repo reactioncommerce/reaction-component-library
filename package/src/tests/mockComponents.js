@@ -20,14 +20,15 @@ function stringifyJSONCircularSafe(obj) {
  */
 [
   "AddressForm",
-  "CheckoutAction",
-  "CheckoutActionComplete",
-  "CheckoutActionIncomplete",
   "Button",
   "CartItem",
   "CartItemDetail",
   "CartItems",
   "CartSummary",
+  "Checkbox",
+  "CheckoutAction",
+  "CheckoutActionComplete",
+  "CheckoutActionIncomplete",
   "ErrorsBlock",
   "Field",
   "MiniCartSummary",
