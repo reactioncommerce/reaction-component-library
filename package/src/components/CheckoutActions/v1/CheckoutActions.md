@@ -6,7 +6,7 @@ The `CheckoutActions` component is responsible for:
   * Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
 
 #### Usage
-`CheckoutActions` take an array of `actions`, each `action` needs a `label` and a checkout action component that will be responsible to capturing a piece of checkout data as well as a `props` object to include the piece of `cart.checkout` data the action needs to display and a `onSubmit` funciton that needs to be called during action submission.
+`CheckoutActions` takes an array of `actions`, each `action` needs a `label` and a checkout action component that will be responsible to capturing a piece of checkout data as well as a `props` object to include the piece of `cart.checkout` data the action needs to display and a `onSubmit` funciton that needs to be called during action submission.
 
 **Example of Actions array**
 ```js static
