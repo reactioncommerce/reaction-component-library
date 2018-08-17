@@ -50,7 +50,7 @@ exports[`ProgressiveImage with progressive loading snapshot 1`] = `
   <img
     alt=""
     className="c1"
-    src="/images/responsive-sticker/small.png"
+    src="/images/sticker/small.png"
   />
 </div>
 `;
@@ -89,7 +89,7 @@ exports[`Responsive ProgressiveImage with progressive loading snapshot 1`] = `
   <img
     alt=""
     className="c1"
-    src="/images/responsive-sticker/small.png"
+    src="/images/sticker/small.png"
   />
 </div>
 `;

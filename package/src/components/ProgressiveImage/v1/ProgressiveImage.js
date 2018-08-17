@@ -147,7 +147,7 @@ class ProgressiveImage extends Component {
    *
    * @method loadImage
    * @summary Create a new `Image` buffer and set the `src` to be
-   * ether the `props.src` or `props.srcs.small` if a responsive picture.
+   * ether the `props.src` or `props.srcs.medium` if a responsive picture.
    * Once the buffer loads set the `ready` state to `true`
    * @return {Undefined} Nothing
    */
@@ -157,23 +157,22 @@ class ProgressiveImage extends Component {
     buffer.onload = () => {
       this._mounted && this.setState({ ready: true });
     };
-    buffer.src = src || (srcs && srcs.small);
+    buffer.src = src || (srcs && srcs.medium);
   }
 
   /**
    *
    * @method renderPicture
-   * @summary Renders a `picture` element with the provided theme breakpoints and `props.srcs`
+   * @summary Renders a `picture` element with the theme breakpoints and `props.srcs`.
    * @return {Element} - `picture`
    */
   renderPicture() {
     const { altText, srcs } = this.props;
     return (
       <picture>
-        <source media={`(${getFromTheme(this.props, "rui_bp_md")})`} srcSet={srcs && srcs.large} />
-        <source media={`(${getFromTheme(this.props, "rui_bp_sm")})`} srcSet={srcs && srcs.medium} />
+        <source media={`(${getFromTheme(this.props, "rui_bp_sm")})`} srcSet={srcs && srcs.large} />
         <Img
-          src={srcs && srcs.small}
+          src={srcs && srcs.medium}
           isLoaded={true}
           alt={altText}
         />
