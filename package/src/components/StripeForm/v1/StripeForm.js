@@ -89,12 +89,20 @@ class StripeForm extends Component {
     */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction `SelectableItem` component or your own component
-       * that takes `items` props and uses them to render a single item.
+       * Visa icon as SVG
        */
       iconVisa: PropTypes.node,
+      /**
+       * American Express icon as SVG
+       */
       iconAmericanExpress: PropTypes.node,
+      /**
+       * Discover icon as SVG
+       */
       iconDiscover: PropTypes.node,
+      /**
+       * Mastercard icon as SVG
+       */
       iconMastercard: PropTypes.node
     }).isRequired,
     postalCodePlaceholder: PropTypes.string,
