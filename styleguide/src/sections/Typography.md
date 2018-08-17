@@ -24,7 +24,7 @@ These typographic styles do not cover the styles used in the storefront.
 
 <div style="width: 30%; height: 120px; padding: 1em; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.5rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 64px;margin-bottom: 20px;margin-right: 10px;">Title Text</div>
 <div style="width: 30%; height: 120px; padding: 35px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 47px;margin-right: 10px;">Heading Text</div>
-<div style="width: 30%; height: 120px; padding: 1em; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.5rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 64px;">Subheading Text</div>
+<div style="width: 30%; height: 120px; padding: 1.2em; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.125rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 64px; vertical-align: top;">Subheading Text</div>
 <div style="width: 30%; height: 120px; padding: 2em; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.125rem; letter-spacing: 0.03em; color: rgb(52, 52, 52);line-height: 40px;margin-right: 10px;">Body Text</div>
 <div style="width: 30%; height: 120px; padding: 42.1px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 0.875rem; letter-spacing: 0.02em; color: rgb(80, 85, 88);line-height: 31px;margin-right: 10px;">Label Text</div>
 <div style="width: 30%; height: 120px; padding: 2em; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 0.875rem; letter-spacing: 0.02em; color: rgb(179, 179, 179);line-height: 58.6px;">Caption Text</div>
@@ -80,7 +80,7 @@ Body copy benefits from more spacing between lines for improved legibility, whil
 
 <div style="width: 30%; height: 120px; padding: 1em; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.5rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 64px;margin-bottom: 20px;margin-right: 10px;">Title Text</div>
 <div style="width: 30%; height: 120px; padding: 35px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 47px;margin-right: 10px;">Heading Text</div>
-<div style="width: 30%; height: 120px; padding: 1em; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.5rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 64px;">Subheading Text</div>
+<div style="width: 30%; height: 120px; padding: 1.2em; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.125rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 64px; vertical-align: top;">Subheading Text</div>
 <div style="width: 30%; vertical-align: top; font-family: PostGrotesk-Regular; display: inline-block; margin-right: 10px; margin-bottom: 20px;">
 **Usage**<br><br>
 Use the Title style for top-level admin panel titles.<br><br>
