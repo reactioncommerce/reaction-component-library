@@ -45,7 +45,7 @@ class CheckoutActions extends Component {
       /**
          * Cart checkout data that the action needs to display.
          */
-      props: PropTypes.object.isRequired
+      props: PropTypes.object
     })),
     /**
      * If you've set up a components context using @reactioncommerce/components-context
