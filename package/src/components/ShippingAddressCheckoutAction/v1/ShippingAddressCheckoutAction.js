@@ -37,7 +37,7 @@ class ShippingAddressCheckoutAction extends Component {
      */
     fulfillmentGroup: PropTypes.shape({
       data: {
-        shippingAddress: PropTypes.oneOfType([null, PropTypes.object]).isRequired
+        shippingAddress: PropTypes.oneOfType([null, PropTypes.object])
       }
     }),
     /**
