@@ -127,7 +127,7 @@ class ShippingAddressCheckoutAction extends Component {
             this._addressForm = formEl;
           }}
           countries={this.state.countries}
-          isDisabled={isSaving}
+          isSaving={isSaving}
           regions={this.state.regions[this.state.activeCountry]}
           onCountryChange={(val) => this.handleCountryChange(val)}
           onChange={this.handleChange}
