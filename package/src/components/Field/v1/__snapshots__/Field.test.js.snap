@@ -86,6 +86,7 @@ exports[`renders with help text 1`] = `
   >
     <input
       className="c2"
+      id={undefined}
       maxLength={undefined}
       name="test"
       onBlur={[Function]}
@@ -202,6 +203,7 @@ exports[`renders with label 1`] = `
   >
     <input
       className="c3"
+      id={undefined}
       maxLength={undefined}
       name="test"
       onBlur={[Function]}
@@ -297,6 +299,7 @@ exports[`renders with no help text 1`] = `
   >
     <input
       className="c2"
+      id={undefined}
       maxLength={undefined}
       name="test"
       onBlur={[Function]}
@@ -392,6 +395,7 @@ exports[`renders with no label 1`] = `
   >
     <input
       className="c2"
+      id={undefined}
       maxLength={undefined}
       name="test"
       onBlur={[Function]}

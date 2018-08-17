@@ -109,6 +109,10 @@ class MiniCart extends Component {
      */
     onChangeCartItemQuantity: PropTypes.func,
     /**
+     * On default checkout button click. Not used if a custom button is supplied by `components.cartCheckoutButton`
+     */
+    onCheckoutButtonClick: PropTypes.func,
+    /**
      * On remove item from cart handler
      */
     onRemoveItemFromCart: PropTypes.func
@@ -116,6 +120,7 @@ class MiniCart extends Component {
 
   static defaultProps = {
     onChangeCartItemQuantity() {},
+    onCheckoutButtonClick() {},
     onRemoveItemFromCart() {}
   };
 
@@ -129,6 +134,7 @@ class MiniCart extends Component {
         MiniCartSummary,
         ...components
       },
+      onCheckoutButtonClick,
       ...props
     } = this.props;
     return (
@@ -138,7 +144,7 @@ class MiniCart extends Component {
         </Items>
         <Footer count={items.length}>
           <MiniCartSummary components={components} displaySubtotal={summary.itemTotal.displayAmount} />
-          {cartCheckoutButton || <Button actionType="important" components={components} isFullWidth>Checkout</Button>}
+          {cartCheckoutButton || <Button actionType="important" components={components} isFullWidth onClick={onCheckoutButtonClick}>Checkout</Button>}
           <span>Shipping and tax calculated in checkout</span>
         </Footer>
       </Cart>

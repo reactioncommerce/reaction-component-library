@@ -8,7 +8,8 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  font-size: 16;
+  font-size: 16px;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
@@ -135,7 +136,8 @@ Array [
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  font-size: 16;
+  font-size: 16px;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
