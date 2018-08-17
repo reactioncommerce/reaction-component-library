@@ -25,7 +25,7 @@ const StyledItem = styled.div`
     visibility: visible;
     white-space: nowrap;
   }
-  input:checked + label span::before {
+  input:checked + label .radio::before {
     content: " ";
     display: inline-block;
     position: relative;
@@ -34,7 +34,7 @@ const StyledItem = styled.div`
     border-radius: 50%;
     background-color: ${applyTheme("selectableItemRadioButtonColor")};
   }
-  input:focus + label span {
+  input:focus + label .radio {
     box-shadow: ${applyTheme("selectableItemRadioFocus")};
     outline: ${applyTheme("selectableItemRadioFocusOutline")}
   }
