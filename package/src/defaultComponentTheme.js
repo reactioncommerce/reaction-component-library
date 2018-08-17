@@ -436,7 +436,7 @@ const selectableList = {
   rui_selectableListFontFamily: fontFamily,
   rui_selectableListDetailFontSize: fontSize14,
   rui_selectableListLabelFontWeight: fontWeightBold,
-  rui_selectableListIconMargin: "0 60px 0 0",
+  rui_selectableListIconMargin: "0 10px 0 0",
   rui_selectableListIconLeft: "30px",
   rui_selectableListIconWidth: "38px",
   rui_selectableListIconHeight: "24px"

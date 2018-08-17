@@ -38,13 +38,28 @@ const items = [{
   _id: "5",
   label: "American Express",
   detail: "ending in 0000",
-  className: "leftAligned amex"
+  icon: "iconAmericanExpress",
+  className: "leftAligned"
 },
 {
   _id: "6",
   label: "Visa",
   detail: " ending in 0000",
-  className: "leftAligned visa"
+  icon: "iconVisa",
+  className: "leftAligned"
+},
+{
+  _id: "62",
+  label: "Mastercard",
+  detail: " ending in 0000",
+  icon: "iconMastercard",
+  className: "leftAligned"  
+},{
+  _id: "64",
+  label: "Discover",
+  detail: " ending in 0000",
+  icon: "iconDiscover",
+  className: "leftAligned"
 }];
 
 <SelectableList items={items} name="Form"/>

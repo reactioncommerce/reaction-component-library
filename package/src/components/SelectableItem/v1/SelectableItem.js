@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import uniqueId from "lodash.uniqueid";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
 const StyledItem = styled.div`
@@ -46,7 +47,7 @@ const StyledItem = styled.div`
     display: flex;
     align-items: center;
   }
-  span {
+  .radio {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -58,6 +59,17 @@ const StyledItem = styled.div`
     margin: ${applyTheme("selectableItemRadioButtonMargin")};
     border-radius: 50%;
     box-sizing: border-box;
+  }
+  .icon {
+    border-radius: ${applyTheme("selectableListBorderRadius")};
+    border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    margin: ${applyTheme("selectableListIconMargin")};
+    width: ${applyTheme("selectableListIconWidth")};
+    height: ${applyTheme("selectableListIconHeight")};    
+    svg {
+      width: ${applyTheme("selectableListIconWidth")};
+      height: ${applyTheme("selectableListIconHeight")};
+    }
   }
   .detail {
     display: flex;
@@ -72,6 +84,30 @@ const StyledItem = styled.div`
 class SelectableItem extends Component {
   static propTypes = {
     /**
+    * If you've set up a components context using @reactioncommerce/components-context
+    * (recommended), then this prop will come from there automatically. If you have not
+    * set up a components context or you want to override one of the components in a
+    * single spot, you can pass in the components prop directly.
+    */
+    components: PropTypes.shape({
+      /**
+       * Visa icon as SVG
+       */
+      iconVisa: PropTypes.node,
+      /**
+       * American Express icon as SVG
+       */
+      iconAmericanExpress: PropTypes.node,
+      /**
+       * Discover icon as SVG
+       */
+      iconDiscover: PropTypes.node,
+      /**
+       * Mastercard icon as SVG
+       */
+      iconMastercard: PropTypes.node
+    }),
+    /**
      * Item data
      */
     item: PropTypes.shape({
@@ -84,6 +120,10 @@ class SelectableItem extends Component {
        * Optional text, SVG or element displayed on the right-hand side
        */
       detail: PropTypes.node,
+      /**
+       * Optional icon (SVG) displayed on the left-hand side
+       */
+      icon: PropTypes.node,
       /**
        * Custom class name
        */
@@ -170,6 +210,27 @@ class SelectableItem extends Component {
     return this.state.value !== this.props.value;
   }
 
+  renderIcon() {
+    const { components } = this.props;
+    const { iconAmericanExpress, iconVisa, iconDiscover, iconMastercard } = components;
+    let icon;
+    if (this.props.item.icon === "iconAmericanExpress") {
+      icon = iconAmericanExpress;
+    } else if (this.props.item.icon === "iconVisa") {
+      icon = iconVisa;
+    } else if (this.props.item.icon === "iconDiscover") {
+      icon = iconDiscover;
+    } else if (this.props.item.icon === "iconMastercard") {
+      icon = iconMastercard;
+    }
+
+    return (
+      <span className="icon">
+        {icon}
+      </span>
+    );
+  }
+
   render() {
     const {
       name,
@@ -177,7 +238,8 @@ class SelectableItem extends Component {
         _id,
         className,
         label,
-        detail
+        detail,
+        icon
       }
     } = this.props;
     const { value } = this.state;
@@ -194,7 +256,8 @@ class SelectableItem extends Component {
         <label
           htmlFor={_id}
         >
-          <span />
+          <span className="radio" />
+          {icon ? this.renderIcon() : null}
           {label}
         </label>
         {detail ? <div className="detail">{detail}</div> : null}
@@ -203,4 +266,4 @@ class SelectableItem extends Component {
   }
 }
 
-export default SelectableItem;
+export default withComponents(SelectableItem);
