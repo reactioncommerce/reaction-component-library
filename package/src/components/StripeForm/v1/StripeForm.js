@@ -8,8 +8,8 @@ import {
   injectStripe
 } from "react-stripe-elements";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, withStripeElements } from "../../../utils";
-import ccIcons from "./cc_icons";
 
 function fieldBorderColor(themeProp = "color") {
   return (props) => {
@@ -81,6 +81,22 @@ class StripeForm extends Component {
     /**
      * Card's billing postal code text placeholder
      */
+    /**
+    * If you've set up a components context using @reactioncommerce/components-context
+    * (recommended), then this prop will come from there automatically. If you have not
+    * set up a components context or you want to override one of the components in a
+    * single spot, you can pass in the components prop directly.
+    */
+    components: PropTypes.shape({
+      /**
+       * Pass either the Reaction `SelectableItem` component or your own component
+       * that takes `items` props and uses them to render a single item.
+       */
+      iconVisa: PropTypes.node,
+      iconAmericanExpress: PropTypes.node,
+      iconDiscover: PropTypes.node,
+      iconMastercard: PropTypes.node
+    }).isRequired,
     postalCodePlaceholder: PropTypes.string,
     /**
      * The stripe object which provides methods for tokenizing data, it's
@@ -124,13 +140,20 @@ class StripeForm extends Component {
     this.setState({ [`${event.elementType}IsFocused`]: false });
   }
 
-  renderIcons = () => (
+  renderIcons = (ccIcons) => (
     <div>
       {ccIcons.map((icon, index) => <Span key={index}>{icon}</Span>)}
-    </div>
+    </div >
   );
 
   render() {
+    const ccIcons = [
+      this.props.components.iconVisa,
+      this.props.components.iconAmericanExpress,
+      this.props.components.iconMastercard,
+      this.props.components.iconDiscover
+    ];
+
     const {
       cardNumberPlaceholder,
       cardExpiryPlaceholder,
@@ -154,7 +177,7 @@ class StripeForm extends Component {
     return (
       <Fragment>
         <AcceptedPaymentMethods>
-          {this.renderIcons()}
+          {this.renderIcons(ccIcons)}
         </AcceptedPaymentMethods>
         <Field isFocused={cardNumberIsFocused}>
           <CardNumberElement
@@ -187,4 +210,4 @@ class StripeForm extends Component {
   }
 }
 
-export default withStripeElements(injectStripe(StripeForm));
+export default withComponents(withStripeElements(injectStripe(StripeForm)));
