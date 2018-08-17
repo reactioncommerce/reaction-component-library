@@ -28,7 +28,7 @@ exports[`basic snapshot with empty props 1`] = `
   white-space: nowrap;
 }
 
-.c0 input:checked + label span::before {
+.c0 input:checked + label .radio::before {
   content: " ";
   display: inline-block;
   position: relative;
@@ -38,7 +38,7 @@ exports[`basic snapshot with empty props 1`] = `
   background-color: #3c3c3c;
 }
 
-.c0 input:focus + label span {
+.c0 input:focus + label .radio {
   box-shadow: 0 0 0 2px #8ce0c9;
   outline: 1px solid transparent;
 }
