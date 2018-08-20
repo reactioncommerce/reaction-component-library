@@ -128,6 +128,10 @@ class AddressForm extends Component {
       value: PropTypes.string
     })),
     /**
+     * Should the AddressForm show the "Address Names" field.
+     */
+    shouldShowAddressNameField: PropTypes.bool,
+    /**
      * Should the AddressForm show the "Is Commercial Address" field.
      */
     shouldShowIsCommercialField: PropTypes.bool,
@@ -154,11 +158,14 @@ class AddressForm extends Component {
 
   static defaultProps = {
     errors: [],
+    isSaving: false,
     name: "address",
     onCancel() {},
     onChange() {},
     onCountryChange() {},
     onSubmit() {},
+    shouldShowAddressNameField: false,
+    shouldShowIsCommercialField: false,
     validator: getRequiredValidator(
       "country",
       "firstName",
@@ -215,9 +222,11 @@ class AddressForm extends Component {
       regions,
       validator,
       onChange,
+      shouldShowAddressNameField,
       shouldShowIsCommercialField
     } = this.props;
 
+    const addressNameInputId = `addressName_${this.uniqueInstanceIdentifier}`;
     const countryInputId = `country_${this.uniqueInstanceIdentifier}`;
     const firstNameInputId = `firstName_${this.uniqueInstanceIdentifier}`;
     const lastNameInputId = `lastName_${this.uniqueInstanceIdentifier}`;
@@ -243,6 +252,12 @@ class AddressForm extends Component {
         value={value}
       >
         <Grid>
+          {shouldShowAddressNameField && <ColFull>
+            <Field name="addressName" label="Address Name" labelFor={addressNameInputId}>
+              <TextInput id={addressNameInputId} name="addressName" placeholder="Address Name" isReadOnly={isSaving} />
+            </Field>
+          </ColFull>}
+
           <ColFull>
             <Field name="country" label="Country" labelFor={countryInputId} isRequired>
               <Select
