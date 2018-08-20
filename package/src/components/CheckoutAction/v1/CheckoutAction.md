@@ -7,6 +7,7 @@ The `CheckoutAction` component wraps the `CheckoutActionComplete` and `CheckoutA
 ##### Default: `Active` status
 
 ```jsx
+const ActiveStepComp = () => <span>Active Component</span>;
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -17,7 +18,7 @@ const Address = (
 
 <div>
   <CheckoutAction
-    activeStepElement="Placeholder: active step isn't yet available"
+    activeStepElement={<ActiveStepComp />}
     completeStepElement={
       <CheckoutActionComplete
         content={Address}
@@ -38,6 +39,7 @@ const Address = (
 
 ##### Default: `Complete` status
 ```jsx
+const ActiveStepComp = () => <span>Active Component</span>;
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -48,7 +50,7 @@ const Address = (
 
 <div>
   <CheckoutAction
-    activeStepElement="Placeholder: active step isn't yet available"
+    activeStepElement={<ActiveStepComp />}
     completeStepElement={
       <CheckoutActionComplete
         content={Address}
@@ -69,6 +71,7 @@ const Address = (
 
 ##### Default: `Incomplete` status
 ```jsx
+const ActiveStepComp = () => <span>Active Component</span>;
 const Address = (
   <div>
     Ms. Jane Doe<br />
@@ -79,7 +82,7 @@ const Address = (
 
 <div>
   <CheckoutAction
-    activeStepElement="Placeholder: active step isn't yet available"
+    activeStepElement={<ActiveStepComp />}
     completeStepElement={
       <CheckoutActionComplete
         content={Address}
@@ -101,6 +104,7 @@ const Address = (
 #### Override default `label` or `stepNumber`
 
 ```jsx
+const ActiveStepComp = () => <span>Active Component</span>;
 const onClick = () => {};
 const Address = (
   <div>
@@ -112,7 +116,7 @@ const Address = (
 
 <div>
   <CheckoutAction
-    activeStepElement="Placeholder: active step isn't yet available"
+    activeStepElement={<ActiveStepComp />}
     completeStepElement={
       <CheckoutActionComplete
         content={Address}

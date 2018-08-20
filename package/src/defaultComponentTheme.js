@@ -203,6 +203,7 @@ const defaultStyles = {
   rui_font_size_small: fontSize14,
   rui_font_size_default: fontSize16,
   rui_font_size_h2: fontSize24,
+  rui_font_size_h3: fontSize18,
   rui_font_weight_light: fontWeightLight,
   rui_font_weight_normal: fontWeightRegular,
   rui_font_weight_bold: fontWeightBold,
@@ -308,7 +309,7 @@ const inputStyles = {
   rui_inputColor_focus: coolGrey500,
   rui_inputColor_success: black55,
   rui_inputPlaceholderColor: black20,
-  rui_inputFontFamily: "inherit",
+  rui_inputFontFamily: fontFamily,
   rui_inputFontSize: fontSize14,
   rui_inputLineHeight: flatLeading,
   rui_inputVerticalPadding: baseUnit(0.8),
@@ -379,7 +380,6 @@ const errorsBlockStyles = {
   rui_errorsBlockIconColor: red,
   rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
 };
-
 
 // checkoutActionComplete
 const checkoutActions = {

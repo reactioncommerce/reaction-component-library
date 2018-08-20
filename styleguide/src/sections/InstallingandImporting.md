@@ -1,4 +1,4 @@
-## Install
+#### Install
 
 With NPM:
 
@@ -14,11 +14,11 @@ yarn add react@16.4.1 prop-types@15.6.2 styled-components@3.3.3 @reactioncommerc
 
 Note that the minimum required React version is 16.4.1 because this package uses newer APIs like `createContext` and `forwardRef`. The `react`, `prop-types`, and `styled-components` packages are peer dependencies, which means that you must install the proper versions in your app. They are not included with this package.
 
-### Verify Peer Dependencies
+##### Verify Peer Dependencies
 
 View the current list of `"peerDependencies"` in the `package.json` of the `@reactioncommerce/components` package, and make sure that you have installed them all in your app.
 
-## Provide the Components Context
+##### Provide the Components Context
 
 Most components in this library do not directly import other components in this library. Instead, they rely on the components being injected through a `components` prop or through a central components React context. While this makes it slightly more work to get going, you'll find it to be much nicer in the long run because you can update to new releases of this library without any fear of pulling in component changes (potentially appearance or behavior changes) that you don't expect.
 
@@ -29,11 +29,15 @@ Check out the [@reactioncommerce/components-context](https://github.com/reaction
 ```jsx static
 import React from "react";
 import styled from "styled-components";
+import AddressForm from "@reactioncommerce/components/AddressForm/v1";
 import Button from "@reactioncommerce/components/Button/v1";
 import CartItem from "@reactioncommerce/components/CartItem/v1";
 import CartItemDetail from "@reactioncommerce/components/CartItemDetail/v1";
 import CartItems from "@reactioncommerce/components/CartItems/v1";
 import CartSummary from "@reactioncommerce/components/CartSummary/v1";
+import CheckoutAction from "@reactioncommerce/components/CheckoutAction/v1";
+import CheckoutActionComplete from "@reactioncommerce/components/CheckoutActionComplete/v1";
+import CheckoutActionIncomplete from "@reactioncommerce/components/CheckoutActionIncomplete/v1";
 import ErrorsBlock from "@reactioncommerce/components/ErrorsBlock/v1";
 import Field from "@reactioncommerce/components/Field/v1";
 import MiniCartSummary from "@reactioncommerce/components/MiniCartSummary/v1";
@@ -42,7 +46,7 @@ import Price from "@reactioncommerce/components/Price/v1";
 import QuantityInput from "@reactioncommerce/components/QuantityInput/v1";
 import Select from "@reactioncommerce/components/Select/v1";
 import StockWarning from "@reactioncommerce/components/StockWarning/v1";
-import spinner from "@reactioncommerce/components/utils/spinner";
+import spinner from "../../package/src/utils/spinner";
 import TextInput from "@reactioncommerce/components/TextInput/v1";
 import SelectableItem from "../../package/src/components/SelectableItem/v1";
 
@@ -230,11 +234,15 @@ const iconValid = (
 /* eslint-enable max-len */
 
 export default {
+  AddressForm,
   Button,
   CartItem,
   CartItemDetail,
   CartItems,
   CartSummary,
+  CheckoutAction,
+  CheckoutActionComplete,
+  CheckoutActionIncomplete,
   ErrorsBlock,
   Field,
   iconClear,
@@ -256,7 +264,7 @@ export default {
 };
 ```
 
-## Import
+#### Import
 
 In your React component code:
 
@@ -273,7 +281,7 @@ In your HTML:
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700" rel="stylesheet">
 ```
 
-## Updating
+#### Updating
 
 In the future, when there are new releases of `@reactioncommerce/components`, you will need to:
 

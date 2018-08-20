@@ -5,6 +5,8 @@ import CheckoutActionComplete from "../../CheckoutActionComplete/v1";
 import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1";
 import CheckoutAction from "./CheckoutAction";
 
+const MockActiveCheckoutAciton = () => (<span />);
+
 test("CheckoutAction with `active` status", () => {
   const cart = {};
   const isLoading = false;
@@ -19,7 +21,7 @@ test("CheckoutAction with `active` status", () => {
 
   const component = renderer.create((
     <CheckoutAction
-      activeStepElement="Placeholder: active step isn't yet available"
+      activeStepElement={<MockActiveCheckoutAciton />}
       completeStepElement={
         <CheckoutActionComplete
           components={mockComponents}
