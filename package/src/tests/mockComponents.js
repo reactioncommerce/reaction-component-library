@@ -36,7 +36,8 @@ function stringifyJSONCircularSafe(obj) {
   "QuantityInput",
   "Select",
   "StockWarning",
-  "TextInput"
+  "TextInput",
+  "SelectableItem"
 ].forEach((componentName) => {
   mockComponents[componentName] = (props) => `${componentName}(${stringifyJSONCircularSafe(props)})`;
 });
@@ -48,7 +49,11 @@ function stringifyJSONCircularSafe(obj) {
   "iconClear",
   "iconError",
   "iconValid",
-  "spinner"
+  "spinner",
+  "iconVisa",
+  "iconAmericanExpress",
+  "iconMastercard",
+  "iconDiscover"
 ].forEach((componentName) => {
   mockComponents[componentName] = componentName;
 });

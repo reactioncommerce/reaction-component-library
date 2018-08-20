@@ -1,0 +1,119 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  width: 100%;
+}
+
+.c0 fieldset {
+  border-top: 1px solid #e6e6e6;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  border-top-right-radius: 2px;
+  border-top-left-radius: 2px;
+  padding: 0;
+  margin: 0;
+}
+
+.c0 fieldset .wrapper {
+  border-bottom: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  padding: 0 10px;
+}
+
+.c0 fieldset .wrapper .leftAligned {
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+}
+
+.c0 fieldset .wrapper .leftAligned label {
+  font-weight: 700;
+}
+
+.c0 fieldset .wrapper .leftAligned .detail {
+  font-size: 14px;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  margin-left: 2px;
+}
+
+.c0 fieldset .wrapper .amex label,
+.c0 fieldset .wrapper .visa label {
+  position: relative;
+}
+
+.c0 fieldset .wrapper .amex span,
+.c0 fieldset .wrapper .visa span {
+  margin: 0 10px 0 0;
+}
+
+.c0 fieldset .wrapper .amex label span:after,
+.c0 fieldset .wrapper .visa label span:after {
+  left: 30px;
+  position: absolute;
+  content: " ";
+  width: 38px;
+  height: 24px;
+  display: inline-block;
+  border-radius: 2px;
+  border: 1px solid #e6e6e6;
+}
+
+.c0 .listAction {
+  border-bottom: 1px solid #e6e6e6;
+  border-left: 1px solid #e6e6e6;
+  border-right: 1px solid #e6e6e6;
+  padding: 0 10px;
+  height: 50px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.c0 > *:last-child {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+.c0 > *:last-child .wrapper:last-child {
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+@media (max-width:768px) {
+  .c0 .listAction {
+    height: 60px;
+  }
+}
+
+<div
+  className="c0"
+>
+  <fieldset>
+    <div
+      className="wrapper"
+    >
+      SelectableItem(undefined)
+    </div>
+    <div
+      className="wrapper"
+    >
+      SelectableItem(undefined)
+    </div>
+    <div
+      className="wrapper"
+    >
+      SelectableItem(undefined)
+    </div>
+  </fieldset>
+</div>
+`;

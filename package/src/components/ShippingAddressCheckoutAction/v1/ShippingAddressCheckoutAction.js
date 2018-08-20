@@ -5,6 +5,7 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const Title = styled.h3`
+  font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_h3")};
   font-weight: ${applyTheme("font_weight_bold")};
   font-style: normal;
@@ -14,6 +15,7 @@ const Title = styled.h3`
 `;
 
 const Address = styled.address`
+  font-family: ${applyTheme("font_family")};
   font-style: normal;
 `;
 

@@ -3,6 +3,7 @@
 exports[`basic snapshot with address 1`] = `
 Array [
   .c0 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 18px;
   font-weight: 700;
   font-style: normal;
@@ -26,6 +27,7 @@ Array [
 exports[`basic snapshot with empty address 1`] = `
 Array [
   .c0 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 18px;
   font-weight: 700;
   font-style: normal;

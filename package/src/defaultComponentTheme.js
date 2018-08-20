@@ -309,7 +309,7 @@ const inputStyles = {
   rui_inputColor_focus: coolGrey500,
   rui_inputColor_success: black55,
   rui_inputPlaceholderColor: black20,
-  rui_inputFontFamily: "inherit",
+  rui_inputFontFamily: fontFamily,
   rui_inputFontSize: fontSize14,
   rui_inputLineHeight: flatLeading,
   rui_inputVerticalPadding: baseUnit(0.8),
@@ -412,12 +412,34 @@ const selectableItem = {
   rui_selectableItemRadioButtonColor: coolGrey500,
   rui_selectableItemLabelColor: coolGrey500,
   rui_selectableItemLabelLetterSpacing: "0.3px",
-  rui_selectableItemLabelFontSize: "14px",
+  rui_selectableItemLabelFontSize: fontSize14,
   rui_selectableItemRadioButtonBorder: `2px solid ${coolGrey500}`,
   rui_selectableItemRadioButtonSize: "20px",
   rui_selectableItemRadioButtonMargin: "0 10px 0 0",
   rui_selectableItemRadioButtonBackgroundColor: white,
-  rui_selectableItemLabelFontFamily: fontFamily
+  rui_selectableItemLabelFontFamily: fontFamily,
+  rui_selectableItemDetailFontSize: fontSize16,
+  rui_selectableItemRadioFocus: `0 0 0 2px ${teal}`,
+  rui_selectableItemRadioFocusOutline: "1px solid transparent"
+};
+
+// selectableList
+const selectableList = {
+  rui_selectableListBorderColor: black10,
+  rui_selectableListBorderStyle: "1px solid",
+  rui_selectableListBorderRadius: "2px",
+  rui_selectableListPadding: "0",
+  rui_selectableListMargin: "0",
+  rui_selectableListHeight: "50px",
+  rui_selectableListHeightMobile: "60px",
+  rui_selectableListItemPadding: "0 10px",
+  rui_selectableListFontFamily: fontFamily,
+  rui_selectableListDetailFontSize: fontSize14,
+  rui_selectableListLabelFontWeight: fontWeightBold,
+  rui_selectableListIconMargin: "0 10px 0 0",
+  rui_selectableListIconLeft: "30px",
+  rui_selectableListIconWidth: "38px",
+  rui_selectableListIconHeight: "24px"
 };
 
 export default {
@@ -433,5 +455,6 @@ export default {
   ...errorsBlockStyles,
   ...checkoutActions,
   ...checkbox,
-  ...selectableItem
+  ...selectableItem,
+  ...selectableList
 };

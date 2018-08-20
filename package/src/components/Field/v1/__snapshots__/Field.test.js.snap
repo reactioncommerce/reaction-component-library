@@ -28,7 +28,7 @@ exports[`renders with help text 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  font-family: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   line-height: 1;
   outline: none;
@@ -45,7 +45,7 @@ exports[`renders with help text 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
-  font-family: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   outline: none;
 }
@@ -139,7 +139,7 @@ exports[`renders with label 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  font-family: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   line-height: 1;
   outline: none;
@@ -156,7 +156,7 @@ exports[`renders with label 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
-  font-family: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   outline: none;
 }
@@ -241,7 +241,7 @@ exports[`renders with no help text 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  font-family: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   line-height: 1;
   outline: none;
@@ -258,7 +258,7 @@ exports[`renders with no help text 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
-  font-family: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   outline: none;
 }
@@ -337,7 +337,7 @@ exports[`renders with no label 1`] = `
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
-  font-family: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   line-height: 1;
   outline: none;
@@ -354,7 +354,7 @@ exports[`renders with no label 1`] = `
   -webkit-flex-grow: 2;
   -ms-flex-positive: 2;
   flex-grow: 2;
-  font-family: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   outline: none;
 }

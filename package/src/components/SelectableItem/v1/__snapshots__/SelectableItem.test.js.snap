@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot 1`] = `
+exports[`basic snapshot with empty props 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -10,6 +10,7 @@ exports[`basic snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  height: 50px;
 }
 
 .c0 input {
@@ -27,7 +28,7 @@ exports[`basic snapshot 1`] = `
   white-space: nowrap;
 }
 
-.c0 input:checked + label span::before {
+.c0 input:checked + label .radio::before {
   content: " ";
   display: inline-block;
   position: relative;
@@ -35,6 +36,11 @@ exports[`basic snapshot 1`] = `
   height: 10px;
   border-radius: 50%;
   background-color: #3c3c3c;
+}
+
+.c0 input:focus + label .radio {
+  box-shadow: 0 0 0 2px #8ce0c9;
+  outline: 1px solid transparent;
 }
 
 .c0 label {
@@ -56,7 +62,7 @@ exports[`basic snapshot 1`] = `
   align-items: center;
 }
 
-.c0 span {
+.c0 .radio {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -69,6 +75,9 @@ exports[`basic snapshot 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   background-color: #ffffff;
   border: 2px solid #3c3c3c;
   height: 20px;
@@ -78,21 +87,68 @@ exports[`basic snapshot 1`] = `
   box-sizing: border-box;
 }
 
+.c0 .icon {
+  border-radius: 2px;
+  border: 1px solid #e6e6e6;
+  margin: 0 10px 0 0;
+  width: 38px;
+  height: 24px;
+}
+
+.c0 .icon svg {
+  width: 38px;
+  height: 24px;
+}
+
+.c0 .detail {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+}
+
+@media (max-width:768px) {
+  .c0 {
+    height: 60px;
+  }
+}
+
 <div
   className="c0"
 >
   <input
     checked={false}
-    id="Radio_1"
+    id="1"
     name={undefined}
     onChange={[Function]}
     type="radio"
   />
   <label
-    htmlFor="Radio_1"
+    htmlFor="1"
   >
-    <span />
+    <span
+      className="radio"
+    />
+    Label
   </label>
-  <div />
+  <div
+    className="detail"
+  >
+    Detail
+  </div>
 </div>
 `;

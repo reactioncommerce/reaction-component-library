@@ -2,11 +2,16 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import uniqueId from "lodash.uniqueid";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
 const StyledItem = styled.div`
   display: flex;
   justify-content: space-between;
+  height: ${applyTheme("selectableListHeight")};
+  @media (max-width: 768px) {
+    height: ${applyTheme("selectableListHeightMobile")};
+  }
   input {
     cursor: pointer;
     position: absolute;
@@ -20,7 +25,7 @@ const StyledItem = styled.div`
     visibility: visible;
     white-space: nowrap;
   }
-  input:checked + label span::before {
+  input:checked + label .radio::before {
     content: " ";
     display: inline-block;
     position: relative;
@@ -28,7 +33,11 @@ const StyledItem = styled.div`
     height: ${applyTheme("selectableItemRadioButtonCheckSize")};
     border-radius: 50%;
     background-color: ${applyTheme("selectableItemRadioButtonColor")};
-   }
+  }
+  input:focus + label .radio {
+    box-shadow: ${applyTheme("selectableItemRadioFocus")};
+    outline: ${applyTheme("selectableItemRadioFocusOutline")}
+  }
   label {
     font-family: ${applyTheme("selectableItemLabelFontFamily")};
     color: ${applyTheme("selectableItemLabelColor")};
@@ -38,10 +47,11 @@ const StyledItem = styled.div`
     display: flex;
     align-items: center;
   }
-  span {
+  .radio {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-shrink: 0;
     background-color: ${applyTheme("selectableItemRadioButtonBackgroundColor")};
     border: ${applyTheme("selectableItemRadioButtonBorder")};
     height: ${applyTheme("selectableItemRadioButtonSize")};
@@ -50,22 +60,75 @@ const StyledItem = styled.div`
     border-radius: 50%;
     box-sizing: border-box;
   }
+  .icon {
+    border-radius: ${applyTheme("selectableListBorderRadius")};
+    border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    margin: ${applyTheme("selectableListIconMargin")};
+    width: ${applyTheme("selectableListIconWidth")};
+    height: ${applyTheme("selectableListIconHeight")};    
+    svg {
+      width: ${applyTheme("selectableListIconWidth")};
+      height: ${applyTheme("selectableListIconHeight")};
+    }
+  }
+  .detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: ${applyTheme("selectableItemLabelFontFamily")};
+    font-size: ${applyTheme("selectableItemDetailFontSize")};
+    letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
+  }
 `;
 
 class SelectableItem extends Component {
   static propTypes = {
     /**
-     * Custom class name
-     */
-    className: PropTypes.string,
+    * If you've set up a components context using @reactioncommerce/components-context
+    * (recommended), then this prop will come from there automatically. If you have not
+    * set up a components context or you want to override one of the components in a
+    * single spot, you can pass in the components prop directly.
+    */
+    components: PropTypes.shape({
+      /**
+       * Visa icon as SVG
+       */
+      iconVisa: PropTypes.node,
+      /**
+       * American Express icon as SVG
+       */
+      iconAmericanExpress: PropTypes.node,
+      /**
+       * Discover icon as SVG
+       */
+      iconDiscover: PropTypes.node,
+      /**
+       * Mastercard icon as SVG
+       */
+      iconMastercard: PropTypes.node
+    }),
     /**
-     * Optional text, SVG or element displayed on the right-hand side
+     * Item data
      */
-    detail: PropTypes.node,
-    /**
-     * Label for SelectableItem
-     */
-    label: PropTypes.string.isRequired,
+    item: PropTypes.shape({
+      _id: PropTypes.string.isRequired,
+      /**
+       * Label
+       */
+      label: PropTypes.string.isRequired,
+      /**
+       * Optional text, SVG or element displayed on the right-hand side
+       */
+      detail: PropTypes.node,
+      /**
+       * Optional icon (SVG) displayed on the left-hand side
+       */
+      icon: PropTypes.node,
+      /**
+       * Custom class name
+       */
+      className: PropTypes.string
+    }),
     /**
      * Name for input
      */
@@ -147,29 +210,61 @@ class SelectableItem extends Component {
     return this.state.value !== this.props.value;
   }
 
+  renderIcon() {
+    const { components } = this.props;
+    const { iconAmericanExpress, iconVisa, iconDiscover, iconMastercard } = components;
+    let icon;
+    if (this.props.item.icon === "iconAmericanExpress") {
+      icon = iconAmericanExpress;
+    } else if (this.props.item.icon === "iconVisa") {
+      icon = iconVisa;
+    } else if (this.props.item.icon === "iconDiscover") {
+      icon = iconDiscover;
+    } else if (this.props.item.icon === "iconMastercard") {
+      icon = iconMastercard;
+    }
+
+    return (
+      <span className="icon">
+        {icon}
+      </span>
+    );
+  }
+
   render() {
-    const { className, label, name, detail } = this.props;
-    const { id, value } = this.state;
+    const {
+      name,
+      item: {
+        _id,
+        className,
+        label,
+        detail,
+        icon
+      }
+    } = this.props;
+    const { value } = this.state;
 
     return (
       <StyledItem className={className} >
         <input
+          id={_id}
           checked={value === true}
-          id={id}
+          key={_id}
           onChange={this.onChange}
           type="radio"
           name={name}
         />
         <label
-          htmlFor={id}
+          htmlFor={_id}
         >
-          <span />
+          <span className="radio" />
+          {icon ? this.renderIcon() : null}
           {label}
         </label>
-        <div>{detail}</div>
+        {detail ? <div className="detail">{detail}</div> : null}
       </StyledItem >
     );
   }
 }
 
-export default SelectableItem;
+export default withComponents(SelectableItem);
