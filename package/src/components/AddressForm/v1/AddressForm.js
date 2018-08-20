@@ -143,6 +143,7 @@ class AddressForm extends Component {
      * Address object to be edited
      */
     value: PropTypes.shape({
+      addressName: PropTypes.string,
       address1: PropTypes.string,
       address2: PropTypes.string,
       country: PropTypes.string,
@@ -177,6 +178,7 @@ class AddressForm extends Component {
       "region"
     ),
     value: {
+      addressName: "",
       address1: "",
       address2: "",
       country: "",
