@@ -4,6 +4,44 @@ A `SelectableList` takes an array of `SelectableItems`.
 
 #### Usage
 
+A `SelectableList` comes in two main styles: unbordered and bordered.
+
+##### Default
+
+```jsx noeditor
+const items = [{
+  _id: "111",
+  label: "Standard (5-9 days)"
+},
+{
+  _id: "222",
+  label: "Priority (3-5 days)"
+}];
+
+<SelectableList items={items} name="Form"/>
+```
+
+##### Bordered
+
+Pass `isBordered` to get a bordered list:
+
+```jsx noeditor
+const items = [{
+  _id: "331",
+  label: "Standard (5-9 days)",
+  detail: "Free"
+},
+{
+  _id: "232",
+  label: "Priority (3-5 days)",
+  detail: "$5.99"
+}];
+
+<SelectableList isBordered items={items} name="Form"/>
+```
+
+#### Examples
+
 ##### Shipping
 
 ```jsx
@@ -28,7 +66,7 @@ const items = [{
   detail: "$24.99"
 }];
 
-<SelectableList items={items} name="Form"/>
+<SelectableList isBordered items={items} name="Form"/>
 ```
 
 ##### Payment
@@ -62,7 +100,7 @@ const items = [{
   className: "leftAligned"
 }];
 
-<SelectableList items={items} name="Form"/>
+<SelectableList isBordered items={items} name="Form"/>
 ```
 
 ##### Address
@@ -92,5 +130,5 @@ const items = [{
   detail: link
 }];
 
-<SelectableList items={items} name="Form" listAction={addLink} />
+<SelectableList isBordered items={items} name="Form" listAction={addLink} />
 ```

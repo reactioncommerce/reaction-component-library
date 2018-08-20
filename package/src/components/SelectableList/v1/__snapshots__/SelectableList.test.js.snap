@@ -6,20 +6,12 @@ exports[`basic snapshot 1`] = `
 }
 
 .c0 fieldset {
-  border-top: 1px solid #e6e6e6;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  border-top-right-radius: 2px;
-  border-top-left-radius: 2px;
+  border-color: transparent;
   padding: 0;
   margin: 0;
 }
 
 .c0 fieldset .wrapper {
-  border-bottom: 1px solid #e6e6e6;
-  border-left: 1px solid #e6e6e6;
-  border-right: 1px solid #e6e6e6;
   padding: 0 10px;
 }
 
@@ -63,9 +55,6 @@ exports[`basic snapshot 1`] = `
 }
 
 .c0 .listAction {
-  border-bottom: 1px solid #e6e6e6;
-  border-left: 1px solid #e6e6e6;
-  border-right: 1px solid #e6e6e6;
   padding: 0 10px;
   height: 50px;
   display: -webkit-box;
@@ -79,41 +68,33 @@ exports[`basic snapshot 1`] = `
   box-sizing: border-box;
 }
 
-.c0 > *:last-child {
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-
-.c0 > *:last-child .wrapper:last-child {
-  border-bottom-right-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-
 @media (max-width:768px) {
   .c0 .listAction {
     height: 60px;
   }
 }
 
-<div
-  className="c0"
->
-  <fieldset>
-    <div
-      className="wrapper"
-    >
-      SelectableItem(undefined)
-    </div>
-    <div
-      className="wrapper"
-    >
-      SelectableItem(undefined)
-    </div>
-    <div
-      className="wrapper"
-    >
-      SelectableItem(undefined)
-    </div>
-  </fieldset>
+<div>
+  <div
+    className="c0"
+  >
+    <fieldset>
+      <div
+        className="wrapper"
+      >
+        SelectableItem(undefined)
+      </div>
+      <div
+        className="wrapper"
+      >
+        SelectableItem(undefined)
+      </div>
+      <div
+        className="wrapper"
+      >
+        SelectableItem(undefined)
+      </div>
+    </fieldset>
+  </div>
 </div>
 `;

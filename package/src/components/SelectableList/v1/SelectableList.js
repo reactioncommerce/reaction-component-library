@@ -7,18 +7,10 @@ import { CustomPropTypes, applyTheme } from "../../../utils";
 const StyledList = styled.div`
   width: 100%;
   fieldset {
-    border-top: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    border-left: none;
-    border-right: none;
-    border-bottom: none;
-    border-top-right-radius: ${applyTheme("selectableListBorderRadius")};
-    border-top-left-radius: ${applyTheme("selectableListBorderRadius")};
+    border-color: transparent;
     padding: ${applyTheme("selectableListPadding")};
     margin: ${applyTheme("selectableListMargin")};
     .wrapper {
-      border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-      border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-      border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
       padding: ${applyTheme("selectableListItemPadding")};
       .leftAligned {
         justify-content: flex-start;
@@ -53,9 +45,6 @@ const StyledList = styled.div`
     }
   }
   .listAction {
-    border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
     padding: ${applyTheme("selectableListItemPadding")};
     height: ${applyTheme("selectableListHeight")};
     display: flex;
@@ -65,7 +54,28 @@ const StyledList = styled.div`
       height: ${applyTheme("selectableListHeightMobile")};
     }
   }
-  > *:last-child {
+`;
+
+const BorderedList = styled(StyledList)`
+  fieldset {
+    border-top: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
+    border-top-right-radius: ${applyTheme("selectableListBorderRadius")};
+    border-top-left-radius: ${applyTheme("selectableListBorderRadius")};
+    .wrapper {
+      border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+      border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+      border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    }
+  }
+  .listAction {
+    border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    }
+    > *:last-child {
     border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
     border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
     .wrapper:last-child {
@@ -90,6 +100,13 @@ class SelectableList extends Component {
        */
       SelectableItem: CustomPropTypes.component.isRequired
     }).isRequired,
+    /**
+     * Adds borders to the list and each item
+     */
+    isBordered: PropTypes.bool,
+    /**
+     * Items
+     */
     items: PropTypes.arrayOf(PropTypes.shape({
       /**
        * The item ID
@@ -111,6 +128,7 @@ class SelectableList extends Component {
       items,
       name,
       listAction,
+      isBordered,
       components: {
         SelectableItem,
         ...components
@@ -118,21 +136,32 @@ class SelectableList extends Component {
       ...props
     } = this.props;
 
+    const listItems = (
+      <fieldset>
+        {items.map((item) =>
+          <div className="wrapper" key={item._id}>
+            <SelectableItem
+              name={name}
+              item={item}
+              component={components}
+              {...props}
+            />
+          </div>)}
+      </fieldset>
+    );
+
     return (
-      <StyledList>
-        <fieldset>
-          {items.map((item) =>
-            <div className="wrapper" key={item._id}>
-              <SelectableItem
-                name={name}
-                item={item}
-                component={components}
-                {...props}
-              />
-            </div>)}
-        </fieldset>
-        {listAction ? <div className="listAction">{listAction}</div> : null}
-      </StyledList>
+      <div>
+        {isBordered ? (
+          <BorderedList>
+            {listItems}
+          </BorderedList>
+        ) : (
+            <StyledList>
+              {listItems}
+            </StyledList>
+          )}
+      </div>
     );
   }
 }
