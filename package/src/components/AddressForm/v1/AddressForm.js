@@ -34,6 +34,11 @@ class AddressForm extends Component {
      */
     components: PropTypes.shape({
       /**
+       * Pass either the Reaction Field component or your own component that is
+       * compatible with ReactoForm.
+       */
+      Checkbox: CustomPropTypes.component.isRequired,
+      /**
        * Pass either the Reaction ErrorsBlock component or your own component that is
        * compatible with ReactoForm.
        */
@@ -123,6 +128,10 @@ class AddressForm extends Component {
       value: PropTypes.string
     })),
     /**
+     * Should the AddressForm show the "Is Commercial Address" field.
+     */
+    shouldShowIsCommercialField: PropTypes.bool,
+    /**
      * Validator method
      */
     validator: PropTypes.func,
@@ -135,6 +144,7 @@ class AddressForm extends Component {
       country: PropTypes.string,
       city: PropTypes.string,
       firstName: PropTypes.string,
+      isCommercial: PropTypes.bool,
       lastName: PropTypes.string,
       postal: PropTypes.string,
       region: PropTypes.string,
@@ -168,7 +178,8 @@ class AddressForm extends Component {
       lastName: "",
       postal: "",
       region: "",
-      phone: ""
+      phone: "",
+      isCommercial: false
     }
   };
 
@@ -196,14 +207,15 @@ class AddressForm extends Component {
   render() {
     const {
       value,
-      components: { ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
+      components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       countries,
       errors,
       isSaving,
       name,
       regions,
       validator,
-      onChange
+      onChange,
+      shouldShowIsCommercialField
     } = this.props;
 
     const countryInputId = `country_${this.uniqueInstanceIdentifier}`;
@@ -215,6 +227,7 @@ class AddressForm extends Component {
     const regionInputId = `region_${this.uniqueInstanceIdentifier}`;
     const postalInputId = `postal_${this.uniqueInstanceIdentifier}`;
     const phoneInputId = `phone_${this.uniqueInstanceIdentifier}`;
+    const isCommercialInputId = `isCommercial_${this.uniqueInstanceIdentifier}`;
 
     return (
       <Form
@@ -267,7 +280,12 @@ class AddressForm extends Component {
 
           <ColFull>
             <Field name="address2" label="Address Line 2" labelFor={address2InputId} isOptional>
-              <TextInput id={address2InputId} name="address2" placeholder="Address Line 2 (Optional)" isReadOnly={isSaving} />
+              <TextInput
+                id={address2InputId}
+                name="address2"
+                placeholder="Address Line 2 (Optional)"
+                isReadOnly={isSaving}
+              />
             </Field>
           </ColFull>
 
@@ -308,6 +326,19 @@ class AddressForm extends Component {
               <ErrorsBlock names={["phone"]} />
             </Field>
           </ColFull>
+
+          {shouldShowIsCommercialField &&
+            <ColFull>
+              <Field name="isCommercial" labelFor={isCommercialInputId}>
+                <Checkbox
+                  id={isCommercialInputId}
+                  name="isCommercial"
+                  label="This is a commercial address."
+                  isReadOnly={isSaving}
+                />
+              </Field>
+            </ColFull>
+          }
         </Grid>
       </Form>
     );
