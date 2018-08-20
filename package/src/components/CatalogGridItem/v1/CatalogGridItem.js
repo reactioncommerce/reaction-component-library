@@ -33,6 +33,10 @@ const ProductVendor = styled.span`
   line-height: 23px;
 `;
 
+const PriceContainer = styled.div`
+  text-align: right;
+`;
+
 class CatalogGridItem extends Component {
   static propTypes = {
     /**
@@ -137,9 +141,9 @@ class CatalogGridItem extends Component {
       <div>
         <ProductInfo>
           <ProductTitle>{title}</ProductTitle>
-          <div>
+          <PriceContainer>
             <Price displayPrice={productPrice.displayPrice} />
-          </div>
+          </PriceContainer>
         </ProductInfo>
         <div>
           <ProductVendor>{vendor}</ProductVendor>

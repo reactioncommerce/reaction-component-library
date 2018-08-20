@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { ContainerQuery } from "react-container-query";
 import styled from "styled-components";
-import { applyTheme, getFromTheme } from "../../../utils";
+import { applyTheme } from "../../../utils";
+
+const imageContainerQueries = {
+  isLargeWidth: {
+    minWidth: 301 // Use medium image (600px) until container width is greater than image width / 2 (up to 2x scaling)
+  }
+};
 
 /**
  * @file Image component does a "Medium/Instagram" like progressive loading effect for images.
@@ -23,14 +30,14 @@ const ImageWrapper = styled.div`
 `;
 
 const Img = styled.img`
-  height: auto;
+  width: auto;
+  height: 100%;
   left: 50%;
   opacity: 1;
   position: absolute;
   transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1);
   top: 50%;
   transform: translate(-50%, -50%);
-  width: 100%;
 
   ${({ isLoading, isLoaded, isHidden }) => {
     let styles = "";
@@ -162,21 +169,33 @@ class ProgressiveImage extends Component {
 
   /**
    *
-   * @method renderPicture
-   * @summary Renders a `picture` element with the theme breakpoints and `props.srcs`.
+   * @method renderResponsiveImage
+   * @summary Renders an image that uses medium by default, and large when appropriate container width
+   *  (see imageContainerQueries definition)
    * @return {Element} - `picture`
    */
-  renderPicture() {
+  renderResponsiveImage() {
     const { altText, srcs } = this.props;
+    const { medium, large } = srcs;
+
     return (
-      <picture>
-        <source media={`(${getFromTheme(this.props, "rui_bp_sm")})`} srcSet={srcs && srcs.large} />
-        <Img
-          src={srcs && srcs.medium}
-          isLoaded={true}
-          alt={altText}
-        />
-      </picture>
+      <ContainerQuery query={imageContainerQueries}>
+        {(params) => {
+          let src = medium;
+          const { isLargeWidth } = params;
+          if (isLargeWidth) {
+            src = large;
+          }
+
+          return (
+            <Img
+              src={src}
+              isLoaded={true}
+              alt={altText}
+            />
+          );
+        }}
+      </ContainerQuery>
     );
   }
 
@@ -194,12 +213,12 @@ class ProgressiveImage extends Component {
   /**
    *
    * @method renderImage
-   * @summary If a `props.src` is provided call `renderImg` else call `renderPicture`
+   * @summary If a `props.src` is provided call `renderImg` else call `renderResponsiveImage`
    * @return {Element} - `picture` or `img`
    */
   renderImage() {
     const { src } = this.props;
-    return src ? this.renderImg() : this.renderPicture();
+    return src ? this.renderImg() : this.renderResponsiveImage();
   }
 
   /**
