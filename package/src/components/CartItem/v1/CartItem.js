@@ -126,6 +126,10 @@ class CartItem extends Component {
      */
     isMiniCart: PropTypes.bool,
     /**
+     * Hide remove button and quantity input
+     */
+    isReadOnly: PropTypes.bool,
+    /**
      * CartItem data
      */
     item: PropTypes.shape({
@@ -202,6 +206,7 @@ class CartItem extends Component {
 
   static defaultProps = {
     isMiniCart: false,
+    isReadOnly: false,
     onChangeCartItemQuantity() {},
     onRemoveItemFromCart() {}
   };
@@ -241,6 +246,7 @@ class CartItem extends Component {
     const {
       components,
       isMiniCart,
+      isReadOnly,
       item: {
         attributes,
         compareAtPrice,
@@ -275,6 +281,7 @@ class CartItem extends Component {
                   isMiniCart={isMiniCart}
                   productSlug={productSlug}
                   productVendor={productVendor}
+                  quantity={isReadOnly ? quantity : null}
                   title={title}
                 />
 
@@ -284,12 +291,15 @@ class CartItem extends Component {
                 />
               </ItemContentDetailInfo>
 
-              <ItemContentQuantityInput isMiniCart={isMiniCart}>
-                <QuantityInput value={quantity} onChange={this.handleChangeCartItemQuantity} />
-              </ItemContentQuantityInput>
+
+              {!isReadOnly &&
+                <ItemContentQuantityInput isMiniCart={isMiniCart}>
+                  <QuantityInput value={quantity} onChange={this.handleChangeCartItemQuantity} />
+                </ItemContentQuantityInput>
+              }
             </ItemContentDetailInner>
 
-            <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>
+            {!isReadOnly && <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>}
           </ItemContentDetail>
 
           <ItemContentPrice isMiniCart={isMiniCart}>

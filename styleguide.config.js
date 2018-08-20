@@ -346,6 +346,10 @@ module.exports = {
         {
           name: "Colors",
           content: "styleguide/src/sections/Colors.md"
+        },
+        {
+          name: "Typography",
+          content: "styleguide/src/sections/Typography.md"
         }
       ]
     },
@@ -363,7 +367,7 @@ module.exports = {
           name: "Content"
         }),
         generateSection({
-          componentNames: ["Field", "Select", "TextInput", "QuantityInput", "PhoneNumberInput", "Checkbox", "ErrorsBlock"],
+          componentNames: ["Checkbox", "ErrorsBlock", "Field", "PhoneNumberInput", "QuantityInput", "Select", "TextInput"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -378,17 +382,17 @@ module.exports = {
           name: "General"
         }),
         generateSection({
-          componentNames: ["Price", "StockWarning"],
+          componentNames: ["Price", "StockWarning", "BadgeOverlay"],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
         }),
         generateSection({
-          componentNames: ["CartItem", "CartItems", "CartItemDetail", "CartEmptyMessage", "CartSummary", "MiniCart", "MiniCartSummary"],
+          componentNames: ["CartEmptyMessage", "CartItem", "CartItems", "CartItemDetail", "CartSummary", "MiniCart", "MiniCartSummary"],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         }),
         generateSection({
-          componentNames: ["CheckoutAction", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "SelectableItem", "StripePaymentCheckoutAction"],
+          componentNames: ["CheckoutAction", "CheckoutActions", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "SelectableItem", "ShippingAddressCheckoutAction", "StripePaymentCheckoutAction"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
         }),

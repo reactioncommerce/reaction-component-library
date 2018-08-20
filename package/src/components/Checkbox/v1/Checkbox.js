@@ -15,8 +15,11 @@ const checkboxIconSVG = encodeURIComponent(`<svg aria-hidden='true' role='img' x
 /* eslint-enable quotes */
 /* eslint-enable max-len */
 
+// Opacity: 0 hides the default input and position: absolute removes it
+// from the flow so that it doesn't push the styled checkbox to the right.
 const StyledInput = styled.input`
   opacity: 0;
+  position: absolute;
   + label::after {
     content: " ";
   }
@@ -50,6 +53,7 @@ const StyledLabel = styled.label`
   font-size: ${applyTheme("checkboxLabelFontSize")};
   font-family: ${applyTheme("font_family")};
   padding-left: ${applyTheme("checkboxLabelSpacing")};
+  line-height: ${applyTheme("checkboxHeightAndWidth")};
   &:hover {
     cursor: pointer;
   }
@@ -110,6 +114,8 @@ class Checkbox extends Component {
     onChanging() { },
     value: undefined
   };
+
+  static isFormInput = true;
 
   constructor(props) {
     super(props);

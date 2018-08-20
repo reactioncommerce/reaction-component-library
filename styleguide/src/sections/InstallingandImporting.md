@@ -35,6 +35,9 @@ import CartItem from "@reactioncommerce/components/CartItem/v1";
 import CartItemDetail from "@reactioncommerce/components/CartItemDetail/v1";
 import CartItems from "@reactioncommerce/components/CartItems/v1";
 import CartSummary from "@reactioncommerce/components/CartSummary/v1";
+import CheckoutAction from "@reactioncommerce/components/CheckoutAction/v1";
+import CheckoutActionComplete from "@reactioncommerce/components/CheckoutActionComplete/v1";
+import CheckoutActionIncomplete from "@reactioncommerce/components/CheckoutActionIncomplete/v1";
 import ErrorsBlock from "@reactioncommerce/components/ErrorsBlock/v1";
 import Field from "@reactioncommerce/components/Field/v1";
 import MiniCartSummary from "@reactioncommerce/components/MiniCartSummary/v1";
@@ -108,6 +111,9 @@ export default {
   CartItemDetail,
   CartItems,
   CartSummary,
+  CheckoutAction,
+  CheckoutActionComplete,
+  CheckoutActionIncomplete,
   ErrorsBlock,
   Field,
   iconClear,

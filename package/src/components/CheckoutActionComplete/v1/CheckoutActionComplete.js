@@ -5,6 +5,7 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const ActionContainer = styled.div`
+  align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

@@ -34,3 +34,22 @@ test("basic snapshot with vendor attribute", () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test("basic snapshot with quantity attribute", () => {
+  const attributes = [
+    { label: "Color", value: "Red" },
+    { label: "Size", value: "Medium" }
+  ];
+  const component = renderer.create((
+    <CartItemDetail
+      title="Mock Product Title"
+      productSlug="/product-slug"
+      attributes={attributes}
+      quantity={3}
+    />
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+

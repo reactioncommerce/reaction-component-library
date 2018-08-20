@@ -16,6 +16,12 @@ const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "M
 <CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} />
 ```
 
+##### With Quantity
+```jsx
+const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
+<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} quantity={3} />
+```
+
 ##### In Mini Cart
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];

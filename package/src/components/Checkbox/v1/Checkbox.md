@@ -7,6 +7,9 @@ Checkboxes can be checked, unchecked and disabled.
   <Checkbox name="example-checked" label="Checked" value={true} />
   <Checkbox name="example-unchecked" label="Unchecked" />
   <Checkbox name="example-disabled" label="Disabled" isReadOnly />
+  <div style={{width: 300}}>
+    <Checkbox name="example-disabled" label="This one demonstrates what happens when a really long label wraps" />
+  </div>
 </div>
 ```
 
@@ -29,30 +32,33 @@ Checkboxes can be checked, unchecked and disabled.
 
 The checkbox is a styled `::before` pseudoelement on `<input>`. The native `<input>` is hidden with an `opacity` set to `0`.
 
-|Property     |Style               |
-|-------------|:------------------:|
-|Cursor       |Pointer             |
-|Height       |`@base-unit(2)`     |
-|Width        |`@base-unit(2)`     |
-|Border       |`2px @cool-grey-500`|
-|Border radius|`2px @cool-grey-500`|
+|Property     |Style                         |
+|-------------|:----------------------------:|
+|Cursor       |Pointer                       |
+|Height       |`140% of label font size`     |
+|Width        |`140% of label font size`     |
+|Border       |`2px @cool-grey-500`          |
+|Border radius|`2px @cool-grey-500`          |
 
 ##### Checkbox check
 
 The checkbox's check icon an `::after` pseudoelement on `<input>`, with a `content` set to FontAwesome's [check](https://fontawesome.com/icons/check?style=solid) as an SVG.
 
-|Property     |Style               |
-|-------------|:------------------:|
-|Color        |`@cool-grey-500`    |
-|Icon size    |`0.875rem`          |
+|Property     |Style                       |
+|-------------|:--------------------------:|
+|Color        |`@cool-grey-500`            |
+|Icon size    |`87.5% of label font size`  |
+|Top          |`25% of label font size`    |
+|Left         |`30% of label font size`    |
 
 ##### Label
 
-|Property     |Style               |
-|-------------|:------------------:|
-|Cursor       |Pointer             |
-|Font size    |`@rui-label-text`   |
-|Color        |`@cool-grey-500    `|
+|Property     |Style                     |
+|-------------|:------------------------:|
+|Cursor       |Pointer                   |
+|Font size    |`@rui-label-text`         |
+|Line height  |`140% of label font size` |
+|Color        |`@cool-grey-500`          |
 
 ##### Disabled
 
@@ -64,7 +70,7 @@ The checkbox's check icon an `::after` pseudoelement on `<input>`, with a `conte
 
 ##### Structure
 
-|Property                   |Spacing        |
-|---------------------------|:-------------:|
-|Between checkbox and label |`@base-unit(1)`|
-|Vertical                   |`@base-unit(2)`|
+|Property                   |Spacing                  |
+|---------------------------|:-----------------------:|
+|Between checkbox and label |`220% of label font size`|
+|Vertical                   |`17px`                   |

@@ -55,7 +55,7 @@ const items = [
   quantity: 1
 }];
 
-<MiniCart cart={{ checkout, items }} />
+<MiniCart cart={{ checkout, items }} onCheckoutButtonClick={() => alert("Checkout!")} />
 ```
 
 ##### Scrolling
@@ -144,5 +144,5 @@ const items = [{
   quantity: 1
 }];
 
-<MiniCart cart={{ checkout, items }} />
+<MiniCart cart={{ checkout, items }}  onCheckoutButtonClick={() => alert("Checkout!")} />
 ```
