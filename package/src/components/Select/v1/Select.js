@@ -83,6 +83,7 @@ const getSelectIndicatorColor = applyTheme("selectIndicatorColor");
 const getSelectMenuBorder = applyTheme("selectMenuBorder");
 const getSelectLetterSpacing = applyTheme("selectLetterSpacing");
 const getSelectTextColor = applyTheme("selectTextColor");
+const getInputFontFamily = applyTheme("inputFontFamily");
 
 function getCustomStyles(props) {
   const { maxWidth } = props;
@@ -93,6 +94,7 @@ function getCustomStyles(props) {
       return {
         ...base,
         maxWidth,
+        fontFamily: getInputFontFamily(),
         fontSize: getInputFontSize()
       };
     },

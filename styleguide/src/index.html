@@ -1,66 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
-    <!--
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="theme-color" content="#000000">
+  <!--
       manifest.json provides metadata used when your web app is added to the
       homescreen on Android. See https://developers.google.com/web/fundamentals/engage-and-retain/web-app-manifest/
     -->
-    <link rel="manifest" href="/manifest.json">
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="shortcut icon" href="/favicon.ico">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Overpass+Mono" rel="stylesheet">
-    <style>
-      @font-face {
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link href="https://fonts.googleapis.com/css?family=Overpass+Mono|Source+Sans+Pro" rel="stylesheet">
+  <style>
+    @font-face {
       font-family: "PostGrotesk-Light";
-      src: url("fonts/post-grotesk/PostGrotesk-Light.eot"); /* IE9 Compat Modes */
+      src: url("fonts/post-grotesk/PostGrotesk-Light.eot");
+      /* IE9 Compat Modes */
       src: url("fonts/post-grotesk/PostGrotesk-Light.woff") format("woff"),
-          url("fonts/post-grotesk/PostGrotesk-Light.svg") format("svg");
+      url("fonts/post-grotesk/PostGrotesk-Light.svg") format("svg");
       font-weight: 300;
     }
 
     @font-face {
       font-family: "PostGrotesk-Medium";
-      src: url("fonts/post-grotesk/PostGrotesk-Medium.eot"); /* IE9 Compat Modes */
+      src: url("fonts/post-grotesk/PostGrotesk-Medium.eot");
+      /* IE9 Compat Modes */
       src: url("fonts/post-grotesk/PostGrotesk-Medium.woff") format("woff"),
-          url("fonts/post-grotesk/PostGrotesk-Medium.svg") format("svg");
+      url("fonts/post-grotesk/PostGrotesk-Medium.svg") format("svg");
       font-weight: normal;
     }
 
     @font-face {
       font-family: "PostGrotesk-Bold";
-      src: url("fonts/post-grotesk/PostGrotesk-Bold.eot"); /* IE9 Compat Modes */
+      src: url("fonts/post-grotesk/PostGrotesk-Bold.eot");
+      /* IE9 Compat Modes */
       src: url("fonts/post-grotesk/PostGrotesk-Bold.woff") format("woff"),
-          url("fonts/post-grotesk/PostGrotesk-Bold.svg") format("svg");
+      url("fonts/post-grotesk/PostGrotesk-Bold.svg") format("svg");
       font-weight: bold;
     }
 
     /* PostGrotesk-Regular is PostGrotesk-Book */
     @font-face {
       font-family: "PostGrotesk-Regular";
-      src: url("fonts/post-grotesk/PostGrotesk-Book.eot"); /* IE9 Compat Modes */
+      src: url("fonts/post-grotesk/PostGrotesk-Book.eot");
+      /* IE9 Compat Modes */
       src: url("fonts/post-grotesk/PostGrotesk-Book.woff") format("woff"),
-          url("fonts/post-grotesk/PostGrotesk-Book.svg") format("svg");
+      url("fonts/post-grotesk/PostGrotesk-Book.svg") format("svg");
       font-weight: 800;
     }
-    </style>
-    <title><%=htmlWebpackPlugin.options.title%></title>
-  </head>
-  <body>
-    <noscript>
-      You need to enable JavaScript to run this app.
-    </noscript>
-    <div id="rsg-root"></div>
-    <!--
+  </style>
+  <title>
+    <%=htmlWebpackPlugin.options.title%>
+  </title>
+</head>
+
+<body>
+  <noscript>
+    You need to enable JavaScript to run this app.
+  </noscript>
+  <div id="rsg-root"></div>
+  <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
 
       You can add webfonts, meta tags, or analytics to this file.
       The build step will place the bundled scripts into the <body> tag.
     -->
-    <script src="https://js.stripe.com/v3/"></script>
-  </body>
+  <script src="https://js.stripe.com/v3/"></script>
+</body>
+
 </html>

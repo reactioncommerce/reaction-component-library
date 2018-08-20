@@ -8,6 +8,7 @@ import CartItems from "../../package/src/components/CartItems/v1";
 import CartSummary from "../../package/src/components/CartSummary/v1";
 import CatalogGrid from "../../package/src/components/CatalogGrid/v1";
 import CatalogGridItem from "../../package/src/components/CatalogGridItem/v1";
+import Checkbox from "../../package/src/components/Checkbox/v1";
 import CheckoutAction from "../../package/src/components/CheckoutAction/v1";
 import CheckoutActionComplete from "../../package/src/components/CheckoutActionComplete/v1";
 import CheckoutActionIncomplete from "../../package/src/components/CheckoutActionIncomplete/v1";
@@ -88,6 +89,7 @@ export default {
   CartSummary,
   CatalogGrid,
   CatalogGridItem,
+  Checkbox,
   CheckoutAction,
   CheckoutActionComplete,
   CheckoutActionIncomplete,
