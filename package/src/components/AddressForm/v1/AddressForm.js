@@ -327,7 +327,7 @@ class AddressForm extends Component {
             </Field>
           </ColFull>
 
-          {shouldShowIsCommercialField ? (
+          {shouldShowIsCommercialField &&
             <ColFull>
               <Field name="isCommercial" labelFor={isCommercialInputId}>
                 <Checkbox
@@ -337,10 +337,7 @@ class AddressForm extends Component {
                   isReadOnly={isSaving}
                 />
               </Field>
-            </ColFull>
-          ) : (
-            ""
-          )}
+            </ColFull>}
         </Grid>
       </Form>
     );
