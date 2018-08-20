@@ -121,6 +121,7 @@ class CatalogGridItem extends Component {
     return (
       <ProductMediaWrapper>
         <ProgressiveImage
+          fit={"cover"}
           altText={description}
           presrc={this.primaryImage.URLs.thumbnail}
           srcs={this.primaryImage.URLs}
