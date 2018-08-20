@@ -159,22 +159,33 @@ const depth2 = `0 0 1rem ${black50}`;
 /**
  * Default Theme Breakpoints
  */
-const xs = "min-width: 320px";
-const sm = "min-width: 600px";
-const md = "min-width: 960px";
-const lg = "min-width: 1280px";
-const xl = "min-widdth: 1920px";
+const xs = 320;
+const sm = 600;
+const md = 960;
+const lg = 1280;
+const xl = 1920;
+
+const bp_xs = `min-width: ${xs}px`;
+const bp_sm = `min-width: ${sm}px`;
+const bp_md = `min-width: ${md}px`;
+const bp_lg = `min-width: ${lg}px`;
+const bp_xl = `min-widdth: ${xl}px`;
 
 /**
  * Default Theme Elements
  */
 
 const defaultStyles = {
-  rui_bp_xs: xs,
-  rui_bp_sm: sm,
-  rui_bp_md: md,
-  rui_bp_lg: lg,
-  rui_bp_xl: xl,
+  rui_xs: xs,
+  rui_sm: sm,
+  rui_md: md,
+  rui_lg: lg,
+  rui_xl: xl,
+  rui_bp_xs: bp_xs,
+  rui_bp_sm: bp_sm,
+  rui_bp_md: bp_md,
+  rui_bp_lg: bp_lg,
+  rui_bp_xl: bp_xl,
   rui_color_default: black55,
   rui_color_disabled: black25,
   rui_color_black02: black02,

@@ -14,8 +14,8 @@ test("Basic ProgressiveImage snapshot", () => {
 test("ProgressiveImage with progressive loading snapshot", () => {
   const component = renderer.create((
     <ProgressiveImage
-      src="/images/responsive-sticker/medium.jpg"
-      presrc="/images/responsive-sticker/small.png"
+      src="/images/sticker/medium.jpg"
+      presrc="/images/sticker/small.png"
     />
   ));
 
@@ -26,11 +26,28 @@ test("ProgressiveImage with progressive loading snapshot", () => {
 test("Responsive ProgressiveImage with progressive loading snapshot", () => {
   const component = renderer.create((
     <ProgressiveImage
-      presrc="/images/responsive-sticker/small.png"
+      presrc="/images/sticker/small.png"
       srcs={{
-        large: "/images/responsive-sticker/large.jpg",
-        medium: "/images/responsive-sticker/medium.jpg",
-        small: "/images/responsive-sticker/small.png"
+        large: "/images/sticker/large.jpg",
+        medium: "/images/sticker/medium.jpg",
+        small: "/images/sticker/small.png"
+      }}
+    />
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("Responsive ProgressiveImage with 'cover' fit and progressive loading snapshot", () => {
+  const component = renderer.create((
+    <ProgressiveImage
+      fit="cover"
+      presrc="/images/sticker/small.png"
+      srcs={{
+        large: "/images/sticker/large.jpg",
+        medium: "/images/sticker/medium.jpg",
+        small: "/images/sticker/small.png"
       }}
     />
   ));

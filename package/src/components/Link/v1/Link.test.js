@@ -29,7 +29,7 @@ test("Link component with onClick hander", () => {
     <Link href="http://google.com" onClick={testClickHandler}>Click here</Link>
   ));
 
-  component.find("a").simulate("click");
+  component.simulate("click");
 
   expect(testClickHandler).toHaveBeenCalled();
 });
