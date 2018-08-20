@@ -38,3 +38,20 @@ test("Responsive ProgressiveImage with progressive loading snapshot", () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test("Responsive ProgressiveImage with 'cover' fit and progressive loading snapshot", () => {
+  const component = renderer.create((
+    <ProgressiveImage
+      fit="cover"
+      presrc="/images/sticker/small.png"
+      srcs={{
+        large: "/images/sticker/large.jpg",
+        medium: "/images/sticker/medium.jpg",
+        small: "/images/sticker/small.png"
+      }}
+    />
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});

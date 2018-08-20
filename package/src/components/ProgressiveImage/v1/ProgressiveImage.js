@@ -30,8 +30,8 @@ const ImageWrapper = styled.div`
 `;
 
 const Img = styled.img`
-  width: auto;
-  height: 100%;
+  width: ${({ fit }) => (fit === "contain" && "100%") || "auto"};
+  height: ${({ fit }) => (fit === "cover" && "100%") || "auto"};
   left: 50%;
   opacity: 1;
   position: absolute;
@@ -65,6 +65,11 @@ class ProgressiveImage extends Component {
      */
     altText: PropTypes.string,
     /**
+     * How the image should fit its container. "contain" (100% width, auto-scaled height, no clipping),
+     * or "cover" (100% height, auto-scaled width centered horizontally, with clipping). Both options maintain the image's original aspect ratio.
+     */
+    fit: PropTypes.string,
+    /**
      * Pre load image source: Provide a tiny version of the image to create a medium like progressive loading effect
      */
     presrc: PropTypes.string,
@@ -83,7 +88,8 @@ class ProgressiveImage extends Component {
   };
 
   static defaultProps = {
-    altText: ""
+    altText: "",
+    fit: "contain"
   };
 
   state = { ready: false };
@@ -175,7 +181,7 @@ class ProgressiveImage extends Component {
    * @return {Element} - `picture`
    */
   renderResponsiveImage() {
-    const { altText, srcs } = this.props;
+    const { altText, fit, srcs } = this.props;
     const { medium, large } = srcs;
 
     return (
@@ -192,6 +198,7 @@ class ProgressiveImage extends Component {
               src={src}
               isLoaded={true}
               alt={altText}
+              fit={fit}
             />
           );
         }}
@@ -206,8 +213,8 @@ class ProgressiveImage extends Component {
    * @return {Element} - `img`
    */
   renderImg() {
-    const { altText, src } = this.props;
-    return <Img src={src} isLoaded={true} alt={altText} />;
+    const { altText, fit, src } = this.props;
+    return <Img src={src} isLoaded={true} alt={altText} fit={fit} />;
   }
 
   /**
@@ -229,10 +236,16 @@ class ProgressiveImage extends Component {
    * @return {Element} - `img`
    */
   renderLoadingImage() {
-    const { presrc } = this.props;
+    const { fit, presrc } = this.props;
     const { ready } = this.state;
     return (
-      <Img src={presrc} isLoading={true} isHidden={ready} alt="" />
+      <Img
+        src={presrc}
+        isLoading={true}
+        isHidden={ready}
+        alt=""
+        fit={fit}
+      />
     );
   }
 
