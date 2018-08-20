@@ -337,7 +337,8 @@ class AddressForm extends Component {
                   isReadOnly={isSaving}
                 />
               </Field>
-            </ColFull>}
+            </ColFull>
+          }
         </Grid>
       </Form>
     );
