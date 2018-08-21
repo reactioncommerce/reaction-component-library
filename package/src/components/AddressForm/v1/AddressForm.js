@@ -27,6 +27,10 @@ const ColHalf = styled.div`
 class AddressForm extends Component {
   static propTypes = {
     /**
+     * Place holder for Address Name field.
+     */
+    addressNamePlaceholder: PropTypes.string,
+    /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
@@ -158,6 +162,7 @@ class AddressForm extends Component {
   };
 
   static defaultProps = {
+    addressNamePlaceholder: "Address Name",
     errors: [],
     isSaving: false,
     name: "address",
@@ -215,6 +220,7 @@ class AddressForm extends Component {
 
   render() {
     const {
+      addressNamePlaceholder,
       value,
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       countries,
@@ -256,7 +262,7 @@ class AddressForm extends Component {
         <Grid>
           {shouldShowAddressNameField && <ColFull>
             <Field name="addressName" label="Address Name" labelFor={addressNameInputId}>
-              <TextInput id={addressNameInputId} name="addressName" placeholder="Address Name" isReadOnly={isSaving} />
+                <TextInput id={addressNameInputId} name="addressName" placeholder={addressNamePlaceholder}isReadOnly={isSaving} />
             </Field>
           </ColFull>}
 

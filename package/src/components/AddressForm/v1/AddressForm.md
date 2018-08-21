@@ -128,6 +128,7 @@ const regions = [
   countries={countries}
   regions={regions}
   onSubmit={(address) => console.log(address)}
+  addressNamePlaceholder="Headquarters"
   shouldShowAddressNameField
  />
 ```
