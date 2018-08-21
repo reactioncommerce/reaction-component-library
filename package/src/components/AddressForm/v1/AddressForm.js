@@ -95,6 +95,10 @@ class AddressForm extends Component {
       name: PropTypes.string.isRequired
     })),
     /**
+     * Is Address Name a required field.
+     */
+    isAddressNameRequired: PropTypes.bool,
+    /**
      * Is the shipping address being saved
      */
     isSaving: PropTypes.bool,
@@ -164,6 +168,7 @@ class AddressForm extends Component {
   static defaultProps = {
     addressNamePlaceholder: "Address Name",
     errors: [],
+    isAddressNameRequired: false,
     isSaving: false,
     name: "address",
     onCancel() {},
@@ -225,14 +230,15 @@ class AddressForm extends Component {
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       countries,
       errors,
+      isAddressNameRequired,
       isSaving,
       name,
       regions,
-      validator,
       onChange,
       shouldShowAddressNameField,
       shouldShowIsCommercialField
     } = this.props;
+    let { validator } = this.props;
 
     const addressNameInputId = `addressName_${this.uniqueInstanceIdentifier}`;
     const countryInputId = `country_${this.uniqueInstanceIdentifier}`;
@@ -245,6 +251,20 @@ class AddressForm extends Component {
     const postalInputId = `postal_${this.uniqueInstanceIdentifier}`;
     const phoneInputId = `phone_${this.uniqueInstanceIdentifier}`;
     const isCommercialInputId = `isCommercial_${this.uniqueInstanceIdentifier}`;
+
+    if (isAddressNameRequired) {
+      validator = getRequiredValidator(
+        "addressName",
+        "country",
+        "firstName",
+        "lastName",
+        "address1",
+        "city",
+        "phone",
+        "postal",
+        "region"
+      );
+    }
 
     return (
       <Form
@@ -260,11 +280,25 @@ class AddressForm extends Component {
         value={value}
       >
         <Grid>
-          {shouldShowAddressNameField && <ColFull>
-            <Field name="addressName" label="Address Name" labelFor={addressNameInputId}>
-              <TextInput id={addressNameInputId} name="addressName" placeholder={addressNamePlaceholder}isReadOnly={isSaving} />
-            </Field>
-          </ColFull>}
+          {shouldShowAddressNameField && (
+            <ColFull>
+              <Field
+                name="addressName"
+                label="Address Name"
+                labelFor={addressNameInputId}
+                isOptional={!isAddressNameRequired}
+                isRequired={isAddressNameRequired}
+              >
+                <TextInput
+                  id={addressNameInputId}
+                  name="addressName"
+                  placeholder={addressNamePlaceholder}
+                  isReadOnly={isSaving}
+                />
+                {isAddressNameRequired && <ErrorsBlock names={["addressName"]} />}
+              </Field>
+            </ColFull>
+          )}
 
           <ColFull>
             <Field name="country" label="Country" labelFor={countryInputId} isRequired>
@@ -350,7 +384,7 @@ class AddressForm extends Component {
             </Field>
           </ColFull>
 
-          {shouldShowIsCommercialField &&
+          {shouldShowIsCommercialField && (
             <ColFull>
               <Field name="isCommercial" labelFor={isCommercialInputId}>
                 <Checkbox
@@ -361,7 +395,7 @@ class AddressForm extends Component {
                 />
               </Field>
             </ColFull>
-          }
+          )}
         </Grid>
       </Form>
     );

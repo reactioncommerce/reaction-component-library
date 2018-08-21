@@ -111,7 +111,7 @@ const errors = [{ message: "error message", name: "address1"}];
 ```
 
 #### Address name field
-You may want to save mutiple addresses, `shouldShowAddressNameField` renders a field so the user can "name" each address they enter.
+You may want to save mutiple addresses, `shouldShowAddressNameField` renders a field so the user can "name" each address they enter. You can require the Address Name field by adding the `isAddressNameRequired` prop.
 ```jsx
 const countries = [
   { value: "US", label: "United States" },
