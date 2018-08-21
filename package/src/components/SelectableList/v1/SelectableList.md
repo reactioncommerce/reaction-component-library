@@ -9,7 +9,7 @@ A `SelectableList` comes in two main styles: unbordered and bordered.
 ##### Default
 
 ```jsx noeditor
-const items = [{
+const options = [{
   _id: "111",
   label: "Standard (5-9 days)"
 },
@@ -18,7 +18,7 @@ const items = [{
   label: "Priority (3-5 days)"
 }];
 
-<SelectableList items={items} name="Form"/>
+<SelectableList options={options} name="Form"/>
 ```
 
 ##### Bordered
@@ -26,7 +26,7 @@ const items = [{
 Pass `isBordered` to get a bordered list:
 
 ```jsx noeditor
-const items = [{
+const options = [{
   _id: "331",
   label: "Standard (5-9 days)",
   detail: "Free"
@@ -37,7 +37,7 @@ const items = [{
   detail: "$5.99"
 }];
 
-<SelectableList isBordered items={items} name="Form"/>
+<SelectableList isBordered options={options} name="Form"/>
 ```
 
 #### Examples
@@ -45,7 +45,7 @@ const items = [{
 ##### Shipping
 
 ```jsx
-const items = [{
+const options = [{
   _id: "1",
   label: "Standard (5-9 days)",
   detail: "Free"
@@ -66,13 +66,13 @@ const items = [{
   detail: "$24.99"
 }];
 
-<SelectableList isBordered items={items} name="Form"/>
+<SelectableList isBordered options={options} name="Form"/>
 ```
 
 ##### Payment
 
 ```jsx
-const items = [{
+const options = [{
   _id: "5",
   label: "American Express",
   detail: "ending in 0000",
@@ -100,7 +100,7 @@ const items = [{
   className: "leftAligned"
 }];
 
-<SelectableList isBordered items={items} name="Form"/>
+<SelectableList isBordered options={options} name="Form"/>
 ```
 
 ##### Address
@@ -114,7 +114,7 @@ const addLink = (
     <Button title="Default" className="myBtn" isTextOnly isShortHeight>Add a new address</Button>
 );
 
-const items = [{
+const options = [{
   _id: "7",
   label: "Susan Doe, 2300 Buckwheat Ave, Salt Lake City, UT 84111 USA",
   detail: link
@@ -130,5 +130,5 @@ const items = [{
   detail: link
 }];
 
-<SelectableList isBordered items={items} name="Form" listAction={addLink} />
+<SelectableList isBordered options={options} name="Form" listAction={addLink} />
 ```

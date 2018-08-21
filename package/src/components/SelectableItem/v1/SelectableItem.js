@@ -130,7 +130,7 @@ class SelectableItem extends Component {
       className: PropTypes.string
     }),
     /**
-     * Name for input
+     * Name for radio group
      */
     name: PropTypes.string,
     /**

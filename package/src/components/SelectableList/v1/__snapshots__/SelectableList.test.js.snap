@@ -61,10 +61,9 @@ exports[`basic snapshot 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-align-options: center;
+  -ms-flex-line-packalign-options: center;
+  align-options: center;
   box-sizing: border-box;
 }
 

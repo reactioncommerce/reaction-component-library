@@ -20,7 +20,7 @@ test("basic snapshot", () => {
     label: "Free shipping",
     detail: "$0.00"
   }];
-  const component = renderer.create(<SelectableList items={items} components={mockComponents} name="Form" />);
+  const component = renderer.create(<SelectableList options={items} components={mockComponents} name="Form" />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

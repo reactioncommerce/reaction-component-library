@@ -48,7 +48,7 @@ const StyledList = styled.div`
     padding: ${applyTheme("selectableListItemPadding")};
     height: ${applyTheme("selectableListHeight")};
     display: flex;
-    align-items: center;
+    align-options: center;
     box-sizing: border-box;
     @media (max-width: 768px) {
       height: ${applyTheme("selectableListHeightMobile")};
@@ -96,7 +96,7 @@ class SelectableList extends Component {
     components: PropTypes.shape({
       /**
        * Pass either the Reaction `SelectableItem` component or your own component
-       * that takes `items` props and uses them to render a single item.
+       * that takes `options` props and uses them to render a single item.
        */
       SelectableItem: CustomPropTypes.component.isRequired
     }).isRequired,
@@ -105,9 +105,9 @@ class SelectableList extends Component {
      */
     isBordered: PropTypes.bool,
     /**
-     * Items
+     * options
      */
-    items: PropTypes.arrayOf(PropTypes.shape({
+    options: PropTypes.arrayOf(PropTypes.shape({
       /**
        * The item ID
        */
@@ -117,16 +117,11 @@ class SelectableList extends Component {
      * An extra row at the bottom of the list for an action, like Add an address
      */
     listAction: PropTypes.node,
-    /**
-     * Name for input
-     */
-    name: PropTypes.string.isRequired
   };
 
   render() {
     const {
-      items,
-      name,
+      options,
       listAction,
       isBordered,
       components: {
@@ -136,9 +131,9 @@ class SelectableList extends Component {
       ...props
     } = this.props;
 
-    const listItems = (
+    const listoptions = (
       <fieldset>
-        {items.map((item) =>
+        {options.map((item) =>
           <div className="wrapper" key={item._id}>
             <SelectableItem
               name={name}
@@ -154,11 +149,11 @@ class SelectableList extends Component {
       <div>
         {isBordered ? (
           <BorderedList>
-            {listItems}
+            {listoptions}
           </BorderedList>
         ) : (
             <StyledList>
-              {listItems}
+              {listoptions}
             </StyledList>
           )}
       </div>
