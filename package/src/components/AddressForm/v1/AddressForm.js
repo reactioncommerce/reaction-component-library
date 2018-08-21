@@ -262,7 +262,7 @@ class AddressForm extends Component {
         <Grid>
           {shouldShowAddressNameField && <ColFull>
             <Field name="addressName" label="Address Name" labelFor={addressNameInputId}>
-                <TextInput id={addressNameInputId} name="addressName" placeholder={addressNamePlaceholder}isReadOnly={isSaving} />
+              <TextInput id={addressNameInputId} name="addressName" placeholder={addressNamePlaceholder}isReadOnly={isSaving} />
             </Field>
           </ColFull>}
 
