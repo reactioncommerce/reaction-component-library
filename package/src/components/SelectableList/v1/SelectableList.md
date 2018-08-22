@@ -48,7 +48,8 @@ Pass the `isReadOnly` prop to disable all options:
 const options = [{
   _id: "3321",
   label: "Standard (5-9 days)",
-  detail: "Free"
+  detail: "Free",
+  checked: true
 },
 {
   _id: "2332",

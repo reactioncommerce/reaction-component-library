@@ -124,6 +124,13 @@ class SelectableItem extends Component {
      * Item data
      */
     item: PropTypes.shape({
+      /**
+       * Check
+       */
+      checked: PropTypes.bool,
+      /**
+       * ID
+       */
       id: PropTypes.string.isRequired,
       /**
        * Label
@@ -251,6 +258,7 @@ class SelectableItem extends Component {
       item: {
         id,
         className,
+        checked,
         label,
         detail,
         icon
@@ -262,7 +270,7 @@ class SelectableItem extends Component {
       <StyledItem className={className} >
         <input
           id={id}
-          checked={value === true}
+          checked={checked || value === true}
           key={id}
           onChange={this.onChange}
           type="radio"

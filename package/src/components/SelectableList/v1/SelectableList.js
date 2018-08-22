@@ -15,7 +15,7 @@ const StyledList = styled.div`
       .leftAligned {
         justify-content: flex-start;
         label {
-          font-weight: ${applyTheme("selectableListLabelFontWeight")}
+          font-weight: ${applyTheme("selectableListLabelFontWeight")};
         }
         .detail {
           font-size: ${applyTheme("selectableListDetailFontSize")};
@@ -29,7 +29,7 @@ const StyledList = styled.div`
           position: relative;
         }
         span {
-          margin: ${applyTheme("selectableListIconMargin")}
+          margin: ${applyTheme("selectableListIconMargin")};
         }
         label span:after {
           left: ${applyTheme("selectableListIconLeft")};
@@ -38,7 +38,7 @@ const StyledList = styled.div`
           width: ${applyTheme("selectableListIconWidth")};
           height: ${applyTheme("selectableListIconHeight")};
           display: inline-block;
-          border-radius: ${applyTheme("selectableListBorderRadius")};;
+          border-radius: ${applyTheme("selectableListBorderRadius")};
           border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
         }
       }
@@ -74,8 +74,8 @@ const BorderedList = styled(StyledList)`
     border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
     border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
     border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    }
-    > *:last-child {
+  }
+  > *:last-child {
     border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
     border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
     .wrapper:last-child {
@@ -119,7 +119,11 @@ class SelectableList extends Component {
       /**
        * The item ID
        */
-      id: PropTypes.string.isRequired
+      id: PropTypes.string.isRequired,
+      /**
+       * Checked: True if checked
+       */
+      checked: PropTypes.bool
     })).isRequired
   };
 
@@ -135,40 +139,29 @@ class SelectableList extends Component {
       listAction,
       isBordered,
       isReadOnly,
-      components: {
-        SelectableItem,
-        ...components
-      },
+      components: { SelectableItem, ...components },
       ...props
     } = this.props;
 
     const listoptions = (
       <fieldset>
-        {options.map((item) =>
+        {options.map((item) => (
           <div className="wrapper" key={item.id}>
             <SelectableItem
               name={name}
               item={item}
+              checked={item.checked}
               isReadOnly={isReadOnly}
               component={components}
               {...props}
             />
-          </div>)}
+          </div>
+        ))}
       </fieldset>
     );
 
     return (
-      <div>
-        {isBordered ? (
-          <BorderedList>
-            {listoptions}
-          </BorderedList>
-        ) : (
-            <StyledList>
-              {listoptions}
-            </StyledList>
-          )}
-      </div>
+      <div>{isBordered ? <BorderedList>{listoptions}</BorderedList> : <StyledList>{listoptions}</StyledList>}</div>
     );
   }
 }
