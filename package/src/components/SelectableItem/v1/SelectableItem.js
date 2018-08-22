@@ -124,7 +124,7 @@ class SelectableItem extends Component {
      * Item data
      */
     item: PropTypes.shape({
-      _id: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       /**
        * Label
        */
@@ -249,7 +249,7 @@ class SelectableItem extends Component {
       name,
       isReadOnly,
       item: {
-        _id,
+        id,
         className,
         label,
         detail,
@@ -261,16 +261,16 @@ class SelectableItem extends Component {
     return (
       <StyledItem className={className} >
         <input
-          id={_id}
+          id={id}
           checked={value === true}
-          key={_id}
+          key={id}
           onChange={this.onChange}
           type="radio"
           name={name}
           disabled={isReadOnly}
         />
         <label
-          htmlFor={_id}
+          htmlFor={id}
         >
           <span className="radio" />
           {icon ? this.renderIcon() : null}

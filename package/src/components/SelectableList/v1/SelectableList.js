@@ -145,7 +145,7 @@ class SelectableList extends Component {
     const listoptions = (
       <fieldset>
         {options.map((item) =>
-          <div className="wrapper" key={item._id}>
+          <div className="wrapper" key={item.id}>
             <SelectableItem
               name={name}
               item={item}
