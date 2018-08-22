@@ -19,3 +19,5 @@ yarn install
 ```
 
 Then check the `.env` file to see if there are any placeholder values that need to be replaced with real values.
+
+Now that you're set up, you'll want to read about [Running and Developing Locally](./developing.md).
