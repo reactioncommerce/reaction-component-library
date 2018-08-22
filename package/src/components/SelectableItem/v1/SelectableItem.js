@@ -38,6 +38,15 @@ const StyledItem = styled.div`
     box-shadow: ${applyTheme("selectableItemRadioFocus")};
     outline: ${applyTheme("selectableItemRadioFocusOutline")}
   }
+  input:disabled + label .radio {
+    background-color: ${applyTheme("selectableItemRadioDisabledFillColor")};
+  }
+  input:disabled + label {
+    opacity: ${applyTheme("selectableItemRadioDisabledOpacity")};
+  }
+  input:disabled + label:hover {
+    cursor:  ${applyTheme("selectableItemRadioDisabledCursor")};
+  }
   label {
     font-family: ${applyTheme("selectableItemLabelFontFamily")};
     color: ${applyTheme("selectableItemLabelColor")};
@@ -107,6 +116,10 @@ class SelectableItem extends Component {
        */
       iconMastercard: PropTypes.node
     }),
+    /**
+     * Read only and disabled state
+     */
+    isReadOnly: PropTypes.bool,
     /**
      * Item data
      */
@@ -234,6 +247,7 @@ class SelectableItem extends Component {
   render() {
     const {
       name,
+      isReadOnly,
       item: {
         _id,
         className,
@@ -253,6 +267,7 @@ class SelectableItem extends Component {
           onChange={this.onChange}
           type="radio"
           name={name}
+          disabled={isReadOnly}
         />
         <label
           htmlFor={_id}

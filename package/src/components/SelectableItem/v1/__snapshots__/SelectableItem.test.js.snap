@@ -43,6 +43,18 @@ exports[`basic snapshot with empty props 1`] = `
   outline: 1px solid transparent;
 }
 
+.c0 input:disabled + label .radio {
+  background-color: #e6e6e6;
+}
+
+.c0 input:disabled + label {
+  opacity: .5;
+}
+
+.c0 input:disabled + label:hover {
+  cursor: not-allowed;
+}
+
 .c0 label {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   color: #3c3c3c;
@@ -132,6 +144,7 @@ exports[`basic snapshot with empty props 1`] = `
 >
   <input
     checked={false}
+    disabled={undefined}
     id="1"
     name={undefined}
     onChange={[Function]}

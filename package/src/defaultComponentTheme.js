@@ -420,7 +420,10 @@ const selectableItem = {
   rui_selectableItemLabelFontFamily: fontFamily,
   rui_selectableItemDetailFontSize: fontSize16,
   rui_selectableItemRadioFocus: `0 0 0 2px ${teal}`,
-  rui_selectableItemRadioFocusOutline: "1px solid transparent"
+  rui_selectableItemRadioFocusOutline: "1px solid transparent",
+  rui_selectableItemRadioDisabledOpacity: ".5",
+  rui_selectableItemRadioDisabledFillColor: black10,
+  rui_selectableItemRadioDisabledCursor: "not-allowed"
 };
 
 // selectableList

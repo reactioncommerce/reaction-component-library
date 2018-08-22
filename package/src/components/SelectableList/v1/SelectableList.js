@@ -105,25 +105,36 @@ class SelectableList extends Component {
      */
     isBordered: PropTypes.bool,
     /**
+     * Read Only state
+     */
+    isReadOnly: PropTypes.bool,
+    /**
+     * An extra row at the bottom of the list for an action, like Add an address
+     */
+    listAction: PropTypes.node,
+    /**
      * options
      */
     options: PropTypes.arrayOf(PropTypes.shape({
       /**
        * The item ID
        */
-      _id: PropTypes.string.isRequired
-    })).isRequired,
-    /**
-     * An extra row at the bottom of the list for an action, like Add an address
-     */
-    listAction: PropTypes.node,
+      id: PropTypes.string.isRequired
+    })).isRequired
   };
+
+  static defaultProps = {
+    isReadOnly: false
+  };
+
+  static isFormInput = true;
 
   render() {
     const {
       options,
       listAction,
       isBordered,
+      isReadOnly,
       components: {
         SelectableItem,
         ...components
@@ -138,6 +149,7 @@ class SelectableList extends Component {
             <SelectableItem
               name={name}
               item={item}
+              isReadOnly={isReadOnly}
               component={components}
               {...props}
             />

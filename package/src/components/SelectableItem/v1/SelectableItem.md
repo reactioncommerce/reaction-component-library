@@ -2,9 +2,26 @@
 
 `SelectableItems` in a `SelectableList` are used to select shipping methods, addresses and credit cards. Each item consists of a radio button, label and display value. The label and display value can both support text or render other elements, like icons and links.
 
+An individual item can be checked, or unchecked, along with disabled (`isReadOnly`) or enabled:
+
 ```jsx noeditor
-const item = { _id: "1", label: "Default address" };
+const item = { _id: "1", label: "Default unchecked" };
 <SelectableItem item={item} />
+```
+
+```jsx noeditor
+const item = { _id: "123", label: "Default checked" };
+<SelectableItem item={item} value={true} />
+```
+
+```jsx noeditor
+const item = { _id: "12", label: "Default disabled and unchecked" };
+<SelectableItem item={item} value={false} isReadOnly />
+```
+
+```jsx noeditor
+const item = { _id: "12", label: "Default disabled and checked" };
+<SelectableItem item={item} value={true} isReadOnly />
 ```
 
 #### Usage

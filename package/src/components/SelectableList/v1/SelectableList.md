@@ -23,7 +23,7 @@ const options = [{
 
 ##### Bordered
 
-Pass `isBordered` to get a bordered list:
+Pass the `isBordered` prop to get a bordered list:
 
 ```jsx noeditor
 const options = [{
@@ -38,6 +38,25 @@ const options = [{
 }];
 
 <SelectableList isBordered options={options} name="Form"/>
+```
+
+##### Disabled
+
+Pass the `isReadOnly` prop to disable all options:
+
+```jsx noeditor
+const options = [{
+  _id: "3321",
+  label: "Standard (5-9 days)",
+  detail: "Free"
+},
+{
+  _id: "2332",
+  label: "Priority (3-5 days)",
+  detail: "$5.99"
+}];
+
+<SelectableList isReadOnly options={options} name="Form"/>
 ```
 
 #### Examples
