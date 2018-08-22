@@ -1,12 +1,31 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import uniqueId from "lodash.uniqueid";
 import { Form } from "reacto-form";
 import { withComponents } from "@reactioncommerce/components-context";
-import { CustomPropTypes, getRequiredValidator } from "../../../utils";
+import { applyTheme, CustomPropTypes, getRequiredValidator } from "../../../utils";
+
+const FormAction = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding: 1rem 0 0 0;
+
+  > * {
+    width: 100%;
+
+    @media (${applyTheme("bp_sm")}) {
+      width: auto;
+    }
+  }
+`;
 
 class GuestForm extends Component {
   static propTypes = {
+    /**
+     * Button text
+     */
+    buttonText: PropTypes.string,
     /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
@@ -14,6 +33,11 @@ class GuestForm extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
+      /**
+       * Pass either the Reaction Button component or your own component that is
+       * compatible.
+       */
+      Button: CustomPropTypes.component.isRequired,
       /**
        * Pass either the Reaction ErrorsBlock component or your own component that is
        * compatible with ReactoForm.
@@ -33,18 +57,24 @@ class GuestForm extends Component {
     /**
      * Errors array
      */
-    errors: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    errors: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Error message
          */
-        message: PropTypes.string.isRequired,
-        /**
+      message: PropTypes.string.isRequired,
+      /**
          * Error name
          */
-        name: PropTypes.string.isRequired
-      })
-    ),
+      name: PropTypes.string.isRequired
+    })),
+    /**
+     * Help Test message
+     */
+    helpText: PropTypes.string,
+    /**
+     * Is the shipping address being saved
+     */
+    isSaving: PropTypes.bool,
     /**
      * Form name
      */
@@ -66,12 +96,15 @@ class GuestForm extends Component {
   };
 
   static defaultProps = {
+    buttonText: "Continue as guest",
     errors: [],
+    helpText: "You will have the option to create an account and save your details after checkout.",
+    isSaving: false,
     name: "address",
     onSubmit() {},
     validator: getRequiredValidator("email"),
     value: {
-      eamil: ""
+      email: ""
     }
   };
 
@@ -88,11 +121,18 @@ class GuestForm extends Component {
   }
 
   render() {
-    const { components: { ErrorsBlock, Field, TextInput }, errors, name, onSubmit, validator, value } = this.props;
-
+    const {
+      buttonText,
+      components: { Button, ErrorsBlock, Field, TextInput },
+      errors,
+      helpText,
+      isSaving,
+      name,
+      onSubmit,
+      validator,
+      value
+    } = this.props;
     const emailInputId = `email_${this.uniqueInstanceIdentifier}`;
-
-    //    return "hey";
 
     return (
       <Form
@@ -105,10 +145,23 @@ class GuestForm extends Component {
         validator={validator}
         value={value}
       >
-        <Field name="email" label="Email Address" isRequired>
-          <TextInput id={emailInputId} name="email" placeholder="Email address" type="email" />
+        <Field name="email" label="Email Address" isRequired helpText={helpText}>
+          <TextInput id={emailInputId} isReadOnly={isSaving} name="email" placeholder="Email address"
+            type="email"
+          />
           <ErrorsBlock names={["email"]} />
         </Field>
+        <FormAction>
+          <Button
+            actionType="secondary"
+            isWaiting={isSaving}
+            onClick={() => {
+              this.submit();
+            }}
+          >
+            {buttonText}
+          </Button>
+        </FormAction>
       </Form>
     );
   }
