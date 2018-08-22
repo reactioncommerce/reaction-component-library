@@ -8,7 +8,7 @@ The `GuestForm` is a simple form that captures a users email address.
 ```
 
 #### Saving example
-Using an `async` function or a funciton that returns a `Promise` will make the form wait until the async task has completed before clearing the form.
+Using an `async` function or a function that returns a `Promise` will make the form wait until the async task has completed before clearing the form.
 This also provides a way to display a saving state while waiting.
 ```jsx
 initialState = { isSavingEmail:false };
