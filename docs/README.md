@@ -1,9 +1,15 @@
-# Reaction Core Component Library and Style Guide - Full Documentation
+# Reaction Design System and Component Library - Contributor Docs
 
 ## Getting Started
 
+- [Cloning the Project for Development](./clone.md)
+- [Running and Developing Locally](./developing.md)
 - [Repo Structure](./repo-structure.md)
 - [Style Guide Development](./style-guide-development.md)
+
+### Editor Extensions
+
+https://www.styled-components.com/docs/tooling#syntax-highlighting
 
 ## Creating and Modifying Components
 
