@@ -186,7 +186,7 @@ class SelectableItem extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { value } = this.props;
+    const value = this.props.item.checked;
     const { value: nextValue } = nextProps;
 
     // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
@@ -258,10 +258,10 @@ class SelectableItem extends Component {
         checked,
         label,
         detail,
-        icon
+        icon,
+        value
       }
     } = this.props;
-    const { value } = this.state;
 
     return (
       <StyledItem className={className} >
