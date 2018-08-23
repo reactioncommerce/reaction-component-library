@@ -149,7 +149,7 @@ exports[`basic snapshot with empty props 1`] = `
     name={undefined}
     onChange={[Function]}
     type="radio"
-    value={false}
+    value="detail"
   />
   <label
     htmlFor="1"

@@ -8,7 +8,7 @@ A `SelectableList` comes in two main styles: unbordered and bordered.
 
 ##### Default
 
-```jsx
+```jsx noeditor
 const options = [{
   id: "111",
   label: "Standard (5-9 days)",
@@ -70,7 +70,7 @@ const options = [{
 
 #### Examples
 
-##### Shipping
+##### Shipping address list
 
 ```jsx
 const options = [{
@@ -101,7 +101,7 @@ const options = [{
 <SelectableList isBordered options={options} name="ShippingForm"/>
 ```
 
-##### Payment
+##### Payment options list
 
 ```jsx
 const options = [{
@@ -139,7 +139,7 @@ const options = [{
 <SelectableList isBordered options={options} name="PaymentForm"/>
 ```
 
-##### Address
+##### Address list
 
 ```jsx
 const link = (
