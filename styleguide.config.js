@@ -425,6 +425,7 @@ module.exports = {
           name: "Cart"
         }),
         generateSection({
+          // eslint-disable-next-line
           componentNames: ["CheckoutAction", "CheckoutActions", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "SelectableItem", "ShippingAddressCheckoutAction", "StripePaymentCheckoutAction"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"

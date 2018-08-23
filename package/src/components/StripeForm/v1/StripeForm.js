@@ -79,9 +79,6 @@ class StripeForm extends Component {
      */
     cardNumberPlaceholder: PropTypes.string,
     /**
-     * Card's billing postal code text placeholder
-     */
-    /**
     * If you've set up a components context using @reactioncommerce/components-context
     * (recommended), then this prop will come from there automatically. If you have not
     * set up a components context or you want to override one of the components in a
@@ -105,6 +102,13 @@ class StripeForm extends Component {
        */
       iconMastercard: PropTypes.node
     }).isRequired,
+    /**
+     *  Used to determined if all form fields have been completed
+    */
+    isComplete: PropTypes.func.isRequired,
+    /**
+     * Card's billing postal code text placeholder
+     */
     postalCodePlaceholder: PropTypes.string,
     /**
      * The stripe object which provides methods for tokenizing data, it's
