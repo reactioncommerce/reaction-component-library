@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { ContainerQuery } from "react-container-query";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { getFromTheme, CustomPropTypes } from "../../../utils";
+import { getFromTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 
 const mdWidth = getFromTheme({}, "rui_md");
 const containerQueries = {
@@ -72,6 +72,10 @@ class CatalogGrid extends Component {
      */
     currencyCode: PropTypes.string,
     /**
+     * Item click handler
+     */
+    onItemClick: PropTypes.func,
+    /**
      * Image to display when product doesn't have a primary image
      */
     placeholderImageURL: PropTypes.string,
@@ -83,14 +87,20 @@ class CatalogGrid extends Component {
 
   static defaultProps = {
     currencyCode: "USD",
+    onItemClick() {},
     placeholderImageURL: "/resources/placeholder.gif",
     products: []
   };
+
+  handleOnClick = preventAccidentalDoubleClick((event) => {
+    this.props.onItemClick(event);
+  });
 
   render() {
     const {
       components: { CatalogGridItem },
       currencyCode,
+      onItemClick,
       placeholderImageURL,
       products
     } = this.props;
@@ -103,6 +113,7 @@ class CatalogGrid extends Component {
               <GridItem containerParams={params} key={`grid-item-${index}`} {...this.props}>
                 <CatalogGridItem
                   currencyCode={currencyCode}
+                  onClick={onItemClick}
                   placeholderImageURL={placeholderImageURL}
                   product={product}
                 />

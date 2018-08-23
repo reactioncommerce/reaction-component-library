@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 import { priceByCurrencyCode } from "./utils";
 
 const ProductMediaWrapper = styled.div`
@@ -56,6 +56,10 @@ class CatalogGridItem extends Component {
      */
     currencyCode: PropTypes.string.isRequired,
     /**
+     * Item click handler
+     */
+    onClick: PropTypes.func,
+    /**
      * Image to display when product doesn't have a primary image
      */
     placeholderImageURL: PropTypes.string,
@@ -89,6 +93,7 @@ class CatalogGridItem extends Component {
   };
 
   static defaultProps = {
+    onClick() {},
     placeholderImageURL: ""
   };
 
@@ -113,7 +118,9 @@ class CatalogGridItem extends Component {
     return primaryImage;
   }
 
-  handleOnClick = () => {};
+  handleOnClick = preventAccidentalDoubleClick((event) => {
+    this.props.onClick(event);
+  });
 
   renderProductMedia() {
     const { components: { ProgressiveImage }, product: { description } } = this.props;
