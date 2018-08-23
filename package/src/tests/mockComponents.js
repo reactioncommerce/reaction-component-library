@@ -1,5 +1,19 @@
 const mockComponents = {};
 
+import { Component } from "react";
+
+function makeMockedComponent(name) {
+  return (
+    class mockedComponent extends Component {
+      render() {
+        return (
+          `${name}(${stringifyJSONCircularSafe(this.props)})`
+        );
+      }
+    }
+  );
+}
+
 function stringifyJSONCircularSafe(obj) {
   const cache = [];
   JSON.stringify(obj, (key, value) => {
@@ -47,7 +61,7 @@ function stringifyJSONCircularSafe(obj) {
   "SelectableList",
   "StripeForm"
 ].forEach((componentName) => {
-  mockComponents[componentName] = (props) => `${componentName}(${stringifyJSONCircularSafe(props)})`;
+  mockComponents[componentName] = makeMockedComponent(componentName);
 });
 
 /**

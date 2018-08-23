@@ -38,9 +38,9 @@ class ShippingAddressCheckoutAction extends Component {
      * Checkout data needed for form
      */
     fulfillmentGroup: PropTypes.shape({
-      data: {
+      data: PropTypes.shape({
         shippingAddress: PropTypes.object
-      }
+      })
     }),
     /**
      * Is the shipping address being saved
