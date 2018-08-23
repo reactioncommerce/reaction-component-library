@@ -117,6 +117,14 @@ class SelectableList extends Component {
      */
     name: PropTypes.string,
     /**
+     * Called with the new selected value each time the user changes the selection
+     */
+    onChange: PropTypes.func,
+    /**
+     * Called with the new selected value each time the user changes the selection
+     */
+    onChanging: PropTypes.func,
+    /**
      * options
      */
     options: PropTypes.arrayOf(PropTypes.shape({
@@ -132,14 +140,75 @@ class SelectableList extends Component {
        * Value of the input that is submitted from the form
        */
       value: PropTypes.any.isRequired
-    })).isRequired
+    })).isRequired,
+    /**
+     * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
+     * the Composable Forms spec will pass this automatically.
+     */
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
   };
 
   static defaultProps = {
-    isReadOnly: false
+    isReadOnly: false,
+    onChange() { },
+    onChanging() { }
   };
 
   static isFormInput = true;
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: props.value || null
+    };
+  }
+
+  componentWillMount() {
+    this.handleChange(this.props.value || false);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const { value } = this.props;
+    const { value: nextValue } = nextProps;
+
+    // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
+    if (value !== nextValue) {
+      this.setState({ value: nextValue || false });
+      this.handleChange(nextValue || false);
+    }
+  }
+
+  onChange = (event) => {
+    this.setValue(event.target.value);
+  };
+
+  getValue() {
+    return this.state.value;
+  }
+
+  setValue(value) {
+    this.setState({ value });
+    this.handleChange(value);
+  }
+
+  resetValue() {
+    this.setValue(this.props.value || false);
+  }
+
+  handleChange(value) {
+    if (this.lastValue === value) return;
+    this.lastValue = value;
+    const { onChanging, onChange } = this.props;
+    onChanging(value);
+    onChange(value);
+  }
+
+  // Input is dirty if value prop doesn't match value state. Whenever a changed
+  // value prop comes in, we reset state to that, thus becoming clean.
+  isDirty() {
+    return this.state.value !== this.props.value;
+  }
 
   render() {
     const {
@@ -153,7 +222,7 @@ class SelectableList extends Component {
     } = this.props;
 
     const listoptions = (
-      <fieldset>
+      <fieldset onChange={this.onChange}>
         {options.map((item) => (
           <div className="wrapper" key={item.id}>
             <SelectableItem
