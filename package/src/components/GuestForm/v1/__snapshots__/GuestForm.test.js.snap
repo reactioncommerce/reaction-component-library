@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 1rem 0 0 0;
+}
+
+.c0 > * {
+  width: 100%;
+}
+
+@media (min-width:600px) {
+  .c0 > * {
+    width: auto;
+  }
+}
+
+<div
+  className={null}
+  style={Object {}}
+>
+  Field(undefined)
+  <div
+    className="c0"
+  >
+    Button(undefined)
+  </div>
+</div>
+`;
