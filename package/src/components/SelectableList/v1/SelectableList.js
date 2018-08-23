@@ -160,7 +160,7 @@ class SelectableList extends Component {
     super(props);
 
     this.state = {
-      value: props.value || null
+      value: this.getInitialValue()
     };
   }
 
@@ -182,6 +182,13 @@ class SelectableList extends Component {
   onChange = (event) => {
     this.setValue(event.target.value);
   };
+
+  getInitialValue() {
+    const initialCheckedItem = this.props.options.find((o) => o.checked === true);
+    if (initialCheckedItem !== undefined) {
+      return initialCheckedItem.value;
+    }
+  }
 
   getValue() {
     return this.state.value;

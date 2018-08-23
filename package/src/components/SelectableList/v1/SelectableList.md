@@ -12,7 +12,8 @@ A `SelectableList` comes in two main styles: unbordered and bordered.
 const options = [{
   id: "111",
   label: "Standard (5-9 days)",
-  value: "Standard"
+  value: "Standard",
+  checked: true
 },
 {
   id: "222",
