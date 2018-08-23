@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
+import isEqual from "lodash.isequal";
 import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const Action = styled.div`
@@ -79,15 +80,31 @@ class CheckoutActions extends Component {
 
   static defaultProps = {};
 
-  state = {
-    currentActions: this.props.actions.map(({ label, props }, i) => ({
-      label,
-      // eslint-disable-next-line
-      status: props ? "complete" : i === 0 ? "active" : "incomplete",
-      readyForSave: false,
-      isSaving: false
-    }))
-  };
+  static getDerivedStateFromProps(props, state) {
+    if (!isEqual(props.actions, state.previousActionsProp)) {
+      const { currentActions = [] } = state;
+      const actions = props.actions.map(({ label }) => {
+        const currentAction = currentActions.find((action) => action.label === label) || {};
+        const { isActive = false, readyForSave = false, isSaving = false } = currentAction;
+
+        return {
+          label,
+          readyForSave,
+          isSaving,
+          isActive
+        };
+      });
+
+      return {
+        currentActions: actions,
+        previousActionsProp: props.actions
+      };
+    }
+
+    return null;
+  }
+
+  state = {};
 
   getCurrentActionIndex(label) {
     const { currentActions } = this.state;
@@ -99,10 +116,11 @@ class CheckoutActions extends Component {
     return currentActions[this.getCurrentActionIndex(label)];
   }
 
-  toggleActionStatus = (label, status) => {
+  setActionActive = (label, isActive = true) => {
     const { currentActions } = this.state;
+
     const actionIndex = currentActions.findIndex((action) => action.label === label);
-    currentActions[actionIndex].status = status;
+    currentActions[actionIndex].isActive = isActive;
     this.setState({ currentActions });
   };
 
@@ -116,14 +134,16 @@ class CheckoutActions extends Component {
 
   handleActionSubmit = async (label, onSubmit, actionValue) => {
     const { currentActions } = this.state;
+
     currentActions[this.getCurrentActionIndex(label)].isSaving = true;
+    currentActions[this.getCurrentActionIndex(label)].isActive = false;
     this.setState({
       currentActions
     });
 
     await onSubmit(actionValue);
     currentActions[this.getCurrentActionIndex(label)].isSaving = false;
-    currentActions[this.getCurrentActionIndex(label)].status = "complete";
+
     this.setState({
       currentActions
     });
@@ -133,14 +153,36 @@ class CheckoutActions extends Component {
     this[label].submit();
   };
 
-  renderCompleteAction = ({ label, component, props }) => {
+  determineActiveActions = () => {
+    const { actions } = this.props;
+    const { currentActions } = this.state;
+
+    const currentActiveActions = actions.reduce((activeList, { label, status }) => {
+      const currentAction = currentActions.find((action) => action.label === label);
+      let { isActive } = currentAction;
+
+      if (!activeList.length && status === "incomplete") {
+        isActive = true;
+      }
+
+      if (isActive) {
+        activeList.push(label);
+      }
+
+      return activeList;
+    }, []);
+
+    return currentActiveActions;
+  }
+
+  renderCompleteAction = ({ label, status, component, props }) => {
     const { components: { CheckoutActionComplete } } = this.props;
-    return props ? (
+    return status === "complete" ? (
       <CheckoutActionComplete
         key={label}
         content={component.renderComplete(props)}
         onClickChangeButton={() => {
-          this.toggleActionStatus(label, "active");
+          this.setActionActive(label);
         }}
       />
     ) : (
@@ -169,7 +211,7 @@ class CheckoutActions extends Component {
         />
         <FormActions>
           {action.props ? (
-            <Button actionType="secondary" onClick={() => this.toggleActionStatus(action.label, "complete")}>
+            <Button actionType="secondary" onClick={() => this.setActionActive(action.label, false)}>
               Cancel
             </Button>
           ) : (
@@ -183,14 +225,16 @@ class CheckoutActions extends Component {
     );
   };
 
-  renderAction = (action) => {
+  renderAction = (action, currentActiveActions) => {
     const { components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
-    const { status } = this.getCurrentActionByLabel(action.label);
+
+    const isActive = currentActiveActions.find((label) => label === action.label);
+    const actionStatus = isActive ? "active" : action.status;
 
     return (
       <Action key={action.label}>
         <CheckoutAction
-          status={status}
+          status={actionStatus}
           label={action.label}
           stepNumber={this.getCurrentActionIndex(action.label) + 1}
           activeStepElement={this.renderActiveAction(action)}
@@ -203,7 +247,9 @@ class CheckoutActions extends Component {
 
   render() {
     const { actions } = this.props;
-    return actions.map(this.renderAction);
+    const activeActions = this.determineActiveActions();
+
+    return actions.map((action) => (this.renderAction(action, activeActions)));
   }
 }
 
