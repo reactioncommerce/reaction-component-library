@@ -1,6 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot 1`] = `
+.c1 {
+  padding: 0 10px;
+}
+
 .c0 {
   width: 100%;
 }
@@ -9,10 +13,6 @@ exports[`basic snapshot 1`] = `
   border-color: transparent;
   padding: 0;
   margin: 0;
-}
-
-.c0 fieldset .wrapper {
-  padding: 0 10px;
 }
 
 .c0 fieldset .wrapper .leftAligned {
@@ -54,25 +54,6 @@ exports[`basic snapshot 1`] = `
   border: 1px solid #e6e6e6;
 }
 
-.c0 .listAction {
-  padding: 0 10px;
-  height: 50px;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-options: center;
-  -ms-flex-line-packalign-options: center;
-  align-options: center;
-  box-sizing: border-box;
-}
-
-@media (max-width:768px) {
-  .c0 .listAction {
-    height: 60px;
-  }
-}
-
 <div>
   <div
     className="c0"
@@ -81,17 +62,17 @@ exports[`basic snapshot 1`] = `
       onChange={[Function]}
     >
       <div
-        className="wrapper"
+        className="c1"
       >
         SelectableItem(undefined)
       </div>
       <div
-        className="wrapper"
+        className="c1"
       >
         SelectableItem(undefined)
       </div>
       <div
-        className="wrapper"
+        className="c1"
       >
         SelectableItem(undefined)
       </div>

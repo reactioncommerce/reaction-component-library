@@ -4,6 +4,27 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes, applyTheme } from "../../../utils";
 
+const StyledListAction = styled.div`
+  padding: ${applyTheme("selectableListItemPadding")};
+  height: ${applyTheme("selectableListHeight")};
+  display: flex;
+  align-options: center;
+  box-sizing: border-box;
+  @media (max-width: 768px) {
+    height: ${applyTheme("selectableListHeightMobile")};
+  }
+`;
+
+const BorderedListAction = styled(StyledListAction)`
+  border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+`;
+
+const StyledWrapper = styled.div`
+  padding: ${applyTheme("selectableListItemPadding")};
+`;
+
 const StyledList = styled.div`
   width: 100%;
   fieldset {
@@ -11,7 +32,6 @@ const StyledList = styled.div`
     padding: ${applyTheme("selectableListPadding")};
     margin: ${applyTheme("selectableListMargin")};
     .wrapper {
-      padding: ${applyTheme("selectableListItemPadding")};
       .leftAligned {
         justify-content: flex-start;
         label {
@@ -44,16 +64,6 @@ const StyledList = styled.div`
       }
     }
   }
-  .listAction {
-    padding: ${applyTheme("selectableListItemPadding")};
-    height: ${applyTheme("selectableListHeight")};
-    display: flex;
-    align-options: center;
-    box-sizing: border-box;
-    @media (max-width: 768px) {
-      height: ${applyTheme("selectableListHeightMobile")};
-    }
-  }
 `;
 
 const BorderedList = styled(StyledList)`
@@ -64,24 +74,24 @@ const BorderedList = styled(StyledList)`
     border-bottom: none;
     border-top-right-radius: ${applyTheme("selectableListBorderRadius")};
     border-top-left-radius: ${applyTheme("selectableListBorderRadius")};
-    .wrapper {
-      border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-      border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-      border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    }
-  }
-  .listAction {
-    border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
   }
   > *:last-child {
     border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
     border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
-    .wrapper:last-child {
+    div:last-child {
       border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
       border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
     }
+  }
+`;
+
+const BorderedWrapper = styled(StyledWrapper)`
+  border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  > *:last-child {
+    border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
+    border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
   }
 `;
 
@@ -229,35 +239,45 @@ class SelectableList extends Component {
       ...props
     } = this.props;
 
-    const listoptions = (
-      <fieldset onChange={this.onChange}>
-        {options.map((item) => (
-          <div className="wrapper" key={item.id}>
-            <SelectableItem
-              name={name}
-              item={item}
-              checked={item.checked}
-              value={item.value}
-              isReadOnly={isReadOnly}
-              component={components}
-              {...props}
-            />
-          </div>
-        ))}
-      </fieldset>
-    );
-
     return (
       <div>
         {isBordered ?
           <BorderedList>
-            {listoptions}
-            {listAction ? <div className="listAction">{listAction}</div> : null}
+            <fieldset onChange={this.onChange}>
+              {options.map((item) => (
+                <BorderedWrapper key={item.id}>
+                  <SelectableItem
+                    name={name}
+                    item={item}
+                    checked={item.checked}
+                    value={item.value}
+                    isReadOnly={isReadOnly}
+                    component={components}
+                    {...props}
+                  />
+                </BorderedWrapper>
+              ))}
+            </fieldset>
+            {listAction ? <BorderedListAction>{listAction}</BorderedListAction> : null}
           </BorderedList>
           :
           <StyledList>
-            {listoptions}
-            {listAction ? <div className="listAction">{listAction}</div> : null}
+            <fieldset onChange={this.onChange}>
+              {options.map((item) => (
+                <StyledWrapper key={item.id}>
+                  <SelectableItem
+                    name={name}
+                    item={item}
+                    checked={item.checked}
+                    value={item.value}
+                    isReadOnly={isReadOnly}
+                    component={components}
+                    {...props}
+                  />
+                </StyledWrapper>
+              ))}
+            </fieldset>
+            {listAction ? <StyledListAction>{listAction}</StyledListAction> : null}
           </StyledList>
         }
       </div>
