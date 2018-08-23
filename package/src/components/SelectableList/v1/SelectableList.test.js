@@ -5,20 +5,23 @@ import SelectableList from "./SelectableList";
 
 test("basic snapshot", () => {
   const items = [{
-    _id: "1",
+    id: "1",
     label: "Priority shipping",
-    detail: "$12.00"
-
+    detail: "$12.00",
+    value: "123",
+    checked: true
   },
   {
-    _id: "2",
+    id: "2",
     label: "Expedited shipping",
-    detail: "$5.00"
+    detail: "$5.00",
+    value: "333"
   },
   {
-    _id: "3",
+    id: "3",
     label: "Free shipping",
-    detail: "$0.00"
+    detail: "$0.00",
+    value: "2455"
   }];
   const component = renderer.create(<SelectableList options={items} components={mockComponents} name="Form" />);
 

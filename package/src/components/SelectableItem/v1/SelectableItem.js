@@ -125,7 +125,7 @@ class SelectableItem extends Component {
      */
     item: PropTypes.shape({
       /**
-       * Check
+       * Checked: `true` if item is checked
        */
       checked: PropTypes.bool,
       /**
@@ -147,11 +147,13 @@ class SelectableItem extends Component {
       /**
        * Custom class name
        */
-      className: PropTypes.string
+      className: PropTypes.string,
+      /**
+       * Value of the item input
+       */
+      value: PropTypes.any.isRequired
     }),
-    /**
-     * Name for radio group
-     */
+    /** Optional name of input radio group, passed down from for SelectableList */
     name: PropTypes.string,
     /**
      * On change handler for input
@@ -160,19 +162,14 @@ class SelectableItem extends Component {
     /**
      * On change handler for input
      */
-    onChanging: PropTypes.func,
-    /**
-     * True for a checked item, undefined for an unchecked item
-     */
-    value: PropTypes.bool // eslint-disable-line react/boolean-prop-naming
+    onChanging: PropTypes.func
   }
 
   static defaultProps = {
     className: undefined,
-    name: undefined,
     onChange() { },
     onChanging() { },
-    value: undefined
+    checked: undefined
   };
 
   constructor(props) {
@@ -180,12 +177,12 @@ class SelectableItem extends Component {
 
     this.state = {
       id: uniqueId("Radio_"),
-      value: props.value || false
+      value: props.item.checked || false
     };
   }
 
   componentWillMount() {
-    this.handleChange(this.props.value || false);
+    this.handleChange(this.props.item.checked || false);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -270,7 +267,8 @@ class SelectableItem extends Component {
       <StyledItem className={className} >
         <input
           id={id}
-          checked={checked || value === true}
+          checked={checked}
+          value={value}
           key={id}
           onChange={this.onChange}
           type="radio"

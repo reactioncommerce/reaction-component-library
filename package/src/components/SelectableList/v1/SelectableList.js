@@ -113,6 +113,10 @@ class SelectableList extends Component {
      */
     listAction: PropTypes.node,
     /**
+     * The name for the SelectableList radio group. Each radio group on a page should have a unique name.
+     */
+    name: PropTypes.string,
+    /**
      * options
      */
     options: PropTypes.arrayOf(PropTypes.shape({
@@ -123,7 +127,11 @@ class SelectableList extends Component {
       /**
        * Checked: True if checked
        */
-      checked: PropTypes.bool
+      checked: PropTypes.bool,
+      /**
+       * Value of the input that is submitted from the form
+       */
+      value: PropTypes.any.isRequired
     })).isRequired
   };
 
@@ -135,6 +143,7 @@ class SelectableList extends Component {
 
   render() {
     const {
+      name,
       options,
       listAction,
       isBordered,
@@ -151,6 +160,7 @@ class SelectableList extends Component {
               name={name}
               item={item}
               checked={item.checked}
+              value={item.value}
               isReadOnly={isReadOnly}
               component={components}
               {...props}

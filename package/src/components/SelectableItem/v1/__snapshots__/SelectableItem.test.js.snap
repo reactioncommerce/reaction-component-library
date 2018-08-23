@@ -143,15 +143,16 @@ exports[`basic snapshot with empty props 1`] = `
   className="c0"
 >
   <input
-    checked={false}
+    checked={undefined}
     disabled={undefined}
-    id={undefined}
+    id="1"
     name={undefined}
     onChange={[Function]}
     type="radio"
+    value={false}
   />
   <label
-    htmlFor={undefined}
+    htmlFor="1"
   >
     <span
       className="radio"

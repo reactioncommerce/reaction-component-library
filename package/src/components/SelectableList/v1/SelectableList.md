@@ -8,17 +8,19 @@ A `SelectableList` comes in two main styles: unbordered and bordered.
 
 ##### Default
 
-```jsx noeditor
+```jsx
 const options = [{
   _id: "111",
-  label: "Standard (5-9 days)"
+  label: "Standard (5-9 days)",
+  value: "Standard"
 },
 {
   _id: "222",
-  label: "Priority (3-5 days)"
+  label: "Priority (3-5 days)",
+  value: "Priority"
 }];
 
-<SelectableList options={options} name="Form"/>
+<SelectableList options={options} name="DefaultForm"/>
 ```
 
 ##### Bordered
@@ -29,15 +31,18 @@ Pass the `isBordered` prop to get a bordered list:
 const options = [{
   _id: "331",
   label: "Standard (5-9 days)",
-  detail: "Free"
+  detail: "Free",
+  value: "standard",
+  checked: true
 },
 {
   _id: "232",
   label: "Priority (3-5 days)",
+  value: "priority",
   detail: "$5.99"
 }];
 
-<SelectableList isBordered options={options} name="Form"/>
+<SelectableList isBordered options={options} name="BorderedForm"/>
 ```
 
 ##### Disabled
@@ -48,16 +53,18 @@ Pass the `isReadOnly` prop to disable all options:
 const options = [{
   _id: "3321",
   label: "Standard (5-9 days)",
+  value: "standard",
   detail: "Free",
   checked: true
 },
 {
   _id: "2332",
   label: "Priority (3-5 days)",
+  value: "priority",  
   detail: "$5.99"
 }];
 
-<SelectableList isReadOnly options={options} name="Form"/>
+<SelectableList isReadOnly options={options} name="DisabledForm"/>
 ```
 
 #### Examples
@@ -68,25 +75,29 @@ const options = [{
 const options = [{
   _id: "1",
   label: "Standard (5-9 days)",
+  value: "standard",
   detail: "Free"
 },
 {
   _id: "2",
   label: "Priority (3-5 days)",
+  value: "priority",
   detail: "$5.99"
 },
 {
   _id: "3",
   label: "Express 2-day",
+  value: "express",
   detail: "$12.99"
 },
 {
   _id: "4",
   label: "Overnight expedited",
+  value: "overnight",
   detail: "$24.99"
 }];
 
-<SelectableList isBordered options={options} name="Form"/>
+<SelectableList isBordered options={options} name="ShippingForm"/>
 ```
 
 ##### Payment
@@ -96,6 +107,7 @@ const options = [{
   _id: "5",
   label: "American Express",
   detail: "ending in 0000",
+  value: "amex",
   icon: "iconAmericanExpress",
   className: "leftAligned"
 },
@@ -103,6 +115,7 @@ const options = [{
   _id: "6",
   label: "Visa",
   detail: " ending in 0000",
+  value: "visa",
   icon: "iconVisa",
   className: "leftAligned"
 },
@@ -110,17 +123,19 @@ const options = [{
   _id: "62",
   label: "Mastercard",
   detail: " ending in 0000",
+  value: "mc",
   icon: "iconMastercard",
-  className: "leftAligned"  
+  className: "leftAligned"
 },{
   _id: "64",
   label: "Discover",
   detail: " ending in 0000",
+  value: "disc",
   icon: "iconDiscover",
   className: "leftAligned"
 }];
 
-<SelectableList isBordered options={options} name="Form"/>
+<SelectableList isBordered options={options} name="PaymentForm"/>
 ```
 
 ##### Address
@@ -137,18 +152,21 @@ const addLink = (
 const options = [{
   _id: "7",
   label: "Susan Doe, 2300 Buckwheat Ave, Salt Lake City, UT 84111 USA",
+  value: 33333,
   detail: link
 },
 {
   _id: "8",
   label: "Susan Doe, PO Box 1123, Salt Lake City, UT 84111 US",
+  value: 232312,
   detail: link
 },
 {
   _id: "9",
   label: "Johnny Doe, 2300 Buckwheat Ave, Salt Lake City, UT 84111 US",
+  value: 12345,
   detail: link
 }];
 
-<SelectableList isBordered options={options} name="Form" listAction={addLink} />
+<SelectableList isBordered options={options} name="AddressForm" listAction={addLink} />
 ```
