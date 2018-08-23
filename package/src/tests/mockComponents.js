@@ -28,6 +28,7 @@ function stringifyJSONCircularSafe(obj) {
   "CartSummary",
   "CatalogGrid",
   "CatalogGridItem",
+  "Checkbox",
   "CheckoutAction",
   "CheckoutActionComplete",
   "CheckoutActionIncomplete",
@@ -42,7 +43,9 @@ function stringifyJSONCircularSafe(obj) {
   "Select",
   "StockWarning",
   "TextInput",
-  "SelectableItem"
+  "SelectableItem",
+  "SelectableList",
+  "StripeForm"
 ].forEach((componentName) => {
   mockComponents[componentName] = (props) => `${componentName}(${stringifyJSONCircularSafe(props)})`;
 });
