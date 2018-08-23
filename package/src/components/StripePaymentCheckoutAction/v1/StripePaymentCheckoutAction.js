@@ -1,14 +1,18 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { withComponents } from "@reactioncommerce/components-context";
-import Button from "@material-ui/core/Button";
 import Fade from "@material-ui/core/Fade";
 import styled from "styled-components";
 import { applyTheme, CustomPropTypes } from "../../../utils";
 
-const H3 = styled.h3`
+const Title = styled.h3`
   font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_h3")};
+  font-weight: ${applyTheme("font_weight_bold")};
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  letter-spacing: 0.4px;
 `;
 
 const SecureCaption = styled.div`
@@ -20,6 +24,16 @@ const SecureCaption = styled.div`
 const Span = styled.span`
   vertical-align: super;
 `;
+
+const billingAddressOptions = [{
+  _id: "1",
+  label: "Same as shipping address"
+},
+{
+  _id: "2",
+  label: "Use a different billing address"
+}];
+
 
 class StripePaymentCheckoutAction extends Component {
   static propTypes = {
@@ -36,21 +50,38 @@ class StripePaymentCheckoutAction extends Component {
        */
       AddressForm: CustomPropTypes.component.isRequired,
       /**
+       * A reaction SelectableList component or compatible component.
+       */
+      SelectableList: CustomPropTypes.component.isRequired,
+      /**
        * Pass either the Reaction StripeForm component or your own component that
        * accepts compatible props.
        */
       StripeForm: CustomPropTypes.component.isRequired
     }),
+    /**
+     * Is the payment method being saved?
+     */
     isSaving: PropTypes.bool,
     /**
-     * This callback will fired when the collected information is ready to by saved,
-     * and move to the next step
+     * Label of workflow step
+     */
+    label: PropTypes.string.isRequired,
+    /**
+     * When action is ready for save call this prop method to
+     * enable the save button with in the `CheckoutActions`
      */
     onReadyForSaveChange: PropTypes.func,
     /**
-     * Status of the action component, the rendered UI will match the current status of the component.
+     * When an action form passes validation and submits
+     * the value will be passed to this callback
+     * this function.
      */
-    status: PropTypes.oneOf(["active", "complete", "incomplete"])
+    onSubmit: PropTypes.func,
+    /**
+     * Checkout process step number
+     */
+    stepNumber: PropTypes.number.isRequired
   };
 
   static defaultProps = {
@@ -74,18 +105,33 @@ class StripePaymentCheckoutAction extends Component {
 
   componentDidMount() {
     const { onReadyForSaveChange } = this.props;
-    onReadyForSaveChange(true);
+    onReadyForSaveChange(false);
   }
 
-  handleSubmit = (address) => {
-    this.setState({
-      activeAddress: address
+  _addressForm = null;
+
+  submit = async () => {
+    // TODO: submit billing address form
+    // For now, only the stripe form will be submitted.
+    // this._addressForm.submit();
+    this.handleSubmit();
+  }
+
+  handleSubmit = async (value) => {
+    const { onSubmit } = this.props;
+    const { token } = await this._stripe.createToken();
+
+    await onSubmit({
+      // billingAddress: value,
+      token
     });
-  };
+  }
 
   handleChange = (values) => {
     const { onReadyForSaveChange } = this.props;
     const isFilled = Object.keys(values).every((key) => (key === "address2" ? true : values[key] !== null));
+
+    // Setting the "readyForSave" flag should take into account, both, the Stripe for and billing address form
     onReadyForSaveChange(isFilled);
   };
 
@@ -101,6 +147,12 @@ class StripePaymentCheckoutAction extends Component {
 
   handleUseNewBillingAddress = () => {
     this.setState({ useNewBillingAddress: !this.state.useNewBillingAddress });
+  }
+
+  handleStripeFormIsComplete = (isComplete) => {
+    const { onReadyForSaveChange } = this.props;
+
+    onReadyForSaveChange(isComplete);
   }
 
   renderBillingAddressForm = () => {
@@ -136,18 +188,23 @@ class StripePaymentCheckoutAction extends Component {
   )
 
   render() {
-    const { components: { StripeForm } } = this.props;
+    const {
+      components: { SelectableList, StripeForm },
+      label,
+      stepNumber
+    } = this.props;
 
     return (
       <Fragment>
-        <StripeForm />
+        <Title>
+          {stepNumber}. {label}
+        </Title>
+        <StripeForm isComplete={this.handleStripeFormIsComplete} stripeRef={(stripe) => { this._stripe = stripe; }} />
         <SecureCaption>
           {this.renderLockIcon()} <Span>Your Information is private and secure.</Span>
         </SecureCaption>
-        <H3>Billing Address</H3>
-        <Button variant="outlined" onClick={this.handleUseNewBillingAddress}>
-          Use a different billing address
-        </Button>
+        <Title>Billing Address</Title>
+        <SelectableList onClick={this.handleUseNewBillingAddress} items={billingAddressOptions} name="billingAddressForm" />
         {this.renderBillingAddressForm()}
       </Fragment>
     );
@@ -157,9 +214,9 @@ class StripePaymentCheckoutAction extends Component {
 const WrappedStripePaymentCheckoutAction = withComponents(StripePaymentCheckoutAction);
 
 // eslint-disable-next-line
-WrappedStripePaymentCheckoutAction.renderComplete = ({ stripePayment }) => (
+WrappedStripePaymentCheckoutAction.renderComplete = ({ payment: { data: { billingAddress, displayName } }}) => (
   <div>
-    Visa ending in 7777
+    {displayName}
   </div>
 );
 
