@@ -17,8 +17,8 @@ Set the `presrc` prop to enable the progressive loading effect when the image is
 
 ```jsx
 <ProgressiveImage
-  src="/images/responsive-sticker/medium.jpg"
-  presrc="/images/responsive-sticker/small.png"
+  src="/images/sticker/medium.jpg"
+  presrc="/images/sticker/small.png"
 />
 ```
 
@@ -27,11 +27,11 @@ To create a responsive image, set the `srcs` prop to an object that references s
 
 ```jsx
 <ProgressiveImage
-  presrc="/images/responsive-sticker/small.png"
+  presrc="/images/sticker/small.png"
   srcs={{
-    large: "/images/responsive-sticker/large.jpg",
-    medium: "/images/responsive-sticker/medium.jpg",
-    small: "/images/responsive-sticker/small.png"
+    large: "/images/sticker/large.jpg",
+    medium: "/images/sticker/medium.jpg",
+    small: "/images/sticker/small.png"
   }}
 />
 ```

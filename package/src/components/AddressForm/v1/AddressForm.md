@@ -110,6 +110,28 @@ const errors = [{ message: "error message", name: "address1"}];
  />
 ```
 
+#### Is commercial address field
+Some `fulfillmentMethods` will charge a different shipping rate if shipping to a commercial address.
+```jsx
+const countries = [
+  { value: "US", label: "United States" },
+  { value: "DE", label: "Germany" },
+  { value: "NU", label: "Nigeria" }
+];
+
+const regions = [
+  { value: "LA", label: "Louisiana" },
+  { value: "CA", label: "California" }
+];
+
+<AddressForm
+  countries={countries}
+  regions={regions}
+  onSubmit={(address) => console.log(address)}
+  shouldShowIsCommercialField
+ />
+```
+
 #### Address Form Implementation Example
 Simple `AddressForm` implementation example. Bind to the form element via a `ref` method that can be used by any `Button` to trigger `submit` & `validate` form methods.
 

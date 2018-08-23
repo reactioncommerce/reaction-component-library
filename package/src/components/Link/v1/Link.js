@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 import { preventAccidentalDoubleClick } from "../../../utils";
+
+const UnstyledLink = styled.a`
+  text-decoration: none;
+`;
 
 class Link extends Component {
   static propTypes = {
@@ -29,7 +34,7 @@ class Link extends Component {
   render() {
     const { children, href } = this.props;
     return (
-      <a href={href} onClick={this.onClick}>{children}</a>
+      <UnstyledLink href={href} onClick={this.onClick}>{children}</UnstyledLink>
     );
   }
 }

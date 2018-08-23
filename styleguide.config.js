@@ -415,7 +415,7 @@ module.exports = {
           name: "General"
         }),
         generateSection({
-          componentNames: ["Price", "StockWarning", "BadgeOverlay"],
+          componentNames: ["Price", "StockWarning", "BadgeOverlay", "CatalogGridItem", "CatalogGrid"],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
         }),
@@ -430,7 +430,7 @@ module.exports = {
           name: "Checkout"
         }),
         generateSection({
-          componentNames: ["AddressForm", "StripeForm"],
+          componentNames: ["AddressForm", "GuestForm", "StripeForm"],
           content: "styleguide/src/sections/StorefrontForms.md",
           name: "Forms"
         })
