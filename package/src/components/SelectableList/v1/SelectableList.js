@@ -105,7 +105,7 @@ class SelectableList extends Component {
      */
     isBordered: PropTypes.bool,
     /**
-     * Read Only state
+     * Adds styles and blocks users from selecting items
      */
     isReadOnly: PropTypes.bool,
     /**
@@ -115,7 +115,7 @@ class SelectableList extends Component {
     /**
      * The name for the SelectableList radio group. Each radio group on a page should have a unique name.
      */
-    name: PropTypes.string,
+    name: PropTypes.string.isRequired,
     /**
      * Called with the new selected value each time the user changes the selection
      */
@@ -125,15 +125,15 @@ class SelectableList extends Component {
      */
     onChanging: PropTypes.func,
     /**
-     * options
+     * Options, an Array of SelectableItems
      */
     options: PropTypes.arrayOf(PropTypes.shape({
       /**
-       * The item ID
+       * The item ID - each radio input must have a unique ID
        */
       id: PropTypes.string.isRequired,
       /**
-       * Checked: True if checked
+       * Checked: True if the item is checked
        */
       checked: PropTypes.bool,
       /**
@@ -150,6 +150,7 @@ class SelectableList extends Component {
 
   static defaultProps = {
     isReadOnly: false,
+    isBordered: false,
     onChange() { },
     onChanging() { }
   };
@@ -247,7 +248,19 @@ class SelectableList extends Component {
     );
 
     return (
-      <div>{isBordered ? <BorderedList>{listoptions}</BorderedList> : <StyledList>{listoptions}</StyledList>}</div>
+      <div>
+        {isBordered ?
+          <BorderedList>
+            {listoptions}
+            {listAction ? <div className="listAction">{listAction}</div> : null}
+          </BorderedList>
+          :
+          <StyledList>
+            {listoptions}
+            {listAction ? <div className="listAction">{listAction}</div> : null}
+          </StyledList>
+        }
+      </div>
     );
   }
 }
