@@ -128,9 +128,13 @@ class StripeForm extends Component {
   };
 
   state = {
+    cardNumberComplete: false,
     cardNumberIsFocused: false,
+    cardExpiryComplete: false,
     cardExpiryIsFocused: false,
+    cardCvcComplete: false,
     cardCvcIsFocused: false,
+    postalCodeComplete: false,
     postalCodeIsFocused: false
   }
 
@@ -146,6 +150,21 @@ class StripeForm extends Component {
 
   handleOnBlur = (event) => {
     this.setState({ [`${event.elementType}IsFocused`]: false });
+  }
+
+  handleOnChange = (event) => {
+    const { complete, elementType } = event;
+    this.setState({ [`${elementType}Complete`]: complete }, this.isComplete);
+  }
+
+  isComplete = () => {
+    const { cardNumberComplete, cardExpiryComplete, cardCvcComplete, postalCodeComplete } = this.state;
+    // console.log("isComplete", this.state);
+    if (cardNumberComplete && cardExpiryComplete && cardCvcComplete && postalCodeComplete) {
+      this.props.isComplete(true);
+    } else {
+      this.props.isComplete(false);
+    }
   }
 
   renderIcons = (ccIcons) => (
@@ -189,6 +208,7 @@ class StripeForm extends Component {
         </AcceptedPaymentMethods>
         <Field isFocused={cardNumberIsFocused}>
           <CardNumberElement
+            onChange={this.handleOnChange}
             placeholder={cardNumberPlaceholder}
             {...commonProps}
           />
@@ -196,12 +216,14 @@ class StripeForm extends Component {
         <FlexContainer>
           <Field isFocused={cardExpiryIsFocused} style={{ flexGrow: 1, marginRight: "1rem" }}>
             <CardExpiryElement
+              onChange={this.handleOnChange}
               placeholder={cardExpiryPlaceholder}
               {...commonProps}
             />
           </Field>
           <Field isFocused={cardCvcIsFocused} style={{ flexGrow: 1 }}>
             <CardCVCElement
+              onChange={this.handleOnChange}
               placeholder={cardCvcPlaceholder}
               {...commonProps}
             />
@@ -209,6 +231,7 @@ class StripeForm extends Component {
         </FlexContainer>
         <Field isFocused={postalCodeIsFocused}>
           <PostalCodeElement
+            onChange={this.handleOnChange}
             placeholder={postalCodePlaceholder}
             {...commonProps}
           />
