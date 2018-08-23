@@ -10,12 +10,12 @@ A `SelectableList` comes in two main styles: unbordered and bordered.
 
 ```jsx
 const options = [{
-  _id: "111",
+  id: "111",
   label: "Standard (5-9 days)",
   value: "Standard"
 },
 {
-  _id: "222",
+  id: "222",
   label: "Priority (3-5 days)",
   value: "Priority"
 }];
@@ -29,14 +29,14 @@ Pass the `isBordered` prop to get a bordered list:
 
 ```jsx noeditor
 const options = [{
-  _id: "331",
+  id: "331",
   label: "Standard (5-9 days)",
   detail: "Free",
   value: "standard",
   checked: true
 },
 {
-  _id: "232",
+  id: "232",
   label: "Priority (3-5 days)",
   value: "priority",
   detail: "$5.99"
@@ -51,14 +51,14 @@ Pass the `isReadOnly` prop to disable all options:
 
 ```jsx noeditor
 const options = [{
-  _id: "3321",
+  id: "3321",
   label: "Standard (5-9 days)",
   value: "standard",
   detail: "Free",
   checked: true
 },
 {
-  _id: "2332",
+  id: "2332",
   label: "Priority (3-5 days)",
   value: "priority",  
   detail: "$5.99"
@@ -73,25 +73,25 @@ const options = [{
 
 ```jsx
 const options = [{
-  _id: "1",
+  id: "1",
   label: "Standard (5-9 days)",
   value: "standard",
   detail: "Free"
 },
 {
-  _id: "2",
+  id: "2",
   label: "Priority (3-5 days)",
   value: "priority",
   detail: "$5.99"
 },
 {
-  _id: "3",
+  id: "3",
   label: "Express 2-day",
   value: "express",
   detail: "$12.99"
 },
 {
-  _id: "4",
+  id: "4",
   label: "Overnight expedited",
   value: "overnight",
   detail: "$24.99"
@@ -104,7 +104,7 @@ const options = [{
 
 ```jsx
 const options = [{
-  _id: "5",
+  id: "5",
   label: "American Express",
   detail: "ending in 0000",
   value: "amex",
@@ -112,7 +112,7 @@ const options = [{
   className: "leftAligned"
 },
 {
-  _id: "6",
+  id: "6",
   label: "Visa",
   detail: " ending in 0000",
   value: "visa",
@@ -120,14 +120,14 @@ const options = [{
   className: "leftAligned"
 },
 {
-  _id: "62",
+  id: "62",
   label: "Mastercard",
   detail: " ending in 0000",
   value: "mc",
   icon: "iconMastercard",
   className: "leftAligned"
 },{
-  _id: "64",
+  id: "64",
   label: "Discover",
   detail: " ending in 0000",
   value: "disc",
@@ -150,19 +150,19 @@ const addLink = (
 );
 
 const options = [{
-  _id: "7",
+  id: "7",
   label: "Susan Doe, 2300 Buckwheat Ave, Salt Lake City, UT 84111 USA",
   value: 33333,
   detail: link
 },
 {
-  _id: "8",
+  id: "8",
   label: "Susan Doe, PO Box 1123, Salt Lake City, UT 84111 US",
   value: 232312,
   detail: link
 },
 {
-  _id: "9",
+  id: "9",
   label: "Johnny Doe, 2300 Buckwheat Ave, Salt Lake City, UT 84111 US",
   value: 12345,
   detail: link

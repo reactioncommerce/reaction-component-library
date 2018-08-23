@@ -5,22 +5,22 @@
 An individual item can be checked, or unchecked, along with disabled (`isReadOnly`) or enabled:
 
 ```jsx noeditor
-const item = { _id: "1", label: "Default unchecked", value: "default"};
+const item = {id: "1", label: "Default unchecked", value: "default"};
 <SelectableItem item={item} />
 ```
 
 ```jsx noeditor
-const item = { _id: "123", label: "Default checked", checked: true, value: "default2" };
+const item = {id: "123", label: "Default checked", checked: true, value: "default2" };
 <SelectableItem item={item} />
 ```
 
 ```jsx noeditor
-const item = { _id: "12", label: "Default disabled and unchecked", value: "default3" };
+const item = {id: "12", label: "Default disabled and unchecked", value: "default3" };
 <SelectableItem item={item} isReadOnly />
 ```
 
 ```jsx noeditor
-const item = { _id: "12", label: "Default disabled and checked", checked: true, value: "default4" };
+const item = {id: "12", label: "Default disabled and checked", checked: true, value: "default4" };
 <SelectableItem item={item} isReadOnly />
 ```
 
