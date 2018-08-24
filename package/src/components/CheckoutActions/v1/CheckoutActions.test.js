@@ -13,7 +13,9 @@ class mockCheckoutAction extends React.Component {
 const mockActions = [
   {
     label: "mock action one",
+    status: "incomplete",
     component: mockCheckoutAction,
+    onSubmit: () => true,
     props: {
       cartData: {
         data: null

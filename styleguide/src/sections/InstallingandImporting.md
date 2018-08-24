@@ -52,9 +52,11 @@ import ProgressiveImage from "@reactioncommerce/components/ProgressiveImage/v1";
 import QuantityInput from "@reactioncommerce/components/QuantityInput/v1";
 import Select from "@reactioncommerce/components/Select/v1";
 import StockWarning from "@reactioncommerce/components/StockWarning/v1";
-import spinner from "../../package/src/utils/spinner";
+import spinner from "@reactioncommerce/components/utils/spinner";
+import StripeForm from "@reactioncommerce/components/StripeForm/v1";
 import TextInput from "@reactioncommerce/components/TextInput/v1";
-import SelectableItem from "../../package/src/components/SelectableItem/v1";
+import SelectableItem from "@reactioncommerce/components/SelectableItem/v1";
+import SelectableList from "@reactioncommerce/components/SelectableList/v1";
 
 /* eslint-disable max-len */
 
@@ -255,10 +257,14 @@ export default {
   CheckoutActionIncomplete,
   ErrorsBlock,
   Field,
+  iconAmericanExpress,
   Link,
   iconClear,
+  iconDiscover,
   iconError,
+  iconMastercard,
   iconValid,
+  iconVisa
   MiniCartSummary,
   PhoneNumberInput,
   Price,
@@ -269,10 +275,7 @@ export default {
   StockWarning,
   TextInput,
   SelectableItem,
-  iconAmericanExpress,
-  iconDiscover,
-  iconMastercard,
-  iconVisa
+  SelectableList
 };
 ```
 

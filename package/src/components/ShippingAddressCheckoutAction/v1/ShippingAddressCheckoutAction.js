@@ -38,9 +38,9 @@ class ShippingAddressCheckoutAction extends Component {
      * Checkout data needed for form
      */
     fulfillmentGroup: PropTypes.shape({
-      data: {
+      data: PropTypes.shape({
         shippingAddress: PropTypes.object
-      }
+      })
     }),
     /**
      * Is the shipping address being saved
@@ -58,7 +58,7 @@ class ShippingAddressCheckoutAction extends Component {
     /**
      * When an action form passes validation and submits
      * the value will be passed to this callback
-     * this funciton needs to return a Promise
+     * this function needs to return a Promise
      * if being used with reacto-form
      */
     onSubmit: PropTypes.func,
