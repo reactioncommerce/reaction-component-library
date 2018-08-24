@@ -5,42 +5,6 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
-const StyledInput = styled.input`
-  cursor: pointer;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-  visibility: visible;
-  white-space: nowrap;
-  &:checked + label .radio::before {
-    content: " ";
-    display: inline-block;
-    position: relative;
-    width: ${applyTheme("selectableItemRadioButtonCheckSize")};
-    height: ${applyTheme("selectableItemRadioButtonCheckSize")};
-    border-radius: 50%;
-    background-color: ${applyTheme("selectableItemRadioButtonColor")};
-  }
-  &:focus + label .radio {
-    box-shadow: ${applyTheme("selectableItemRadioFocus")};
-    outline: ${applyTheme("selectableItemRadioFocusOutline")}
-  }
-  &:disabled + label .radio {
-    background-color: ${applyTheme("selectableItemRadioDisabledFillColor")};
-  }
-  &:disabled + label {
-    opacity: ${applyTheme("selectableItemRadioDisabledOpacity")};
-  }
-  &:disabled + label:hover {
-    cursor:  ${applyTheme("selectableItemRadioDisabledCursor")};
-  }
-`;
-
 const StyledLabel = styled.label`
   font-family: ${applyTheme("selectableItemLabelFontFamily")};
   color: ${applyTheme("selectableItemLabelColor")};
@@ -63,6 +27,42 @@ const StyledRadioButton = styled.span`
   margin: ${applyTheme("selectableItemRadioButtonMargin")};
   border-radius: 50%;
   box-sizing: border-box;
+`;
+
+const StyledInput = styled.input`
+  cursor: pointer;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  visibility: visible;
+  white-space: nowrap;
+  &:checked + ${StyledLabel} ${StyledRadioButton}::before {
+    content: " ";
+    display: inline-block;
+    position: relative;
+    width: ${applyTheme("selectableItemRadioButtonCheckSize")};
+    height: ${applyTheme("selectableItemRadioButtonCheckSize")};
+    border-radius: 50%;
+    background-color: ${applyTheme("selectableItemRadioButtonColor")};
+  }
+  &:focus + ${StyledLabel} ${StyledRadioButton} {
+    box-shadow: ${applyTheme("selectableItemRadioFocus")};
+    outline: ${applyTheme("selectableItemRadioFocusOutline")}
+  }
+  &:disabled + ${StyledLabel} ${StyledRadioButton} {
+    background-color: ${applyTheme("selectableItemRadioDisabledFillColor")};
+  }
+  &:disabled + ${StyledLabel} {
+    opacity: ${applyTheme("selectableItemRadioDisabledOpacity")};
+  }
+  &:disabled + ${StyledLabel}:hover {
+    cursor:  ${applyTheme("selectableItemRadioDisabledCursor")};
+  }
 `;
 
 const StyledDetail = styled.div`
