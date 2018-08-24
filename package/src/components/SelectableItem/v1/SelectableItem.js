@@ -170,7 +170,11 @@ class SelectableItem extends Component {
     /**
      * On change handler for input
      */
-    onChanging: PropTypes.func
+    onChanging: PropTypes.func,
+    /**
+     * Value: True if checked
+     */
+    value: PropTypes.bool
   }
 
   static defaultProps = {

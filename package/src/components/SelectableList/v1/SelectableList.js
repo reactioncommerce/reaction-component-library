@@ -217,7 +217,7 @@ class SelectableList extends Component {
       <div>
         {isBordered ?
           <BorderedList>
-            <fieldset onChange={this.onChange}>
+            <fieldset>
               {options.map((item) => (
                 <BorderedWrapper key={item.id}>
                   <SelectableItem
@@ -227,6 +227,7 @@ class SelectableList extends Component {
                     value={item.value}
                     isReadOnly={isReadOnly}
                     isLeftAligned={isLeftAligned}
+                    onChange={this.onChange}
                     component={components}
                     {...props}
                   />
