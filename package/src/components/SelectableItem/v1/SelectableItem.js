@@ -123,22 +123,6 @@ class SelectableItem extends Component {
     * single spot, you can pass in the components prop directly.
     */
     components: PropTypes.shape({
-      /**
-       * Visa icon as SVG
-       */
-      iconVisa: PropTypes.node,
-      /**
-       * American Express icon as SVG
-       */
-      iconAmericanExpress: PropTypes.node,
-      /**
-       * Discover icon as SVG
-       */
-      iconDiscover: PropTypes.node,
-      /**
-       * Mastercard icon as SVG
-       */
-      iconMastercard: PropTypes.node
     }),
     /**
      * Left-aligned style
@@ -251,27 +235,6 @@ class SelectableItem extends Component {
     return this.state.value !== this.props.value;
   }
 
-  renderIcon() {
-    const { components } = this.props;
-    const { iconAmericanExpress, iconVisa, iconDiscover, iconMastercard } = components;
-    let icon;
-    if (this.props.item.icon === "iconAmericanExpress") {
-      icon = iconAmericanExpress;
-    } else if (this.props.item.icon === "iconVisa") {
-      icon = iconVisa;
-    } else if (this.props.item.icon === "iconDiscover") {
-      icon = iconDiscover;
-    } else if (this.props.item.icon === "iconMastercard") {
-      icon = iconMastercard;
-    }
-
-    return (
-      <StyledIcon>
-        {icon}
-      </StyledIcon>
-    );
-  }
-
   render() {
     const {
       name,
@@ -305,7 +268,7 @@ class SelectableItem extends Component {
         htmlFor={id}
       >
         <StyledRadioButton />
-        {icon ? this.renderIcon() : null}
+        {icon ? <StyledIcon>{this.props.item.icon}</StyledIcon> : null}
         {label}
       </StyledLabel>
     );
