@@ -4,11 +4,11 @@ A `SelectableList` takes an array of `SelectableItems`.
 
 #### Usage
 
-A `SelectableList` comes in two main styles: unbordered and bordered.
+A `SelectableList` can be enabled or disabled.
 
-##### Default
+##### Default: Enabled
 
-```jsx noeditor
+```jsx
 const options = [{
   id: "111",
   label: "Standard (5-9 days)",
@@ -23,6 +23,53 @@ const options = [{
 
 <SelectableList options={options} name="DefaultForm"/>
 ```
+
+##### Disabled
+
+Pass the `isReadOnly` prop to disable all options, while also displaying the chosen item by passing in `checked: true` on the chosen item.
+
+```jsx
+const options = [{
+  id: "3321",
+  label: "Standard (5-9 days)",
+  value: "standard",
+  checked: true
+},
+{
+  id: "2332",
+  label: "Priority (3-5 days)",
+  value: "priority"
+}];
+
+<SelectableList isReadOnly options={options} name="DisabledForm"/>
+```
+
+##### Add a list action (optional)
+
+A `SelectableList` can optionally have a `listAction` at the end of the list. Pass any node to the  `listAction` to display a button, checkbox, or any other node.
+
+```jsx
+const readMore = (
+    <Button title="Default" className="myBtn" isTextOnly isShortHeight>Add a shipping method</Button>
+);
+
+const options = [{
+  id: "33321",
+  label: "Standard (5-9 days)",
+  value: "standard"
+},
+{
+  id: "23342",
+  label: "Priority (3-5 days)",
+  value: "priority"
+}];
+
+<SelectableList options={options} listAction={readMore} name="listActionForm"/>
+```
+
+#### Styles
+
+A `SelectableList` can have be styled with: `isBordered` and `isLeftAligned` and the combination of those two:
 
 ##### Bordered
 
@@ -46,26 +93,26 @@ const options = [{
 <SelectableList isBordered options={options} name="BorderedForm"/>
 ```
 
-##### Disabled
+##### Left-aligned
 
-Pass the `isReadOnly` prop to disable all options:
+Pass the `isLeftAligned` prop to align the `detail` text to the left:
 
-```jsx noeditor
+```jsx
 const options = [{
-  id: "3321",
+  id: "3531",
   label: "Standard (5-9 days)",
-  value: "standard",
   detail: "Free",
+  value: "standard",
   checked: true
 },
 {
-  id: "2332",
+  id: "2352",
   label: "Priority (3-5 days)",
-  value: "priority",  
+  value: "priority",
   detail: "$5.99"
 }];
 
-<SelectableList isReadOnly options={options} name="DisabledForm"/>
+<SelectableList isLeftAligned options={options} name="BorderedForm"/>
 ```
 
 #### Examples

@@ -176,7 +176,6 @@ class SelectableItem extends Component {
   static defaultProps = {
     onChange() { },
     onChanging() { },
-    checked: undefined,
     isLeftAligned: false
   };
 

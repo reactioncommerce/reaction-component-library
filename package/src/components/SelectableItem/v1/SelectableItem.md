@@ -33,7 +33,7 @@ const item = {id: "12", label: "Default disabled and checked", checked: true, va
 ##### SelectableItem without `detail`
 
 ```jsx
-const item = { _id: "2", label: "Default address", value: "default5"};
+const item = { id: "2", label: "Default address", value: "default5"};
 <SelectableItem item={item} />
 ```
 
@@ -44,12 +44,12 @@ Pass any element - text, SVGs or React elements - into `detail` to display a sec
 ###### Plain text
 
 ```jsx
-const item = {_id: "3", label: "Free shipping", detail: "$0.00", value: "free", value: "default6"};
+const item = {id: "3", label: "Free shipping", detail: "$0.00", value: "free", value: "default6"};
 <SelectableItem item={item}/>
 ```
 
 ```jsx
-const item = {_id: "4", label: "Free shipping", detail: "\u2714", value: "free", value: "default7"};
+const item = {id: "4", label: "Free shipping", detail: "\u2714", value: "free", value: "default7"};
 <SelectableItem item={item}/>
 ```
 
@@ -59,7 +59,7 @@ const item = {_id: "4", label: "Free shipping", detail: "\u2714", value: "free",
 const link = (
     <Button title="Default" className="myBtn" isTextOnly isShortHeight>Default Text</Button>
 );
-const item = {_id: "5", label: "Default", detail: link, value: "default8"};
+const item = {id: "5", label: "Default", detail: link, value: "default8"};
 
 <SelectableItem item={item}/>
 ```
@@ -79,7 +79,7 @@ const iconClear = (
     />
   </svg>
 );
-const item = {_id: "6", label: "Free shipping", detail: iconClear, value: "default9"};
+const item = {id: "6", label: "Free shipping", detail: iconClear, value: "default9"};
 <SelectableItem item={item}/>
 ```
 

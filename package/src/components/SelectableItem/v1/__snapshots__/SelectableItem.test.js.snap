@@ -1,49 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot with empty props 1`] = `
-.c1 {
-  cursor: pointer;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  -webkit-clip: rect(0,0,0,0);
-  clip: rect(0,0,0,0);
-  border: 0;
-  visibility: visible;
-  white-space: nowrap;
-}
-
-.c1:checked + label .radio::before {
-  content: " ";
-  display: inline-block;
-  position: relative;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #3c3c3c;
-}
-
-.c1:focus + label .radio {
-  box-shadow: 0 0 0 2px #8ce0c9;
-  outline: 1px solid transparent;
-}
-
-.c1:disabled + label .radio {
-  background-color: #e6e6e6;
-}
-
-.c1:disabled + label {
-  opacity: .5;
-}
-
-.c1:disabled + label:hover {
-  cursor: not-allowed;
-}
-
-.c2 {
+.c3 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   color: #3c3c3c;
   font-size: 14px;
@@ -62,7 +20,7 @@ exports[`basic snapshot with empty props 1`] = `
   align-items: center;
 }
 
-.c3 {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -87,7 +45,49 @@ exports[`basic snapshot with empty props 1`] = `
   box-sizing: border-box;
 }
 
-.c4 {
+.c1 {
+  cursor: pointer;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  -webkit-clip: rect(0,0,0,0);
+  clip: rect(0,0,0,0);
+  border: 0;
+  visibility: visible;
+  white-space: nowrap;
+}
+
+.c1:checked + .c2 .c4::before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #3c3c3c;
+}
+
+.c1:focus + .c2 .c4 {
+  box-shadow: 0 0 0 2px #8ce0c9;
+  outline: 1px solid transparent;
+}
+
+.c1:disabled + .c2 .c4 {
+  background-color: #e6e6e6;
+}
+
+.c1:disabled + .c2 {
+  opacity: .5;
+}
+
+.c1:disabled + .c2:hover {
+  cursor: not-allowed;
+}
+
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -141,16 +141,16 @@ exports[`basic snapshot with empty props 1`] = `
       value="detail"
     />
     <label
-      className="c2"
+      className="c2 c3"
       htmlFor="1"
     >
       <span
-        className="c3"
+        className="c4 c5"
       />
       Label
     </label>
     <div
-      className="c4"
+      className="c6"
     >
       Detail
     </div>
