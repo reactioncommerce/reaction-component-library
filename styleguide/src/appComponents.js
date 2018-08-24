@@ -1,4 +1,3 @@
-import React from "react";
 import iconClear from "../../package/src/svg/iconClear";
 import iconError from "../../package/src/svg/iconError";
 import iconValid from "../../package/src/svg/iconValid";
