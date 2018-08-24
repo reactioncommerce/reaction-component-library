@@ -108,7 +108,7 @@ const options = [{
   detail: "$5.99"
 }];
 
-<SelectableList isLeftAligned options={options} value="standard" name="BorderedForm"/>
+<SelectableList isLeftAligned options={options} value="standard" name="LeftAlignedBorderedForm"/>
 ```
 
 #### Examples
