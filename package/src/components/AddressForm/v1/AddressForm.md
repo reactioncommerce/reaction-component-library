@@ -110,6 +110,29 @@ const errors = [{ message: "error message", name: "address1"}];
  />
 ```
 
+#### Address name field
+You may want to save mutiple addresses, `shouldShowAddressNameField` renders a field so the user can "name" each address they enter. You can require the Address Name field by adding the `isAddressNameRequired` prop.
+```jsx
+const countries = [
+  { value: "US", label: "United States" },
+  { value: "DE", label: "Germany" },
+  { value: "NU", label: "Nigeria" }
+];
+
+const regions = [
+  { value: "LA", label: "Louisiana" },
+  { value: "CA", label: "California" }
+];
+
+<AddressForm
+  countries={countries}
+  regions={regions}
+  onSubmit={(address) => console.log(address)}
+  addressNamePlaceholder="Headquarters"
+  shouldShowAddressNameField
+ />
+```
+
 #### Is commercial address field
 Some `fulfillmentMethods` will charge a different shipping rate if shipping to a commercial address.
 ```jsx
