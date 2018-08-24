@@ -21,5 +21,5 @@ class MyComponent extends Component {
 ```
 
 ```jsx
-<StripeForm />
+<StripeForm isComplete={() => false} />
 ```

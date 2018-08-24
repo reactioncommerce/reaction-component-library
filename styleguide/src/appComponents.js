@@ -30,8 +30,10 @@ import ProgressiveImage from "../../package/src/components/ProgressiveImage/v1";
 import QuantityInput from "../../package/src/components/QuantityInput/v1";
 import Select from "../../package/src/components/Select/v1";
 import StockWarning from "../../package/src/components/StockWarning/v1";
-import TextInput from "../../package/src/components/TextInput/v1";
+import StripeForm from "../../package/src/components/StripeForm/v1";
 import SelectableItem from "../../package/src/components/SelectableItem/v1";
+import SelectableList from "../../package/src/components/SelectableList/v1";
+import TextInput from "../../package/src/components/TextInput/v1";
 
 export default {
   AddressForm,
@@ -65,6 +67,8 @@ export default {
   Select,
   spinner,
   StockWarning,
-  TextInput,
-  SelectableItem
+  StripeForm,
+  SelectableItem,
+  SelectableList,
+  TextInput
 };

@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+Array [
+  .c0 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  -webkit-letter-spacing: 0.4px;
+  -moz-letter-spacing: 0.4px;
+  -ms-letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
+}
+
+<h3
+    className="c0"
+  >
+    2
+    . 
+    Payment Information
+  </h3>,
+  "StripeForm(undefined)",
+  .c0 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  color: #b3b3b3;
+}
+
+.c1 {
+  vertical-align: super;
+}
+
+<div
+    className="c0"
+  >
+    <svg
+      style={
+        Object {
+          "height": "20px",
+          "width": "20px",
+        }
+      }
+      viewBox="0 0 24 24"
+    >
+      <path
+        d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"
+        fill="#b3b3b3"
+      />
+    </svg>
+     
+    <span
+      className="c1"
+    >
+      Your Information is private and secure.
+    </span>
+  </div>,
+  .c0 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  -webkit-letter-spacing: 0.4px;
+  -moz-letter-spacing: 0.4px;
+  -ms-letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
+}
+
+<h3
+    className="c0"
+  >
+    Billing Address
+  </h3>,
+  "SelectableList(undefined)",
+]
+`;
