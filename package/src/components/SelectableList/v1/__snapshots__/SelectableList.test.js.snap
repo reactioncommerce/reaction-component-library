@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c1 {
+  padding: 0 10px;
+}
+
+.c0 {
+  width: 100%;
+}
+
+.c0 fieldset {
+  border-color: transparent;
+  padding: 0;
+  margin: 0;
+}
+
+<div>
+  <div
+    className="c0"
+  >
+    <fieldset
+      onChange={[Function]}
+    >
+      <div
+        className="c1"
+      >
+        SelectableItem(undefined)
+      </div>
+      <div
+        className="c1"
+      >
+        SelectableItem(undefined)
+      </div>
+      <div
+        className="c1"
+      >
+        SelectableItem(undefined)
+      </div>
+    </fieldset>
+  </div>
+</div>
+`;
