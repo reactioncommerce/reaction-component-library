@@ -2,9 +2,11 @@
 
 exports[`render email address of a guest 1`] = `
 .c0 {
+  border-bottom: solid 2px #e6e6e6;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
+  padding: 1rem 0;
 }
 
 .c1 {
@@ -25,9 +27,11 @@ exports[`render email address of a guest 1`] = `
 
 exports[`render email address of a user with an account 1`] = `
 .c0 {
+  border-bottom: solid 2px #e6e6e6;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
+  padding: 1rem 0;
 }
 
 .c1 {
