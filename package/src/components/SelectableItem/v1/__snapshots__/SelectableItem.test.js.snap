@@ -1,49 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot with empty props 1`] = `
-.c0 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  height: 50px;
-}
-
-.c0 input {
-  cursor: pointer;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  -webkit-clip: rect(0,0,0,0);
-  clip: rect(0,0,0,0);
-  border: 0;
-  visibility: visible;
-  white-space: nowrap;
-}
-
-.c0 input:checked + label .radio::before {
-  content: " ";
-  display: inline-block;
-  position: relative;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: #3c3c3c;
-}
-
-.c0 input:focus + label .radio {
-  box-shadow: 0 0 0 2px #8ce0c9;
-  outline: 1px solid transparent;
-}
-
-.c0 label {
+.c3 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   color: #3c3c3c;
   font-size: 14px;
@@ -62,7 +20,7 @@ exports[`basic snapshot with empty props 1`] = `
   align-items: center;
 }
 
-.c0 .radio {
+.c5 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -87,20 +45,49 @@ exports[`basic snapshot with empty props 1`] = `
   box-sizing: border-box;
 }
 
-.c0 .icon {
-  border-radius: 2px;
-  border: 1px solid #e6e6e6;
-  margin: 0 10px 0 0;
-  width: 38px;
-  height: 24px;
+.c1 {
+  cursor: pointer;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  -webkit-clip: rect(0,0,0,0);
+  clip: rect(0,0,0,0);
+  border: 0;
+  visibility: visible;
+  white-space: nowrap;
 }
 
-.c0 .icon svg {
-  width: 38px;
-  height: 24px;
+.c1:checked + .c2 .c4::before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #3c3c3c;
 }
 
-.c0 .detail {
+.c1:focus + .c2 .c4 {
+  box-shadow: 0 0 0 2px #8ce0c9;
+  outline: 1px solid transparent;
+}
+
+.c1:disabled + .c2 .c4 {
+  background-color: #e6e6e6;
+}
+
+.c1:disabled + .c2 {
+  opacity: .5;
+}
+
+.c1:disabled + .c2:hover {
+  cursor: not-allowed;
+}
+
+.c6 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -121,34 +108,52 @@ exports[`basic snapshot with empty props 1`] = `
   letter-spacing: 0.3px;
 }
 
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  height: 50px;
+}
+
 @media (max-width:768px) {
   .c0 {
     height: 60px;
   }
 }
 
-<div
-  className="c0"
->
-  <input
-    checked={false}
-    id="1"
-    name={undefined}
-    onChange={[Function]}
-    type="radio"
-  />
-  <label
-    htmlFor="1"
-  >
-    <span
-      className="radio"
-    />
-    Label
-  </label>
+<div>
   <div
-    className="detail"
+    className="c0"
   >
-    Detail
+    <input
+      checked={undefined}
+      className="c1"
+      disabled={undefined}
+      id="1"
+      name={undefined}
+      onChange={[Function]}
+      type="radio"
+      value="detail"
+    />
+    <label
+      className="c2 c3"
+      htmlFor="1"
+    >
+      <span
+        className="c4 c5"
+      />
+      Label
+    </label>
+    <div
+      className="c6"
+    >
+      Detail
+    </div>
   </div>
 </div>
 `;

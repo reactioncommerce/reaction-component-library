@@ -400,7 +400,7 @@ module.exports = {
           name: "Content"
         }),
         generateSection({
-          componentNames: ["Checkbox", "ErrorsBlock", "Field", "PhoneNumberInput", "QuantityInput", "Select", "TextInput", "SelectableItem", "SelectableList"],
+          componentNames: ["Checkbox", "ErrorsBlock", "Field", "PhoneNumberInput", "QuantityInput", "Select", "SelectableItem", "SelectableList", "TextInput"],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -426,7 +426,7 @@ module.exports = {
         }),
         generateSection({
           // eslint-disable-next-line
-          componentNames: ["CheckoutAction", "CheckoutActions", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "SelectableItem", "ShippingAddressCheckoutAction", "StripePaymentCheckoutAction"],
+          componentNames: ["CheckoutAction", "CheckoutActions", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "ShippingAddressCheckoutAction", "StripePaymentCheckoutAction"],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
         }),

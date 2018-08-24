@@ -26,12 +26,14 @@ const Span = styled.span`
 `;
 
 const billingAddressOptions = [{
-  _id: "1",
-  label: "Same as shipping address"
+  id: "1",
+  label: "Same as shipping address",
+  value: "same_as_shipping"
 },
 {
-  _id: "2",
-  label: "Use a different billing address"
+  id: "2",
+  label: "Use a different billing address",
+  value: "use_different_billing_address"
 }];
 
 
@@ -91,7 +93,7 @@ class StripePaymentCheckoutAction extends Component {
   state = {
     activeCountry: "US",
     status: "active",
-    useNewBillingAddress: false,
+    billingAddress: "same_as_shipping",
     countries: [
       { value: "US", label: "United States" },
       { value: "DE", label: "Germany" },
@@ -145,8 +147,11 @@ class StripePaymentCheckoutAction extends Component {
     }
   }
 
-  handleUseNewBillingAddress = () => {
-    this.setState({ useNewBillingAddress: !this.state.useNewBillingAddress });
+  handleUseNewBillingAddress = (billingAddress) => {
+    // Only react to value changes
+    if (typeof billingAddress === "string") {
+      this.setState({ billingAddress });
+    }
   }
 
   handleStripeFormIsComplete = (isComplete) => {
@@ -157,10 +162,12 @@ class StripePaymentCheckoutAction extends Component {
 
   renderBillingAddressForm = () => {
     const { components: { AddressForm } } = this.props;
+    const { billingAddress } = this.state;
 
-    if (!this.state.useNewBillingAddress) {
+    if (billingAddress === "same_as_shipping") {
       return null;
     }
+
 
     return (
       <Fade in={true}>
@@ -195,17 +202,27 @@ class StripePaymentCheckoutAction extends Component {
       stepNumber
     } = this.props;
 
+    const { billingAddress } = this.state;
+
     return (
       <Fragment>
         <Title>
           {stepNumber}. {label}
         </Title>
-        <StripeForm isComplete={this.handleStripeFormIsComplete} stripeRef={(stripe) => { this._stripe = stripe; }} />
+        <StripeForm
+          isComplete={this.handleStripeFormIsComplete}
+          stripeRef={(stripe) => { this._stripe = stripe; }}
+        />
         <SecureCaption>
           {this.renderLockIcon()} <Span>Your Information is private and secure.</Span>
         </SecureCaption>
         <Title>Billing Address</Title>
-        <SelectableList onClick={this.handleUseNewBillingAddress} items={billingAddressOptions} name="billingAddressForm" />
+        <SelectableList
+          onChanging={this.handleUseNewBillingAddress}
+          options={billingAddressOptions}
+          name="billingAddressForm"
+          value={billingAddress}
+        />
         {this.renderBillingAddressForm()}
       </Fragment>
     );

@@ -5,27 +5,43 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
-const StyledItem = styled.div`
+const StyledLabel = styled.label`
+  font-family: ${applyTheme("selectableItemLabelFontFamily")};
+  color: ${applyTheme("selectableItemLabelColor")};
+  font-size: ${applyTheme("selectableItemLabelFontSize")};
+  letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
+  cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  height: ${applyTheme("selectableListHeight")};
-  @media (max-width: 768px) {
-    height: ${applyTheme("selectableListHeightMobile")};
-  }
-  input {
-    cursor: pointer;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-    visibility: visible;
-    white-space: nowrap;
-  }
-  input:checked + label .radio::before {
+  align-items: center;
+`;
+
+const StyledRadioButton = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: ${applyTheme("selectableItemRadioButtonBackgroundColor")};
+  border: ${applyTheme("selectableItemRadioButtonBorder")};
+  height: ${applyTheme("selectableItemRadioButtonSize")};
+  width: ${applyTheme("selectableItemRadioButtonSize")};
+  margin: ${applyTheme("selectableItemRadioButtonMargin")};
+  border-radius: 50%;
+  box-sizing: border-box;
+`;
+
+const StyledInput = styled.input`
+  cursor: pointer;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  visibility: visible;
+  white-space: nowrap;
+  &:checked + ${StyledLabel} ${StyledRadioButton}::before {
     content: " ";
     display: inline-block;
     position: relative;
@@ -34,84 +50,92 @@ const StyledItem = styled.div`
     border-radius: 50%;
     background-color: ${applyTheme("selectableItemRadioButtonColor")};
   }
-  input:focus + label .radio {
+  &:focus + ${StyledLabel} ${StyledRadioButton} {
     box-shadow: ${applyTheme("selectableItemRadioFocus")};
     outline: ${applyTheme("selectableItemRadioFocusOutline")}
   }
-  label {
-    font-family: ${applyTheme("selectableItemLabelFontFamily")};
-    color: ${applyTheme("selectableItemLabelColor")};
-    font-size: ${applyTheme("selectableItemLabelFontSize")};
-    letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
-    cursor: pointer;
-    display: flex;
-    align-items: center;
+  &:disabled + ${StyledLabel} ${StyledRadioButton} {
+    background-color: ${applyTheme("selectableItemRadioDisabledFillColor")};
   }
-  .radio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background-color: ${applyTheme("selectableItemRadioButtonBackgroundColor")};
-    border: ${applyTheme("selectableItemRadioButtonBorder")};
-    height: ${applyTheme("selectableItemRadioButtonSize")};
-    width: ${applyTheme("selectableItemRadioButtonSize")};
-    margin: ${applyTheme("selectableItemRadioButtonMargin")};
-    border-radius: 50%;
-    box-sizing: border-box;
+  &:disabled + ${StyledLabel} {
+    opacity: ${applyTheme("selectableItemRadioDisabledOpacity")};
   }
-  .icon {
-    border-radius: ${applyTheme("selectableListBorderRadius")};
-    border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    margin: ${applyTheme("selectableListIconMargin")};
-    width: ${applyTheme("selectableListIconWidth")};
-    height: ${applyTheme("selectableListIconHeight")};    
-    svg {
-      width: ${applyTheme("selectableListIconWidth")};
-      height: ${applyTheme("selectableListIconHeight")};
-    }
-  }
-  .detail {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: ${applyTheme("selectableItemLabelFontFamily")};
-    font-size: ${applyTheme("selectableItemDetailFontSize")};
-    letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
+  &:disabled + ${StyledLabel}:hover {
+    cursor:  ${applyTheme("selectableItemRadioDisabledCursor")};
   }
 `;
+
+const StyledDetail = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ${applyTheme("selectableItemLabelFontFamily")};
+  font-size: ${applyTheme("selectableItemDetailFontSize")};
+  letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
+`;
+
+const StyledIcon = styled.span`
+  border-radius: ${applyTheme("selectableListBorderRadius")};
+  border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  margin: ${applyTheme("selectableListIconMargin")};
+  width: ${applyTheme("selectableListIconWidth")};
+  height: ${applyTheme("selectableListIconHeight")};    
+  svg {
+    width: ${applyTheme("selectableListIconWidth")};
+    height: ${applyTheme("selectableListIconHeight")};
+  }
+`;
+
+const StyledItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: ${applyTheme("selectableListHeight")};
+  @media (max-width: 768px) {
+    height: ${applyTheme("selectableListHeightMobile")};
+  }
+`;
+
+const LeftAlignedItem = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  height: ${applyTheme("selectableListHeight")};
+  @media (max-width: 768px) {
+    height: ${applyTheme("selectableListHeightMobile")};
+  }
+  ${StyledLabel} {
+    position: relative;
+    font-weight: ${applyTheme("selectableListLabelFontWeight")};
+  }
+  ${StyledDetail} {
+    font-size: ${applyTheme("selectableListDetailFontSize")};
+    font-family: ${applyTheme("selectableListFontFamily")};
+    margin-left: 2px;
+  }
+`;
+
 
 class SelectableItem extends Component {
   static propTypes = {
     /**
-    * If you've set up a components context using @reactioncommerce/components-context
-    * (recommended), then this prop will come from there automatically. If you have not
-    * set up a components context or you want to override one of the components in a
-    * single spot, you can pass in the components prop directly.
-    */
-    components: PropTypes.shape({
-      /**
-       * Visa icon as SVG
-       */
-      iconVisa: PropTypes.node,
-      /**
-       * American Express icon as SVG
-       */
-      iconAmericanExpress: PropTypes.node,
-      /**
-       * Discover icon as SVG
-       */
-      iconDiscover: PropTypes.node,
-      /**
-       * Mastercard icon as SVG
-       */
-      iconMastercard: PropTypes.node
-    }),
+     * Left-aligned style
+     */
+    isLeftAligned: PropTypes.bool,
+    /**
+     * Read only and disabled state
+     */
+    isReadOnly: PropTypes.bool,
     /**
      * Item data
      */
     item: PropTypes.shape({
-      _id: PropTypes.string.isRequired,
+      /**
+       * `true` if the item is checked
+       */
+      isChecked: PropTypes.bool,
+      /**
+       * ID
+       */
+      id: PropTypes.string.isRequired,
       /**
        * Label
        */
@@ -123,15 +147,9 @@ class SelectableItem extends Component {
       /**
        * Optional icon (SVG) displayed on the left-hand side
        */
-      icon: PropTypes.node,
-      /**
-       * Custom class name
-       */
-      className: PropTypes.string
+      icon: PropTypes.node
     }),
-    /**
-     * Name for input
-     */
+    /** Optional name of input radio group, passed down from for SelectableList */
     name: PropTypes.string,
     /**
      * On change handler for input
@@ -140,19 +158,13 @@ class SelectableItem extends Component {
     /**
      * On change handler for input
      */
-    onChanging: PropTypes.func,
-    /**
-     * True for a checked item, undefined for an unchecked item
-     */
-    value: PropTypes.bool // eslint-disable-line react/boolean-prop-naming
+    onChanging: PropTypes.func
   }
 
   static defaultProps = {
-    className: undefined,
-    name: undefined,
     onChange() { },
     onChanging() { },
-    value: undefined
+    isLeftAligned: false
   };
 
   constructor(props) {
@@ -160,17 +172,17 @@ class SelectableItem extends Component {
 
     this.state = {
       id: uniqueId("Radio_"),
-      value: props.value || false
+      value: props.item.isChecked || false
     };
   }
 
   componentWillMount() {
-    this.handleChange(this.props.value || false);
+    this.handleChange(this.props.item.isChecked || false);
   }
 
   componentWillReceiveProps(nextProps) {
-    const { value } = this.props;
-    const { value: nextValue } = nextProps;
+    const { isChecked: value } = this.props.item;
+    const { isChecked: nextValue } = nextProps.item;
 
     // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
     if (value !== nextValue) {
@@ -193,7 +205,7 @@ class SelectableItem extends Component {
   }
 
   resetValue() {
-    this.setValue(this.props.value || false);
+    this.setValue(this.props.item.isChecked || false);
   }
 
   handleChange(checked) {
@@ -207,62 +219,63 @@ class SelectableItem extends Component {
   // Input is dirty if value prop doesn't match value state. Whenever a changed
   // value prop comes in, we reset state to that, thus becoming clean.
   isDirty() {
-    return this.state.value !== this.props.value;
-  }
-
-  renderIcon() {
-    const { components } = this.props;
-    const { iconAmericanExpress, iconVisa, iconDiscover, iconMastercard } = components;
-    let icon;
-    if (this.props.item.icon === "iconAmericanExpress") {
-      icon = iconAmericanExpress;
-    } else if (this.props.item.icon === "iconVisa") {
-      icon = iconVisa;
-    } else if (this.props.item.icon === "iconDiscover") {
-      icon = iconDiscover;
-    } else if (this.props.item.icon === "iconMastercard") {
-      icon = iconMastercard;
-    }
-
-    return (
-      <span className="icon">
-        {icon}
-      </span>
-    );
+    return this.state.value !== this.props.item.isChecked;
   }
 
   render() {
     const {
       name,
+      isLeftAligned,
+      isReadOnly,
       item: {
-        _id,
-        className,
+        id,
+        isChecked,
         label,
         detail,
-        icon
+        icon,
+        value
       }
     } = this.props;
-    const { value } = this.state;
+
+    const input = (
+      <StyledInput
+        id={id}
+        checked={isChecked}
+        value={value}
+        key={id}
+        onChange={this.onChange}
+        type="radio"
+        name={name}
+        disabled={isReadOnly}
+      />
+    );
+
+    const labelAndButton = (
+      <StyledLabel
+        htmlFor={id}
+      >
+        <StyledRadioButton />
+        {icon ? <StyledIcon>{this.props.item.icon}</StyledIcon> : null}
+        {label}
+      </StyledLabel>
+    );
 
     return (
-      <StyledItem className={className} >
-        <input
-          id={_id}
-          checked={value === true}
-          key={_id}
-          onChange={this.onChange}
-          type="radio"
-          name={name}
-        />
-        <label
-          htmlFor={_id}
-        >
-          <span className="radio" />
-          {icon ? this.renderIcon() : null}
-          {label}
-        </label>
-        {detail ? <div className="detail">{detail}</div> : null}
-      </StyledItem >
+      <div>
+        {isLeftAligned ?
+          <LeftAlignedItem>
+            {input}
+            {labelAndButton}
+            {detail ? <StyledDetail>{detail}</StyledDetail> : null}
+          </LeftAlignedItem >
+          :
+          <StyledItem>
+            {input}
+            {labelAndButton}
+            {detail ? <StyledDetail>{detail}</StyledDetail> : null}
+          </StyledItem >
+        }
+      </div>
     );
   }
 }
