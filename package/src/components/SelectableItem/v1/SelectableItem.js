@@ -5,27 +5,19 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
-const StyledItem = styled.div`
-  display: flex;
-  justify-content: space-between;
-  height: ${applyTheme("selectableListHeight")};
-  @media (max-width: 768px) {
-    height: ${applyTheme("selectableListHeightMobile")};
-  }
-  input {
-    cursor: pointer;
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-    visibility: visible;
-    white-space: nowrap;
-  }
-  input:checked + label .radio::before {
+const StyledInput = styled.input`
+  cursor: pointer;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  visibility: visible;
+  white-space: nowrap;
+  &:checked + label .radio::before {
     content: " ";
     display: inline-block;
     position: relative;
@@ -34,61 +26,93 @@ const StyledItem = styled.div`
     border-radius: 50%;
     background-color: ${applyTheme("selectableItemRadioButtonColor")};
   }
-  input:focus + label .radio {
+  &:focus + label .radio {
     box-shadow: ${applyTheme("selectableItemRadioFocus")};
     outline: ${applyTheme("selectableItemRadioFocusOutline")}
   }
-  input:disabled + label .radio {
+  &:disabled + label .radio {
     background-color: ${applyTheme("selectableItemRadioDisabledFillColor")};
   }
-  input:disabled + label {
+  &:disabled + label {
     opacity: ${applyTheme("selectableItemRadioDisabledOpacity")};
   }
-  input:disabled + label:hover {
+  &:disabled + label:hover {
     cursor:  ${applyTheme("selectableItemRadioDisabledCursor")};
   }
-  label {
-    font-family: ${applyTheme("selectableItemLabelFontFamily")};
-    color: ${applyTheme("selectableItemLabelColor")};
-    font-size: ${applyTheme("selectableItemLabelFontSize")};
-    letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-  .radio {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    background-color: ${applyTheme("selectableItemRadioButtonBackgroundColor")};
-    border: ${applyTheme("selectableItemRadioButtonBorder")};
-    height: ${applyTheme("selectableItemRadioButtonSize")};
-    width: ${applyTheme("selectableItemRadioButtonSize")};
-    margin: ${applyTheme("selectableItemRadioButtonMargin")};
-    border-radius: 50%;
-    box-sizing: border-box;
-  }
-  .icon {
-    border-radius: ${applyTheme("selectableListBorderRadius")};
-    border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-    margin: ${applyTheme("selectableListIconMargin")};
+`;
+
+const StyledLabel = styled.label`
+  font-family: ${applyTheme("selectableItemLabelFontFamily")};
+  color: ${applyTheme("selectableItemLabelColor")};
+  font-size: ${applyTheme("selectableItemLabelFontSize")};
+  letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+`;
+
+const StyledRadioButton = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  background-color: ${applyTheme("selectableItemRadioButtonBackgroundColor")};
+  border: ${applyTheme("selectableItemRadioButtonBorder")};
+  height: ${applyTheme("selectableItemRadioButtonSize")};
+  width: ${applyTheme("selectableItemRadioButtonSize")};
+  margin: ${applyTheme("selectableItemRadioButtonMargin")};
+  border-radius: 50%;
+  box-sizing: border-box;
+`;
+
+const StyledDetail = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: ${applyTheme("selectableItemLabelFontFamily")};
+  font-size: ${applyTheme("selectableItemDetailFontSize")};
+  letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
+`;
+
+const StyledIcon = styled.span`
+  border-radius: ${applyTheme("selectableListBorderRadius")};
+  border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  margin: ${applyTheme("selectableListIconMargin")};
+  width: ${applyTheme("selectableListIconWidth")};
+  height: ${applyTheme("selectableListIconHeight")};    
+  svg {
     width: ${applyTheme("selectableListIconWidth")};
-    height: ${applyTheme("selectableListIconHeight")};    
-    svg {
-      width: ${applyTheme("selectableListIconWidth")};
-      height: ${applyTheme("selectableListIconHeight")};
-    }
-  }
-  .detail {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: ${applyTheme("selectableItemLabelFontFamily")};
-    font-size: ${applyTheme("selectableItemDetailFontSize")};
-    letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
+    height: ${applyTheme("selectableListIconHeight")};
   }
 `;
+
+const StyledItem = styled.div`
+  display: flex;
+  justify-content: space-between;
+  height: ${applyTheme("selectableListHeight")};
+  @media (max-width: 768px) {
+    height: ${applyTheme("selectableListHeightMobile")};
+  }
+`;
+
+const LeftAlignedItem = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  height: ${applyTheme("selectableListHeight")};
+  @media (max-width: 768px) {
+    height: ${applyTheme("selectableListHeightMobile")};
+  }
+  ${StyledLabel} {
+    position: relative;
+    font-weight: ${applyTheme("selectableListLabelFontWeight")};
+  }
+  ${StyledDetail} {
+    font-size: ${applyTheme("selectableListDetailFontSize")};
+    font-family: ${applyTheme("selectableListFontFamily")};
+    margin-left: 2px;
+  }
+`;
+
 
 class SelectableItem extends Component {
   static propTypes = {
@@ -116,6 +140,10 @@ class SelectableItem extends Component {
        */
       iconMastercard: PropTypes.node
     }),
+    /**
+     * Left-aligned style
+     */
+    isLeftAligned: PropTypes.bool,
     /**
      * Read only and disabled state
      */
@@ -145,10 +173,6 @@ class SelectableItem extends Component {
        */
       icon: PropTypes.node,
       /**
-       * Custom class name
-       */
-      className: PropTypes.string,
-      /**
        * Value of the item input
        */
       value: PropTypes.any.isRequired
@@ -166,10 +190,10 @@ class SelectableItem extends Component {
   }
 
   static defaultProps = {
-    className: undefined,
     onChange() { },
     onChanging() { },
-    checked: undefined
+    checked: undefined,
+    isLeftAligned: false
   };
 
   constructor(props) {
@@ -242,19 +266,19 @@ class SelectableItem extends Component {
     }
 
     return (
-      <span className="icon">
+      <StyledIcon>
         {icon}
-      </span>
+      </StyledIcon>
     );
   }
 
   render() {
     const {
       name,
+      isLeftAligned,
       isReadOnly,
       item: {
         id,
-        className,
         checked,
         label,
         detail,
@@ -263,27 +287,47 @@ class SelectableItem extends Component {
       }
     } = this.props;
 
+    const input = (
+      <StyledInput
+        id={id}
+        checked={checked}
+        value={value}
+        key={id}
+        onChange={this.onChange}
+        type="radio"
+        name={name}
+        disabled={isReadOnly}
+      />
+    );
+
+    const labelAndButton = (
+      <StyledLabel
+        htmlFor={id}
+      >
+        <StyledRadioButton />
+        {icon ? this.renderIcon() : null}
+        {label}
+      </StyledLabel>
+    );
+
     return (
-      <StyledItem className={className} >
-        <input
-          id={id}
-          checked={checked}
-          value={value}
-          key={id}
-          onChange={this.onChange}
-          type="radio"
-          name={name}
-          disabled={isReadOnly}
-        />
-        <label
-          htmlFor={id}
-        >
-          <span className="radio" />
-          {icon ? this.renderIcon() : null}
-          {label}
-        </label>
-        {detail ? <div className="detail">{detail}</div> : null}
-      </StyledItem >
+      <div>
+        {isLeftAligned ?
+          <LeftAlignedItem>
+            {input}
+            {labelAndButton}
+            {detail ? <StyledDetail>{detail}</StyledDetail> : null}
+          </LeftAlignedItem >
+          :
+          <StyledItem>
+            {input}
+            {labelAndButton}
+            {detail ? <StyledDetail>{detail}</StyledDetail> : null}
+          </StyledItem >
+        }
+      </div>
+
+
     );
   }
 }

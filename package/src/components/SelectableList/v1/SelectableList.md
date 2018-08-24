@@ -28,7 +28,7 @@ const options = [{
 
 Pass the `isBordered` prop to get a bordered list:
 
-```jsx noeditor
+```jsx
 const options = [{
   id: "331",
   label: "Standard (5-9 days)",
@@ -109,34 +109,30 @@ const options = [{
   label: "American Express",
   detail: "ending in 0000",
   value: "amex",
-  icon: "iconAmericanExpress",
-  className: "leftAligned"
+  icon: "iconAmericanExpress"
 },
 {
   id: "6",
   label: "Visa",
   detail: " ending in 0000",
   value: "visa",
-  icon: "iconVisa",
-  className: "leftAligned"
+  icon: "iconVisa"
 },
 {
   id: "62",
   label: "Mastercard",
   detail: " ending in 0000",
   value: "mc",
-  icon: "iconMastercard",
-  className: "leftAligned"
+  icon: "iconMastercard"
 },{
   id: "64",
   label: "Discover",
   detail: " ending in 0000",
   value: "disc",
-  icon: "iconDiscover",
-  className: "leftAligned"
+  icon: "iconDiscover"
 }];
 
-<SelectableList isBordered options={options} name="PaymentForm"/>
+<SelectableList isBordered isLeftAligned options={options} name="PaymentForm"/>
 ```
 
 ##### Address list

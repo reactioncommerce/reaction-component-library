@@ -31,38 +31,6 @@ const StyledList = styled.div`
     border-color: transparent;
     padding: ${applyTheme("selectableListPadding")};
     margin: ${applyTheme("selectableListMargin")};
-    .wrapper {
-      .leftAligned {
-        justify-content: flex-start;
-        label {
-          font-weight: ${applyTheme("selectableListLabelFontWeight")};
-        }
-        .detail {
-          font-size: ${applyTheme("selectableListDetailFontSize")};
-          font-family: ${applyTheme("selectableListFontFamily")};
-          margin-left: 2px;
-        }
-      }
-      .amex,
-      .visa {
-        label {
-          position: relative;
-        }
-        span {
-          margin: ${applyTheme("selectableListIconMargin")};
-        }
-        label span:after {
-          left: ${applyTheme("selectableListIconLeft")};
-          position: absolute;
-          content: " ";
-          width: ${applyTheme("selectableListIconWidth")};
-          height: ${applyTheme("selectableListIconHeight")};
-          display: inline-block;
-          border-radius: ${applyTheme("selectableListBorderRadius")};
-          border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-        }
-      }
-    }
   }
 `;
 
@@ -115,6 +83,10 @@ class SelectableList extends Component {
      */
     isBordered: PropTypes.bool,
     /**
+     * Is Left Aligned
+     */
+    isLeftAligned: PropTypes.bool,
+    /**
      * Adds styles and blocks users from selecting items
      */
     isReadOnly: PropTypes.bool,
@@ -159,8 +131,9 @@ class SelectableList extends Component {
   };
 
   static defaultProps = {
-    isReadOnly: false,
     isBordered: false,
+    isLeftAligned: false,
+    isReadOnly: false,
     onChange() { },
     onChanging() { }
   };
@@ -234,6 +207,7 @@ class SelectableList extends Component {
       options,
       listAction,
       isBordered,
+      isLeftAligned,
       isReadOnly,
       components: { SelectableItem, ...components },
       ...props
@@ -252,6 +226,7 @@ class SelectableList extends Component {
                     checked={item.checked}
                     value={item.value}
                     isReadOnly={isReadOnly}
+                    isLeftAligned={isLeftAligned}
                     component={components}
                     {...props}
                   />
@@ -271,6 +246,7 @@ class SelectableList extends Component {
                     checked={item.checked}
                     value={item.value}
                     isReadOnly={isReadOnly}
+                    isLeftAligned={isLeftAligned}
                     component={components}
                     {...props}
                   />
