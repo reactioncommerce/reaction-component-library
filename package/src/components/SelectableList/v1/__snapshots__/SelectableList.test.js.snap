@@ -15,45 +15,6 @@ exports[`basic snapshot 1`] = `
   margin: 0;
 }
 
-.c0 fieldset .wrapper .leftAligned {
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-  -ms-flex-pack: start;
-  justify-content: flex-start;
-}
-
-.c0 fieldset .wrapper .leftAligned label {
-  font-weight: 700;
-}
-
-.c0 fieldset .wrapper .leftAligned .detail {
-  font-size: 14px;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  margin-left: 2px;
-}
-
-.c0 fieldset .wrapper .amex label,
-.c0 fieldset .wrapper .visa label {
-  position: relative;
-}
-
-.c0 fieldset .wrapper .amex span,
-.c0 fieldset .wrapper .visa span {
-  margin: 0 10px 0 0;
-}
-
-.c0 fieldset .wrapper .amex label span:after,
-.c0 fieldset .wrapper .visa label span:after {
-  left: 30px;
-  position: absolute;
-  content: " ";
-  width: 38px;
-  height: 24px;
-  display: inline-block;
-  border-radius: 2px;
-  border: 1px solid #e6e6e6;
-}
-
 <div>
   <div
     className="c0"
