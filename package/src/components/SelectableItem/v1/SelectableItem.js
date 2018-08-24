@@ -129,9 +129,9 @@ class SelectableItem extends Component {
      */
     item: PropTypes.shape({
       /**
-       * Checked: `true` if item is checked
+       * `true` if the item is checked
        */
-      checked: PropTypes.bool,
+      isChecked: PropTypes.bool,
       /**
        * ID
        */
@@ -147,11 +147,7 @@ class SelectableItem extends Component {
       /**
        * Optional icon (SVG) displayed on the left-hand side
        */
-      icon: PropTypes.node,
-      /**
-       * Value of the item input
-       */
-      value: PropTypes.any.isRequired
+      icon: PropTypes.node
     }),
     /** Optional name of input radio group, passed down from for SelectableList */
     name: PropTypes.string,
@@ -162,11 +158,7 @@ class SelectableItem extends Component {
     /**
      * On change handler for input
      */
-    onChanging: PropTypes.func,
-    /**
-     * Value: True if checked
-     */
-    value: PropTypes.bool
+    onChanging: PropTypes.func
   }
 
   static defaultProps = {
@@ -180,17 +172,17 @@ class SelectableItem extends Component {
 
     this.state = {
       id: uniqueId("Radio_"),
-      value: props.item.checked || false
+      value: props.item.isChecked || false
     };
   }
 
   componentWillMount() {
-    this.handleChange(this.props.item.checked || false);
+    this.handleChange(this.props.item.isChecked || false);
   }
 
   componentWillReceiveProps(nextProps) {
-    const value = this.props.item.checked;
-    const { value: nextValue } = nextProps;
+    const { isChecked: value } = this.props.item;
+    const { isChecked: nextValue } = nextProps.item;
 
     // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
     if (value !== nextValue) {
@@ -213,7 +205,7 @@ class SelectableItem extends Component {
   }
 
   resetValue() {
-    this.setValue(this.props.value || false);
+    this.setValue(this.props.item.isChecked || false);
   }
 
   handleChange(checked) {
@@ -227,7 +219,7 @@ class SelectableItem extends Component {
   // Input is dirty if value prop doesn't match value state. Whenever a changed
   // value prop comes in, we reset state to that, thus becoming clean.
   isDirty() {
-    return this.state.value !== this.props.value;
+    return this.state.value !== this.props.item.isChecked;
   }
 
   render() {
@@ -237,7 +229,7 @@ class SelectableItem extends Component {
       isReadOnly,
       item: {
         id,
-        checked,
+        isChecked,
         label,
         detail,
         icon,
@@ -248,7 +240,7 @@ class SelectableItem extends Component {
     const input = (
       <StyledInput
         id={id}
-        checked={checked}
+        checked={isChecked}
         value={value}
         key={id}
         onChange={this.onChange}

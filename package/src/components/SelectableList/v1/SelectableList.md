@@ -12,8 +12,7 @@ A `SelectableList` can be enabled or disabled.
 const options = [{
   id: "111",
   label: "Standard (5-9 days)",
-  value: "Standard",
-  checked: true
+  value: "Standard"
 },
 {
   id: "222",
@@ -21,19 +20,18 @@ const options = [{
   value: "Priority"
 }];
 
-<SelectableList options={options} name="DefaultForm"/>
+<SelectableList options={options} name="DefaultForm" value="Standard"/>
 ```
 
 ##### Disabled
 
-Pass the `isReadOnly` prop to disable all options, while also displaying the chosen item by passing in `checked: true` on the chosen item.
+Pass the `isReadOnly` prop to disable all options, while also displaying the chosen item.
 
 ```jsx
 const options = [{
   id: "3321",
   label: "Standard (5-9 days)",
-  value: "standard",
-  checked: true
+  value: "standard"
 },
 {
   id: "2332",
@@ -41,7 +39,7 @@ const options = [{
   value: "priority"
 }];
 
-<SelectableList isReadOnly options={options} name="DisabledForm"/>
+<SelectableList isReadOnly options={options} name="DisabledForm" value="standard"/>
 ```
 
 ##### Add a list action (optional)
@@ -80,8 +78,7 @@ const options = [{
   id: "331",
   label: "Standard (5-9 days)",
   detail: "Free",
-  value: "standard",
-  checked: true
+  value: "standard"
 },
 {
   id: "232",
@@ -90,7 +87,7 @@ const options = [{
   detail: "$5.99"
 }];
 
-<SelectableList isBordered options={options} name="BorderedForm"/>
+<SelectableList isBordered options={options} name="BorderedForm" value="standard"/>
 ```
 
 ##### Left-aligned
@@ -102,8 +99,7 @@ const options = [{
   id: "3531",
   label: "Standard (5-9 days)",
   detail: "Free",
-  value: "standard",
-  checked: true
+  value: "standard"
 },
 {
   id: "2352",
@@ -112,7 +108,7 @@ const options = [{
   detail: "$5.99"
 }];
 
-<SelectableList isLeftAligned options={options} name="BorderedForm"/>
+<SelectableList isLeftAligned options={options} value="standard" name="BorderedForm"/>
 ```
 
 #### Examples
@@ -207,21 +203,21 @@ const addLink = (
 const options = [{
   id: "7",
   label: "Susan Doe, 2300 Buckwheat Ave, Salt Lake City, UT 84111 USA",
-  value: 33333,
+  value: "address1",
   detail: link
 },
 {
   id: "8",
   label: "Susan Doe, PO Box 1123, Salt Lake City, UT 84111 US",
-  value: 232312,
+  value: "address2",
   detail: link
 },
 {
   id: "9",
   label: "Johnny Doe, 2300 Buckwheat Ave, Salt Lake City, UT 84111 US",
-  value: 12345,
+  value: "addresss3",
   detail: link
 }];
 
-<SelectableList isBordered options={options} name="AddressForm" listAction={addLink} />
+<SelectableList isBordered options={options} name="AddressForm" listAction={addLink} value="address2" />
 ```

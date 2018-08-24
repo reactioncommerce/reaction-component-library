@@ -53,7 +53,8 @@ const BorderedList = styled(StyledList)`
   }
 `;
 
-const BorderedWrapper = styled(StyledWrapper)`
+const BorderedWrapper = styled.div`
+  padding: ${applyTheme("selectableListItemPadding")};
   border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
   border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
   border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
@@ -115,10 +116,6 @@ class SelectableList extends Component {
        */
       id: PropTypes.string.isRequired,
       /**
-       * Checked: True if the item is checked
-       */
-      checked: PropTypes.bool,
-      /**
        * Value of the input that is submitted from the form
        */
       value: PropTypes.any.isRequired
@@ -144,7 +141,7 @@ class SelectableList extends Component {
     super(props);
 
     this.state = {
-      value: this.getInitialValue()
+      value: this.props.value
     };
   }
 
@@ -166,13 +163,6 @@ class SelectableList extends Component {
   onChange = (event) => {
     this.setValue(event.target.value);
   };
-
-  getInitialValue() {
-    const initialCheckedItem = this.props.options.find((o) => o.checked === true);
-    if (initialCheckedItem !== undefined) {
-      return initialCheckedItem.value;
-    }
-  }
 
   getValue() {
     return this.state.value;
@@ -209,7 +199,7 @@ class SelectableList extends Component {
       isBordered,
       isLeftAligned,
       isReadOnly,
-      components: { SelectableItem, ...components },
+      components: { SelectableItem },
       ...props
     } = this.props;
 
@@ -217,18 +207,21 @@ class SelectableList extends Component {
       <div>
         {isBordered ?
           <BorderedList>
-            <fieldset>
-              {options.map((item) => (
-                <BorderedWrapper key={item.id}>
+            <fieldset onChange={this.onChange}>
+              {options.map((option) => (
+                <BorderedWrapper key={option.id}>
                   <SelectableItem
                     name={name}
-                    item={item}
-                    checked={item.checked}
-                    value={item.value}
+                    item={{
+                      id: option.id,
+                      label: option.label,
+                      value: option.value,
+                      detail: option.detail,
+                      icon: option.icon,
+                      isChecked: option.value === this.state.value
+                    }}
                     isReadOnly={isReadOnly}
                     isLeftAligned={isLeftAligned}
-                    onChange={this.onChange}
-                    component={components}
                     {...props}
                   />
                 </BorderedWrapper>
@@ -239,16 +232,20 @@ class SelectableList extends Component {
           :
           <StyledList>
             <fieldset onChange={this.onChange}>
-              {options.map((item) => (
-                <StyledWrapper key={item.id}>
+              {options.map((option) => (
+                <StyledWrapper key={option.id}>
                   <SelectableItem
                     name={name}
-                    item={item}
-                    checked={item.checked}
-                    value={item.value}
+                    item={{
+                      id: option.id,
+                      label: option.label,
+                      value: option.value,
+                      detail: option.detail,
+                      icon: option.icon,
+                      isChecked: option.value === this.state.value
+                    }}
                     isReadOnly={isReadOnly}
                     isLeftAligned={isLeftAligned}
-                    component={components}
                     {...props}
                   />
                 </StyledWrapper>
