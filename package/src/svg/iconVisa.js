@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 const IconVisaSvg = styled.svg`
   height: 100%;
-  maxHeight: 100%;
+  max-height: 100%;
   vertical-align: middle;
 `;
 
