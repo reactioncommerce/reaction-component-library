@@ -27,6 +27,10 @@ const ColHalf = styled.div`
 class AddressForm extends Component {
   static propTypes = {
     /**
+     * Place holder for Address Name field.
+     */
+    addressNamePlaceholder: PropTypes.string,
+    /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
@@ -128,6 +132,10 @@ class AddressForm extends Component {
       value: PropTypes.string
     })),
     /**
+     * Should the AddressForm show the "Address Names" field.
+     */
+    shouldShowAddressNameField: PropTypes.bool,
+    /**
      * Should the AddressForm show the "Is Commercial Address" field.
      */
     shouldShowIsCommercialField: PropTypes.bool,
@@ -139,6 +147,7 @@ class AddressForm extends Component {
      * Address object to be edited
      */
     value: PropTypes.shape({
+      addressName: PropTypes.string,
       address1: PropTypes.string,
       address2: PropTypes.string,
       country: PropTypes.string,
@@ -153,12 +162,16 @@ class AddressForm extends Component {
   };
 
   static defaultProps = {
+    addressNamePlaceholder: "Address Name",
     errors: [],
+    isSaving: false,
     name: "address",
     onCancel() {},
     onChange() {},
     onCountryChange() {},
     onSubmit() {},
+    shouldShowAddressNameField: false,
+    shouldShowIsCommercialField: false,
     validator: getRequiredValidator(
       "country",
       "firstName",
@@ -170,6 +183,7 @@ class AddressForm extends Component {
       "region"
     ),
     value: {
+      addressName: "",
       address1: "",
       address2: "",
       country: "",
@@ -206,6 +220,7 @@ class AddressForm extends Component {
 
   render() {
     const {
+      addressNamePlaceholder,
       value,
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       countries,
@@ -213,11 +228,13 @@ class AddressForm extends Component {
       isSaving,
       name,
       regions,
-      validator,
       onChange,
-      shouldShowIsCommercialField
+      shouldShowAddressNameField,
+      shouldShowIsCommercialField,
+      validator
     } = this.props;
 
+    const addressNameInputId = `addressName_${this.uniqueInstanceIdentifier}`;
     const countryInputId = `country_${this.uniqueInstanceIdentifier}`;
     const firstNameInputId = `firstName_${this.uniqueInstanceIdentifier}`;
     const lastNameInputId = `lastName_${this.uniqueInstanceIdentifier}`;
@@ -243,6 +260,24 @@ class AddressForm extends Component {
         value={value}
       >
         <Grid>
+          {shouldShowAddressNameField && (
+            <ColFull>
+              <Field
+                name="addressName"
+                label="Address Name"
+                labelFor={addressNameInputId}
+                isOptional
+              >
+                <TextInput
+                  id={addressNameInputId}
+                  name="addressName"
+                  placeholder={addressNamePlaceholder}
+                  isReadOnly={isSaving}
+                />
+              </Field>
+            </ColFull>
+          )}
+
           <ColFull>
             <Field name="country" label="Country" labelFor={countryInputId} isRequired>
               <Select
@@ -327,7 +362,7 @@ class AddressForm extends Component {
             </Field>
           </ColFull>
 
-          {shouldShowIsCommercialField &&
+          {shouldShowIsCommercialField && (
             <ColFull>
               <Field name="isCommercial" labelFor={isCommercialInputId}>
                 <Checkbox
@@ -338,7 +373,7 @@ class AddressForm extends Component {
                 />
               </Field>
             </ColFull>
-          }
+          )}
         </Grid>
       </Form>
     );

@@ -60,16 +60,20 @@ const isReady = (ready) => console.log("is action ready for save?", ready);
 #### Render Complete Method
 ```jsx
 const capturedData = {
-  shippingAddress: {
-    address1: "7742 Hwy 23",
-    address2: "",
-    country: "US",
-    city: "Belle Chasse",
-    firstName: "Salvos",
-    lastName: "Seafood",
-    postal: "70037",
-    region: "LA",
-    phone: "(504) 393-7303"
+  fulfillmentGroup: {
+    data: {
+     shippingAddress: {
+        address1: "7742 Hwy 23",
+        address2: "",
+        country: "US",
+        city: "Belle Chasse",
+        firstName: "Salvos",
+        lastName: "Seafood",
+        postal: "70037",
+        region: "LA",
+        phone: "(504) 393-7303"
+      }
+    }
   }
 };
 const action = ShippingAddressCheckoutAction;
