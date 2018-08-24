@@ -4,9 +4,11 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
+  border-bottom: solid 2px ${applyTheme("color_black10")};
   color: ${applyTheme("color_coolGrey500")};
   font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
+  padding: 1rem 0;
 `;
 
 const StyledSpan = styled.span`
@@ -27,7 +29,7 @@ class CheckoutEmailAddress extends Component {
     }
 
     return null;
-  }
+  };
 
   render() {
     const { emailAddress } = this.props;
