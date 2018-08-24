@@ -390,17 +390,32 @@ module.exports = {
       name: "Base Components",
       sections: [
         generateSection({
-          componentNames: ["Button", "Link"],
+          componentNames: [
+            "Button",
+            "Link"
+          ],
           content: "styleguide/src/sections/Actions.md",
           name: "Actions"
         }),
         generateSection({
-          componentNames: ["ProgressiveImage"],
+          componentNames: [
+            "ProgressiveImage"
+          ],
           content: "styleguide/src/sections/Content.md",
           name: "Content"
         }),
         generateSection({
-          componentNames: ["Checkbox", "ErrorsBlock", "Field", "PhoneNumberInput", "QuantityInput", "Select", "SelectableItem", "SelectableList", "TextInput"],
+          componentNames: [
+            "Checkbox",
+            "ErrorsBlock",
+            "Field",
+            "PhoneNumberInput",
+            "QuantityInput",
+            "Select",
+            "SelectableItem",
+            "SelectableList",
+            "TextInput"
+          ],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
         })
@@ -410,28 +425,56 @@ module.exports = {
       name: "Storefront Components",
       sections: [
         generateSection({
-          componentNames: ["ShopLogo"],
+          componentNames: [
+            "ShopLogo"
+          ],
           content: "styleguide/src/sections/General.md",
           name: "General"
         }),
         generateSection({
-          componentNames: ["Price", "StockWarning", "BadgeOverlay", "CatalogGridItem", "CatalogGrid"],
+          componentNames: [
+            "Price",
+            "StockWarning",
+            "BadgeOverlay",
+            "CatalogGridItem",
+            "CatalogGrid"
+          ],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
         }),
         generateSection({
-          componentNames: ["CartEmptyMessage", "CartItem", "CartItems", "CartItemDetail", "CartSummary", "MiniCart", "MiniCartSummary"],
+          componentNames: [
+            "CartEmptyMessage",
+            "CartItem",
+            "CartItems",
+            "CartItemDetail",
+            "CartSummary",
+            "MiniCart",
+            "MiniCartSummary"
+          ],
           content: "styleguide/src/sections/Cart.md",
           name: "Cart"
         }),
         generateSection({
-          // eslint-disable-next-line
-          componentNames: ["CheckoutAction", "CheckoutActions", "CheckoutActionComplete", "CheckoutActionIncomplete", "CheckoutEmailAddress", "CheckoutTopHat", "ShippingAddressCheckoutAction", "StripePaymentCheckoutAction"],
+          componentNames: [
+            "CheckoutAction",
+            "CheckoutActions",
+            "CheckoutActionComplete",
+            "CheckoutActionIncomplete",
+            "CheckoutEmailAddress",
+            "CheckoutTopHat",
+            "ShippingAddressCheckoutAction",
+            "StripePaymentCheckoutAction"
+          ],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
         }),
         generateSection({
-          componentNames: ["AddressForm", "GuestForm", "StripeForm"],
+          componentNames: [
+            "AddressForm",
+            "GuestForm",
+            "StripeForm"
+          ],
           content: "styleguide/src/sections/StorefrontForms.md",
           name: "Forms"
         })
