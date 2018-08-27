@@ -13,7 +13,10 @@ that products always render appropriately regardless of where the grid is render
 ```
 
 ```jsx
-  <CatalogGrid products={products} onItemClick={(event) => event.preventDefault()} />
+  <CatalogGrid products={products} onItemClick={(event, product) => {
+    event.preventDefault();
+    console.log(product.title);
+  }} />
 ```
 
 ##### Fixed-width container, 1 product per row (325px width)

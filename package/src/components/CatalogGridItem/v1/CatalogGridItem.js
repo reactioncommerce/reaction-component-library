@@ -119,7 +119,7 @@ class CatalogGridItem extends Component {
   }
 
   handleOnClick = preventAccidentalDoubleClick((event) => {
-    this.props.onClick(event);
+    this.props.onClick(event, this.props.product);
   });
 
   renderProductMedia() {
