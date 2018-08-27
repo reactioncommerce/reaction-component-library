@@ -16,7 +16,21 @@ test("basic snapshot", () => {
     detail: "$5.99",
     value: "Priority"
   }];
-  const component = renderer.create(<FulfillmentOptionsCheckoutAction components={mockComponents} stepNumber={2} label="Choose a shipping method" fulfillmentOptions={options} />);
+
+  /* eslint-disable */
+  const component = renderer.create(<FulfillmentOptionsCheckoutAction components={mockComponents} stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />);
+  /* eslint-enable */
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("basic snapshot - empty fullfillment options", () => {
+  const options = [];
+
+  /* eslint-disable */
+  const component = renderer.create(<FulfillmentOptionsCheckoutAction components={mockComponents} stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />);
+  /* eslint-enable */
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

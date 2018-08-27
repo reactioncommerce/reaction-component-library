@@ -3,21 +3,32 @@
 #### Usage
 
 ```jsx
-
 const options = [{
-  id: "111",
-  label: "Standard (5-9 days)",
-  detail: "Free",
-  value: "Standard"
+  fulfillmentMethod: {
+    _id: "111",
+    name: "Standard",
+    displayName: "Standard (5-9 Days)"
+  },
+  price: {
+    displayAmount: "Free"
+  }
 },
 {
-  id: "222",
-  label: "Priority (3-5 days)",
-  detail: "$5.99",
-  value: "Priority"
+  fulfillmentMethod: {
+    _id: "222",
+    name: "Priority",
+    displayName: "Priority (3-5 Days)"
+  },
+  price: {
+    displayAmount: "$5.99"
+  }
 }];
 
-<FulfillmentOptionsCheckoutAction stepNumber={2} label="Choose a shipping method" fulfillmentOptions={options} />
+<FulfillmentOptionsCheckoutAction stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />
 ```
 
-Document component here. See https://react-styleguidist.js.org/docs/documenting.html
+```jsx
+const options = [];
+
+<FulfillmentOptionsCheckoutAction stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />
+```
