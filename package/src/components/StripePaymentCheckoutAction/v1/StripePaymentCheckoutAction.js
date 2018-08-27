@@ -113,6 +113,14 @@ class StripePaymentCheckoutAction extends Component {
   _addressForm = null;
 
   submit = async () => {
+    const { billingAddress } = this.state;
+
+    // If user chooses to use billing address to be the same as shipping, then
+    // don't submit the billing address form
+    if (billingAddress === "same_as_shipping") {
+      return this.handleSubmit();
+    }
+
     this._addressForm.submit();
   }
 
