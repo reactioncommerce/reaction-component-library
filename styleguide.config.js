@@ -464,7 +464,8 @@ module.exports = {
             "CheckoutEmailAddress",
             "CheckoutTopHat",
             "ShippingAddressCheckoutAction",
-            "StripePaymentCheckoutAction"
+            "StripePaymentCheckoutAction",
+            "FulfillmentOptionsCheckoutAction"
           ],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
