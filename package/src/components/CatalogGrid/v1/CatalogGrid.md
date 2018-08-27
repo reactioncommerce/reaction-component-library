@@ -15,7 +15,7 @@ that products always render appropriately regardless of where the grid is render
 ```jsx
   <CatalogGrid products={products} onItemClick={(event, product) => {
     event.preventDefault();
-    alert(product.title);
+    console.log(product.title);
   }} />
 ```
 
