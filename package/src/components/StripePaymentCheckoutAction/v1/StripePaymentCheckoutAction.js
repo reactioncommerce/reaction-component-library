@@ -52,6 +52,10 @@ class StripePaymentCheckoutAction extends Component {
        */
       AddressForm: CustomPropTypes.component.isRequired,
       /**
+       * Secured lock icon
+       */
+      iconLock: PropTypes.node,
+      /**
        * A reaction SelectableList component or compatible component.
        */
       SelectableList: CustomPropTypes.component.isRequired,
@@ -203,7 +207,7 @@ class StripePaymentCheckoutAction extends Component {
 
   render() {
     const {
-      components: { SelectableList, StripeForm },
+      components: { iconLock, SelectableList, StripeForm },
       label,
       stepNumber
     } = this.props;
@@ -220,7 +224,7 @@ class StripePaymentCheckoutAction extends Component {
           stripeRef={(stripe) => { this._stripe = stripe; }}
         />
         <SecureCaption>
-          {this.renderLockIcon()} <Span>Your Information is private and secure.</Span>
+          {iconLock} <Span>Your Information is private and secure.</Span>
         </SecureCaption>
         <Title>Billing Address</Title>
         <SelectableList
