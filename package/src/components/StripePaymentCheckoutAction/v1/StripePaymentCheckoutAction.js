@@ -113,18 +113,15 @@ class StripePaymentCheckoutAction extends Component {
   _addressForm = null;
 
   submit = async () => {
-    // TODO: submit billing address form
-    // For now, only the stripe form will be submitted.
-    // this._addressForm.submit();
-    this.handleSubmit();
+    this._addressForm.submit();
   }
 
-  handleSubmit = async () => {
+  handleSubmit = async (value) => {
     const { onSubmit } = this.props;
     const { token } = await this._stripe.createToken();
 
     await onSubmit({
-      // billingAddress: value,
+      billingAddress: value,
       token
     });
   }
@@ -133,7 +130,6 @@ class StripePaymentCheckoutAction extends Component {
     const { onReadyForSaveChange } = this.props;
     const isFilled = Object.keys(values).every((key) => (key === "address2" ? true : values[key] !== null));
 
-    // Setting the "readyForSave" flag should take into account, both, the Stripe for and billing address form
     onReadyForSaveChange(isFilled);
   };
 
@@ -164,6 +160,8 @@ class StripePaymentCheckoutAction extends Component {
     const { components: { AddressForm } } = this.props;
     const { billingAddress } = this.state;
 
+    // Only render billing address when user chooses to use
+    // a different billing address
     if (billingAddress === "same_as_shipping") {
       return null;
     }
