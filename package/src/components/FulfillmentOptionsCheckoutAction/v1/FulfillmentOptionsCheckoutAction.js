@@ -97,13 +97,13 @@ class FulfillmentOptionsCheckoutAction extends Component {
 
   handleSubmit = async (value) => {
     const { onSubmit } = this.props;
-    await onSubmit(value);
+    const fulfillmentGroup = { fulfillmentGroup: { selectedFulfillmentOption: value } };
+    await onSubmit(fulfillmentGroup);
   };
 
   handleChange = () => {
     const { onReadyForSaveChange } = this.props;
-    // stubbed for now
-    onReadyForSaveChange();
+    onReadyForSaveChange(true);
   };
 
   mapFulfillmentOptions = (availableFulfillmentOptions) => availableFulfillmentOptions.map((option) => ({
@@ -144,7 +144,6 @@ class FulfillmentOptionsCheckoutAction extends Component {
           :
           <EmptyMessage>No fulfillment methods</EmptyMessage>
         }
-
       </Fragment>
     );
   }
@@ -153,10 +152,10 @@ class FulfillmentOptionsCheckoutAction extends Component {
 const WrappedFullfillmentOptionsCheckoutAction = withComponents(FulfillmentOptionsCheckoutAction);
 
 // eslint-disable-next-line
-WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { selectedFulfillmentOption: { fulfillmentOption } } }) => (
+WrappedFullfillmentOptionsCheckoutAction.renderComplete = (value) => (
   <FulfillmentOption>
-    {fulfillmentOption.fulfillmentMethod.displayName} {fulfillmentOption.price.displayPrice}
+    {value.fulfillmentMethod.displayName} • {value.price.displayAmount}
   </FulfillmentOption>
 );
 
-export default withComponents(FulfillmentOptionsCheckoutAction);
+export default WrappedFullfillmentOptionsCheckoutAction;

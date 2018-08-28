@@ -2,6 +2,8 @@
 
 #### Usage
 
+##### Show fulfillment options
+
 ```jsx
 const options = [{
   fulfillmentMethod: {
@@ -47,8 +49,29 @@ const options = [{
 <FulfillmentOptionsCheckoutAction stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />
 ```
 
+##### No fulfillment options
+
 ```jsx
 const options = [];
 
 <FulfillmentOptionsCheckoutAction stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />
+```
+
+##### Completed state: Show selected fulfillment option
+
+```jsx
+const seletedMethod = {
+  fulfillmentMethod: {
+    _id: "1111",
+    name: "Standard",
+    displayName: "Standard (5-9 Days)"
+  },
+  price: {
+    displayAmount: "Free"
+  }
+};
+
+const action = FulfillmentOptionsCheckoutAction
+
+action.renderComplete(seletedMethod)
 ```
