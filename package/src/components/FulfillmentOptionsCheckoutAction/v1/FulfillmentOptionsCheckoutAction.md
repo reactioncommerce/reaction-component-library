@@ -22,6 +22,26 @@ const options = [{
   price: {
     displayAmount: "$5.99"
   }
+},
+{
+  fulfillmentMethod: {
+    _id: "333",
+    name: "Express",
+    displayName: "Express 2 Day"
+  },
+  price: {
+    displayAmount: "$12.99"
+  }
+},
+{
+  fulfillmentMethod: {
+    _id: "444",
+    name: "Overnight",
+    displayName: "Overnight Expedited"
+  },
+  price: {
+    displayAmount: "$24.99"
+  }
 }];
 
 <FulfillmentOptionsCheckoutAction stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />

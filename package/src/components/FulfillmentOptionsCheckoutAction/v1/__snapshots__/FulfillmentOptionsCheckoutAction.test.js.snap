@@ -36,7 +36,8 @@ Array [
 `;
 
 exports[`basic snapshot 1`] = `
-.c0 {
+Array [
+  .c0 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 18px;
   font-weight: 700;
@@ -49,14 +50,13 @@ exports[`basic snapshot 1`] = `
   letter-spacing: 0.4px;
 }
 
-<div>
-  <h3
+<h3
     className="c0"
   >
     2
     . 
     Choose a shipping method
-  </h3>
-  SelectableList(undefined)
-</div>
+  </h3>,
+  "SelectableList(undefined)",
+]
 `;

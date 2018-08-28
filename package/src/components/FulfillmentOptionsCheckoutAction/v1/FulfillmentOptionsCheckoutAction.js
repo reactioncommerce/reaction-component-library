@@ -113,10 +113,10 @@ class FulfillmentOptionsCheckoutAction extends Component {
     value: option.fulfillmentMethod.name
   }));
 
-  selectCheapest = (availableFulfillmentOptions) => {
+  selectCheapest = () =>
     // stubbed for now
-    return "Standard";
-  };
+    "Standard"
+    ;
 
   render() {
     const {
