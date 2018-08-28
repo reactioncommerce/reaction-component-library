@@ -3,6 +3,7 @@ import iconError from "../../package/src/svg/iconError";
 import iconValid from "../../package/src/svg/iconValid";
 import iconAmericanExpress from "../../package/src/svg/iconAmericanExpress";
 import iconDiscover from "../../package/src/svg/iconDiscover";
+import iconLock from "../../package/src/svg/iconLock";
 import iconMastercard from "../../package/src/svg/iconMastercard";
 import iconVisa from "../../package/src/svg/iconVisa";
 import spinner from "../../package/src/svg/spinner";
@@ -55,6 +56,7 @@ export default {
   iconValid,
   iconAmericanExpress,
   iconDiscover,
+  iconLock,
   iconMastercard,
   iconVisa,
   Link,
