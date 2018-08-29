@@ -112,22 +112,12 @@ class FulfillmentOptionsCheckoutAction extends Component {
 
   handleSubmit = async (value) => {
     const { onSubmit } = this.props;
-    const fulfillmentGroup = { fulfillmentGroup: { selectedFulfillmentOption: value } };
-    await onSubmit(fulfillmentGroup);
+    await onSubmit(value);
   };
 
   handleChange = () => {
     const { onReadyForSaveChange } = this.props;
     onReadyForSaveChange(true);
-  };
-
-  showCheapestOrSelected = () => {
-    // if (this.props.fulfillmentGroup) {
-    //   this.props.fulfillmentGroup.data.selectedFulfillmentOption.fulfillmentMethod.name;
-    // } else {
-    //   // stubbed
-    return "Standard";
-    // this.props.availableFulfillmentOptions.sort((a, b) => a.price.amount - b.price.amount)[0].fulfillmentMethod.name;
   };
 
   mapFulfillmentOptions = (availableFulfillmentOptions) => availableFulfillmentOptions.map((option) => ({
@@ -150,7 +140,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
       },
       stepNumber
     } = this.props;
-    const selectedOption = selectedFulfillmentOption ? selectedFulfillmentOption.fulfillmentMethod.name : null;
+    const selectedOption = selectedFulfillmentOption ? { selectedFulfillmentMethod: selectedFulfillmentOption.fulfillmentMethod.name } : null;
     return (
       <Fragment>
         <Title>
@@ -167,10 +157,9 @@ class FulfillmentOptionsCheckoutAction extends Component {
             <SelectableList
               isBordered
               isSaving={isSaving}
-              name="DefaultForm"
+              name="selectedFulfillmentMethod"
               onChange={this.handleChange}
               options={this.mapFulfillmentOptions(availableFulfillmentOptions)}
-              value={this.showCheapestOrSelected()}
             />
           </Form>
           :
@@ -184,9 +173,9 @@ class FulfillmentOptionsCheckoutAction extends Component {
 const WrappedFullfillmentOptionsCheckoutAction = withComponents(FulfillmentOptionsCheckoutAction);
 
 // eslint-disable-next-line
-WrappedFullfillmentOptionsCheckoutAction.renderComplete = (value) => (
+WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { data: { selectedFulfillmentMethod } } }) => (
   <FulfillmentOption>
-    {value.fulfillmentMethod.displayName} • {value.price.displayAmount}
+    {selectedFulfillmentMethod.fulfillmentMethod.displayName} • {selectedFulfillmentMethod.price.displayAmount}
   </FulfillmentOption>
 );
 
