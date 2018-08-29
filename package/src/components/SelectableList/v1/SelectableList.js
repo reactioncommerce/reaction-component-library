@@ -139,14 +139,13 @@ class SelectableList extends Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
-      value: this.props.value
+      value: props.value || ""
     };
   }
 
   componentWillMount() {
-    this.handleChange(this.props.value || false);
+    this.handleChange(this.props.value || "");
   }
 
   componentWillReceiveProps(nextProps) {
@@ -154,9 +153,9 @@ class SelectableList extends Component {
     const { value: nextValue } = nextProps;
 
     // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
-    if (value !== nextValue) {
-      this.setState({ value: nextValue || false });
-      this.handleChange(nextValue || false);
+    if (nextValue && value !== nextValue) {
+      this.setState({ value: nextValue || "" });
+      this.handleChange(nextValue || "");
     }
   }
 
@@ -174,7 +173,7 @@ class SelectableList extends Component {
   }
 
   resetValue() {
-    this.setValue(this.props.value || false);
+    this.setValue(this.props.value || "");
   }
 
   handleChange(value) {
@@ -202,7 +201,6 @@ class SelectableList extends Component {
       components: { SelectableItem },
       ...props
     } = this.props;
-
     return (
       <div>
         {isBordered ?
@@ -259,4 +257,8 @@ class SelectableList extends Component {
   }
 }
 
-export default withComponents(SelectableList);
+const WrappedSelectableList = withComponents(SelectableList);
+
+WrappedSelectableList.isFormInput = true;
+
+export default WrappedSelectableList;
