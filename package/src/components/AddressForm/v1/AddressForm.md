@@ -43,7 +43,7 @@ If a selected country doesn't have any region options, the region field will ren
 const address = {
  address1: "35 Akin Adesola St",
  address2: "",
- country: "NU",
+ country: "NG",
  city: "Lagos",
  firstName: "Ocean Basket",
  lastName: "Victoria Island",
