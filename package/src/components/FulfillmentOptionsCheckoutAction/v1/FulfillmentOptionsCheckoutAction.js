@@ -37,7 +37,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
         displayName: PropTypes.string.isRequired
       },
       price: {
-        amount: PropTypes.float.isRequired,
+        amount: PropTypes.number.isRequired,
         displayAmount: PropTypes.string.isRequired
       }
     })).isRequired,
@@ -96,7 +96,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
         displayName: PropTypes.string.isRequired
       },
       price: {
-        amount: PropTypes.float,
+        amount: PropTypes.number.isRequired,
         displayAmount: PropTypes.string.isRequired
       }
     })
