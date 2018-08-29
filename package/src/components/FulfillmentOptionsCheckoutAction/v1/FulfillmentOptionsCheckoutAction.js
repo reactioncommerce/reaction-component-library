@@ -28,20 +28,6 @@ const EmptyMessage = styled.span`
 class FulfillmentOptionsCheckoutAction extends Component {
   static propTypes = {
     /**
-     * All available fulfillment option data
-     */
-    availableFulfillmentOptions: PropTypes.arrayOf(PropTypes.shape({
-      fulfillmentMethod: PropTypes.shape({
-        _id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        displayName: PropTypes.string.isRequired
-      }),
-      price: PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        displayAmount: PropTypes.string.isRequired
-      })
-    })).isRequired,
-    /**
      * If you've set up a components context using [`@reactioncommerce/components-context`](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
@@ -59,9 +45,20 @@ class FulfillmentOptionsCheckoutAction extends Component {
      */
     fulfillmentGroup: PropTypes.shape({
       data: PropTypes.shape({
-        selectedFulfillmentOption: PropTypes.object
+        selectedFulfillmentOption: PropTypes.object,
+        availableFulfillmentOptions: PropTypes.arrayOf(PropTypes.shape({
+          fulfillmentMethod: PropTypes.shape({
+            _id: PropTypes.string.isRequired,
+            name: PropTypes.string.isRequired,
+            displayName: PropTypes.string.isRequired
+          }),
+          price: PropTypes.shape({
+            amount: PropTypes.number.isRequired,
+            displayAmount: PropTypes.string.isRequired
+          })
+        })).isRequired
       })
-    }),
+    }).isRequired,
     /**
      * Is the fulfillment option being saved
      */
@@ -85,35 +82,15 @@ class FulfillmentOptionsCheckoutAction extends Component {
     /**
      * Checkout process step number
      */
-    stepNumber: PropTypes.number.isRequired,
-    /**
-     * Fulfillment object to be returned
-     */
-    value: PropTypes.shape({
-      fulfillmentMethod: {
-        _id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        displayName: PropTypes.string.isRequired
-      },
-      price: {
-        amount: PropTypes.number.isRequired,
-        displayAmount: PropTypes.string.isRequired
-      }
-    })
+    stepNumber: PropTypes.number.isRequired
   };
 
   static defaultProps = {
     isSaving: false,
     onReadyForSaveChange() { },
-    value: {
-      fulfillmentMethod: {
-        _id: "",
-        name: "",
-        displayName: ""
-      },
-      price: {
-        amount: "",
-        displayAmount: ""
+    fulfillmentGroup: {
+      data: {
+        selectedFulfillmentOption: {}
       }
     }
   };
@@ -145,13 +122,12 @@ class FulfillmentOptionsCheckoutAction extends Component {
   };
 
   showCheapestOrSelected = () => {
-    if (this.props.fulfillmentGroup) {
-      this.props.fulfillmentGroup.data.selectedFulfillmentOption.fulfillmentMethod.name;
-    } else {
-      // stubbed
-      return "Standard";
-      // this.props.availableFulfillmentOptions.sort((a, b) => a.price.amount - b.price.amount)[0].fulfillmentMethod.name;
-    }
+    // if (this.props.fulfillmentGroup) {
+    //   this.props.fulfillmentGroup.data.selectedFulfillmentOption.fulfillmentMethod.name;
+    // } else {
+    //   // stubbed
+    return "Standard";
+    // this.props.availableFulfillmentOptions.sort((a, b) => a.price.amount - b.price.amount)[0].fulfillmentMethod.name;
   };
 
   mapFulfillmentOptions = (availableFulfillmentOptions) => availableFulfillmentOptions.map((option) => ({
@@ -164,13 +140,17 @@ class FulfillmentOptionsCheckoutAction extends Component {
   render() {
     const {
       components: { SelectableList },
-      availableFulfillmentOptions,
       isSaving,
       label,
-      stepNumber,
-      value
+      fulfillmentGroup: {
+        data: {
+          selectedFulfillmentOption,
+          availableFulfillmentOptions
+        }
+      },
+      stepNumber
     } = this.props;
-
+    const selectedOption = selectedFulfillmentOption ? selectedFulfillmentOption.fulfillmentMethod.name : null;
     return (
       <Fragment>
         <Title>
@@ -182,14 +162,14 @@ class FulfillmentOptionsCheckoutAction extends Component {
               this._fulfillmentOptionForm = formEl;
             }}
             onSubmit={this.handleSubmit}
-            value={value}
+            value={selectedOption}
           >
             <SelectableList
               isBordered
               isSaving={isSaving}
               name="DefaultForm"
               onChange={this.handleChange}
-              options={this.mapFulfillmentOptions(this.props.availableFulfillmentOptions)}
+              options={this.mapFulfillmentOptions(availableFulfillmentOptions)}
               value={this.showCheapestOrSelected()}
             />
           </Form>
