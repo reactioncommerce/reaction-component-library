@@ -56,6 +56,7 @@ const fulfillmentGroups = [{
         displayName: "Standard (5-9 Days)"
       },
       price: {
+        amount: 0,
         displayAmount: "Free"
       }
     },
@@ -66,6 +67,7 @@ const fulfillmentGroups = [{
         displayName: "Priority (3-5 Days)"
       },
       price: {
+        amount: 5.99,
         displayAmount: "$5.99"
       }
     },
@@ -76,6 +78,7 @@ const fulfillmentGroups = [{
         displayName: "Express 2 Day"
       },
       price: {
+        amount: 12.99,
         displayAmount: "$12.99"
       }
     },
@@ -86,6 +89,7 @@ const fulfillmentGroups = [{
         displayName: "Overnight Expedited"
       },
       price: {
+        amount: 24.99,
         displayAmount: "$24.99"
       }
     }]
@@ -139,25 +143,6 @@ class CheckoutActionsExample extends React.Component {
     return (paymentWithoutData) ? "incomplete" : "complete";
   }
 
-  setFulfillmentOption(data) {
-    const { checkout } = this.state;
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.setState(Object.assign(this.state, {
-            checkout: {
-              payments: checkout.payments,
-              fulfillmentGroups: [{
-                data: {
-                  shippingAddress: data 
-                }
-              }]
-            }
-          }));
-          resolve(data);
-        }, 1000, { data });
-    });
-  }
-
   setShippingAddress(data) {
     const { checkout } = this.state;
     return new Promise((resolve, reject) => {
@@ -167,7 +152,28 @@ class CheckoutActionsExample extends React.Component {
               payments: checkout.payments,
               fulfillmentGroups: [{
                 data: {
-                  selectedFulfillmentOption: data 
+                  shippingAddress: data,
+                  availableFulfillmentOptions: checkout.fulfillmentGroups[0].data.availableFulfillmentOptions
+                }
+              }]
+            }
+          }));
+          resolve(data);
+        }, 1000, { data });
+    });
+  }
+
+  setFulfillmentOption(data) {
+    const { checkout } = this.state;
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.setState(Object.assign(this.state, {
+            checkout: {
+              payments: checkout.payments,
+              fulfillmentGroups: [{
+                data: {
+                  shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress,
+                  selectedFulfillmentOption: data
                 }
               }]
             }
@@ -203,13 +209,13 @@ class CheckoutActionsExample extends React.Component {
   render() {
     const { checkout } = this.state;
 
-    const actions = [
+const actions = [
       {
         label: "Shipping Information",
         status: this.getShippingStatus(),
         component: ShippingAddressCheckoutAction,
         onSubmit: this.setShippingAddress,
-        props:  { 
+        props:  {
           fulfillmentGroup: checkout.fulfillmentGroups[0]
         }
       },
