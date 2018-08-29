@@ -191,7 +191,13 @@ class AddressForm extends Component {
 
   state = {
     locales: this.props.locales,
-    activeCountry: this.props.value.country || isEmpty(this.props.locales) ? "US" : Object.keys(this.props.locales)[0]
+    // if the form has a value then try to use the value.country
+    // if that is not set check to see if any locales are provided and use the first one
+    // if no locales default to US and load the default locales.
+    // eslint-disable-next-line
+    activeCountry: this.props.value
+      ? this.props.value.country
+      : isEmpty(this.props.locales) ? "US" : Object.keys(this.props.locales)[0]
   };
 
   _form = null;
