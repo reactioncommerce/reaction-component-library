@@ -31,15 +31,15 @@ class FulfillmentOptionsCheckoutAction extends Component {
      * All available fulfillment option data
      */
     availableFulfillmentOptions: PropTypes.arrayOf(PropTypes.shape({
-      fulfillmentMethod: {
+      fulfillmentMethod: PropTypes.shape({
         _id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         displayName: PropTypes.string.isRequired
-      },
-      price: {
+      }),
+      price: PropTypes.shape({
         amount: PropTypes.number.isRequired,
         displayAmount: PropTypes.string.isRequired
-      }
+      })
     })).isRequired,
     /**
      * If you've set up a components context using [`@reactioncommerce/components-context`](https://github.com/reactioncommerce/components-context)
@@ -170,12 +170,13 @@ class FulfillmentOptionsCheckoutAction extends Component {
       stepNumber,
       value
     } = this.props;
+
     return (
       <Fragment>
         <Title>
           {stepNumber}. {label}
         </Title>
-        {availableFulfillmentOptions.length ?
+        {availableFulfillmentOptions && availableFulfillmentOptions.length ?
           <Form
             ref={(formEl) => {
               this._fulfillmentOptionForm = formEl;
