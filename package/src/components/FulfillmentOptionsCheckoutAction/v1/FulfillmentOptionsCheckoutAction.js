@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import isEmpty from "lodash.isempty";
 import { Form } from "reacto-form";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
@@ -140,7 +141,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
       },
       stepNumber
     } = this.props;
-    const selectedOption = selectedFulfillmentOption ? { selectedFulfillmentMethod: selectedFulfillmentOption.fulfillmentMethod.name } : null;
+    const selectedOption = isEmpty(selectedFulfillmentOption) ? null : { selectedFulfillmentMethod: selectedFulfillmentOption.fulfillmentMethod.name };
     return (
       <Fragment>
         <Title>
@@ -173,10 +174,12 @@ class FulfillmentOptionsCheckoutAction extends Component {
 const WrappedFullfillmentOptionsCheckoutAction = withComponents(FulfillmentOptionsCheckoutAction);
 
 // eslint-disable-next-line
-WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { data: { selectedFulfillmentMethod } } }) => (
-  <FulfillmentOption>
-    {selectedFulfillmentMethod.fulfillmentMethod.displayName} • {selectedFulfillmentMethod.price.displayAmount}
-  </FulfillmentOption>
-);
+WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { data: { selectedFulfillmentOption } } }) => {
+  return (
+    <FulfillmentOption>
+      {selectedFulfillmentOption.fulfillmentMethod.displayName} • {selectedFulfillmentOption.price.displayAmount}
+    </FulfillmentOption>
+  );
+};
 
 export default WrappedFullfillmentOptionsCheckoutAction;

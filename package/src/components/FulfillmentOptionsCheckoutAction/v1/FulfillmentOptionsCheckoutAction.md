@@ -230,7 +230,7 @@ const options = {
 const data = {
   fulfillmentGroup: {
     data: {
-     selectedFulfillmentMethod: {
+     selectedFulfillmentOption: {
         fulfillmentMethod: {
           _id: "222",
           name: "Priority",

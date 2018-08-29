@@ -165,6 +165,7 @@ class CheckoutActionsExample extends React.Component {
 
   setFulfillmentOption(data) {
     const { checkout } = this.state;
+    selectedFulfillmentOption = checkout.fulfillmentGroups[0].data.availableFulfillmentOptions.find( x => x.fulfillmentMethod.name === data.selectedFulfillmentMethod );
     return new Promise((resolve, reject) => {
         setTimeout(() => {
           this.setState(Object.assign(this.state, {
@@ -173,7 +174,7 @@ class CheckoutActionsExample extends React.Component {
               fulfillmentGroups: [{
                 data: {
                   shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress,
-                  selectedFulfillmentOption: data
+                  selectedFulfillmentOption: selectedFulfillmentOption
                 }
               }]
             }
@@ -225,7 +226,7 @@ const actions = [
         component: FulfillmentOptionsCheckoutAction,
         onSubmit: this.setFulfillmentOption,
         props:  {
-          availableFulfillmentOptions: checkout.fulfillmentGroups[0].data.availableFulfillmentOptions
+          fulfillmentGroup: checkout.fulfillmentGroups[0]
         }
       },
       { 
