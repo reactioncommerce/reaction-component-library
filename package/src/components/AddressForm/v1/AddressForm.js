@@ -246,13 +246,13 @@ class AddressForm extends Component {
 
   getValue = () => this._form.getValue();
 
-  submit() {
+  submit = () => {
     this._form.submit();
-  }
+  };
 
-  validate() {
+  validate = () => {
     return this._form.validate();
-  }
+  };
 
   render() {
     const {
