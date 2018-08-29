@@ -12,6 +12,7 @@ const options = [{
     displayName: "Standard (5-9 Days)"
   },
   price: {
+    amount: 0,
     displayAmount: "Free"
   }
 },
@@ -22,6 +23,7 @@ const options = [{
     displayName: "Priority (3-5 Days)"
   },
   price: {
+    amount: 5.99,
     displayAmount: "$5.99"
   }
 },
@@ -32,19 +34,21 @@ const options = [{
     displayName: "Express 2 Day"
   },
   price: {
+    amount: 12.99,
     displayAmount: "$12.99"
   }
-},
-{
+}, {
   fulfillmentMethod: {
     _id: "444",
     name: "Overnight",
     displayName: "Overnight Expedited"
   },
   price: {
+    amount: 24.99,
     displayAmount: "$24.99"
   }
-}];
+},
+];
 
 <FulfillmentOptionsCheckoutAction stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />
 ```

@@ -37,7 +37,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
         displayName: PropTypes.string.isRequired
       },
       price: {
-        amount: PropTypes.float,
+        amount: PropTypes.float.isRequired,
         displayAmount: PropTypes.string.isRequired
       }
     })).isRequired,
@@ -151,10 +151,9 @@ class FulfillmentOptionsCheckoutAction extends Component {
     value: option.fulfillmentMethod.name
   }));
 
-  selectCheapest = () =>
-    // stubbed for now
-    "Standard"
-    ;
+  selectCheapest = () => {
+    this.props.availableFulfillmentOptions.sort((a, b) => a.price.amount - b.price.amount)[0];
+  }
 
   render() {
     const {
@@ -166,7 +165,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
       stepNumber,
       value
     } = this.props;
-    const selectedFulfillmentOption = fulfillmentGroup ? fulfillmentGroup.data.selectedFulfillmentOption.fulfillmentMethod.name : this.selectCheapest();
+    const selectedFulfillmentOption = fulfillmentGroup ? fulfillmentGroup.data.selectedFulfillmentOption.fulfillmentMethod.name : this.selectCheapest().name;
     return (
       <Fragment>
         <Title>
