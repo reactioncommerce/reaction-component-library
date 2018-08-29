@@ -115,7 +115,7 @@ class StripeForm extends Component {
      * provided by the StripeProvider component.
      * See https://stripe.com/docs/stripe-js/reference#the-stripe-object for more details.
      */
-    stripe: PropTypes.object.isRequired,
+    stripe: PropTypes.object,
     /**
      * Used to pass a reference of the stripe object to the containing component.
      * The containing component will handle tokenizing payment data and sending data to server.

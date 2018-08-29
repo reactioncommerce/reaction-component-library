@@ -178,11 +178,11 @@ class CheckoutActionsExample extends React.Component {
   }
 
   setPaymentMethod(data) {
-    const { token: { card } } = data;
+    const { billingAddress, token: { card } } = data;
     const { checkout } = this.state;
     const payment = {
       data: {
-        billingAddress: null,
+        billingAddress,
         displayName: `${card.brand} ending in ${card.last4}`
       }
     }
@@ -192,7 +192,7 @@ class CheckoutActionsExample extends React.Component {
           this.setState(Object.assign(this.state, {
             checkout: {
               fulfillmentGroups: checkout.fulfillmentGroups,
-              payments: [ payment ]
+              payments: [payment] 
             }
           }));
           resolve(payment);

@@ -52,6 +52,10 @@ class StripePaymentCheckoutAction extends Component {
        */
       AddressForm: CustomPropTypes.component.isRequired,
       /**
+       * Secured lock icon
+       */
+      iconLock: PropTypes.node,
+      /**
        * A reaction SelectableList component or compatible component.
        */
       SelectableList: CustomPropTypes.component.isRequired,
@@ -113,18 +117,23 @@ class StripePaymentCheckoutAction extends Component {
   _addressForm = null;
 
   submit = async () => {
-    // TODO: submit billing address form
-    // For now, only the stripe form will be submitted.
-    // this._addressForm.submit();
-    this.handleSubmit();
+    const { billingAddress } = this.state;
+
+    // If user chooses to use billing address to be the same as shipping, then
+    // don't submit the billing address form
+    if (billingAddress === "same_as_shipping") {
+      return this.handleSubmit();
+    }
+
+    this._addressForm.submit();
   }
 
-  handleSubmit = async () => {
+  handleSubmit = async (value) => {
     const { onSubmit } = this.props;
     const { token } = await this._stripe.createToken();
 
     await onSubmit({
-      // billingAddress: value,
+      billingAddress: value,
       token
     });
   }
@@ -133,7 +142,6 @@ class StripePaymentCheckoutAction extends Component {
     const { onReadyForSaveChange } = this.props;
     const isFilled = Object.keys(values).every((key) => (key === "address2" ? true : values[key] !== null));
 
-    // Setting the "readyForSave" flag should take into account, both, the Stripe for and billing address form
     onReadyForSaveChange(isFilled);
   };
 
@@ -164,6 +172,8 @@ class StripePaymentCheckoutAction extends Component {
     const { components: { AddressForm } } = this.props;
     const { billingAddress } = this.state;
 
+    // Only render billing address when user chooses to use
+    // a different billing address
     if (billingAddress === "same_as_shipping") {
       return null;
     }
@@ -197,7 +207,7 @@ class StripePaymentCheckoutAction extends Component {
 
   render() {
     const {
-      components: { SelectableList, StripeForm },
+      components: { iconLock, SelectableList, StripeForm },
       label,
       stepNumber
     } = this.props;
@@ -214,7 +224,7 @@ class StripePaymentCheckoutAction extends Component {
           stripeRef={(stripe) => { this._stripe = stripe; }}
         />
         <SecureCaption>
-          {this.renderLockIcon()} <Span>Your Information is private and secure.</Span>
+          {iconLock} <Span>Your Information is private and secure.</Span>
         </SecureCaption>
         <Title>Billing Address</Title>
         <SelectableList

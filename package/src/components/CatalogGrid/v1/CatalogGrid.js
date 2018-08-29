@@ -92,8 +92,8 @@ class CatalogGrid extends Component {
     products: []
   };
 
-  handleOnClick = preventAccidentalDoubleClick((event) => {
-    this.props.onItemClick(event);
+  handleOnClick = preventAccidentalDoubleClick((event, product) => {
+    this.props.onItemClick(event, product);
   });
 
   render() {
