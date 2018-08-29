@@ -85,15 +85,12 @@ class AddressForm extends Component {
       })
     ),
     /**
-     * Helper function that dynamically loads the locales list, provied by the withDefaultLocales HOC
-     */
-    getDefaultLocales: PropTypes.func.isRequired,
-    /**
      * Is the shipping address being saved
      */
     isSaving: PropTypes.bool,
     /**
      * Locale options to populate the forms country and region fields
+     * if none provided the default locales will be used
      */
     locales: PropTypes.objectOf(
       PropTypes.shape({
@@ -190,39 +187,29 @@ class AddressForm extends Component {
   };
 
   state = {
-    locales: this.props.locales,
     // if the form has a value then try to use the value.country
     // if that is not set check to see if any locales are provided and use the first one
-    // if no locales default to US and load the default locales.
-    // eslint-disable-next-line
-    activeCountry: this.props.value
-      ? this.props.value.country
-      : isEmpty(this.props.locales) ? "US" : Object.keys(this.props.locales)[0]
+    // if no locales use "US"
+    activeCountry:
+      this.props.value && this.props.value.country !== ""
+        ? this.props.value.country
+        : isEmpty(this.props.locales) ? "US" : Object.keys(this.props.locales)[0]
   };
 
   _form = null;
 
   uniqueInstanceIdentifier = uniqueId("AddressForm_");
 
-  async componentDidMount() {
-    let { locales } = this.state;
-    if (isEmpty(locales)) {
-      locales = await this.props.getDefaultLocales();
-      this.setState({ locales });
-    }
-  }
-
   get countryOptions() {
-    const { locales } = this.state;
+    const { locales } = this.props;
     if (!locales) return [];
-    const options = Object.keys(locales).map((key) => {
-      return { value: key, label: locales[key].name };
-    });
+    const options = Object.keys(locales).map((key) => ({ value: key, label: locales[key].name }));
     return options;
   }
 
   get regionOptions() {
-    const { locales, activeCountry } = this.state;
+    const { locales } = this.props;
+    const { activeCountry } = this.state;
     const options = [];
     if (locales && locales[activeCountry] && locales[activeCountry].states) {
       Object.keys(locales[activeCountry].states).forEach((key) => {
@@ -250,9 +237,7 @@ class AddressForm extends Component {
     this._form.submit();
   };
 
-  validate = () => {
-    return this._form.validate();
-  };
+  validate = () => this._form.validate();
 
   render() {
     const {
