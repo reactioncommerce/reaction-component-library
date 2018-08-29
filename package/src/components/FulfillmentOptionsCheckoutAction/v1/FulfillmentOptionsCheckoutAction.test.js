@@ -4,29 +4,59 @@ import mockComponents from "../../../tests/mockComponents";
 import FulfillmentOptionsCheckoutAction from "./FulfillmentOptionsCheckoutAction";
 
 test("basic snapshot", () => {
-  const options = [{
-    fulfillmentMethod: {
-      _id: "111",
-      name: "Standard",
-      displayName: "Standard (5-9 Days)"
-    },
-    price: {
-      displayAmount: "Free"
+  const options = {
+    data: {
+      availableFulfillmentOptions: [
+        {
+          fulfillmentMethod: {
+            _id: "1121",
+            name: "Standard",
+            displayName: "Standard (5-9 Days)"
+          },
+          price: {
+            amount: 0,
+            displayAmount: "Free"
+          }
+        },
+        {
+          fulfillmentMethod: {
+            _id: "2322",
+            name: "Priority",
+            displayName: "Priority (3-5 Days)"
+          },
+          price: {
+            amount: 5.99,
+            displayAmount: "$5.99"
+          }
+        },
+        {
+          fulfillmentMethod: {
+            _id: "3343",
+            name: "Express",
+            displayName: "Express 2 Day"
+          },
+          price: {
+            amount: 12.99,
+            displayAmount: "$12.99"
+          }
+        }, {
+          fulfillmentMethod: {
+            _id: "4544",
+            name: "Overnight",
+            displayName: "Overnight Expedited"
+          },
+          price: {
+            amount: 24.99,
+            displayAmount: "$24.99"
+          }
+        }
+      ]
     }
-  },
-  {
-    fulfillmentMethod: {
-      _id: "222",
-      name: "Priority",
-      displayName: "Priority (3-5 Days)"
-    },
-    price: {
-      displayAmount: "$5.99"
-    }
-  }];
+  };
+
 
   /* eslint-disable */
-  const component = renderer.create(<FulfillmentOptionsCheckoutAction components={mockComponents} stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />);
+  const component = renderer.create(<FulfillmentOptionsCheckoutAction components={mockComponents} stepNumber={2} label="Choose a shipping method" fulfillmentGroup={options} />);
   /* eslint-enable */
 
   const tree = component.toJSON();
@@ -34,10 +64,14 @@ test("basic snapshot", () => {
 });
 
 test("basic snapshot - empty fullfillment options", () => {
-  const options = [];
+  const options = {
+    data: {
+      availableFulfillmentOptions: []
+    }
+  };
 
   /* eslint-disable */
-  const component = renderer.create(<FulfillmentOptionsCheckoutAction components={mockComponents} stepNumber={2} label="Choose a shipping method" availableFulfillmentOptions={options} />);
+  const component = renderer.create(<FulfillmentOptionsCheckoutAction components={mockComponents} stepNumber={2} label="Choose a shipping method" fulfillmentGroup={options} />);
   /* eslint-enable */
 
   const tree = component.toJSON();

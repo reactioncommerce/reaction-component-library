@@ -127,6 +127,10 @@ class FulfillmentOptionsCheckoutAction extends Component {
     value: option.fulfillmentMethod.name
   }));
 
+  selectFirst = () => {
+    this.props.fulfillmentGroup.data.availableFulfillmentOptions[0].fulfillmentMethod.name;
+  };
+
   render() {
     const {
       components: { SelectableList },
@@ -152,7 +156,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
               this._fulfillmentOptionForm = formEl;
             }}
             onSubmit={this.handleSubmit}
-            value={selectedOption}
+            value={selectedOption || { selectedFulfillmentMethod: this.selectFirst() }}
           >
             <SelectableList
               isBordered

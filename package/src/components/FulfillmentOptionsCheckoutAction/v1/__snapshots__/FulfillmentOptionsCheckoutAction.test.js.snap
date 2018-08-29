@@ -57,6 +57,11 @@ Array [
     . 
     Choose a shipping method
   </h3>,
-  "SelectableList(undefined)",
+  <div
+    className={null}
+    style={Object {}}
+  >
+    SelectableList(undefined)
+  </div>,
 ]
 `;
