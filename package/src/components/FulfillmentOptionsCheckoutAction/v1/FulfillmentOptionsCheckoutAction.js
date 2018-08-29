@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import isEmpty from "lodash.isempty";
 import { Form } from "reacto-form";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
@@ -141,7 +140,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
       },
       stepNumber
     } = this.props;
-    const selectedOption = isEmpty(selectedFulfillmentOption) ? null : { selectedFulfillmentMethod: selectedFulfillmentOption.fulfillmentMethod.name };
+    const selectedOption = selectedFulfillmentOption ? { selectedFulfillmentMethod: selectedFulfillmentOption.fulfillmentMethod.name } : null;
     return (
       <Fragment>
         <Title>
