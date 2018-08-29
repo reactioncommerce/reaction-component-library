@@ -144,6 +144,16 @@ class FulfillmentOptionsCheckoutAction extends Component {
     onReadyForSaveChange(true);
   };
 
+  showCheapestOrSelected = () => {
+    if (this.props.fulfillmentGroup) {
+      this.props.fulfillmentGroup.data.selectedFulfillmentOption.fulfillmentMethod.name;
+    } else {
+      // stubbed
+      return "Standard";
+      // this.props.availableFulfillmentOptions.sort((a, b) => a.price.amount - b.price.amount)[0].fulfillmentMethod.name;
+    }
+  };
+
   mapFulfillmentOptions = (availableFulfillmentOptions) => availableFulfillmentOptions.map((option) => ({
     id: option.fulfillmentMethod._id,
     label: option.fulfillmentMethod.displayName,
@@ -151,21 +161,15 @@ class FulfillmentOptionsCheckoutAction extends Component {
     value: option.fulfillmentMethod.name
   }));
 
-  selectCheapest = () => {
-    this.props.availableFulfillmentOptions.sort((a, b) => a.price.amount - b.price.amount)[0];
-  }
-
   render() {
     const {
       components: { SelectableList },
       availableFulfillmentOptions,
-      fulfillmentGroup,
       isSaving,
       label,
       stepNumber,
       value
     } = this.props;
-    const selectedFulfillmentOption = fulfillmentGroup ? fulfillmentGroup.data.selectedFulfillmentOption.fulfillmentMethod.name : this.selectCheapest().name;
     return (
       <Fragment>
         <Title>
@@ -185,7 +189,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
               name="DefaultForm"
               onChange={this.handleChange}
               options={this.mapFulfillmentOptions(this.props.availableFulfillmentOptions)}
-              value={selectedFulfillmentOption}
+              value={this.showCheapestOrSelected()}
             />
           </Form>
           :
