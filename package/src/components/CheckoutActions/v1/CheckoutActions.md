@@ -174,7 +174,8 @@ class CheckoutActionsExample extends React.Component {
               fulfillmentGroups: [{
                 data: {
                   shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress,
-                  selectedFulfillmentOption: selectedFulfillmentOption
+                  selectedFulfillmentOption: selectedFulfillmentOption,
+                  availableFulfillmentOptions: checkout.fulfillmentGroups[0].data.availableFulfillmentOptions
                 }
               }]
             }
