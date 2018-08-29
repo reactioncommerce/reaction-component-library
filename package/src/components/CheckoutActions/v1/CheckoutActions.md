@@ -1,6 +1,6 @@
 ### Overview
 The `CheckoutActions` component is responsible for:
-  * Displaying each `CheckoutAction` and managing it's status. (complete, incomplete, active)
+  * Displaying each `CheckoutAction` and managing its status: complete, incomplete, active
   * Providing each  `CheckoutAction` with any data it may need from the `cart` object.
   * Capturing/Editing of `CheckoutAction` data.
   * Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
@@ -25,7 +25,7 @@ const actions = [
     component: ShippingOptionCheckoutAction,
     onSubmit: setShippingOption
     props: {
-      availableFulfillmentGroups : cart.checkout.fulfillmentGroup.availableFulfillmentGroups
+      availableFulfillmentGroups1 : cart.checkout.fulfillmentGroup.availableFulfillmentGroups
     }
   },
   { 
@@ -48,7 +48,47 @@ const fulfillmentGroups = [{
   _id: 1,
   type: "shipping",
   data: {
-    shippingAddress: null
+    shippingAddress: null,
+    availableFulfillmentOptions: [{
+      fulfillmentMethod: {
+        _id: "111",
+        name: "Standard",
+        displayName: "Standard (5-9 Days)"
+      },
+      price: {
+        displayAmount: "Free"
+      }
+    },
+    {
+      fulfillmentMethod: {
+        _id: "222",
+        name: "Priority",
+        displayName: "Priority (3-5 Days)"
+      },
+      price: {
+        displayAmount: "$5.99"
+      }
+    },
+    {
+      fulfillmentMethod: {
+        _id: "333",
+        name: "Express",
+        displayName: "Express 2 Day"
+      },
+      price: {
+        displayAmount: "$12.99"
+      }
+    },
+    {
+      fulfillmentMethod: {
+        _id: "444",
+        name: "Overnight",
+        displayName: "Overnight Expedited"
+      },
+      price: {
+        displayAmount: "$24.99"
+      }
+    }]
   }
 }];
 
@@ -72,7 +112,14 @@ class CheckoutActionsExample extends React.Component {
     }
 
     this.setShippingAddress = this.setShippingAddress.bind(this);
+    this.setFulfillmentOption = this.setFulfillmentOption.bind(this);
     this.setPaymentMethod = this.setPaymentMethod.bind(this);
+  }
+
+  getFulfillmentOptionStatus() {
+    const fulfillmentGroupWithoutSelectedOption = this.state.checkout.fulfillmentGroups[0].data.selectedFulfillmentOption
+
+    return (fulfillmentGroupWithoutSelectedOption) ? "complete" : "incomplete";
   }
 
   getShippingStatus() {
@@ -92,9 +139,8 @@ class CheckoutActionsExample extends React.Component {
     return (paymentWithoutData) ? "incomplete" : "complete";
   }
 
-  setShippingAddress(data) {
+  setFulfillmentOption(data) {
     const { checkout } = this.state;
-
     return new Promise((resolve, reject) => {
         setTimeout(() => {
           this.setState(Object.assign(this.state, {
@@ -103,6 +149,25 @@ class CheckoutActionsExample extends React.Component {
               fulfillmentGroups: [{
                 data: {
                   shippingAddress: data 
+                }
+              }]
+            }
+          }));
+          resolve(data);
+        }, 1000, { data });
+    });
+  }
+
+  setShippingAddress(data) {
+    const { checkout } = this.state;
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.setState(Object.assign(this.state, {
+            checkout: {
+              payments: checkout.payments,
+              fulfillmentGroups: [{
+                data: {
+                  selectedFulfillmentOption: data 
                 }
               }]
             }
@@ -146,6 +211,15 @@ class CheckoutActionsExample extends React.Component {
         onSubmit: this.setShippingAddress,
         props:  { 
           fulfillmentGroup: checkout.fulfillmentGroups[0]
+        }
+      },
+      {
+        label: "Fulfillment Information",
+        status: this.getFulfillmentOptionStatus(),
+        component: FulfillmentOptionsCheckoutAction,
+        onSubmit: this.setFulfillmentOption,
+        props:  {
+          availableFulfillmentOptions: checkout.fulfillmentGroups[0].data.availableFulfillmentOptions
         }
       },
       { 

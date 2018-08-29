@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import { Form } from "reacto-form";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, CustomPropTypes } from "../../../utils";
@@ -54,6 +55,14 @@ class FulfillmentOptionsCheckoutAction extends Component {
       SelectableList: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
+     * Checkout data needed for form
+     */
+    fulfillmentGroup: PropTypes.shape({
+      data: PropTypes.shape({
+        selectedFulfillmentOption: PropTypes.object
+      })
+    }),
+    /**
      * Is the fulfillment option being saved
      */
     isSaving: PropTypes.bool,
@@ -76,23 +85,52 @@ class FulfillmentOptionsCheckoutAction extends Component {
     /**
      * Checkout process step number
      */
-    stepNumber: PropTypes.number.isRequired
+    stepNumber: PropTypes.number.isRequired,
+    /**
+     * Fulfillment object to be returned
+     */
+    value: PropTypes.shape({
+      fulfillmentMethod: {
+        _id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        displayName: PropTypes.string.isRequired
+      },
+      price: {
+        amount: PropTypes.float,
+        displayAmount: PropTypes.string.isRequired
+      }
+    })
   };
 
   static defaultProps = {
     isSaving: false,
-    onReadyForSaveChange() { }
+    onReadyForSaveChange() { },
+    value: {
+      fulfillmentMethod: {
+        _id: "",
+        name: "",
+        displayName: ""
+      },
+      price: {
+        amount: "",
+        displayAmount: ""
+      }
+    }
   };
+
+  state = {};
 
   componentDidMount() {
     const { onReadyForSaveChange } = this.props;
     onReadyForSaveChange(false);
   }
 
-  _fulfillmentForm = null;
+  _fulfillmentOptionForm = null;
+
+  getValue = () => this._fulfillmentOptionForm.getValue();
 
   submit = () => {
-    this._fulfillmentForm.submit();
+    this._fulfillmentOptionForm.submit();
   };
 
   handleSubmit = async (value) => {
@@ -122,25 +160,35 @@ class FulfillmentOptionsCheckoutAction extends Component {
     const {
       components: { SelectableList },
       availableFulfillmentOptions,
+      fulfillmentGroup,
       isSaving,
       label,
-      stepNumber
+      stepNumber,
+      value
     } = this.props;
+    const selectedFulfillmentOption = fulfillmentGroup ? fulfillmentGroup.data.selectedFulfillmentOption.fulfillmentMethod.name : this.selectCheapest();
     return (
       <Fragment>
         <Title>
           {stepNumber}. {label}
         </Title>
         {availableFulfillmentOptions.length ?
-          <SelectableList
-            options={this.mapFulfillmentOptions(this.props.availableFulfillmentOptions)}
-            name="DefaultForm"
-            value={this.selectCheapest()}
-            isSaving={isSaving}
-            onChange={this.handleChange}
+          <Form
+            ref={(formEl) => {
+              this._fulfillmentOptionForm = formEl;
+            }}
             onSubmit={this.handleSubmit}
-            isBordered
-          />
+            value={value}
+          >
+            <SelectableList
+              isBordered
+              isSaving={isSaving}
+              name="DefaultForm"
+              onChange={this.handleChange}
+              options={this.mapFulfillmentOptions(this.props.availableFulfillmentOptions)}
+              value={selectedFulfillmentOption}
+            />
+          </Form>
           :
           <EmptyMessage>No fulfillment methods</EmptyMessage>
         }
