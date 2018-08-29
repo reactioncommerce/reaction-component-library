@@ -197,7 +197,7 @@ class FulfillmentExample extends React.Component {
       <div>
         <FulfillmentOptionsCheckoutAction
           ref={(formEl) => { this.bindForm(formEl) }}
-          onSubmit={(address) => console.log("Address submitted", address)}
+          onSubmit={(address) => console.log("Option submitted", address)}
           stepNumber={2} 
           label="Choose a shipping method"
           fulfillmentGroup={options}
