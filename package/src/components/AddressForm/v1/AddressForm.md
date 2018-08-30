@@ -73,7 +73,7 @@ const locales = {
 ```
 
 ##### Dynamic Locales
-If you need to provide a large amount of locales to the form we suggest creating a HOC that can dynamiclly load the locales from JSON.
+If you need to provide a large amount of locales to the form we suggest creating a higher order component that can dynamiclly load the locales from JSON.
 
 ```js static
 // example HOC
@@ -133,7 +133,7 @@ export default function withLocales(ComponentWithLocales) {
 ```
 
 #### Dynamic Locales & Components Context
-If you're using the Reaction Commerce [components-context](https://github.com/reactioncommerce/components-context) you can wrap the `AddressForm` with your locales HOC before you define it in the components context. This way any Components using the `AddressForm` off of `props.components` will automatically have locales avalible.
+If you're using the Reaction Commerce [components-context](https://github.com/reactioncommerce/components-context) you can wrap the `AddressForm` with your locales HOC before you define it in the components context. This way any components using the `AddressForm` off of `props` will automatically have locales available.
 ```js static
 import AddressForm from "@reactioncommerce/components/AddressForm/v1";
 import withLocales from "./utils/withLocales.js";
