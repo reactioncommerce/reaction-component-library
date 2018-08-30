@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Form } from "reacto-form";
+import uniqueId from "lodash.uniqueid";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, CustomPropTypes } from "../../../utils";
@@ -127,8 +128,21 @@ class FulfillmentOptionsCheckoutAction extends Component {
     value: option.fulfillmentMethod.name
   }));
 
-  selectFirst = () => {
-    this.props.fulfillmentGroup.data.availableFulfillmentOptions[0].fulfillmentMethod.name;
+  selectedOptiononDefault = () => {
+    const { fulfillmentGroup: { data: { selectedFulfillmentOption, availableFulfillmentOptions } } } = this.props;
+    let selectedOption = "";
+    if (selectedFulfillmentOption) {
+      selectedOption = selectedFulfillmentOption.fulfillmentMethod.name;
+    } else if (availableFulfillmentOptions) {
+      // stubbed out sorting the cheapest
+      // selecting the first option for now:
+      selectedOption = availableFulfillmentOptions[0].fulfillmentMethod.name;
+    } else {
+      selectedOption = "";
+    }
+    return {
+      selectedFulfillmentOption: selectedOption
+    };
   };
 
   render() {
@@ -138,13 +152,13 @@ class FulfillmentOptionsCheckoutAction extends Component {
       label,
       fulfillmentGroup: {
         data: {
-          selectedFulfillmentOption,
           availableFulfillmentOptions
         }
       },
       stepNumber
     } = this.props;
-    const selectedOption = selectedFulfillmentOption ? { selectedFulfillmentMethod: selectedFulfillmentOption.fulfillmentMethod.name } : null;
+    const uniqueInstanceIdentifier = uniqueId("selectedFulfillmentMethod_");
+    const name = `selectedFulfillmentMethod_${uniqueInstanceIdentifier}`;
     return (
       <Fragment>
         <Title>
@@ -156,12 +170,13 @@ class FulfillmentOptionsCheckoutAction extends Component {
               this._fulfillmentOptionForm = formEl;
             }}
             onSubmit={this.handleSubmit}
-            value={selectedOption || { selectedFulfillmentMethod: this.selectFirst() }}
+            value={this.selectedOptiononDefault()}
           >
             <SelectableList
               isBordered
               isSaving={isSaving}
-              name="selectedFulfillmentMethod"
+              // name="selectedFulfillmentMethod"
+              name={name}
               onChange={this.handleChange}
               options={this.mapFulfillmentOptions(availableFulfillmentOptions)}
             />
