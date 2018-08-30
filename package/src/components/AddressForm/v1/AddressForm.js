@@ -5,7 +5,7 @@ import isEmpty from "lodash.isempty";
 import { Form } from "reacto-form";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes, getRequiredValidator, withDefaultLocales } from "../../../utils";
+import { applyTheme, CustomPropTypes, getRequiredValidator } from "../../../utils";
 
 const Grid = styled.div`
   display: flex;
@@ -191,10 +191,31 @@ class AddressForm extends Component {
     // if that is not set check to see if any locales are provided and use the first one
     // if no locales use "US"
     activeCountry:
+      // eslint-disable-next-line
       this.props.value && this.props.value.country !== ""
         ? this.props.value.country
         : isEmpty(this.props.locales) ? "US" : Object.keys(this.props.locales)[0]
   };
+
+  componentDidUpdate(prevProps) {
+    const { locales: prevLocales } = prevProps;
+    const { locales: nextLocales, value: nextValue } = this.props;
+    const { activeCountry: prevCountry } = this.state;
+
+    // Sometime the AddressForm will render before locales are provided.
+    // This is offten the case when dynamically importing locales via a JSON file.
+    // Once the file loads and the locales are provided the form needs to check
+    // and correct the active country.
+    if (isEmpty(prevLocales) && !isEmpty(nextLocales) && prevLocales !== nextLocales) {
+      const nextCountry = Object.keys(nextLocales)[0];
+      if (nextValue && nextValue.country === prevCountry) {
+        return;
+      } else if (nextCountry !== prevCountry) {
+        // eslint-disable-next-line
+        this.setState({ activeCountry: nextCountry });
+      }
+    }
+  }
 
   _form = null;
 
@@ -294,15 +315,19 @@ class AddressForm extends Component {
 
           <ColFull>
             <Field name="country" label="Country" labelFor={countryInputId} isRequired>
-              <Select
-                id={countryInputId}
-                isSearchable
-                name="country"
-                onChange={this.handleCountryChange}
-                options={this.countryOptions}
-                placeholder="Country"
-                isReadOnly={isSaving}
-              />
+              {this.countryOptions && this.countryOptions.length > 1 ? (
+                <Select
+                  id={countryInputId}
+                  isSearchable
+                  name="country"
+                  onChange={this.handleCountryChange}
+                  options={this.countryOptions}
+                  placeholder="Country"
+                  isReadOnly={isSaving}
+                />
+              ) : (
+                <TextInput id={countryInputId} name="country" placeholder="Country" isReadOnly={isSaving} />
+              )}
               <ErrorsBlock names={["country"]} />
             </Field>
           </ColFull>
@@ -394,4 +419,4 @@ class AddressForm extends Component {
   }
 }
 
-export default withComponents(withDefaultLocales(AddressForm));
+export default withComponents(AddressForm);
