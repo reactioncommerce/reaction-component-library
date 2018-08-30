@@ -34,9 +34,15 @@ import StripeForm from "../../package/src/components/StripeForm/v1";
 import SelectableItem from "../../package/src/components/SelectableItem/v1";
 import SelectableList from "../../package/src/components/SelectableList/v1";
 import TextInput from "../../package/src/components/TextInput/v1";
+// locales higher order component
+import withLocales from "./components/withLocales.js";
+
+// Providing default locales to AddressForm in the components-context.
+// This way consuming components will have locales automatically.
+const AddressFormWithLocales = withLocales(AddressForm);
 
 export default {
-  AddressForm,
+  AddressForm: AddressFormWithLocales,
   BadgeOverlay,
   Button,
   CartItem,
