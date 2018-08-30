@@ -69,7 +69,7 @@ const locales = {
 };
 
 
-<AddressForm locales={locales} value={{country:"WS", region: "II"}} />
+<AddressForm locales={locales} />
 ```
 
 ##### Dynamic Locales

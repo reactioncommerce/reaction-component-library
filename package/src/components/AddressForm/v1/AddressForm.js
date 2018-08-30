@@ -88,7 +88,6 @@ class AddressForm extends Component {
     isSaving: PropTypes.bool,
     /**
      * Locale options to populate the forms country and region fields
-     * if none provided the default locales will be used
      */
     locales: PropTypes.objectOf(PropTypes.shape({
       name: PropTypes.string,
