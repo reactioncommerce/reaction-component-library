@@ -72,18 +72,16 @@ class AddressForm extends Component {
     /**
      * Errors array
      */
-    errors: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    errors: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Error message
          */
-        message: PropTypes.string.isRequired,
-        /**
+      message: PropTypes.string.isRequired,
+      /**
          * Error name
          */
-        name: PropTypes.string.isRequired
-      })
-    ),
+      name: PropTypes.string.isRequired
+    })),
     /**
      * Is the shipping address being saved
      */
@@ -92,18 +90,16 @@ class AddressForm extends Component {
      * Locale options to populate the forms country and region fields
      * if none provided the default locales will be used
      */
-    locales: PropTypes.objectOf(
-      PropTypes.shape({
-        name: PropTypes.string,
-        native: PropTypes.string,
-        phone: PropTypes.string,
-        continent: PropTypes.string,
-        capital: PropTypes.string,
-        currency: PropTypes.string,
-        languges: PropTypes.string,
-        states: PropTypes.objectOf(PropTypes.shape({ name: PropTypes.string }))
-      })
-    ),
+    locales: PropTypes.objectOf(PropTypes.shape({
+      name: PropTypes.string,
+      native: PropTypes.string,
+      phone: PropTypes.string,
+      continent: PropTypes.string,
+      capital: PropTypes.string,
+      currency: PropTypes.string,
+      languges: PropTypes.string,
+      states: PropTypes.objectOf(PropTypes.shape({ name: PropTypes.string }))
+    })),
     /**
      * Form name
      */
