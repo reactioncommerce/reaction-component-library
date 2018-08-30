@@ -1,6 +1,370 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot 1`] = `
+exports[`Render with a NG address value 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+@media (min-width:600px) {
+  .c2 {
+    -webkit-flex: 0 1 calc(50% - 9px);
+    -ms-flex: 0 1 calc(50% - 9px);
+    flex: 0 1 calc(50% - 9px);
+  }
+}
+
+<div
+  className={null}
+  style={Object {}}
+>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render with a US address value 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+@media (min-width:600px) {
+  .c2 {
+    -webkit-flex: 0 1 calc(50% - 9px);
+    -ms-flex: 0 1 calc(50% - 9px);
+    flex: 0 1 calc(50% - 9px);
+  }
+}
+
+<div
+  className={null}
+  style={Object {}}
+>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render with a partial address value 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+@media (min-width:600px) {
+  .c2 {
+    -webkit-flex: 0 1 calc(50% - 9px);
+    -ms-flex: 0 1 calc(50% - 9px);
+    flex: 0 1 calc(50% - 9px);
+  }
+}
+
+<div
+  className={null}
+  style={Object {}}
+>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render with locales 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.c1 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+.c2 {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%;
+}
+
+@media (min-width:600px) {
+  .c2 {
+    -webkit-flex: 0 1 calc(50% - 9px);
+    -ms-flex: 0 1 calc(50% - 9px);
+    flex: 0 1 calc(50% - 9px);
+  }
+}
+
+<div
+  className={null}
+  style={Object {}}
+>
+  <div
+    className="c0"
+  >
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c2"
+    >
+      Field(undefined)
+    </div>
+    <div
+      className="c1"
+    >
+      Field(undefined)
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Render with only the components on props 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
