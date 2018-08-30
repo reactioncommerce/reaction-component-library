@@ -139,9 +139,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
     } else {
       selectedOption = "";
     }
-    return {
-      selectedFulfillmentOption: selectedOption
-    };
+    return selectedOption;
   };
 
   render() {
@@ -168,7 +166,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
               this._fulfillmentOptionForm = formEl;
             }}
             onSubmit={this.handleSubmit}
-            value={this.selectedOptiononDefault()}
+            value={{ selectedFulfillmentMethod: this.selectedOptiononDefault() }}
           >
             <SelectableList
               isBordered
