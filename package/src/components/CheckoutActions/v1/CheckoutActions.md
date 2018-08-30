@@ -25,7 +25,7 @@ const actions = [
     component: ShippingOptionCheckoutAction,
     onSubmit: setShippingOption
     props: {
-      availableFulfillmentGroups1 : cart.checkout.fulfillmentGroup.availableFulfillmentGroups
+      availableFulfillmentGroups: cart.checkout.fulfillmentGroup.availableFulfillmentGroups
     }
   },
   { 
