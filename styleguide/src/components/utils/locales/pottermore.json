@@ -1,0 +1,42 @@
+{
+  "HW": {
+    "name": "Hogwarts School of Witchcraft and Wizardry",
+    "states": {
+      "GD": {
+        "name": "Gryffindor"
+      },
+      "HP": {
+        "name": "Hufflepuff"
+      },
+      "RC": {
+        "name": "Ravenslaw"
+      },
+      "SR": {
+        "name": "Slytherin"
+      }
+    }
+  },
+  "IV": {
+    "name": "Ilvermorny School of Witchcraft and Wizardry",
+    "states": {
+      "HS": {
+        "name": "Horned Serpent"
+      },
+      "PG": {
+        "name": "Pukwudgie"
+      },
+      "TB": {
+        "name": "Thunderbird"
+      },
+      "WS": {
+        "name": "Wampus"
+      }
+    }
+  },
+  "BA": {
+    "name": "Beauxbatons Academy of Magic "
+  },
+  "DI": {
+    "name": "Durmstrang Institute"
+  }
+}
