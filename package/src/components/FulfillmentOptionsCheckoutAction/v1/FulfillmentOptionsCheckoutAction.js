@@ -1,7 +1,6 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { Form } from "reacto-form";
-import uniqueId from "lodash.uniqueid";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, CustomPropTypes } from "../../../utils";
@@ -157,8 +156,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
       },
       stepNumber
     } = this.props;
-    const uniqueInstanceIdentifier = uniqueId("selectedFulfillmentMethod_");
-    const name = `selectedFulfillmentMethod_${uniqueInstanceIdentifier}`;
+
     return (
       <Fragment>
         <Title>
@@ -175,8 +173,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
             <SelectableList
               isBordered
               isSaving={isSaving}
-              // name="selectedFulfillmentMethod"
-              name={name}
+              name="selectedFulfillmentMethod"
               onChange={this.handleChange}
               options={this.mapFulfillmentOptions(availableFulfillmentOptions)}
             />
