@@ -19,9 +19,7 @@ exports[`basic snapshot 1`] = `
   <div
     className="c0"
   >
-    <fieldset
-      onChange={[Function]}
-    >
+    <fieldset>
       <div
         className="c1"
       >

@@ -192,7 +192,7 @@ const options = [{
 {
   id: "9",
   label: "Johnny Doe, 2300 Buckwheat Ave, Salt Lake City, UT 84111 US",
-  value: "addresss3",
+  value: "address3",
   detail: link
 }];
 

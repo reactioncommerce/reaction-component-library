@@ -65,6 +65,8 @@ const BorderedWrapper = styled.div`
 `;
 
 class SelectableList extends Component {
+  static isFormInput = true;
+
   static propTypes = {
     /**
      * If you've set up a components context using @reactioncommerce/components-context
@@ -112,13 +114,26 @@ class SelectableList extends Component {
      */
     options: PropTypes.arrayOf(PropTypes.shape({
       /**
-       * The item ID - each radio input must have a unique ID
+       * Optional text, SVG or element displayed on the right-hand side
+       */
+      detail: PropTypes.node,
+      /**
+       * Optional icon (SVG) displayed on the left-hand side
+       */
+      icon: PropTypes.node,
+      /**
+       * The item ID. Each option must have a unique ID
        */
       id: PropTypes.string.isRequired,
       /**
-       * Value of the input that is submitted from the form
+       * Label
        */
-      value: PropTypes.any.isRequired
+      label: PropTypes.string.isRequired,
+      /**
+       * Value of this option, which will be the value passed back from SelectableList if
+       * this option is selected.
+       */
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
     })).isRequired,
     /**
      * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
@@ -135,33 +150,32 @@ class SelectableList extends Component {
     onChanging() { }
   };
 
-  static isFormInput = true;
-
   constructor(props) {
     super(props);
-
     this.state = {
-      value: this.props.value
+      value: props.value || ""
     };
   }
 
-  componentWillMount() {
-    this.handleChange(this.props.value || false);
+  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+    this.handleChange(this.props.value || "");
   }
 
-  componentWillReceiveProps(nextProps) {
+  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
     const { value } = this.props;
     const { value: nextValue } = nextProps;
 
     // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
-    if (value !== nextValue) {
-      this.setState({ value: nextValue || false });
-      this.handleChange(nextValue || false);
+    if (nextValue && value !== nextValue) {
+      this.setState({ value: nextValue || "" });
+      this.handleChange(nextValue || "");
     }
   }
 
-  onChange = (event) => {
-    this.setValue(event.target.value);
+  onChange = (isChecked, value) => {
+    if (isChecked) {
+      this.setValue(value);
+    }
   };
 
   getValue() {
@@ -174,7 +188,7 @@ class SelectableList extends Component {
   }
 
   resetValue() {
-    this.setValue(this.props.value || false);
+    this.setValue(this.props.value || "");
   }
 
   handleChange(value) {
@@ -193,36 +207,29 @@ class SelectableList extends Component {
 
   render() {
     const {
-      name,
       options,
       listAction,
       isBordered,
       isLeftAligned,
       isReadOnly,
-      components: { SelectableItem },
-      ...props
+      components: { SelectableItem }
     } = this.props;
-
     return (
       <div>
         {isBordered ?
           <BorderedList>
-            <fieldset onChange={this.onChange}>
+            <fieldset>
               {options.map((option) => (
                 <BorderedWrapper key={option.id}>
                   <SelectableItem
-                    name={name}
-                    item={{
-                      id: option.id,
-                      label: option.label,
-                      value: option.value,
-                      detail: option.detail,
-                      icon: option.icon,
-                      isChecked: option.value === this.state.value
-                    }}
-                    isReadOnly={isReadOnly}
+                    detail={option.detail}
+                    icon={option.icon}
+                    isChecked={option.value === this.state.value}
                     isLeftAligned={isLeftAligned}
-                    {...props}
+                    isReadOnly={isReadOnly}
+                    label={option.label}
+                    onChange={this.onChange}
+                    value={option.value}
                   />
                 </BorderedWrapper>
               ))}
@@ -231,22 +238,18 @@ class SelectableList extends Component {
           </BorderedList>
           :
           <StyledList>
-            <fieldset onChange={this.onChange}>
+            <fieldset>
               {options.map((option) => (
                 <StyledWrapper key={option.id}>
                   <SelectableItem
-                    name={name}
-                    item={{
-                      id: option.id,
-                      label: option.label,
-                      value: option.value,
-                      detail: option.detail,
-                      icon: option.icon,
-                      isChecked: option.value === this.state.value
-                    }}
-                    isReadOnly={isReadOnly}
+                    detail={option.detail}
+                    icon={option.icon}
+                    isChecked={option.value === this.state.value}
                     isLeftAligned={isLeftAligned}
-                    {...props}
+                    isReadOnly={isReadOnly}
+                    label={option.label}
+                    onChange={this.onChange}
+                    value={option.value}
                   />
                 </StyledWrapper>
               ))}
@@ -259,4 +262,8 @@ class SelectableList extends Component {
   }
 }
 
-export default withComponents(SelectableList);
+const WrappedSelectableList = withComponents(SelectableList);
+
+WrappedSelectableList.isFormInput = true;
+
+export default WrappedSelectableList;

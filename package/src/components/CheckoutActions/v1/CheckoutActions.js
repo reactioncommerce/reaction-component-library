@@ -80,13 +80,14 @@ class CheckoutActions extends Component {
 
   static defaultProps = {};
 
+  state = {};
+
   static getDerivedStateFromProps(props, state) {
     if (!isEqual(props.actions, state.previousActionsProp)) {
       const { currentActions = [] } = state;
       const actions = props.actions.map(({ label }) => {
-        const currentAction = currentActions.find((action) => action.label === label) || {};
-        const { isActive = false, readyForSave = false, isSaving = false } = currentAction;
-
+        const currentAction = currentActions.find((action) => action.label === label);
+        const { isActive = false, readyForSave = false, isSaving = false } = currentAction || {};
         return {
           label,
           readyForSave,
@@ -94,7 +95,6 @@ class CheckoutActions extends Component {
           isActive
         };
       });
-
       return {
         currentActions: actions,
         previousActionsProp: props.actions
@@ -104,7 +104,7 @@ class CheckoutActions extends Component {
     return null;
   }
 
-  state = {};
+  _refs = {};
 
   getCurrentActionIndex(label) {
     const { currentActions } = this.state;
@@ -116,41 +116,35 @@ class CheckoutActions extends Component {
     return currentActions[this.getCurrentActionIndex(label)];
   }
 
-  setActionActive = (label, isActive = true) => {
+  setStateForAction(actionLabel, stateChanges) {
     const { currentActions } = this.state;
 
-    const actionIndex = currentActions.findIndex((action) => action.label === label);
-    currentActions[actionIndex].isActive = isActive;
-    this.setState({ currentActions });
-  };
-
-  actionReadyForSave = (label, ready) => {
-    const { currentActions } = this.state;
-    currentActions[this.getCurrentActionIndex(label)].readyForSave = ready;
-    this.setState({
-      currentActions
+    // We are being careful to create a new array with new objects here to prevent
+    // strange errors due to unintentional mutation of current state.
+    const newCurrentActions = currentActions.map((currentAction) => {
+      const updates = (currentAction.label === actionLabel) ? stateChanges : {};
+      return {
+        ...currentAction,
+        ...updates
+      };
     });
-  };
+
+    this.setState({
+      currentActions: newCurrentActions
+    });
+  }
 
   handleActionSubmit = async (label, onSubmit, actionValue) => {
-    const { currentActions } = this.state;
-
-    currentActions[this.getCurrentActionIndex(label)].isSaving = true;
-    currentActions[this.getCurrentActionIndex(label)].isActive = false;
-    this.setState({
-      currentActions
-    });
+    this.setStateForAction(label, { isActive: false, isSaving: true });
+    this.forceUpdate();
 
     await onSubmit(actionValue);
-    currentActions[this.getCurrentActionIndex(label)].isSaving = false;
 
-    this.setState({
-      currentActions
-    });
+    this.setStateForAction(label, { isSaving: false });
   };
 
   actionSubmit = (label) => {
-    this[label].submit();
+    this._refs[label].submit();
   };
 
   determineActiveActions = () => {
@@ -182,7 +176,7 @@ class CheckoutActions extends Component {
         key={label}
         content={component.renderComplete(props)}
         onClickChangeButton={() => {
-          this.setActionActive(label);
+          this.setStateForAction(label, { isActive: true });
         }}
       />
     ) : (
@@ -199,11 +193,11 @@ class CheckoutActions extends Component {
         <Comp
           {...action.props}
           onReadyForSaveChange={(ready) => {
-            this.actionReadyForSave(action.label, ready);
+            this.setStateForAction(action.label, { readyForSave: ready });
           }}
           isSaving={isSaving}
           ref={(el) => {
-            this[action.label] = el;
+            this._refs[action.label] = el;
           }}
           label={action.label}
           stepNumber={this.getCurrentActionIndex(action.label) + 1}
@@ -211,7 +205,7 @@ class CheckoutActions extends Component {
         />
         <FormActions>
           {action.props ? (
-            <Button actionType="secondary" onClick={() => this.setActionActive(action.label, false)}>
+            <Button actionType="secondary" onClick={() => { this.setStateForAction(action.label, { isActive: false }); }}>
               Cancel
             </Button>
           ) : (
