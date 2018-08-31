@@ -21,7 +21,17 @@ class AddressBook extends Component {
        * Pass either the Reaction AddressForm component or your own component that
        * accepts compatible props.
        */
-      AddressForm: CustomPropTypes.component.isRequired
+      AddressForm: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction AddressReview component or your own component that
+       * accepts compatible props.
+       */
+      AddressReview: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction AddressSelect component or your own component that
+       * accepts compatible props.
+       */
+      AddressSelect: CustomPropTypes.component.isRequired
     }).isRequired
   };
 
@@ -30,11 +40,13 @@ class AddressBook extends Component {
   state = {};
 
   renderAddressSelect() {
-    return "Address Select";
+    const { components: { AddressSelect } } = this.props;
+    return <AddressSelect />;
   }
 
   renderAddressReview() {
-    return "Address Review";
+    const { components: { AddressReview } } = this.props;
+    return <AddressReview />;
   }
 
   renderAddressForm() {
@@ -43,7 +55,7 @@ class AddressBook extends Component {
   }
 
   render() {
-    return this.renderAddressForm();
+    return this.renderAddressSelect();
   }
 }
 
