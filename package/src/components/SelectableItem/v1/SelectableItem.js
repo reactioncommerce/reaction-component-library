@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import uniqueId from "lodash.uniqueid";
 import styled from "styled-components";
+import uniqueId from "lodash.uniqueid";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
@@ -79,7 +79,7 @@ const StyledIcon = styled.span`
   border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
   margin: ${applyTheme("selectableListIconMargin")};
   width: ${applyTheme("selectableListIconWidth")};
-  height: ${applyTheme("selectableListIconHeight")};    
+  height: ${applyTheme("selectableListIconHeight")};
   svg {
     width: ${applyTheme("selectableListIconWidth")};
     height: ${applyTheme("selectableListIconHeight")};
@@ -117,6 +117,18 @@ const LeftAlignedItem = styled.div`
 class SelectableItem extends Component {
   static propTypes = {
     /**
+     * Optional text, SVG or element displayed on the right-hand side
+     */
+    detail: PropTypes.node,
+    /**
+     * Optional icon (SVG) displayed on the left-hand side
+     */
+    icon: PropTypes.node,
+    /**
+     * `true` if the item is checked
+     */
+    isChecked: PropTypes.bool,
+    /**
      * Left-aligned style
      */
     isLeftAligned: PropTypes.bool,
@@ -125,127 +137,54 @@ class SelectableItem extends Component {
      */
     isReadOnly: PropTypes.bool,
     /**
-     * Item data
+     * Label
      */
-    item: PropTypes.shape({
-      /**
-       * `true` if the item is checked
-       */
-      isChecked: PropTypes.bool,
-      /**
-       * ID
-       */
-      id: PropTypes.string.isRequired,
-      /**
-       * Label
-       */
-      label: PropTypes.string.isRequired,
-      /**
-       * Optional text, SVG or element displayed on the right-hand side
-       */
-      detail: PropTypes.node,
-      /**
-       * Optional icon (SVG) displayed on the left-hand side
-       */
-      icon: PropTypes.node
-    }),
-    /** Optional name of input radio group, passed down from for SelectableList */
-    name: PropTypes.string,
+    label: PropTypes.string.isRequired,
     /**
-     * On change handler for input
+     * Called whenever this item becomes selected or unselected. Two arguments are provided,
+     * `isChecked` and the `value` prop that was passed in.
      */
     onChange: PropTypes.func,
     /**
-     * On change handler for input
+     * A value to be passed to `onChange`
      */
-    onChanging: PropTypes.func
+    value: PropTypes.string.isRequired
   }
 
   static defaultProps = {
     onChange() { },
-    onChanging() { },
-    isLeftAligned: false
+    isChecked: false,
+    isLeftAligned: false,
+    isReadOnly: false
   };
 
-  constructor(props) {
-    super(props);
+  uniqueInstanceIdentifier = uniqueId("SelectableItem_");
 
-    this.state = {
-      id: uniqueId("Radio_"),
-      value: props.item.isChecked || false
-    };
-  }
-
-  componentWillMount() {
-    this.handleChange(this.props.item.isChecked || false);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const { isChecked: value } = this.props.item;
-    const { isChecked: nextValue } = nextProps.item;
-
-    // Whenever a changed value prop comes in, we reset state to that, thus becoming clean.
-    if (value !== nextValue) {
-      this.setState({ value: nextValue || false });
-      this.handleChange(nextValue || false);
-    }
-  }
-
-  onChange = (event) => {
-    this.setValue(event.target.checked);
+  handleChange = (event) => {
+    const { value } = this.props;
+    this.props.onChange(event.target.checked, value);
   };
-
-  getValue() {
-    return this.state.value;
-  }
-
-  setValue(value) {
-    this.setState({ value });
-    this.handleChange(value);
-  }
-
-  resetValue() {
-    this.setValue(this.props.item.isChecked || false);
-  }
-
-  handleChange(checked) {
-    if (this.lastValue === checked) return;
-    this.lastValue = checked;
-    const { onChanging, onChange } = this.props;
-    onChanging(checked);
-    onChange(checked);
-  }
-
-  // Input is dirty if value prop doesn't match value state. Whenever a changed
-  // value prop comes in, we reset state to that, thus becoming clean.
-  isDirty() {
-    return this.state.value !== this.props.item.isChecked;
-  }
 
   render() {
     const {
-      name,
+      detail,
+      icon,
+      isChecked,
       isLeftAligned,
       isReadOnly,
-      item: {
-        id,
-        isChecked,
-        label,
-        detail,
-        icon,
-        value
-      }
+      label,
+      value
     } = this.props;
+
+    const id = `radio_${this.uniqueInstanceIdentifier}`;
 
     const input = (
       <StyledInput
         id={id}
         checked={isChecked}
         value={value}
-        key={id}
-        onChange={this.onChange}
+        onChange={this.handleChange}
         type="radio"
-        name={name}
         disabled={isReadOnly}
       />
     );
@@ -255,7 +194,7 @@ class SelectableItem extends Component {
         htmlFor={id}
       >
         <StyledRadioButton />
-        {icon ? <StyledIcon>{this.props.item.icon}</StyledIcon> : null}
+        {icon ? <StyledIcon>{icon}</StyledIcon> : null}
         {label}
       </StyledLabel>
     );
