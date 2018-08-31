@@ -4,54 +4,52 @@
 
 ##### Show fulfillment options
 ```jsx
-const options = {
-  data: {
-    availableFulfillmentOptions: [
-      {
-        fulfillmentMethod: {
-          _id: "111",
-          name: "Standard",
-          displayName: "Standard (5-9 Days)"
-        },
-        price: {
-          amount: 0,
-          displayAmount: "Free"
-        }
+const fulfillmentGroup = {
+  availableFulfillmentOptions: [
+    {
+      fulfillmentMethod: {
+        _id: "111",
+        name: "Standard",
+        displayName: "Standard (5-9 Days)"
       },
-      {
-        fulfillmentMethod: {
-          _id: "222",
-          name: "Priority",
-          displayName: "Priority (3-5 Days)"
-        },
-        price: {
-          amount: 5.99,
-          displayAmount: "$5.99"
-        }
-      },
-      {
-        fulfillmentMethod: {
-          _id: "333",
-          name: "Express",
-          displayName: "Express 2 Day"
-        },
-        price: {
-          amount: 12.99,
-          displayAmount: "$12.99"
-        }
-      }, {
-        fulfillmentMethod: {
-          _id: "444",
-          name: "Overnight",
-          displayName: "Overnight Expedited"
-        },
-        price: {
-          amount: 24.99,
-          displayAmount: "$24.99"
-        }
+      price: {
+        amount: 0,
+        displayAmount: "Free"
       }
-    ]
-  }
+    },
+    {
+      fulfillmentMethod: {
+        _id: "222",
+        name: "Priority",
+        displayName: "Priority (3-5 Days)"
+      },
+      price: {
+        amount: 5.99,
+        displayAmount: "$5.99"
+      }
+    },
+    {
+      fulfillmentMethod: {
+        _id: "333",
+        name: "Express",
+        displayName: "Express 2 Day"
+      },
+      price: {
+        amount: 12.99,
+        displayAmount: "$12.99"
+      }
+    }, {
+      fulfillmentMethod: {
+        _id: "444",
+        name: "Overnight",
+        displayName: "Overnight Expedited"
+      },
+      price: {
+        amount: 24.99,
+        displayAmount: "$24.99"
+      }
+    }
+  ]
 };
 
 class FulfillmentExample extends React.Component {
@@ -72,10 +70,10 @@ class FulfillmentExample extends React.Component {
       <div>
         <FulfillmentOptionsCheckoutAction
           ref={(formEl) => { this.bindForm(formEl) }}
-          onSubmit={(address) => console.log("Option submitted", address)}
-          stepNumber={2} 
+          onSubmit={({ selectedFulfillmentOption }) => console.log("Selected fulfillment option:", selectedFulfillmentOption)}
+          stepNumber={2}
           label="Choose a shipping method"
-          fulfillmentGroup={options}
+          fulfillmentGroup={fulfillmentGroup}
         />
         <Button onClick={() => this._fulfillmentForm.submit()}>Submit</Button>
       </div>
@@ -91,19 +89,17 @@ class FulfillmentExample extends React.Component {
 ```jsx
 const data = {
   fulfillmentGroup: {
-    data: {
-     selectedFulfillmentOption: {
-        fulfillmentMethod: {
-          _id: "222",
-          name: "Priority",
-          displayName: "Priority (3-5 Days)"
-        },
-        price: {
-          amount: 5.99,
-          displayAmount: "$5.99"
-        }
+    selectedFulfillmentOption: {
+      fulfillmentMethod: {
+        _id: "222",
+        name: "Priority",
+        displayName: "Priority (3-5 Days)"
+      },
+      price: {
+        amount: 5.99,
+        displayAmount: "$5.99"
       }
-     }
+    }
   }
 };
 

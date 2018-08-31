@@ -25,6 +25,18 @@ const EmptyMessage = styled.span`
   font-style: normal;
 `;
 
+const FulfillmentOptionShape = PropTypes.shape({
+  fulfillmentMethod: PropTypes.shape({
+    _id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    displayName: PropTypes.string.isRequired
+  }),
+  price: PropTypes.shape({
+    amount: PropTypes.number.isRequired,
+    displayAmount: PropTypes.string.isRequired
+  })
+});
+
 class FulfillmentOptionsCheckoutAction extends Component {
   static propTypes = {
     /**
@@ -44,20 +56,8 @@ class FulfillmentOptionsCheckoutAction extends Component {
      * Checkout data needed for form
      */
     fulfillmentGroup: PropTypes.shape({
-      data: PropTypes.shape({
-        selectedFulfillmentOption: PropTypes.object,
-        availableFulfillmentOptions: PropTypes.arrayOf(PropTypes.shape({
-          fulfillmentMethod: PropTypes.shape({
-            _id: PropTypes.string.isRequired,
-            name: PropTypes.string.isRequired,
-            displayName: PropTypes.string.isRequired
-          }),
-          price: PropTypes.shape({
-            amount: PropTypes.number.isRequired,
-            displayAmount: PropTypes.string.isRequired
-          })
-        })).isRequired
-      })
+      availableFulfillmentOptions: PropTypes.arrayOf(FulfillmentOptionShape).isRequired,
+      selectedFulfillmentOption: FulfillmentOptionShape
     }).isRequired,
     /**
      * Is the fulfillment option being saved
@@ -87,12 +87,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
 
   static defaultProps = {
     isSaving: false,
-    onReadyForSaveChange() { },
-    fulfillmentGroup: {
-      data: {
-        selectedFulfillmentOption: {}
-      }
-    }
+    onReadyForSaveChange() { }
   };
 
   state = {};
@@ -110,9 +105,13 @@ class FulfillmentOptionsCheckoutAction extends Component {
     this._fulfillmentOptionForm.submit();
   };
 
-  handleSubmit = async (value) => {
+  handleSubmit = async ({ selectedFulfillmentOptionId }) => {
+    const { fulfillmentGroup: { availableFulfillmentOptions } } = this.props;
+    // We get the ID, but we want to pass the whole fulfillment option to onSubmit
+    const selectedFulfillmentOption = availableFulfillmentOptions.find((option) => option.fulfillmentMethod._id === selectedFulfillmentOptionId);
+
     const { onSubmit } = this.props;
-    await onSubmit(value);
+    await onSubmit({ selectedFulfillmentOption });
   };
 
   handleChange = () => {
@@ -124,23 +123,24 @@ class FulfillmentOptionsCheckoutAction extends Component {
     id: option.fulfillmentMethod._id,
     label: option.fulfillmentMethod.displayName,
     detail: option.price.displayAmount,
-    value: option.fulfillmentMethod.name
+    value: option.fulfillmentMethod._id
   }));
 
-  selectedOptiononDefault = () => {
-    const { fulfillmentGroup: { data: { selectedFulfillmentOption, availableFulfillmentOptions } } } = this.props;
-    let selectedOption = "";
+  get selectedOptionId() {
+    const { fulfillmentGroup: { selectedFulfillmentOption, availableFulfillmentOptions } } = this.props;
+
     if (selectedFulfillmentOption) {
-      selectedOption = selectedFulfillmentOption.fulfillmentMethod.name;
-    } else if (availableFulfillmentOptions) {
-      // stubbed out sorting the cheapest
-      // selecting the first option for now:
-      selectedOption = availableFulfillmentOptions[0].fulfillmentMethod.name;
-    } else {
-      selectedOption = "";
+      return selectedFulfillmentOption.fulfillmentMethod._id;
     }
-    return selectedOption;
-  };
+
+    // stubbed out sorting the cheapest
+    // selecting the first option for now:
+    if (availableFulfillmentOptions && availableFulfillmentOptions.length > 0) {
+      return availableFulfillmentOptions[0].fulfillmentMethod._id;
+    }
+
+    return null;
+  }
 
   render() {
     const {
@@ -148,9 +148,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
       isSaving,
       label,
       fulfillmentGroup: {
-        data: {
-          availableFulfillmentOptions
-        }
+        availableFulfillmentOptions
       },
       stepNumber
     } = this.props;
@@ -166,12 +164,12 @@ class FulfillmentOptionsCheckoutAction extends Component {
               this._fulfillmentOptionForm = formEl;
             }}
             onSubmit={this.handleSubmit}
-            value={{ selectedFulfillmentMethod: this.selectedOptiononDefault() }}
+            value={{ selectedFulfillmentOptionId: this.selectedOptionId }}
           >
             <SelectableList
               isBordered
               isSaving={isSaving}
-              name="selectedFulfillmentMethod"
+              name="selectedFulfillmentOptionId"
               onChange={this.handleChange}
               options={this.mapFulfillmentOptions(availableFulfillmentOptions)}
             />
@@ -187,7 +185,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
 const WrappedFullfillmentOptionsCheckoutAction = withComponents(FulfillmentOptionsCheckoutAction);
 
 // eslint-disable-next-line
-WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { data: { selectedFulfillmentOption } } }) => {
+WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { selectedFulfillmentOption } }) => {
   return (
     <FulfillmentOption>
       {selectedFulfillmentOption.fulfillmentMethod.displayName} • {selectedFulfillmentOption.price.displayAmount}
