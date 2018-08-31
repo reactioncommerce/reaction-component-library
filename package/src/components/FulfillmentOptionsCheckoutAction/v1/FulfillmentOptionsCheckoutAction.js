@@ -92,11 +92,6 @@ class FulfillmentOptionsCheckoutAction extends Component {
 
   state = {};
 
-  componentDidMount() {
-    const { onReadyForSaveChange } = this.props;
-    onReadyForSaveChange(true);
-  }
-
   _fulfillmentOptionForm = null;
 
   getValue = () => this._fulfillmentOptionForm.getValue();
@@ -114,9 +109,9 @@ class FulfillmentOptionsCheckoutAction extends Component {
     await onSubmit({ selectedFulfillmentOption });
   };
 
-  handleChange = () => {
+  handleChange = (selectedValue) => {
     const { onReadyForSaveChange } = this.props;
-    onReadyForSaveChange(true);
+    onReadyForSaveChange(!!selectedValue);
   };
 
   mapFulfillmentOptions = (availableFulfillmentOptions) => availableFulfillmentOptions.map((option) => ({
@@ -132,8 +127,10 @@ class FulfillmentOptionsCheckoutAction extends Component {
     if (selectedFulfillmentOption) {
       return selectedFulfillmentOption.fulfillmentMethod._id;
     }
+
+    // If a selection has not been made yet, default to cheapest
     if (availableFulfillmentOptions && availableFulfillmentOptions.length > 0) {
-      return availableFulfillmentOptions.sort((a, b) => a.price.amount - b.price.amount)[0].fulfillmentMethod._id;
+      return availableFulfillmentOptions.sort((itemA, itemB) => itemA.price.amount - itemB.price.amount)[0].fulfillmentMethod._id;
     }
 
     return null;
