@@ -94,7 +94,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
 
   componentDidMount() {
     const { onReadyForSaveChange } = this.props;
-    onReadyForSaveChange(false);
+    onReadyForSaveChange(true);
   }
 
   _fulfillmentOptionForm = null;

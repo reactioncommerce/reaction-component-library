@@ -2,7 +2,10 @@
 
 #### Usage
 
+- The cheapest fulfillment option will be selected by default
+
 ##### Show fulfillment options
+
 ```jsx
 const fulfillmentGroup = {
   availableFulfillmentOptions: [
