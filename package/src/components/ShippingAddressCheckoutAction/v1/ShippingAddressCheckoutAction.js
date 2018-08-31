@@ -75,11 +75,6 @@ class ShippingAddressCheckoutAction extends Component {
 
   state = {};
 
-  componentDidMount() {
-    const { onReadyForSaveChange } = this.props;
-    onReadyForSaveChange(false);
-  }
-
   _addressForm = null;
 
   submit = () => {
