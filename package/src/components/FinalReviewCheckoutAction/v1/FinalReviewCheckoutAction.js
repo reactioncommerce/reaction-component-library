@@ -17,6 +17,11 @@ const Title = styled.h3`
 const Summary = styled.div`
   border-left: 1px solid ${applyTheme("color_black10")};
   border-right: 1px solid ${applyTheme("color_black10")};
+
+  table td {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 class FinalReviewCheckoutAction extends Component {
