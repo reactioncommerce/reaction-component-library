@@ -463,6 +463,7 @@ module.exports = {
             "CheckoutActionIncomplete",
             "CheckoutEmailAddress",
             "CheckoutTopHat",
+            "FinalReviewCheckoutAction",
             "ShippingAddressCheckoutAction",
             "StripePaymentCheckoutAction"
           ],
