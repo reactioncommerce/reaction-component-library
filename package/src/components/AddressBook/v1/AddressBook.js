@@ -1,15 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+// import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { CustomPropTypes } from "../../../utils";
 
-const StyledDiv = styled.div`
-  color: #333333;
-`;
+// onst StyledDiv = styled.div`
+//   color: #333333;
+// `;
 
 class AddressBook extends Component {
   static propTypes = {
+    /**
+     * User account data.
+     */
+    account: PropTypes.object,
     /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
@@ -32,30 +36,71 @@ class AddressBook extends Component {
        * accepts compatible props.
        */
       AddressSelect: CustomPropTypes.component.isRequired
-    }).isRequired
+    }).isRequired,
+    /**
+     * Value for the AddressFrom
+     * needed for editing anonymous cart shipping addresses
+     */
+    value: PropTypes.object
   };
 
   static defaultProps = {};
 
   state = {};
 
+  _addresForm = null;
+  _addressSelect = null;
+  _addressReview = null;
+
+  //
+  // Handler Methods
+  //
+
+  //
+  // Render Methods
+  //
+
   renderAddressSelect() {
     const { components: { AddressSelect } } = this.props;
-    return <AddressSelect />;
+    return (
+      <AddressSelect
+        ref={(el) => {
+          this._addressSelect = el;
+        }}
+      />
+    );
   }
 
   renderAddressReview() {
     const { components: { AddressReview } } = this.props;
-    return <AddressReview />;
+    return (
+      <AddressReview
+        ref={(el) => {
+          this._addressReview = el;
+        }}
+      />
+    );
   }
 
   renderAddressForm() {
     const { components: { AddressForm } } = this.props;
-    return <AddressForm />;
+    return (
+      <AddressForm
+        ref={(el) => {
+          this._addressForm = el;
+        }}
+      />
+    );
   }
 
   render() {
-    return this.renderAddressSelect();
+    const { components: { Button } } = this.props;
+    return (
+      <Fragment>
+        {this.renderAddressForm()}
+        <Button>Save</Button>
+      </Fragment>
+    );
   }
 }
 
