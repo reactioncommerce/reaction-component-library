@@ -33,7 +33,10 @@ function stringifyJSONCircularSafe(obj) {
  * Components
  */
 [
+  "AddressBook",
   "AddressForm",
+  "AddressReview",
+  "AddressSelect",
   "BadgeOverlay",
   "Button",
   "CartItem",

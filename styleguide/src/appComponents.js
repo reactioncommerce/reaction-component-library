@@ -7,7 +7,10 @@ import iconLock from "../../package/src/svg/iconLock";
 import iconMastercard from "../../package/src/svg/iconMastercard";
 import iconVisa from "../../package/src/svg/iconVisa";
 import spinner from "../../package/src/svg/spinner";
+import AddressBook from "../../package/src/components/AddressBook/v1";
 import AddressForm from "../../package/src/components/AddressForm/v1";
+import AddressReview from "../../package/src/components/AddressReview/v1";
+import AddressSelect from "../../package/src/components/AddressSelect/v1";
 import BadgeOverlay from "../../package/src/components/BadgeOverlay/v1";
 import Button from "../../package/src/components/Button/v1";
 import CartItem from "../../package/src/components/CartItem/v1";
@@ -42,7 +45,10 @@ import withLocales from "./components/withLocales.js";
 const AddressFormWithLocales = withLocales(AddressForm);
 
 export default {
+  AddressBook,
   AddressForm: AddressFormWithLocales,
+  AddressReview,
+  AddressSelect,
   BadgeOverlay,
   Button,
   CartItem,
