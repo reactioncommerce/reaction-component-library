@@ -132,11 +132,8 @@ class FulfillmentOptionsCheckoutAction extends Component {
     if (selectedFulfillmentOption) {
       return selectedFulfillmentOption.fulfillmentMethod._id;
     }
-
-    // stubbed out sorting the cheapest
-    // selecting the first option for now:
     if (availableFulfillmentOptions && availableFulfillmentOptions.length > 0) {
-      return availableFulfillmentOptions[0].fulfillmentMethod._id;
+      return availableFulfillmentOptions.sort((a, b) => a.price.amount - b.price.amount)[0].fulfillmentMethod._id;
     }
 
     return null;
