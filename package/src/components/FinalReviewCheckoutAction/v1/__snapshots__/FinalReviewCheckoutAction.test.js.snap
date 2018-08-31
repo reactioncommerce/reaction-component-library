@@ -27,6 +27,11 @@ Array [
   border-right: 1px solid #e6e6e6;
 }
 
+.c0 table td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 <div
     className="c0"
   >
