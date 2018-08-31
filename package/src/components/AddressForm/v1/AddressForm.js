@@ -197,8 +197,8 @@ class AddressForm extends Component {
     const { locales: nextLocales, value: nextValue } = this.props;
     const { activeCountry: prevCountry } = this.state;
 
-    // Sometime the AddressForm will render before locales are provided.
-    // This is offten the case when dynamically importing locales via a JSON file.
+    // Sometimes the AddressForm will render before locales are provided.
+    // This is often the case when dynamically importing locales via a JSON file.
     // Once the file loads and the locales are provided the form needs to check
     // and correct the active country.
     if (isEmpty(prevLocales) && !isEmpty(nextLocales) && prevLocales !== nextLocales) {
