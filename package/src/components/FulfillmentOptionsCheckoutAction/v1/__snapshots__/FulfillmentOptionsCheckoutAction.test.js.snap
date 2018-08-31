@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot - empty fullfillment options 1`] = `
+exports[`basic snapshot - empty fulfillment options 1`] = `
 Array [
   .c0 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -57,15 +57,11 @@ Array [
     . 
     Choose a shipping method
   </h3>,
-  .c0 {
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-style: normal;
-}
-
-<span
-    className="c0"
+  <div
+    className={null}
+    style={Object {}}
   >
-    No fulfillment methods
-  </span>,
+    SelectableList(undefined)
+  </div>,
 ]
 `;

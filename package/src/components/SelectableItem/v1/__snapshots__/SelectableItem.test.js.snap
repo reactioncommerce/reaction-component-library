@@ -87,6 +87,27 @@ exports[`basic snapshot with empty props 1`] = `
   cursor: not-allowed;
 }
 
+.c6 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  -webkit-letter-spacing: 0.3px;
+  -moz-letter-spacing: 0.3px;
+  -ms-letter-spacing: 0.3px;
+  letter-spacing: 0.3px;
+}
+
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -116,7 +137,7 @@ exports[`basic snapshot with empty props 1`] = `
       id="radio_SelectableItem_1"
       onChange={[Function]}
       type="radio"
-      value={undefined}
+      value="detail"
     />
     <label
       className="c2 c3"
@@ -125,7 +146,13 @@ exports[`basic snapshot with empty props 1`] = `
       <span
         className="c4 c5"
       />
+      Label
     </label>
+    <div
+      className="c6"
+    >
+      Detail
+    </div>
   </div>
 </div>
 `;
