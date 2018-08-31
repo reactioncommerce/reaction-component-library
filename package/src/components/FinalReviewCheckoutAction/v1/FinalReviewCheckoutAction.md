@@ -8,9 +8,9 @@ const isReady = (ready) => true;
 
 const checkoutSummary = {
   displayShipping: "$5.25",
-  displaySubtotal: "$275.77",
-  displayTotal: "$288.64",
-  displayTax: "$7.62",
+  displaySubtotal: "$118.00",
+  displayTotal: "$135.58",
+  displayTax: "$12.33",
   items: [{
     _id: "123",
     attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
