@@ -185,12 +185,10 @@ class FulfillmentOptionsCheckoutAction extends Component {
 const WrappedFullfillmentOptionsCheckoutAction = withComponents(FulfillmentOptionsCheckoutAction);
 
 // eslint-disable-next-line
-WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { selectedFulfillmentOption } }) => {
-  return (
-    <FulfillmentOption>
-      {selectedFulfillmentOption.fulfillmentMethod.displayName} • {selectedFulfillmentOption.price.displayAmount}
-    </FulfillmentOption>
-  );
-};
+WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { selectedFulfillmentOption } }) => (
+  <FulfillmentOption>
+    {selectedFulfillmentOption.fulfillmentMethod.displayName} • {selectedFulfillmentOption.price.displayAmount}
+  </FulfillmentOption>
+);
 
 export default WrappedFullfillmentOptionsCheckoutAction;
