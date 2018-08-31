@@ -101,14 +101,12 @@ export default function withLocales(ComponentWithLocales) {
     };
 
     async componentDidMount() {
-      const { locales } = this.state;
-      if (isEmpty(locales)) {
-        this.setLocales = await this.loadLocales();
+      const { locales: currentLocales } = this.state;
+      if (isEmpty(currentLocales)) {
+        await this.loadLocales().then((locales) => {
+          this.setState({ locales });
+        });
       }
-    }
-
-    set setLocales(locales) {
-      this.setState({ locales });
     }
 
     async loadLocales() {
