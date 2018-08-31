@@ -17,15 +17,15 @@ const actions = [
     component: ShippingAddressCheckoutAction,
     onSubmit: setShippingAddress
     props: {
-      fulfillmentGroup: cart.checkout.fulfillmentGroup
+      fulfillmentGroup: cart.checkout.fulfillmentGroups[0]
     }
   },
   {
     label: "Shipping Options",
-    component: ShippingOptionCheckoutAction,
-    onSubmit: setShippingOption
+    component: FulfillmentOptionsCheckoutAction,
+    onSubmit: setFulfillmentOption
     props: {
-      availableFulfillmentGroups: cart.checkout.fulfillmentGroup.availableFulfillmentGroups
+      availableFulfillmentGroups: cart.checkout.fulfillmentGroups[0]
     }
   },
   { 
@@ -48,52 +48,52 @@ const fulfillmentGroups = [{
   _id: 1,
   type: "shipping",
   data: {
-    shippingAddress: null,
-    availableFulfillmentOptions: [{
-      fulfillmentMethod: {
-        _id: "111",
-        name: "Standard",
-        displayName: "Standard (5-9 Days)"
-      },
-      price: {
-        amount: 0,
-        displayAmount: "Free"
-      }
+    shippingAddress: null
+  },
+  availableFulfillmentOptions: [{
+    fulfillmentMethod: {
+      _id: "111",
+      name: "Standard",
+      displayName: "Standard (5-9 Days)"
     },
-    {
-      fulfillmentMethod: {
-        _id: "222",
-        name: "Priority",
-        displayName: "Priority (3-5 Days)"
-      },
-      price: {
-        amount: 5.99,
-        displayAmount: "$5.99"
-      }
+    price: {
+      amount: 0,
+      displayAmount: "Free"
+    }
+  },
+  {
+    fulfillmentMethod: {
+      _id: "222",
+      name: "Priority",
+      displayName: "Priority (3-5 Days)"
     },
-    {
-      fulfillmentMethod: {
-        _id: "333",
-        name: "Express",
-        displayName: "Express 2 Day"
-      },
-      price: {
-        amount: 12.99,
-        displayAmount: "$12.99"
-      }
+    price: {
+      amount: 5.99,
+      displayAmount: "$5.99"
+    }
+  },
+  {
+    fulfillmentMethod: {
+      _id: "333",
+      name: "Express",
+      displayName: "Express 2 Day"
     },
-    {
-      fulfillmentMethod: {
-        _id: "444",
-        name: "Overnight",
-        displayName: "Overnight Expedited"
-      },
-      price: {
-        amount: 24.99,
-        displayAmount: "$24.99"
-      }
-    }]
-  }
+    price: {
+      amount: 12.99,
+      displayAmount: "$12.99"
+    }
+  },
+  {
+    fulfillmentMethod: {
+      _id: "444",
+      name: "Overnight",
+      displayName: "Overnight Expedited"
+    },
+    price: {
+      amount: 24.99,
+      displayAmount: "$24.99"
+    }
+  }]
 }];
 
 const paymentMethods = [{
@@ -121,7 +121,7 @@ class CheckoutActionsExample extends React.Component {
   }
 
   getFulfillmentOptionStatus() {
-    const fulfillmentGroupWithoutSelectedOption = this.state.checkout.fulfillmentGroups[0].data.selectedFulfillmentOption
+    const fulfillmentGroupWithoutSelectedOption = this.state.checkout.fulfillmentGroups[0].selectedFulfillmentOption
 
     return (fulfillmentGroupWithoutSelectedOption) ? "complete" : "incomplete";
   }
@@ -153,8 +153,8 @@ class CheckoutActionsExample extends React.Component {
               fulfillmentGroups: [{
                 data: {
                   shippingAddress: data,
-                  availableFulfillmentOptions: checkout.fulfillmentGroups[0].data.availableFulfillmentOptions
-                }
+                },
+                availableFulfillmentOptions: checkout.fulfillmentGroups[0].availableFulfillmentOptions
               }]
             }
           }));
@@ -172,10 +172,10 @@ class CheckoutActionsExample extends React.Component {
               payments: checkout.payments,
               fulfillmentGroups: [{
                 data: {
-                  shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress,
-                  selectedFulfillmentOption: data.selectedFulfillmentOption,
-                  availableFulfillmentOptions: checkout.fulfillmentGroups[0].data.availableFulfillmentOptions
-                }
+                  shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress
+                },
+                selectedFulfillmentOption: data.selectedFulfillmentOption,
+                availableFulfillmentOptions: checkout.fulfillmentGroups[0].availableFulfillmentOptions
               }]
             }
           }));
@@ -210,9 +210,9 @@ class CheckoutActionsExample extends React.Component {
   render() {
     const { checkout } = this.state;
 
-const actions = [
+    const actions = [
       {
-        label: "Shipping Information",
+        label: "Shipping information",
         status: this.getShippingStatus(),
         component: ShippingAddressCheckoutAction,
         onSubmit: this.setShippingAddress,
@@ -221,17 +221,17 @@ const actions = [
         }
       },
       {
-        label: "Fulfillment Information",
+        label: "Fulfillment information",
         status: this.getFulfillmentOptionStatus(),
         component: FulfillmentOptionsCheckoutAction,
         onSubmit: this.setFulfillmentOption,
         readyForSave: true,
         props:  {
-          fulfillmentGroup: checkout.fulfillmentGroups[0].data
+          fulfillmentGroup: checkout.fulfillmentGroups[0]
         }
       },
       { 
-        label: "Payment Information", 
+        label: "Payment information", 
         status: this.getPaymentStatus(),
         component: StripePaymentCheckoutAction,
         onSubmit: this.setPaymentMethod,
