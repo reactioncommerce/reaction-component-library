@@ -85,8 +85,12 @@ class CheckoutActions extends Component {
       const { currentActions = [] } = state;
       const actions = props.actions.map(({ label }) => {
         const currentAction = currentActions.find((action) => action.label === label) || {};
+        if (currentAction.readyForSave === undefined) {
+          const readyForSave = undefined;
+        } else {
+          debugger;
+        }
         const { isActive = false, readyForSave = false, isSaving = false } = currentAction;
-
         return {
           label,
           readyForSave,
@@ -94,7 +98,7 @@ class CheckoutActions extends Component {
           isActive
         };
       });
-
+      console.log(actions);
       return {
         currentActions: actions,
         previousActionsProp: props.actions
@@ -186,8 +190,8 @@ class CheckoutActions extends Component {
         }}
       />
     ) : (
-      <span />
-    );
+        <span />
+      );
   };
 
   renderActiveAction = ({ component: Comp, ...action }) => {
@@ -215,8 +219,8 @@ class CheckoutActions extends Component {
               Cancel
             </Button>
           ) : (
-            ""
-          )}
+              ""
+            )}
           <Button onClick={() => this.actionSubmit(action.label)} isDisabled={!readyForSave} isWaiting={isSaving}>
             Save and continue
           </Button>

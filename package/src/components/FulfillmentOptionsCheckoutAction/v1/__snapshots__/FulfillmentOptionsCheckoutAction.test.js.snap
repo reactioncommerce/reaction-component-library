@@ -57,11 +57,15 @@ Array [
     . 
     Choose a shipping method
   </h3>,
-  <div
-    className={null}
-    style={Object {}}
+  .c0 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-style: normal;
+}
+
+<span
+    className="c0"
   >
-    SelectableList(undefined)
-  </div>,
+    No fulfillment methods
+  </span>,
 ]
 `;
