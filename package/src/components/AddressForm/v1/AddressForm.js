@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import uniqueId from "lodash.uniqueid";
+import isEmpty from "lodash.isempty";
 import { Form } from "reacto-form";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
@@ -69,19 +70,6 @@ class AddressForm extends Component {
       PhoneNumberInput: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
-     * Country options
-     */
-    countries: PropTypes.arrayOf(PropTypes.shape({
-      /**
-         * Country option label ("United States", "Nigeria")
-         */
-      label: PropTypes.string,
-      /**
-         * Country option value ("US", "NU")
-         */
-      value: PropTypes.string
-    })),
-    /**
      * Errors array
      */
     errors: PropTypes.arrayOf(PropTypes.shape({
@@ -99,6 +87,19 @@ class AddressForm extends Component {
      */
     isSaving: PropTypes.bool,
     /**
+     * Locale options to populate the forms country and region fields
+     */
+    locales: PropTypes.objectOf(PropTypes.shape({
+      name: PropTypes.string,
+      native: PropTypes.string,
+      phone: PropTypes.string,
+      continent: PropTypes.string,
+      capital: PropTypes.string,
+      currency: PropTypes.string,
+      languges: PropTypes.string,
+      states: PropTypes.objectOf(PropTypes.shape({ name: PropTypes.string }))
+    })),
+    /**
      * Form name
      */
     name: PropTypes.string,
@@ -111,26 +112,9 @@ class AddressForm extends Component {
      */
     onChange: PropTypes.func,
     /**
-     * Country change event callback, used to fetch new list of regions if country has changed.
-     */
-    onCountryChange: PropTypes.func,
-    /**
      * Form submit event callback
      */
     onSubmit: PropTypes.func,
-    /**
-     * Region options
-     */
-    regions: PropTypes.arrayOf(PropTypes.shape({
-      /**
-         * Region option label ("Louisiana", "California")
-         */
-      label: PropTypes.string,
-      /**
-         * Region option value ("LA", "CA")
-         */
-      value: PropTypes.string
-    })),
     /**
      * Should the AddressForm show the "Address Names" field.
      */
@@ -164,11 +148,11 @@ class AddressForm extends Component {
   static defaultProps = {
     addressNamePlaceholder: "Address Name",
     errors: [],
+    locales: {},
     isSaving: false,
     name: "address",
     onCancel() {},
     onChange() {},
-    onCountryChange() {},
     onSubmit() {},
     shouldShowAddressNameField: false,
     shouldShowIsCommercialField: false,
@@ -197,11 +181,66 @@ class AddressForm extends Component {
     }
   };
 
-  state = {};
+  state = {
+    // if the form has a value then try to use the value.country
+    // if that is not set check to see if any locales are provided and use the first one
+    // if no locales use "US"
+    activeCountry:
+      // eslint-disable-next-line
+      this.props.value && this.props.value.country !== ""
+        ? this.props.value.country
+        : isEmpty(this.props.locales) ? "US" : Object.keys(this.props.locales)[0]
+  };
+
+  componentDidUpdate(prevProps) {
+    const { locales: prevLocales } = prevProps;
+    const { locales: nextLocales, value: nextValue } = this.props;
+    const { activeCountry: prevCountry } = this.state;
+
+    // Sometimes the AddressForm will render before locales are provided.
+    // This is often the case when dynamically importing locales via a JSON file.
+    // Once the file loads and the locales are provided the form needs to check
+    // and correct the active country.
+    if (isEmpty(prevLocales) && !isEmpty(nextLocales) && prevLocales !== nextLocales) {
+      const nextCountry = Object.keys(nextLocales)[0];
+      if (nextValue && nextValue.country === prevCountry) {
+        return;
+      } else if (nextCountry !== prevCountry) {
+        // eslint-disable-next-line
+        this.setState({ activeCountry: nextCountry });
+      }
+    }
+  }
 
   _form = null;
 
   uniqueInstanceIdentifier = uniqueId("AddressForm_");
+
+  get countryOptions() {
+    const { locales } = this.props;
+    if (!locales) return [];
+    const options = Object.keys(locales).map((key) => ({ value: key, label: locales[key].name }));
+    return options;
+  }
+
+  get regionOptions() {
+    const { locales } = this.props;
+    const { activeCountry } = this.state;
+    const options = [];
+    if (locales && locales[activeCountry] && locales[activeCountry].states) {
+      Object.keys(locales[activeCountry].states).forEach((key) => {
+        options.push({ value: key, label: locales[activeCountry].states[key].name });
+      });
+    }
+    return options;
+  }
+
+  handleCountryChange = (country) => {
+    if (!country) return;
+    this.setState({
+      activeCountry: country
+    });
+  };
 
   handleCancel = () => {
     const { onCancel } = this.props;
@@ -210,24 +249,20 @@ class AddressForm extends Component {
 
   getValue = () => this._form.getValue();
 
-  submit() {
+  submit = () => {
     this._form.submit();
-  }
+  };
 
-  validate() {
-    return this._form.validate();
-  }
+  validate = () => this._form.validate();
 
   render() {
     const {
       addressNamePlaceholder,
       value,
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
-      countries,
       errors,
       isSaving,
       name,
-      regions,
       onChange,
       shouldShowAddressNameField,
       shouldShowIsCommercialField,
@@ -262,12 +297,7 @@ class AddressForm extends Component {
         <Grid>
           {shouldShowAddressNameField && (
             <ColFull>
-              <Field
-                name="addressName"
-                label="Address Name"
-                labelFor={addressNameInputId}
-                isOptional
-              >
+              <Field name="addressName" label="Address Name" labelFor={addressNameInputId} isOptional>
                 <TextInput
                   id={addressNameInputId}
                   name="addressName"
@@ -280,15 +310,19 @@ class AddressForm extends Component {
 
           <ColFull>
             <Field name="country" label="Country" labelFor={countryInputId} isRequired>
-              <Select
-                id={countryInputId}
-                isSearchable
-                name="country"
-                onChange={this.props.onCountryChange}
-                options={countries}
-                placeholder="Country"
-                isReadOnly={isSaving}
-              />
+              {this.countryOptions && this.countryOptions.length > 1 ? (
+                <Select
+                  id={countryInputId}
+                  isSearchable
+                  name="country"
+                  onChange={this.handleCountryChange}
+                  options={this.countryOptions}
+                  placeholder="Country"
+                  isReadOnly={isSaving}
+                />
+              ) : (
+                <TextInput id={countryInputId} name="country" placeholder="Country" isReadOnly={isSaving} />
+              )}
               <ErrorsBlock names={["country"]} />
             </Field>
           </ColFull>
@@ -333,12 +367,12 @@ class AddressForm extends Component {
 
           <ColHalf>
             <Field name="region" label="Region" labelFor={regionInputId} isRequired>
-              {regions && regions.length > 1 ? (
+              {this.regionOptions && this.regionOptions.length > 1 ? (
                 <Select
                   id={regionInputId}
                   isSearchable
                   name="region"
-                  options={regions}
+                  options={this.regionOptions}
                   placeholder="Region"
                   isReadOnly={isSaving}
                 />

@@ -73,17 +73,7 @@ class ShippingAddressCheckoutAction extends Component {
     onReadyForSaveChange() {}
   };
 
-  state = {
-    activeCountry: "US",
-    countries: [
-      { value: "US", label: "United States" },
-      { value: "DE", label: "Germany" },
-      { value: "NU", label: "Nigeria" }
-    ],
-    regions: {
-      US: [{ value: "LA", label: "Louisiana" }, { value: "CA", label: "California" }]
-    }
-  };
+  state = {};
 
   componentDidMount() {
     const { onReadyForSaveChange } = this.props;
@@ -107,15 +97,6 @@ class ShippingAddressCheckoutAction extends Component {
     onReadyForSaveChange(isFilled);
   };
 
-  handleCountryChange(country) {
-    const activeCountry = this.state.countries.find((cnty) => cnty.value === country);
-    if (activeCountry) {
-      this.setState({
-        activeCountry: activeCountry.value
-      });
-    }
-  }
-
   render() {
     const { components: { AddressForm }, fulfillmentGroup, isSaving, label, stepNumber } = this.props;
     const shippingAddress = fulfillmentGroup ? fulfillmentGroup.data.shippingAddress : null;
@@ -128,10 +109,7 @@ class ShippingAddressCheckoutAction extends Component {
           ref={(formEl) => {
             this._addressForm = formEl;
           }}
-          countries={this.state.countries}
           isSaving={isSaving}
-          regions={this.state.regions[this.state.activeCountry]}
-          onCountryChange={(val) => this.handleCountryChange(val)}
           onChange={this.handleChange}
           onSubmit={this.handleSubmit}
           value={shippingAddress}
