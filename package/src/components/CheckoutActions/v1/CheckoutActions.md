@@ -225,6 +225,7 @@ const actions = [
         status: this.getFulfillmentOptionStatus(),
         component: FulfillmentOptionsCheckoutAction,
         onSubmit: this.setFulfillmentOption,
+        readyForSave: true,
         props:  {
           fulfillmentGroup: checkout.fulfillmentGroups[0].data
         }
