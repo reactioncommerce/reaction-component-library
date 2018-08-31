@@ -28,8 +28,8 @@ const actions = [
       availableFulfillmentGroups: cart.checkout.fulfillmentGroups[0]
     }
   },
-  { 
-    label: "Payment Information", 
+  {
+    label: "Payment Information",
     status: "incomplete",
     component: PaymentCheckoutAction,
     onSubmit: setPayment,
@@ -154,6 +154,7 @@ class CheckoutActionsExample extends React.Component {
                 data: {
                   shippingAddress: data,
                 },
+                selectedFulfillmentOption: checkout.fulfillmentGroups[0].selectedFulfillmentOption,
                 availableFulfillmentOptions: checkout.fulfillmentGroups[0].availableFulfillmentOptions
               }]
             }
@@ -199,7 +200,7 @@ class CheckoutActionsExample extends React.Component {
           this.setState(Object.assign(this.state, {
             checkout: {
               fulfillmentGroups: checkout.fulfillmentGroups,
-              payments: [payment] 
+              payments: [payment]
             }
           }));
           resolve(payment);
@@ -230,14 +231,14 @@ class CheckoutActionsExample extends React.Component {
           fulfillmentGroup: checkout.fulfillmentGroups[0]
         }
       },
-      { 
-        label: "Payment information", 
+      {
+        label: "Payment information",
         status: this.getPaymentStatus(),
         component: StripePaymentCheckoutAction,
         onSubmit: this.setPaymentMethod,
         props: {
-            payment: checkout.payments[0] 
-        } 
+            payment: checkout.payments[0]
+        }
       }
     ];
 
