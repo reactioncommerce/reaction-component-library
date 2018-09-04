@@ -15,8 +15,8 @@ const Title = styled.h3`
 `;
 
 const Summary = styled.div`
-  border-left: 1px solid ${applyTheme("color_black10")};
-  border-right: 1px solid ${applyTheme("color_black10")};
+  border: 1px solid ${applyTheme("color_black10")};
+  border-bottom: none;
 
   table td {
     padding-left: 1rem;
