@@ -40,6 +40,16 @@ const PriceContainer = styled.div`
 class CatalogGridItem extends Component {
   static propTypes = {
     /**
+     * Labels to use for the various badges. Refer to `BadgeOverlay`'s prop documentation.
+     */
+    badgeLabels: PropTypes.shape({
+      BACKORDER: PropTypes.string,
+      BESTSELLER: PropTypes.string,
+      LOW_QUANTITY: PropTypes.string,
+      SOLD_OUT: PropTypes.string,
+      SALE: PropTypes.string
+    }),
+    /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
@@ -93,6 +103,7 @@ class CatalogGridItem extends Component {
   };
 
   static defaultProps = {
+    badgeLabels: null,
     onClick() {},
     placeholderImageURL: ""
   };
@@ -161,7 +172,15 @@ class CatalogGridItem extends Component {
   }
 
   render() {
-    const { components: { BadgeOverlay, Link }, product } = this.props;
+    const { badgeLabels, components: { BadgeOverlay, Link }, product } = this.props;
+
+    const badgeProps = {
+      product: product
+    };
+
+    if (badgeLabels) {
+      badgeProps.badgeLabels = badgeLabels;
+    }
 
     return (
       <div>
@@ -169,7 +188,7 @@ class CatalogGridItem extends Component {
           href={this.productDetailHref}
           onClick={this.handleOnClick}
         >
-          <BadgeOverlay product={product}>
+          <BadgeOverlay {...badgeProps}>
             {this.renderProductMedia()}
             {this.renderProductInfo()}
           </BadgeOverlay>

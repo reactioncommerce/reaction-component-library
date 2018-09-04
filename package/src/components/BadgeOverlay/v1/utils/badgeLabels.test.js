@@ -4,7 +4,7 @@ const BADGE_LABELS_VALUES = {
   BACKORDER: "Backorder",
   BESTSELLER: "Best Seller",
   LOW_QUANTITY: "Low Inventory",
-  SOLD_OUT: "Sold out",
+  SOLD_OUT: "Sold Out",
   SALE: "Sale"
 };
 

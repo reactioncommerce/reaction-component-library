@@ -84,3 +84,22 @@ test("CatalogGrid custom placeholder image snapshot", () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test("CatalogGrid custom snapshot", () => {
+  const component = renderer.create((
+    <CatalogGrid
+      components={mockComponents}
+      products={mockProducts}
+      badgeLabels={{
+        BACKORDER: "Back Order!",
+        BESTSELLER: "Best-selling Product",
+        LOW_QUANTITY: "Only few left!",
+        SOLD_OUT: "None Left",
+        SALE: "Limited-time Sale"
+      }}
+    />
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
