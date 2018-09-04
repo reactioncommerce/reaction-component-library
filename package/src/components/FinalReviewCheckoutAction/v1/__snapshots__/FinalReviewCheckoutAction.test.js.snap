@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+Array [
+  .c0 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.25;
+  -webkit-letter-spacing: 0.4px;
+  -moz-letter-spacing: 0.4px;
+  -ms-letter-spacing: 0.4px;
+  letter-spacing: 0.4px;
+}
+
+<h3
+    className="c0"
+  >
+    4
+    . 
+    Payment Information
+  </h3>,
+  .c0 {
+  border: 1px solid #e6e6e6;
+  border-bottom: none;
+}
+
+.c0 table td {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+<div
+    className="c0"
+  >
+    CartItems(undefined)
+    CartSummary(undefined)
+  </div>,
+]
+`;
