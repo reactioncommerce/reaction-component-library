@@ -23,8 +23,8 @@ Array [
     Payment Information
   </h3>,
   .c0 {
-  border-left: 1px solid #e6e6e6;
-  border-right: 1px solid #e6e6e6;
+  border: 1px solid #e6e6e6;
+  border-bottom: none;
 }
 
 .c0 table td {
