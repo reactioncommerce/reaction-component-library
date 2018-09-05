@@ -118,9 +118,9 @@ class CatalogGrid extends Component {
     } = this.props;
 
     const gridItemProps = {
-      currencyCode: currencyCode,
-      onClick: onItemClick,
-      placeholderImageURL: placeholderImageURL,
+      currencyCode,
+      placeholderImageURL,
+      onClick: onItemClick
     };
 
     if (badgeLabels) {

@@ -174,9 +174,7 @@ class CatalogGridItem extends Component {
   render() {
     const { badgeLabels, components: { BadgeOverlay, Link }, product } = this.props;
 
-    const badgeProps = {
-      product: product
-    };
+    const badgeProps = { product };
 
     if (badgeLabels) {
       badgeProps.badgeLabels = badgeLabels;
