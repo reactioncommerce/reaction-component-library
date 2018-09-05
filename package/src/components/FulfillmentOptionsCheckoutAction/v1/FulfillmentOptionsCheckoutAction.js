@@ -128,9 +128,13 @@ class FulfillmentOptionsCheckoutAction extends Component {
       return selectedFulfillmentOption.fulfillmentMethod._id;
     }
 
+    // Apollo Client returns immutable Objects, therefore it's necessary to
+    // clone the fulfillment options before sorting.
+    const clonedFulfillmentOptions = availableFulfillmentOptions.slice();
+
     // If a selection has not been made yet, default to cheapest
     if (availableFulfillmentOptions && availableFulfillmentOptions.length > 0) {
-      return availableFulfillmentOptions.sort((itemA, itemB) => itemA.price.amount - itemB.price.amount)[0].fulfillmentMethod._id;
+      return clonedFulfillmentOptions.sort((itemA, itemB) => itemA.price.amount - itemB.price.amount)[0].fulfillmentMethod._id;
     }
 
     return null;
