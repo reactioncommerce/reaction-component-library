@@ -129,11 +129,14 @@ class FulfillmentOptionsCheckoutAction extends Component {
     }
 
     // If a selection has not been made yet, default to cheapest
-    if (availableFulfillmentOptions && availableFulfillmentOptions.length > 0) {
-      return availableFulfillmentOptions.sort((itemA, itemB) => itemA.price.amount - itemB.price.amount)[0].fulfillmentMethod._id;
-    }
+    const cheapestOption = availableFulfillmentOptions.reduce((cheapest, option) => {
+      if (!cheapest || option.price.amount < cheapest.price.amount) {
+        return option;
+      }
+      return cheapest;
+    }, null);
 
-    return null;
+    return cheapestOption.fulfillmentMethod._id;
   }
 
   render() {
