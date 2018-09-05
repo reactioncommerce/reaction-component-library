@@ -78,6 +78,16 @@ const BadgeLabel = styled.span`
 class BadgeOverlay extends Component {
   static propTypes = {
     /**
+     * Labels to use for the various badges
+     */
+    badgeLabels: PropTypes.shape({
+      BACKORDER: PropTypes.string,
+      BESTSELLER: PropTypes.string,
+      LOW_QUANTITY: PropTypes.string,
+      SOLD_OUT: PropTypes.string,
+      SALE: PropTypes.string
+    }),
+    /**
      * The contents wrapped in the overlay, such as text, icons, or any combination of React and HTML components
      */
     children: PropTypes.node,
@@ -103,13 +113,14 @@ class BadgeOverlay extends Component {
   };
 
   static defaultProps = {
+    badgeLabels: BADGE_LABELS,
     filterOnly: "",
     shouldShowPrimaryOnly: false
   };
 
   renderBadges = () => {
-    const { filterOnly, product, shouldShowPrimaryOnly } = this.props;
-    const status = badgeStatus(product);
+    const { badgeLabels, filterOnly, product, shouldShowPrimaryOnly } = this.props;
+    const status = badgeStatus(product, badgeLabels);
 
     if (!status) return null;
 
@@ -144,20 +155,20 @@ class BadgeOverlay extends Component {
   );
 
   renderSecondaryBadgeIfNeeded = (primaryBadgeType) => {
-    const { product } = this.props;
+    const { badgeLabels, product } = this.props;
 
     if (primaryBadgeType === BADGE_TYPES.SALE) {
       if (isProductLowQuantity(product)) {
-        return this.renderSecondaryBadge(BADGE_LABELS.LOW_QUANTITY);
+        return this.renderSecondaryBadge(badgeLabels.LOW_QUANTITY);
       }
       if (isProductBestseller(product)) {
-        return this.renderSecondaryBadge(BADGE_LABELS.BESTSELLER);
+        return this.renderSecondaryBadge(badgeLabels.BESTSELLER);
       }
     }
 
     if (primaryBadgeType === BADGE_TYPES.LOW_QUANTITY) {
       if (isProductBestseller(product)) {
-        return this.renderSecondaryBadge(BADGE_LABELS.BESTSELLER);
+        return this.renderSecondaryBadge(badgeLabels.BESTSELLER);
       }
     }
 
@@ -171,8 +182,8 @@ class BadgeOverlay extends Component {
   );
 
   render() {
-    const { children, product } = this.props;
-    const status = badgeStatus(product) || {};
+    const { badgeLabels, children, product } = this.props;
+    const status = badgeStatus(product, badgeLabels) || {};
 
     return (
       <Overlay isFaded={status.type === BADGE_TYPES.SOLD_OUT}>

@@ -70,3 +70,18 @@ Specify the `placeholderImageURL` to override:
     products={productsWithoutImages}
   />
 ```
+
+##### Custom badge labels
+
+```jsx
+  <CatalogGrid
+    products={products}
+    badgeLabels={{
+      BACKORDER: "Back Order!",
+      BESTSELLER: "Best-selling Product",
+      LOW_QUANTITY: "Only few left!",
+      SOLD_OUT: "None Left",
+      SALE: "Limited-time Sale"
+    }}
+  />
+```

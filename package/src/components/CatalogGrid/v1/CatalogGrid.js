@@ -59,6 +59,16 @@ const GridItem = styled.div`
 class CatalogGrid extends Component {
   static propTypes = {
     /**
+     * Labels to use for the various badges. Refer to `BadgeOverlay`'s prop documentation.
+     */
+    badgeLabels: PropTypes.shape({
+      BACKORDER: PropTypes.string,
+      BESTSELLER: PropTypes.string,
+      LOW_QUANTITY: PropTypes.string,
+      SOLD_OUT: PropTypes.string,
+      SALE: PropTypes.string
+    }),
+    /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
@@ -86,6 +96,7 @@ class CatalogGrid extends Component {
   };
 
   static defaultProps = {
+    badgeLabels: null,
     currencyCode: "USD",
     onItemClick() {},
     placeholderImageURL: "/resources/placeholder.gif",
@@ -98,6 +109,7 @@ class CatalogGrid extends Component {
 
   render() {
     const {
+      badgeLabels,
       components: { CatalogGridItem },
       currencyCode,
       onItemClick,
@@ -105,18 +117,23 @@ class CatalogGrid extends Component {
       products
     } = this.props;
 
+    const gridItemProps = {
+      currencyCode,
+      placeholderImageURL,
+      onClick: onItemClick
+    };
+
+    if (badgeLabels) {
+      gridItemProps.badgeLabels = badgeLabels;
+    }
+
     return (
       <ContainerQuery query={containerQueries}>
         {(params) => (
           <GridContainer>
             {products.map((product, index) => (
               <GridItem containerParams={params} key={`grid-item-${index}`} {...this.props}>
-                <CatalogGridItem
-                  currencyCode={currencyCode}
-                  onClick={onItemClick}
-                  placeholderImageURL={placeholderImageURL}
-                  product={product}
-                />
+                <CatalogGridItem product={product} {...gridItemProps} />
               </GridItem>
             ))}
           </GridContainer>
