@@ -300,7 +300,7 @@ exports[`CatalogGrid 960px fixed-width snapshot 1`] = `
 </div>
 `;
 
-exports[`CatalogGrid custom placeholder image snapshot 1`] = `
+exports[`CatalogGrid custom badge label snapshot 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -363,7 +363,7 @@ exports[`CatalogGrid custom placeholder image snapshot 1`] = `
 </div>
 `;
 
-exports[`CatalogGrid custom snapshot 1`] = `
+exports[`CatalogGrid custom placeholder image snapshot 1`] = `
 .c0 {
   display: -webkit-box;
   display: -webkit-flex;

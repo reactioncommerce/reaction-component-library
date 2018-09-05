@@ -85,7 +85,7 @@ test("CatalogGrid custom placeholder image snapshot", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("CatalogGrid custom snapshot", () => {
+test("CatalogGrid custom badge label snapshot", () => {
   const component = renderer.create((
     <CatalogGrid
       components={mockComponents}
