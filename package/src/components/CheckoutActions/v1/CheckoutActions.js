@@ -24,6 +24,12 @@ const FormActions = styled.div`
   }
 `;
 
+const PlaceOrderButtonContainer = styled.div`
+  margin: 0 auto !important;
+  width: 252px;
+  padding-top: 1rem;
+`;
+
 class CheckoutActions extends Component {
   static propTypes = {
     /**
@@ -80,8 +86,6 @@ class CheckoutActions extends Component {
 
   static defaultProps = {};
 
-  state = {};
-
   static getDerivedStateFromProps(props, state) {
     if (!isEqual(props.actions, state.previousActionsProp)) {
       const { currentActions = [] } = state;
@@ -103,6 +107,8 @@ class CheckoutActions extends Component {
 
     return null;
   }
+
+  state = {};
 
   _refs = {};
 
@@ -184,9 +190,52 @@ class CheckoutActions extends Component {
     );
   };
 
-  renderActiveAction = ({ component: Comp, ...action }) => {
-    const { components: { Button } } = this.props;
+  renderFormActions = (action) => {
+    const { actions, components: { Button } } = this.props;
     const { readyForSave, isSaving } = this.getCurrentActionByLabel(action.label);
+    const lastStep = ((actions.length - 1) === this.getCurrentActionIndex(action.label));
+
+    const saveAndContinueButtons = (
+      <React.Fragment>
+        {action.props ? (
+          <Button actionType="secondary" onClick={() => { this.setStateForAction(action.label, { isActive: false }); }}>
+            Cancel
+          </Button>
+        ) : (
+          ""
+        )}
+        <Button onClick={() => this.actionSubmit(action.label)} isDisabled={!readyForSave} isWaiting={isSaving}>
+          Save and continue
+        </Button>
+      </React.Fragment>
+    );
+
+    const placeOrderButton = (
+      <PlaceOrderButtonContainer>
+        <Button
+          onClick={() => this.actionSubmit(action.label)}
+          actionType="important"
+          isWaiting={isSaving}
+          isFullWidth
+        >
+          Place your order
+        </Button>
+      </PlaceOrderButtonContainer>
+    );
+
+    return (
+      <FormActions>
+        { lastStep ?
+          placeOrderButton
+          :
+          saveAndContinueButtons
+        }
+      </FormActions>
+    );
+  }
+
+  renderActiveAction = ({ component: Comp, ...action }) => {
+    const { isSaving } = this.getCurrentActionByLabel(action.label);
 
     return (
       <Fragment>
@@ -203,18 +252,7 @@ class CheckoutActions extends Component {
           stepNumber={this.getCurrentActionIndex(action.label) + 1}
           onSubmit={(value) => this.handleActionSubmit(action.label, action.onSubmit, value)}
         />
-        <FormActions>
-          {action.props ? (
-            <Button actionType="secondary" onClick={() => { this.setStateForAction(action.label, { isActive: false }); }}>
-              Cancel
-            </Button>
-          ) : (
-            ""
-          )}
-          <Button onClick={() => this.actionSubmit(action.label)} isDisabled={!readyForSave} isWaiting={isSaving}>
-            Save and continue
-          </Button>
-        </FormActions>
+        {this.renderFormActions(action)}
       </Fragment>
     );
   };

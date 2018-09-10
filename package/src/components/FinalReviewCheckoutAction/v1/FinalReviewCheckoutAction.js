@@ -107,6 +107,12 @@ class FinalReviewCheckoutAction extends Component {
     onReadyForSaveChange(true);
   }
 
+  submit = () => {
+    const { onSubmit } = this.props;
+
+    onSubmit();
+  }
+
   render() {
     const {
       checkoutSummary: {
