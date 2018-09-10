@@ -10,6 +10,10 @@ exports[`basic snapshot 1`] = `
   border-top: solid 1px #e6e6e6;
 }
 
+.c0:last-of-type {
+  border-bottom: none;
+}
+
 <div
   className="c0"
 >
