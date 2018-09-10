@@ -12,6 +12,9 @@ const Action = styled.div`
   &:first-of-type {
     border-top: solid 1px ${applyTheme("color_black10")};
   }
+  &:last-of-type {
+    border-bottom: none;
+  }
 `;
 
 const FormActions = styled.div`
