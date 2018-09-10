@@ -26,6 +26,8 @@ const FormActions = styled.div`
 
 const PlaceOrderButtonContainer = styled.div`
   margin: 0 auto !important;
+  width: 252px;
+  padding-top: 1rem;
 `;
 
 class CheckoutActions extends Component {
@@ -84,8 +86,6 @@ class CheckoutActions extends Component {
 
   static defaultProps = {};
 
-  state = {};
-
   static getDerivedStateFromProps(props, state) {
     if (!isEqual(props.actions, state.previousActionsProp)) {
       const { currentActions = [] } = state;
@@ -107,6 +107,8 @@ class CheckoutActions extends Component {
 
     return null;
   }
+
+  state = {};
 
   _refs = {};
 
@@ -214,6 +216,7 @@ class CheckoutActions extends Component {
           onClick={() => this.actionSubmit(action.label)}
           actionType="important"
           isWaiting={isSaving}
+          isFullWidth
         >
           Place your order
         </Button>
