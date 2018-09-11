@@ -11,5 +11,3 @@ const viewer = {
 
 <ViewerInfo viewer={viewer} />
 ```
-
-Document component here. See https://react-styleguidist.js.org/docs/documenting.html
