@@ -200,6 +200,7 @@ const defaultStyles = {
   rui_color_error: red,
   rui_color_stockWarning: red,
   rui_color_red300: red300,
+  rui_color_teal: teal,
   rui_color_success: teal,
   rui_color_coolGrey: coolGrey,
   rui_color_coolGrey100: coolGrey100,
