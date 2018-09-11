@@ -19,12 +19,12 @@ exports[`Render a viewer's initials and first name 1`] = `
 
 .c2 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 14px;
   color: #ffffff;
   position: absolute;
-  top: 5px;
-  left: 8px;
+  top: 6px;
+  left: 9px;
   z-index: 10;
 }
 

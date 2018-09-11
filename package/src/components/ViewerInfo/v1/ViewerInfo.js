@@ -18,12 +18,12 @@ const Circle = styled.div`
 
 const ViewerInitials = styled.div`
   font-family: ${applyTheme("font_family")};
-  font-weight: ${applyTheme("font_weight_bold")};
+  font-weight: ${applyTheme("font_weight_normal")};
   font-size: ${applyTheme("font_size_small")};
   color: ${applyTheme("color_white")};
   position: absolute;
-  top: 5px;
-  left: 8px;
+  top: 6px;
+  left: 9px;
   z-index: 10;
 `;
 
