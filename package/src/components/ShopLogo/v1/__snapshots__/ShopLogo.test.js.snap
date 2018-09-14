@@ -12,7 +12,7 @@ exports[`basic snapshot 1`] = `
 >
   <img
     alt="Reaction"
-    src="http://placehold.it/60"
+    src="//placehold.it/60"
   />
 </div>
 `;
