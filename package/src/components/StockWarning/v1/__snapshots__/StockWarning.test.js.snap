@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Displays error warning about required props 1`] = `"Failed undefined type: The undefined \`inventoryQuantity\` is marked as required in \`<<anonymous>>\`, but its value is \`undefined\`."`;
+exports[`Displays error warning about required props 1`] = `undefined`;
 
 exports[`Renders nothing when stock level is normal 1`] = `null`;
 
