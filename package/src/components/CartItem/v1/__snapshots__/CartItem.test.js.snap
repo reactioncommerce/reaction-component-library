@@ -12,7 +12,7 @@ exports[`basic snapshot with empty props 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
+  padding: 1rem 0;
   width: 100%;
 }
 
@@ -182,7 +182,7 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
+  padding: 1rem 0;
   width: 100%;
 }
 
@@ -320,7 +320,7 @@ exports[`basic snapshot with props 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem;
+  padding: 1rem 0;
   width: 100%;
 }
 
