@@ -22,15 +22,15 @@ const ProductTitle = styled.aside`
   font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_default")};
   font-weight: ${applyTheme("font_weight_bold")};
-  line-height: 27px;
+  line-height: 18px;
 `;
 
 const ProductVendor = styled.span`
   color: rgba(0, 0, 0, 0.87);
   font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_default")};
+  font-size: ${applyTheme("font_size_small")};
   font-weight: ${applyTheme("font_weight_normal")};
-  line-height: 23px;
+  line-height: 21px;
 `;
 
 const PriceContainer = styled.div`
