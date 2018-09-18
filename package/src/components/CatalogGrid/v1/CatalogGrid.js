@@ -82,6 +82,13 @@ class CatalogGrid extends Component {
      */
     currencyCode: PropTypes.string,
     /**
+     * The inital size the grid should render at. Use to set grid width during SSR.
+     */
+    initialSize: PropTypes.shape({
+      height: PropTypes.number,
+      width: PropTypes.number
+    }),
+    /**
      * Item click handler
      */
     onItemClick: PropTypes.func,
@@ -98,6 +105,9 @@ class CatalogGrid extends Component {
   static defaultProps = {
     badgeLabels: null,
     currencyCode: "USD",
+    initialSize: {
+      width: 325
+    },
     onItemClick() {},
     placeholderImageURL: "/resources/placeholder.gif",
     products: []
@@ -112,6 +122,7 @@ class CatalogGrid extends Component {
       badgeLabels,
       components: { CatalogGridItem },
       currencyCode,
+      initialSize,
       onItemClick,
       placeholderImageURL,
       products
@@ -128,7 +139,7 @@ class CatalogGrid extends Component {
     }
 
     return (
-      <ContainerQuery query={containerQueries}>
+      <ContainerQuery query={containerQueries} initialSize={initialSize}>
         {(params) => (
           <GridContainer>
             {products.map((product, index) => (
