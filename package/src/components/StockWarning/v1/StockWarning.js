@@ -14,12 +14,12 @@ class StockWarning extends Component {
     /**
      * The product's current stock level
      */
-    inventoryQuantity: PropTypes.number.isRequired,
+    inventoryQuantity: PropTypes.number,
     /**
      * When true, indicates that a product's inventory level has reached
      * the low level threshold.
      */
-    isLowInventoryQuantity: PropTypes.bool.isRequired
+    isLowInventoryQuantity: PropTypes.bool
   };
 
   render() {
