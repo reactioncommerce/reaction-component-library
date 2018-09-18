@@ -6,13 +6,14 @@ exports[`basic snapshot 1`] = `
   className="MuiFormControl-root-4"
 >
   <div
-    className="MuiInput-root-8 QuantityInput-quantityContainer-2 MuiInput-formControl-9"
+    className="MuiInputBase-root-21 MuiInput-root-8 QuantityInput-quantityContainer-2 MuiInputBase-formControl-22 MuiInput-formControl-9 MuiInputBase-adornedStart-25 MuiInputBase-adornedEnd-26"
+    onClick={[Function]}
   >
     <div
-      className="MuiInputAdornment-root-21"
+      className="MuiInputAdornment-root-38"
     >
       <button
-        className="MuiButtonBase-root-24 QuantityInput-incrementButton-1"
+        className="MuiButtonBase-root-42 QuantityInput-incrementButton-1"
         color="default"
         disabled={undefined}
         onBlur={[Function]}
@@ -32,9 +33,10 @@ exports[`basic snapshot 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-27"
+          className="MuiSvgIcon-root-45"
           color={undefined}
           focusable="false"
+          role="presentation"
           style={
             Object {
               "fontSize": "14px",
@@ -42,11 +44,9 @@ exports[`basic snapshot 1`] = `
           }
           viewBox="0 0 24 24"
         >
-          <g>
-            <path
-              d="M19,13H5V11H19V13Z"
-            />
-          </g>
+          <path
+            d="M19,13H5V11H19V13Z"
+          />
         </svg>
       </button>
     </div>
@@ -54,7 +54,7 @@ exports[`basic snapshot 1`] = `
       aria-invalid={false}
       autoComplete={undefined}
       autoFocus={undefined}
-      className="MuiInput-input-16 QuantityInput-quantityInput-3"
+      className="MuiInputBase-input-31 MuiInput-input-16 QuantityInput-quantityInput-3 MuiInputBase-inputAdornedStart-36 MuiInputBase-inputAdornedEnd-37"
       defaultValue={undefined}
       disabled={false}
       id="addToCartQuantityInput"
@@ -66,16 +66,16 @@ exports[`basic snapshot 1`] = `
       onKeyUp={undefined}
       placeholder={undefined}
       readOnly={undefined}
-      required={undefined}
+      required={false}
       rows={undefined}
       type="text"
       value={0}
     />
     <div
-      className="MuiInputAdornment-root-21"
+      className="MuiInputAdornment-root-38"
     >
       <button
-        className="MuiButtonBase-root-24 QuantityInput-incrementButton-1"
+        className="MuiButtonBase-root-42 QuantityInput-incrementButton-1"
         color="default"
         disabled={undefined}
         onBlur={[Function]}
@@ -95,9 +95,10 @@ exports[`basic snapshot 1`] = `
       >
         <svg
           aria-hidden="true"
-          className="MuiSvgIcon-root-27"
+          className="MuiSvgIcon-root-45"
           color={undefined}
           focusable="false"
+          role="presentation"
           style={
             Object {
               "fontSize": "14px",
@@ -105,11 +106,9 @@ exports[`basic snapshot 1`] = `
           }
           viewBox="0 0 24 24"
         >
-          <g>
-            <path
-              d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
-            />
-          </g>
+          <path
+            d="M19,13H13V19H11V13H5V11H11V5H13V11H19V13Z"
+          />
         </svg>
       </button>
     </div>
