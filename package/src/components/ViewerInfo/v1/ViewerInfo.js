@@ -44,19 +44,22 @@ class ViewerInfo extends Component {
     viewer: PropTypes.shape({
       firstName: PropTypes.string,
       lastName: PropTypes.string
-    }).isRequired
+    })
+  };
+
+  static defaultProps = {
+    viewer: {}
   };
 
   render() {
     const { viewer: { firstName, lastName } } = this.props;
+    const initials = firstName && lastName ? `${firstName.charAt()}${lastName.charAt()}` : "";
 
     return (
       <Container>
         <Circle />
-        <ViewerInitials>
-          {`${firstName.charAt()}${lastName.charAt()}`}
-        </ViewerInitials>
-        <FirstName>{firstName}</FirstName>
+        <ViewerInitials>{initials}</ViewerInitials>
+        <FirstName>{firstName && firstName}</FirstName>
       </Container>
     );
   }
