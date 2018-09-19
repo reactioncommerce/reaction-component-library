@@ -23,7 +23,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
 .c4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: initial;
   border-bottom: initial;
 }
@@ -31,7 +31,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
 .c6 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
 }
@@ -39,7 +39,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
 .c5 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: initial;
   border-bottom: initial;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -50,7 +50,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
 .c7 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -171,7 +171,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
 .c4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: initial;
   border-bottom: initial;
 }
@@ -179,7 +179,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
 .c6 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
 }
@@ -187,7 +187,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
 .c5 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: initial;
   border-bottom: initial;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -198,7 +198,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
 .c7 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -319,7 +319,7 @@ exports[`Displays a summary with applied discount 1`] = `
 .c4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: initial;
   border-bottom: initial;
 }
@@ -327,7 +327,7 @@ exports[`Displays a summary with applied discount 1`] = `
 .c7 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
 }
@@ -335,7 +335,7 @@ exports[`Displays a summary with applied discount 1`] = `
 .c5 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: initial;
   border-bottom: initial;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -346,7 +346,7 @@ exports[`Displays a summary with applied discount 1`] = `
 .c8 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -489,7 +489,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
 .c4 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: initial;
   border-bottom: initial;
 }
@@ -497,7 +497,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
 .c6 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
 }
@@ -505,7 +505,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
 .c5 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: initial;
   border-bottom: initial;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -516,7 +516,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
 .c7 {
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   padding: 1rem 0;
-  color: #3c5d6f;
+  color: #3c3c3c;
   border-top: 1px solid #e6e6e6;
   border-bottom: 1px solid #e6e6e6;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;

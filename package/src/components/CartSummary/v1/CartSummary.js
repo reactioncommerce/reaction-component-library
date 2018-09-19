@@ -25,7 +25,7 @@ const Thr = styled.th`
 const Td = styled.td`
   font-family: ${applyTheme("font_family")};
   padding: ${(props) => (props.isDense ? "0.5rem 0" : "1rem 0")};
-  color: ${applyTheme("color_coolGrey400")};
+  color: ${applyTheme("color_coolGrey500")};
   border-top: ${(props) => (props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial")};
   border-bottom: ${(props) => (props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial")};
 `;

@@ -11,7 +11,7 @@ const Table = styled.table`
 
 const Td = styled.td`
   padding: 0.5rem 0.3rem 0.5rem 0.5rem;
-  color: ${applyTheme("color_coolGrey400")};
+  color: ${applyTheme("color_coolGrey500")};
   text-align: right;
 `;
 
