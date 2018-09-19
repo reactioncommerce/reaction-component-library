@@ -60,3 +60,62 @@ exports[`Render a viewer's initials and first name 1`] = `
   </span>
 </div>
 `;
+
+exports[`Render a viewerinfo without any props 1`] = `
+.c0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  background: #8ce0c9;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+  position: absolute;
+  top: 6px;
+  left: 9px;
+  z-index: 10;
+}
+
+.c3 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  color: #3c3c3c;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: 0.5rem;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  />
+  <div
+    className="c2"
+  >
+    
+  </div>
+  <span
+    className="c3"
+  />
+</div>
+`;
