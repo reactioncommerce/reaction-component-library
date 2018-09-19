@@ -30,13 +30,18 @@ const ViewerFirstNameText = styled.span`
   font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
   color: ${applyTheme("color_coolGrey500")};
-  display: none;
+  display: ${({ compact, full }) => {
+    if (full) {
+      return compact ? "none" : "inline";
+    }
+    return "none";
+  }};
   align-self: center;
   margin-left: 0.5rem;
   letter-spacing: 0.2px;
 
-  @media (min-width: 768px) {
-    display: inline;
+  @media (${applyTheme("bp_md")}) {
+    display: ${({ compact }) => (compact ? "none" : "inline")};
   }
 `;
 
@@ -80,14 +85,16 @@ class ViewerInfo extends Component {
   }
 
   render() {
-    const { viewer: { firstName } } = this.props;
+    const { compact, full, viewer: { firstName } } = this.props;
 
     return (
       <ViewerInfoContainer>
         <ViewerInitialsCircle>
           <ViewerInitialsText>{this.viewerInitials}</ViewerInitialsText>
         </ViewerInitialsCircle>
-        <ViewerFirstNameText>{firstName && firstName}</ViewerFirstNameText>
+        <ViewerFirstNameText compact={compact} full={full}>
+          {firstName && firstName}
+        </ViewerFirstNameText>
       </ViewerInfoContainer>
     );
   }
