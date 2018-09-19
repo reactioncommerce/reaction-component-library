@@ -457,6 +457,11 @@ const selectableList = {
   rui_selectableListIconHeight: "24px"
 };
 
+// viewerinfo
+const viewerInfo = {
+  rui_viewerInfo_initials_size: "30px"
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -471,5 +476,6 @@ export default {
   ...checkoutActions,
   ...checkbox,
   ...selectableItem,
-  ...selectableList
+  ...selectableList,
+  ...viewerInfo
 };
