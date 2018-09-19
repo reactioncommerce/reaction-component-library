@@ -31,9 +31,14 @@ const FirstName = styled.span`
   font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
   color: ${applyTheme("color_coolGrey500")};
+  display: none;
   align-self: center;
   margin-left: 0.5rem;
   letter-spacing: 0.2px;
+
+  @media (min-width: 768px) {
+    display: inline;
+  }
 `;
 
 class ViewerInfo extends Component {
