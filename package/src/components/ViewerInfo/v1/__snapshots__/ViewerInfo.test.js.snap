@@ -32,6 +32,7 @@ exports[`Render a viewer's initials and first name 1`] = `
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   color: #3c3c3c;
+  display: none;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -40,6 +41,12 @@ exports[`Render a viewer's initials and first name 1`] = `
   -moz-letter-spacing: 0.2px;
   -ms-letter-spacing: 0.2px;
   letter-spacing: 0.2px;
+}
+
+@media (min-width:768px) {
+  .c3 {
+    display: inline;
+  }
 }
 
 <div
@@ -93,6 +100,7 @@ exports[`Render a viewerinfo without any props 1`] = `
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   color: #3c3c3c;
+  display: none;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
@@ -101,6 +109,12 @@ exports[`Render a viewerinfo without any props 1`] = `
   -moz-letter-spacing: 0.2px;
   -ms-letter-spacing: 0.2px;
   letter-spacing: 0.2px;
+}
+
+@media (min-width:768px) {
+  .c3 {
+    display: inline;
+  }
 }
 
 <div
