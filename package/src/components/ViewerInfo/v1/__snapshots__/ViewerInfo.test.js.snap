@@ -11,10 +11,10 @@ exports[`Render a viewer's initials and first name 1`] = `
 
 .c1 {
   background: #8ce0c9;
-  width: 30px;
-  height: 30px;
   border-radius: 50%;
-  display: inline-block;
+  height: 30px;
+  text-align: center;
+  width: 30px;
 }
 
 .c2 {
@@ -22,10 +22,9 @@ exports[`Render a viewer's initials and first name 1`] = `
   font-weight: 400;
   font-size: 14px;
   color: #ffffff;
-  position: absolute;
-  top: 6px;
-  left: 9px;
-  z-index: 10;
+  line-height: 1;
+  position: relative;
+  top: calc(30px / 4);
 }
 
 .c3 {
@@ -43,7 +42,7 @@ exports[`Render a viewer's initials and first name 1`] = `
   letter-spacing: 0.2px;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .c3 {
     display: inline;
   }
@@ -54,11 +53,12 @@ exports[`Render a viewer's initials and first name 1`] = `
 >
   <div
     className="c1"
-  />
-  <div
-    className="c2"
   >
-    IN
+    <div
+      className="c2"
+    >
+      IN
+    </div>
   </div>
   <span
     className="c3"
@@ -79,10 +79,10 @@ exports[`Render a viewerinfo without any props 1`] = `
 
 .c1 {
   background: #8ce0c9;
-  width: 30px;
-  height: 30px;
   border-radius: 50%;
-  display: inline-block;
+  height: 30px;
+  text-align: center;
+  width: 30px;
 }
 
 .c2 {
@@ -90,10 +90,9 @@ exports[`Render a viewerinfo without any props 1`] = `
   font-weight: 400;
   font-size: 14px;
   color: #ffffff;
-  position: absolute;
-  top: 6px;
-  left: 9px;
-  z-index: 10;
+  line-height: 1;
+  position: relative;
+  top: calc(30px / 4);
 }
 
 .c3 {
@@ -111,7 +110,7 @@ exports[`Render a viewerinfo without any props 1`] = `
   letter-spacing: 0.2px;
 }
 
-@media (min-width:768px) {
+@media (min-width:960px) {
   .c3 {
     display: inline;
   }
@@ -122,14 +121,17 @@ exports[`Render a viewerinfo without any props 1`] = `
 >
   <div
     className="c1"
-  />
-  <div
-    className="c2"
   >
-    
+    <div
+      className="c2"
+    >
+      H
+    </div>
   </div>
   <span
     className="c3"
-  />
+  >
+    He-Who-Must-Not-Be-Named
+  </span>
 </div>
 `;

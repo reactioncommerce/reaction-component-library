@@ -6,7 +6,7 @@ Renders a user's first name next to their initials.
 <ViewerInfo />
 ```
 
-#### With Viewer
+#### With Viewer Data
 ```jsx
 const viewer = {
   firstName: "Issac",
@@ -45,17 +45,10 @@ const viewer = {
 <ViewerInfo viewer={viewer} />
 ```
 
-#### Full
-```jsx
-const viewer = {
-  firstName: "Ligaya",
-  lastName: "Ocampo"
-};
+#### Display Style
+The `ViewerInfo` component's default style is to show only the viewers initials on small screen and show both the initials and first name on larger screens. You may however run into situations where you want the initials and first name or only initials to display on all screen sizes. `ViewerInfo` has a `compact` and a `full` prop to achieve either display style, keep in mind that `compact` will override `full` so they can't be used together.
 
-<ViewerInfo viewer={viewer} full />
-```
-
-#### Compact
+**Compact**
 ```jsx
 const viewer = {
   firstName: "Patricia",
@@ -63,4 +56,14 @@ const viewer = {
 };
 
 <ViewerInfo viewer={viewer} compact />
+```
+
+**Full**
+```jsx
+const viewer = {
+  firstName: "Ligaya",
+  lastName: "Ocampo"
+};
+
+<ViewerInfo viewer={viewer} full />
 ```
