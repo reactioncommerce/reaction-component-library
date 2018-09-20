@@ -85,3 +85,63 @@ Specify the `placeholderImageURL` to override:
     }}
   />
 ```
+
+##### Cover vs contain fit
+Catalog automatically chooses the image fit based on image dimensions. Cover is used if the image is landscape, and contain if portrait.
+
+```jsx
+  <CatalogGrid
+    products={[{
+      title: "Landscape",
+      slug: "landscape",
+      vendor: "Reaction",
+      primaryImage: {
+        URLs: {
+          large: "/images/landscape/large.jpg",
+          medium: "/images/landscape/medium.jpg",
+          small: "/images/landscape/small.png",
+          thumbnail: "/images/landscape/thumbnail.png"
+        }
+      },
+      pricing: [{
+        currency: {
+          code: "USD"
+        },
+        compareAtPrice: null,
+        price: 15,
+        displayPrice: "$15.00"
+      }],
+      isSoldOut: false,
+      isBackorder: false,
+      isOnSale: false,
+      isLowQuantity: false,
+      isBestseller: false
+    },
+    {
+      title: "Portrait",
+      slug: "portrait",
+      vendor: "Reaction",
+      primaryImage: {
+        URLs: {
+          large: "/images/portrait/large.jpg",
+          medium: "/images/portrait/medium.jpg",
+          small: "/images/portrait/small.png",
+          thumbnail: "/images/portrait/thumbnail.png"
+        }
+      },
+      pricing: [{
+        currency: {
+          code: "USD"
+        },
+        compareAtPrice: null,
+        price: 15,
+        displayPrice: "$15.00"
+      }],
+      isSoldOut: false,
+      isBackorder: false,
+      isOnSale: false,
+      isLowQuantity: false,
+      isBestseller: false
+    }]}
+  />
+```

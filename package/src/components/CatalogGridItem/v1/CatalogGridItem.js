@@ -108,6 +108,26 @@ class CatalogGridItem extends Component {
     placeholderImageURL: ""
   };
 
+  state = {
+    fit: "cover"
+  };
+
+  componentDidMount () {
+    // Use cover fit if image is landcape, contain if portrait
+    if (typeof Image !== "undefined") {
+      const { large } = this.primaryImage.URLs;
+      const largeImage = new Image();
+      largeImage.src = large;
+      largeImage.onload = () => {
+        const { width, height } = largeImage;
+        if (height > width) {
+          // Image is portrait
+          this.setState({ fit: "contain" });
+        }
+      };
+    }
+  }
+
   get productDetailHref() {
     const { product: { slug } } = this.props;
     const url = `/product/${slug}`;
@@ -135,11 +155,12 @@ class CatalogGridItem extends Component {
 
   renderProductMedia() {
     const { components: { ProgressiveImage }, product: { description } } = this.props;
+    const { fit } = this.state;
 
     return (
       <ProductMediaWrapper>
         <ProgressiveImage
-          fit={"cover"}
+          fit={fit}
           altText={description}
           presrc={this.primaryImage.URLs.thumbnail}
           srcs={this.primaryImage.URLs}
