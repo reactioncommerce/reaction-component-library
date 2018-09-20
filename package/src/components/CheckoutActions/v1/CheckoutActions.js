@@ -145,7 +145,6 @@ class CheckoutActions extends Component {
 
   handleActionSubmit = async (label, onSubmit, actionValue) => {
     this.setStateForAction(label, { isActive: false, isSaving: true });
-    this.forceUpdate();
 
     await onSubmit(actionValue);
 
@@ -221,7 +220,7 @@ class CheckoutActions extends Component {
           isWaiting={isSaving}
           isFullWidth
         >
-          Place your order
+          { isSaving ? "Placing your order..." : "Place your order" }
         </Button>
       </PlaceOrderButtonContainer>
     );
