@@ -3,14 +3,19 @@ Renders a user's first name next to their initials.
 
 #### Usage
 ```jsx
-<ViewerInfo />
-```
-
-#### With Viewer Data
-```jsx
 const viewer = {
+  primaryEmailAddress: "issac99@gravity.com",
   firstName: "Issac",
   lastName: "Newton"
+};
+
+<ViewerInfo viewer={viewer} />
+```
+
+**Email Address Only**
+```jsx
+const viewer = {
+  primaryEmailAddress: "james.booker@ponderosafarms.com"
 };
 
 <ViewerInfo viewer={viewer} />
@@ -19,6 +24,7 @@ const viewer = {
 **Long Name**
 ```jsx
 const viewer = {
+  primaryEmailAddress: "email@domain.in",
   firstName: "Madhavaditya",
   lastName: "Balakrishnan"
 };
@@ -29,6 +35,7 @@ const viewer = {
 **Hypenated Name**
 ```jsx
 const viewer = {
+  primaryEmailAddress: "aas21@princeton.edu",
   firstName: "Keeanga-Yamahtta",
   lastName: "Taylor"
 };
@@ -39,6 +46,7 @@ const viewer = {
 **Incomplete Name**
 ```jsx
 const viewer = {
+  primaryEmailAddress: "baddosneh@ybnl-nation.com",
   firstName: "Olamide"
 };
 
