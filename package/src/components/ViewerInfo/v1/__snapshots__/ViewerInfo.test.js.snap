@@ -1,6 +1,74 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Render a viewer's initials and first name 1`] = `
+exports[`Render with compact prop 1`] = `
+.c0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  background: #8ce0c9;
+  border-radius: 50%;
+  height: 30px;
+  text-align: center;
+  width: 30px;
+}
+
+.c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1;
+  position: relative;
+  top: calc(30px / 4);
+}
+
+.c3 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  color: #3c3c3c;
+  display: none;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: 0.5rem;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
+}
+
+@media (min-width:960px) {
+  .c3 {
+    display: none;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      E
+    </div>
+  </div>
+  <span
+    className="c3"
+  >
+    email@domain.com
+  </span>
+</div>
+`;
+
+exports[`Render with full name and email props 1`] = `
 .c0 {
   position: relative;
   display: -webkit-box;
@@ -68,7 +136,75 @@ exports[`Render a viewer's initials and first name 1`] = `
 </div>
 `;
 
-exports[`Render a viewerinfo without any props 1`] = `
+exports[`Render with full prop 1`] = `
+.c0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  background: #8ce0c9;
+  border-radius: 50%;
+  height: 30px;
+  text-align: center;
+  width: 30px;
+}
+
+.c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1;
+  position: relative;
+  top: calc(30px / 4);
+}
+
+.c3 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  color: #3c3c3c;
+  display: inline;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: 0.5rem;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
+}
+
+@media (min-width:960px) {
+  .c3 {
+    display: inline;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      E
+    </div>
+  </div>
+  <span
+    className="c3"
+  >
+    email@domain.com
+  </span>
+</div>
+`;
+
+exports[`Render with only email & first name props 1`] = `
 .c0 {
   position: relative;
   display: -webkit-box;
@@ -125,13 +261,81 @@ exports[`Render a viewerinfo without any props 1`] = `
     <div
       className="c2"
     >
-      H
+      I
     </div>
   </div>
   <span
     className="c3"
   >
-    He-Who-Must-Not-Be-Named
+    Issac
+  </span>
+</div>
+`;
+
+exports[`Render with only required props 1`] = `
+.c0 {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.c1 {
+  background: #8ce0c9;
+  border-radius: 50%;
+  height: 30px;
+  text-align: center;
+  width: 30px;
+}
+
+.c2 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  color: #ffffff;
+  line-height: 1;
+  position: relative;
+  top: calc(30px / 4);
+}
+
+.c3 {
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  color: #3c3c3c;
+  display: none;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  margin-left: 0.5rem;
+  -webkit-letter-spacing: 0.2px;
+  -moz-letter-spacing: 0.2px;
+  -ms-letter-spacing: 0.2px;
+  letter-spacing: 0.2px;
+}
+
+@media (min-width:960px) {
+  .c3 {
+    display: inline;
+  }
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="c2"
+    >
+      E
+    </div>
+  </div>
+  <span
+    className="c3"
+  >
+    email@domain.com
   </span>
 </div>
 `;
