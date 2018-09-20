@@ -60,40 +60,51 @@ class ViewerInfo extends Component {
      */
     viewer: PropTypes.shape({
       firstName: PropTypes.string,
-      lastName: PropTypes.string
-    })
+      lastName: PropTypes.string,
+      primaryEmailAddress: PropTypes.string.isRequired
+    }).isRequired
   };
 
   static defaultProps = {
     compact: false,
-    full: false,
-    viewer: {
-      firstName: "He-Who-Must-Not-Be-Named"
-    }
+    full: false
   };
 
   /**
    *
    * @name viewerInitials
    * @summary Build the initials string from the `viewer` first and last name
-   * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O)
+   * If those props are not availible use the first letter of the primary email address.
+   * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
    */
   get viewerInitials() {
-    const { viewer: { firstName, lastName } } = this.props;
+    const { viewer: { firstName, lastName, primaryEmailAddress } } = this.props;
+    const firstInitial = (firstName && firstName.charAt()) || primaryEmailAddress.charAt().toUpperCase();
     const lastInitial = (lastName && lastName.charAt()) || "";
-    return `${firstName.charAt()}${lastInitial}`;
+    return `${firstInitial}${lastInitial}`;
+  }
+
+  /**
+   *
+   * @name viewerName
+   * @summary If `firstName` is availible on the `viewer` object
+   * return that else return the email address
+   * @return {String} the viewers name.
+   */
+  get viewerName() {
+    const { viewer: { firstName, primaryEmailAddress } } = this.props;
+    return (firstName && firstName) || primaryEmailAddress;
   }
 
   render() {
-    const { compact, full, viewer: { firstName } } = this.props;
-
+    const { compact, full } = this.props;
     return (
       <ViewerInfoContainer>
         <ViewerInitialsCircle>
           <ViewerInitialsText>{this.viewerInitials}</ViewerInitialsText>
         </ViewerInitialsCircle>
         <ViewerFirstNameText compact={compact} full={full}>
-          {firstName && firstName}
+          {this.viewerName}
         </ViewerFirstNameText>
       </ViewerInfoContainer>
     );
