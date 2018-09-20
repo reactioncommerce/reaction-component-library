@@ -300,6 +300,49 @@ exports[`CatalogGrid 960px fixed-width snapshot 1`] = `
 </div>
 `;
 
+exports[`CatalogGrid contain vs fit snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.c1 {
+  padding: 12px;
+  -webkit-box-flex: 0;
+  -webkit-flex-grow: 0;
+  -ms-flex-positive: 0;
+  flex-grow: 0;
+  max-width: 100%;
+  -webkit-flex-basis: 100%;
+  -ms-flex-preferred-size: 100%;
+  flex-basis: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    CatalogGridItem(undefined)
+  </div>
+  <div
+    className="c1"
+  >
+    CatalogGridItem(undefined)
+  </div>
+</div>
+`;
+
 exports[`CatalogGrid custom badge label snapshot 1`] = `
 .c0 {
   display: -webkit-box;
