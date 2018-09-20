@@ -112,7 +112,7 @@ class CatalogGridItem extends Component {
     fit: "cover"
   };
 
-  componentDidMount () {
+  componentDidMount() {
     // Use cover fit if image is landcape, contain if portrait
     if (typeof Image !== "undefined") {
       const { large } = this.primaryImage.URLs;
