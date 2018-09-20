@@ -22,6 +22,7 @@ const actions = [
   },
   {
     label: "Shipping Options",
+    status: "incomplete",
     component: FulfillmentOptionsCheckoutAction,
     onSubmit: setFulfillmentOption
     props: {
@@ -41,7 +42,7 @@ const actions = [
     label: "Review and place order",
     status: "incomplete",
     component: FinalReviewCheckoutAction,
-    onSubmit: this.placeOrder,
+    onSubmit: placeOrder,
     props: {
       checkoutSummary
     }
@@ -49,8 +50,6 @@ const actions = [
 ];
 
 ```
-
-**Note:** These examples only use the `ShippingAddressCheckoutAction` as the actions component. This will be updated with more actions as they get created.
 
 ```jsx
 const fulfillmentGroups = [{
@@ -197,11 +196,12 @@ class CheckoutActionsExample extends React.Component {
   }
 
   setShippingAddress(data) {
-    const { checkout } = this.state;
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-          this.setState(Object.assign(this.state, {
-            checkout: {
+          this.setState((state, props) => {
+            const { checkout } = state;
+            return {
+              checkout: {
               payments: checkout.payments,
               fulfillmentGroups: [{
                 data: {
@@ -211,36 +211,39 @@ class CheckoutActionsExample extends React.Component {
                 availableFulfillmentOptions: checkout.fulfillmentGroups[0].availableFulfillmentOptions
               }]
             }
-          }));
-          resolve(data);
+          }
+        });
+        resolve(data);
         }, 1000, { data });
     });
   }
 
   setFulfillmentOption(data) {
-    const { checkout } = this.state;
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-          this.setState(Object.assign(this.state, {
-            checkout: {
-              payments: checkout.payments,
-              fulfillmentGroups: [{
-                data: {
-                  shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress
-                },
-                selectedFulfillmentOption: data.selectedFulfillmentOption,
-                availableFulfillmentOptions: checkout.fulfillmentGroups[0].availableFulfillmentOptions
-              }]
-            }
-          }));
-          resolve(data);
+          this.setState((state, props) => {
+            const { checkout } = state;
+            return {
+              checkout: {
+                payments: checkout.payments,
+                fulfillmentGroups: [{
+                  data: {
+                    shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress
+                  },
+                  selectedFulfillmentOption: data.selectedFulfillmentOption,
+                  availableFulfillmentOptions: checkout.fulfillmentGroups[0].availableFulfillmentOptions
+                }]
+              }
+            };
+          }
+        );
+        resolve(data);
         }, 1000, { data });
     });
   }
 
   setPaymentMethod(data) {
     const { billingAddress, token: { card } } = data;
-    const { checkout } = this.state;
     const payment = {
       data: {
         billingAddress,
@@ -250,19 +253,24 @@ class CheckoutActionsExample extends React.Component {
 
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-          this.setState(Object.assign(this.state, {
-            checkout: {
-              fulfillmentGroups: checkout.fulfillmentGroups,
-              payments: [payment]
+          this.setState((state, props) => (
+            { checkout: {
+                fulfillmentGroups: state.checkout.fulfillmentGroups,
+                payments: [payment]
+              }
             }
-          }));
+          ));
           resolve(payment);
         }, 1000, { payment });
     });
   }
 
   placeOrder() {
-    console.log("Place order!");
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve(true);
+        }, 2000);
+    });
   }
 
   render() {
