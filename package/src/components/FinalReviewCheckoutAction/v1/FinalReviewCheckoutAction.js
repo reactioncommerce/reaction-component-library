@@ -24,9 +24,14 @@ const Summary = styled.div`
   }
 `;
 
-const Padding = styled.div`
+const Items = styled.div`
   padding-left: 1rem;
   padding-right: 1rem;
+  border-bottom: 1px solid ${applyTheme("color_black10")};
+`;
+
+const Divider = styled.div`
+  border-top: 1px solid ${applyTheme("color_black10")};
 `;
 
 class FinalReviewCheckoutAction extends Component {
@@ -142,11 +147,12 @@ class FinalReviewCheckoutAction extends Component {
           {stepNumber}. {label}
         </Title>
         <Summary>
-          <Padding>
+          <Items>
             <CartItems
               isReadOnly
               items={items}
             />
+            <Divider />
             <CartSummary
               isDense
               displayDiscount={displayDiscount}
@@ -155,7 +161,7 @@ class FinalReviewCheckoutAction extends Component {
               displayTax={displayTax}
               displayTotal={displayTotal}
             />
-          </Padding>
+          </Items>
         </Summary>
       </Fragment>
     );

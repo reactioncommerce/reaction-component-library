@@ -12,8 +12,8 @@ const Item = styled.div`
   padding: 1rem 0;
   width: 100%;
 
-  &:first-of-type {
-    border-top: solid 1px ${applyTheme("color_black05")};
+  &:last-of-type {
+    border-bottom: none;
   }
 
   > * {

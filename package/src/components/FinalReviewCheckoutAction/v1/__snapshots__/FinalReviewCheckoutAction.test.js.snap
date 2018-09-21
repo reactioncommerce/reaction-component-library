@@ -35,6 +35,11 @@ Array [
 .c1 {
   padding-left: 1rem;
   padding-right: 1rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.c2 {
+  border-top: 1px solid #e6e6e6;
 }
 
 <div
@@ -44,6 +49,9 @@ Array [
       className="c1"
     >
       CartItems(undefined)
+      <div
+        className="c2"
+      />
       CartSummary(undefined)
     </div>
   </div>,
