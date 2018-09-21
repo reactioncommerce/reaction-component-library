@@ -13,6 +13,11 @@ exports[`basic snapshot with props 1`] = `
   overflow-y: auto;
 }
 
+.c1 > div {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
 .c2 {
   border-top: 1px solid #e6e6e6;
   box-shadow: none;
