@@ -13,8 +13,10 @@ The simple select can be used in cases where there are fewer than 10 options.
 ```jsx
 const options = [
   { value: 'chocolate', label: 'Chocolate' },
+  { value: 'darkchocolate', label: 'Dark Chocolate' },
+  { value: 'mintchip', label: 'Mint Chip' },
   { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
+  { value: 'vanilla', label: 'Vanilla' },
 ];
 
 <Select options={options} />

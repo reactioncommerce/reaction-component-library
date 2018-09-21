@@ -354,6 +354,7 @@ const textareaStyles = {
 
 const selectStyles = {
   rui_selectHoverColor: reactionBlue100,
+  rui_selectedBackgroundColor: reactionBlue200,
   rui_selectFocusBorderColor: teal,
   rui_selectBorderRadius: baseUnit(0.2),
   rui_selectMenuBorderRadius: `0 ${baseUnit(0.2)}`,

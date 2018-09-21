@@ -78,7 +78,8 @@ const getSelectMenuBorderRadius = applyTheme("selectMenuBorderRadius");
 const getSelectBorderColor = applyTheme("selectBorderColor");
 const getInputFontSize = applyTheme("inputFontSize");
 const getSelectHoverColor = applyTheme("selectHoverColor");
-const getSelecFocusBorderColor = applyTheme("selectFocusBorderColor");
+const getSelectedBackgroundColor = applyTheme("selectedBackgroundColor");
+const getSelectFocusBorderColor = applyTheme("selectFocusBorderColor");
 const getSelectIndicatorColor = applyTheme("selectIndicatorColor");
 const getSelectMenuBorder = applyTheme("selectMenuBorder");
 const getSelectLetterSpacing = applyTheme("selectLetterSpacing");
@@ -106,7 +107,7 @@ function getCustomStyles(props) {
         "boxShadow": "none",
         "cursor": "pointer",
         "&:hover": {
-          borderColor: state.isFocused ? getSelecFocusBorderColor() : getSelectBorderColor()
+          borderColor: state.isFocused ? getSelectFocusBorderColor() : getSelectBorderColor()
         }
       };
     },
@@ -131,7 +132,7 @@ function getCustomStyles(props) {
         ":hover": {
           backgroundColor: getSelectHoverColor()
         },
-        "backgroundColor": (state.isSelected ? getSelectHoverColor() : "#FFFFFF")
+        "backgroundColor": (state.isSelected ? getSelectedBackgroundColor() : state.isFocused ? getSelectHoverColor() : "#FFFFFF") // eslint-disable-line no-nested-ternary
       };
     },
     dropdownIndicator(base, state) {
