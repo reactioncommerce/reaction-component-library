@@ -4,6 +4,16 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, CustomPropTypes } from "../../../utils";
 
+const applyPadding = (props) => {
+  if (!props.isMiniCart) return "";
+  return `
+    > div {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  `;
+};
+
 const Cart = styled.div`
   border: 1px solid ${applyTheme("color_black10")};
   max-width: 360px;
@@ -14,6 +24,8 @@ const Items = styled.div`
   max-height: 420px;
   overflow-x: hidden;
   overflow-y: auto;
+
+  ${({ children }) => applyPadding(children.props)}
 `;
 
 const Footer = styled.div`
