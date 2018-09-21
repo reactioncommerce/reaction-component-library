@@ -113,12 +113,30 @@ class CatalogGridItem extends Component {
   };
 
   componentDidMount() {
+    this._mounted = true;
+
+    this.setImageFit();
+  }
+
+  componentDidUpdate() {
+    this.setImageFit();
+  }
+
+  componentWillUnmount() {
+    this._mounted = false;
+  }
+
+  setImageFit = () => {
     // Use cover fit if image is landcape, contain if portrait
     if (typeof Image !== "undefined") {
       const { large } = this.primaryImage.URLs;
       const largeImage = new Image();
       largeImage.src = large;
       largeImage.onload = () => {
+        if (this._mounted === false) {
+          return;
+        }
+
         const { width, height } = largeImage;
         if (height > width) {
           // Image is portrait
@@ -126,7 +144,7 @@ class CatalogGridItem extends Component {
         }
       };
     }
-  }
+  };
 
   get productDetailHref() {
     const { product: { slug } } = this.props;
