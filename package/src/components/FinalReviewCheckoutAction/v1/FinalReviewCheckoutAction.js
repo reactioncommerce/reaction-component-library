@@ -24,6 +24,11 @@ const Summary = styled.div`
   }
 `;
 
+const Padding = styled.div`
+  padding-left: 1rem;
+  padding-right: 1rem;
+`;
+
 class FinalReviewCheckoutAction extends Component {
   static propTypes = {
     /**
@@ -137,18 +142,20 @@ class FinalReviewCheckoutAction extends Component {
           {stepNumber}. {label}
         </Title>
         <Summary>
-          <CartItems
-            isReadOnly
-            items={items}
-          />
-          <CartSummary
-            isDense
-            displayDiscount={displayDiscount}
-            displayShipping={displayShipping}
-            displaySubtotal={displaySubtotal}
-            displayTax={displayTax}
-            displayTotal={displayTotal}
-          />
+          <Padding>
+            <CartItems
+              isReadOnly
+              items={items}
+            />
+            <CartSummary
+              isDense
+              displayDiscount={displayDiscount}
+              displayShipping={displayShipping}
+              displaySubtotal={displaySubtotal}
+              displayTax={displayTax}
+              displayTotal={displayTotal}
+            />
+          </Padding>
         </Summary>
       </Fragment>
     );

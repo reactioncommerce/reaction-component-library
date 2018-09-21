@@ -32,11 +32,20 @@ Array [
   padding-right: 1rem;
 }
 
+.c1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 <div
     className="c0"
   >
-    CartItems(undefined)
-    CartSummary(undefined)
+    <div
+      className="c1"
+    >
+      CartItems(undefined)
+      CartSummary(undefined)
+    </div>
   </div>,
 ]
 `;
