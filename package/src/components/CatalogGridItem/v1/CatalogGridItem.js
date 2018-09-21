@@ -141,6 +141,9 @@ class CatalogGridItem extends Component {
         if (height > width) {
           // Image is portrait
           this.setState({ fit: "contain" });
+        } else {
+          // Image is landscape
+          this.setState({ fit: "cover" });
         }
       };
     }
