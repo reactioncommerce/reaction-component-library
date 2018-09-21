@@ -16,12 +16,17 @@ const Title = styled.h3`
 
 const Summary = styled.div`
   border: 1px solid ${applyTheme("color_black10")};
-  border-bottom: none;
 
   table td {
     padding-left: 1rem;
     padding-right: 1rem;
   }
+`;
+
+const Items = styled.div`
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 1px solid ${applyTheme("color_black10")};
 `;
 
 class FinalReviewCheckoutAction extends Component {
@@ -137,10 +142,12 @@ class FinalReviewCheckoutAction extends Component {
           {stepNumber}. {label}
         </Title>
         <Summary>
-          <CartItems
-            isReadOnly
-            items={items}
-          />
+          <Items>
+            <CartItems
+              isReadOnly
+              items={items}
+            />
+          </Items>
           <CartSummary
             isDense
             displayDiscount={displayDiscount}

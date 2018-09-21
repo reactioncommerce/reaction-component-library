@@ -222,7 +222,8 @@ const defaultStyles = {
   rui_leading_body: bodyLeading,
   rui_leading_header: headerLeading,
   rui_leading_flat: flatLeading,
-  rui_shadow_depth1: depth1
+  rui_shadow_depth1: depth1,
+  rui_standardPadding: `${paddingBasePixels}px`
 };
 
 // buttons

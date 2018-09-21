@@ -24,7 +24,6 @@ Array [
   </h3>,
   .c0 {
   border: 1px solid #e6e6e6;
-  border-bottom: none;
 }
 
 .c0 table td {
@@ -32,10 +31,20 @@ Array [
   padding-right: 1rem;
 }
 
+.c1 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 1px solid #e6e6e6;
+}
+
 <div
     className="c0"
   >
-    CartItems(undefined)
+    <div
+      className="c1"
+    >
+      CartItems(undefined)
+    </div>
     CartSummary(undefined)
   </div>,
 ]

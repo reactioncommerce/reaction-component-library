@@ -14,6 +14,8 @@ const Items = styled.div`
   max-height: 420px;
   overflow-x: hidden;
   overflow-y: auto;
+  padding-left: ${applyTheme("standardPadding")};
+  padding-right: ${applyTheme("standardPadding")};
 `;
 
 const Footer = styled.div`
