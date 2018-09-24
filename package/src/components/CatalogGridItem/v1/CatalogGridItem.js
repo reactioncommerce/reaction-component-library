@@ -137,13 +137,18 @@ class CatalogGridItem extends Component {
           return;
         }
 
+        let fit = "";
         const { width, height } = largeImage;
         if (height > width) {
           // Image is portrait
-          this.setState({ fit: "contain" });
+          fit = "contain";
         } else {
           // Image is landscape
-          this.setState({ fit: "cover" });
+          fit = "cover";
+        }
+
+        if (fit !== this.state.fit) {
+          this.setState({ fit });
         }
       };
     }
