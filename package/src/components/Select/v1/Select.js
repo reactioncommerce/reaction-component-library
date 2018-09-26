@@ -39,6 +39,7 @@ const supportedPassthroughProps = [
   "maxValueHeight",
   "menuIsOpen",
   "menuPlacement",
+  "name",
   "noOptionsMessage",
   "onBlur",
   "onFocus",
@@ -132,14 +133,14 @@ function getCustomStyles(props) {
         ":hover": {
           backgroundColor: getSelectHoverColor()
         },
-        "backgroundColor": (state.isSelected ? getSelectedBackgroundColor() : state.isFocused ? getSelectHoverColor() : "#FFFFFF") // eslint-disable-line no-nested-ternary
+        "backgroundColor": state.isSelected ? getSelectedBackgroundColor() : state.isFocused ? getSelectHoverColor() : "#FFFFFF" // eslint-disable-line no-nested-ternary
       };
     },
     dropdownIndicator(base, state) {
       return {
         ...base,
         color: getSelectIndicatorColor(),
-        transform: (state.selectProps.menuIsOpen ? "rotateX(-180deg)" : "")
+        transform: state.selectProps.menuIsOpen ? "rotateX(-180deg)" : ""
       };
     },
     menuList(base) {
@@ -166,6 +167,10 @@ function getCustomStyles(props) {
 
 class Select extends Component {
   static propTypes = {
+    /**
+     * Alphabetize by option label
+     */
+    alphabetize: PropTypes.bool,
     /**
      * Passed through to react-select package. Focus the control when it is mounted
      */
@@ -402,10 +407,11 @@ class Select extends Component {
   };
 
   static defaultProps = {
+    alphabetize: false,
     isReadOnly: false,
     isSearchable: false,
-    onChange() { },
-    onChanging() { },
+    onChange() {},
+    onChanging() {},
     options: []
   };
 
@@ -500,14 +506,17 @@ class Select extends Component {
           this.dataType = checkDataType;
         } else if (checkDataType !== this.dataType) {
           // eslint-disable-next-line
-          throw new Error(`All option values must have the same data type. The data type of the first option is "${this.dataType}" while the data type of the ${option.label} option is "${checkDataType}"`);
+          throw new Error(
+            `All option values must have the same data type. The data type of the first option is "${
+              this.dataType
+            }" while the data type of the ${option.label} option is "${checkDataType}"`);
         }
       }
     });
   }
 
   render() {
-    const { isReadOnly, options } = this.props;
+    const { alphabetize, isReadOnly, options } = this.props;
     const { value } = this.state;
 
     // Unfortunately right now, react-select optgroup support is just a tad different from the
@@ -521,6 +530,17 @@ class Select extends Component {
       }
       return opt;
     });
+
+    if (alphabetize) {
+      reactSelectOptions.sort((thisOpt, nextOpt) => {
+        if (thisOpt.label > nextOpt.label) {
+          return 1;
+        } else if (nextOpt.label > thisOpt.label) {
+          return -1;
+        }
+        return 0;
+      });
+    }
 
     const passthroughProps = {};
     supportedPassthroughProps.forEach((prop) => {
@@ -538,6 +558,7 @@ class Select extends Component {
     return (
       <ReactSelect
         {...passthroughProps}
+        autoCompplete="on"
         isDisabled={isReadOnly}
         value={optionValue}
         components={{ IndicatorSeparator: null }}

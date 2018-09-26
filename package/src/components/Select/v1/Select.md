@@ -48,6 +48,23 @@ const options = [
 <Select options={options} maxWidth={150} />
 ```
 
+##### Alphabetizing select options
+
+By default the `Select` will inherit the order of provided options. 
+To alphabetize by option label apply the `alphabetize` prop.
+
+```jsx
+const options = [
+  { value: 'mintchip', label: 'Mint Chip' },
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'darkchocolate', label: 'Dark Chocolate' }
+];
+
+<Select options={options} alphabetize />
+```
+
 #### States
 
 A select can be in one of three states: normal, invalid, or valid. Normal state is as shown previously
