@@ -39,7 +39,6 @@ const supportedPassthroughProps = [
   "maxValueHeight",
   "menuIsOpen",
   "menuPlacement",
-  "name",
   "noOptionsMessage",
   "onBlur",
   "onFocus",
@@ -558,7 +557,6 @@ class Select extends Component {
     return (
       <ReactSelect
         {...passthroughProps}
-        autoCompplete="on"
         isDisabled={isReadOnly}
         value={optionValue}
         components={{ IndicatorSeparator: null }}
