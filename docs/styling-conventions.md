@@ -20,7 +20,7 @@ The following styles should almost always be put into the theme file as variable
 
 In general, flexbox and other layout styles should be baked into the component and not controlled by theme. A component can have props that tell it to use one of several layouts if necessary, or better yet, we can create multiple similar components. Theming should be reserved for borders, colors, padding, and typography.
 
-Height and width should come from theme if the component would still be functional with differing height and width. If the ratio of these two is important to the look or function of the component, then include just a single value in the theme and calculate the other value from that. If the ratio is 1:1, then use a single variable ending in "Size".
+In general a component's height should always be automatic and its width should be automatic or 100%. These values can be set directly in the styles in the component file. In some cases, element _within_ the component might need a specific height or width in pixels. Some examples are a checkbox or radio, and icons or images. In these cases, height and width should come from the theme if the element would look fine with differing height and width. If the ratio of these two is important to the look or function of the component, then include just a single value in the theme and calculate the other value from that. If the ratio should always be 1:1, then use a single variable ending in "Size".
 
 If you must use `left`, `top`, `bottom`, or `right` styles, these should be in the theme if the component would still be functional with different values. However, use a different term such as "padding" or "margin" or "offset" in the theme variable name to better describe what the positioning is actually doing.
 
@@ -152,5 +152,5 @@ All of these must use component-specific theme variables.
 ## Units (px | em | rem)
 
 - Almost always use pixel values in the default theme, except...
-- Use `em` only where you specifically need the component style values to expand or contract with the current font size. Explain in the component markdown documentation exactly why you feel `em` is appropriate.
-- Use `rem` values only for components that are clearly displaying body and heading text that you would expect to grow or shrink with the base font of the page. This does not include form input labels, placeholders, help text, or anything else where the design does not look good with other font sizes or text does not overflow. Explain in the component markdown documentation exactly why you feel `rem` is appropriate.
+- Use `em` only where you specifically need the component style values to expand or contract with the current font size. Explain in the component markdown documentation exactly why using `em` is appropriate.
+- Use `rem` values only for components that are clearly displaying body and heading text that you would expect to grow or shrink with the base font of the page. This does not include form input labels, placeholders, help text, or anything else where the design does not look good with other font sizes or text does not overflow. Explain in the component markdown documentation exactly why using `rem` is appropriate.
