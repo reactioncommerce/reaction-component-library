@@ -48,6 +48,79 @@ const options = [
 <Select options={options} maxWidth={150} />
 ```
 
+##### Alphabetizing select options
+
+By default the `Select` will inherit the order of provided options. 
+To alphabetize by option label apply the `alphabetize` prop.
+
+```jsx
+const options = [
+  { value: 'mintchip', label: 'Mint Chip' },
+  { value: 'chocolate', label: 'Chocolate' },
+  { value: 'strawberry', label: 'Strawberry' },
+  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'darkchocolate', label: 'Dark Chocolate' }
+];
+
+<Select options={options} alphabetize />
+```
+
+##### Nested select optioins
+
+```jsx
+const options = [{
+    optgroup: 'Transportation',
+    options: [{
+        value: "car",
+        label: 'Car'
+      },
+      {
+        value: "bike",
+        label: "Bike"
+      },
+      {
+        value: "jetpack",
+        label: "Jetpack"
+      }
+    ]
+  },
+  {
+    optgroup: 'Plants',
+    options: [{
+        value: 'tree',
+        label: "Tree"
+      },
+      {
+        value: "cactus",
+        label: "Cactus"
+      },
+      {
+        value: "lily",
+        label: "Lily"
+      }
+    ]
+  },
+  {
+    optgroup: 'Athletes',
+    options: [{
+        value: 'lebron',
+        label: 'Lebron James'
+      },
+      {
+        value: "embiid",
+        label: "Joel Embiid"
+      },
+      {
+        value: "antetokounmpo",
+        label: "Giannis Antetokounmpo"
+      }
+    ]
+  }
+];
+
+<Select options={options} alphabetize />
+```
+
 #### States
 
 A select can be in one of three states: normal, invalid, or valid. Normal state is as shown previously

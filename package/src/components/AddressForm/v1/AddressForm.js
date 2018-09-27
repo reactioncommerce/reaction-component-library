@@ -313,6 +313,7 @@ class AddressForm extends Component {
               {this.countryOptions && this.countryOptions.length > 1 ? (
                 <Select
                   id={countryInputId}
+                  alphabetize
                   isSearchable
                   name="country"
                   onChange={this.handleCountryChange}
@@ -370,6 +371,7 @@ class AddressForm extends Component {
               {this.regionOptions && this.regionOptions.length > 1 ? (
                 <Select
                   id={regionInputId}
+                  alphabetize
                   isSearchable
                   name="region"
                   options={this.regionOptions}
