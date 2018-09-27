@@ -51,7 +51,6 @@ test("alphabetize option snapshot", () => {
     { label: "Z", value: "z" },
     { label: "E", value: "e" }
   ];
-
   const component = renderer.create(<Select {...PROPS} alphabetize options={UNORDERED_OPTIONS} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
