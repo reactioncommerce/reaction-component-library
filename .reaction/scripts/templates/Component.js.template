@@ -4,12 +4,25 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
-  color: #333333;
+  color: ${applyTheme("cOMPONENTColor")};
 `;
 
 class COMPONENT extends Component {
   static propTypes = {
-
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
+     * If you've set up a components context using @reactioncommerce/components-context
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
+     */
+    components: PropTypes.shape({
+    }).isRequired
   };
 
   static defaultProps = {
@@ -17,8 +30,10 @@ class COMPONENT extends Component {
   };
 
   render() {
+    const { className } = this.props;
+
     return (
-      <StyledDiv>TEST</StyledDiv>
+      <StyledDiv className={className}>TEST</StyledDiv>
     );
   }
 }
