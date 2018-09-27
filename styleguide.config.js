@@ -500,6 +500,10 @@ module.exports = {
         {
           test: /\.css$/,
           loader: "style-loader!css-loader"
+        },
+        {
+          test: /README\.md$/,
+          loader: "ignore-loader"
         }
       ]
     }
