@@ -40,7 +40,19 @@ testInput({
 
 test("basic snapshot", () => {
   const component = renderer.create(<Select {...PROPS} options={OPTIONS} />);
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
 
+test("alphabetize option snapshot", () => {
+  const UNORDERED_OPTIONS = [
+    { label: "C", value: "c" },
+    { label: "A", value: "a" },
+    { label: "Z", value: "z" },
+    { label: "E", value: "e" }
+  ];
+
+  const component = renderer.create(<Select {...PROPS} alphabetize options={UNORDERED_OPTIONS} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
