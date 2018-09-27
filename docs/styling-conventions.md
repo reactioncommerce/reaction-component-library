@@ -20,17 +20,23 @@ The following styles should almost always be put into the theme file as variable
 
 In general, flexbox and other layout styles should be baked into the component and not controlled by theme. A component can have props that tell it to use one of several layouts if necessary, or better yet, we can create multiple similar components. Theming should be reserved for borders, colors, padding, and typography.
 
+Height and width should come from theme if the component would still be functional with differing height and width. If the ratio of these two is important to the look or function of the component, then include just a single value in the theme and calculate the other value from that. If the ratio is 1:1, then use a single variable ending in "Size".
+
+If you must use `left`, `top`, `bottom`, or `right` styles, these should be in the theme if the component would still be functional with different values. However, use a different term such as "padding" or "margin" or "offset" in the theme variable name to better describe what the positioning is actually doing.
+
 ### Variable names
 
 All theme properties must start with `rui_` followed by a camelcased identifier. The general pattern is this:
 
-- rui_
+- `rui_`
 - Component name, with lowercase first letter
+- `Mobile`, if specific to mobile
 - Capitalized description of the variable (e.g., "BorderWidth", "PaddingLeft", "Size")
 - Optionally, an underscore followed by a lowercase state suffix (e.g., "_active", "_disabled"). Do not proactively add state-suffixed variables for everything, but rather add them only as the default designs require and as requested by users in GitHub issues.
 
 Examples:
 - `rui_ButtonBorderWidth`
+- `rui_ButtonMobileBorderWidth`
 - `rui_ButtonBackgroundColor_disabled`
 
 It's important to note that there should NOT be generic theme variables with names like `rui_color_disabled`. All must have component-specific names. It is fine (and ideal) to have a constant such as `color_disabled` _used_ within the theme file, in order to set multiple theme variables to the same value.
@@ -136,3 +142,15 @@ Every component that renders text must explicitly set the following typography s
 - line height
 
 All of these must use component-specific theme variables.
+
+## Margins
+
+- All components must have zero margin on their outermost DOM element.
+- For spacing within the outermost DOM element, prefer "padding" over "margin".
+- If it is absolutely necessary to set the margin on an element within a component, create a theme variable specific to that, but use a more specific word such as "Spacing" instead of "Margin" if possible.
+
+## Units (px | em | rem)
+
+- Almost always use pixel values in the default theme, except...
+- Use `em` only where you specifically need the component style values to expand or contract with the current font size. Explain in the component markdown documentation exactly why you feel `em` is appropriate.
+- Use `rem` values only for components that are clearly displaying body and heading text that you would expect to grow or shrink with the base font of the page. This does not include form input labels, placeholders, help text, or anything else where the design does not look good with other font sizes or text does not overflow. Explain in the component markdown documentation exactly why you feel `rem` is appropriate.
