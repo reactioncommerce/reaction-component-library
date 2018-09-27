@@ -132,7 +132,10 @@ function getCustomStyles(props) {
         ":hover": {
           backgroundColor: getSelectHoverColor()
         },
-        "backgroundColor": state.isSelected ? getSelectedBackgroundColor() : state.isFocused ? getSelectHoverColor() : "#FFFFFF" // eslint-disable-line no-nested-ternary
+        // eslint-disable-next-line no-nested-ternary
+        "backgroundColor": state.isSelected
+          ? getSelectedBackgroundColor()
+          : state.isFocused ? getSelectHoverColor() : "#FFFFFF"
       };
     },
     dropdownIndicator(base, state) {
@@ -514,6 +517,17 @@ class Select extends Component {
     });
   }
 
+  sortOptions = (thisOpt, nextOpt) => {
+    if (thisOpt.options) thisOpt.options.sort(this.sortOptions);
+    if (nextOpt.options) nextOpt.options.sort(this.sortOptions);
+    if (thisOpt.label > nextOpt.label) {
+      return 1;
+    } else if (nextOpt.label > thisOpt.label) {
+      return -1;
+    }
+    return 0;
+  };
+
   render() {
     const { alphabetize, isReadOnly, options } = this.props;
     const { value } = this.state;
@@ -531,14 +545,7 @@ class Select extends Component {
     });
 
     if (alphabetize) {
-      reactSelectOptions.sort((thisOpt, nextOpt) => {
-        if (thisOpt.label > nextOpt.label) {
-          return 1;
-        } else if (nextOpt.label > thisOpt.label) {
-          return -1;
-        }
-        return 0;
-      });
+      reactSelectOptions.sort(this.sortOptions);
     }
 
     const passthroughProps = {};
