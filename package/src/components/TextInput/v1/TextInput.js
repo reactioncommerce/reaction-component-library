@@ -388,6 +388,7 @@ class TextInput extends Component {
 
   onClearValue = () => {
     this.setValue();
+    this.onButtonBlur();
   };
 
   getValue() {
