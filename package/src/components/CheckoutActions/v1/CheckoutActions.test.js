@@ -12,7 +12,9 @@ class mockCheckoutAction extends React.Component {
 
 const mockActions = [
   {
-    label: "mock action one",
+    activeLabel: "mock active action one",
+    completeLabel: "mock complete action one",
+    incompleteLabel: "mock inactive action one",
     status: "incomplete",
     component: mockCheckoutAction,
     onSubmit: () => true,
