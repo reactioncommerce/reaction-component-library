@@ -43,6 +43,7 @@ function createComponentFile(name) {
   const filePath = path.join(componentDirectory, "v1", `${name}.js`);
   let template = fs.readFileSync(".reaction/scripts/templates/Component.js.template", { encoding: "utf8" });
   template = template.replace(/COMPONENT/g, name);
+  template = template.replace(/cOMPONENT/g, name.charAt(0).toLowerCase() + name.slice(1));
   fs.ensureFileSync(filePath);
   fs.writeFileSync(filePath, template);
 }
