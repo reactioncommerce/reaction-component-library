@@ -248,16 +248,24 @@ const textareaStyles = {
 };
 
 // select
-
 const selectStyles = {
-  rui_selectHoverColor: colors.reactionBlue100,
-  rui_selectedBackgroundColor: colors.reactionBlue200,
-  rui_selectFocusBorderColor: colors.teal,
-  rui_selectBorderRadius: baseUnit(0.2),
-  rui_selectMenuBorderRadius: `0 ${baseUnit(0.2)}`,
+  rui_selectOptionHoverColor: colors.reactionBlue100,
+  rui_selectSelectedOptionBackgroundColor: colors.reactionBlue200,
+  rui_selectBorderTopLeftRadius: 0,
+  rui_selectBorderTopRightRadius: baseUnit(0.2),
+  rui_selectBorderBottomLeftRadius: baseUnit(0.2),
+  rui_selectBorderBottomRightRadius: 0,
   rui_selectIndicatorColor: colors.coolGrey500,
-  rui_selectBorderColor: colors.black20,
-  rui_selectMenuBorder: `${baseUnit(0.1)} solid ${colors.black20}`,
+  rui_selectMenuBorderTopLeftRadius: 0,
+  rui_selectMenuBorderTopRightRadius: baseUnit(0.2),
+  rui_selectMenuBorderBottomLeftRadius: baseUnit(0.2),
+  rui_selectMenuBorderBottomRightRadius: 0,
+  rui_selectMenuBorderLeftWidth: baseUnit(0.1),
+  rui_selectMenuBorderRightWidth: baseUnit(0.1),
+  rui_selectMenuBorderBottomWidth: baseUnit(0.1),
+  rui_selectMenuBorderLeftColor: colors.black20,
+  rui_selectMenuBorderRightColor: colors.black20,
+  rui_selectMenuBorderBottomColor: colors.black20,
   rui_selectLetterSpacing: `${baseUnit(0.03)}`,
   rui_selectTextColor: colors.coolGrey500
 };
