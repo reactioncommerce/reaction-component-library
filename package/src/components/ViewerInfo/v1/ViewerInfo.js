@@ -40,7 +40,7 @@ const ViewerFirstNameText = styled.span`
   margin-left: 0.5rem;
   letter-spacing: 0.2px;
 
-  @media (${applyTheme("bp_md")}) {
+  @media (min-width: ${applyTheme("breakpoint_md")}px) {
     display: ${({ compact }) => (compact ? "none" : "inline")};
   }
 `;

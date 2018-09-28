@@ -20,7 +20,7 @@ const ColFull = styled.div`
 const ColHalf = styled.div`
   flex: 1 1 100%;
 
-  @media (${applyTheme("bp_sm")}) {
+  @media (min-width: ${applyTheme("breakpoint_sm")}px) {
     flex: 0 1 calc(50% - 9px);
   }
 `;
