@@ -33,16 +33,6 @@ const headerLeading = "1.25";
 const flatLeading = "1";
 
 /**
- * Default Theme Spacing
- */
-
-// old button sizing helper
-const paddingBasePixels = 10;
-
-const spacingBase = 0.625;
-const baseUnit = (size) => `${spacingBase * size}rem`;
-
-/**
  * Default Theme Shadows
  */
 const depth0 = "none";
@@ -57,6 +47,15 @@ const breakpoint_sm = 600;
 const breakpoint_md = 960;
 const breakpoint_lg = 1280;
 const breakpoint_xl = 1920;
+
+/**
+ * Default Theme
+ */
+
+const paddingBasePixels = 10;
+const spacingBase = 0.625;
+const baseUnit = (size) => `${spacingBase * size}rem`;
+const standardBorderRadius = "2px";
 
 /**
  * Default Theme Elements
@@ -152,7 +151,7 @@ const buttonStyles = {
   rui_buttonBorderColor_textOnly_disabled: "transparent",
   rui_buttonBorderColor_textOnly_hover: colors.paleGrey,
   rui_buttonBorderColor_textOnly: "transparent",
-  rui_buttonBorderRadius: "2px",
+  rui_buttonBorderRadius: standardBorderRadius,
   rui_buttonForegroundColor_danger_active: colors.white,
   rui_buttonForegroundColor_danger_disabled: colors.white,
   rui_buttonForegroundColor_danger_hover: colors.white,
@@ -191,7 +190,7 @@ const inputStyles = {
   rui_inputBorderColor_focus: colors.teal,
   rui_inputBorderColor_error: colors.red,
   rui_inputBorderColor_success: colors.teal,
-  rui_inputBorderRadius: "0.125rem",
+  rui_inputBorderRadius: standardBorderRadius,
   rui_inputColor_default: colors.coolGrey500,
   rui_inputColor_disabled: colors.black25,
   rui_inputColor_error: colors.red,
@@ -231,13 +230,13 @@ const selectStyles = {
   rui_selectOptionHoverColor: colors.reactionBlue100,
   rui_selectSelectedOptionBackgroundColor: colors.reactionBlue200,
   rui_selectBorderTopLeftRadius: 0,
-  rui_selectBorderTopRightRadius: baseUnit(0.2),
-  rui_selectBorderBottomLeftRadius: baseUnit(0.2),
+  rui_selectBorderTopRightRadius: standardBorderRadius,
+  rui_selectBorderBottomLeftRadius: standardBorderRadius,
   rui_selectBorderBottomRightRadius: 0,
   rui_selectIndicatorColor: colors.coolGrey500,
   rui_selectMenuBorderTopLeftRadius: 0,
-  rui_selectMenuBorderTopRightRadius: baseUnit(0.2),
-  rui_selectMenuBorderBottomLeftRadius: baseUnit(0.2),
+  rui_selectMenuBorderTopRightRadius: standardBorderRadius,
+  rui_selectMenuBorderBottomLeftRadius: standardBorderRadius,
   rui_selectMenuBorderBottomRightRadius: 0,
   rui_selectMenuBorderLeftWidth: baseUnit(0.1),
   rui_selectMenuBorderRightWidth: baseUnit(0.1),
@@ -290,7 +289,7 @@ const checkbox = {
   rui_checkboxLeftSpacing: "0",
   rui_checkboxTopSpacing: "0",
   rui_checkboxBorderColor: colors.coolGrey500,
-  rui_checkboxBorderRadius: "2px",
+  rui_checkboxBorderRadius: standardBorderRadius,
   rui_checkboxBorderWidth: "2px",
   rui_checkboxFocusStyle: "rgb(59, 153, 252) auto 5px",
   rui_checkboxDisabledColor: colors.black10,
@@ -328,7 +327,7 @@ const selectableItem = {
 const selectableList = {
   rui_selectableListBorderColor: colors.black10,
   rui_selectableListBorderStyle: "1px solid",
-  rui_selectableListBorderRadius: "2px",
+  rui_selectableListBorderRadius: standardBorderRadius,
   rui_selectableListPadding: "0",
   rui_selectableListMargin: "0",
   rui_selectableListHeight: "50px",
