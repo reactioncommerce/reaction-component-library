@@ -30,7 +30,6 @@ const Address = (
     }
     cart={{}}
     isLoading={false}
-    label="Shipping address"
     status="active"
     stepNumber={2}
   />
@@ -62,7 +61,6 @@ const Address = (
     }
     cart={{}}
     isLoading={false}
-    label="Shipping address"
     status="complete"
     stepNumber={2}
   />
@@ -94,15 +92,51 @@ const Address = (
     }
     cart={{}}
     isLoading={false}
-    label="Shipping address"
     status="incomplete"
     stepNumber={2}
   />
 </div>
 ```
 
-#### Override default `label` or `stepNumber`
+#### Action status labels
+Each status can have it's own label by using the `activeLabel, completeLabel, incompleteLabel` props.
 
+```jsx
+const ActiveStepComp = ({label, stepNumber}) => <span>{stepNumber}{label}: Active Component</span>;
+const onClick = () => {};
+const Address = (
+  <div>
+    Ms. Jane Doe<br />
+    123 Main Street<br />
+    Anytown, USA 01776
+  </div>
+);
+
+<div>
+  <CheckoutAction
+    activeStepElement={<ActiveStepComp />}
+    completeStepElement={
+      <CheckoutActionComplete
+        content={Address}
+        onClickChangeButton={onClick}
+      />
+    }
+    incompleteStepElement={
+      <CheckoutActionIncomplete />
+    }
+    cart={{}}
+    activeLabel="Active Label"
+    completeLabel="Complete Label"
+    incompleteLabel="Incomplete Label"
+    isLoading={false}
+    status="complete"
+    stepNumber={2}
+  />
+</div>
+```
+
+#### Override default `label` or `stepNumber`
+Passing `label` and `stepNumber` directly to each "status" component.
 ```jsx
 const ActiveStepComp = () => <span>Active Component</span>;
 const onClick = () => {};
@@ -130,7 +164,6 @@ const Address = (
     }
     cart={{}}
     isLoading={false}
-    label="Shipping address"
     status="complete"
     stepNumber={2}
   />
