@@ -12,7 +12,10 @@ The `CheckoutActions` component is responsible for:
 ```js static
 const actions = [
   {
-    label: "Shipping Information",
+    _id: "1",
+    activeLabel: "Enter a shipping Address",
+    completeLabel: "Shipping Address",
+    incompleteLabel: "Shipping Address",
     status: "incomplete",
     component: ShippingAddressCheckoutAction,
     onSubmit: setShippingAddress
@@ -21,7 +24,10 @@ const actions = [
     }
   },
   {
-    label: "Shipping Options",
+    _id: "2",
+    activeLabel: "Choose a shipping method",
+    completeLabel: "Shipping method",
+    incompleteLabel: "Shipping Method",
     status: "incomplete",
     component: FulfillmentOptionsCheckoutAction,
     onSubmit: setFulfillmentOption
@@ -30,7 +36,10 @@ const actions = [
     }
   },
   {
-    label: "Payment Information",
+    _id: "3",
+    activeLabel: "Enter payment information",
+    completeLabel: "Payment Information",
+    incompleteLabel: "Payment Information",
     status: "incomplete",
     component: PaymentCheckoutAction,
     onSubmit: setPayment,
@@ -39,7 +48,10 @@ const actions = [
     }
   },
   {
-    label: "Review and place order",
+    _id: "4",
+    activeLabel: "Review and place order",
+    completeLabel: "Review and place order",
+    incompleteLabel: "Review and place order",
     status: "incomplete",
     component: FinalReviewCheckoutAction,
     onSubmit: placeOrder,
@@ -278,7 +290,10 @@ class CheckoutActionsExample extends React.Component {
 
     const actions = [
       {
-        label: "Shipping information",
+        _id: "1",
+        activeLabel: "Enter a shipping Address",
+        completeLabel: "Shipping Address",
+        incompleteLabel: "Shipping Address",
         status: this.getShippingStatus(),
         component: ShippingAddressCheckoutAction,
         onSubmit: this.setShippingAddress,
@@ -287,7 +302,10 @@ class CheckoutActionsExample extends React.Component {
         }
       },
       {
-        label: "Fulfillment information",
+        _id: "2",
+        activeLabel: "Choose a shipping method",
+        completeLabel: "Shipping method",
+        incompleteLabel: "Shipping Method",
         status: this.getFulfillmentOptionStatus(),
         component: FulfillmentOptionsCheckoutAction,
         onSubmit: this.setFulfillmentOption,
@@ -297,7 +315,10 @@ class CheckoutActionsExample extends React.Component {
         }
       },
       {
-        label: "Payment information",
+        _id: "3",
+        activeLabel: "Enter payment information",
+        completeLabel: "Payment Information",
+        incompleteLabel: "Payment Information",
         status: this.getPaymentStatus(),
         component: StripePaymentCheckoutAction,
         onSubmit: this.setPaymentMethod,
@@ -306,7 +327,10 @@ class CheckoutActionsExample extends React.Component {
         }
       },
       {
-        label: "Review and place order",
+        _id: "4",
+        activeLabel: "Review and place order",
+        completeLabel: "Review and place order",
+        incompleteLabel: "Review and place order",
         status: "incomplete",
         component: FinalReviewCheckoutAction,
         onSubmit: this.placeOrder,
