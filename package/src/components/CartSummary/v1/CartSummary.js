@@ -6,51 +6,60 @@ import { applyTheme } from "../../../utils";
 const Table = styled.table`
   width: 100%;
   border-spacing: 0;
-  background-color: ${(props) => (props.isDense ? "transparent" : applyTheme("color_black02")(props))};
-  padding: ${(props) => (props.isDense ? "0" : "1rem")};
+  background-color: ${(props) => (props.isDense ? applyTheme("cartSummaryDenseBackgroundColor")(props) : applyTheme("cartSummaryBackgroundColor")(props))};
+  padding-left: ${(props) => (props.isDense ? "0" : applyTheme("cartSummaryPaddingLeft")(props))};
+  padding-right: ${(props) => (props.isDense ? "0" : applyTheme("cartSummaryPaddingRight")(props))};
+  padding-top: ${(props) => (props.isDense ? "0" : applyTheme("cartSummaryPaddingTop")(props))};
+  padding-bottom: ${(props) => (props.isDense ? "0" : applyTheme("cartSummaryPaddingBottom")(props))};
 `;
 
 const Th = styled.th`
+  color: ${applyTheme("cartSummaryLeftColumnHeaderColor")};
   font-family: ${applyTheme("font_family")};
   text-align: left;
 `;
 
 const Thr = styled.th`
   text-align: right;
-  color: ${applyTheme("color_black30")};
+  color: ${applyTheme("cartSummaryRightColumnHeaderColor")};
   font-family: ${applyTheme("font_family")};
   font-weight: normal;
 `;
 
 const Td = styled.td`
+  border-top-color: ${applyTheme("cartSummaryBorderColor")};
+  border-top-style: "solid";
+  border-top-width: ${(props) => (props.isBordered ? applyTheme("cartSummaryBorderWidth")(props) : "initial")};
+  color: ${applyTheme("cartSummaryLeftColumnColor")};
   font-family: ${applyTheme("font_family")};
-  padding: ${(props) => (props.isDense ? "0.5rem 0" : "1rem 0")};
-  color: ${applyTheme("color_coolGrey500")};
-  border-top: ${(props) => (props.isBordered ? `1px solid ${applyTheme("color_black10")(props)}` : "initial")};
+  padding-bottom: ${(props) => (props.isDense ? applyTheme("cartSummaryRowDensePaddingBottom")(props) : applyTheme("cartSummaryRowPaddingBottom")(props))};
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: ${(props) => (props.isDense ? applyTheme("cartSummaryRowDensePaddingTop")(props) : applyTheme("cartSummaryRowPaddingTop")(props))};
+  text-align: left;
 `;
 
 const TdValue = Td.extend`
-  font-family: ${applyTheme("font_family")};
+  color: ${applyTheme("cartSummaryRightColumnColor")};
   text-align: right;
-  color: ${applyTheme("color_coolGrey500")};
 `;
 
 const Title = styled.span`
+  color: ${applyTheme("cartSummaryTitleColor")};
   font-family: ${applyTheme("font_family")};
   font-weight: ${applyTheme("font_weight_bold")};
-  color: ${applyTheme("color_coolGrey500")};
 `;
 
 const Discount = styled.span`
+  color: ${applyTheme("cartSummaryDiscountColor")};
   font-family: ${applyTheme("font_family")};
-  color: ${applyTheme("color_forestGreen300")};
   font-weight: ${applyTheme("font_weight_bold")};
 `;
 
 const Total = styled.span`
+  color: ${applyTheme("cartSummaryTotalColor")};
   font-family: ${applyTheme("font_family")};
   font-weight: ${applyTheme("font_weight_bold")};
-  color: ${applyTheme("color_coolGrey500")};
 `;
 
 class CartSummary extends Component {

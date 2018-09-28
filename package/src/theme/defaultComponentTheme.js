@@ -91,14 +91,11 @@ const defaultStyles = {
   rui_breakpoint_xl: breakpoint_xl,
   rui_color_default: colors.black55,
   rui_color_disabled: colors.black25,
-  rui_color_black02: colors.black02,
   rui_color_black05: colors.black05,
   rui_color_black10: colors.black10,
-  rui_color_black15: colors.black15,
   rui_color_black30: colors.black30,
   rui_color_black35: colors.black35,
   rui_color_black55: colors.black55,
-  rui_color_black50: colors.black50,
   rui_color_black65: colors.black65,
   rui_color_error: colors.red,
   rui_color_stockWarning: colors.red,
@@ -106,12 +103,9 @@ const defaultStyles = {
   rui_color_teal: colors.teal,
   rui_color_success: colors.teal,
   rui_color_coolGrey: colors.coolGrey,
-  rui_color_coolGrey100: colors.coolGrey100,
-  rui_color_coolGrey200: colors.coolGrey200,
   rui_color_coolGrey300: colors.coolGrey300,
   rui_color_coolGrey400: colors.coolGrey400,
   rui_color_coolGrey500: colors.coolGrey500,
-  rui_color_coolGrey600: colors.coolGrey600,
   rui_color_forestGreen300: colors.forestGreen300,
   rui_color_white: colors.white,
   rui_font_family: fontFamily,
@@ -365,6 +359,28 @@ const selectableList = {
 // viewerinfo
 const viewerInfo = {
   rui_viewerInfo_initials_size: "30px"
+};
+
+const cartSummary = {
+  rui_cartSummaryBackgroundColor: colors.black02,
+  rui_cartSummaryBorderColor: colors.black10,
+  rui_cartSummaryBorderWidth: "1px",
+  rui_cartSummaryDenseBackgroundColor: "transparent",
+  rui_cartSummaryPaddingLeft: "1rem",
+  rui_cartSummaryPaddingRight: "1rem",
+  rui_cartSummaryPaddingTop: "1rem",
+  rui_cartSummaryPaddingBottom: "1rem",
+  rui_cartSummaryLeftColumnColor: colors.coolGrey500,
+  rui_cartSummaryLeftColumnHeaderColor: colors.coolGrey500,
+  rui_cartSummaryRightColumnColor: colors.coolGrey500,
+  rui_cartSummaryRightColumnHeaderColor: colors.black30,
+  rui_cartSummaryRowDensePaddingBottom: "0.5rem",
+  rui_cartSummaryRowDensePaddingTop: "0.5rem",
+  rui_cartSummaryRowPaddingBottom: "1rem",
+  rui_cartSummaryRowPaddingTop: "1rem",
+  rui_cartSummaryTitleColor: colors.coolGrey500,
+  rui_cartSummaryDiscountColor: colors.forestGreen300,
+  rui_cartSummaryTotalColor: colors.coolGrey500
 };
 
 const catalogGrid = {
