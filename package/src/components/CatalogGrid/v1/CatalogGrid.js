@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { ContainerQuery } from "react-container-query";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { getFromTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
+import { applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 
 const GridContainer = styled.div`
   display: flex;
@@ -104,8 +104,8 @@ class CatalogGrid extends Component {
   });
 
   getContainerQueries() {
-    const threePerRowMinWidth = getFromTheme(this.props, "catalogGrid3PerRowMinWidth");
-    const fourPerRowMinWidth = getFromTheme(this.props, "catalogGrid4PerRowMinWidth");
+    const threePerRowMinWidth = applyTheme("catalogGrid3PerRowMinWidth")(this.props);
+    const fourPerRowMinWidth = applyTheme("catalogGrid4PerRowMinWidth")(this.props);
     return {
       is2PerRowWidth: {
         minWidth: 450, // Min width that item w/ 2 badges renders appropriately
