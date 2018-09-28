@@ -35,6 +35,8 @@ export default {
   reactionBlue400: "#067ebe",
   reactionBlue500: "#285268",
   reactionBlue600: "#172f3c",
+  reactionBlueActive: "#057dbe",
+  reactionBlueHover: "#25b0f9",
 
   coolGrey: "#5e7480",
   coolGrey100: "#e3ebf0",
@@ -43,6 +45,13 @@ export default {
   coolGrey400: "#3c5d6f",
   coolGrey500: "#3c3c3c",
   coolGrey600: "#1d1d1d",
+  coolGreyActive: "#3b5c70",
+  coolGreyActiveLight: "#c9d9e1",
+  coolGreyHover: "#5d8fa9",
+  coolGreyHoverLight: "#eaeff3",
+
+  paleGrey: "#e9f0f4",
+  lightBlueGrey: "#c8d9e3",
 
   // dark colors
   forestGreen: "#158562",
@@ -77,6 +86,7 @@ export default {
   red400: "#bc1d2b",
   red500: "#5e3033",
   red600: "#3c1f21",
+  redHover: "#e4505e",
 
   teal: "#8ce0c9",
   teal100: "#edfdf8",

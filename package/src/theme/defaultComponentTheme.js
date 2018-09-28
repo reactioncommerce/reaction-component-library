@@ -33,22 +33,6 @@ const headerLeading = "1.25";
 const flatLeading = "1";
 
 /**
- * Default Theme Buttons
- */
-const redActive = "#bc1d2b";
-const coolGreyActive = "#3b5c70";
-const coolGreyActiveLight = "#c9d9e1";
-const reactionBlueActive = "#057dbe";
-
-const redHover = "#e4505e";
-const coolGreyHover = "#5d8fa9";
-const coolGreyHoverLight = "#eaeff3";
-const reactionBlueHover = "#25b0f9";
-
-const paleGrey = "#e9f0f4";
-const lightBlueGrey = "#c8d9e3";
-
-/**
  * Default Theme Spacing
  */
 
@@ -57,11 +41,6 @@ const paddingBasePixels = 10;
 
 const spacingBase = 0.625;
 const baseUnit = (size) => `${spacingBase * size}rem`;
-
-/**
- * Default Theme Borders
- */
-const borderRadius = baseUnit(0.2);
 
 /**
  * Default Theme Shadows
@@ -125,53 +104,53 @@ const defaultStyles = {
 
 // buttons
 const buttonStyles = {
-  rui_buttonBackgroundColor_danger_active: redActive,
+  rui_buttonBackgroundColor_danger_active: colors.red400,
   rui_buttonBackgroundColor_danger_disabled: colors.coolGrey200,
-  rui_buttonBackgroundColor_danger_hover: redHover,
+  rui_buttonBackgroundColor_danger_hover: colors.redHover,
   rui_buttonBackgroundColor_danger: colors.red,
-  rui_buttonBackgroundColor_default_active: coolGreyActive,
+  rui_buttonBackgroundColor_default_active: colors.coolGreyActive,
   rui_buttonBackgroundColor_default_disabled: colors.coolGrey200,
-  rui_buttonBackgroundColor_default_hover: coolGreyHover,
+  rui_buttonBackgroundColor_default_hover: colors.coolGreyHover,
   rui_buttonBackgroundColor_default: colors.coolGrey,
-  rui_buttonBackgroundColor_important_active: reactionBlueActive,
+  rui_buttonBackgroundColor_important_active: colors.reactionBlueActive,
   rui_buttonBackgroundColor_important_disabled: colors.coolGrey200,
-  rui_buttonBackgroundColor_important_hover: reactionBlueHover,
+  rui_buttonBackgroundColor_important_hover: colors.reactionBlueHover,
   rui_buttonBackgroundColor_important: colors.reactionBlue,
-  rui_buttonBackgroundColor_secondary_active: coolGreyActiveLight,
+  rui_buttonBackgroundColor_secondary_active: colors.coolGreyActiveLight,
   rui_buttonBackgroundColor_secondary_disabled: colors.coolGrey200,
-  rui_buttonBackgroundColor_secondary_hover: coolGreyHoverLight,
+  rui_buttonBackgroundColor_secondary_hover: colors.coolGreyHoverLight,
   rui_buttonBackgroundColor_secondary: "transparent",
-  rui_buttonBackgroundColor_secondaryDanger_active: redActive,
+  rui_buttonBackgroundColor_secondaryDanger_active: colors.red400,
   rui_buttonBackgroundColor_secondaryDanger_disabled: colors.coolGrey200,
-  rui_buttonBackgroundColor_secondaryDanger_hover: redHover,
+  rui_buttonBackgroundColor_secondaryDanger_hover: colors.redHover,
   rui_buttonBackgroundColor_secondaryDanger: "transparent",
-  rui_buttonBackgroundColor_textOnly_active: lightBlueGrey,
+  rui_buttonBackgroundColor_textOnly_active: colors.lightBlueGrey,
   rui_buttonBackgroundColor_textOnly_disabled: "transparent",
-  rui_buttonBackgroundColor_textOnly_hover: paleGrey,
+  rui_buttonBackgroundColor_textOnly_hover: colors.paleGrey,
   rui_buttonBackgroundColor_textOnly: "transparent",
-  rui_buttonBorderColor_danger_active: redActive,
+  rui_buttonBorderColor_danger_active: colors.red400,
   rui_buttonBorderColor_danger_disabled: colors.coolGrey200,
-  rui_buttonBorderColor_danger_hover: redHover,
+  rui_buttonBorderColor_danger_hover: colors.redHover,
   rui_buttonBorderColor_danger: colors.red,
-  rui_buttonBorderColor_default_active: coolGreyActive,
+  rui_buttonBorderColor_default_active: colors.coolGreyActive,
   rui_buttonBorderColor_default_disabled: colors.coolGrey200,
-  rui_buttonBorderColor_default_hover: coolGreyHover,
+  rui_buttonBorderColor_default_hover: colors.coolGreyHover,
   rui_buttonBorderColor_default: colors.coolGrey,
-  rui_buttonBorderColor_important_active: reactionBlueActive,
+  rui_buttonBorderColor_important_active: colors.reactionBlueActive,
   rui_buttonBorderColor_important_disabled: colors.coolGrey200,
-  rui_buttonBorderColor_important_hover: reactionBlueHover,
+  rui_buttonBorderColor_important_hover: colors.reactionBlueHover,
   rui_buttonBorderColor_important: colors.reactionBlue,
   rui_buttonBorderColor_secondary_active: colors.coolGrey,
   rui_buttonBorderColor_secondary_disabled: colors.coolGrey200,
   rui_buttonBorderColor_secondary_hover: colors.coolGrey,
   rui_buttonBorderColor_secondary: colors.coolGrey,
-  rui_buttonBorderColor_secondaryDanger_active: redActive,
+  rui_buttonBorderColor_secondaryDanger_active: colors.red400,
   rui_buttonBorderColor_secondaryDanger_disabled: colors.coolGrey200,
-  rui_buttonBorderColor_secondaryDanger_hover: redHover,
+  rui_buttonBorderColor_secondaryDanger_hover: colors.redHover,
   rui_buttonBorderColor_secondaryDanger: colors.red,
-  rui_buttonBorderColor_textOnly_active: lightBlueGrey,
+  rui_buttonBorderColor_textOnly_active: colors.lightBlueGrey,
   rui_buttonBorderColor_textOnly_disabled: "transparent",
-  rui_buttonBorderColor_textOnly_hover: paleGrey,
+  rui_buttonBorderColor_textOnly_hover: colors.paleGrey,
   rui_buttonBorderColor_textOnly: "transparent",
   rui_buttonBorderRadius: "2px",
   rui_buttonForegroundColor_danger_active: colors.white,
@@ -212,7 +191,7 @@ const inputStyles = {
   rui_inputBorderColor_focus: colors.teal,
   rui_inputBorderColor_error: colors.red,
   rui_inputBorderColor_success: colors.teal,
-  rui_inputBorderRadius: borderRadius,
+  rui_inputBorderRadius: "0.125rem",
   rui_inputColor_default: colors.coolGrey500,
   rui_inputColor_disabled: colors.black25,
   rui_inputColor_error: colors.red,
