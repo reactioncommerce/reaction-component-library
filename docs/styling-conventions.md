@@ -1,14 +1,156 @@
 # Component Styling Conventions
 
 ## Summary
-Components must use the [styled-components](https://www.styled-components.com/) package to style all HTML elements they render, and allow certain styles to be specified by a [styled-components theme](https://www.styled-components.com/docs/advanced#theming). Add the default values for any theme properties you use in /src/defaultComponentTheme.js. All theme properties must start with `rui_` followed by a camelcased identifier.
+Components must use the [styled-components](https://www.styled-components.com/) package to style all HTML elements they render, and allow certain styles to be specified by a [styled-components theme](https://www.styled-components.com/docs/advanced#theming).
 
-By convention visual and text styles should be baked into each component. This means that a containing element should set the font-family, font-weight, font-size etc. This convention will make it easier to integrate components into the Reaction Starter Kit and other environments. Further, style values should be retrieved from the theme as seen in the example below.
+## Theme Variables
 
-```
-const Del = styled.del`
-  color: ${applyTheme("color_disabled")};
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
+The default styled-components theme, which is used in the style guide and baked into the components package, is in `/src/defaultComponentTheme.js`.
+
+The following styles should almost always be put into the theme file as variables, rather than hard coded in the component file:
+- padding
+- colors
+- border width
+- border radius
+- font family
+- font size
+- font weight
+
+> ALWAYS use the most specific CSS rule there is. For example, you should never have just a single "Padding" variable, but rather "PaddingLeft", "PaddingRight", "PaddingTop", and "PaddingBottom". Similarly, never use just "Border" or "BorderLeft", but rather the full specific rule such as "BorderLeftColor" or "BorderTopLeftRadius".
+
+In general, flexbox and other layout styles should be baked into the component and not controlled by theme. A component can have props that tell it to use one of several layouts if necessary, or better yet, we can create multiple similar components. Theming should be reserved for borders, colors, padding, and typography.
+
+In general a component's height should always be automatic and its width should be automatic or 100%. These values can be set directly in the styles in the component file. In some cases, element _within_ the component might need a specific height or width in pixels. Some examples are a checkbox or radio, and icons or images. In these cases, height and width should come from the theme if the element would look fine with differing height and width. If the ratio of these two is important to the look or function of the component, then include just a single value in the theme and calculate the other value from that. If the ratio should always be 1:1, then use a single variable ending in "Size".
+
+If you must use `left`, `top`, `bottom`, or `right` styles, these should be in the theme if the component would still be functional with different values. However, use a different term such as "padding" or "margin" or "offset" in the theme variable name to better describe what the positioning is actually doing.
+
+### Variable names
+
+All theme properties must start with `rui_` followed by a camelcased identifier. The general pattern is this:
+
+- `rui_`
+- Component name, with lowercase first letter
+- `Mobile`, if specific to mobile
+- Capitalized description of the variable (e.g., "BorderWidth", "PaddingLeft", "Size")
+- Optionally, an underscore followed by a lowercase state suffix (e.g., "_active", "_disabled"). Do not proactively add state-suffixed variables for everything, but rather add them only as the default designs require and as requested by users in GitHub issues.
+
+Examples:
+- `rui_ButtonBorderWidth`
+- `rui_ButtonMobileBorderWidth`
+- `rui_ButtonBackgroundColor_disabled`
+
+It's important to note that there should NOT be generic theme variables with names like `rui_color_disabled`. All must have component-specific names. It is fine (and ideal) to have a constant such as `color_disabled` _used_ within the theme file, in order to set multiple theme variables to the same value.
+
+### Using a theme variable
+
+Here's an example of using theme variables in a component named "SomeComponent":
+
+```js
+import React, { Component } from "react";
+import styled from "styled-components";
+import { applyTheme } from "../../../utils";
+
+const Div = styled.div`
+  border-left-color: ${applyTheme("someComponentBorderLeftColor")};
+  border-right-color: ${applyTheme("someComponentBorderRightColor")};
+  border-top-color: ${applyTheme("someComponentBorderTopColor")};
+  border-bottom-color: ${applyTheme("someComponentBorderBottomColor")};
 `;
+
+class SomeComponent extends Component {
+  render() {
+    return (
+      <Div></Div>
+    );
+  }
+}
+
+export default SomeComponent;
 ```
+
+### Accessing a theme variable in your component
+
+It shouldn't be necessary often, but you can have the `theme` object passed to any component as a prop by using the `withTheme` HOC:
+
+```js
+import React, { Component } from "react";
+import { withTheme } from 'styled-components'
+
+class MyComponent extends Component {
+  render() {
+    console.log('Current theme: ', this.props.theme)
+    // ...
+  }
+}
+
+export default withTheme(MyComponent);
+```
+
+### Accessing a component prop in your styled-components CSS
+
+If you need to adjust styles based on props passed to your component, you can do this. Remember, though, that the `props` passed to a function used within the CSS are the props for that styled DOM element, and NOT for your wrapping component. So any props you need must be passed down in the `render` function. Example:
+
+```js
+import React, { Component } from "react";
+import styled, { css } from "styled-components";
+import { applyTheme } from "../../../utils";
+
+const PrimaryBadge = styled.div`
+  ${baseBadgeStyles}
+  ${(props) => {
+    const { type } = props;
+    switch (type) {
+      case BADGE_TYPES.BACKORDER:
+        return css`background-color: ${applyTheme("badgeBackgroundColor_backorder")};`;
+      case BADGE_TYPES.BESTSELLER:
+        return css`background-color: ${applyTheme("badgeBackgroundColor_bestseller")};`;
+      case BADGE_TYPES.LOW_QUANTITY:
+        return css`background-color: ${applyTheme("badgeBackgroundColor_lowQuantity")};`;
+      case BADGE_TYPES.SOLD_OUT:
+        return css`background-color: ${applyTheme("badgeBackgroundColor_soldOut")};`;
+      case BADGE_TYPES.SALE:
+        return css`background-color: ${applyTheme("badgeBackgroundColor_sale")};`;
+      default:
+        return "";
+    }
+  }}
+`;
+
+class Badges extends Component {
+  render() {
+    const { type } = this.props;
+
+    return (
+      <PrimaryBadge type={type}>
+        <BadgeLabel>{label}</BadgeLabel>
+      </PrimaryBadge>
+    );
+  }
+}
+
+export default Badges;
+```
+
+## Typography styles
+
+Every component that renders text must explicitly set the following typography styles for that text to avoid confusing behavior when dropped into an app with global typography CSS:
+- color
+- font family
+- font size
+- font weight
+- letter spacing
+- line height
+
+All of these must use component-specific theme variables.
+
+## Margins
+
+- All components must have zero margin on their outermost DOM element.
+- For spacing within the outermost DOM element, prefer "padding" over "margin".
+- If it is absolutely necessary to set the margin on an element within a component, create a theme variable specific to that, but use a more specific word such as "Spacing" instead of "Margin" if possible.
+
+## Units (px | em | rem)
+
+- Almost always use pixel values in the default theme, except...
+- Use `em` only where you specifically need the component style values to expand or contract with the current font size. Explain in the component markdown documentation exactly why using `em` is appropriate.
+- Use `rem` values only for components that are clearly displaying body and heading text that you would expect to grow or shrink with the base font of the page. This does not include form input labels, placeholders, help text, or anything else where the design does not look good with other font sizes or text does not overflow. Explain in the component markdown documentation exactly why using `rem` is appropriate.
