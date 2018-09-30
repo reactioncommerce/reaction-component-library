@@ -55,7 +55,8 @@ class CatalogGrid extends Component {
       SALE: PropTypes.string
     }),
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.
