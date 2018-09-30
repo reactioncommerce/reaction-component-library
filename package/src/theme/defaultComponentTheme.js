@@ -69,7 +69,6 @@ const defaultStyles = {
   rui_breakpoint_xl: breakpoint_xl,
   rui_color_default: colors.black55,
   rui_color_disabled: colors.black25,
-  rui_color_black10: colors.black10,
   rui_color_black30: colors.black30,
   rui_color_black35: colors.black35,
   rui_color_black55: colors.black55,
@@ -474,6 +473,49 @@ const finalReviewCheckoutAction = {
   rui_finalReviewCheckoutActionSummaryWrapperPaddingTop: 0
 };
 
+const badgeOverlay = {
+  rui_badgeOverlayPrimaryBadgeBackgroundColor_backorder: colors.coolGrey,
+  rui_badgeOverlayPrimaryBadgeBackgroundColor_bestseller: colors.teal,
+  rui_badgeOverlayPrimaryBadgeBackgroundColor_lowQuantity: colors.coolGrey,
+  rui_badgeOverlayPrimaryBadgeBackgroundColor_soldOut: colors.coolGrey,
+  rui_badgeOverlayPrimaryBadgeBackgroundColor_sale: colors.red300,
+  rui_badgeOverlayPrimaryBadgeColor_backorder: colors.white,
+  rui_badgeOverlayPrimaryBadgeColor_bestseller: colors.white,
+  rui_badgeOverlayPrimaryBadgeColor_lowQuantity: colors.white,
+  rui_badgeOverlayPrimaryBadgeColor_soldOut: colors.white,
+  rui_badgeOverlayPrimaryBadgeColor_sale: colors.white,
+  rui_badgeOverlayPrimaryBadgeOffsetTop: "8px",
+  rui_badgeOverlayPrimaryBadgeOffsetBottom: "auto",
+  rui_badgeOverlayPrimaryBadgeOffsetLeft: "8px",
+  rui_badgeOverlayPrimaryBadgeOffsetRight: "auto",
+  rui_badgeOverlaySecondaryBadgeOffsetTop: "8px",
+  rui_badgeOverlaySecondaryBadgeOffsetBottom: "auto",
+  rui_badgeOverlaySecondaryBadgeOffsetLeft: "auto",
+  rui_badgeOverlaySecondaryBadgeOffsetRight: padding.eight,
+  rui_badgeOverlaySecondaryBadgeColor: colors.coolGrey,
+  rui_badgeOverlayPrimaryBadgePaddingBottom: padding.four,
+  rui_badgeOverlayPrimaryBadgePaddingLeft: padding.eight,
+  rui_badgeOverlayPrimaryBadgePaddingRight: padding.eight,
+  rui_badgeOverlayPrimaryBadgePaddingTop: padding.four,
+  rui_badgeOverlaySecondaryBadgePaddingBottom: padding.four,
+  rui_badgeOverlaySecondaryBadgePaddingLeft: padding.eight,
+  rui_badgeOverlaySecondaryBadgePaddingRight: padding.eight,
+  rui_badgeOverlaySecondaryBadgePaddingTop: padding.four,
+  rui_badgeOverlayPrimaryBadgeBorderTopLeftRadius: "4px",
+  rui_badgeOverlayPrimaryBadgeBorderTopRightRadius: "4px",
+  rui_badgeOverlayPrimaryBadgeBorderBottomLeftRadius: "4px",
+  rui_badgeOverlayPrimaryBadgeBorderBottomRightRadius: "4px",
+  rui_badgeOverlaySecondaryBadgeBorderTopLeftRadius: "4px",
+  rui_badgeOverlaySecondaryBadgeBorderTopRightRadius: "4px",
+  rui_badgeOverlaySecondaryBadgeBorderBottomLeftRadius: "4px",
+  rui_badgeOverlaySecondaryBadgeBorderBottomRightRadius: "4px",
+  rui_badgeOverlayBadgeTextFontFamily: fontFamily,
+  rui_badgeOverlayBadgeTextFontSize: "11px",
+  rui_badgeOverlayBadgeTextFontWeight: 700,
+  rui_badgeOverlayBadgeTextLetterSpacing: "0.5px",
+  rui_badgeOverlayFadedOpacity: "0.5"
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -496,5 +538,6 @@ export default {
   ...checkoutTopHat,
   ...checkoutEmailAddress,
   ...cartSummary,
-  ...finalReviewCheckoutAction
+  ...finalReviewCheckoutAction,
+  ...badgeOverlay
 };
