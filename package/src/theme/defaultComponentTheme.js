@@ -461,6 +461,19 @@ const checkoutEmailAddress = {
   rui_checkoutEmailAddressPaddingTop: padding.sixteen
 };
 
+const finalReviewCheckoutAction = {
+  rui_finalReviewCheckoutActionBorderColor: colors.black10,
+  rui_finalReviewCheckoutActionBorderWidth: "1px",
+  rui_finalReviewCheckoutActionItemsWrapperPaddingBottom: 0,
+  rui_finalReviewCheckoutActionItemsWrapperPaddingLeft: padding.sixteen,
+  rui_finalReviewCheckoutActionItemsWrapperPaddingRight: padding.sixteen,
+  rui_finalReviewCheckoutActionItemsWrapperPaddingTop: 0,
+  rui_finalReviewCheckoutActionSummaryWrapperPaddingBottom: 0,
+  rui_finalReviewCheckoutActionSummaryWrapperPaddingLeft: padding.sixteen,
+  rui_finalReviewCheckoutActionSummaryWrapperPaddingRight: padding.sixteen,
+  rui_finalReviewCheckoutActionSummaryWrapperPaddingTop: 0
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -481,5 +494,7 @@ export default {
   ...miniCart,
   ...cartItem,
   ...checkoutTopHat,
-  ...checkoutEmailAddress
+  ...checkoutEmailAddress,
+  ...cartSummary,
+  ...finalReviewCheckoutAction
 };
