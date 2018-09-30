@@ -96,8 +96,7 @@ const defaultStyles = {
   rui_font_weight_bold: fontWeightBold,
   rui_leading_body: bodyLeading,
   rui_leading_header: headerLeading,
-  rui_leading_flat: flatLeading,
-  rui_standardPadding: padding.ten
+  rui_leading_flat: flatLeading
 };
 
 // buttons
@@ -369,33 +368,55 @@ const cartSummary = {
 };
 
 const miniCart = {
-  rui_miniCartBorderTopWidth: "1px",
+  rui_miniCartBorderBottomColor: colors.black10,
   rui_miniCartBorderBottomWidth: "1px",
+  rui_miniCartBorderLeftColor: colors.black10,
   rui_miniCartBorderLeftWidth: "1px",
+  rui_miniCartBorderRightColor: colors.black10,
   rui_miniCartBorderRightWidth: "1px",
-  rui_miniCartMaxWidth: "360px",
+  rui_miniCartBorderTopColor: colors.black10,
+  rui_miniCartBorderTopWidth: "1px",
+  rui_miniCartFooterBorderTopColor: colors.black10,
+  rui_miniCartFooterBorderTopWidth: "1px",
+  rui_miniCartFooterBoxShadow_overflow: depth1,
+  rui_miniCartFooterBoxShadow: depth0,
+  rui_miniCartFooterMessageColor: colors.black30,
+  rui_miniCartFooterMessagePaddingBottom: 0,
+  rui_miniCartFooterMessagePaddingLeft: 0,
+  rui_miniCartFooterMessagePaddingRight: 0,
+  rui_miniCartFooterMessagePaddingTop: padding.eight,
+  rui_miniCartFooterPaddingBottom: padding.sixteen,
+  rui_miniCartFooterPaddingLeft: padding.sixteen,
+  rui_miniCartFooterPaddingRight: padding.sixteen,
+  rui_miniCartFooterPaddingTop: 0,
   rui_miniCartListHeightToBeginScrolling: "420px",
+  rui_miniCartListPaddingBottom: 0,
   rui_miniCartListPaddingLeft: padding.ten,
   rui_miniCartListPaddingRight: padding.ten,
   rui_miniCartListPaddingTop: 0,
-  rui_miniCartListPaddingBottom: 0,
-  rui_miniCartBorderTopColor: colors.black10,
-  rui_miniCartBorderBottomColor: colors.black10,
-  rui_miniCartBorderLeftColor: colors.black10,
-  rui_miniCartBorderRightColor: colors.black10,
-  rui_miniCartFooterBoxShadow: depth0,
-  rui_miniCartFooterBoxShadow_overflow: depth1,
-  rui_miniCartFooterBorderTopWidth: "1px",
-  rui_miniCartFooterBorderTopColor: colors.black10,
-  rui_miniCartFooterPaddingLeft: padding.sixteen,
-  rui_miniCartFooterPaddingRight: padding.sixteen,
-  rui_miniCartFooterPaddingBottom: padding.sixteen,
-  rui_miniCartFooterPaddingTop: 0,
-  rui_miniCartFooterMessageColor: colors.black30,
-  rui_miniCartFooterMessagePaddingTop: padding.eight,
-  rui_miniCartFooterMessagePaddingBottom: 0,
-  rui_miniCartFooterMessagePaddingLeft: 0,
-  rui_miniCartFooterMessagePaddingRight: 0
+  rui_miniCartMaxWidth: "360px"
+};
+
+const cartItem = {
+  rui_cartItemBorderBottomColor: colors.black05,
+  rui_cartItemBorderBottomWidth: "1px",
+  rui_cartItemBorderLeftColor: colors.black05,
+  rui_cartItemBorderLeftWidth: 0,
+  rui_cartItemBorderRightColor: colors.black05,
+  rui_cartItemBorderRightWidth: 0,
+  rui_cartItemBorderTopColor: colors.black05,
+  rui_cartItemBorderTopWidth: 0,
+  rui_cartItemImageContentSpacing: padding.sixteen,
+  rui_cartItemPaddingBottom: padding.sixteen,
+  rui_cartItemPaddingLeft: 0,
+  rui_cartItemPaddingRight: 0,
+  rui_cartItemPaddingTop: padding.sixteen,
+  rui_cartItemQuantityInputSpacingAbove: padding.twelve,
+  rui_cartItemQuantityInputSpacingBelow: padding.eight,
+  rui_cartItemRemoveButtonColor_focus: colors.coolGrey,
+  rui_cartItemRemoveButtonColor: colors.coolGrey400,
+  rui_cartItemRemoveButtonSpacingAbove: padding.eight,
+  rui_cartItemRemoveButtonSpacingBelow: 0
 };
 
 const catalogGrid = {
@@ -420,5 +441,6 @@ export default {
   ...selectableList,
   ...viewerInfo,
   ...catalogGrid,
-  ...miniCart
+  ...miniCart,
+  ...cartItem
 };
