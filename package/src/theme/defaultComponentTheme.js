@@ -1,6 +1,7 @@
 /* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 import colors from "./colors";
+import padding from "./padding";
 
 /**
  * Default Theme Typography
@@ -52,7 +53,6 @@ const breakpoint_xl = 1920;
  * Default Theme
  */
 
-const paddingBasePixels = 10;
 const spacingBase = 0.625;
 const baseUnit = (size) => `${spacingBase * size}rem`;
 const standardBorderRadius = "2px";
@@ -97,8 +97,7 @@ const defaultStyles = {
   rui_leading_body: bodyLeading,
   rui_leading_header: headerLeading,
   rui_leading_flat: flatLeading,
-  rui_shadow_depth1: depth1,
-  rui_standardPadding: `${paddingBasePixels}px`
+  rui_standardPadding: padding.ten
 };
 
 // buttons
@@ -176,10 +175,10 @@ const buttonStyles = {
   rui_buttonForegroundColor_textOnly_disabled: colors.coolGrey200,
   rui_buttonForegroundColor_textOnly_hover: colors.coolGrey400,
   rui_buttonForegroundColor_textOnly: colors.coolGrey400,
-  rui_buttonHorizontalPadding: `${paddingBasePixels * 2}px`,
+  rui_buttonHorizontalPadding: padding.twenty,
   rui_buttonMinimumWidth: "100px",
-  rui_buttonVerticalPadding: `${paddingBasePixels}px`,
-  rui_buttonVerticalPaddingShort: `${paddingBasePixels / 2}px`
+  rui_buttonVerticalPadding: padding.ten,
+  rui_buttonVerticalPaddingShort: padding.five
 };
 
 // input
@@ -369,6 +368,36 @@ const cartSummary = {
   rui_cartSummaryTotalColor: colors.coolGrey500
 };
 
+const miniCart = {
+  rui_miniCartBorderTopWidth: "1px",
+  rui_miniCartBorderBottomWidth: "1px",
+  rui_miniCartBorderLeftWidth: "1px",
+  rui_miniCartBorderRightWidth: "1px",
+  rui_miniCartMaxWidth: "360px",
+  rui_miniCartListHeightToBeginScrolling: "420px",
+  rui_miniCartListPaddingLeft: padding.ten,
+  rui_miniCartListPaddingRight: padding.ten,
+  rui_miniCartListPaddingTop: 0,
+  rui_miniCartListPaddingBottom: 0,
+  rui_miniCartBorderTopColor: colors.black10,
+  rui_miniCartBorderBottomColor: colors.black10,
+  rui_miniCartBorderLeftColor: colors.black10,
+  rui_miniCartBorderRightColor: colors.black10,
+  rui_miniCartFooterBoxShadow: depth0,
+  rui_miniCartFooterBoxShadow_overflow: depth1,
+  rui_miniCartFooterBorderTopWidth: "1px",
+  rui_miniCartFooterBorderTopColor: colors.black10,
+  rui_miniCartFooterPaddingLeft: padding.sixteen,
+  rui_miniCartFooterPaddingRight: padding.sixteen,
+  rui_miniCartFooterPaddingBottom: padding.sixteen,
+  rui_miniCartFooterPaddingTop: 0,
+  rui_miniCartFooterMessageColor: colors.black30,
+  rui_miniCartFooterMessagePaddingTop: padding.eight,
+  rui_miniCartFooterMessagePaddingBottom: 0,
+  rui_miniCartFooterMessagePaddingLeft: 0,
+  rui_miniCartFooterMessagePaddingRight: 0
+};
+
 const catalogGrid = {
   rui_catalogGrid3PerRowMinWidth: 650,
   rui_catalogGrid4PerRowMinWidth: 960
@@ -390,5 +419,6 @@ export default {
   ...selectableItem,
   ...selectableList,
   ...viewerInfo,
-  ...catalogGrid
+  ...catalogGrid,
+  ...miniCart
 };
