@@ -69,7 +69,6 @@ const defaultStyles = {
   rui_breakpoint_xl: breakpoint_xl,
   rui_color_default: colors.black55,
   rui_color_disabled: colors.black25,
-  rui_color_black05: colors.black05,
   rui_color_black10: colors.black10,
   rui_color_black30: colors.black30,
   rui_color_black35: colors.black35,
@@ -278,7 +277,23 @@ const errorsBlockStyles = {
 
 // checkoutActionComplete
 const checkoutActions = {
-  rui_checkoutActionCompleteMobileMargin: `${baseUnit(1)}`
+  checkoutActionsPlaceOrderButtonSpacingBottom: 0,
+  checkoutActionsPlaceOrderButtonSpacingLeft: 0,
+  checkoutActionsPlaceOrderButtonSpacingRight: 0,
+  checkoutActionsPlaceOrderButtonSpacingTop: padding.sixteen,
+  checkoutActionsPlaceOrderButtonWidth: "252px",
+  rui_checkoutActionCompleteMobileMargin: `${baseUnit(1)}`,
+  rui_checkoutActionsBorderBetweenColor: colors.black10,
+  rui_checkoutActionsBorderBetweenWidth: "1px",
+  rui_checkoutActionsBorderLeftColor: colors.black10,
+  rui_checkoutActionsBorderLeftWidth: 0,
+  rui_checkoutActionsBorderRightColor: colors.black10,
+  rui_checkoutActionsBorderRightWidth: 0,
+  rui_checkoutActionsItemPaddingBottom: padding.sixteen,
+  rui_checkoutActionsItemPaddingLeft: 0,
+  rui_checkoutActionsItemPaddingRight: 0,
+  rui_checkoutActionsItemPaddingTop: padding.sixteen,
+  rui_checkoutActionsSpaceBetweenActiveActionButtons: padding.sixteen
 };
 
 // checkbox
@@ -424,6 +439,12 @@ const catalogGrid = {
   rui_catalogGrid4PerRowMinWidth: 960
 };
 
+const checkoutTopHat = {
+  rui_checkoutTopHatBackgroundColor: colors.black05,
+  rui_checkoutTopHatColor: colors.coolGrey500,
+  rui_checkoutTopHatHeight: "35px"
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -442,5 +463,6 @@ export default {
   ...viewerInfo,
   ...catalogGrid,
   ...miniCart,
-  ...cartItem
+  ...cartItem,
+  ...checkoutTopHat
 };

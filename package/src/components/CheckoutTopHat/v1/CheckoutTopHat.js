@@ -4,18 +4,18 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const TopHatContainer = styled.div`
-  font-family: ${applyTheme("font_family")};
-  background-color: ${applyTheme("color_black05")};
+  background-color: ${applyTheme("checkoutTopHatBackgroundColor")};
   display: flex;
-  height: 35px;
+  font-family: ${applyTheme("font_family")};
+  height: ${applyTheme("checkoutTopHatHeight")};
   justify-content: center;
   width: 100%;
 `;
 
 const TopHatMessage = styled.div`
-  display: flex;
   align-items: center;
-  color: ${applyTheme("color_coolGrey500")};
+  color: ${applyTheme("checkoutTopHatColor")};
+  display: flex;
   font-size: ${applyTheme("font_size_small")};
   font-weight: ${applyTheme("font_weight_bold")};
 `;
