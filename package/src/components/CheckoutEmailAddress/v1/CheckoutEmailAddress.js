@@ -4,11 +4,25 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
-  border-bottom: solid 2px ${applyTheme("color_black10")};
-  color: ${applyTheme("color_coolGrey500")};
+  border-bottom-color: ${applyTheme("checkoutEmailAddressBorderBottomColor")};
+  border-bottom-style: solid;
+  border-bottom-width: ${applyTheme("checkoutEmailAddressBorderBottomWidth")};
+  border-left-color: ${applyTheme("checkoutEmailAddressBorderLeftColor")};
+  border-left-style: solid;
+  border-left-width: ${applyTheme("checkoutEmailAddressBorderLeftWidth")};
+  border-right-color: ${applyTheme("checkoutEmailAddressBorderRightColor")};
+  border-right-style: solid;
+  border-right-width: ${applyTheme("checkoutEmailAddressBorderRightWidth")};
+  border-top-color: ${applyTheme("checkoutEmailAddressBorderTopColor")};
+  border-top-style: solid;
+  border-top-width: ${applyTheme("checkoutEmailAddressBorderTopWidth")};
+  color: ${applyTheme("checkoutEmailAddressColor")};
   font-family: ${applyTheme("font_family")};
   font-size: ${applyTheme("font_size_small")};
-  padding: 1rem 0;
+  padding-bottom: ${applyTheme("checkoutEmailAddressPaddingBottom")};
+  padding-left: ${applyTheme("checkoutEmailAddressPaddingLeft")};
+  padding-right: ${applyTheme("checkoutEmailAddressPaddingRight")};
+  padding-top: ${applyTheme("checkoutEmailAddressPaddingTop")};
 `;
 
 const StyledSpan = styled.span`

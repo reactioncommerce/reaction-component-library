@@ -445,6 +445,22 @@ const checkoutTopHat = {
   rui_checkoutTopHatHeight: "35px"
 };
 
+const checkoutEmailAddress = {
+  rui_checkoutEmailAddressBorderBottomColor: colors.black10,
+  rui_checkoutEmailAddressBorderBottomWidth: "2px",
+  rui_checkoutEmailAddressBorderLeftColor: colors.black10,
+  rui_checkoutEmailAddressBorderLeftWidth: 0,
+  rui_checkoutEmailAddressBorderRightColor: colors.black10,
+  rui_checkoutEmailAddressBorderRightWidth: 0,
+  rui_checkoutEmailAddressBorderTopColor: colors.black10,
+  rui_checkoutEmailAddressBorderTopWidth: 0,
+  rui_checkoutEmailAddressColor: colors.coolGrey500,
+  rui_checkoutEmailAddressPaddingBottom: padding.sixteen,
+  rui_checkoutEmailAddressPaddingLeft: 0,
+  rui_checkoutEmailAddressPaddingRight: 0,
+  rui_checkoutEmailAddressPaddingTop: padding.sixteen
+};
+
 export default {
   ...defaultStyles,
   ...buttonStyles,
@@ -464,5 +480,6 @@ export default {
   ...catalogGrid,
   ...miniCart,
   ...cartItem,
-  ...checkoutTopHat
+  ...checkoutTopHat,
+  ...checkoutEmailAddress
 };
