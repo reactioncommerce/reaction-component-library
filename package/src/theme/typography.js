@@ -13,6 +13,7 @@ export default {
     color: titleTextColor,
     fontFamily,
     fontSize: "24px",
+    fontStyle: "normal",
     fontWeight: fontWeightRegular,
     letterSpacing: ".03em",
     lineHeight: "1.25"
@@ -21,6 +22,7 @@ export default {
     color: titleTextColor,
     fontFamily,
     fontSize: "24px",
+    fontStyle: "normal",
     fontWeight: fontWeightBold,
     letterSpacing: ".03em",
     lineHeight: "1.25"
@@ -29,6 +31,7 @@ export default {
     color: titleTextColor,
     fontFamily,
     fontSize: "16px",
+    fontStyle: "normal",
     fontWeight: fontWeightRegular,
     letterSpacing: ".03em",
     lineHeight: "1.25"
@@ -37,6 +40,7 @@ export default {
     color: titleTextColor,
     fontFamily,
     fontSize: "16px",
+    fontStyle: "normal",
     fontWeight: fontWeightBold,
     letterSpacing: ".03em",
     lineHeight: "1.25"
@@ -45,6 +49,7 @@ export default {
     color: titleTextColor,
     fontFamily,
     fontSize: "18px",
+    fontStyle: "normal",
     fontWeight: fontWeightRegular,
     letterSpacing: ".03em",
     lineHeight: "1.25"
@@ -53,6 +58,7 @@ export default {
     color: titleTextColor,
     fontFamily,
     fontSize: "18px",
+    fontStyle: "normal",
     fontWeight: fontWeightBold,
     letterSpacing: ".03em",
     lineHeight: "1.25"
@@ -61,6 +67,7 @@ export default {
     color: bodyTextColor,
     fontFamily,
     fontSize: "16px",
+    fontStyle: "normal",
     fontWeight: fontWeightRegular,
     letterSpacing: ".03em",
     lineHeight: "1.5"
@@ -69,6 +76,7 @@ export default {
     color: bodyTextColor,
     fontFamily,
     fontSize: "16px",
+    fontStyle: "normal",
     fontWeight: fontWeightBold,
     letterSpacing: ".03em",
     lineHeight: "1.5"
@@ -77,6 +85,7 @@ export default {
     color: titleTextColor,
     fontFamily,
     fontSize: "14px",
+    fontStyle: "normal",
     fontWeight: fontWeightRegular,
     letterSpacing: ".02em",
     lineHeight: "1.25"
@@ -85,6 +94,7 @@ export default {
     color: titleTextColor,
     fontFamily,
     fontSize: "14px",
+    fontStyle: "normal",
     fontWeight: fontWeightBold,
     letterSpacing: ".02em",
     lineHeight: "1.25"
@@ -93,6 +103,7 @@ export default {
     color: captionTextColor,
     fontFamily,
     fontSize: "14px",
+    fontStyle: "normal",
     fontWeight: fontWeightRegular,
     letterSpacing: ".02em",
     lineHeight: "1.25"
@@ -101,6 +112,7 @@ export default {
     color: captionTextColor,
     fontFamily,
     fontSize: "14px",
+    fontStyle: "normal",
     fontWeight: fontWeightBold,
     letterSpacing: ".02em",
     lineHeight: "1.25"

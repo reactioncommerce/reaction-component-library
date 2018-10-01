@@ -36,20 +36,23 @@ export default function addTypographyStyles(componentName, textType) {
       ...typographyStylesPerComponentFromTheme
     };
 
-    const { color, fontFamily, fontSize, fontWeight, letterSpacing, lineHeight } = typographyStyles;
+    const { color, fontFamily, fontSize, fontStyle, fontWeight, letterSpacing, lineHeight } = typographyStyles;
 
     // Warn if the default theme is missing any. We must always have some value.
     if (!color && color !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.color to defaultComponentTheme`);
     if (!fontFamily && fontFamily !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.fontFamily to defaultComponentTheme`);
     if (!fontSize && fontSize !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.fontSize to defaultComponentTheme`);
+    if (!fontStyle && fontStyle !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.fontStyle to defaultComponentTheme`);
     if (!fontWeight && fontWeight !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.fontWeight to defaultComponentTheme`);
     if (!letterSpacing && letterSpacing !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.letterSpacing to defaultComponentTheme`);
     if (!lineHeight && lineHeight !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.lineHeight to defaultComponentTheme`);
 
     return css`
+      -webkit-font-smoothing: antialiased;
       color: ${color};
       font-family: ${fontFamily};
       font-size: ${fontSize};
+      font-style: ${fontStyle};
       font-stretch: normal;
       font-weight: ${fontWeight};
       letter-spacing: ${letterSpacing};

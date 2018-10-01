@@ -24,15 +24,6 @@ const fontSize32 = `${baseFontSize * 2}px`;
 const fontSize36 = `${baseFontSize * 2.25}px`;
 const fontSize42 = `${baseFontSize * 2.625}px`;
 
-// font weights
-const fontWeightRegular = "400";
-const fontWeightBold = "700";
-
-// leading
-const bodyLeading = "1.5";
-const headerLeading = "1.25";
-const flatLeading = "1";
-
 /**
  * Default Theme Shadows
  */
@@ -66,17 +57,7 @@ const defaultStyles = {
   rui_breakpoint_sm: breakpoint_sm,
   rui_breakpoint_md: breakpoint_md,
   rui_breakpoint_lg: breakpoint_lg,
-  rui_breakpoint_xl: breakpoint_xl,
-  rui_font_family: fontFamily,
-  rui_font_size_small: fontSize14,
-  rui_font_size_default: fontSize16,
-  rui_font_size_h2: fontSize24,
-  rui_font_size_h3: fontSize18,
-  rui_font_weight_normal: fontWeightRegular,
-  rui_font_weight_bold: fontWeightBold,
-  rui_leading_body: bodyLeading,
-  rui_leading_header: headerLeading,
-  rui_leading_flat: flatLeading
+  rui_breakpoint_xl: breakpoint_xl
 };
 
 // buttons
@@ -180,7 +161,7 @@ const inputStyles = {
   rui_inputPlaceholderColor: colors.black20,
   rui_inputFontFamily: fontFamily,
   rui_inputFontSize: fontSize14,
-  rui_inputLineHeight: flatLeading,
+  rui_inputLineHeight: 1,
   rui_inputVerticalPadding: baseUnit(0.8),
   rui_inputHorizontalPadding: baseUnit(1),
   rui_iconTop: baseUnit(1),
@@ -200,7 +181,7 @@ const inputIcon = {
 const textareaStyles = {
   rui_textareaClearButtonFontSize: fontSize12,
   rui_textareaHeight: baseUnit(6),
-  rui_textareaLineHeight: bodyLeading,
+  rui_textareaLineHeight: "1.5",
   rui_textareaIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
   rui_textareaIconRight: 0,
   rui_textareaIconTop: baseUnit(1)
@@ -335,7 +316,7 @@ const selectableList = {
   rui_selectableListItemPadding: "0 10px",
   rui_selectableListFontFamily: fontFamily,
   rui_selectableListDetailFontSize: fontSize14,
-  rui_selectableListLabelFontWeight: fontWeightBold,
+  rui_selectableListLabelFontWeight: 700,
   rui_selectableListIconMargin: "0 10px 0 0",
   rui_selectableListIconLeft: "30px",
   rui_selectableListIconWidth: "38px",

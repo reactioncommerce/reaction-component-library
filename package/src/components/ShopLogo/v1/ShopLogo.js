@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles } from "../../../utils";
 
 const Container = styled.div`
-  font-family: ${applyTheme("font_family")};
-  font-weight: ${applyTheme("font_weight_bold")};
-  font-size: ${applyTheme("font_size_h2")};
+  ${addTypographyStyles("ShopLogo", "titleTextBold")}
 `;
 
 export default class ShopLogo extends Component {
