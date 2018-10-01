@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 import {
   BADGE_TYPES,
   BADGE_LABELS,
@@ -10,12 +10,12 @@ import {
   isProductLowQuantity
 } from "./utils";
 
+// font-size and line-height here are used to set the height of the badge, and not
+// the badge text. Badge text typography is set in `BadgeLabel` below.
 const baseBadgeStyles = css`
-  font-family: ${applyTheme("font_family")};
-  font-size: 0.7rem;
-  font-weight: 400;
+  font-size: 11px;
   height: auto;
-  line-height: 1.375em;
+  line-height: 16px;
   position: absolute;
   z-index: 1200;
 `;
@@ -98,10 +98,7 @@ const Overlay = styled.div`
   `;
 
 const BadgeLabel = styled.span`
-  font-family: ${applyTheme("badgeOverlayBadgeTextFontFamily")};
-  font-size: ${applyTheme("badgeOverlayBadgeTextFontSize")};
-  font-weight: ${applyTheme("badgeOverlayBadgeTextFontWeight")};
-  letter-spacing: ${applyTheme("badgeOverlayBadgeTextLetterSpacing")};
+  ${addTypographyStyles("BadgeOverlayBadgeLabel", "labelText")}
   padding: 0;
   position: relative;
   white-space: nowrap;

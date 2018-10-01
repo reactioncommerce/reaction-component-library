@@ -523,10 +523,6 @@ const badgeOverlay = {
   rui_badgeOverlaySecondaryBadgeBorderTopRightRadius: "4px",
   rui_badgeOverlaySecondaryBadgeBorderBottomLeftRadius: "4px",
   rui_badgeOverlaySecondaryBadgeBorderBottomRightRadius: "4px",
-  rui_badgeOverlayBadgeTextFontFamily: fontFamily,
-  rui_badgeOverlayBadgeTextFontSize: "11px",
-  rui_badgeOverlayBadgeTextFontWeight: 700,
-  rui_badgeOverlayBadgeTextLetterSpacing: "0.5px",
   rui_badgeOverlayFadedOpacity: "0.5"
 };
 
@@ -547,6 +543,16 @@ const progressiveImage = {
 };
 
 const rui_components = {
+  BadgeOverlayBadgeLabel: {
+    typography: {
+      labelText: {
+        color: "inherit",
+        fontSize: "11px",
+        fontWeight: 700,
+        letterSpacing: "0.5px"
+      }
+    }
+  },
   CartItemDetailAttributes: {
     typography: {
       labelText: {
