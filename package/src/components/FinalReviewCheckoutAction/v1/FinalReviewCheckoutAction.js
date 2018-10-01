@@ -5,7 +5,7 @@ import styled from "styled-components";
 import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Title = styled.h3`
-  ${addTypographyStyles("CheckoutTopHatMessage", "subheadingTextBold")}
+  ${addTypographyStyles("FinalReviewCheckoutActionTitle", "subheadingTextBold")}
 `;
 
 // NOTE: We intentionally break from our convention of using separate border
