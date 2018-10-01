@@ -67,8 +67,6 @@ const defaultStyles = {
   rui_breakpoint_md: breakpoint_md,
   rui_breakpoint_lg: breakpoint_lg,
   rui_breakpoint_xl: breakpoint_xl,
-  rui_color_default: colors.black55,
-  rui_color_disabled: colors.black25,
   rui_color_black30: colors.black30,
   rui_color_black35: colors.black35,
   rui_color_black55: colors.black55,

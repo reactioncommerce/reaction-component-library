@@ -50,6 +50,7 @@ export default function addTypographyStyles(componentName, textType) {
       color: ${color};
       font-family: ${fontFamily};
       font-size: ${fontSize};
+      font-stretch: normal;
       font-weight: ${fontWeight};
       letter-spacing: ${letterSpacing};
       line-height: ${lineHeight};
