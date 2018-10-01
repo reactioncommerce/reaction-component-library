@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles } from "../../../utils";
 
 const CheckoutActionIncompleteContainer = styled.div`
-  color: ${applyTheme("color_black35")};
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
+  ${addTypographyStyles("CheckoutActionIncomplete", "captionText")}
 `;
 
 class CheckoutActionIncomplete extends Component {
