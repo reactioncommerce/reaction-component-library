@@ -74,7 +74,6 @@ const defaultStyles = {
   rui_color_black55: colors.black55,
   rui_color_black65: colors.black65,
   rui_color_error: colors.red,
-  rui_color_stockWarning: colors.red,
   rui_color_red300: colors.red300,
   rui_color_teal: colors.teal,
   rui_color_success: colors.teal,
@@ -519,7 +518,46 @@ const cartEmptyMessage = {
   rui_cartEmptyMessageTextToButtonSpacing: "54px"
 };
 
+const cartItemDetail = {
+  rui_cartItemDetailTitleMarginTop: 0,
+  rui_cartItemDetailTitleMarginBottom: padding.ten,
+  rui_cartItemDetailTitleMarginLeft: 0,
+  rui_cartItemDetailTitleMarginRight: 0
+};
+
+const rui_components = {
+  CartItemDetailAttributes: {
+    typography: {
+      labelText: {
+        color: colors.black65
+      }
+    }
+  },
+  CartItemDetailTitle: {
+    typography: {
+      headingTextBold: {
+        lineHeight: 1
+      }
+    }
+  },
+  PriceCompare: {
+    typography: {
+      labelText: {
+        color: colors.black25
+      }
+    }
+  },
+  StockWarning: {
+    typography: {
+      labelText: {
+        color: colors.red
+      }
+    }
+  }
+};
+
 export default {
+  rui_components,
   rui_typography: typography,
   ...defaultStyles,
   ...buttonStyles,
@@ -544,5 +582,6 @@ export default {
   ...cartSummary,
   ...finalReviewCheckoutAction,
   ...badgeOverlay,
-  ...cartEmptyMessage
+  ...cartEmptyMessage,
+  ...cartItemDetail
 };

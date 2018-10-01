@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles } from "../../../utils";
 
-const Span = styled.span`
-  display: block;
-  color: rgba(0, 0, 0, 0.87);
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
+const PriceDiv = styled.div`
+  ${addTypographyStyles("Price", "labelText")}
 `;
 
 const Del = styled.del`
-  color: ${applyTheme("color_disabled")};
+  ${addTypographyStyles("PriceCompare", "labelText")}
   display: block;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
 `;
 
 class Price extends Component {
@@ -49,9 +44,9 @@ class Price extends Component {
 
     return (
       <div>
-        {hasPriceBottom ? "" : <Span>{displayPrice}</Span>}
+        {hasPriceBottom ? "" : <PriceDiv>{displayPrice}</PriceDiv>}
         {displayCompareAtPrice ? this.renderCompareAtPrice() : null}
-        {hasPriceBottom ? <Span>{displayPrice}</Span> : ""}
+        {hasPriceBottom ? <PriceDiv>{displayPrice}</PriceDiv> : ""}
       </div>
     );
   }

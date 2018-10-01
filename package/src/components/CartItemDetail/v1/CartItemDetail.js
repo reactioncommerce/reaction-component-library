@@ -1,20 +1,21 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const Detail = styled.div`
   flex: 0 0 fit;
+`;
 
-  h3 {
-    font-family: ${applyTheme("font_family")};
-    letter-spacing: 0.3px;
-    line-height: 1;
-    margin: 0 0 10px;
-  }
+const Title = styled.h3`
+  ${addTypographyStyles("CartItemDetailTitle", "headingTextBold")}
+  margin-top: ${applyTheme("cartItemDetailTitleMarginTop")};
+  margin-bottom: ${applyTheme("cartItemDetailTitleMarginBottom")};
+  margin-left: ${applyTheme("cartItemDetailTitleMarginLeft")};
+  margin-right: ${applyTheme("cartItemDetailTitleMarginRight")};
 
   a {
-    color: ${applyTheme("color_coolGrey500")};
+    ${addTypographyStyles("CartItemDetailTitle", "headingTextBold")}
     text-decoration: none;
     &:focus,
     &:hover {
@@ -23,52 +24,18 @@ const Detail = styled.div`
   }
 `;
 
-const Title = styled.h3`
-  font-size: ${applyTheme("font_size_default")};
-`;
-
 const Text = styled.p`
-  color: ${applyTheme("color_black65")};
-  display: block;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
+  ${addTypographyStyles("CartItemDetailAttributes", "labelText")}
   margin: 0;
 `;
 
 const Attributes = styled.div`
   margin-bottom: 0.5rem;
-
-  span {
-    display: none;
-
-    @media (min-width: 768px) {
-      display: ${({ isMiniCart }) => (isMiniCart ? "none" : "inline")};
-    }
-  }
 `;
 
 const Attr = styled.p`
-  color: ${applyTheme("color_black65")};
-  display: inline;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
-  margin: 0 0.05rem 0 0;
-
-  &:after {
-    content: ",";
-  }
-
-  &:last-of-type:after {
-    content: "";
-  }
-
-  @media (min-width: 768px) {
-    display: ${({ isMiniCart }) => (isMiniCart ? "inline" : "block")};
-
-    &:after {
-      content: ${({ isMiniCart }) => (isMiniCart ? "','" : "''")};
-    }
-  }
+  ${addTypographyStyles("CartItemDetailAttributes", "labelText")}
+  margin: 0;
 `;
 
 class CartItemDetail extends Component {
@@ -108,6 +75,32 @@ class CartItemDetail extends Component {
     title: PropTypes.string
   };
 
+  renderBlockAttributes() {
+    const { attributes } = this.props;
+
+    return (attributes || []).map(({ label, value }) => {
+      if (!label && !value) return null;
+
+      // For now, due to strange implementation of attributes/options in the product data,
+      // we allow labels without values and values without labels.
+      return (
+        <Attr key={label || value}>
+          {label ? <span>{label}:</span> : null} {value}
+        </Attr>
+      );
+    });
+  }
+
+  renderInlineAttributes() {
+    const { attributes } = this.props;
+    if (!attributes || !attributes.length) return null;
+
+    const values = attributes.map(({ value }) => value).filter((value) => !!value);
+    return (
+      <Attr>{values.join(", ")}</Attr>
+    );
+  }
+
   renderAttributes() {
     const { attributes, isMiniCart, productVendor, quantity } = this.props;
 
@@ -116,17 +109,7 @@ class CartItemDetail extends Component {
     return (
       <Attributes isMiniCart={isMiniCart}>
         {productVendor ? <Text>{productVendor}</Text> : null}
-        {(attributes || []).map(({ label, value }) => {
-          if (!label && !value) return null;
-
-          // For now, due to strange implementation of attributes/options in the product data,
-          // we allow labels without values and values without labels.
-          return (
-            <Attr key={label || value} isMiniCart={isMiniCart}>
-              {label ? <span>{label}:</span> : null} {value}
-            </Attr>
-          );
-        })}
+        {isMiniCart ? this.renderInlineAttributes() : this.renderBlockAttributes()}
         {quantity ? <Text>Quantity: {quantity}</Text> : null}
       </Attributes>
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Item = styled.div`
   align-items: flex-start;
@@ -91,6 +91,7 @@ const ItemContentPrice = styled.div`
 `;
 
 const ItemRemoveButton = styled.button`
+  ${addTypographyStyles("CartItemRemoveButton", "labelText")}
   align-self: flex-start;
   background-color: transparent;
   border: none;
@@ -98,11 +99,6 @@ const ItemRemoveButton = styled.button`
   cursor: pointer;
   display: table;
   flex: 0 1 auto;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
-  font-weight: normal;
-  letter-spacing: normal;
-  line-height: normal;
   margin-bottom: ${applyTheme("cartItemRemoveButtonSpacingBelow")};
   margin-left: 0;
   margin-right: 0;
