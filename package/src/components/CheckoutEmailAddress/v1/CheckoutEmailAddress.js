@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
+  ${addTypographyStyles("CheckoutEmailAddress", "labelText")}
   border-bottom-color: ${applyTheme("checkoutEmailAddressBorderBottomColor")};
   border-bottom-style: solid;
   border-bottom-width: ${applyTheme("checkoutEmailAddressBorderBottomWidth")};
@@ -17,8 +18,6 @@ const StyledDiv = styled.div`
   border-top-style: solid;
   border-top-width: ${applyTheme("checkoutEmailAddressBorderTopWidth")};
   color: ${applyTheme("checkoutEmailAddressColor")};
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
   padding-bottom: ${applyTheme("checkoutEmailAddressPaddingBottom")};
   padding-left: ${applyTheme("checkoutEmailAddressPaddingLeft")};
   padding-right: ${applyTheme("checkoutEmailAddressPaddingRight")};
@@ -26,7 +25,7 @@ const StyledDiv = styled.div`
 `;
 
 const StyledSpan = styled.span`
-  font-weight: ${applyTheme("font_weight_bold")};
+  ${addTypographyStyles("CheckoutEmailAddressEmphasis", "labelTextBold")}
 `;
 
 class CheckoutEmailAddress extends Component {

@@ -453,7 +453,6 @@ const catalogGridItem = {
 
 const checkoutTopHat = {
   rui_checkoutTopHatBackgroundColor: colors.black05,
-  rui_checkoutTopHatColor: colors.coolGrey500,
   rui_checkoutTopHatHeight: "35px"
 };
 
@@ -626,6 +625,13 @@ const rui_components = {
     typography: {
       labelText: {
         color: colors.red
+      }
+    }
+  },
+  CheckoutTopHatMessage: {
+    typography: {
+      labelTextBold: {
+        color: colors.coolGrey500
       }
     }
   }
