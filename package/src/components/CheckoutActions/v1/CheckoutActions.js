@@ -41,9 +41,9 @@ class CheckoutActions extends Component {
      */
     actions: PropTypes.arrayOf(PropTypes.shape({
       /**
-         * Action _id
+         * Action id
          */
-      _id: PropTypes.string.isRequired,
+      id: PropTypes.string.isRequired,
       /**
          * Action label when active
          */
@@ -104,11 +104,11 @@ class CheckoutActions extends Component {
   static getDerivedStateFromProps(props, state) {
     if (!isEqual(props.actions, state.previousActionsProp)) {
       const { currentActions = [] } = state;
-      const actions = props.actions.map(({ _id }) => {
-        const currentAction = currentActions.find((action) => action._id === _id);
+      const actions = props.actions.map(({ id }) => {
+        const currentAction = currentActions.find((action) => action.id === id);
         const { isActive = false, readyForSave = false, isSaving = false } = currentAction || {};
         return {
-          _id,
+          id,
           readyForSave,
           isSaving,
           isActive
@@ -127,23 +127,23 @@ class CheckoutActions extends Component {
 
   _refs = {};
 
-  getCurrentActionIndex(_id) {
+  getCurrentActionIndex(id) {
     const { currentActions } = this.state;
-    return currentActions.findIndex((action) => action._id === _id);
+    return currentActions.findIndex((action) => action.id === id);
   }
 
-  getCurrentActionByID(_id) {
+  getCurrentActionByID(id) {
     const { currentActions } = this.state;
-    return currentActions[this.getCurrentActionIndex(_id)];
+    return currentActions[this.getCurrentActionIndex(id)];
   }
 
-  setStateForAction(_id, stateChanges) {
+  setStateForAction(id, stateChanges) {
     const { currentActions } = this.state;
 
     // We are being careful to create a new array with new objects here to prevent
     // strange errors due to unintentional mutation of current state.
     const newCurrentActions = currentActions.map((currentAction) => {
-      const updates = currentAction._id === _id ? stateChanges : {};
+      const updates = currentAction.id === id ? stateChanges : {};
       return {
         ...currentAction,
         ...updates
@@ -155,12 +155,12 @@ class CheckoutActions extends Component {
     });
   }
 
-  handleActionSubmit = async (_id, onSubmit, actionValue) => {
-    this.setStateForAction(_id, { isActive: false, isSaving: true });
+  handleActionSubmit = async (id, onSubmit, actionValue) => {
+    this.setStateForAction(id, { isActive: false, isSaving: true });
 
     await onSubmit(actionValue);
 
-    this.setStateForAction(_id, { isSaving: false });
+    this.setStateForAction(id, { isSaving: false });
   };
 
   actionSubmit = (label) => {
@@ -171,8 +171,8 @@ class CheckoutActions extends Component {
     const { actions } = this.props;
     const { currentActions } = this.state;
 
-    const currentActiveActions = actions.reduce((activeList, { _id, status }) => {
-      const currentAction = currentActions.find((action) => action._id === _id);
+    const currentActiveActions = actions.reduce((activeList, { id, status }) => {
+      const currentAction = currentActions.find((action) => action.id === id);
       let { isActive } = currentAction;
 
       if (!activeList.length && status === "incomplete") {
@@ -180,7 +180,7 @@ class CheckoutActions extends Component {
       }
 
       if (isActive) {
-        activeList.push(_id);
+        activeList.push(id);
       }
 
       return activeList;
@@ -189,15 +189,15 @@ class CheckoutActions extends Component {
     return currentActiveActions;
   };
 
-  renderCompleteAction = ({ _id, status, completeLabel, component, props }) => {
+  renderCompleteAction = ({ id, status, completeLabel, component, props }) => {
     const { components: { CheckoutActionComplete } } = this.props;
     return status === "complete" ? (
       <CheckoutActionComplete
-        key={_id}
+        key={id}
         label={completeLabel}
         content={component.renderComplete(props)}
         onClickChangeButton={() => {
-          this.setStateForAction(_id, { isActive: true });
+          this.setStateForAction(id, { isActive: true });
         }}
       />
     ) : (
@@ -207,8 +207,8 @@ class CheckoutActions extends Component {
 
   renderFormActions = (action) => {
     const { actions, components: { Button } } = this.props;
-    const { readyForSave, isSaving } = this.getCurrentActionByID(action._id);
-    const lastStep = actions.length - 1 === this.getCurrentActionIndex(action._id);
+    const { readyForSave, isSaving } = this.getCurrentActionByID(action.id);
+    const lastStep = actions.length - 1 === this.getCurrentActionIndex(action.id);
 
     const saveAndContinueButtons = (
       <React.Fragment>
@@ -216,7 +216,7 @@ class CheckoutActions extends Component {
           <Button
             actionType="secondary"
             onClick={() => {
-              this.setStateForAction(action._id, { isActive: false });
+              this.setStateForAction(action.id, { isActive: false });
             }}
           >
             Cancel

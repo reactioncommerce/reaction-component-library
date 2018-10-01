@@ -12,7 +12,7 @@ The `CheckoutActions` component is responsible for:
 ```js static
 const actions = [
   {
-    _id: "1",
+    id: "1",
     activeLabel: "Enter a shipping address",
     completeLabel: "Shipping address",
     incompleteLabel: "Shipping address",
@@ -24,7 +24,7 @@ const actions = [
     }
   },
   {
-    _id: "2",
+    id: "2",
     activeLabel: "Choose a shipping method",
     completeLabel: "Shipping method",
     incompleteLabel: "Shipping method",
@@ -36,7 +36,7 @@ const actions = [
     }
   },
   {
-    _id: "3",
+    id: "3",
     activeLabel: "Enter payment information",
     completeLabel: "Payment information",
     incompleteLabel: "Payment information",
@@ -48,7 +48,7 @@ const actions = [
     }
   },
   {
-    _id: "4",
+    id: "4",
     activeLabel: "Review and place order",
     completeLabel: "Review and place order",
     incompleteLabel: "Review and place order",
@@ -65,14 +65,14 @@ const actions = [
 
 ```jsx
 const fulfillmentGroups = [{
-  _id: 1,
+  id: 1,
   type: "shipping",
   data: {
     shippingAddress: null
   },
   availableFulfillmentOptions: [{
     fulfillmentMethod: {
-      _id: "111",
+      id: "111",
       name: "Standard",
       displayName: "Standard (5-9 Days)"
     },
@@ -83,7 +83,7 @@ const fulfillmentGroups = [{
   },
   {
     fulfillmentMethod: {
-      _id: "222",
+      id: "222",
       name: "Priority",
       displayName: "Priority (3-5 Days)"
     },
@@ -94,7 +94,7 @@ const fulfillmentGroups = [{
   },
   {
     fulfillmentMethod: {
-      _id: "333",
+      id: "333",
       name: "Express",
       displayName: "Express 2 Day"
     },
@@ -105,7 +105,7 @@ const fulfillmentGroups = [{
   },
   {
     fulfillmentMethod: {
-      _id: "444",
+      id: "444",
       name: "Overnight",
       displayName: "Overnight Expedited"
     },
@@ -122,7 +122,7 @@ const checkoutSummary = {
   displayTotal: "$135.58",
   displayTax: "$12.33",
   items: [{
-    _id: "123",
+    id: "123",
     attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
     compareAtPrice: {
       displayAmount: "$45.00"
@@ -142,7 +142,7 @@ const checkoutSummary = {
     quantity: 2
   },
   {
-    _id: "456",
+    id: "456",
     attributes: [{ label: "Color", value: "Black" }, { label: "Size", value: "10" }],
     currentQuantity: 500,
     imageURLs: {
@@ -161,7 +161,7 @@ const checkoutSummary = {
 };
 
 const paymentMethods = [{
-  _id: 1,
+  id: 1,
   name: "reactionstripe",
   data: {
     billingAddress: null,
@@ -290,7 +290,7 @@ class CheckoutActionsExample extends React.Component {
 
     const actions = [
       {
-        _id: "1",
+        id: "1",
         activeLabel: "Enter a shipping address",
         completeLabel: "Shipping address",
         incompleteLabel: "Shipping address",
@@ -302,7 +302,7 @@ class CheckoutActionsExample extends React.Component {
         }
       },
       {
-        _id: "2",
+        id: "2",
         activeLabel: "Choose a shipping method",
         completeLabel: "Shipping method",
         incompleteLabel: "Shipping method",
@@ -315,7 +315,7 @@ class CheckoutActionsExample extends React.Component {
         }
       },
       {
-        _id: "3",
+        id: "3",
         activeLabel: "Enter payment information",
         completeLabel: "Payment information",
         incompleteLabel: "Payment information",
@@ -327,7 +327,7 @@ class CheckoutActionsExample extends React.Component {
         }
       },
       {
-        _id: "4",
+        id: "4",
         activeLabel: "Review and place order",
         completeLabel: "Review and place order",
         incompleteLabel: "Review and place order",
