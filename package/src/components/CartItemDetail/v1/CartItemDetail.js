@@ -19,7 +19,7 @@ const Title = styled.h3`
     text-decoration: none;
     &:focus,
     &:hover {
-      color: ${applyTheme("color_coolGrey300")};
+      color: ${applyTheme("cartItemDetailTitleColor_focus")};
     }
   }
 `;

@@ -113,7 +113,7 @@ const ClearButton = styled.div`
   border: none;
   border-radius: ${applyTheme("inputBorderRadius")};
   box-sizing: border-box;
-  color: ${applyTheme("color_coolGrey")};
+  color: ${applyTheme("inputClearButtonColor")};
   cursor: pointer;
   height: 100%;
   margin: 0;
@@ -142,9 +142,9 @@ const ClearButton = styled.div`
 const TextareaClearButton = styled.div`
   background-color: ${applyTheme("color_white")};
   border-radius: ${applyTheme("inputBorderRadius")};
-  border: 1px solid ${applyTheme("color_coolGrey")};
+  border: 1px solid ${applyTheme("inputClearButtonLargeBorderColor")};
   box-sizing: content-box;
-  color: ${applyTheme("color_coolGrey")};
+  color: ${applyTheme("inputClearButtonColor")};
   cursor: pointer;
   display: inline-block;
   font-size: ${applyTheme("textareaClearButtonFontSize")};

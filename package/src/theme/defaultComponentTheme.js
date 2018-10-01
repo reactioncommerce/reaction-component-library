@@ -67,10 +67,6 @@ const defaultStyles = {
   rui_breakpoint_md: breakpoint_md,
   rui_breakpoint_lg: breakpoint_lg,
   rui_breakpoint_xl: breakpoint_xl,
-  rui_color_success: colors.teal,
-  rui_color_coolGrey: colors.coolGrey,
-  rui_color_coolGrey300: colors.coolGrey300,
-  rui_color_coolGrey400: colors.coolGrey400,
   rui_color_coolGrey500: colors.coolGrey500,
   rui_color_forestGreen300: colors.forestGreen300,
   rui_color_white: colors.white,
@@ -176,6 +172,8 @@ const inputStyles = {
   rui_inputBorderColor_error: colors.red,
   rui_inputBorderColor_success: colors.teal,
   rui_inputBorderRadius: standardBorderRadius,
+  rui_inputClearButtonColor: colors.coolGrey,
+  rui_inputClearButtonLargeBorderColor: colors.coolGrey,
   rui_inputColor_default: colors.coolGrey500,
   rui_inputColor_disabled: colors.black25,
   rui_inputColor_error: colors.red,
@@ -516,6 +514,7 @@ const cartEmptyMessage = {
 };
 
 const cartItemDetail = {
+  rui_cartItemDetailTitleColor_focus: colors.coolGrey300,
   rui_cartItemDetailTitleMarginTop: 0,
   rui_cartItemDetailTitleMarginBottom: padding.ten,
   rui_cartItemDetailTitleMarginLeft: 0,
