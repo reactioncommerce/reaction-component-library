@@ -444,6 +444,14 @@ const catalogGrid = {
   rui_catalogGrid4PerRowMinWidth: 960
 };
 
+const catalogGridItem = {
+  rui_catalogGridItemMediaBackgroundColor: colors.white,
+  rui_catalogGridItemProductInfoPaddingBottom: 0,
+  rui_catalogGridItemProductInfoPaddingLeft: 0,
+  rui_catalogGridItemProductInfoPaddingRight: 0,
+  rui_catalogGridItemProductInfoPaddingTop: padding.ten
+};
+
 const checkoutTopHat = {
   rui_checkoutTopHatBackgroundColor: colors.black05,
   rui_checkoutTopHatColor: colors.coolGrey500,
@@ -593,5 +601,6 @@ export default {
   ...badgeOverlay,
   ...cartEmptyMessage,
   ...cartItemDetail,
-  ...miniCartSummary
+  ...miniCartSummary,
+  ...catalogGridItem
 };
