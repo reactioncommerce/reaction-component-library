@@ -99,7 +99,7 @@ const Address = (
 ```
 
 #### Action status labels
-Each status can have it's own label by using the `activeLabel, completeLabel, incompleteLabel` props.
+Each status can have its own label by using the `activeLabel, completeLabel, incompleteLabel` props.
 
 ```jsx
 const ActiveStepComp = ({label, stepNumber}) => <span>{stepNumber}{label}: Active Component</span>;
