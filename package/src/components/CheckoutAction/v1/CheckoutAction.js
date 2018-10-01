@@ -40,7 +40,7 @@ class CheckoutAction extends Component {
   static defaultProps = {
     activeLabel: "Active Step",
     completeLabel: "Completed Step",
-    incompleteLabel: "Incompleted Step"
+    incompleteLabel: "Incomplete Step"
   };
 
   renderActiveAction = () => {
