@@ -542,6 +542,10 @@ const cartItemDetail = {
   rui_cartItemDetailTitleMarginRight: 0
 };
 
+const progressiveImage = {
+  rui_progressiveImageBackgroundColor: colors.white
+};
+
 const rui_components = {
   CartItemDetailAttributes: {
     typography: {
@@ -602,5 +606,6 @@ export default {
   ...cartEmptyMessage,
   ...cartItemDetail,
   ...miniCartSummary,
-  ...catalogGridItem
+  ...catalogGridItem,
+  ...progressiveImage
 };
