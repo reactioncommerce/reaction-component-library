@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import uniqueId from "lodash.uniqueid";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
   margin-bottom: ${applyTheme("checkboxVerticalSpacing")};
@@ -48,12 +48,11 @@ const StyledInput = styled.input`
 `;
 
 const StyledLabel = styled.label`
-  position: relative;
+  ${addTypographyStyles("CheckboxLabel", "labelText")}
   display: inline-block;
-  font-size: ${applyTheme("checkboxLabelFontSize")};
-  font-family: ${applyTheme("font_family")};
-  padding-left: ${applyTheme("checkboxLabelSpacing")};
   line-height: ${applyTheme("checkboxHeightAndWidth")};
+  padding-left: ${applyTheme("checkboxLabelSpacing")};
+  position: relative;
   &:hover {
     cursor: pointer;
   }

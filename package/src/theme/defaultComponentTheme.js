@@ -296,7 +296,6 @@ const checkbox = {
   rui_checkboxDisabledColor: colors.black10,
   rui_checkboxDisabledOpacity: ".5",
   rui_checkboxLabelSpacing: "2.2em",
-  rui_checkboxLabelFontSize: fontSize14,
   rui_checkboxIconColor: colors.coolGrey500,
   rui_checkboxIconSize: "0.875em",
   rui_checkboxIconLeftSpacing: "0.3em",
