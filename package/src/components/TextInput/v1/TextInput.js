@@ -140,7 +140,7 @@ const ClearButton = styled.div`
 }`;
 
 const TextareaClearButton = styled.div`
-  background-color: ${applyTheme("color_white")};
+  background-color: ${applyTheme("inputClearButtonLargeBackgroundColor")};
   border-radius: ${applyTheme("inputBorderRadius")};
   border: 1px solid ${applyTheme("inputClearButtonLargeBorderColor")};
   box-sizing: content-box;
