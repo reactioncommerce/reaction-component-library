@@ -2,6 +2,7 @@
 /* eslint-disable no-unused-vars */
 import colors from "./colors";
 import padding from "./padding";
+import typography from "./typography";
 
 /**
  * Default Theme Typography
@@ -24,7 +25,6 @@ const fontSize36 = `${baseFontSize * 2.25}px`;
 const fontSize42 = `${baseFontSize * 2.625}px`;
 
 // font weights
-const fontWeightLight = "200";
 const fontWeightRegular = "400";
 const fontWeightBold = "700";
 
@@ -89,7 +89,6 @@ const defaultStyles = {
   rui_font_size_default: fontSize16,
   rui_font_size_h2: fontSize24,
   rui_font_size_h3: fontSize18,
-  rui_font_weight_light: fontWeightLight,
   rui_font_weight_normal: fontWeightRegular,
   rui_font_weight_bold: fontWeightBold,
   rui_leading_body: bodyLeading,
@@ -516,7 +515,12 @@ const badgeOverlay = {
   rui_badgeOverlayFadedOpacity: "0.5"
 };
 
+const cartEmptyMessage = {
+  rui_cartEmptyMessageTextToButtonSpacing: "54px"
+};
+
 export default {
+  rui_typography: typography,
   ...defaultStyles,
   ...buttonStyles,
   ...inputStyles,
@@ -539,5 +543,6 @@ export default {
   ...checkoutEmailAddress,
   ...cartSummary,
   ...finalReviewCheckoutAction,
-  ...badgeOverlay
+  ...badgeOverlay,
+  ...cartEmptyMessage
 };
