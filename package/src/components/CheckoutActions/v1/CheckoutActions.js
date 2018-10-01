@@ -225,7 +225,7 @@ class CheckoutActions extends Component {
         ) : (
           ""
         )}
-        <Button onClick={() => this.actionSubmit(action._id)} isDisabled={!readyForSave} isWaiting={isSaving}>
+        <Button onClick={() => this.actionSubmit(action.id)} isDisabled={!readyForSave} isWaiting={isSaving}>
           Save and continue
         </Button>
       </React.Fragment>
@@ -233,7 +233,7 @@ class CheckoutActions extends Component {
 
     const placeOrderButton = (
       <PlaceOrderButtonContainer>
-        <Button onClick={() => this.actionSubmit(action._id)} actionType="important" isWaiting={isSaving} isFullWidth>
+        <Button onClick={() => this.actionSubmit(action.id)} actionType="important" isWaiting={isSaving} isFullWidth>
           {isSaving ? "Placing your order..." : "Place your order"}
         </Button>
       </PlaceOrderButtonContainer>
@@ -243,22 +243,22 @@ class CheckoutActions extends Component {
   };
 
   renderActiveAction = ({ component: Comp, ...action }) => {
-    const { isSaving } = this.getCurrentActionByID(action._id);
+    const { isSaving } = this.getCurrentActionByID(action.id);
 
     return (
       <Fragment>
         <Comp
           {...action.props}
           onReadyForSaveChange={(ready) => {
-            this.setStateForAction(action._id, { readyForSave: ready });
+            this.setStateForAction(action.id, { readyForSave: ready });
           }}
           isSaving={isSaving}
           ref={(el) => {
-            this._refs[action._id] = el;
+            this._refs[action.id] = el;
           }}
           label={action.activeLabel}
-          stepNumber={this.getCurrentActionIndex(action._id) + 1}
-          onSubmit={(value) => this.handleActionSubmit(action._id, action.onSubmit, value)}
+          stepNumber={this.getCurrentActionIndex(action.id) + 1}
+          onSubmit={(value) => this.handleActionSubmit(action.id, action.onSubmit, value)}
         />
         {this.renderFormActions(action)}
       </Fragment>
@@ -267,16 +267,16 @@ class CheckoutActions extends Component {
 
   renderAction = (action, currentActiveActions) => {
     const { components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
-    const isActive = currentActiveActions.find((_id) => _id === action._id);
+    const isActive = currentActiveActions.find((_id) => _id === action.id);
     const actionStatus = isActive ? "active" : action.status;
     const { activeLabel, completeLabel, incompleteLabel } = action;
 
     return (
-      <Action key={action._id}>
+      <Action key={action.id}>
         <CheckoutAction
           status={actionStatus}
           {...{ activeLabel, completeLabel, incompleteLabel }}
-          stepNumber={this.getCurrentActionIndex(action._id) + 1}
+          stepNumber={this.getCurrentActionIndex(action.id) + 1}
           activeStepElement={this.renderActiveAction(action)}
           completeStepElement={this.renderCompleteAction(action)}
           incompleteStepElement={<CheckoutActionIncomplete />}
