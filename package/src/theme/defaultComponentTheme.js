@@ -67,10 +67,6 @@ const defaultStyles = {
   rui_breakpoint_md: breakpoint_md,
   rui_breakpoint_lg: breakpoint_lg,
   rui_breakpoint_xl: breakpoint_xl,
-  rui_color_black65: colors.black65,
-  rui_color_error: colors.red,
-  rui_color_red300: colors.red300,
-  rui_color_teal: colors.teal,
   rui_color_success: colors.teal,
   rui_color_coolGrey: colors.coolGrey,
   rui_color_coolGrey300: colors.coolGrey300,
@@ -353,7 +349,9 @@ const selectableList = {
 
 // viewerinfo
 const viewerInfo = {
-  rui_viewerInfo_initials_size: "30px"
+  rui_viewerInfoInitialsBackgroundColor: colors.teal,
+  rui_viewerInfoInitialsColor: colors.white,
+  rui_viewerInfoInitialsSize: "30px"
 };
 
 const cartSummary = {

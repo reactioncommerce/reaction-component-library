@@ -1,35 +1,31 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ViewerInfoContainer = styled.div`
-  position: relative;
   display: flex;
+  position: relative;
 `;
 
 const ViewerInitialsCircle = styled.div`
-  background: ${applyTheme("color_teal")};
+  background-color: ${applyTheme("viewerInfoInitialsBackgroundColor")};
   border-radius: 50%;
-  height: ${applyTheme("viewerInfo_initials_size")};
+  height: ${applyTheme("viewerInfoInitialsSize")};
   text-align: center;
-  width: ${applyTheme("viewerInfo_initials_size")};
+  width: ${applyTheme("viewerInfoInitialsSize")};
 `;
 
 const ViewerInitialsText = styled.div`
-  font-family: ${applyTheme("font_family")};
-  font-weight: ${applyTheme("font_weight_normal")};
-  font-size: ${applyTheme("font_size_small")};
-  color: ${applyTheme("color_white")};
+  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
+  color: ${applyTheme("viewerInfoInitialsColor")};
   line-height: 1;
   position: relative;
-  top: calc(${applyTheme("viewerInfo_initials_size")} / 4);
+  top: calc(${applyTheme("viewerInfoInitialsSize")} / 4);
 `;
 
 const ViewerFirstNameText = styled.span`
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
-  color: ${applyTheme("color_coolGrey500")};
+  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
   display: ${({ compact, full }) => {
     if (full) {
       return compact ? "none" : "inline";
@@ -38,7 +34,6 @@ const ViewerFirstNameText = styled.span`
   }};
   align-self: center;
   margin-left: 0.5rem;
-  letter-spacing: 0.2px;
 
   @media (min-width: ${applyTheme("breakpoint_md")}px) {
     display: ${({ compact }) => (compact ? "none" : "inline")};
