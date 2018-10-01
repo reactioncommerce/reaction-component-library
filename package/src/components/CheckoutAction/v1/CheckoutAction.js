@@ -1,5 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
+import { applyTheme } from "../../../utils";
+
+const CompleteActionWrapper = styled.div`
+  padding-top: ${applyTheme("checkoutActionCompletePaddingTop")};
+  padding-bottom: ${applyTheme("checkoutActionCompletePaddingBottom")};
+  padding-left: ${applyTheme("checkoutActionCompletePaddingLeft")};
+  padding-right: ${applyTheme("checkoutActionCompletePaddingRight")};
+`;
 
 class CheckoutAction extends Component {
   static propTypes = {
@@ -53,7 +62,7 @@ class CheckoutAction extends Component {
     });
 
     if (status === "complete") {
-      return component;
+      return <CompleteActionWrapper>{component}</CompleteActionWrapper>;
     }
 
     return null;

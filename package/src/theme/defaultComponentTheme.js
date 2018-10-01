@@ -67,7 +67,6 @@ const defaultStyles = {
   rui_breakpoint_md: breakpoint_md,
   rui_breakpoint_lg: breakpoint_lg,
   rui_breakpoint_xl: breakpoint_xl,
-  rui_color_black55: colors.black55,
   rui_color_black65: colors.black65,
   rui_color_error: colors.red,
   rui_color_red300: colors.red300,
@@ -270,12 +269,11 @@ const errorsBlockStyles = {
 
 // checkoutActionComplete
 const checkoutActions = {
-  checkoutActionsPlaceOrderButtonSpacingBottom: 0,
-  checkoutActionsPlaceOrderButtonSpacingLeft: 0,
-  checkoutActionsPlaceOrderButtonSpacingRight: 0,
-  checkoutActionsPlaceOrderButtonSpacingTop: padding.sixteen,
-  checkoutActionsPlaceOrderButtonWidth: "252px",
   rui_checkoutActionCompleteMobileMargin: `${baseUnit(1)}`,
+  rui_checkoutActionCompletePaddingBottom: padding.sixteen,
+  rui_checkoutActionCompletePaddingLeft: 0,
+  rui_checkoutActionCompletePaddingRight: 0,
+  rui_checkoutActionCompletePaddingTop: padding.sixteen,
   rui_checkoutActionsBorderBetweenColor: colors.black10,
   rui_checkoutActionsBorderBetweenWidth: "1px",
   rui_checkoutActionsBorderLeftColor: colors.black10,
@@ -286,6 +284,11 @@ const checkoutActions = {
   rui_checkoutActionsItemPaddingLeft: 0,
   rui_checkoutActionsItemPaddingRight: 0,
   rui_checkoutActionsItemPaddingTop: padding.sixteen,
+  rui_checkoutActionsPlaceOrderButtonSpacingBottom: 0,
+  rui_checkoutActionsPlaceOrderButtonSpacingLeft: 0,
+  rui_checkoutActionsPlaceOrderButtonSpacingRight: 0,
+  rui_checkoutActionsPlaceOrderButtonSpacingTop: padding.sixteen,
+  rui_checkoutActionsPlaceOrderButtonWidth: "252px",
   rui_checkoutActionsSpaceBetweenActiveActionButtons: padding.sixteen
 };
 
