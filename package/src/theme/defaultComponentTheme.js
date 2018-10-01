@@ -384,7 +384,6 @@ const miniCart = {
   rui_miniCartFooterBorderTopWidth: "1px",
   rui_miniCartFooterBoxShadow_overflow: depth1,
   rui_miniCartFooterBoxShadow: depth0,
-  rui_miniCartFooterMessageColor: colors.black30,
   rui_miniCartFooterMessagePaddingBottom: 0,
   rui_miniCartFooterMessagePaddingLeft: 0,
   rui_miniCartFooterMessagePaddingRight: 0,

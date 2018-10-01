@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Cart = styled.div`
   border-bottom-color: ${applyTheme("miniCartBorderBottomColor")};
@@ -44,15 +44,8 @@ const Footer = styled.div`
 `;
 
 const FooterMessage = styled.span`
-  color: ${applyTheme("miniCartFooterMessageColor")};
+  ${addTypographyStyles("MiniCartFooterMessage", "captionText")}
   display: block;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
-  font-stretch: normal;
-  font-style: normal;
-  font-weight: normal;
-  letter-spacing: 0.3px;
-  line-height: 1.25;
   padding-bottom: ${applyTheme("miniCartFooterMessagePaddingBottom")};
   padding-left: ${applyTheme("miniCartFooterMessagePaddingLeft")};
   padding-right: ${applyTheme("miniCartFooterMessagePaddingRight")};
