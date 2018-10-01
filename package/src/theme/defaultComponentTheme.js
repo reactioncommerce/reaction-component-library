@@ -67,8 +67,6 @@ const defaultStyles = {
   rui_breakpoint_md: breakpoint_md,
   rui_breakpoint_lg: breakpoint_lg,
   rui_breakpoint_xl: breakpoint_xl,
-  rui_color_coolGrey500: colors.coolGrey500,
-  rui_color_forestGreen300: colors.forestGreen300,
   rui_color_white: colors.white,
   rui_font_family: fontFamily,
   rui_font_size_small: fontSize14,
@@ -404,6 +402,21 @@ const miniCart = {
   rui_miniCartMaxWidth: "360px"
 };
 
+const miniCartSummary = {
+  rui_miniCartSummaryLeftCellPaddingBottom: padding.eight,
+  rui_miniCartSummaryLeftCellPaddingLeft: padding.eight,
+  rui_miniCartSummaryLeftCellPaddingRight: padding.five,
+  rui_miniCartSummaryLeftCellPaddingTop: padding.eight,
+  rui_miniCartSummaryPaddingBottom: padding.eight,
+  rui_miniCartSummaryPaddingLeft: padding.eight,
+  rui_miniCartSummaryPaddingRight: padding.eight,
+  rui_miniCartSummaryPaddingTop: padding.eight,
+  rui_miniCartSummaryRightCellPaddingBottom: padding.eight,
+  rui_miniCartSummaryRightCellPaddingLeft: padding.five,
+  rui_miniCartSummaryRightCellPaddingRight: padding.eight,
+  rui_miniCartSummaryRightCellPaddingTop: padding.eight
+};
+
 const cartItem = {
   rui_cartItemBorderBottomColor: colors.black05,
   rui_cartItemBorderBottomWidth: "1px",
@@ -579,5 +592,6 @@ export default {
   ...finalReviewCheckoutAction,
   ...badgeOverlay,
   ...cartEmptyMessage,
-  ...cartItemDetail
+  ...cartItemDetail,
+  ...miniCartSummary
 };
