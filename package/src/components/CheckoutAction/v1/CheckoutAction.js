@@ -4,21 +4,29 @@ import PropTypes from "prop-types";
 class CheckoutAction extends Component {
   static propTypes = {
     /**
+     * Action label when active
+     */
+    activeLabel: PropTypes.string,
+    /**
      * The component to display if workflow status is `active`
      */
     activeStepElement: PropTypes.node.isRequired,
+    /**
+     * Action label when completed
+     */
+    completeLabel: PropTypes.string,
     /**
      * The component to display if workflow status is `complete`
      */
     completeStepElement: PropTypes.node.isRequired,
     /**
+     * Action label when incomplete
+     */
+    incompleteLabel: PropTypes.string,
+    /**
      * The component to display if workflow status is `incomplete`
      */
     incompleteStepElement: PropTypes.node.isRequired,
-    /**
-     * Label of workflow step
-     */
-    label: PropTypes.string.isRequired,
     /**
      * Status of current checkout step
      */
@@ -29,11 +37,17 @@ class CheckoutAction extends Component {
     stepNumber: PropTypes.number.isRequired
   };
 
+  static defaultProps = {
+    activeLabel: "Active Step",
+    completeLabel: "Completed Step",
+    incompleteLabel: "Incomplete Step"
+  };
+
   renderActiveAction = () => {
-    const { activeStepElement, label, status, stepNumber } = this.props;
+    const { activeStepElement, activeLabel, status, stepNumber } = this.props;
 
     const component = React.cloneElement(activeStepElement, {
-      label: (activeStepElement.props && activeStepElement.props.label) || label,
+      label: (activeStepElement.props && activeStepElement.props.label) || activeLabel,
       stepNumber: (activeStepElement.props && activeStepElement.props.stepNumber) || stepNumber
     });
 
@@ -45,10 +59,10 @@ class CheckoutAction extends Component {
   };
 
   renderCompleteAction = () => {
-    const { completeStepElement, label, status, stepNumber } = this.props;
+    const { completeStepElement, completeLabel, status, stepNumber } = this.props;
 
     const component = React.cloneElement(completeStepElement, {
-      label: (completeStepElement.props && completeStepElement.props.label) || label,
+      label: (completeStepElement.props && completeStepElement.props.label) || completeLabel,
       stepNumber: (completeStepElement.props && completeStepElement.props.stepNumber) || stepNumber
     });
 
@@ -60,10 +74,10 @@ class CheckoutAction extends Component {
   };
 
   renderIncompleteAction = () => {
-    const { incompleteStepElement, label, status, stepNumber } = this.props;
+    const { incompleteStepElement, incompleteLabel, status, stepNumber } = this.props;
 
     const component = React.cloneElement(incompleteStepElement, {
-      label: (incompleteStepElement.props && incompleteStepElement.props.label) || label,
+      label: (incompleteStepElement.props && incompleteStepElement.props.label) || incompleteLabel,
       stepNumber: (incompleteStepElement.props && incompleteStepElement.props.stepNumber) || stepNumber
     });
 
