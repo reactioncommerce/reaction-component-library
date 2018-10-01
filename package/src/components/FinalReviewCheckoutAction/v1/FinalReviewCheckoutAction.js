@@ -2,16 +2,10 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { withComponents } from "@reactioncommerce/components-context";
 import styled from "styled-components";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Title = styled.h3`
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_h3")};
-  font-weight: ${applyTheme("font_weight_bold")};
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.25;
-  letter-spacing: 0.4px;
+  ${addTypographyStyles("CheckoutTopHatMessage", "subheadingTextBold")}
 `;
 
 // NOTE: We intentionally break from our convention of using separate border
