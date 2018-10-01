@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const Table = styled.table`
   width: 100%;
@@ -14,24 +14,23 @@ const Table = styled.table`
 `;
 
 const Th = styled.th`
+  ${addTypographyStyles("CartSummaryLeftColumnHeader", "bodyText")}
   color: ${applyTheme("cartSummaryLeftColumnHeaderColor")};
-  font-family: ${applyTheme("font_family")};
   text-align: left;
 `;
 
 const Thr = styled.th`
-  text-align: right;
+  ${addTypographyStyles("CartSummaryRightColumnHeader", "bodyText")}
   color: ${applyTheme("cartSummaryRightColumnHeaderColor")};
-  font-family: ${applyTheme("font_family")};
-  font-weight: normal;
+  text-align: right;
 `;
 
 const Td = styled.td`
+  ${addTypographyStyles("CartSummaryLeftColumn", "bodyText")}
   border-top-color: ${applyTheme("cartSummaryBorderColor")};
-  border-top-style: "solid";
-  border-top-width: ${(props) => (props.isBordered ? applyTheme("cartSummaryBorderWidth")(props) : "initial")};
+  border-top-style: solid;
+  border-top-width: ${(props) => (props.isBordered ? applyTheme("cartSummaryBorderWidth")(props) : "0")};
   color: ${applyTheme("cartSummaryLeftColumnColor")};
-  font-family: ${applyTheme("font_family")};
   padding-bottom: ${(props) => (props.isDense ? applyTheme("cartSummaryRowDensePaddingBottom")(props) : applyTheme("cartSummaryRowPaddingBottom")(props))};
   padding-left: 0;
   padding-right: 0;
@@ -40,26 +39,23 @@ const Td = styled.td`
 `;
 
 const TdValue = Td.extend`
+  ${addTypographyStyles("CartSummaryRightColumn", "bodyText")}
   color: ${applyTheme("cartSummaryRightColumnColor")};
   text-align: right;
 `;
 
 const Title = styled.span`
-  color: ${applyTheme("cartSummaryTitleColor")};
-  font-family: ${applyTheme("font_family")};
-  font-weight: ${applyTheme("font_weight_bold")};
+  ${addTypographyStyles("CartSummaryTitle", "bodyTextBold")}
 `;
 
 const Discount = styled.span`
+  ${addTypographyStyles("CartSummaryDiscount", "bodyTextBold")}
   color: ${applyTheme("cartSummaryDiscountColor")};
-  font-family: ${applyTheme("font_family")};
-  font-weight: ${applyTheme("font_weight_bold")};
 `;
 
 const Total = styled.span`
+  ${addTypographyStyles("CartSummaryTotal", "bodyTextBold")}
   color: ${applyTheme("cartSummaryTotalColor")};
-  font-family: ${applyTheme("font_family")};
-  font-weight: ${applyTheme("font_weight_bold")};
 `;
 
 class CartSummary extends Component {

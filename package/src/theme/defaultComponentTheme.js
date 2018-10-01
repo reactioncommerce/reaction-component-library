@@ -355,18 +355,18 @@ const cartSummary = {
   rui_cartSummaryBorderColor: colors.black10,
   rui_cartSummaryBorderWidth: "1px",
   rui_cartSummaryDenseBackgroundColor: "transparent",
-  rui_cartSummaryPaddingLeft: "1rem",
-  rui_cartSummaryPaddingRight: "1rem",
-  rui_cartSummaryPaddingTop: "1rem",
-  rui_cartSummaryPaddingBottom: "1rem",
+  rui_cartSummaryPaddingLeft: "16px",
+  rui_cartSummaryPaddingRight: "16px",
+  rui_cartSummaryPaddingTop: "16px",
+  rui_cartSummaryPaddingBottom: 0,
   rui_cartSummaryLeftColumnColor: colors.coolGrey500,
   rui_cartSummaryLeftColumnHeaderColor: colors.coolGrey500,
   rui_cartSummaryRightColumnColor: colors.coolGrey500,
   rui_cartSummaryRightColumnHeaderColor: colors.black30,
   rui_cartSummaryRowDensePaddingBottom: "0.5rem",
   rui_cartSummaryRowDensePaddingTop: "0.5rem",
-  rui_cartSummaryRowPaddingBottom: "1rem",
-  rui_cartSummaryRowPaddingTop: "1rem",
+  rui_cartSummaryRowPaddingBottom: "16px",
+  rui_cartSummaryRowPaddingTop: "16px",
   rui_cartSummaryTitleColor: colors.coolGrey500,
   rui_cartSummaryDiscountColor: colors.forestGreen300,
   rui_cartSummaryTotalColor: colors.coolGrey500
@@ -550,6 +550,55 @@ const rui_components = {
         fontSize: "11px",
         fontWeight: 700,
         letterSpacing: "0.5px"
+      }
+    }
+  },
+  CartSummaryLeftColumnHeader: {
+    typography: {
+      bodyText: {
+        lineHeight: 1
+      }
+    }
+  },
+  CartSummaryRightColumnHeader: {
+    typography: {
+      bodyText: {
+        lineHeight: 1
+      }
+    }
+  },
+  CartSummaryLeftColumn: {
+    typography: {
+      bodyText: {
+        lineHeight: 1
+      }
+    }
+  },
+  CartSummaryRightColumn: {
+    typography: {
+      bodyText: {
+        lineHeight: 1
+      }
+    }
+  },
+  CartSummaryTitle: {
+    typography: {
+      bodyText: {
+        lineHeight: 1
+      }
+    }
+  },
+  CartSummaryDiscount: {
+    typography: {
+      bodyText: {
+        lineHeight: 1
+      }
+    }
+  },
+  CartSummaryTotal: {
+    typography: {
+      bodyText: {
+        lineHeight: 1
       }
     }
   },
