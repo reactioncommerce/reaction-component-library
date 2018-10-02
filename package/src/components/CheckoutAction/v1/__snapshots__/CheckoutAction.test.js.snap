@@ -1,12 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CheckoutAction with \`active\` status 1`] = `
+exports[`CheckoutAction with \`active\` status & label 1`] = `
 <div>
   <span />
 </div>
 `;
 
-exports[`CheckoutAction with \`complete\` status 1`] = `
+exports[`CheckoutAction with \`complete\` status & label 1`] = `
 .c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
@@ -152,7 +152,7 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
       >
         2
         . 
-        Shipping address
+        Mock complete label
       </div>
       <div
         className="c3"
@@ -490,7 +490,7 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
       >
         500
         . 
-        Shipping address
+        Completed Step
       </div>
       <div
         className="c3"
@@ -513,7 +513,7 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
 </div>
 `;
 
-exports[`CheckoutAction with \`incomplete\` status 1`] = `
+exports[`CheckoutAction with \`incomplete\` status & label 1`] = `
 .c0 {
   -webkit-font-smoothing: antialiased;
   color: #b3b3b3;
@@ -533,7 +533,7 @@ exports[`CheckoutAction with \`incomplete\` status 1`] = `
   <div
     className="c0"
   >
-    2. Shipping address
+    2. Mock incomplete label
   </div>
 </div>
 `;

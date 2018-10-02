@@ -21,7 +21,13 @@ const ButtonDiv = styled.div`
   border-radius: ${applyTheme("buttonBorderRadius")};
   box-sizing: border-box;
   color: ${applyThemeWithActionType("buttonForegroundColor")};
-  cursor: pointer;
+  cursor: ${(props) => {
+    const { isDisabled } = props;
+    if (isDisabled) {
+      return "default";
+    }
+    return "pointer";
+  }};
   display: ${(props) => {
     const { fullWidth } = props;
     if (fullWidth) {
