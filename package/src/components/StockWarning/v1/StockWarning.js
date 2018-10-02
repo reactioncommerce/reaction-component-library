@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles } from "../../../utils";
 
 const Span = styled.div`
-  color: ${applyTheme("color_stockWarning")};
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
+  ${addTypographyStyles("StockWarning", "labelText")}
 `;
 
 class StockWarning extends Component {

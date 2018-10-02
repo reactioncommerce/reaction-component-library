@@ -1,6 +1,6 @@
 ### Overview
 
-A `SelectableItem` is used in a `SelectableList` and consists of a radio button, label, and optional detail view. The label and detail view can both support text or render other elements, like icons and links.
+A `SelectableItem` is used in a [SelectableList](./#!/SelectableList) and consists of a radio button, label, and optional detail view. The label and detail view can both support text or render other elements, like icons and links.
 
 `SelectableItem` is a fully controlled, stateless component, which means that it will only display as checked when the `isChecked` prop is `true`, even if you click it. The parent of `SelectableItem` is expected to listen for `onChange` and update the `isChecked` prop as appropriate.
 

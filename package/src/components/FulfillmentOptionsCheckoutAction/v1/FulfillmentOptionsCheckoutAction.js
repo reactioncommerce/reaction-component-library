@@ -3,26 +3,18 @@ import PropTypes from "prop-types";
 import { Form } from "reacto-form";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const Title = styled.h3`
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_h3")};
-  font-weight: ${applyTheme("font_weight_bold")};
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.25;
-  letter-spacing: 0.4px;
+  ${addTypographyStyles("FulfillmentOptionsCheckoutActionTitle", "subheadingTextBold")}
 `;
 
 const FulfillmentOption = styled.span`
-  font-family: ${applyTheme("font_family")};
-  font-style: normal;
+  ${addTypographyStyles("FulfillmentOptionsCheckoutActionSelectedOption", "bodyText")}
 `;
 
 const EmptyMessage = styled.span`
-  font-family: ${applyTheme("font_family")};
-  font-style: normal;
+  ${addTypographyStyles("FulfillmentOptionsCheckoutActionEmptyMessage", "bodyText")}
 `;
 
 const FulfillmentOptionShape = PropTypes.shape({

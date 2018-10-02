@@ -6,31 +6,51 @@ import isEqual from "lodash.isequal";
 import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const Action = styled.div`
-  border-bottom: solid 1px ${applyTheme("color_black10")};
-  padding: 1rem 0;
+  border-bottom-color: ${applyTheme("checkoutActionsBorderBetweenColor")};
+  border-bottom-style: solid;
+  border-bottom-width: ${applyTheme("checkoutActionsBorderBetweenWidth")};
+  border-left-color: ${applyTheme("checkoutActionsBorderLeftColor")};
+  border-left-style: solid;
+  border-left-width: ${applyTheme("checkoutActionsBorderLeftWidth")};
+  border-right-color: ${applyTheme("checkoutActionsBorderRightColor")};
+  border-right-style: solid;
+  border-right-width: ${applyTheme("checkoutActionsBorderRightWidth")};
+  border-top-color: ${applyTheme("checkoutActionsBorderBetweenColor")};
+  border-top-style: solid;
+  border-top-width: 0;
+  padding-bottom: ${applyTheme("checkoutActionsItemPaddingBottom")};
+  padding-left: ${applyTheme("checkoutActionsItemPaddingLeft")};
+  padding-right: ${applyTheme("checkoutActionsItemPaddingRight")};
+  padding-top: ${applyTheme("checkoutActionsItemPaddingTop")};
 
   &:first-of-type {
-    border-top: solid 1px ${applyTheme("color_black10")};
+    border-top-width: ${applyTheme("checkoutActionsBorderBetweenWidth")};
   }
   &:last-of-type {
-    border-bottom: none;
+    border-bottom-width: 0;
   }
 `;
 
 const FormActions = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 1rem 0;
+  padding-bottom: ${applyTheme("checkoutActionsItemPaddingBottom")};
+  padding-left: ${applyTheme("checkoutActionsItemPaddingLeft")};
+  padding-right: ${applyTheme("checkoutActionsItemPaddingRight")};
+  padding-top: ${applyTheme("checkoutActionsItemPaddingTop")};
 
   > div:last-of-type {
-    margin-left: 1rem;
+    margin-left: ${applyTheme("checkoutActionsSpaceBetweenActiveActionButtons")};
   }
 `;
 
 const PlaceOrderButtonContainer = styled.div`
   margin: 0 auto !important;
-  width: 252px;
-  padding-top: 1rem;
+  padding-bottom: ${applyTheme("checkoutActionsPlaceOrderButtonSpacingBottom")};
+  padding-left: ${applyTheme("checkoutActionsPlaceOrderButtonSpacingLeft")};
+  padding-right: ${applyTheme("checkoutActionsPlaceOrderButtonSpacingRight")};
+  padding-top: ${applyTheme("checkoutActionsPlaceOrderButtonSpacingTop")};
+  width: ${applyTheme("checkoutActionsPlaceOrderButtonWidth")};
 `;
 
 class CheckoutActions extends Component {

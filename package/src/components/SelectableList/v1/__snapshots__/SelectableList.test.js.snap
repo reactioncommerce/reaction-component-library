@@ -2,7 +2,10 @@
 
 exports[`basic snapshot 1`] = `
 .c1 {
-  padding: 0 10px;
+  padding-bottom: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 0;
 }
 
 .c0 {
@@ -11,8 +14,8 @@ exports[`basic snapshot 1`] = `
 
 .c0 fieldset {
   border-color: transparent;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 <div>

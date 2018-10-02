@@ -2,31 +2,36 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { withComponents } from "@reactioncommerce/components-context";
 import styled from "styled-components";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Title = styled.h3`
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_h3")};
-  font-weight: ${applyTheme("font_weight_bold")};
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.25;
-  letter-spacing: 0.4px;
+  ${addTypographyStyles("FinalReviewCheckoutActionTitle", "subheadingTextBold")}
 `;
 
+// NOTE: We intentionally break from our convention of using separate border
+// theme variables for each side here. Because various borders intersect, it
+// could lead to strangeness to separate them.
 const Summary = styled.div`
-  border: 1px solid ${applyTheme("color_black10")};
+  border-color: ${applyTheme("finalReviewCheckoutActionBorderColor")};
+  border-style: solid;
+  border-width: ${applyTheme("finalReviewCheckoutActionBorderWidth")};
+`;
 
-  table td {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
+const CartSummaryWrapper = styled.div`
+  padding-bottom: ${applyTheme("finalReviewCheckoutActionSummaryWrapperPaddingBottom")};
+  padding-left: ${applyTheme("finalReviewCheckoutActionSummaryWrapperPaddingLeft")};
+  padding-right: ${applyTheme("finalReviewCheckoutActionSummaryWrapperPaddingRight")};
+  padding-top: ${applyTheme("finalReviewCheckoutActionSummaryWrapperPaddingTop")};
 `;
 
 const Items = styled.div`
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-bottom: 1px solid ${applyTheme("color_black10")};
+  border-bottom-color: ${applyTheme("finalReviewCheckoutActionBorderColor")};
+  border-bottom-style: solid;
+  border-bottom-width: ${applyTheme("finalReviewCheckoutActionBorderWidth")};
+  padding-bottom: ${applyTheme("finalReviewCheckoutActionItemsWrapperPaddingBottom")};
+  padding-left: ${applyTheme("finalReviewCheckoutActionItemsWrapperPaddingLeft")};
+  padding-right: ${applyTheme("finalReviewCheckoutActionItemsWrapperPaddingRight")};
+  padding-top: ${applyTheme("finalReviewCheckoutActionItemsWrapperPaddingTop")};
 `;
 
 class FinalReviewCheckoutAction extends Component {
@@ -149,14 +154,16 @@ class FinalReviewCheckoutAction extends Component {
               items={items}
             />
           </Items>
-          <CartSummary
-            isDense
-            displayDiscount={displayDiscount}
-            displayShipping={displayShipping}
-            displaySubtotal={displaySubtotal}
-            displayTax={displayTax}
-            displayTotal={displayTotal}
-          />
+          <CartSummaryWrapper>
+            <CartSummary
+              isDense
+              displayDiscount={displayDiscount}
+              displayShipping={displayShipping}
+              displaySubtotal={displaySubtotal}
+              displayTax={displayTax}
+              displayTotal={displayTotal}
+            />
+          </CartSummaryWrapper>
         </Summary>
       </Fragment>
     );

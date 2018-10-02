@@ -243,7 +243,7 @@ Input Styles
 Textarea Styles
  - `rui_textareaHeight`
  - `rui_textareaLineHeight `
- - `rui_textareaIconPadding `
+ - `rui_textareaClearButtonPadding `
  - `rui_textareaIconRight `
  - `rui_textareaIconTop `
 

@@ -2,16 +2,30 @@
 
 exports[`basic snapshot 1`] = `
 .c0 {
-  border-bottom: solid 1px #e6e6e6;
-  padding: 1rem 0;
+  border-bottom-color: #e6e6e6;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #e6e6e6;
+  border-left-style: solid;
+  border-left-width: 0;
+  border-right-color: #e6e6e6;
+  border-right-style: solid;
+  border-right-width: 0;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 0;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
 }
 
 .c0:first-of-type {
-  border-top: solid 1px #e6e6e6;
+  border-top-width: 1px;
 }
 
 .c0:last-of-type {
-  border-bottom: none;
+  border-bottom-width: 0;
 }
 
 <div

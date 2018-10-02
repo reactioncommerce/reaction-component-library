@@ -2,41 +2,55 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Cart = styled.div`
-  border: 1px solid ${applyTheme("color_black10")};
-  max-width: 360px;
+  border-bottom-color: ${applyTheme("miniCartBorderBottomColor")};
+  border-bottom-style: solid;
+  border-bottom-width: ${applyTheme("miniCartBorderBottomWidth")};
+  border-left-color: ${applyTheme("miniCartBorderLeftColor")};
+  border-left-style: solid;
+  border-left-width: ${applyTheme("miniCartBorderLeftWidth")};
+  border-right-color: ${applyTheme("miniCartBorderRightColor")};
+  border-right-style: solid;
+  border-right-width: ${applyTheme("miniCartBorderRightWidth")};
+  border-top-color: ${applyTheme("miniCartBorderTopColor")};
+  border-top-style: solid;
+  border-top-width: ${applyTheme("miniCartBorderTopWidth")};
+  max-width: ${applyTheme("miniCartMaxWidth")};
   overflow: hidden;
 `;
 
 const Items = styled.div`
-  max-height: 420px;
+  max-height: ${applyTheme("miniCartListHeightToBeginScrolling")};
   overflow-x: hidden;
   overflow-y: auto;
-  padding-left: ${applyTheme("standardPadding")};
-  padding-right: ${applyTheme("standardPadding")};
+  padding-bottom: ${applyTheme("miniCartListPaddingBottom")};
+  padding-left: ${applyTheme("miniCartListPaddingLeft")};
+  padding-right: ${applyTheme("miniCartListPaddingRight")};
+  padding-top: ${applyTheme("miniCartListPaddingTop")};
 `;
 
 const Footer = styled.div`
-  border-top: 1px solid ${applyTheme("color_black10")};
-  box-shadow: ${({ count }) => (count > 2 ? applyTheme("shadow_depth1") : "none")};
-  padding: 0 1rem 1rem;
+  border-top-color: ${applyTheme("miniCartFooterBorderTopColor")};
+  border-top-style: solid;
+  border-top-width: ${applyTheme("miniCartFooterBorderTopWidth")};
+  box-shadow: ${({ count }) => (count > 2 ? applyTheme("miniCartFooterBoxShadow_overflow") : applyTheme("miniCartFooterBoxShadow"))};
+  padding-bottom: ${applyTheme("miniCartFooterPaddingBottom")};
+  padding-left: ${applyTheme("miniCartFooterPaddingLeft")};
+  padding-right: ${applyTheme("miniCartFooterPaddingRight")};
+  padding-top: ${applyTheme("miniCartFooterPaddingTop")};
   position: relative;
+`;
 
-  span {
-    color: ${applyTheme("color_black30")};
-    display: block;
-    font-family: ${applyTheme("font_family")};
-    font-size: ${applyTheme("font_size_small")};
-    font-weight: normal;
-    font-style: normal;
-    font-stretch: normal;
-    line-height: 1.25;
-    letter-spacing: 0.3px;
-    margin: 0.5rem 0 0;
-    text-align: center;
-  }
+const FooterMessage = styled.span`
+  ${addTypographyStyles("MiniCartFooterMessage", "captionText")}
+  display: block;
+  padding-bottom: ${applyTheme("miniCartFooterMessagePaddingBottom")};
+  padding-left: ${applyTheme("miniCartFooterMessagePaddingLeft")};
+  padding-right: ${applyTheme("miniCartFooterMessagePaddingRight")};
+  padding-top: ${applyTheme("miniCartFooterMessagePaddingTop")};
+  text-align: center;
 `;
 
 class MiniCart extends Component {
@@ -148,7 +162,7 @@ class MiniCart extends Component {
         <Footer count={items.length}>
           <MiniCartSummary components={components} displaySubtotal={summary.itemTotal.displayAmount} />
           {cartCheckoutButton || <Button actionType="important" components={components} isFullWidth onClick={onCheckoutButtonClick}>Checkout</Button>}
-          <span>Shipping and tax calculated in checkout</span>
+          <FooterMessage>Shipping and tax calculated in checkout</FooterMessage>
         </Footer>
       </Cart>
     );

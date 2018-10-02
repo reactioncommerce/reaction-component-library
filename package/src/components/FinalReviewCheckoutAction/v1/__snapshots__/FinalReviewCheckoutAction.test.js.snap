@@ -3,16 +3,18 @@
 exports[`basic snapshot 1`] = `
 Array [
   .c0 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 18px;
-  font-weight: 700;
   font-style: normal;
   font-stretch: normal;
+  font-weight: 700;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
   line-height: 1.25;
-  -webkit-letter-spacing: 0.4px;
-  -moz-letter-spacing: 0.4px;
-  -ms-letter-spacing: 0.4px;
-  letter-spacing: 0.4px;
 }
 
 <h3
@@ -23,18 +25,26 @@ Array [
     Payment Information
   </h3>,
   .c0 {
-  border: 1px solid #e6e6e6;
+  border-color: #e6e6e6;
+  border-style: solid;
+  border-width: 1px;
 }
 
-.c0 table td {
-  padding-left: 1rem;
-  padding-right: 1rem;
+.c2 {
+  padding-bottom: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 0;
 }
 
 .c1 {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-bottom: 1px solid #e6e6e6;
+  border-bottom-color: #e6e6e6;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  padding-bottom: 0;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 0;
 }
 
 <div
@@ -45,7 +55,11 @@ Array [
     >
       CartItems(undefined)
     </div>
-    CartSummary(undefined)
+    <div
+      className="c2"
+    >
+      CartSummary(undefined)
+    </div>
   </div>,
 ]
 `;

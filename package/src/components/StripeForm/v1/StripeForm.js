@@ -7,7 +7,7 @@ import {
   PostalCodeElement,
   injectStripe
 } from "react-stripe-elements";
-import styled from "styled-components";
+import styled, { withTheme } from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, withStripeElements } from "../../../utils";
 
@@ -36,7 +36,6 @@ const Field = styled.div`
   padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
 `;
 
-
 const AcceptedPaymentMethods = styled.div`
   display: flex;
   justify-content: flex-end;
@@ -50,19 +49,6 @@ const Span = styled.span`
 const FlexContainer = styled.div`
   display: flex;
 `;
-
-const createOptions = () => ({
-  style: {
-    base: {
-      "fontSize": applyTheme("inputFontSize")(),
-      "color": applyTheme("color_black55")(),
-      "fontFamily": applyTheme("inputFontFamily")(),
-      "::placeholder": {
-        color: applyTheme("inputPlaceholderColor")()
-      }
-    }
-  }
-});
 
 class StripeForm extends Component {
   static propTypes = {
@@ -201,7 +187,16 @@ class StripeForm extends Component {
     } = this.state;
 
     const commonProps = {
-      ...createOptions(),
+      style: {
+        base: {
+          "fontSize": applyTheme("inputFontSize")(this.props),
+          "color": applyTheme("inputColor_default")(this.props),
+          "fontFamily": applyTheme("inputFontFamily")(this.props),
+          "::placeholder": {
+            color: applyTheme("inputPlaceholderColor")(this.props)
+          }
+        }
+      },
       onFocus: this.handleOnFocus,
       onBlur: this.handleOnBlur
     };
@@ -246,4 +241,4 @@ class StripeForm extends Component {
   }
 }
 
-export default withComponents(withStripeElements(injectStripe(StripeForm)));
+export default withTheme(withComponents(withStripeElements(injectStripe(StripeForm))));

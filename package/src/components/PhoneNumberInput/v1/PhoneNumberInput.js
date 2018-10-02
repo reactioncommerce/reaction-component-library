@@ -93,7 +93,7 @@ const ClearButton = styled.div`
   border: none;
   border-radius: ${applyTheme("inputBorderRadius")};
   box-sizing: border-box;
-  color: ${applyTheme("color_coolGrey")};
+  color: ${applyTheme("inputClearButtonColor")};
   cursor: pointer;
   height: 100%;
   margin: 0;

@@ -17,12 +17,22 @@ exports[`basic snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 1rem 0;
   width: 100%;
 }
 
 .c1 {
-  color: #3c3c3c;
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -30,9 +40,6 @@ exports[`basic snapshot 1`] = `
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: 700;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -43,7 +50,18 @@ exports[`basic snapshot 1`] = `
 }
 
 .c2 {
-  color: #595959;
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -51,8 +69,6 @@ exports[`basic snapshot 1`] = `
   -webkit-flex: 2 0 auto;
   -ms-flex: 2 0 auto;
   flex: 2 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -70,8 +86,6 @@ exports[`basic snapshot 1`] = `
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -86,7 +100,7 @@ exports[`basic snapshot 1`] = `
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
-    margin-bottom: 0.625rem;
+    margin-bottom: 10px;
   }
 }
 
@@ -106,7 +120,7 @@ exports[`basic snapshot 1`] = `
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
-    margin-bottom: 0.625rem;
+    margin-bottom: 10px;
     -webkit-order: 2;
     -ms-flex-order: 2;
     order: 2;

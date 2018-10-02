@@ -2,35 +2,31 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 import { priceByCurrencyCode } from "./utils";
 
 const ProductMediaWrapper = styled.div`
-  background-color: ${applyTheme("color_white")};
+  background-color: ${applyTheme("catalogGridItemMediaBackgroundColor")};
   position: relative;
 `;
 
 const ProductInfo = styled.div`
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-top: 10px;
+  padding-bottom: ${applyTheme("catalogGridItemProductInfoPaddingBottom")};
+  padding-left: ${applyTheme("catalogGridItemProductInfoPaddingLeft")};
+  padding-right: ${applyTheme("catalogGridItemProductInfoPaddingRight")};
+  padding-top: ${applyTheme("catalogGridItemProductInfoPaddingTop")};
 `;
 
 const ProductTitle = styled.aside`
-  color: rgba(0, 0, 0, 0.87);
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_default")};
-  font-weight: ${applyTheme("font_weight_bold")};
-  line-height: 18px;
+  ${addTypographyStyles("CatalogGridItemProductTitle", "headingTextBold")}
+  line-height: 1.125;
 `;
 
 const ProductVendor = styled.span`
-  color: rgba(0, 0, 0, 0.87);
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
-  font-weight: ${applyTheme("font_weight_normal")};
-  line-height: 21px;
+  ${addTypographyStyles("CatalogGridItemProductVendor", "labelText")}
 `;
 
 const PriceContainer = styled.div`

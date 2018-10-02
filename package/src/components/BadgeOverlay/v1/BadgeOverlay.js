@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 import {
   BADGE_TYPES,
   BADGE_LABELS,
@@ -10,39 +10,60 @@ import {
   isProductLowQuantity
 } from "./utils";
 
+// font-size and line-height here are used to set the height of the badge, and not
+// the badge text. Badge text typography is set in `BadgeLabel` below.
 const baseBadgeStyles = css`
-  line-height: 1.375em;
-  font-family: ${applyTheme("font_family")};
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
-  padding-bottom: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 4px;
+  line-height: 16px;
   position: absolute;
   z-index: 1200;
 `;
 
 const PrimaryBadge = styled.div`
   ${baseBadgeStyles}
-  color: ${applyTheme("color_white")};
-  top: 8px;
-  left: 8px;
+
+  border-bottom-left-radius: ${applyTheme("badgeOverlayPrimaryBadgeBorderBottomLeftRadius")};
+  border-bottom-right-radius: ${applyTheme("badgeOverlayPrimaryBadgeBorderBottomRightRadius")};
+  border-top-left-radius: ${applyTheme("badgeOverlayPrimaryBadgeBorderTopLeftRadius")};
+  border-top-right-radius: ${applyTheme("badgeOverlayPrimaryBadgeBorderTopRightRadius")};
+  bottom: ${applyTheme("badgeOverlayPrimaryBadgeOffsetBottom")};
+  left: ${applyTheme("badgeOverlayPrimaryBadgeOffsetLeft")};
+  padding-bottom: ${applyTheme("badgeOverlayPrimaryBadgePaddingBottom")};
+  padding-left: ${applyTheme("badgeOverlayPrimaryBadgePaddingLeft")};
+  padding-right: ${applyTheme("badgeOverlayPrimaryBadgePaddingRight")};
+  padding-top: ${applyTheme("badgeOverlayPrimaryBadgePaddingTop")};
+  right: ${applyTheme("badgeOverlayPrimaryBadgeOffsetRight")};
+  top: ${applyTheme("badgeOverlayPrimaryBadgeOffsetTop")};
+
   ${(props) => {
     const { type } = props;
     switch (type) {
       case BADGE_TYPES.BACKORDER:
-        return css`background-color: ${applyTheme("color_coolGrey")};`;
+        return css`
+          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_backorder")};
+          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_backorder")};
+        `;
       case BADGE_TYPES.BESTSELLER:
-        return css`background-color: ${applyTheme("color_success")};`;
+        return css`
+          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_bestseller")};
+          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_bestseller")};
+        `;
       case BADGE_TYPES.LOW_QUANTITY:
-        return css`background-color: ${applyTheme("color_coolGrey")};`;
+        return css`
+          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_lowQuantity")};
+          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_lowQuantity")};
+        `;
       case BADGE_TYPES.SOLD_OUT:
-        return css`background-color: ${applyTheme("color_coolGrey")};`;
+        return css`
+          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_soldOut")};
+          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_soldOut")};
+        `;
       case BADGE_TYPES.SALE:
-        return css`background-color: ${applyTheme("color_red300")};`;
+        return css`
+          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_sale")};
+          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_sale")};
+        `;
       default:
         return "";
     }
@@ -51,28 +72,36 @@ const PrimaryBadge = styled.div`
 
 const SecondaryBadge = styled.div`
   ${baseBadgeStyles}
-  color: ${applyTheme("color_coolGrey")};
-  top: 8px;
-  right: 8px;
+  border-bottom-left-radius: ${applyTheme("badgeOverlaySecondaryBadgeBorderBottomLeftRadius")};
+  border-bottom-right-radius: ${applyTheme("badgeOverlaySecondaryBadgeBorderBottomRightRadius")};
+  border-top-left-radius: ${applyTheme("badgeOverlaySecondaryBadgeBorderTopLeftRadius")};
+  border-top-right-radius: ${applyTheme("badgeOverlaySecondaryBadgeBorderTopRightRadius")};
+  bottom: ${applyTheme("badgeOverlaySecondaryBadgeOffsetBottom")};
+  color: ${applyTheme("badgeOverlaySecondaryBadgeColor")};
+  left: ${applyTheme("badgeOverlaySecondaryBadgeOffsetLeft")};
+  padding-bottom: ${applyTheme("badgeOverlaySecondaryBadgePaddingBottom")};
+  padding-left: ${applyTheme("badgeOverlaySecondaryBadgePaddingLeft")};
+  padding-right: ${applyTheme("badgeOverlaySecondaryBadgePaddingRight")};
+  padding-top: ${applyTheme("badgeOverlaySecondaryBadgePaddingTop")};
+  right: ${applyTheme("badgeOverlaySecondaryBadgeOffsetRight")};
+  top: ${applyTheme("badgeOverlaySecondaryBadgeOffsetTop")};
   `;
 
 const Overlay = styled.div`
   position: relative;
-  ${({ isFaded }) => {
-    if (isFaded) {
-      return "opacity: 0.5;";
+  ${(props) => {
+    if (props.isFaded) {
+      return `opacity: ${applyTheme("badgeOverlayFadedOpacity")(props)};`;
     }
     return "";
   }}
   `;
 
 const BadgeLabel = styled.span`
-  font-weight: 700;
+  ${addTypographyStyles("BadgeOverlayBadgeLabel", "labelText")}
+  padding: 0;
   position: relative;
   white-space: nowrap;
-  padding: 0;
-  letter-spacing: 0.5px;
-  font-size: 11px;
   `;
 
 class BadgeOverlay extends Component {

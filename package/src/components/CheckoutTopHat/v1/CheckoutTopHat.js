@@ -1,23 +1,20 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const TopHatContainer = styled.div`
-  font-family: ${applyTheme("font_family")};
-  background-color: ${applyTheme("color_black05")};
+  background-color: ${applyTheme("checkoutTopHatBackgroundColor")};
   display: flex;
-  height: 35px;
+  height: ${applyTheme("checkoutTopHatHeight")};
   justify-content: center;
   width: 100%;
 `;
 
 const TopHatMessage = styled.div`
-  display: flex;
+  ${addTypographyStyles("CheckoutTopHatMessage", "labelTextBold")}
   align-items: center;
-  color: ${applyTheme("color_coolGrey500")};
-  font-size: ${applyTheme("font_size_small")};
-  font-weight: ${applyTheme("font_weight_bold")};
+  display: flex;
 `;
 
 class CheckoutTopHat extends Component {

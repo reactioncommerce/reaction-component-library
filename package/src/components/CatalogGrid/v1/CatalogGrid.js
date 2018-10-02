@@ -3,28 +3,14 @@ import PropTypes from "prop-types";
 import { ContainerQuery } from "react-container-query";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { getFromTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
-
-const mdWidth = getFromTheme({}, "rui_md");
-const containerQueries = {
-  is2PerRowWidth: {
-    minWidth: 450, // Min width that item w/ 2 badges renders appropriately
-    maxWidth: 649
-  },
-  is3PerRowWidth: {
-    minWidth: 650,
-    maxWidth: mdWidth - 1
-  },
-  is4PerRowWidth: {
-    minWidth: mdWidth
-  }
-};
+import { applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 
 const GridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  width: 100%`;
+  width: 100%;
+`;
 
 const GridItem = styled.div`
   padding: 12px;
@@ -54,7 +40,7 @@ const GridItem = styled.div`
     }
     return "";
   }}
-  `;
+`;
 
 class CatalogGrid extends Component {
   static propTypes = {
@@ -118,6 +104,24 @@ class CatalogGrid extends Component {
     this.props.onItemClick(event, product);
   });
 
+  getContainerQueries() {
+    const threePerRowMinWidth = applyTheme("catalogGrid3PerRowMinWidth")(this.props);
+    const fourPerRowMinWidth = applyTheme("catalogGrid4PerRowMinWidth")(this.props);
+    return {
+      is2PerRowWidth: {
+        minWidth: 450, // Min width that item w/ 2 badges renders appropriately
+        maxWidth: threePerRowMinWidth - 1
+      },
+      is3PerRowWidth: {
+        minWidth: threePerRowMinWidth,
+        maxWidth: fourPerRowMinWidth - 1
+      },
+      is4PerRowWidth: {
+        minWidth: fourPerRowMinWidth
+      }
+    };
+  }
+
   render() {
     const {
       badgeLabels,
@@ -140,7 +144,7 @@ class CatalogGrid extends Component {
     }
 
     return (
-      <ContainerQuery query={containerQueries} initialSize={initialSize}>
+      <ContainerQuery query={this.getContainerQueries()} initialSize={initialSize}>
         {(params) => (
           <GridContainer>
             {products.map((product, index) => (

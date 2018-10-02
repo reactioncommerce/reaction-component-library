@@ -2,62 +2,72 @@
 
 exports[`basic snapshot with empty props 1`] = `
 .c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  color: #3c3c3c;
   font-size: 14px;
-  -webkit-letter-spacing: 0.3px;
-  -moz-letter-spacing: 0.3px;
-  -ms-letter-spacing: 0.3px;
-  letter-spacing: 0.3px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
   cursor: pointer;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+
+.c5 {
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-}
-
-.c5 {
+  background-color: #ffffff;
+  border-radius: 50%;
+  border-color: #3c3c3c;
+  border-style: solid;
+  border-width: 2px;
+  box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  height: 20px;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  -webkit-flex-shrink: 0;
-  -ms-flex-negative: 0;
-  flex-shrink: 0;
-  background-color: #ffffff;
-  border: 2px solid #3c3c3c;
-  height: 20px;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 10px;
+  margin-top: 0;
   width: 20px;
-  margin: 0 10px 0 0;
-  border-radius: 50%;
-  box-sizing: border-box;
 }
 
 .c1 {
-  cursor: pointer;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
+  border: 0;
   -webkit-clip: rect(0,0,0,0);
   clip: rect(0,0,0,0);
-  border: 0;
+  cursor: pointer;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
   visibility: visible;
   white-space: nowrap;
+  width: 1px;
 }
 
 .c1:checked + .c2 .c4::before {
@@ -88,24 +98,30 @@ exports[`basic snapshot with empty props 1`] = `
 }
 
 .c6 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
   -webkit-align-items: center;
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-pack: center;
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  -webkit-letter-spacing: 0.3px;
-  -moz-letter-spacing: 0.3px;
-  -ms-letter-spacing: 0.3px;
-  letter-spacing: 0.3px;
 }
 
 .c0 {

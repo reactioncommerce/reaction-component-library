@@ -67,7 +67,7 @@ const options = [{
 
 #### Styles
 
-A `SelectableList` can have be styled with: `isBordered` and `isLeftAligned` and the combination of those two:
+You can alter the appearance of a `SelectableList` using `isBordered` and `isLeftAligned` props, which can also be used together.
 
 ##### Bordered
 
