@@ -21,23 +21,29 @@ function applyValidationColor(themeProp = "color") {
 }
 
 const StyledField = styled.div`
-  margin: ${applyTheme("fieldMargin")};
+  margin-bottom: ${applyTheme("fieldSpacingBelow")};
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: ${applyTheme("fieldSpacingAbove")};
 `;
 
 const StyledLabel = styled.label`
   ${addTypographyStyles("FieldLabel", "labelText")}
   color: ${applyValidationColor("labelColor")};
   display: block;
-  font-size: ${applyTheme("labelFontSize")};
-  margin: ${applyTheme("labelMargin")};
+  margin-bottom: ${applyTheme("labelSpacingToInput")};
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
 `;
 
 const StyledHelpText = styled.span`
   ${addTypographyStyles("FieldLabel", "labelText")}
-  color: ${applyTheme("helpTextColor")};
   display: block;
-  font-size: ${applyTheme("helpTextFontSize")};
-  margin: ${applyTheme("helpTextMargin")};
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: ${applyTheme("helpTextSpacingToInput")};
 `;
 
 class Field extends Component {

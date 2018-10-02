@@ -1,6 +1,6 @@
 import colors from "./colors";
 
-const fontFamily = "'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif";
+export const fontFamily = "'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif";
 const fontWeightRegular = 400;
 const fontWeightBold = 700;
 

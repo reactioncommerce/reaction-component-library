@@ -5,43 +5,57 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes, applyTheme } from "../../../utils";
 
 const StyledListAction = styled.div`
-  padding: ${applyTheme("selectableListItemPadding")};
-  height: ${applyTheme("selectableListHeight")};
-  display: flex;
   align-options: center;
   box-sizing: border-box;
+  display: flex;
+  height: ${applyTheme("selectableListHeight")};
+  padding-bottom: ${applyTheme("selectableListItemPaddingBottom")};
+  padding-left: ${applyTheme("selectableListItemPaddingLeft")};
+  padding-right: ${applyTheme("selectableListItemPaddingRight")};
+  padding-top: ${applyTheme("selectableListItemPaddingTop")};
   @media (max-width: 768px) {
     height: ${applyTheme("selectableListHeightMobile")};
   }
 `;
 
 const BorderedListAction = styled(StyledListAction)`
-  border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-  border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-  border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  border-bottom-color: ${applyTheme("selectableListBorderColor")};
+  border-bottom-style: ${applyTheme("selectableListBorderStyle")};
+  border-bottom-width: ${applyTheme("selectableListBorderWidth")};
+  border-left-color: ${applyTheme("selectableListBorderColor")};
+  border-left-style: ${applyTheme("selectableListBorderStyle")};
+  border-left-width: ${applyTheme("selectableListBorderWidth")};
+  border-right-color: ${applyTheme("selectableListBorderColor")};
+  border-right-style: ${applyTheme("selectableListBorderStyle")};
+  border-right-width: ${applyTheme("selectableListBorderWidth")};
 `;
 
 const StyledWrapper = styled.div`
-  padding: ${applyTheme("selectableListItemPadding")};
+  padding-bottom: ${applyTheme("selectableListItemPaddingBottom")};
+  padding-left: ${applyTheme("selectableListItemPaddingLeft")};
+  padding-right: ${applyTheme("selectableListItemPaddingRight")};
+  padding-top: ${applyTheme("selectableListItemPaddingTop")};
 `;
 
 const StyledList = styled.div`
   width: 100%;
   fieldset {
     border-color: transparent;
+    margin: 0;
     padding: ${applyTheme("selectableListPadding")};
-    margin: ${applyTheme("selectableListMargin")};
   }
 `;
 
 const BorderedList = styled(StyledList)`
   fieldset {
-    border-top: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+    border-bottom: none;
     border-left: none;
     border-right: none;
-    border-bottom: none;
-    border-top-right-radius: ${applyTheme("selectableListBorderRadius")};
+    border-top-color: ${applyTheme("selectableListBorderColor")};
     border-top-left-radius: ${applyTheme("selectableListBorderRadius")};
+    border-top-right-radius: ${applyTheme("selectableListBorderRadius")};
+    border-top-style: ${applyTheme("selectableListBorderStyle")};
+    border-top-width: ${applyTheme("selectableListBorderWidth")};
   }
   > *:last-child {
     border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
@@ -54,13 +68,22 @@ const BorderedList = styled(StyledList)`
 `;
 
 const BorderedWrapper = styled.div`
-  padding: ${applyTheme("selectableListItemPadding")};
-  border-bottom: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-  border-left: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-  border-right: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
+  border-bottom-color: ${applyTheme("selectableListBorderColor")};
+  border-bottom-style: ${applyTheme("selectableListBorderStyle")};
+  border-bottom-width: ${applyTheme("selectableListBorderWidth")};
+  border-left-color: ${applyTheme("selectableListBorderColor")};
+  border-left-style: ${applyTheme("selectableListBorderStyle")};
+  border-left-width: ${applyTheme("selectableListBorderWidth")};
+  border-right-color: ${applyTheme("selectableListBorderColor")};
+  border-right-style: ${applyTheme("selectableListBorderStyle")};
+  border-right-width: ${applyTheme("selectableListBorderWidth")};
+  padding-bottom: ${applyTheme("selectableListItemPaddingBottom")};
+  padding-left: ${applyTheme("selectableListItemPaddingLeft")};
+  padding-right: ${applyTheme("selectableListItemPaddingRight")};
+  padding-top: ${applyTheme("selectableListItemPaddingTop")};
   > *:last-child {
-    border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
     border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
+    border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
   }
 `;
 

@@ -2,27 +2,7 @@
 /* eslint-disable no-unused-vars */
 import colors from "./colors";
 import padding from "./padding";
-import typography from "./typography";
-
-/**
- * Default Theme Typography
- */
-
-// font family
-const fontFamily = "'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif";
-
-// font scale
-const baseFontSize = 16; // pixels
-const fontSize12 = `${baseFontSize * 0.75}px`;
-const fontSize14 = `${baseFontSize * 0.875}px`;
-const fontSize16 = `${baseFontSize * 1}px`;
-const fontSize18 = `${baseFontSize * 1.125}px`;
-const fontSize20 = `${baseFontSize * 1.25}px`;
-const fontSize24 = `${baseFontSize * 1.5}px`;
-const fontSize28 = `${baseFontSize * 1.75}px`;
-const fontSize32 = `${baseFontSize * 2}px`;
-const fontSize36 = `${baseFontSize * 2.25}px`;
-const fontSize42 = `${baseFontSize * 2.625}px`;
+import typography, { fontFamily } from "./typography";
 
 /**
  * Default Theme Shadows
@@ -160,7 +140,7 @@ const inputStyles = {
   rui_inputColor_success: colors.black55,
   rui_inputPlaceholderColor: colors.black20,
   rui_inputFontFamily: fontFamily,
-  rui_inputFontSize: fontSize14,
+  rui_inputFontSize: "14px",
   rui_inputLineHeight: 1,
   rui_inputVerticalPadding: baseUnit(0.8),
   rui_inputHorizontalPadding: baseUnit(1),
@@ -179,7 +159,7 @@ const inputIcon = {
 
 // textarea
 const textareaStyles = {
-  rui_textareaClearButtonFontSize: fontSize12,
+  rui_textareaClearButtonFontSize: "12px",
   rui_textareaHeight: baseUnit(6),
   rui_textareaLineHeight: "1.5",
   rui_textareaIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
@@ -212,32 +192,22 @@ const selectStyles = {
 
 // field
 const fieldStyles = {
-  rui_fieldMargin: `${baseUnit(1.5)} 0`
-};
-
-// label
-const labelStyles = {
+  rui_fieldSpacingAbove: padding.fifteen,
+  rui_fieldSpacingBelow: padding.fifteen,
+  rui_helpTextSpacingToInput: padding.ten,
   rui_labelColor_default: colors.black55,
   rui_labelColor_error: colors.red,
   rui_labelColor_success: colors.black55,
-  rui_labelFontSize: fontSize14,
-  rui_labelMargin: `0 0 ${baseUnit(1)}`
-};
-
-// help text
-const helpTextStyles = {
-  rui_helpTextColor: colors.black55,
-  rui_helpTextFontSize: fontSize14,
-  rui_helpTextMargin: `${baseUnit(1)} 0 0`
+  rui_labelSpacingToInput: padding.ten
 };
 
 // errors block
 const errorsBlockStyles = {
   rui_errorsBlockColor: colors.red,
-  rui_errorsBlockFontSize: fontSize14,
-  rui_errorsBlockMargin: `${baseUnit(1)} 0`,
   rui_errorsBlockIconColor: colors.red,
-  rui_errorsBlockIconMargin: `0 ${baseUnit(0.5)} 0 0`
+  rui_errorsBlockIconSpacingToLabel: padding.five,
+  rui_errorsBlockSpacingAbove: padding.ten,
+  rui_errorsBlockSpacingBelow: padding.ten
 };
 
 // checkoutActionComplete
@@ -288,15 +258,11 @@ const checkbox = {
 const selectableItem = {
   rui_selectableItemRadioButtonCheckSize: "10px",
   rui_selectableItemRadioButtonColor: colors.coolGrey500,
-  rui_selectableItemLabelColor: colors.coolGrey500,
-  rui_selectableItemLabelLetterSpacing: "0.3px",
-  rui_selectableItemLabelFontSize: fontSize14,
-  rui_selectableItemRadioButtonBorder: `2px solid ${colors.coolGrey500}`,
+  rui_selectableItemRadioButtonBorderColor: colors.coolGrey500,
+  rui_selectableItemRadioButtonBorderWidth: "2px",
   rui_selectableItemRadioButtonSize: "20px",
-  rui_selectableItemRadioButtonMargin: "0 10px 0 0",
+  rui_selectableItemRadioButtonSpacingToLabel: "10px",
   rui_selectableItemRadioButtonBackgroundColor: colors.white,
-  rui_selectableItemLabelFontFamily: fontFamily,
-  rui_selectableItemDetailFontSize: fontSize16,
   rui_selectableItemRadioFocus: `0 0 0 2px ${colors.teal}`,
   rui_selectableItemRadioFocusOutline: "1px solid transparent",
   rui_selectableItemRadioDisabledOpacity: ".5",
@@ -307,20 +273,22 @@ const selectableItem = {
 // selectableList
 const selectableList = {
   rui_selectableListBorderColor: colors.black10,
-  rui_selectableListBorderStyle: "1px solid",
   rui_selectableListBorderRadius: standardBorderRadius,
-  rui_selectableListPadding: "0",
-  rui_selectableListMargin: "0",
+  rui_selectableListBorderStyle: "solid",
+  rui_selectableListBorderWidth: "1px",
   rui_selectableListHeight: "50px",
   rui_selectableListHeightMobile: "60px",
-  rui_selectableListItemPadding: "0 10px",
-  rui_selectableListFontFamily: fontFamily,
-  rui_selectableListDetailFontSize: fontSize14,
-  rui_selectableListLabelFontWeight: 700,
-  rui_selectableListIconMargin: "0 10px 0 0",
+  rui_selectableListIconHeight: "24px",
   rui_selectableListIconLeft: "30px",
+  rui_selectableListIconSpacingToLabel: "10px",
   rui_selectableListIconWidth: "38px",
-  rui_selectableListIconHeight: "24px"
+  rui_selectableListItemPaddingBottom: "0",
+  rui_selectableListItemPaddingLeft: "10px",
+  rui_selectableListItemPaddingRight: "10px",
+  rui_selectableListItemPaddingTop: "0",
+  rui_selectableListLeftAlignedLabelFontWeight: 700,
+  rui_selectableListLeftAlignedDetailSpacingToLabel: "2px",
+  rui_selectableListPadding: "0"
 };
 
 // viewerinfo
@@ -627,8 +595,6 @@ export default {
   ...textareaStyles,
   ...selectStyles,
   ...fieldStyles,
-  ...labelStyles,
-  ...helpTextStyles,
   ...errorsBlockStyles,
   ...checkoutActions,
   ...checkbox,

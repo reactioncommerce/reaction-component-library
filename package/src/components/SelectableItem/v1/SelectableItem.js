@@ -3,44 +3,46 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import uniqueId from "lodash.uniqueid";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const StyledLabel = styled.label`
-  font-family: ${applyTheme("selectableItemLabelFontFamily")};
-  color: ${applyTheme("selectableItemLabelColor")};
-  font-size: ${applyTheme("selectableItemLabelFontSize")};
-  letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
+  ${addTypographyStyles("SelectableItemLabel", "labelText")}
+  align-items: center;
   cursor: pointer;
   display: flex;
-  align-items: center;
 `;
 
 const StyledRadioButton = styled.span`
-  display: flex;
   align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
   background-color: ${applyTheme("selectableItemRadioButtonBackgroundColor")};
-  border: ${applyTheme("selectableItemRadioButtonBorder")};
-  height: ${applyTheme("selectableItemRadioButtonSize")};
-  width: ${applyTheme("selectableItemRadioButtonSize")};
-  margin: ${applyTheme("selectableItemRadioButtonMargin")};
   border-radius: 50%;
+  border-color: ${applyTheme("selectableItemRadioButtonBorderColor")};
+  border-style: solid;
+  border-width: ${applyTheme("selectableItemRadioButtonBorderWidth")};
   box-sizing: border-box;
+  display: flex;
+  flex-shrink: 0;
+  height: ${applyTheme("selectableItemRadioButtonSize")};
+  justify-content: center;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: ${applyTheme("selectableItemRadioButtonSpacingToLabel")};
+  margin-top: 0;
+  width: ${applyTheme("selectableItemRadioButtonSize")};
 `;
 
 const StyledInput = styled.input`
+  border: 0;
+  clip: rect(0, 0, 0, 0);
   cursor: pointer;
-  position: absolute;
-  width: 1px;
   height: 1px;
-  padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
+  padding: 0;
+  position: absolute;
   visibility: visible;
   white-space: nowrap;
+  width: 1px;
   &:checked + ${StyledLabel} ${StyledRadioButton}::before {
     content: " ";
     display: inline-block;
@@ -66,23 +68,26 @@ const StyledInput = styled.input`
 `;
 
 const StyledDetail = styled.div`
-  display: flex;
+  ${addTypographyStyles("SelectableItemDetail", "bodyText")}
   align-items: center;
+  display: flex;
   justify-content: center;
-  font-family: ${applyTheme("selectableItemLabelFontFamily")};
-  font-size: ${applyTheme("selectableItemDetailFontSize")};
-  letter-spacing: ${applyTheme("selectableItemLabelLetterSpacing")};
 `;
 
 const StyledIcon = styled.span`
   border-radius: ${applyTheme("selectableListBorderRadius")};
-  border: ${applyTheme("selectableListBorderStyle")} ${applyTheme("selectableListBorderColor")};
-  margin: ${applyTheme("selectableListIconMargin")};
-  width: ${applyTheme("selectableListIconWidth")};
+  border-color: ${applyTheme("selectableListBorderColor")};
+  border-style: ${applyTheme("selectableListBorderStyle")};
+  border-width: ${applyTheme("selectableListBorderWidth")};
   height: ${applyTheme("selectableListIconHeight")};
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: ${applyTheme("selectableListIconSpacingToLabel")};
+  margin-top: 0;
+  width: ${applyTheme("selectableListIconWidth")};
   svg {
-    width: ${applyTheme("selectableListIconWidth")};
     height: ${applyTheme("selectableListIconHeight")};
+    width: ${applyTheme("selectableListIconWidth")};
   }
 `;
 
@@ -104,12 +109,11 @@ const LeftAlignedItem = styled.div`
   }
   ${StyledLabel} {
     position: relative;
-    font-weight: ${applyTheme("selectableListLabelFontWeight")};
+    font-weight: ${applyTheme("selectableListLeftAlignedLabelFontWeight")};
   }
   ${StyledDetail} {
-    font-size: ${applyTheme("selectableListDetailFontSize")};
-    font-family: ${applyTheme("selectableListFontFamily")};
-    margin-left: 2px;
+    ${addTypographyStyles("SelectableItemDetail", "labelText")}
+    margin-left: ${applyTheme("selectableListLeftAlignedDetailSpacingToLabel")};
   }
 `;
 
