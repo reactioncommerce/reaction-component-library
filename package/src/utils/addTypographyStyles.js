@@ -24,9 +24,9 @@ export default function addTypographyStyles(componentName, textType) {
 
   return (props) => {
     const typographyStylesFromTheme = get(props, `theme.rui_typography.${textType}`) || {};
-    const typographyStylesPerComponentFromTheme = get(props, `theme.rui_components.${componentName}.typography.${textType}`) || {};
+    const typographyStylesPerComponentFromTheme = get(props, `theme.rui_components.${componentName}.typography`) || {};
     const defaultTypographyStyles = get(defaultComponentTheme, `rui_typography.${textType}`) || {};
-    const defaultTypographyStylesPerComponent = get(defaultComponentTheme, `rui_components.${componentName}.typography.${textType}`) || {};
+    const defaultTypographyStylesPerComponent = get(defaultComponentTheme, `rui_components.${componentName}.typography`) || {};
 
     // Combine from all theme levels into a single set of style variables
     const typographyStyles = {

@@ -489,96 +489,70 @@ const progressiveImage = {
 const rui_components = {
   BadgeOverlayBadgeLabel: {
     typography: {
-      labelText: {
-        color: "inherit",
-        fontSize: "11px",
-        fontWeight: 700,
-        letterSpacing: "0.5px"
-      }
+      color: "inherit",
+      fontSize: "11px",
+      fontWeight: 700,
+      letterSpacing: "0.5px"
     }
   },
   CartSummaryLeftColumnHeader: {
     typography: {
-      bodyText: {
-        lineHeight: 1
-      }
+      lineHeight: 1
     }
   },
   CartSummaryRightColumnHeader: {
     typography: {
-      bodyText: {
-        lineHeight: 1
-      }
+      lineHeight: 1
     }
   },
   CartSummaryLeftColumn: {
     typography: {
-      bodyText: {
-        lineHeight: 1
-      }
+      lineHeight: 1
     }
   },
   CartSummaryRightColumn: {
     typography: {
-      bodyText: {
-        lineHeight: 1
-      }
+      lineHeight: 1
     }
   },
   CartSummaryTitle: {
     typography: {
-      bodyText: {
-        lineHeight: 1
-      }
+      lineHeight: 1
     }
   },
   CartSummaryDiscount: {
     typography: {
-      bodyText: {
-        lineHeight: 1
-      }
+      lineHeight: 1
     }
   },
   CartSummaryTotal: {
     typography: {
-      bodyText: {
-        lineHeight: 1
-      }
+      lineHeight: 1
     }
   },
   CartItemDetailAttributes: {
     typography: {
-      labelText: {
-        color: colors.black65
-      }
+      color: colors.black65
     }
   },
   CartItemDetailTitle: {
     typography: {
-      headingTextBold: {
-        lineHeight: 1
-      }
+      lineHeight: 1
     }
   },
   PriceCompare: {
     typography: {
-      labelText: {
-        color: colors.black25
-      }
+      color: colors.black25
     }
   },
   StockWarning: {
     typography: {
-      labelText: {
-        color: colors.red
-      }
+      color: colors.red
     }
   },
   CheckoutTopHatMessage: {
     typography: {
-      labelTextBold: {
-        color: colors.coolGrey500
-      }
+      color: colors.coolGrey500
     }
   }
 };
