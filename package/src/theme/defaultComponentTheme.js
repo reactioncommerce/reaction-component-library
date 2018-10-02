@@ -24,8 +24,6 @@ const breakpoint_xl = 1920;
  * Default Theme
  */
 
-const spacingBase = 0.625;
-const baseUnit = (size) => `${spacingBase * size}rem`;
 const standardBorderRadius = "2px";
 
 /**
@@ -142,10 +140,10 @@ const inputStyles = {
   rui_inputFontFamily: fontFamily,
   rui_inputFontSize: "14px",
   rui_inputLineHeight: 1,
-  rui_inputVerticalPadding: baseUnit(0.8),
-  rui_inputHorizontalPadding: baseUnit(1),
-  rui_iconTop: baseUnit(1),
-  rui_iconRight: baseUnit(1)
+  rui_inputVerticalPadding: padding.eight,
+  rui_inputHorizontalPadding: padding.ten,
+  rui_iconTop: padding.ten,
+  rui_iconRight: padding.ten
 };
 
 const inputIcon = {
@@ -153,40 +151,40 @@ const inputIcon = {
   rui_inputIconColor_disabled: colors.black25,
   rui_inputIconColor_error: colors.red,
   rui_inputIconColor_success: colors.forestGreen,
-  rui_inputIconTextPadding: baseUnit(20),
+  rui_inputIconTextPadding: "200px",
   rui_inputIconWrapperSize: "1.429em"
 };
 
 // textarea
 const textareaStyles = {
   rui_textareaClearButtonFontSize: "12px",
-  rui_textareaHeight: baseUnit(6),
-  rui_textareaLineHeight: "1.5",
-  rui_textareaIconPadding: `${baseUnit(0.5)} ${baseUnit(0.5)}`,
+  rui_textareaClearButtonPadding: "10px",
+  rui_textareaHeight: "60px",
   rui_textareaIconRight: 0,
-  rui_textareaIconTop: baseUnit(1)
+  rui_textareaIconTop: padding.ten,
+  rui_textareaLineHeight: "1.5"
 };
 
 // select
 const selectStyles = {
-  rui_selectOptionHoverColor: colors.reactionBlue100,
-  rui_selectSelectedOptionBackgroundColor: colors.reactionBlue200,
-  rui_selectBorderTopLeftRadius: 0,
-  rui_selectBorderTopRightRadius: standardBorderRadius,
   rui_selectBorderBottomLeftRadius: standardBorderRadius,
   rui_selectBorderBottomRightRadius: 0,
+  rui_selectBorderTopLeftRadius: 0,
+  rui_selectBorderTopRightRadius: standardBorderRadius,
   rui_selectIndicatorColor: colors.coolGrey500,
-  rui_selectMenuBorderTopLeftRadius: 0,
-  rui_selectMenuBorderTopRightRadius: standardBorderRadius,
+  rui_selectLetterSpacing: "0.3px",
+  rui_selectMenuBorderBottomColor: colors.black20,
   rui_selectMenuBorderBottomLeftRadius: standardBorderRadius,
   rui_selectMenuBorderBottomRightRadius: 0,
-  rui_selectMenuBorderLeftWidth: baseUnit(0.1),
-  rui_selectMenuBorderRightWidth: baseUnit(0.1),
-  rui_selectMenuBorderBottomWidth: baseUnit(0.1),
+  rui_selectMenuBorderBottomWidth: "1px",
   rui_selectMenuBorderLeftColor: colors.black20,
+  rui_selectMenuBorderLeftWidth: "1px",
   rui_selectMenuBorderRightColor: colors.black20,
-  rui_selectMenuBorderBottomColor: colors.black20,
-  rui_selectLetterSpacing: `${baseUnit(0.03)}`,
+  rui_selectMenuBorderRightWidth: "1px",
+  rui_selectMenuBorderTopLeftRadius: 0,
+  rui_selectMenuBorderTopRightRadius: standardBorderRadius,
+  rui_selectOptionHoverColor: colors.reactionBlue100,
+  rui_selectSelectedOptionBackgroundColor: colors.reactionBlue200,
   rui_selectTextColor: colors.coolGrey500
 };
 
@@ -212,7 +210,7 @@ const errorsBlockStyles = {
 
 // checkoutActionComplete
 const checkoutActions = {
-  rui_checkoutActionCompleteMobileMargin: `${baseUnit(1)}`,
+  rui_checkoutActionCompleteMobileMargin: padding.ten,
   rui_checkoutActionCompletePaddingBottom: padding.sixteen,
   rui_checkoutActionCompletePaddingLeft: 0,
   rui_checkoutActionCompletePaddingRight: 0,

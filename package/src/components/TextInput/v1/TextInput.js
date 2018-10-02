@@ -150,7 +150,7 @@ const TextareaClearButton = styled.div`
   font-size: ${applyTheme("textareaClearButtonFontSize")};
   height: ${applyTheme("textareaClearButtonFontSize")};
   margin: 0;
-  padding: ${applyTheme("textareaIconPadding")};
+  padding: ${applyTheme("textareaClearButtonPadding")};
   line-height: 0;
 
   &:hover,
