@@ -5,7 +5,7 @@ exports[`basic snapshot 1`] = `
   -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
-  border-radius: 0.125rem;
+  border-radius: 2px;
   box-sizing: border-box;
   color: #3c3c3c;
   display: -webkit-box;
@@ -19,7 +19,7 @@ exports[`basic snapshot 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.5rem 0.625rem;
+  padding: 8px 10px;
   position: relative;
 }
 
@@ -65,7 +65,7 @@ exports[`basic snapshot 1`] = `
 .c2 {
   box-sizing: border-box;
   color: #737373;
-  margin-left: 0.625rem;
+  margin-left: 10px;
   height: 1.429em;
   width: 1.429em;
   position: relative;

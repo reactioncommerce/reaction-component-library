@@ -2,22 +2,25 @@
 
 exports[`BadgeOverlay with backorder primary badge 1`] = `
 .c1 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  left: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #ffffff;
+  right: auto;
   top: 8px;
-  left: 8px;
   background-color: #5e7480;
+  color: #ffffff;
 }
 
 .c0 {
@@ -25,15 +28,21 @@ exports[`BadgeOverlay with backorder primary badge 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
   -ms-letter-spacing: 0.5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  line-height: 1.25;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 <div
@@ -60,22 +69,25 @@ exports[`BadgeOverlay with backorder primary badge 1`] = `
 
 exports[`BadgeOverlay with best seller primary badge 1`] = `
 .c1 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  left: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #ffffff;
+  right: auto;
   top: 8px;
-  left: 8px;
   background-color: #8ce0c9;
+  color: #ffffff;
 }
 
 .c0 {
@@ -83,15 +95,21 @@ exports[`BadgeOverlay with best seller primary badge 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
   -ms-letter-spacing: 0.5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  line-height: 1.25;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 <div
@@ -118,22 +136,25 @@ exports[`BadgeOverlay with best seller primary badge 1`] = `
 
 exports[`BadgeOverlay with low quantity primary badge 1`] = `
 .c1 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  left: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #ffffff;
+  right: auto;
   top: 8px;
-  left: 8px;
   background-color: #5e7480;
+  color: #ffffff;
 }
 
 .c0 {
@@ -141,15 +162,21 @@ exports[`BadgeOverlay with low quantity primary badge 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
   -ms-letter-spacing: 0.5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  line-height: 1.25;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 <div
@@ -176,40 +203,46 @@ exports[`BadgeOverlay with low quantity primary badge 1`] = `
 
 exports[`BadgeOverlay with low quantity primary badge and best seller secondary badge 1`] = `
 .c1 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  left: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #ffffff;
+  right: auto;
   top: 8px;
-  left: 8px;
   background-color: #5e7480;
+  color: #ffffff;
 }
 
 .c3 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  color: #5e7480;
+  left: auto;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #5e7480;
-  top: 8px;
   right: 8px;
+  top: 8px;
 }
 
 .c0 {
@@ -217,15 +250,21 @@ exports[`BadgeOverlay with low quantity primary badge and best seller secondary 
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
   -ms-letter-spacing: 0.5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  line-height: 1.25;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 <div
@@ -261,22 +300,25 @@ exports[`BadgeOverlay with low quantity primary badge and best seller secondary 
 
 exports[`BadgeOverlay with on sale primary badge 1`] = `
 .c1 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  left: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #ffffff;
+  right: auto;
   top: 8px;
-  left: 8px;
   background-color: #e54f5d;
+  color: #ffffff;
 }
 
 .c0 {
@@ -284,15 +326,21 @@ exports[`BadgeOverlay with on sale primary badge 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
   -ms-letter-spacing: 0.5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  line-height: 1.25;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 <div
@@ -319,40 +367,46 @@ exports[`BadgeOverlay with on sale primary badge 1`] = `
 
 exports[`BadgeOverlay with on sale primary badge and best seller secondary badge 1`] = `
 .c1 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  left: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #ffffff;
+  right: auto;
   top: 8px;
-  left: 8px;
   background-color: #e54f5d;
+  color: #ffffff;
 }
 
 .c3 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  color: #5e7480;
+  left: auto;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #5e7480;
-  top: 8px;
   right: 8px;
+  top: 8px;
 }
 
 .c0 {
@@ -360,15 +414,21 @@ exports[`BadgeOverlay with on sale primary badge and best seller secondary badge
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
   -ms-letter-spacing: 0.5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  line-height: 1.25;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 <div
@@ -404,40 +464,46 @@ exports[`BadgeOverlay with on sale primary badge and best seller secondary badge
 
 exports[`BadgeOverlay with on sale primary badge and low quantity secondary badge 1`] = `
 .c1 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  left: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #ffffff;
+  right: auto;
   top: 8px;
-  left: 8px;
   background-color: #e54f5d;
+  color: #ffffff;
 }
 
 .c3 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  color: #5e7480;
+  left: auto;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #5e7480;
-  top: 8px;
   right: 8px;
+  top: 8px;
 }
 
 .c0 {
@@ -445,15 +511,21 @@ exports[`BadgeOverlay with on sale primary badge and low quantity secondary badg
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
   -ms-letter-spacing: 0.5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  line-height: 1.25;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 <div
@@ -489,22 +561,25 @@ exports[`BadgeOverlay with on sale primary badge and low quantity secondary badg
 
 exports[`BadgeOverlay with sold out primary badge 1`] = `
 .c1 {
-  line-height: 1.375em;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
-  border-radius: 4px;
+  font-size: 11px;
   height: auto;
-  font-size: 0.7rem;
+  line-height: 16px;
+  position: absolute;
+  z-index: 1200;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  bottom: auto;
+  left: 8px;
   padding-bottom: 4px;
   padding-left: 8px;
   padding-right: 8px;
   padding-top: 4px;
-  position: absolute;
-  z-index: 1200;
-  color: #ffffff;
+  right: auto;
   top: 8px;
-  left: 8px;
   background-color: #5e7480;
+  color: #ffffff;
 }
 
 .c0 {
@@ -513,15 +588,21 @@ exports[`BadgeOverlay with sold out primary badge 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: inherit;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 11px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
-  position: relative;
-  white-space: nowrap;
-  padding: 0;
   -webkit-letter-spacing: 0.5px;
   -moz-letter-spacing: 0.5px;
   -ms-letter-spacing: 0.5px;
   letter-spacing: 0.5px;
-  font-size: 11px;
+  line-height: 1.25;
+  padding: 0;
+  position: relative;
+  white-space: nowrap;
 }
 
 <div

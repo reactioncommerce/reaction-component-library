@@ -2,15 +2,15 @@
 
 exports[`Render with compact prop 1`] = `
 .c0 {
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 .c1 {
-  background: #8ce0c9;
+  background-color: #8ce0c9;
   border-radius: 50%;
   height: 30px;
   text-align: center;
@@ -18,9 +18,18 @@ exports[`Render with compact prop 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
   font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   color: #ffffff;
   line-height: 1;
   position: relative;
@@ -28,18 +37,23 @@ exports[`Render with compact prop 1`] = `
 }
 
 .c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
-  color: #3c3c3c;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: none;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   margin-left: 0.5rem;
-  -webkit-letter-spacing: 0.2px;
-  -moz-letter-spacing: 0.2px;
-  -ms-letter-spacing: 0.2px;
-  letter-spacing: 0.2px;
 }
 
 @media (min-width:960px) {
@@ -70,15 +84,15 @@ exports[`Render with compact prop 1`] = `
 
 exports[`Render with full name and email props 1`] = `
 .c0 {
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 .c1 {
-  background: #8ce0c9;
+  background-color: #8ce0c9;
   border-radius: 50%;
   height: 30px;
   text-align: center;
@@ -86,9 +100,18 @@ exports[`Render with full name and email props 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
   font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   color: #ffffff;
   line-height: 1;
   position: relative;
@@ -96,18 +119,23 @@ exports[`Render with full name and email props 1`] = `
 }
 
 .c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
-  color: #3c3c3c;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: none;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   margin-left: 0.5rem;
-  -webkit-letter-spacing: 0.2px;
-  -moz-letter-spacing: 0.2px;
-  -ms-letter-spacing: 0.2px;
-  letter-spacing: 0.2px;
 }
 
 @media (min-width:960px) {
@@ -138,15 +166,15 @@ exports[`Render with full name and email props 1`] = `
 
 exports[`Render with full prop 1`] = `
 .c0 {
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 .c1 {
-  background: #8ce0c9;
+  background-color: #8ce0c9;
   border-radius: 50%;
   height: 30px;
   text-align: center;
@@ -154,9 +182,18 @@ exports[`Render with full prop 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
   font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   color: #ffffff;
   line-height: 1;
   position: relative;
@@ -164,18 +201,23 @@ exports[`Render with full prop 1`] = `
 }
 
 .c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
-  color: #3c3c3c;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: inline;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   margin-left: 0.5rem;
-  -webkit-letter-spacing: 0.2px;
-  -moz-letter-spacing: 0.2px;
-  -ms-letter-spacing: 0.2px;
-  letter-spacing: 0.2px;
 }
 
 @media (min-width:960px) {
@@ -206,15 +248,15 @@ exports[`Render with full prop 1`] = `
 
 exports[`Render with only email & first name props 1`] = `
 .c0 {
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 .c1 {
-  background: #8ce0c9;
+  background-color: #8ce0c9;
   border-radius: 50%;
   height: 30px;
   text-align: center;
@@ -222,9 +264,18 @@ exports[`Render with only email & first name props 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
   font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   color: #ffffff;
   line-height: 1;
   position: relative;
@@ -232,18 +283,23 @@ exports[`Render with only email & first name props 1`] = `
 }
 
 .c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
-  color: #3c3c3c;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: none;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   margin-left: 0.5rem;
-  -webkit-letter-spacing: 0.2px;
-  -moz-letter-spacing: 0.2px;
-  -ms-letter-spacing: 0.2px;
-  letter-spacing: 0.2px;
 }
 
 @media (min-width:960px) {
@@ -274,15 +330,15 @@ exports[`Render with only email & first name props 1`] = `
 
 exports[`Render with only required props 1`] = `
 .c0 {
-  position: relative;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
 }
 
 .c1 {
-  background: #8ce0c9;
+  background-color: #8ce0c9;
   border-radius: 50%;
   height: 30px;
   text-align: center;
@@ -290,9 +346,18 @@ exports[`Render with only required props 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-weight: 400;
   font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   color: #ffffff;
   line-height: 1;
   position: relative;
@@ -300,18 +365,23 @@ exports[`Render with only required props 1`] = `
 }
 
 .c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
-  color: #3c3c3c;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: none;
   -webkit-align-self: center;
   -ms-flex-item-align: center;
   align-self: center;
   margin-left: 0.5rem;
-  -webkit-letter-spacing: 0.2px;
-  -moz-letter-spacing: 0.2px;
-  -ms-letter-spacing: 0.2px;
-  letter-spacing: 0.2px;
 }
 
 @media (min-width:960px) {

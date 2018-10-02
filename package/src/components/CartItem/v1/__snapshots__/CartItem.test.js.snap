@@ -6,14 +6,32 @@ exports[`basic snapshot with empty props 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  border-bottom: solid 1px #f5f5f5;
+  border-bottom-color: #f5f5f5;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #f5f5f5;
+  border-left-style: solid;
+  border-left-width: 0;
+  border-right-color: #f5f5f5;
+  border-right-style: solid;
+  border-right-width: 0;
+  border-top-color: #f5f5f5;
+  border-top-style: solid;
+  border-top-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem 0;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
   width: 100%;
+}
+
+.c0:first-of-type {
+  border-top: none;
 }
 
 .c0:last-of-type {
@@ -29,7 +47,7 @@ exports[`basic snapshot with empty props 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 1rem;
+  margin-left: 16px;
   position: relative;
   width: 100%;
 }
@@ -67,7 +85,10 @@ exports[`basic snapshot with empty props 1`] = `
 }
 
 .c5 {
-  margin: 0.75rem 0 0.5rem;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .c7 {
@@ -80,6 +101,18 @@ exports[`basic snapshot with empty props 1`] = `
 }
 
 .c6 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
@@ -91,16 +124,14 @@ exports[`basic snapshot with empty props 1`] = `
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: normal;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
-  margin: 0.5rem 0 0;
-  padding: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 8px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
   width: auto;
 }
 
@@ -119,7 +150,8 @@ exports[`basic snapshot with empty props 1`] = `
 
 @media (min-width:992px) {
   .c5 {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
@@ -176,14 +208,32 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  border-bottom: solid 1px #f5f5f5;
+  border-bottom-color: #f5f5f5;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #f5f5f5;
+  border-left-style: solid;
+  border-left-width: 0;
+  border-right-color: #f5f5f5;
+  border-right-style: solid;
+  border-right-width: 0;
+  border-top-color: #f5f5f5;
+  border-top-style: solid;
+  border-top-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem 0;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
   width: 100%;
+}
+
+.c0:first-of-type {
+  border-top: none;
 }
 
 .c0:last-of-type {
@@ -199,7 +249,7 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 1rem;
+  margin-left: 16px;
   position: relative;
   width: 100%;
 }
@@ -314,14 +364,32 @@ exports[`basic snapshot with props 1`] = `
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
   align-items: flex-start;
-  border-bottom: solid 1px #f5f5f5;
+  border-bottom-color: #f5f5f5;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left-color: #f5f5f5;
+  border-left-style: solid;
+  border-left-width: 0;
+  border-right-color: #f5f5f5;
+  border-right-style: solid;
+  border-right-width: 0;
+  border-top-color: #f5f5f5;
+  border-top-style: solid;
+  border-top-width: 0;
   box-sizing: border-box;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 1rem 0;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
   width: 100%;
+}
+
+.c0:first-of-type {
+  border-top: none;
 }
 
 .c0:last-of-type {
@@ -337,7 +405,7 @@ exports[`basic snapshot with props 1`] = `
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 1rem;
+  margin-left: 16px;
   position: relative;
   width: 100%;
 }
@@ -375,7 +443,10 @@ exports[`basic snapshot with props 1`] = `
 }
 
 .c5 {
-  margin: 0.75rem 0 0.5rem;
+  margin-top: 12px;
+  margin-bottom: 8px;
+  margin-left: 0;
+  margin-right: 0;
 }
 
 .c7 {
@@ -388,6 +459,18 @@ exports[`basic snapshot with props 1`] = `
 }
 
 .c6 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   -webkit-align-self: flex-start;
   -ms-flex-item-align: start;
   align-self: flex-start;
@@ -399,16 +482,14 @@ exports[`basic snapshot with props 1`] = `
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: normal;
-  -webkit-letter-spacing: normal;
-  -moz-letter-spacing: normal;
-  -ms-letter-spacing: normal;
-  letter-spacing: normal;
-  margin: 0.5rem 0 0;
-  padding: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 8px;
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
   width: auto;
 }
 
@@ -427,7 +508,8 @@ exports[`basic snapshot with props 1`] = `
 
 @media (min-width:992px) {
   .c5 {
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 }
 
