@@ -69,6 +69,7 @@ class AccountProfileInfo extends Component {
     viewer: PropTypes.shape({
       firstName: PropTypes.string.isRequired,
       lastName: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
       primaryEmailAddress: PropTypes.string.isRequired
     }).isRequired
   };
