@@ -1,8 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot 1`] = `
-Array [
-  "AddressForm(undefined)",
-  "Button(undefined)",
-]
+.c0 {
+  color: inherit;
+}
+
+<div
+  className="c0"
+>
+  TEST
+</div>
 `;
