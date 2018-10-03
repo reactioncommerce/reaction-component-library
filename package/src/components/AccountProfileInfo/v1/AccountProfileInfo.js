@@ -1,40 +1,148 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
-const StyledDiv = styled.div`
-  color: ${applyTheme("accountProfileInfoColor")};
+const AccountProfileInfoContainer = styled.div`
+  display: flex;
+  position: relative;
 `;
+
+const AccountProfileInfoTextContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+`;
+
+const ViewerInitialsCircle = styled.div`
+  background-color: ${applyTheme("viewerInfoInitialsBackgroundColor")};
+  border-radius: 50%;
+  height: ${applyTheme("accountProfileInfoInitialsSize")};
+  text-align: center;
+  width: ${applyTheme("accountProfileInfoInitialsSize")};
+`;
+
+const ViewerInitialsText = styled.div`
+  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
+  color: ${applyTheme("viewerInfoInitialsColor")};
+  line-height: 1;
+  position: relative;
+  top: calc(${applyTheme("viewerInfoInitialsSize")} / 4);
+`;
+
+const ViewerEmailText = styled.span`
+  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
+  color: ${applyTheme("accountProfileInfoEmailFontColor")};
+  font-size: ${applyTheme("accountProfileInfoEmailFontSize")};
+  align-self: left;
+  margin-bottom: 0.75rem;
+  margin-left: 1.0rem;
+`;
+
+const ViewerNameText = styled.span`
+  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
+  font-size: ${applyTheme("accountProfileInfoNameFontSize")};
+  align-self: left;
+  margin-bottom: 0.25rem;
+  margin-left: 1.0rem;
+`;
+
+const ViewerProfileEditText = styled.span`
+  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
+  color: ${applyTheme("accountProfileInfoEmailFontColor")};
+  font-size: ${applyTheme("accountProfileInfoEmailFontSize")};
+  align-self: left;
+  margin-left: 1.0rem;
+`;
+
 
 class AccountProfileInfo extends Component {
   static propTypes = {
     /**
-     * You can provide a `className` prop that will be applied to the outermost DOM element
-     * rendered by this component. We do not recommend using this for styling purposes, but
-     * it can be useful as a selector in some situations.
+     * Enable this prop when you only want to display the Edit account link
      */
-    className: PropTypes.string,
+    editable: PropTypes.bool,
     /**
-     * If you've set up a components context using
-     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
-     * (recommended), then this prop will come from there automatically. If you have not
-     * set up a components context or you want to override one of the components in a
-     * single spot, you can pass in the components prop directly.
+     * An object containing basic user information.
      */
-    components: PropTypes.shape({
+    viewer: PropTypes.shape({
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      primaryEmailAddress: PropTypes.string.isRequired
     }).isRequired
   };
 
   static defaultProps = {
-
+    editable: false
   };
 
-  render() {
-    const { className } = this.props;
+  /**
+   *
+   * @name viewerInitials
+   * @summary Build the initials string from the `viewer` first and last name
+   * If those props are not availible use the first letter of the primary email address.
+   * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
+   */
+  get viewerInitials() {
+    const { viewer: { firstName, lastName, primaryEmailAddress } } = this.props;
+    const firstInitial = (firstName && firstName.charAt()) || primaryEmailAddress.charAt().toUpperCase();
+    const lastInitial = (lastName && lastName.charAt()) || "";
+    return `${firstInitial}${lastInitial}`;
+  }
 
+  /**
+   *
+   * @name viewerEmail
+   * @summary Return viewer email address
+   * @return {String} the viewers email address.
+   */
+  get viewerPrimaryEmailAddress() {
+    const { viewer: { primaryEmailAddress } } = this.props;
+    return primaryEmailAddress;
+  }
+
+  /**
+   *
+   * @name viewerName
+   * @summary If `firstName` is availible on the `viewer` object
+   * return that else return the email address
+   * @return {String} the viewers name.
+   */
+  get viewerName() {
+    const { viewer: { name } } = this.props;
+    return name;
+  }
+
+  viewerProfileEditLink = () => {
+    const { editable } = this.props;
+
+    if (editable) {
+      return (
+        <ViewerProfileEditText>
+          Edit account
+        </ViewerProfileEditText>
+      );
+    }
+    return null;
+  }
+
+  render() {
     return (
-      <StyledDiv className={className}>TEST</StyledDiv>
+      <AccountProfileInfoContainer>
+        <ViewerInitialsCircle>
+          <ViewerInitialsText>{this.viewerInitials}</ViewerInitialsText>
+        </ViewerInitialsCircle>
+        <AccountProfileInfoTextContainer>
+          <ViewerNameText>
+            {this.viewerName}
+          </ViewerNameText>
+          <ViewerEmailText>
+            {this.viewerPrimaryEmailAddress}
+          </ViewerEmailText>
+          {this.viewerProfileEditLink()}
+        </AccountProfileInfoTextContainer>
+      </AccountProfileInfoContainer>
     );
   }
 }

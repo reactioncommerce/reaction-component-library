@@ -296,6 +296,16 @@ const viewerInfo = {
   rui_viewerInfoInitialsSize: "30px"
 };
 
+// AccountProfileInfo
+const accountProfileInfo = {
+  rui_accountProfileInfoInitialsBackgroundColor: colors.teal,
+  rui_accountProfileInfoInitialsColor: colors.white,
+  rui_accountProfileInfoInitialsSize: "80px",
+  rui_accountProfileInfoEmailFontColor: colors.black50,
+  rui_accountProfileInfoEmailFontSize: "14px",
+  rui_accountProfileInfoNameFontSize: "24px"
+};
+
 const cartSummary = {
   rui_cartSummaryBackgroundColor: colors.black02,
   rui_cartSummaryBorderColor: colors.black10,
@@ -572,6 +582,7 @@ export default {
   ...checkbox,
   ...selectableItem,
   ...selectableList,
+  ...accountProfileInfo,
   ...viewerInfo,
   ...catalogGrid,
   ...miniCart,
