@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+// import { applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
-  color: ${applyTheme("accordionColor")};
+  color: inherit;
 `;
 
 class Accordion extends Component {
@@ -22,20 +22,15 @@ class Accordion extends Component {
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.
      */
-    components: PropTypes.shape({
-    }).isRequired
+    components: PropTypes.shape({}).isRequired
   };
 
-  static defaultProps = {
-
-  };
+  static defaultProps = {};
 
   render() {
     const { className } = this.props;
 
-    return (
-      <StyledDiv className={className}>TEST</StyledDiv>
-    );
+    return <StyledDiv className={className}>TEST</StyledDiv>;
   }
 }
 
