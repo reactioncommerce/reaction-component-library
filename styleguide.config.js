@@ -480,6 +480,13 @@ module.exports = {
           ],
           content: "styleguide/src/sections/StorefrontForms.md",
           name: "Forms"
+        }),
+        generateSection({
+          componentNames: [
+            "AccountProfileInfo"
+          ],
+          content: "styleguide/src/sections/Account.md",
+          name: "Account"
         })
       ]
     }
