@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import isEmpty from "lodash.isempty";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 function applyValidationColor(themeProp = "color") {
   return (props) => {
@@ -21,26 +21,29 @@ function applyValidationColor(themeProp = "color") {
 }
 
 const StyledField = styled.div`
-  margin: ${applyTheme("fieldMargin")};
+  margin-bottom: ${applyTheme("fieldSpacingBelow")};
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: ${applyTheme("fieldSpacingAbove")};
 `;
 
 const StyledLabel = styled.label`
-  -webkit-font-smoothing: antialiased;
+  ${addTypographyStyles("FieldLabel", "labelText")}
   color: ${applyValidationColor("labelColor")};
   display: block;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: ${applyTheme("labelFontSize")};
-  line-height: ${applyTheme("leading_header")};
-  margin: ${applyTheme("labelMargin")};
+  margin-bottom: ${applyTheme("labelSpacingToInput")};
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
 `;
 
 const StyledHelpText = styled.span`
-  -webkit-font-smoothing: antialiased;
-  color: ${applyTheme("helpTextColor")};
+  ${addTypographyStyles("FieldLabel", "labelText")}
   display: block;
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: ${applyTheme("helpTextFontSize")};
-  margin: ${applyTheme("helpTextMargin")};
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: ${applyTheme("helpTextSpacingToInput")};
 `;
 
 class Field extends Component {

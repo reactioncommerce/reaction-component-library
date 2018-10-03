@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles } from "../../../utils";
 
 const Span = styled.div`
-  color: ${applyTheme("color_stockWarning")};
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
+  ${addTypographyStyles("StockWarning", "labelText")}
 `;
 
 class StockWarning extends Component {
@@ -14,12 +12,12 @@ class StockWarning extends Component {
     /**
      * The product's current stock level
      */
-    inventoryQuantity: PropTypes.number.isRequired,
+    inventoryQuantity: PropTypes.number,
     /**
      * When true, indicates that a product's inventory level has reached
      * the low level threshold.
      */
-    isLowInventoryQuantity: PropTypes.bool.isRequired
+    isLowInventoryQuantity: PropTypes.bool
   };
 
   render() {

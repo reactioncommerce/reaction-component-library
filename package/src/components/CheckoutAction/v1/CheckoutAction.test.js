@@ -5,9 +5,9 @@ import CheckoutActionComplete from "../../CheckoutActionComplete/v1";
 import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1";
 import CheckoutAction from "./CheckoutAction";
 
-const MockActiveCheckoutAciton = () => (<span />);
+const MockActiveCheckoutAciton = ({ activeLabel }) => (<span>{activeLabel}</span>);
 
-test("CheckoutAction with `active` status", () => {
+test("CheckoutAction with `active` status & label", () => {
   const cart = {};
   const isLoading = false;
   const onClick = () => {};
@@ -21,6 +21,7 @@ test("CheckoutAction with `active` status", () => {
 
   const component = renderer.create((
     <CheckoutAction
+      activeLabel="Mock active label"
       activeStepElement={<MockActiveCheckoutAciton />}
       completeStepElement={
         <CheckoutActionComplete
@@ -34,7 +35,6 @@ test("CheckoutAction with `active` status", () => {
       }
       cart={cart}
       isLoading={isLoading}
-      label="Shipping address"
       status="active"
       stepNumber={2}
     />
@@ -44,7 +44,7 @@ test("CheckoutAction with `active` status", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("CheckoutAction with `complete` status", () => {
+test("CheckoutAction with `complete` status & label", () => {
   const cart = {};
   const isLoading = false;
   const onClick = () => {};
@@ -70,8 +70,8 @@ test("CheckoutAction with `complete` status", () => {
         <CheckoutActionIncomplete />
       }
       cart={cart}
+      completeLabel="Mock complete label"
       isLoading={isLoading}
-      label="Shipping address"
       status="complete"
       stepNumber={2}
     />
@@ -81,7 +81,7 @@ test("CheckoutAction with `complete` status", () => {
   expect(tree).toMatchSnapshot();
 });
 
-test("CheckoutAction with `incomplete` status", () => {
+test("CheckoutAction with `incomplete` status & label", () => {
   const cart = {};
   const isLoading = false;
   const onClick = () => {};
@@ -103,12 +103,12 @@ test("CheckoutAction with `incomplete` status", () => {
           onClickChangeButton={onClick}
         />
       }
+      incompleteLabel="Mock incomplete label"
       incompleteStepElement={
         <CheckoutActionIncomplete />
       }
       cart={cart}
       isLoading={isLoading}
-      label="Shipping address"
       status="incomplete"
       stepNumber={2}
     />
@@ -146,7 +146,6 @@ test("CheckoutAction with `complete` status and label override via props", () =>
       }
       cart={cart}
       isLoading={isLoading}
-      label="Shipping address"
       status="complete"
       stepNumber={2}
     />
@@ -184,7 +183,6 @@ test("CheckoutAction with `complete` status and stepNumber override via props", 
       }
       cart={cart}
       isLoading={isLoading}
-      label="Shipping address"
       status="complete"
       stepNumber={2}
     />

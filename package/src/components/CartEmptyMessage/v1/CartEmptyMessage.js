@@ -2,7 +2,7 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const EmptyButton = styled.div`
   display: flex;
@@ -10,13 +10,10 @@ const EmptyButton = styled.div`
 `;
 
 const EmptyMessage = styled.div`
-  color: ${applyTheme("color_coolGrey500")};
+  ${addTypographyStyles("CartEmptyMessage", "bodyText")}
   display: flex;
-  font-size: ${applyTheme("font_size_default")};
-  font-family: ${applyTheme("font_family")};
   justify-content: center;
-  letter-spacing: 0.01875rem;
-  margin-bottom: 3.375rem;
+  margin-bottom: ${applyTheme("cartEmptyMessageTextToButtonSpacing")};
 `;
 
 class CartEmptyMessage extends Component {
@@ -26,7 +23,8 @@ class CartEmptyMessage extends Component {
      */
     buttonText: PropTypes.string,
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.

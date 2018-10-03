@@ -2,18 +2,36 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Item = styled.div`
   align-items: flex-start;
-  border-bottom: solid 1px ${applyTheme("color_black05")};
+  border-bottom-color: ${applyTheme("cartItemBorderBottomColor")};
+  border-bottom-style: solid;
+  border-bottom-width: ${applyTheme("cartItemBorderBottomWidth")};
+  border-left-color: ${applyTheme("cartItemBorderLeftColor")};
+  border-left-style: solid;
+  border-left-width: ${applyTheme("cartItemBorderLeftWidth")};
+  border-right-color: ${applyTheme("cartItemBorderRightColor")};
+  border-right-style: solid;
+  border-right-width: ${applyTheme("cartItemBorderRightWidth")};
+  border-top-color: ${applyTheme("cartItemBorderTopColor")};
+  border-top-style: solid;
+  border-top-width: ${applyTheme("cartItemBorderTopWidth")};
   box-sizing: border-box;
   display: flex;
-  padding: 1rem;
+  padding-bottom: ${applyTheme("cartItemPaddingBottom")};
+  padding-left: ${applyTheme("cartItemPaddingLeft")};
+  padding-right: ${applyTheme("cartItemPaddingRight")};
+  padding-top: ${applyTheme("cartItemPaddingTop")};
   width: 100%;
 
   &:first-of-type {
-    border-top: solid 1px ${applyTheme("color_black05")};
+    border-top: none;
+  }
+
+  &:last-of-type {
+    border-bottom: none;
   }
 
   > * {
@@ -23,7 +41,7 @@ const Item = styled.div`
 
 const ItemContent = styled.div`
   display: flex;
-  margin-left: 1rem;
+  margin-left: ${applyTheme("cartItemImageContentSpacing")};
   position: relative;
   width: 100%;
 `;
@@ -49,10 +67,14 @@ const ItemContentDetailInfo = styled.div`
 `;
 
 const ItemContentQuantityInput = styled.div`
-  margin: 0.75rem 0 0.5rem;
+  margin-top: ${applyTheme("cartItemQuantityInputSpacingAbove")};
+  margin-bottom: ${applyTheme("cartItemQuantityInputSpacingBelow")};
+  margin-left: 0;
+  margin-right: 0;
 
   @media (min-width: 992px) {
-    margin: ${({ isMiniCart }) => (isMiniCart ? "0.75rem 0 0.5rem" : "0")};
+    margin-top: ${(props) => (props.isMiniCart ? applyTheme("cartItemQuantityInputSpacingAbove")(props) : "0")};
+    margin-bottom: ${(props) => (props.isMiniCart ? applyTheme("cartItemQuantityInputSpacingBelow")(props) : "0")};
   }
 `;
 
@@ -69,32 +91,35 @@ const ItemContentPrice = styled.div`
 `;
 
 const ItemRemoveButton = styled.button`
+  ${addTypographyStyles("CartItemRemoveButton", "labelText")}
   align-self: flex-start;
   background-color: transparent;
   border: none;
-  color: ${applyTheme("color_coolGrey400")};
+  color: ${applyTheme("cartItemRemoveButtonColor")};
   cursor: pointer;
   display: table;
   flex: 0 1 auto;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
-  font-weight: normal;
-  line-height: normal;
-  letter-spacing: normal;
-  margin: 0.5rem 0 0;
-  padding: 0;
+  margin-bottom: ${applyTheme("cartItemRemoveButtonSpacingBelow")};
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: ${applyTheme("cartItemRemoveButtonSpacingAbove")};
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 0;
   width: auto;
 
   &:focus,
   &:hover {
-    color: ${applyTheme("color_coolGrey")};
+    color: ${applyTheme("cartItemRemoveButtonColor_focus")};
   }
 `;
 
 class CartItem extends Component {
   static propTypes = {
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.

@@ -41,11 +41,11 @@ const errors = [{ name: "example", message: "This field is required" }, { name: 
 
 The error text is set to red.
 
-|Property     |Variable               | Default theme style       |
-|-------------|-----------------------|:-------------------------:|
-|Text color   |`errorsBlockColor`     |`@cd3f4c`                  |
-|Text size    |`errorsBlockFontSize`  |14                         |
-|Block margin |`errorsBlockMargin`    |`${baseUnit(1)} 0`         |
+|Property        |Variable                  | Default theme style  |
+|----------------|--------------------------|:--------------------:|
+|Text color      |`errorsBlockColor`        |`#cd3f4c`             |
+|Spacing above   |`errorsBlockSpacingAbove` |10px                  |
+|Spacing below   |`errorsBlockSpacingBelow` |10px                  |
 
 ##### Icon
 
@@ -53,5 +53,5 @@ The error icon is from FontAwesome's [exclamation-triangle](https://fontawesome.
 
 |Property     |Variable               | Default theme style       |
 |-------------|-----------------------|:-------------------------:|
-|Icon margin  |`errorsBlockIconMargin`|`0 ${baseUnit(0.5)} 0 00 ` |
+|Icon spacing to label  |`errorsBlockIconSpacingToLabel`|5px                |
 |Icon color   |`errorsBlockIconColor` |`#cd3f4c`                  |

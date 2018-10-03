@@ -20,7 +20,7 @@ const ColFull = styled.div`
 const ColHalf = styled.div`
   flex: 1 1 100%;
 
-  @media (${applyTheme("bp_sm")}) {
+  @media (min-width: ${applyTheme("breakpoint_sm")}px) {
     flex: 0 1 calc(50% - 9px);
   }
 `;
@@ -32,7 +32,8 @@ class AddressForm extends Component {
      */
     addressNamePlaceholder: PropTypes.string,
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.
@@ -197,8 +198,8 @@ class AddressForm extends Component {
     const { locales: nextLocales, value: nextValue } = this.props;
     const { activeCountry: prevCountry } = this.state;
 
-    // Sometime the AddressForm will render before locales are provided.
-    // This is offten the case when dynamically importing locales via a JSON file.
+    // Sometimes the AddressForm will render before locales are provided.
+    // This is often the case when dynamically importing locales via a JSON file.
     // Once the file loads and the locales are provided the form needs to check
     // and correct the active country.
     if (isEmpty(prevLocales) && !isEmpty(nextLocales) && prevLocales !== nextLocales) {
@@ -313,6 +314,7 @@ class AddressForm extends Component {
               {this.countryOptions && this.countryOptions.length > 1 ? (
                 <Select
                   id={countryInputId}
+                  alphabetize
                   isSearchable
                   name="country"
                   onChange={this.handleCountryChange}
@@ -370,6 +372,7 @@ class AddressForm extends Component {
               {this.regionOptions && this.regionOptions.length > 1 ? (
                 <Select
                   id={regionInputId}
+                  alphabetize
                   isSearchable
                   name="region"
                   options={this.regionOptions}

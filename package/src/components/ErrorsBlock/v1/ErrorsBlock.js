@@ -3,22 +3,26 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import isEmpty from "lodash.isempty";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ErrorWrapper = styled.div`
-  margin: ${applyTheme("errorsBlockMargin")};
+  margin-bottom: ${applyTheme("errorsBlockSpacingBelow")};
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: ${applyTheme("errorsBlockSpacingAbove")};
 `;
 
 const Error = styled.div`
-  -webkit-font-smoothing: antialiased;
+  ${addTypographyStyles("ErrorsBlock", "labelText")}
   color: ${applyTheme("errorsBlockColor")};
-  font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
-  font-size: ${applyTheme("errorsBlockFontSize")};
 `;
 
 const IconWrapper = styled.div`
   display: inline-block;
-  margin: ${applyTheme("errorsBlockIconMargin")};
+  margin-bottom: 0;
+  margin-left: 0;
+  margin-right: ${applyTheme("errorsBlockIconSpacingToLabel")};
+  margin-top: 0;
 
   path {
    fill: ${applyTheme("errorsBlockIconColor")};
@@ -35,7 +39,8 @@ class ErrorsBlock extends Component {
   static propTypes = {
     className: PropTypes.string,
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.

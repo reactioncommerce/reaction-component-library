@@ -2,35 +2,31 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 import { priceByCurrencyCode } from "./utils";
 
 const ProductMediaWrapper = styled.div`
-  background-color: ${applyTheme("color_white")};
+  background-color: ${applyTheme("catalogGridItemMediaBackgroundColor")};
   position: relative;
 `;
 
 const ProductInfo = styled.div`
+  align-items: center;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding-top: 10px;
+  padding-bottom: ${applyTheme("catalogGridItemProductInfoPaddingBottom")};
+  padding-left: ${applyTheme("catalogGridItemProductInfoPaddingLeft")};
+  padding-right: ${applyTheme("catalogGridItemProductInfoPaddingRight")};
+  padding-top: ${applyTheme("catalogGridItemProductInfoPaddingTop")};
 `;
 
 const ProductTitle = styled.aside`
-  color: rgba(0, 0, 0, 0.87);
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_default")};
-  font-weight: ${applyTheme("font_weight_bold")};
-  line-height: 27px;
+  ${addTypographyStyles("CatalogGridItemProductTitle", "headingTextBold")}
+  line-height: 1.125;
 `;
 
 const ProductVendor = styled.span`
-  color: rgba(0, 0, 0, 0.87);
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_default")};
-  font-weight: ${applyTheme("font_weight_normal")};
-  line-height: 23px;
+  ${addTypographyStyles("CatalogGridItemProductVendor", "labelText")}
 `;
 
 const PriceContainer = styled.div`
@@ -40,7 +36,18 @@ const PriceContainer = styled.div`
 class CatalogGridItem extends Component {
   static propTypes = {
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * Labels to use for the various badges. Refer to `BadgeOverlay`'s prop documentation.
+     */
+    badgeLabels: PropTypes.shape({
+      BACKORDER: PropTypes.string,
+      BESTSELLER: PropTypes.string,
+      LOW_QUANTITY: PropTypes.string,
+      SOLD_OUT: PropTypes.string,
+      SALE: PropTypes.string
+    }),
+    /**
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.
@@ -93,8 +100,55 @@ class CatalogGridItem extends Component {
   };
 
   static defaultProps = {
+    badgeLabels: null,
     onClick() {},
     placeholderImageURL: ""
+  };
+
+  state = {
+    fit: "cover"
+  };
+
+  componentDidMount() {
+    this._mounted = true;
+
+    this.setImageFit();
+  }
+
+  componentDidUpdate() {
+    this.setImageFit();
+  }
+
+  componentWillUnmount() {
+    this._mounted = false;
+  }
+
+  setImageFit = () => {
+    // Use cover fit if image is landcape, contain if portrait
+    if (typeof Image !== "undefined") {
+      const { large } = this.primaryImage.URLs;
+      const largeImage = new Image();
+      largeImage.src = large;
+      largeImage.onload = () => {
+        if (this._mounted === false) {
+          return;
+        }
+
+        let fit = "";
+        const { width, height } = largeImage;
+        if (height > width) {
+          // Image is portrait
+          fit = "contain";
+        } else {
+          // Image is landscape
+          fit = "cover";
+        }
+
+        if (fit !== this.state.fit) {
+          this.setState({ fit });
+        }
+      };
+    }
   };
 
   get productDetailHref() {
@@ -124,11 +178,12 @@ class CatalogGridItem extends Component {
 
   renderProductMedia() {
     const { components: { ProgressiveImage }, product: { description } } = this.props;
+    const { fit } = this.state;
 
     return (
       <ProductMediaWrapper>
         <ProgressiveImage
-          fit={"cover"}
+          fit={fit}
           altText={description}
           presrc={this.primaryImage.URLs.thumbnail}
           srcs={this.primaryImage.URLs}
@@ -161,7 +216,13 @@ class CatalogGridItem extends Component {
   }
 
   render() {
-    const { components: { BadgeOverlay, Link }, product } = this.props;
+    const { badgeLabels, components: { BadgeOverlay, Link }, product } = this.props;
+
+    const badgeProps = { product };
+
+    if (badgeLabels) {
+      badgeProps.badgeLabels = badgeLabels;
+    }
 
     return (
       <div>
@@ -169,7 +230,7 @@ class CatalogGridItem extends Component {
           href={this.productDetailHref}
           onClick={this.handleOnClick}
         >
-          <BadgeOverlay product={product}>
+          <BadgeOverlay {...badgeProps}>
             {this.renderProductMedia()}
             {this.renderProductInfo()}
           </BadgeOverlay>

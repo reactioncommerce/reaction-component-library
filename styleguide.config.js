@@ -429,7 +429,8 @@ module.exports = {
             "AddressBook",
             "AddressReview",
             "AddressSelect",
-            "ShopLogo"
+            "ShopLogo",
+            "ViewerInfo"
           ],
           content: "styleguide/src/sections/General.md",
           name: "General"
@@ -466,8 +467,10 @@ module.exports = {
             "CheckoutActionIncomplete",
             "CheckoutEmailAddress",
             "CheckoutTopHat",
+            "FinalReviewCheckoutAction",
             "ShippingAddressCheckoutAction",
-            "StripePaymentCheckoutAction"
+            "StripePaymentCheckoutAction",
+            "FulfillmentOptionsCheckoutAction"
           ],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
@@ -500,6 +503,10 @@ module.exports = {
         {
           test: /\.css$/,
           loader: "style-loader!css-loader"
+        },
+        {
+          test: /README\.md$/,
+          loader: "ignore-loader"
         }
       ]
     }

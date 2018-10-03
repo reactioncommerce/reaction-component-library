@@ -3,22 +3,20 @@ import PropTypes from "prop-types";
 import { withComponents } from "@reactioncommerce/components-context";
 import Fade from "@material-ui/core/Fade";
 import styled from "styled-components";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const Title = styled.h3`
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_h3")};
-  font-weight: ${applyTheme("font_weight_bold")};
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 1.25;
-  letter-spacing: 0.4px;
+  ${addTypographyStyles("StripePaymentCheckoutAction", "subheadingTextBold")}
 `;
 
 const SecureCaption = styled.div`
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
-  color: ${applyTheme("color_black30")};
+  ${addTypographyStyles("StripePaymentCheckoutAction", "captionText")}
+`;
+
+const IconLockSpan = styled.span`
+  display: inline-block;
+  height: 20px;
+  width: 20px;
 `;
 
 const Span = styled.span`
@@ -36,11 +34,11 @@ const billingAddressOptions = [{
   value: "use_different_billing_address"
 }];
 
-
 class StripePaymentCheckoutAction extends Component {
   static propTypes = {
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.
@@ -195,16 +193,6 @@ class StripePaymentCheckoutAction extends Component {
     );
   }
 
-  renderLockIcon = () => (
-    <svg style={{ width: "20px", height: "20px" }} viewBox="0 0 24 24">
-      <path
-        fill={applyTheme("color_black30")()}
-        // eslint-disable-next-line
-        d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"
-      />
-    </svg >
-  )
-
   render() {
     const {
       components: { iconLock, SelectableList, StripeForm },
@@ -224,7 +212,7 @@ class StripePaymentCheckoutAction extends Component {
           stripeRef={(stripe) => { this._stripe = stripe; }}
         />
         <SecureCaption>
-          {iconLock} <Span>Your Information is private and secure.</Span>
+          <IconLockSpan>{iconLock}</IconLockSpan> <Span>Your Information is private and secure.</Span>
         </SecureCaption>
         <Title>Billing Address</Title>
         <SelectableList

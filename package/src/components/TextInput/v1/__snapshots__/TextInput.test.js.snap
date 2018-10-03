@@ -5,7 +5,7 @@ exports[`renders 1`] = `
   -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
-  border-radius: 0.125rem;
+  border-radius: 2px;
   box-sizing: border-box;
   color: #3c3c3c;
   display: -webkit-box;
@@ -19,7 +19,7 @@ exports[`renders 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.5rem 0.625rem;
+  padding: 8px 10px;
   position: relative;
 }
 
@@ -87,7 +87,7 @@ exports[`renders textarea 1`] = `
   -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
-  border-radius: 0.125rem;
+  border-radius: 2px;
   box-sizing: border-box;
   color: #3c3c3c;
   display: -webkit-box;
@@ -101,7 +101,7 @@ exports[`renders textarea 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.5rem 0.625rem;
+  padding: 8px 10px;
   position: relative;
 }
 
@@ -169,7 +169,7 @@ exports[`renders textarea with props 1`] = `
   -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
-  border-radius: 0.125rem;
+  border-radius: 2px;
   box-sizing: border-box;
   color: #3c3c3c;
   display: -webkit-box;
@@ -183,7 +183,7 @@ exports[`renders textarea with props 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.5rem 0.625rem;
+  padding: 8px 10px;
   position: relative;
 }
 
@@ -251,7 +251,7 @@ exports[`renders with props 1`] = `
   -webkit-font-smoothing: antialiased;
   background-color: #fafafa;
   border: 1px solid #cccccc;
-  border-radius: 0.125rem;
+  border-radius: 2px;
   box-sizing: border-box;
   color: #3c3c3c;
   display: -webkit-box;
@@ -265,7 +265,7 @@ exports[`renders with props 1`] = `
   font-size: 14px;
   line-height: 1;
   outline: none;
-  padding: 0.5rem 0.625rem;
+  padding: 8px 10px;
   position: relative;
 }
 

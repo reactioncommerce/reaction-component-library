@@ -2,24 +2,20 @@ import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const ActionContainer = styled.div`
   align-items: flex-start;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 1rem 0;
   width: 100%;
 `;
 
 const ActionTitle = styled.div`
-  color: ${applyTheme("color_coolGrey500")};
+  ${addTypographyStyles("CheckoutActionCompleteTitle", "labelText")}
   display: flex;
   flex: 1 0 auto;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
-  font-weight: ${applyTheme("font_weight_bold")};
   justify-content: flex-start;
   order: 1;
 
@@ -30,11 +26,9 @@ const ActionTitle = styled.div`
 `;
 
 const ActionDetail = styled.div`
-  color: ${applyTheme("color_black65")};
+  ${addTypographyStyles("CheckoutActionCompleteDetail", "labelText")}
   display: flex;
   flex: 2 0 auto;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
   justify-content: flex-start;
   order: 2;
 
@@ -47,8 +41,6 @@ const ActionDetail = styled.div`
 const ActionButton = styled.div`
   display: flex;
   flex: 1 0 auto;
-  font-family: ${applyTheme("font_family")};
-  font-size: ${applyTheme("font_size_small")};
   justify-content: flex-end;
   order: 3;
 
@@ -62,7 +54,8 @@ const ActionButton = styled.div`
 class CheckoutActionComplete extends Component {
   static propTypes = {
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.

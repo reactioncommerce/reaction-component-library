@@ -73,14 +73,10 @@ function applyValidationColor(themeProp = "color") {
 }
 
 const getInputBorderColor = applyValidationColor("inputBorderColor");
-const getSelectBorderRadius = applyTheme("selectBorderRadius");
-const getSelectMenuBorderRadius = applyTheme("selectMenuBorderRadius");
-const getSelectBorderColor = applyTheme("selectBorderColor");
 const getInputFontSize = applyTheme("inputFontSize");
-const getSelectHoverColor = applyTheme("selectHoverColor");
-const getSelecFocusBorderColor = applyTheme("selectFocusBorderColor");
+const getSelectOptionHoverColor = applyTheme("selectOptionHoverColor");
+const getSelectedOptionBackgroundColor = applyTheme("selectSelectedOptionBackgroundColor");
 const getSelectIndicatorColor = applyTheme("selectIndicatorColor");
-const getSelectMenuBorder = applyTheme("selectMenuBorder");
 const getSelectLetterSpacing = applyTheme("selectLetterSpacing");
 const getSelectTextColor = applyTheme("selectTextColor");
 const getInputFontFamily = applyTheme("inputFontFamily");
@@ -94,51 +90,63 @@ function getCustomStyles(props) {
       return {
         ...base,
         maxWidth,
-        fontFamily: getInputFontFamily(),
-        fontSize: getInputFontSize()
+        fontFamily: getInputFontFamily(props),
+        fontSize: getInputFontSize(props)
       };
     },
     control(base, state) {
       return {
         ...base,
         "borderColor": getInputBorderColor({ ...props, isFocused: state.isFocused }),
-        "borderRadius": getSelectBorderRadius(),
+        "borderTopLeftRadius": applyTheme("selectBorderTopLeftRadius")(props),
+        "borderTopRightRadius": applyTheme("selectBorderTopRightRadius")(props),
+        "borderBottomLeftRadius": applyTheme("selectBorderBottomLeftRadius")(props),
+        "borderBottomRightRadius": applyTheme("selectBorderBottomRightRadius")(props),
         "boxShadow": "none",
         "cursor": "pointer",
         "&:hover": {
-          borderColor: state.isFocused ? getSelecFocusBorderColor() : getSelectBorderColor()
+          borderColor: getInputBorderColor({ ...props, isFocused: true })
         }
       };
     },
     singleValue(base) {
       return {
         ...base,
-        letterSpacing: getSelectLetterSpacing()
+        letterSpacing: getSelectLetterSpacing(props)
       };
     },
     placeholder(base) {
       return {
         ...base,
-        letterSpacing: getSelectLetterSpacing()
+        letterSpacing: getSelectLetterSpacing(props)
       };
     },
     option(base, state) {
+      let backgroundColor;
+      if (state.isSelected) {
+        backgroundColor = getSelectedOptionBackgroundColor(props);
+      } else if (state.isFocused) {
+        backgroundColor = getSelectOptionHoverColor(props);
+      } else {
+        backgroundColor = "#FFFFFF";
+      }
+
       return {
         ...base,
-        "color": getSelectTextColor(),
+        backgroundColor,
+        "color": getSelectTextColor(props),
         "cursor": "pointer",
-        "letterSpacing": getSelectLetterSpacing(),
+        "letterSpacing": getSelectLetterSpacing(props),
         ":hover": {
-          backgroundColor: getSelectHoverColor()
-        },
-        "backgroundColor": (state.isSelected ? getSelectHoverColor() : "#FFFFFF")
+          backgroundColor: getSelectOptionHoverColor(props)
+        }
       };
     },
     dropdownIndicator(base, state) {
       return {
         ...base,
-        color: getSelectIndicatorColor(),
-        transform: (state.selectProps.menuIsOpen ? "rotateX(-180deg)" : "")
+        color: getSelectIndicatorColor(props),
+        transform: state.selectProps.menuIsOpen ? "rotateX(-180deg)" : ""
       };
     },
     menuList(base) {
@@ -151,10 +159,19 @@ function getCustomStyles(props) {
     menu(base) {
       return {
         ...base,
-        borderRadius: getSelectMenuBorderRadius(),
-        borderBottom: getSelectMenuBorder(),
-        borderLeft: getSelectMenuBorder(),
-        borderRight: getSelectMenuBorder(),
+        borderTopLeftRadius: applyTheme("selectMenuBorderTopLeftRadius")(props),
+        borderTopRightRadius: applyTheme("selectMenuBorderTopRightRadius")(props),
+        borderBottomLeftRadius: applyTheme("selectMenuBorderBottomLeftRadius")(props),
+        borderBottomRightRadius: applyTheme("selectMenuBorderBottomRightRadius")(props),
+        borderBottomStyle: "solid",
+        borderBottomWidth: applyTheme("selectMenuBorderBottomWidth")(props),
+        borderBottomColor: applyTheme("selectMenuBorderBottomColor")(props),
+        borderLeftStyle: "solid",
+        borderLeftWidth: applyTheme("selectMenuBorderLeftWidth")(props),
+        borderLeftColor: applyTheme("selectMenuBorderLeftColor")(props),
+        borderRightStyle: "solid",
+        borderRightWidth: applyTheme("selectMenuBorderRightWidth")(props),
+        borderRightColor: applyTheme("selectMenuBorderRightColor")(props),
         marginTop: 0,
         boxShadow: "none",
         zIndex: MENU_Z_INDEX
@@ -165,6 +182,10 @@ function getCustomStyles(props) {
 
 class Select extends Component {
   static propTypes = {
+    /**
+     * Alphabetize by option label
+     */
+    alphabetize: PropTypes.bool,
     /**
      * Passed through to react-select package. Focus the control when it is mounted
      */
@@ -401,10 +422,11 @@ class Select extends Component {
   };
 
   static defaultProps = {
+    alphabetize: false,
     isReadOnly: false,
     isSearchable: false,
-    onChange() { },
-    onChanging() { },
+    onChange() {},
+    onChanging() {},
     options: []
   };
 
@@ -499,14 +521,28 @@ class Select extends Component {
           this.dataType = checkDataType;
         } else if (checkDataType !== this.dataType) {
           // eslint-disable-next-line
-          throw new Error(`All option values must have the same data type. The data type of the first option is "${this.dataType}" while the data type of the ${option.label} option is "${checkDataType}"`);
+          throw new Error(
+            `All option values must have the same data type. The data type of the first option is "${
+              this.dataType
+            }" while the data type of the ${option.label} option is "${checkDataType}"`);
         }
       }
     });
   }
 
+  sortOptions = (thisOpt, nextOpt) => {
+    if (thisOpt.options) thisOpt.options.sort(this.sortOptions);
+    if (nextOpt.options) nextOpt.options.sort(this.sortOptions);
+    if (thisOpt.label > nextOpt.label) {
+      return 1;
+    } else if (nextOpt.label > thisOpt.label) {
+      return -1;
+    }
+    return 0;
+  };
+
   render() {
-    const { isReadOnly, options } = this.props;
+    const { alphabetize, isReadOnly, options } = this.props;
     const { value } = this.state;
 
     // Unfortunately right now, react-select optgroup support is just a tad different from the
@@ -520,6 +556,10 @@ class Select extends Component {
       }
       return opt;
     });
+
+    if (alphabetize) {
+      reactSelectOptions.sort(this.sortOptions);
+    }
 
     const passthroughProps = {};
     supportedPassthroughProps.forEach((prop) => {

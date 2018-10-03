@@ -1,25 +1,32 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const Table = styled.table`
   width: 100%;
-  padding: 0.5rem;
-  font-family: ${applyTheme("font_family")};
+  padding-top: ${applyTheme("miniCartSummaryPaddingTop")};
+  padding-bottom: ${applyTheme("miniCartSummaryPaddingBottom")};
+  padding-left: ${applyTheme("miniCartSummaryPaddingLeft")};
+  padding-right: ${applyTheme("miniCartSummaryPaddingRight")};
 `;
 
 const Td = styled.td`
-  padding: 0.5rem 0.3rem 0.5rem 0.5rem;
-  color: ${applyTheme("color_coolGrey400")};
+  ${addTypographyStyles("MiniCartSummaryLeft", "bodyText")}
+  padding-top: ${applyTheme("miniCartSummaryLeftCellPaddingTop")};
+  padding-bottom: ${applyTheme("miniCartSummaryLeftCellPaddingBottom")};
+  padding-left: ${applyTheme("miniCartSummaryLeftCellPaddingLeft")};
+  padding-right: ${applyTheme("miniCartSummaryLeftCellPaddingRight")};
   text-align: right;
 `;
 
 const TdValue = styled.td`
+  ${addTypographyStyles("MiniCartSummaryRight", "bodyTextBold")}
+  padding-top: ${applyTheme("miniCartSummaryRightCellPaddingTop")};
+  padding-bottom: ${applyTheme("miniCartSummaryRightCellPaddingBottom")};
+  padding-left: ${applyTheme("miniCartSummaryRightCellPaddingLeft")};
+  padding-right: ${applyTheme("miniCartSummaryRightCellPaddingRight")};
   text-align: left;
-  padding: 0.5rem 0.5rem 0.5rem 0.3rem;
-  color: ${applyTheme("color_coolGrey500")};
-  font-weight: ${applyTheme("font_weight_bold")};
 `;
 
 class MiniCartSummary extends Component {

@@ -3,21 +3,50 @@
 exports[`Renders only subtotal + computed taxes 1`] = `
 .c0 {
   width: 100%;
-  padding: 0.5rem;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .c1 {
-  padding: 0.5rem 0.3rem 0.5rem 0.5rem;
-  color: #3c5d6f;
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 5px;
   text-align: right;
 }
 
 .c2 {
-  text-align: left;
-  padding: 0.5rem 0.5rem 0.5rem 0.3rem;
+  -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 8px;
+  text-align: left;
 }
 
 <table
@@ -55,21 +84,50 @@ exports[`Renders only subtotal + computed taxes 1`] = `
 exports[`Renders only subtotal 1`] = `
 .c0 {
   width: 100%;
-  padding: 0.5rem;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 8px;
 }
 
 .c1 {
-  padding: 0.5rem 0.3rem 0.5rem 0.5rem;
-  color: #3c5d6f;
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 8px;
+  padding-right: 5px;
   text-align: right;
 }
 
 .c2 {
-  text-align: left;
-  padding: 0.5rem 0.5rem 0.5rem 0.3rem;
+  -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
   font-weight: 700;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 8px;
+  text-align: left;
 }
 
 <table

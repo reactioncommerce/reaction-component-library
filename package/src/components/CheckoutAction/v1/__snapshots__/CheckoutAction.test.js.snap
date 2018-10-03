@@ -1,13 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`CheckoutAction with \`active\` status 1`] = `
+exports[`CheckoutAction with \`active\` status & label 1`] = `
 <div>
   <span />
 </div>
 `;
 
-exports[`CheckoutAction with \`complete\` status 1`] = `
-.c0 {
+exports[`CheckoutAction with \`complete\` status & label 1`] = `
+.c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -23,12 +23,22 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 1rem 0;
   width: 100%;
 }
 
-.c1 {
-  color: #3c3c3c;
+.c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -36,9 +46,6 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: 700;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -48,8 +55,19 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
   order: 1;
 }
 
-.c2 {
-  color: #595959;
+.c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -57,8 +75,6 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
   -webkit-flex: 2 0 auto;
   -ms-flex: 2 0 auto;
   flex: 2 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -68,7 +84,7 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
   order: 2;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -76,8 +92,6 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -87,17 +101,24 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
   order: 3;
 }
 
-@media (max-width:959px) {
-  .c1 {
-    -webkit-flex: 0 0 50%;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    margin-bottom: 0.625rem;
-  }
+.c0 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media (max-width:959px) {
   .c2 {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width:959px) {
+  .c3 {
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -108,11 +129,11 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
 }
 
 @media (max-width:959px) {
-  .c3 {
+  .c4 {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
-    margin-bottom: 0.625rem;
+    margin-bottom: 10px;
     -webkit-order: 2;
     -ms-flex-order: 2;
     order: 2;
@@ -126,32 +147,36 @@ exports[`CheckoutAction with \`complete\` status 1`] = `
     <div
       className="c1"
     >
-      2
-      . 
-      Shipping address
-    </div>
-    <div
-      className="c2"
-    >
-      <div>
-        Ms. Jane Doe
-        <br />
-        123 Main Street
-        <br />
-        Anytown, USA 01776
+      <div
+        className="c2"
+      >
+        2
+        . 
+        Mock complete label
       </div>
-    </div>
-    <div
-      className="c3"
-    >
-      Button(undefined)
+      <div
+        className="c3"
+      >
+        <div>
+          Ms. Jane Doe
+          <br />
+          123 Main Street
+          <br />
+          Anytown, USA 01776
+        </div>
+      </div>
+      <div
+        className="c4"
+      >
+        Button(undefined)
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`CheckoutAction with \`complete\` status and label override via props 1`] = `
-.c0 {
+.c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -167,12 +192,22 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 1rem 0;
   width: 100%;
 }
 
-.c1 {
-  color: #3c3c3c;
+.c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -180,9 +215,6 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: 700;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -192,8 +224,19 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   order: 1;
 }
 
-.c2 {
-  color: #595959;
+.c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -201,8 +244,6 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   -webkit-flex: 2 0 auto;
   -ms-flex: 2 0 auto;
   flex: 2 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -212,7 +253,7 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   order: 2;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -220,8 +261,6 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -231,17 +270,24 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   order: 3;
 }
 
-@media (max-width:959px) {
-  .c1 {
-    -webkit-flex: 0 0 50%;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    margin-bottom: 0.625rem;
-  }
+.c0 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media (max-width:959px) {
   .c2 {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width:959px) {
+  .c3 {
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -252,11 +298,11 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
 }
 
 @media (max-width:959px) {
-  .c3 {
+  .c4 {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
-    margin-bottom: 0.625rem;
+    margin-bottom: 10px;
     -webkit-order: 2;
     -ms-flex-order: 2;
     order: 2;
@@ -270,32 +316,36 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
     <div
       className="c1"
     >
-      2
-      . 
-      Label override
-    </div>
-    <div
-      className="c2"
-    >
-      <div>
-        Ms. Jane Doe
-        <br />
-        123 Main Street
-        <br />
-        Anytown, USA 01776
+      <div
+        className="c2"
+      >
+        2
+        . 
+        Label override
       </div>
-    </div>
-    <div
-      className="c3"
-    >
-      Button(undefined)
+      <div
+        className="c3"
+      >
+        <div>
+          Ms. Jane Doe
+          <br />
+          123 Main Street
+          <br />
+          Anytown, USA 01776
+        </div>
+      </div>
+      <div
+        className="c4"
+      >
+        Button(undefined)
+      </div>
     </div>
   </div>
 </div>
 `;
 
 exports[`CheckoutAction with \`complete\` status and stepNumber override via props 1`] = `
-.c0 {
+.c1 {
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -311,12 +361,22 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 1rem 0;
   width: 100%;
 }
 
-.c1 {
-  color: #3c3c3c;
+.c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -324,9 +384,6 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
-  font-weight: 700;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -336,8 +393,19 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   order: 1;
 }
 
-.c2 {
-  color: #595959;
+.c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -345,8 +413,6 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   -webkit-flex: 2 0 auto;
   -ms-flex: 2 0 auto;
   flex: 2 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
   -webkit-box-pack: start;
   -webkit-justify-content: flex-start;
   -ms-flex-pack: start;
@@ -356,7 +422,7 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   order: 2;
 }
 
-.c3 {
+.c4 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -364,8 +430,6 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   -webkit-flex: 1 0 auto;
   -ms-flex: 1 0 auto;
   flex: 1 0 auto;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 14px;
   -webkit-box-pack: end;
   -webkit-justify-content: flex-end;
   -ms-flex-pack: end;
@@ -375,17 +439,24 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   order: 3;
 }
 
-@media (max-width:959px) {
-  .c1 {
-    -webkit-flex: 0 0 50%;
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    margin-bottom: 0.625rem;
-  }
+.c0 {
+  padding-top: 16px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
 }
 
 @media (max-width:959px) {
   .c2 {
+    -webkit-flex: 0 0 50%;
+    -ms-flex: 0 0 50%;
+    flex: 0 0 50%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width:959px) {
+  .c3 {
     -webkit-flex: 0 0 100%;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -396,11 +467,11 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
 }
 
 @media (max-width:959px) {
-  .c3 {
+  .c4 {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
-    margin-bottom: 0.625rem;
+    margin-bottom: 10px;
     -webkit-order: 2;
     -ms-flex-order: 2;
     order: 2;
@@ -414,42 +485,55 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
     <div
       className="c1"
     >
-      500
-      . 
-      Shipping address
-    </div>
-    <div
-      className="c2"
-    >
-      <div>
-        Ms. Jane Doe
-        <br />
-        123 Main Street
-        <br />
-        Anytown, USA 01776
+      <div
+        className="c2"
+      >
+        500
+        . 
+        Completed Step
       </div>
-    </div>
-    <div
-      className="c3"
-    >
-      Button(undefined)
+      <div
+        className="c3"
+      >
+        <div>
+          Ms. Jane Doe
+          <br />
+          123 Main Street
+          <br />
+          Anytown, USA 01776
+        </div>
+      </div>
+      <div
+        className="c4"
+      >
+        Button(undefined)
+      </div>
     </div>
   </div>
 </div>
 `;
 
-exports[`CheckoutAction with \`incomplete\` status 1`] = `
+exports[`CheckoutAction with \`incomplete\` status & label 1`] = `
 .c0 {
-  color: #a6a6a6;
+  -webkit-font-smoothing: antialiased;
+  color: #b3b3b3;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
 }
 
 <div>
   <div
     className="c0"
   >
-    2. Shipping address
+    2. Mock incomplete label
   </div>
 </div>
 `;

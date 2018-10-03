@@ -3,28 +3,14 @@ import PropTypes from "prop-types";
 import { ContainerQuery } from "react-container-query";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { getFromTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
-
-const mdWidth = getFromTheme({}, "rui_md");
-const containerQueries = {
-  is2PerRowWidth: {
-    minWidth: 450, // Min width that item w/ 2 badges renders appropriately
-    maxWidth: 649
-  },
-  is3PerRowWidth: {
-    minWidth: 650,
-    maxWidth: mdWidth - 1
-  },
-  is4PerRowWidth: {
-    minWidth: mdWidth
-  }
-};
+import { applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 
 const GridContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  width: 100%`;
+  width: 100%;
+`;
 
 const GridItem = styled.div`
   padding: 12px;
@@ -54,12 +40,23 @@ const GridItem = styled.div`
     }
     return "";
   }}
-  `;
+`;
 
 class CatalogGrid extends Component {
   static propTypes = {
     /**
-     * If you've set up a components context using @reactioncommerce/components-context
+     * Labels to use for the various badges. Refer to `BadgeOverlay`'s prop documentation.
+     */
+    badgeLabels: PropTypes.shape({
+      BACKORDER: PropTypes.string,
+      BESTSELLER: PropTypes.string,
+      LOW_QUANTITY: PropTypes.string,
+      SOLD_OUT: PropTypes.string,
+      SALE: PropTypes.string
+    }),
+    /**
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.
@@ -71,6 +68,13 @@ class CatalogGrid extends Component {
      * Currency code to display the price for. Product must include a pricing object with the code in `product.pricing`
      */
     currencyCode: PropTypes.string,
+    /**
+     * The inital size the grid should render at. Use to set grid width during SSR.
+     */
+    initialSize: PropTypes.shape({
+      height: PropTypes.number,
+      width: PropTypes.number
+    }),
     /**
      * Item click handler
      */
@@ -86,7 +90,11 @@ class CatalogGrid extends Component {
   };
 
   static defaultProps = {
+    badgeLabels: null,
     currencyCode: "USD",
+    initialSize: {
+      width: 325
+    },
     onItemClick() {},
     placeholderImageURL: "/resources/placeholder.gif",
     products: []
@@ -96,27 +104,52 @@ class CatalogGrid extends Component {
     this.props.onItemClick(event, product);
   });
 
+  getContainerQueries() {
+    const threePerRowMinWidth = applyTheme("catalogGrid3PerRowMinWidth")(this.props);
+    const fourPerRowMinWidth = applyTheme("catalogGrid4PerRowMinWidth")(this.props);
+    return {
+      is2PerRowWidth: {
+        minWidth: 450, // Min width that item w/ 2 badges renders appropriately
+        maxWidth: threePerRowMinWidth - 1
+      },
+      is3PerRowWidth: {
+        minWidth: threePerRowMinWidth,
+        maxWidth: fourPerRowMinWidth - 1
+      },
+      is4PerRowWidth: {
+        minWidth: fourPerRowMinWidth
+      }
+    };
+  }
+
   render() {
     const {
+      badgeLabels,
       components: { CatalogGridItem },
       currencyCode,
+      initialSize,
       onItemClick,
       placeholderImageURL,
       products
     } = this.props;
 
+    const gridItemProps = {
+      currencyCode,
+      placeholderImageURL,
+      onClick: onItemClick
+    };
+
+    if (badgeLabels) {
+      gridItemProps.badgeLabels = badgeLabels;
+    }
+
     return (
-      <ContainerQuery query={containerQueries}>
+      <ContainerQuery query={this.getContainerQueries()} initialSize={initialSize}>
         {(params) => (
           <GridContainer>
             {products.map((product, index) => (
               <GridItem containerParams={params} key={`grid-item-${index}`} {...this.props}>
-                <CatalogGridItem
-                  currencyCode={currencyCode}
-                  onClick={onItemClick}
-                  placeholderImageURL={placeholderImageURL}
-                  product={product}
-                />
+                <CatalogGridItem product={product} {...gridItemProps} />
               </GridItem>
             ))}
           </GridContainer>

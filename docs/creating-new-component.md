@@ -19,6 +19,7 @@ Follow this checklist when creating a new component. The overall steps are:
 In the project root directory, run the following command, where `MyComponent` is the name of the component you want to add:
 
 ```bash
+docker-compose run --rm web yarn
 docker-compose run --rm web node .reaction/scripts/addcomponent MyComponent
 ```
 
