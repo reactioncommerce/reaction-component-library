@@ -35,8 +35,8 @@ class ProfileImage extends Component {
       firstName: PropTypes.string.isRequired,
       lastName: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      primaryEmailAddress: PropTypes.string.isRequired,
-      profileImage: PropTypes.string.isRequired
+      primaryEmailAddress: PropTypes.string,
+      profileImage: PropTypes.string
     }).isRequired
   };
 
