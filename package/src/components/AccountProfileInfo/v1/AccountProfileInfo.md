@@ -7,7 +7,8 @@ const viewer = {
   firstName: "John",
   lastName: "Doe",
   name: "John Doe",
-  primaryEmailAddress: "john@doe.com"
+  primaryEmailAddress: "john@doe.com",
+  profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
 };
 
 <AccountProfileInfo viewer={viewer} />
@@ -20,7 +21,8 @@ const viewer = {
   firstName: "John",
   lastName: "Doe",
   name: "John Doe",
-  primaryEmailAddress: "john@doe.com"
+  primaryEmailAddress: "john@doe.com",
+  profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
 };
 
 <AccountProfileInfo editable={true} viewer={viewer} />
