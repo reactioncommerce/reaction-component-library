@@ -59,6 +59,7 @@ The `ViewerInfo` component's default style is to show only the viewers initials 
 **Compact**
 ```jsx
 const viewer = {
+  primaryEmailAddress: "pat@smith.com",
   firstName: "Patricia",
   lastName: "Smith"
 };
@@ -69,6 +70,7 @@ const viewer = {
 **Full**
 ```jsx
 const viewer = {
+  primaryEmailAddress: "Ligaya.Ocampo@email.com",
   firstName: "Ligaya",
   lastName: "Ocampo"
 };

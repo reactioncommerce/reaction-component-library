@@ -235,7 +235,7 @@ const checkoutActions = {
 
 // checkbox
 const checkbox = {
-  rui_checkboxHeightAndWidth: "1.4em",
+  rui_checkboxSize: "1.4em",
   rui_checkboxLeftSpacing: "0",
   rui_checkboxTopSpacing: "0",
   rui_checkboxBorderColor: colors.coolGrey500,
