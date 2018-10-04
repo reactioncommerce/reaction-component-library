@@ -15,7 +15,7 @@ const AccountProfileInfoTextContainer = styled.div`
   position: relative;
 `;
 
-const ViewerInitialsCircle = styled.div`
+const ViewerImageCircle = styled.div`
   background-color: ${applyTheme("viewerInfoInitialsBackgroundColor")};
   border-radius: 50%;
   height: ${applyTheme("accountProfileInfoInitialsSize")};
@@ -23,12 +23,10 @@ const ViewerInitialsCircle = styled.div`
   width: ${applyTheme("accountProfileInfoInitialsSize")};
 `;
 
-const ViewerInitialsText = styled.div`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  color: ${applyTheme("viewerInfoInitialsColor")};
-  line-height: 1;
-  position: relative;
-  top: calc(${applyTheme("viewerInfoInitialsSize")} / 4);
+const ViewerImage = styled.img`
+  border-radius: 50%;
+  height: ${applyTheme("accountProfileInfoInitialsSize")};
+  width: ${applyTheme("accountProfileInfoInitialsSize")};
 `;
 
 const ViewerEmailText = styled.span`
@@ -70,7 +68,8 @@ class AccountProfileInfo extends Component {
       firstName: PropTypes.string.isRequired,
       lastName: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      primaryEmailAddress: PropTypes.string.isRequired
+      primaryEmailAddress: PropTypes.string.isRequired,
+      profileImage: PropTypes.string.isRequired
     }).isRequired
   };
 
@@ -115,6 +114,14 @@ class AccountProfileInfo extends Component {
     return name;
   }
 
+  viewerProfileImage = () => {
+    const { viewer: { name, profileImage } } = this.props;
+
+    return (
+      <ViewerImage alt={name} src={profileImage} />
+    );
+  }
+
   viewerProfileEditLink = () => {
     const { editable } = this.props;
 
@@ -131,9 +138,9 @@ class AccountProfileInfo extends Component {
   render() {
     return (
       <AccountProfileInfoContainer>
-        <ViewerInitialsCircle>
-          <ViewerInitialsText>{this.viewerInitials}</ViewerInitialsText>
-        </ViewerInitialsCircle>
+        <ViewerImageCircle>
+          {this.viewerProfileImage()}
+        </ViewerImageCircle>
         <AccountProfileInfoTextContainer>
           <ViewerNameText>
             {this.viewerName}
