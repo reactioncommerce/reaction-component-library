@@ -483,7 +483,8 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
-            "AccountProfileInfo"
+            "AccountProfileInfo",
+            "ProfileImage"
           ],
           content: "styleguide/src/sections/Account.md",
           name: "Account"
