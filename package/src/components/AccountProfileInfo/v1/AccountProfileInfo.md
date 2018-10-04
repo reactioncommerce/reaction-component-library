@@ -1,5 +1,5 @@
 ### Overview
-Renders the current users ("viewer") name, email address, profile image (provided by gravatar), and an optional link to edit this information.
+Renders the viewers name, email address, profile image (via the [ProfileImage](/#!/ProfileImage) component), and an optional link to edit this information.
 
 #### Usage
 ```jsx
@@ -14,6 +14,18 @@ const viewer = {
 <AccountProfileInfo viewer={viewer} />
 ```
 
+**With initials (when profileImage is null)**
+```jsx
+const viewer = {
+  firstName: "John",
+  lastName: "Doe",
+  name: "John Doe",
+  primaryEmailAddress: "john@doe.com"
+};
+
+<AccountProfileInfo viewer={viewer} />
+
+```
 **With edit link**
 ```jsx
 const viewer = {

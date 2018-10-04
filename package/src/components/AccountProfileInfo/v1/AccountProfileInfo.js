@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const AccountProfileInfoContainer = styled.div`
@@ -13,20 +14,6 @@ const AccountProfileInfoTextContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   position: relative;
-`;
-
-const ViewerImageCircle = styled.div`
-  background-color: ${applyTheme("viewerInfoInitialsBackgroundColor")};
-  border-radius: 50%;
-  height: ${applyTheme("accountProfileInfoInitialsSize")};
-  text-align: center;
-  width: ${applyTheme("accountProfileInfoInitialsSize")};
-`;
-
-const ViewerImage = styled.img`
-  border-radius: 50%;
-  height: ${applyTheme("accountProfileInfoInitialsSize")};
-  width: ${applyTheme("accountProfileInfoInitialsSize")};
 `;
 
 const ViewerEmailText = styled.span`
@@ -46,17 +33,12 @@ const ViewerNameText = styled.span`
   margin-left: 1.0rem;
 `;
 
-const ViewerProfileEditText = styled.span`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  color: ${applyTheme("accountProfileInfoEmailFontColor")};
-  font-size: ${applyTheme("accountProfileInfoEmailFontSize")};
-  align-self: left;
-  margin-left: 1.0rem;
-`;
-
-
 class AccountProfileInfo extends Component {
   static propTypes = {
+    components: PropTypes.shape({
+      Button: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      ProfileImage: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    }),
     /**
      * Enable this prop when you only want to display the Edit account link
      */
@@ -69,27 +51,13 @@ class AccountProfileInfo extends Component {
       lastName: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       primaryEmailAddress: PropTypes.string.isRequired,
-      profileImage: PropTypes.string.isRequired
+      profileImage: PropTypes.string
     }).isRequired
   };
 
   static defaultProps = {
     editable: false
   };
-
-  /**
-   *
-   * @name viewerInitials
-   * @summary Build the initials string from the `viewer` first and last name
-   * If those props are not availible use the first letter of the primary email address.
-   * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
-   */
-  get viewerInitials() {
-    const { viewer: { firstName, lastName, primaryEmailAddress } } = this.props;
-    const firstInitial = (firstName && firstName.charAt()) || primaryEmailAddress.charAt().toUpperCase();
-    const lastInitial = (lastName && lastName.charAt()) || "";
-    return `${firstInitial}${lastInitial}`;
-  }
 
   /**
    *
@@ -114,33 +82,23 @@ class AccountProfileInfo extends Component {
     return name;
   }
 
-  viewerProfileImage = () => {
-    const { viewer: { name, profileImage } } = this.props;
-
-    return (
-      <ViewerImage alt={name} src={profileImage} />
-    );
-  }
-
   viewerProfileEditLink = () => {
-    const { editable } = this.props;
+    const { components: { Button }, editable } = this.props;
 
     if (editable) {
       return (
-        <ViewerProfileEditText>
-          Edit account
-        </ViewerProfileEditText>
+        <Button isShortHeight={true} isTextOnly={true}>Edit Account</Button>
       );
     }
     return null;
   }
 
   render() {
+    const { components: { ProfileImage }, viewer } = this.props;
+
     return (
       <AccountProfileInfoContainer>
-        <ViewerImageCircle>
-          {this.viewerProfileImage()}
-        </ViewerImageCircle>
+        <ProfileImage viewer={viewer} />
         <AccountProfileInfoTextContainer>
           <ViewerNameText>
             {this.viewerName}
@@ -155,4 +113,4 @@ class AccountProfileInfo extends Component {
   }
 }
 
-export default AccountProfileInfo;
+export default withComponents(AccountProfileInfo);
