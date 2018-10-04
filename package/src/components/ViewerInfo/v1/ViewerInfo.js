@@ -4,13 +4,6 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
-const ViewerProfileImageContainer = styled.div`
-  display: flex;
-  height: 30px;
-  position: relative;
-  width: 30px;
-`;
-
 const ViewerInfoContainer = styled.div`
   display: flex;
   position: relative;
@@ -102,9 +95,7 @@ class ViewerInfo extends Component {
     const { compact, components: { ProfileImage }, full, viewer } = this.props;
     return (
       <ViewerInfoContainer>
-        <ViewerProfileImageContainer>
-          <ProfileImage viewer={viewer} />
-        </ViewerProfileImageContainer>
+        <ProfileImage size={30} viewer={viewer} />
         <ViewerFirstNameText compact={compact} full={full}>
           {this.viewerName}
         </ViewerFirstNameText>
