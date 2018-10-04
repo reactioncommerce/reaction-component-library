@@ -68,6 +68,14 @@ class SomeComponent extends Component {
 export default SomeComponent;
 ```
 
+NOTE: `applyTheme` returns a function that accepts props. If you don't pass it `props`, then it will apply the default theme but not any custom theme from the `ThemeProvider`. So if you use `applyTheme` within another function, be sure to call the returned function and pass on the `props`:
+
+```js
+const Table = styled.table`
+  background-color: ${(props) => (props.isDense ? applyTheme("cartSummaryDenseBackgroundColor")(props) : applyTheme("cartSummaryBackgroundColor")(props))};
+`;
+```
+
 ### Accessing a theme variable in your component
 
 It shouldn't be necessary often, but you can have the `theme` object passed to any component as a prop by using the `withTheme` HOC:
