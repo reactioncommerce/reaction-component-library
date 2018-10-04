@@ -2,6 +2,17 @@ import React from "react";
 import renderer from "react-test-renderer";
 import ViewerInfo from "./ViewerInfo";
 
+test("Render with profile image", () => {
+  const mockViewer = {
+    primaryEmailAddress: "email@domain.com",
+    profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
+  };
+  const component = renderer.create(<ViewerInfo viewer={mockViewer} />);
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+
 test("Render with only required props", () => {
   const mockViewer = {
     primaryEmailAddress: "email@domain.com"

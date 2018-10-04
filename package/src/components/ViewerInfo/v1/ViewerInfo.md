@@ -4,6 +4,20 @@ Renders a user's first name next to their initials.
 #### Usage
 ```jsx
 const viewer = {
+  firstName: "John",
+  lastName: "Doe",
+  name: "John Doe",
+  primaryEmailAddress: "john@doe.com",
+  profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
+};
+
+<ViewerInfo viewer={viewer} />
+```
+
+
+**No image provided**
+```jsx
+const viewer = {
   primaryEmailAddress: "issac99@gravity.com",
   firstName: "Issac",
   lastName: "Newton"
