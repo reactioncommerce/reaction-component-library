@@ -141,15 +141,33 @@ export default Badges;
 
 ## Typography styles
 
-Every component that renders text must explicitly set the following typography styles for that text to avoid confusing behavior when dropped into an app with global typography CSS:
-- color
-- font family
-- font size
-- font weight
-- letter spacing
-- line height
+Every component that renders text must explicitly set the following typography styles for that text to avoid rendering issues when dropped into an app with global typography CSS:
 
-All of these must use component-specific theme variables.
+- color
+- font-family
+- font-size
+- font-style
+- font-stretch
+- font-weight
+- letter-spacing
+- line-height
+
+These come from the typography theme variables, but you needn't manually add them all using `applyTheme`. Instead, always use the `addTypographyStyles` util function like this:
+
+```js
+import { addTypographyStyles } from "../../../utils";
+
+const Th = styled.th`
+  ${addTypographyStyles("CartSummaryLeftColumnHeader", "bodyText")}
+  text-align: left;
+`;
+```
+
+The first argument to the function is the component or element name. In the simplest case, this will exactly match the name of the component. But for more complex components that are made up of several styled DOM elements, you can make up a new string here that combines the component name with a description of some part of the component. Just be sure to document the name you use in the "Theme" section of that component's documentation file.
+
+The second argument to the function is the text style to use from the list of 12 predefined text styles. The CSS styles associated with this text style will be used unless there are component-specific overrides.
+
+For more information, refer to [Theming Components](https://designsystem.reactioncommerce.com/#!/Theming%20Components) in the style guide.
 
 ## Margins
 
