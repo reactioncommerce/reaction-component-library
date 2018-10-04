@@ -30,14 +30,6 @@ const standardBorderRadius = "2px";
  * Default Theme Elements
  */
 
-const defaultStyles = {
-  rui_breakpoint_xs: breakpoint_xs,
-  rui_breakpoint_sm: breakpoint_sm,
-  rui_breakpoint_md: breakpoint_md,
-  rui_breakpoint_lg: breakpoint_lg,
-  rui_breakpoint_xl: breakpoint_xl
-};
-
 // buttons
 const buttonStyles = {
   rui_buttonBackgroundColor_danger_active: colors.red400,
@@ -560,7 +552,13 @@ const rui_components = {
 export default {
   rui_components,
   rui_typography: typography,
-  ...defaultStyles,
+  rui_breakpoints: {
+    xs: breakpoint_xs,
+    sm: breakpoint_sm,
+    md: breakpoint_md,
+    lg: breakpoint_lg,
+    xl: breakpoint_xl
+  },
   ...buttonStyles,
   ...inputStyles,
   ...inputIcon,
