@@ -4,6 +4,13 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
+const AccountProfileImageContainer = styled.div`
+  display: flex;
+  height: 80px;
+  position: relative;
+  width: 80px;
+`;
+
 const AccountProfileInfoContainer = styled.div`
   display: flex;
   position: relative;
@@ -111,7 +118,9 @@ class AccountProfileInfo extends Component {
 
     return (
       <AccountProfileInfoContainer>
-        <ProfileImage viewer={viewer} />
+        <AccountProfileImageContainer>
+          <ProfileImage viewer={viewer} />
+        </AccountProfileImageContainer>
         <AccountProfileInfoTextContainer>
           <ViewerNameText>
             {this.viewerName}

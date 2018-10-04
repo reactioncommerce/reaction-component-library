@@ -309,8 +309,7 @@ const accountProfileInfo = {
 // ProfileImage
 const profileImage = {
   rui_profileImageBackgroundColor: colors.teal,
-  rui_profileImageInitialsColor: colors.white,
-  rui_profileImageInitialsSize: "80px"
+  rui_profileImageInitialsColor: colors.white
 };
 
 const cartSummary = {

@@ -4,26 +4,27 @@ import styled from "styled-components";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ViewerImageCircle = styled.div`
+  align-items: center;
   background-color: ${applyTheme("profileImageBackgroundColor")};
   border-radius: 50%;
-  height: ${applyTheme("profileImageInitialsSize")};
+  display: flex;
+  height: 100%;
+  justify-content: center;
   text-align: center;
-  width: ${applyTheme("profileImageInitialsSize")};
+  width: 100%;
 `;
 
 const ViewerInitialsText = styled.div`
   ${addTypographyStyles("ProfileImageInitials", "labelText")}
   color: ${applyTheme("profileImageInitialsColor")};
-  font-size: 2.5em;
+  display: flex;
   line-height: 1;
-  position: relative;
-  top: calc(${applyTheme("profileImageInitialsSize")} / 4);
 `;
 
 const ViewerImage = styled.img`
   border-radius: 50%;
-  height: ${applyTheme("profileImageInitialsSize")};
-  width: ${applyTheme("profileImageInitialsSize")};
+  height: 100%;
+  width: 100%;
 `;
 
 class ProfileImage extends Component {
