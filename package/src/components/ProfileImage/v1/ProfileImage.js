@@ -8,10 +8,8 @@ const ViewerImageCircle = styled.div`
   background-color: ${applyTheme("profileImageBackgroundColor")};
   border-radius: 50%;
   display: flex;
-  height: 100%;
   justify-content: center;
   text-align: center;
-  width: 100%;
 `;
 
 const ViewerInitialsText = styled.div`
@@ -30,6 +28,10 @@ const ViewerImage = styled.img`
 class ProfileImage extends Component {
   static propTypes = {
     /**
+     * Size of profile image, in pixels
+     */
+    size: PropTypes.number,
+    /**
      * An object containing basic user information.
      */
     viewer: PropTypes.shape({
@@ -42,7 +44,7 @@ class ProfileImage extends Component {
   };
 
   static defaultProps = {
-
+    size: 80
   };
 
   /**
@@ -73,8 +75,10 @@ class ProfileImage extends Component {
 
 
   render() {
+    const { size } = this.props;
+
     return (
-      <ViewerImageCircle>
+      <ViewerImageCircle style={{ height: `${size}px`, width: `${size}px` }}>
         {this.viewerProfileImage()}
       </ViewerImageCircle>
     );

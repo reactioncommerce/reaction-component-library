@@ -26,3 +26,28 @@ const viewer = {
 <ProfileImage viewer={viewer} />
 
 ```
+
+**With custom sizes**
+```jsx
+const viewer = {
+  firstName: "John",
+  lastName: "Doe",
+  name: "John Doe",
+  primaryEmailAddress: "john@doe.com"
+};
+
+<ProfileImage size={100} viewer={viewer} />
+
+```
+
+```jsx
+const viewer = {
+  firstName: "John",
+  lastName: "Doe",
+  name: "John Doe",
+  primaryEmailAddress: "john@doe.com"
+};
+
+<ProfileImage size={30} viewer={viewer} />
+
+```
