@@ -293,7 +293,23 @@ const selectableList = {
 const viewerInfo = {
   rui_viewerInfoInitialsBackgroundColor: colors.teal,
   rui_viewerInfoInitialsColor: colors.white,
-  rui_viewerInfoInitialsSize: "30px"
+  rui_viewerInfoInitialsSize: "80px"
+};
+
+// AccountProfileInfo
+const accountProfileInfo = {
+  rui_accountProfileInfoInitialsBackgroundColor: colors.teal,
+  rui_accountProfileInfoInitialsColor: colors.white,
+  rui_accountProfileInfoInitialsSize: "80px",
+  rui_accountProfileInfoEmailFontColor: colors.black50,
+  rui_accountProfileInfoEmailFontSize: "14px",
+  rui_accountProfileInfoNameFontSize: "24px"
+};
+
+// ProfileImage
+const profileImage = {
+  rui_profileImageBackgroundColor: colors.teal,
+  rui_profileImageInitialsColor: colors.white
 };
 
 const cartSummary = {
@@ -572,6 +588,8 @@ export default {
   ...checkbox,
   ...selectableItem,
   ...selectableList,
+  ...accountProfileInfo,
+  ...profileImage,
   ...viewerInfo,
   ...catalogGrid,
   ...miniCart,
