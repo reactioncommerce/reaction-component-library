@@ -1,10 +1,32 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow } from "enzyme";
 import ProfileImage from "./ProfileImage";
 
-test("basic snapshot", () => {
-  const component = renderer.create(<ProfileImage />);
+const viewer = {
+  firstName: "John",
+  lastName: "Doe",
+  name: "John Doe",
+  primaryEmailAddress: "john@doe.com",
+  profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
+};
+
+const viewerInitials = {
+  firstName: "John",
+  lastName: "Doe",
+  name: "John Doe",
+  primaryEmailAddress: "john@doe.com"
+};
+
+
+test("ProfileImage component with image snapshot", () => {
+  const component = renderer.create(<ProfileImage viewer={viewer} />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("ProfileImage component with initials snapshot", () => {
+  const component = renderer.create(<ProfileImage viewer={viewerInitials} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

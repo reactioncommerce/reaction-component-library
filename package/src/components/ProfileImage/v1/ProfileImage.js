@@ -1,28 +1,42 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
-const StyledDiv = styled.div`
-  color: ${applyTheme("profileImageColor")};
+const ViewerImageCircle = styled.div`
+  background-color: ${applyTheme("profileImageBackgroundColor")};
+  border-radius: 50%;
+  height: ${applyTheme("profileImageInitialsSize")};
+  text-align: center;
+  width: ${applyTheme("profileImageInitialsSize")};
+`;
+
+const ViewerInitialsText = styled.div`
+  ${addTypographyStyles("ProfileImageInitials", "labelText")}
+  color: ${applyTheme("profileImageInitialsColor")};
+  font-size: 2.5em;
+  line-height: 1;
+  position: relative;
+  top: calc(${applyTheme("profileImageInitialsSize")} / 4);
+`;
+
+const ViewerImage = styled.img`
+  border-radius: 50%;
+  height: ${applyTheme("profileImageInitialsSize")};
+  width: ${applyTheme("profileImageInitialsSize")};
 `;
 
 class ProfileImage extends Component {
   static propTypes = {
     /**
-     * You can provide a `className` prop that will be applied to the outermost DOM element
-     * rendered by this component. We do not recommend using this for styling purposes, but
-     * it can be useful as a selector in some situations.
+     * An object containing basic user information.
      */
-    className: PropTypes.string,
-    /**
-     * If you've set up a components context using
-     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
-     * (recommended), then this prop will come from there automatically. If you have not
-     * set up a components context or you want to override one of the components in a
-     * single spot, you can pass in the components prop directly.
-     */
-    components: PropTypes.shape({
+    viewer: PropTypes.shape({
+      firstName: PropTypes.string.isRequired,
+      lastName: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      primaryEmailAddress: PropTypes.string.isRequired,
+      profileImage: PropTypes.string.isRequired
     }).isRequired
   };
 
@@ -30,11 +44,38 @@ class ProfileImage extends Component {
 
   };
 
-  render() {
-    const { className } = this.props;
+  /**
+   *
+   * @name viewerInitials
+   * @summary Build the initials string from the `viewer` first and last name
+   * If those props are not availible use the first letter of the primary email address.
+   * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
+   */
+  get viewerInitials() {
+    const { viewer: { firstName, lastName, primaryEmailAddress } } = this.props;
+    const firstInitial = (firstName && firstName.charAt()) || primaryEmailAddress.charAt().toUpperCase();
+    const lastInitial = (lastName && lastName.charAt()) || "";
+    return `${firstInitial}${lastInitial}`;
+  }
 
+  viewerProfileImage = () => {
+    const { viewer: { name, profileImage } } = this.props;
+
+    if (profileImage) {
+      return (
+        <ViewerImage alt={name} src={profileImage} />
+      );
+    }
+
+    return <ViewerInitialsText>{this.viewerInitials}</ViewerInitialsText>;
+  }
+
+
+  render() {
     return (
-      <StyledDiv className={className}>TEST</StyledDiv>
+      <ViewerImageCircle>
+        {this.viewerProfileImage()}
+      </ViewerImageCircle>
     );
   }
 }

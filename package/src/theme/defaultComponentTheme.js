@@ -293,7 +293,7 @@ const selectableList = {
 const viewerInfo = {
   rui_viewerInfoInitialsBackgroundColor: colors.teal,
   rui_viewerInfoInitialsColor: colors.white,
-  rui_viewerInfoInitialsSize: "30px"
+  rui_viewerInfoInitialsSize: "80px"
 };
 
 // AccountProfileInfo
@@ -304,6 +304,13 @@ const accountProfileInfo = {
   rui_accountProfileInfoEmailFontColor: colors.black50,
   rui_accountProfileInfoEmailFontSize: "14px",
   rui_accountProfileInfoNameFontSize: "24px"
+};
+
+// ProfileImage
+const profileImage = {
+  rui_profileImageBackgroundColor: colors.teal,
+  rui_profileImageInitialsColor: colors.white,
+  rui_profileImageInitialsSize: "80px"
 };
 
 const cartSummary = {
@@ -583,6 +590,7 @@ export default {
   ...selectableItem,
   ...selectableList,
   ...accountProfileInfo,
+  ...profileImage,
   ...viewerInfo,
   ...catalogGrid,
   ...miniCart,
