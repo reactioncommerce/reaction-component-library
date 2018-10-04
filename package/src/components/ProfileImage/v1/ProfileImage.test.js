@@ -25,6 +25,13 @@ test("ProfileImage component with image snapshot", () => {
   expect(tree).toMatchSnapshot();
 });
 
+test("ProfileImage component with custom size", () => {
+  const component = renderer.create(<ProfileImage size={30} viewer={viewer} />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test("ProfileImage component with initials snapshot", () => {
   const component = renderer.create(<ProfileImage viewer={viewerInitials} />);
 
