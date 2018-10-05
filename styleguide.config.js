@@ -399,6 +399,7 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
+            "Accordion",
             "ProgressiveImage"
           ],
           content: "styleguide/src/sections/Content.md",
