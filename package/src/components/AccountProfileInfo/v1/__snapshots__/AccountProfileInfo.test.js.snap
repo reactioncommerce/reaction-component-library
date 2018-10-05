@@ -26,7 +26,7 @@ exports[`Render default display, with profile image and no edit link 1`] = `
 
 .c3 {
   -webkit-font-smoothing: antialiased;
-  color: #b3b3b3;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -111,7 +111,7 @@ exports[`Render with edit link 1`] = `
 
 .c3 {
   -webkit-font-smoothing: antialiased;
-  color: #b3b3b3;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -197,7 +197,7 @@ exports[`Render with initials instead of profile image 1`] = `
 
 .c3 {
   -webkit-font-smoothing: antialiased;
-  color: #b3b3b3;
+  color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   font-style: normal;
