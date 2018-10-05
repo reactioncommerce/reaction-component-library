@@ -558,6 +558,11 @@ const rui_components = {
       color: colors.black25
     }
   },
+  ProfileImageInitials: {
+    typography: {
+      color: colors.white
+    }
+  },
   StockWarning: {
     typography: {
       color: colors.red
