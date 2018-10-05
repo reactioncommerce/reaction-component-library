@@ -40,8 +40,20 @@ const ButtonDiv = styled.div`
   margin: 0;
   min-width: ${applyTheme("buttonMinimumWidth")};
   outline: none;
-  padding-left: ${applyTheme("buttonHorizontalPadding")};
-  padding-right: ${applyTheme("buttonHorizontalPadding")};
+  padding-left: ${(props) => {
+    const { isTextOnlyNoPadding } = props;
+    if (isTextOnlyNoPadding) {
+      return "0px";
+    }
+    return applyTheme("buttonHorizontalPadding");
+  }};
+  padding-right: ${(props) => {
+    const { isTextOnlyNoPadding } = props;
+    if (isTextOnlyNoPadding) {
+      return "0px";
+    }
+    return applyTheme("buttonHorizontalPadding");
+  }};
   padding-top: ${paddingFunc};
   padding-bottom: ${paddingFunc};
   position: relative;
@@ -126,6 +138,10 @@ class Button extends Component {
      */
     isTextOnly: PropTypes.bool,
     /**
+     * Enable this in rare cases where left and right padding should be removed from a button to better align the button.
+     */
+    isTextOnlyNoPadding: PropTypes.bool,
+    /**
      * Set to `true` to prevent clicks, use waiting styles, and show a spinner
      */
     isWaiting: PropTypes.bool,
@@ -161,7 +177,7 @@ class Button extends Component {
   };
 
   render() {
-    const { actionType, children, className, components, isDisabled, isFullWidth, isShortHeight, isTextOnly, isWaiting, title } = this.props;
+    const { actionType, children, className, components, isDisabled, isFullWidth, isShortHeight, isTextOnly, isTextOnlyNoPadding, isWaiting, title } = this.props;
     const { spinner } = components || {};
 
     const moreButtonDivProps = {};
@@ -195,6 +211,7 @@ class Button extends Component {
         isDisabled={isDisabled}
         isShortHeight={isShortHeight}
         isTextOnly={isTextOnly}
+        isTextOnlyNoPadding={isTextOnlyNoPadding}
         onClick={this.handleClick}
         onKeyPress={this.handleKeyPress}
         role="button"
@@ -208,6 +225,7 @@ class Button extends Component {
             actionType={actionType}
             isDisabled={isDisabled}
             isTextOnly={isTextOnly}
+            isTextOnlyNoPadding={isTextOnlyNoPadding}
             style={spinnerStyles}
           >
             {spinner}

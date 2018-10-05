@@ -14,7 +14,6 @@ const ViewerImageCircle = styled.div`
 
 const ViewerInitialsText = styled.div`
   ${addTypographyStyles("ProfileImageInitials", "labelText")}
-  color: ${applyTheme("profileImageInitialsColor")};
   display: flex;
   line-height: 1;
 `;

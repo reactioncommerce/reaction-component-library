@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { addTypographyStyles, applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
+
 
 const AccountProfileInfoContainer = styled.div`
   display: flex;
@@ -17,20 +18,17 @@ const AccountProfileInfoTextContainer = styled.div`
 `;
 
 const ViewerEmailText = styled.span`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  color: ${applyTheme("accountProfileInfoEmailFontColor")};
-  font-size: ${applyTheme("accountProfileInfoEmailFontSize")};
+  ${addTypographyStyles("AccountProfileInfoEmail", "labelText")}
   align-self: left;
-  margin-bottom: 4px;
-  margin-left: 16px;
+  margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterEmail")};
+  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
 `;
 
 const ViewerNameText = styled.span`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  font-size: ${applyTheme("accountProfileInfoNameFontSize")};
+  ${addTypographyStyles("AccountProfileInfoName", "titleTextBold")}
   align-self: left;
-  margin-bottom: 4px;
-  margin-left: 16px;
+  margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterName")};
+  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
 `;
 
 class AccountProfileInfo extends Component {
@@ -46,7 +44,7 @@ class AccountProfileInfo extends Component {
       /**
        * An element to show to link to the edit profile page
        */
-      Button: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      Button: CustomPropTypes.component,
       /**
      * Profile image component to display
      */
@@ -104,7 +102,7 @@ class AccountProfileInfo extends Component {
 
     if (shouldShowEditButton) {
       return (
-        <Button isShortHeight={true} isTextOnly={true} onClick={onClickEdit} style={{ padding: "5px 15px" }}>Edit Account</Button>
+        <Button isShortHeight isTextOnly isTextOnlyNoPadding onClick={onClickEdit}>Edit Account</Button>
       );
     }
     return null;

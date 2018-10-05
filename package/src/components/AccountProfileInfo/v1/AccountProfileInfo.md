@@ -1,5 +1,5 @@
 ### Overview
-Renders the viewers name, email address, profile image (via the [ProfileImage](/#!/ProfileImage) component), and an optional link to edit this information.
+Renders the viewer's name, email address, profile image (via the [ProfileImage](/#!/ProfileImage) component), and an optional link to edit this information.
 
 #### Usage
 ```jsx

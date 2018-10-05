@@ -32,6 +32,7 @@ And there are a couple possible variations:
 
 - **Short**: Any of these button types can be rendered with less height using the "short" variant.
 - **Text-only**: The default button can be rendered as text only (similar to a link) by using the "text" style variant. Use this in rare cases where having a solid or outline button for an action would be cluttered and visually confusing.
+- **Text-only, no padding**: This expands on the text-only version of the button, and removes the left and right padding to create a more inline look, when needed.
 - **Waiting**: This disables clicks and shows a spinner to the right of the button content when `isWaiting` is set to `true`.
 
 ```jsx noeditor
@@ -41,6 +42,9 @@ And there are a couple possible variations:
   </div>
   <div style={{ marginRight: "1rem" }}>
     <Button title="Default" className="myBtn" isTextOnly>Default Text-Only</Button>
+  </div>
+  <div style={{ marginRight: "1rem" }}>
+    <Button title="Default" className="myBtn" isTextOnly isTextOnlyNoPadding>Default Text-Only No Padding</Button>
   </div>
   <div style={{ marginRight: "1rem" }}>
     <Button actionType="default" isWaiting={true}>Default Waiting</Button>
