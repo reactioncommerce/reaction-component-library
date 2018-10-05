@@ -327,8 +327,8 @@ const divStyles = {
 
 <div style={divStyles}>
   <Button className="myBtn" isFullWidth>Full Width Default</Button>
-  <Button className="myBtn" isShortHeight isFullWidth>Full Width Default Short</Button>
-  <Button className="myBtn" isWaiting={state.isWaiting} onClick={() => { setState({ isWaiting: true }); setTimeout(() => { setState({ isWaiting: false }); }, 3000); }}>Click to See Waiting</Button>
+  <Button className="myBtn" isFullWidth isShortHeight>Full Width Default Short</Button>
+  <Button className="myBtn" isFullWidth isWaiting={state.isWaiting} onClick={() => { setState({ isWaiting: true }); setTimeout(() => { setState({ isWaiting: false }); }, 3000); }}>Click to See Waiting</Button>
 </div>
 ```
 
