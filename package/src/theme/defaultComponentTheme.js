@@ -485,6 +485,20 @@ const cartItemDetail = {
 const progressiveImage = {
   rui_progressiveImageBackgroundColor: colors.white
 };
+const accordion = {
+  rui_accordionBorderColor: colors.black10,
+  rui_accordionBorderRadius: standardBorderRadius,
+  rui_accordionBorderStyle: "solid",
+  rui_accordionBorderWidth: "1px",
+  rui_accordionPadding: "10px 15px",
+  rui_accordionIconHeight: "24px",
+  rui_accordionIconLeft: "30px",
+  rui_accordionIconSpacingToLabel: "10px",
+  rui_accordionIconWidth: "38px",
+  rui_accordionHeaderHeight: "50px",
+  rui_accordionHeaderHeightMobile: "60px",
+  rui_accordionContentBackgroundColor: colors.black02
+};
 
 const rui_components = {
   BadgeOverlayBadgeLabel: {
@@ -585,5 +599,6 @@ export default {
   ...cartItemDetail,
   ...miniCartSummary,
   ...catalogGridItem,
-  ...progressiveImage
+  ...progressiveImage,
+  ...accordion
 };
