@@ -207,28 +207,6 @@ const viewerInfo = {
   rui_viewerInfoInitialsSize: "30px"
 };
 
-const cartSummary = {
-  rui_cartSummaryBackgroundColor: colors.black02,
-  rui_cartSummaryBorderColor: colors.black10,
-  rui_cartSummaryBorderWidth: "1px",
-  rui_cartSummaryDenseBackgroundColor: "transparent",
-  rui_cartSummaryPaddingLeft: "16px",
-  rui_cartSummaryPaddingRight: "16px",
-  rui_cartSummaryPaddingTop: "16px",
-  rui_cartSummaryPaddingBottom: 0,
-  rui_cartSummaryLeftColumnColor: colors.coolGrey500,
-  rui_cartSummaryLeftColumnHeaderColor: colors.coolGrey500,
-  rui_cartSummaryRightColumnColor: colors.coolGrey500,
-  rui_cartSummaryRightColumnHeaderColor: colors.black30,
-  rui_cartSummaryRowDensePaddingBottom: "0.5rem",
-  rui_cartSummaryRowDensePaddingTop: "0.5rem",
-  rui_cartSummaryRowPaddingBottom: "16px",
-  rui_cartSummaryRowPaddingTop: "16px",
-  rui_cartSummaryTitleColor: colors.coolGrey500,
-  rui_cartSummaryDiscountColor: colors.forestGreen300,
-  rui_cartSummaryTotalColor: colors.coolGrey500
-};
-
 const miniCart = {
   rui_miniCartBorderBottomColor: colors.black10,
   rui_miniCartBorderBottomWidth: "1px",
@@ -480,36 +458,43 @@ const rui_components = {
   },
   CartSummaryLeftColumnHeader: {
     typography: {
+      color: colors.coolGrey500,
       lineHeight: 1
     }
   },
   CartSummaryRightColumnHeader: {
     typography: {
+      color: colors.black30,
       lineHeight: 1
     }
   },
   CartSummaryLeftColumn: {
     typography: {
+      color: colors.coolGrey500,
       lineHeight: 1
     }
   },
   CartSummaryRightColumn: {
     typography: {
+      color: colors.coolGrey500,
       lineHeight: 1
     }
   },
   CartSummaryTitle: {
     typography: {
+      color: colors.coolGrey500,
       lineHeight: 1
     }
   },
   CartSummaryDiscount: {
     typography: {
+      color: colors.forestGreen300,
       lineHeight: 1
     }
   },
   CartSummaryTotal: {
     typography: {
+      color: colors.coolGrey500,
       lineHeight: 1
     }
   },
@@ -527,6 +512,20 @@ const rui_components = {
     typography: {
       lineHeight: 1
     }
+  },
+  CartSummary: {
+    backgroundColor: colors.black02,
+    borderColor: colors.black10,
+    borderWidth: "1px",
+    denseBackgroundColor: "transparent",
+    paddingBottom: 0,
+    paddingLeft: padding.sixteen,
+    paddingRight: padding.sixteen,
+    paddingTop: padding.sixteen,
+    rowDensePaddingBottom: padding.eight,
+    rowDensePaddingTop: padding.eight,
+    rowPaddingBottom: padding.sixteen,
+    rowPaddingTop: padding.sixteen
   },
   PriceCompare: {
     typography: {
@@ -570,7 +569,6 @@ export default {
   ...miniCart,
   ...checkoutTopHat,
   ...checkoutEmailAddress,
-  ...cartSummary,
   ...finalReviewCheckoutAction,
   ...miniCartSummary,
   ...catalogGridItem,
