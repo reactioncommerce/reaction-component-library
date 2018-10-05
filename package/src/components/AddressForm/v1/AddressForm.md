@@ -290,6 +290,6 @@ class AddressExample extends React.Component {
 
 ### Theme
 
-| Theme Prop    | Default | Description                                                                              |
-|---------------|---------|------------------------------------------------------------------------------------------|
-| breakpoint_sm | 320     | Used to determine when the component begins to render two short fields on the same line. |
+| Theme Prop         | Default | Description                                                                              |
+|--------------------|---------|------------------------------------------------------------------------------------------|
+| rui_breakpoints.sm | 320     | Used to determine when the component begins to render two short fields on the same line. |
