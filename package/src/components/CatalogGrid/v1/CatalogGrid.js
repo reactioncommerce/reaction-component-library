@@ -6,19 +6,19 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 
 const GridContainer = styled.div`
+  box-sizing: border-box;
   display: flex;
   flex-wrap: wrap;
-  box-sizing: border-box;
   width: 100%;
 `;
 
 const GridItem = styled.div`
-  padding: 12px;
-  flex-grow: 0;
-  max-width: 100%;
-  flex-basis: 100%;
-  margin: 0;
   box-sizing: border-box;
+  flex-basis: 100%;
+  flex-grow: 0;
+  margin: 0;
+  max-width: 100%;
+  padding: 12px;
 
   ${({ containerParams }) => {
     const { is2PerRowWidth, is3PerRowWidth, is4PerRowWidth } = containerParams;
@@ -105,8 +105,8 @@ class CatalogGrid extends Component {
   });
 
   getContainerQueries() {
-    const threePerRowMinWidth = applyTheme("catalogGrid3PerRowMinWidth")(this.props);
-    const fourPerRowMinWidth = applyTheme("catalogGrid4PerRowMinWidth")(this.props);
+    const threePerRowMinWidth = applyTheme("CatalogGrid.threePerRowMinWidth")(this.props);
+    const fourPerRowMinWidth = applyTheme("CatalogGrid.fourPerRowMinWidth")(this.props);
     return {
       is2PerRowWidth: {
         minWidth: 450, // Min width that item w/ 2 badges renders appropriately

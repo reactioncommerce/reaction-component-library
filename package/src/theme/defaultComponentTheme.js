@@ -251,19 +251,6 @@ const miniCartSummary = {
   rui_miniCartSummaryRightCellPaddingTop: padding.eight
 };
 
-const catalogGrid = {
-  rui_catalogGrid3PerRowMinWidth: 650,
-  rui_catalogGrid4PerRowMinWidth: 960
-};
-
-const catalogGridItem = {
-  rui_catalogGridItemMediaBackgroundColor: colors.white,
-  rui_catalogGridItemProductInfoPaddingBottom: 0,
-  rui_catalogGridItemProductInfoPaddingLeft: 0,
-  rui_catalogGridItemProductInfoPaddingRight: 0,
-  rui_catalogGridItemProductInfoPaddingTop: padding.ten
-};
-
 const checkoutTopHat = {
   rui_checkoutTopHatBackgroundColor: colors.black05,
   rui_checkoutTopHatHeight: "35px"
@@ -296,10 +283,6 @@ const finalReviewCheckoutAction = {
   rui_finalReviewCheckoutActionSummaryWrapperPaddingLeft: padding.sixteen,
   rui_finalReviewCheckoutActionSummaryWrapperPaddingRight: padding.sixteen,
   rui_finalReviewCheckoutActionSummaryWrapperPaddingTop: 0
-};
-
-const progressiveImage = {
-  rui_progressiveImageBackgroundColor: colors.white
 };
 
 const rui_components = {
@@ -527,19 +510,30 @@ const rui_components = {
     rowPaddingBottom: padding.sixteen,
     rowPaddingTop: padding.sixteen
   },
+  CatalogGrid: {
+    fourPerRowMinWidth: breakpoint_md,
+    threePerRowMinWidth: breakpoint_sm
+  },
+  CatalogGridItem: {
+    mediaBackgroundColor: colors.white,
+    verticalSpacingBetweenImageAndInfo: padding.ten
+  },
+  CheckoutTopHatMessage: {
+    typography: {
+      color: colors.coolGrey500
+    }
+  },
   PriceCompare: {
     typography: {
       color: colors.black25
     }
   },
+  ProgressiveImage: {
+    backgroundColor: colors.white
+  },
   StockWarning: {
     typography: {
       color: colors.red
-    }
-  },
-  CheckoutTopHatMessage: {
-    typography: {
-      color: colors.coolGrey500
     }
   }
 };
@@ -565,12 +559,9 @@ export default {
   ...selectableItem,
   ...selectableList,
   ...viewerInfo,
-  ...catalogGrid,
   ...miniCart,
   ...checkoutTopHat,
   ...checkoutEmailAddress,
   ...finalReviewCheckoutAction,
-  ...miniCartSummary,
-  ...catalogGridItem,
-  ...progressiveImage
+  ...miniCartSummary
 };

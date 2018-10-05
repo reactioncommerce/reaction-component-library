@@ -20,7 +20,7 @@ const imageContainerQueries = {
  */
 
 const ImageWrapper = styled.div`
-  background-color: ${applyTheme("progressiveImageBackgroundColor")};
+  background-color: ${applyTheme("ProgressiveImage.backgroundColor")};
   display: block;
   height: 0;
   overflow: hidden;
