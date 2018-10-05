@@ -273,28 +273,6 @@ const miniCartSummary = {
   rui_miniCartSummaryRightCellPaddingTop: padding.eight
 };
 
-const cartItem = {
-  rui_cartItemBorderBottomColor: colors.black05,
-  rui_cartItemBorderBottomWidth: "1px",
-  rui_cartItemBorderLeftColor: colors.black05,
-  rui_cartItemBorderLeftWidth: 0,
-  rui_cartItemBorderRightColor: colors.black05,
-  rui_cartItemBorderRightWidth: 0,
-  rui_cartItemBorderTopColor: colors.black05,
-  rui_cartItemBorderTopWidth: 0,
-  rui_cartItemImageContentSpacing: padding.sixteen,
-  rui_cartItemPaddingBottom: padding.sixteen,
-  rui_cartItemPaddingLeft: 0,
-  rui_cartItemPaddingRight: 0,
-  rui_cartItemPaddingTop: padding.sixteen,
-  rui_cartItemQuantityInputSpacingAbove: padding.twelve,
-  rui_cartItemQuantityInputSpacingBelow: padding.eight,
-  rui_cartItemRemoveButtonColor_focus: colors.coolGrey,
-  rui_cartItemRemoveButtonColor: colors.coolGrey400,
-  rui_cartItemRemoveButtonSpacingAbove: padding.eight,
-  rui_cartItemRemoveButtonSpacingBelow: 0
-};
-
 const catalogGrid = {
   rui_catalogGrid3PerRowMinWidth: 650,
   rui_catalogGrid4PerRowMinWidth: 960
@@ -340,14 +318,6 @@ const finalReviewCheckoutAction = {
   rui_finalReviewCheckoutActionSummaryWrapperPaddingLeft: padding.sixteen,
   rui_finalReviewCheckoutActionSummaryWrapperPaddingRight: padding.sixteen,
   rui_finalReviewCheckoutActionSummaryWrapperPaddingTop: 0
-};
-
-const cartItemDetail = {
-  rui_cartItemDetailTitleColor_focus: colors.coolGrey300,
-  rui_cartItemDetailTitleMarginTop: 0,
-  rui_cartItemDetailTitleMarginBottom: padding.ten,
-  rui_cartItemDetailTitleMarginLeft: 0,
-  rui_cartItemDetailTitleMarginRight: 0
 };
 
 const progressiveImage = {
@@ -487,6 +457,27 @@ const rui_components = {
   CartEmptyMessage: {
     textToButtonSpacing: "54px"
   },
+  CartItem: {
+    borderBottomColor: colors.black05,
+    borderBottomWidth: "1px",
+    borderLeftColor: colors.black05,
+    borderLeftWidth: 0,
+    borderRightColor: colors.black05,
+    borderRightWidth: 0,
+    borderTopColor: colors.black05,
+    borderTopWidth: 0,
+    imageContentSpacing: padding.sixteen,
+    paddingBottom: padding.sixteen,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: padding.sixteen,
+    quantityInputSpacingAbove: padding.twelve,
+    quantityInputSpacingBelow: padding.eight,
+    removeButtonColor_focus: colors.coolGrey,
+    removeButtonColor: colors.coolGrey400,
+    removeButtonSpacingAbove: padding.eight,
+    removeButtonSpacingBelow: 0
+  },
   CartSummaryLeftColumnHeader: {
     typography: {
       lineHeight: 1
@@ -528,6 +519,11 @@ const rui_components = {
     }
   },
   CartItemDetailTitle: {
+    color_focus: colors.coolGrey300,
+    marginTop: 0,
+    marginBottom: padding.ten,
+    marginLeft: 0,
+    marginRight: 0,
     typography: {
       lineHeight: 1
     }
@@ -572,12 +568,10 @@ export default {
   ...viewerInfo,
   ...catalogGrid,
   ...miniCart,
-  ...cartItem,
   ...checkoutTopHat,
   ...checkoutEmailAddress,
   ...cartSummary,
   ...finalReviewCheckoutAction,
-  ...cartItemDetail,
   ...miniCartSummary,
   ...catalogGridItem,
   ...progressiveImage
