@@ -45,7 +45,7 @@ All tests are written using, and run by, the [Jest](https://facebook.github.io/j
 
 - Run `yarn test` command to run all tests in watch mode. This command runs only the tests that have changed since the last commit.
 
-- Run `yarn test -u` to update snapshots.
+- Add the `-u` flag to update snapshots: `docker-compose run --rm web yarn run test -u`
 
 In a CI container, `yarn test` will not run in watch mode. This is because the `CI` environment variable is set in CI containers. If you need to run tests in non-watch mode locally, you can do the same: `CI=true yarn test`
 
