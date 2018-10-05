@@ -25,7 +25,7 @@ class AddressSelect extends Component {
   static defaultProps = {};
 
   addressToString({ address1, address2, city, country, postal, region }) {
-    const addressString = `${address1}${address2 ? ", " + address2 : ""}, ${city}, ${region} ${postal} ${country}`;
+    const addressString = `${address1}${address2 ? `, ${address2}` : ""}, ${city}, ${region} ${postal} ${country}`;
     return addressString;
   }
 
