@@ -293,7 +293,7 @@ const selectableList = {
 const viewerInfo = {
   rui_viewerInfoInitialsBackgroundColor: colors.teal,
   rui_viewerInfoInitialsColor: colors.white,
-  rui_viewerInfoInitialsSize: "80px"
+  rui_viewerInfoInitialsSize: "30px"
 };
 
 // AccountProfileInfo
