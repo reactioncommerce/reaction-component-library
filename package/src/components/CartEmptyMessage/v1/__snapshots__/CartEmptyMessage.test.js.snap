@@ -63,6 +63,9 @@ Array [
   padding-bottom: 10px;
   position: relative;
   text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .c1:hover {
@@ -196,6 +199,9 @@ Array [
   padding-bottom: 10px;
   position: relative;
   text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .c1:hover {
