@@ -29,8 +29,8 @@ const ButtonDiv = styled.div`
     return "pointer";
   }};
   display: ${(props) => {
-    const { fullWidth } = props;
-    if (fullWidth) {
+    const { isFullWidth } = props;
+    if (isFullWidth) {
       return "flex";
     }
     return "inline-flex";
@@ -207,8 +207,8 @@ class Button extends Component {
       <ButtonDiv
         actionType={actionType}
         className={className}
-        fullWidth={isFullWidth}
         isDisabled={isDisabled}
+        isFullWidth={isFullWidth}
         isShortHeight={isShortHeight}
         isTextOnly={isTextOnly}
         isTextOnlyNoPadding={isTextOnlyNoPadding}
