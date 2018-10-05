@@ -1,5 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import mockComponents from "../../../tests/mockComponents";
 import AccountProfileInfo from "./AccountProfileInfo";
 
 test("Render default display, with profile image and no edit link", () => {
@@ -11,7 +12,7 @@ test("Render default display, with profile image and no edit link", () => {
     profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
   };
 
-  const component = renderer.create(<AccountProfileInfo viewer={mockViewer} />);
+  const component = renderer.create(<AccountProfileInfo components={mockComponents} viewer={mockViewer} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -24,7 +25,7 @@ test("Render with initials instead of profile image", () => {
     primaryEmailAddress: "john@doe.com"
   };
 
-  const component = renderer.create(<AccountProfileInfo viewer={mockViewer} />);
+  const component = renderer.create(<AccountProfileInfo components={mockComponents} viewer={mockViewer} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
@@ -40,7 +41,7 @@ test("Render with edit link", () => {
 
   const clickSpy = jest.fn();
 
-  const component = renderer.create(<AccountProfileInfo onClickEdit={clickSpy} shouldShowEditButton={true} viewer={mockViewer} />);
+  const component = renderer.create(<AccountProfileInfo components={mockComponents} onClickEdit={clickSpy} shouldShowEditButton={true} viewer={mockViewer} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
