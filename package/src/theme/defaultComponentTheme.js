@@ -298,12 +298,9 @@ const viewerInfo = {
 
 // AccountProfileInfo
 const accountProfileInfo = {
-  rui_accountProfileInfoInitialsBackgroundColor: colors.teal,
-  rui_accountProfileInfoInitialsColor: colors.white,
-  rui_accountProfileInfoInitialsSize: "80px",
-  rui_accountProfileInfoEmailFontColor: colors.black50,
-  rui_accountProfileInfoEmailFontSize: "14px",
-  rui_accountProfileInfoNameFontSize: "24px"
+  rui_accountProfileInfoSpacingAfterEmail: "4px",
+  rui_accountProfileInfoSpacingAfterName: "4px",
+  rui_accountProfileInfoSpacingBetweenImageAndContent: "16px"
 };
 
 // ProfileImage

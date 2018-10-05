@@ -17,20 +17,17 @@ const AccountProfileInfoTextContainer = styled.div`
 `;
 
 const ViewerEmailText = styled.span`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  color: ${applyTheme("accountProfileInfoEmailFontColor")};
-  font-size: ${applyTheme("accountProfileInfoEmailFontSize")};
+  ${addTypographyStyles("AccountProfileInfoEmail", "captionText")}
   align-self: left;
-  margin-bottom: 4px;
-  margin-left: 16px;
+  margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterEmail")};
+  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
 `;
 
 const ViewerNameText = styled.span`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  font-size: ${applyTheme("accountProfileInfoNameFontSize")};
+  ${addTypographyStyles("AccountProfileInfoName", "titleTextBold")}
   align-self: left;
-  margin-bottom: 4px;
-  margin-left: 16px;
+  margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterName")};
+  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
 `;
 
 class AccountProfileInfo extends Component {
@@ -104,7 +101,7 @@ class AccountProfileInfo extends Component {
 
     if (shouldShowEditButton) {
       return (
-        <Button isShortHeight={true} isTextOnly={true} onClick={onClickEdit} style={{ padding: "5px 15px" }}>Edit Account</Button>
+        <Button isShortHeight isTextOnly onClick={onClickEdit}>Edit Account</Button>
       );
     }
     return null;
