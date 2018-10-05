@@ -17,7 +17,7 @@ const AccountProfileInfoTextContainer = styled.div`
 `;
 
 const ViewerEmailText = styled.span`
-  ${addTypographyStyles("AccountProfileInfoEmail", "captionText")}
+  ${addTypographyStyles("AccountProfileInfoEmail", "labelText")}
   align-self: left;
   margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterEmail")};
   margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
