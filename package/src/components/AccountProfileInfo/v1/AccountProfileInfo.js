@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { addTypographyStyles, applyTheme } from "../../../utils";
+import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
+
 
 const AccountProfileInfoContainer = styled.div`
   display: flex;
@@ -43,7 +44,7 @@ class AccountProfileInfo extends Component {
       /**
        * An element to show to link to the edit profile page
        */
-      Button: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+      Button: CustomPropTypes.component,
       /**
      * Profile image component to display
      */
