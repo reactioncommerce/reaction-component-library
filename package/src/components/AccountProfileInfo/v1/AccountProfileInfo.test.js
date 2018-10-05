@@ -1,51 +1,46 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import ViewerInfo from "./ViewerInfo";
+import AccountProfileInfo from "./AccountProfileInfo";
 
-test("Render with only required props", () => {
+test("Render default display, with profile image and no edit link", () => {
   const mockViewer = {
-    primaryEmailAddress: "email@domain.com"
+    firstName: "John",
+    lastName: "Doe",
+    name: "John Doe",
+    primaryEmailAddress: "john@doe.com",
+    profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
   };
-  const component = renderer.create(<ViewerInfo viewer={mockViewer} />);
+
+  const component = renderer.create(<AccountProfileInfo viewer={mockViewer} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test("Render with only email & first name props", () => {
+test("Render with initials instead of profile image", () => {
   const mockViewer = {
-    firstName: "Issac",
-    primaryEmailAddress: "email@domain.com"
+    firstName: "John",
+    lastName: "Doe",
+    name: "John Doe",
+    primaryEmailAddress: "john@doe.com"
   };
-  const component = renderer.create(<ViewerInfo viewer={mockViewer} />);
+
+  const component = renderer.create(<AccountProfileInfo viewer={mockViewer} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
-test("Render with full name and email props", () => {
+test("Render with edit link", () => {
   const mockViewer = {
-    firstName: "Issac",
-    lastName: "Newton",
-    primaryEmailAddress: "email@domain.com"
+    firstName: "John",
+    lastName: "Doe",
+    name: "John Doe",
+    primaryEmailAddress: "john@doe.com",
+    profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
   };
-  const component = renderer.create(<ViewerInfo viewer={mockViewer} />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
 
-test("Render with full prop", () => {
-  const mockViewer = {
-    primaryEmailAddress: "email@domain.com"
-  };
-  const component = renderer.create(<ViewerInfo viewer={mockViewer} full />);
-  const tree = component.toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  const clickSpy = jest.fn();
 
-test("Render with compact prop", () => {
-  const mockViewer = {
-    primaryEmailAddress: "email@domain.com"
-  };
-  const component = renderer.create(<ViewerInfo viewer={mockViewer} compact />);
+  const component = renderer.create(<AccountProfileInfo onClickEdit={clickSpy} shouldShowEditButton={true} viewer={mockViewer} />);
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
