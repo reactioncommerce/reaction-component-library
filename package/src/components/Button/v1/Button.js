@@ -38,26 +38,27 @@ const ButtonDiv = styled.div`
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   justify-content: center;
   margin: 0;
-  min-width: ${applyTheme("buttonMinimumWidth")};
+  min-width: ${(props) => (props.isTextOnlyNoPadding ? 0 : applyTheme("buttonMinimumWidth")(props))};
   outline: none;
   padding-left: ${(props) => {
     const { isTextOnlyNoPadding } = props;
     if (isTextOnlyNoPadding) {
       return "0px";
     }
-    return applyTheme("buttonHorizontalPadding");
+    return applyTheme("buttonHorizontalPadding")(props);
   }};
   padding-right: ${(props) => {
     const { isTextOnlyNoPadding } = props;
     if (isTextOnlyNoPadding) {
       return "0px";
     }
-    return applyTheme("buttonHorizontalPadding");
+    return applyTheme("buttonHorizontalPadding")(props);
   }};
   padding-top: ${paddingFunc};
   padding-bottom: ${paddingFunc};
   position: relative;
   text-align: center;
+  width: ${(props) => (props.isFullWidth ? "100%" : "fit-content")};
 
   &:hover {
     background-color: ${applyThemeWithActionType("buttonBackgroundColor", "hover")};
