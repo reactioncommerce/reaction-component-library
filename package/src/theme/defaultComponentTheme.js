@@ -423,45 +423,6 @@ const finalReviewCheckoutAction = {
   rui_finalReviewCheckoutActionSummaryWrapperPaddingTop: 0
 };
 
-const badgeOverlay = {
-  rui_badgeOverlayPrimaryBadgeBackgroundColor_backorder: colors.coolGrey,
-  rui_badgeOverlayPrimaryBadgeBackgroundColor_bestseller: colors.teal,
-  rui_badgeOverlayPrimaryBadgeBackgroundColor_lowQuantity: colors.coolGrey,
-  rui_badgeOverlayPrimaryBadgeBackgroundColor_soldOut: colors.coolGrey,
-  rui_badgeOverlayPrimaryBadgeBackgroundColor_sale: colors.red300,
-  rui_badgeOverlayPrimaryBadgeColor_backorder: colors.white,
-  rui_badgeOverlayPrimaryBadgeColor_bestseller: colors.white,
-  rui_badgeOverlayPrimaryBadgeColor_lowQuantity: colors.white,
-  rui_badgeOverlayPrimaryBadgeColor_soldOut: colors.white,
-  rui_badgeOverlayPrimaryBadgeColor_sale: colors.white,
-  rui_badgeOverlayPrimaryBadgeOffsetTop: "8px",
-  rui_badgeOverlayPrimaryBadgeOffsetBottom: "auto",
-  rui_badgeOverlayPrimaryBadgeOffsetLeft: "8px",
-  rui_badgeOverlayPrimaryBadgeOffsetRight: "auto",
-  rui_badgeOverlaySecondaryBadgeOffsetTop: "8px",
-  rui_badgeOverlaySecondaryBadgeOffsetBottom: "auto",
-  rui_badgeOverlaySecondaryBadgeOffsetLeft: "auto",
-  rui_badgeOverlaySecondaryBadgeOffsetRight: padding.eight,
-  rui_badgeOverlaySecondaryBadgeColor: colors.coolGrey,
-  rui_badgeOverlayPrimaryBadgePaddingBottom: padding.four,
-  rui_badgeOverlayPrimaryBadgePaddingLeft: padding.eight,
-  rui_badgeOverlayPrimaryBadgePaddingRight: padding.eight,
-  rui_badgeOverlayPrimaryBadgePaddingTop: padding.four,
-  rui_badgeOverlaySecondaryBadgePaddingBottom: padding.four,
-  rui_badgeOverlaySecondaryBadgePaddingLeft: padding.eight,
-  rui_badgeOverlaySecondaryBadgePaddingRight: padding.eight,
-  rui_badgeOverlaySecondaryBadgePaddingTop: padding.four,
-  rui_badgeOverlayPrimaryBadgeBorderTopLeftRadius: "4px",
-  rui_badgeOverlayPrimaryBadgeBorderTopRightRadius: "4px",
-  rui_badgeOverlayPrimaryBadgeBorderBottomLeftRadius: "4px",
-  rui_badgeOverlayPrimaryBadgeBorderBottomRightRadius: "4px",
-  rui_badgeOverlaySecondaryBadgeBorderTopLeftRadius: "4px",
-  rui_badgeOverlaySecondaryBadgeBorderTopRightRadius: "4px",
-  rui_badgeOverlaySecondaryBadgeBorderBottomLeftRadius: "4px",
-  rui_badgeOverlaySecondaryBadgeBorderBottomRightRadius: "4px",
-  rui_badgeOverlayFadedOpacity: "0.5"
-};
-
 const cartEmptyMessage = {
   rui_cartEmptyMessageTextToButtonSpacing: "54px"
 };
@@ -479,6 +440,9 @@ const progressiveImage = {
 };
 
 const rui_components = {
+  BadgeOverlay: {
+    fadedOpacity: "0.5"
+  },
   BadgeOverlayBadgeLabel: {
     typography: {
       color: "inherit",
@@ -486,6 +450,45 @@ const rui_components = {
       fontWeight: 700,
       letterSpacing: "0.5px"
     }
+  },
+  BadgeOverlayPrimaryBadge: {
+    backgroundColor_backorder: colors.coolGrey,
+    backgroundColor_bestseller: colors.teal,
+    backgroundColor_lowQuantity: colors.coolGrey,
+    backgroundColor_sale: colors.red300,
+    backgroundColor_soldOut: colors.coolGrey,
+    borderTopLeftRadius: "4px",
+    borderTopRightRadius: "4px",
+    borderBottomLeftRadius: "4px",
+    borderBottomRightRadius: "4px",
+    color_backorder: colors.white,
+    color_bestseller: colors.white,
+    color_lowQuantity: colors.white,
+    color_sale: colors.white,
+    color_soldOut: colors.white,
+    offsetBottom: "auto",
+    offsetLeft: "8px",
+    offsetRight: "auto",
+    offsetTop: "8px",
+    paddingBottom: padding.four,
+    paddingLeft: padding.eight,
+    paddingRight: padding.eight,
+    paddingTop: padding.four
+  },
+  BadgeOverlaySecondaryBadge: {
+    borderBottomLeftRadius: "4px",
+    borderBottomRightRadius: "4px",
+    borderTopLeftRadius: "4px",
+    borderTopRightRadius: "4px",
+    color: colors.coolGrey,
+    offsetBottom: "auto",
+    offsetLeft: "auto",
+    offsetRight: padding.eight,
+    offsetTop: "8px",
+    paddingBottom: padding.four,
+    paddingLeft: padding.eight,
+    paddingRight: padding.eight,
+    paddingTop: padding.four
   },
   CartSummaryLeftColumnHeader: {
     typography: {
@@ -578,7 +581,6 @@ export default {
   ...checkoutEmailAddress,
   ...cartSummary,
   ...finalReviewCheckoutAction,
-  ...badgeOverlay,
   ...cartEmptyMessage,
   ...cartItemDetail,
   ...miniCartSummary,
