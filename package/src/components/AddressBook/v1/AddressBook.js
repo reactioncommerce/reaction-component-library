@@ -13,7 +13,9 @@ class AddressBook extends Component {
     /**
      * User account data.
      */
-    account: PropTypes.object,
+    account: PropTypes.shape({
+      addressBook: PropTypes.arrayOf(PropTypes.object)
+    }),
     /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
@@ -44,29 +46,57 @@ class AddressBook extends Component {
     value: PropTypes.object
   };
 
-  static defaultProps = {};
+  static defaultProps = {
+    account: {
+      addressBook: []
+    }
+  };
 
-  state = {};
+  state = {
+    selectedAddress: null, // get default address from props
+    status: "entry" // entry, select, review
+  };
 
   _addresForm = null;
   _addressSelect = null;
   _addressReview = null;
 
   //
+  // Helper Methods
+  //
+
+  get hasAddress() {
+    const { account: { addressBook } } = this.props;
+    return addressBook.length > 0;
+  }
+
+  //
   // Handler Methods
   //
+  handleAddAddress = (value) => {
+    console.log("added new address", value);
+  };
+
+  handleDeleteAddress = (value) => {
+    console.log("deleted address", value);
+  };
+
+  handleEditAddress = (value) => {
+    console.log("edit address", value);
+  };
 
   //
   // Render Methods
   //
 
   renderAddressSelect() {
-    const { components: { AddressSelect } } = this.props;
+    const { account: { addressBook }, components: { AddressSelect } } = this.props;
     return (
       <AddressSelect
         ref={(el) => {
           this._addressSelect = el;
         }}
+        addressBook={addressBook}
       />
     );
   }
@@ -97,7 +127,7 @@ class AddressBook extends Component {
     const { components: { Button } } = this.props;
     return (
       <Fragment>
-        {this.renderAddressForm()}
+        {this.hasAddress ? this.renderAddressSelect() : this.renderAddressForm()}
         <Button>Save</Button>
       </Fragment>
     );
