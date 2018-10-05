@@ -342,10 +342,6 @@ const finalReviewCheckoutAction = {
   rui_finalReviewCheckoutActionSummaryWrapperPaddingTop: 0
 };
 
-const cartEmptyMessage = {
-  rui_cartEmptyMessageTextToButtonSpacing: "54px"
-};
-
 const cartItemDetail = {
   rui_cartItemDetailTitleColor_focus: colors.coolGrey300,
   rui_cartItemDetailTitleMarginTop: 0,
@@ -488,6 +484,9 @@ const rui_components = {
     verticalPadding: padding.ten,
     verticalPaddingShort: padding.five
   },
+  CartEmptyMessage: {
+    textToButtonSpacing: "54px"
+  },
   CartSummaryLeftColumnHeader: {
     typography: {
       lineHeight: 1
@@ -578,7 +577,6 @@ export default {
   ...checkoutEmailAddress,
   ...cartSummary,
   ...finalReviewCheckoutAction,
-  ...cartEmptyMessage,
   ...cartItemDetail,
   ...miniCartSummary,
   ...catalogGridItem,

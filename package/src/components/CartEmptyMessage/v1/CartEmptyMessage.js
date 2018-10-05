@@ -13,7 +13,7 @@ const EmptyMessage = styled.div`
   ${addTypographyStyles("CartEmptyMessage", "bodyText")}
   display: flex;
   justify-content: center;
-  margin-bottom: ${applyTheme("cartEmptyMessageTextToButtonSpacing")};
+  margin-bottom: ${applyTheme("CartEmptyMessage.textToButtonSpacing")};
 `;
 
 class CartEmptyMessage extends Component {
