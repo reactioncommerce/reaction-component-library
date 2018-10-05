@@ -14,6 +14,7 @@ const AccountProfileInfoTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
   position: relative;
 `;
 
@@ -21,14 +22,12 @@ const ViewerEmailText = styled.span`
   ${addTypographyStyles("AccountProfileInfoEmail", "labelText")}
   align-self: left;
   margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterEmail")};
-  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
 `;
 
 const ViewerNameText = styled.span`
   ${addTypographyStyles("AccountProfileInfoName", "titleTextBold")}
   align-self: left;
   margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterName")};
-  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
 `;
 
 class AccountProfileInfo extends Component {
