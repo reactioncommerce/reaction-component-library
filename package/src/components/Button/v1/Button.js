@@ -7,20 +7,20 @@ import applyThemeWithActionType from "./utils/applyThemeWithActionType";
 
 const paddingFunc = (props) => {
   const { isShortHeight } = props;
-  if (isShortHeight) return applyTheme("buttonVerticalPaddingShort");
-  return applyTheme("buttonVerticalPadding");
+  if (isShortHeight) return applyTheme("Button.verticalPaddingShort");
+  return applyTheme("Button.verticalPadding");
 };
 
 const ButtonDiv = styled.div`
   -webkit-font-smoothing: antialiased;
   align-items: center;
-  background-color: ${applyThemeWithActionType("buttonBackgroundColor")};
-  border-color: ${applyThemeWithActionType("buttonBorderColor")};
+  background-color: ${applyThemeWithActionType("Button.backgroundColor")};
+  border-color: ${applyThemeWithActionType("Button.borderColor")};
   border-style: solid;
   border-width: 1px;
-  border-radius: ${applyTheme("buttonBorderRadius")};
+  border-radius: ${applyTheme("Button.borderRadius")};
   box-sizing: border-box;
-  color: ${applyThemeWithActionType("buttonForegroundColor")};
+  color: ${applyThemeWithActionType("Button.foregroundColor")};
   cursor: ${(props) => {
     const { isDisabled } = props;
     if (isDisabled) {
@@ -38,37 +38,38 @@ const ButtonDiv = styled.div`
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   justify-content: center;
   margin: 0;
-  min-width: ${applyTheme("buttonMinimumWidth")};
+  min-width: ${applyTheme("Button.minimumWidth")};
   outline: none;
-  padding-left: ${applyTheme("buttonHorizontalPadding")};
-  padding-right: ${applyTheme("buttonHorizontalPadding")};
+  padding-left: ${applyTheme("Button.horizontalPadding")};
+  padding-right: ${applyTheme("Button.horizontalPadding")};
   padding-top: ${paddingFunc};
   padding-bottom: ${paddingFunc};
   position: relative;
   text-align: center;
+  user-select: none;
 
   &:hover {
-    background-color: ${applyThemeWithActionType("buttonBackgroundColor", "hover")};
-    border-color: ${applyThemeWithActionType("buttonBorderColor", "hover")};
-    color: ${applyThemeWithActionType("buttonForegroundColor", "hover")};
+    background-color: ${applyThemeWithActionType("Button.backgroundColor", "hover")};
+    border-color: ${applyThemeWithActionType("Button.borderColor", "hover")};
+    color: ${applyThemeWithActionType("Button.foregroundColor", "hover")};
   }
 
   &:active {
-    background-color: ${applyThemeWithActionType("buttonBackgroundColor", "active")};
-    border-color: ${applyThemeWithActionType("buttonBorderColor", "active")};
-    color: ${applyThemeWithActionType("buttonForegroundColor", "active")};
+    background-color: ${applyThemeWithActionType("Button.backgroundColor", "active")};
+    border-color: ${applyThemeWithActionType("Button.borderColor", "active")};
+    color: ${applyThemeWithActionType("Button.foregroundColor", "active")};
   }
 `;
 
 const SpinnerWrap = styled.div`
   display: flex;
   overflow: hidden;
-  padding-left: ${applyTheme("buttonHorizontalPadding")};
+  padding-left: ${applyTheme("Button.horizontalPadding")};
   transition: width 0.2s ease-out 0s, padding-left 0.2s ease-out 0s, opacity 0.2s ease-out 0.2s;
 
   & svg path,
   & svg rect {
-    fill: ${applyThemeWithActionType("buttonForegroundColor")};
+    fill: ${applyThemeWithActionType("Button.foregroundColor")};
   }
 `;
 
