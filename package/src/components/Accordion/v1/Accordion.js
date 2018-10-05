@@ -7,22 +7,25 @@ import { applyTheme, CustomPropTypes } from "../../../utils";
 const duration = "250ms";
 const ease = "ease-in-out";
 const openTransition = `max-height ${duration} ${ease}, padding 0ms ${ease}`;
-const closeTransition = `max-height ${duration} ${ease}, padding 0ms ${ease} ${duration}`;
+const closeTransition = `max-height ${duration} ${ease}, padding 0ms ${ease} ${duration}, border 0ms ${ease} ${duration}`;
 
 const AccordionWrapper = styled.div`
+  border-color: ${applyTheme("accordionBorderColor")};
+  border-style: ${applyTheme("accordionBorderStyle")};
+  border-width: ${applyTheme("accordionBorderWidth")};
   box-sizing: border-box;
   color: inherit;
+  overflow: hidden;
   &:first-of-type {
-    & > div {
-      background-color: red;
-    }
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+  &:not(:first-of-type) {
+    border-top: none;
   }
 `;
 
 const AccordionHeader = styled.div`
-  border-color: ${applyTheme("accordionBorderColor")};
-  border-style: ${applyTheme("accordionBorderStyle")};
-  border-width: ${applyTheme("accordionBorderWidth")};
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -31,10 +34,7 @@ const AccordionHeader = styled.div`
 
 const AccordionHeaderIcon = styled.span`
   height: ${applyTheme("selectableListIconHeight")};
-  margin-bottom: 0;
-  margin-left: 0;
-  margin-right: ${applyTheme("selectableListIconSpacingToLabel")};
-  margin-top: 0;
+  margin: 0;
   width: ${applyTheme("selectableListIconWidth")};
   svg {
     height: ${applyTheme("selectableListIconHeight")};
@@ -46,9 +46,12 @@ const AccordionHeaderIcon = styled.span`
 
 const AccordionContent = styled.div`
   background-color: ${applyTheme("accordionContentBackgroundColor")};
+  border-top-color: ${applyTheme("accordionBorderColor")};
+  border-top-style: ${applyTheme("accordionBorderStyle")};
+  border-top-width: ${({ expanded }) => (expanded ? applyTheme("accordionBorderWidth") : "0")};
   color: inherit;
   height: auto;
-  max-height: ${({ expanded }) => (expanded ? "200rem" : "0")};
+  max-height: ${({ expanded }) => (expanded ? "20vh" : "0")};
   overflow: hidden;
   padding: ${({ expanded }) => (expanded ? applyTheme("accordionPadding") : "0")};
   transition: ${({ expanded }) => (expanded ? openTransition : closeTransition)};
