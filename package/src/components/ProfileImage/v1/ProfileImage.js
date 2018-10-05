@@ -62,7 +62,7 @@ class ProfileImage extends Component {
   }
 
   viewerProfileImage = () => {
-    const { viewer: { name, profileImage } } = this.props;
+    const { size, viewer: { name, profileImage } } = this.props;
 
     if (profileImage) {
       return (
@@ -70,7 +70,7 @@ class ProfileImage extends Component {
       );
     }
 
-    return <ViewerInitialsText>{this.viewerInitials}</ViewerInitialsText>;
+    return <ViewerInitialsText style= {{ fontSize: size / 2 }}>{this.viewerInitials}</ViewerInitialsText>;
   }
 
 

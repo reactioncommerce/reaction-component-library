@@ -29,7 +29,6 @@ const viewer = {
 **With edit link**
 ```jsx
 const viewer = {
-  editable: true,
   firstName: "John",
   lastName: "Doe",
   name: "John Doe",
@@ -37,5 +36,7 @@ const viewer = {
   profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
 };
 
-<AccountProfileInfo editable={true} viewer={viewer} />
+const onClick = () => { console.log("Edit Account button click") };
+
+<AccountProfileInfo onClickEdit={onClick} shouldShowEditButton={true} viewer={viewer} />
 ```
