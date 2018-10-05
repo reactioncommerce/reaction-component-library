@@ -101,7 +101,7 @@ class AccountProfileInfo extends Component {
 
     if (shouldShowEditButton) {
       return (
-        <Button isShortHeight isTextOnly onClick={onClickEdit}>Edit Account</Button>
+        <Button isShortHeight isTextOnly isTextOnlyNoPadding onClick={onClickEdit}>Edit Account</Button>
       );
     }
     return null;
