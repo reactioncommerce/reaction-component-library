@@ -290,6 +290,8 @@ class AddressExample extends React.Component {
 
 ### Theme
 
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
 | Theme Prop         | Default | Description                                                                              |
 |--------------------|---------|------------------------------------------------------------------------------------------|
 | rui_breakpoints.sm | 320     | Used to determine when the component begins to render two short fields on the same line. |
