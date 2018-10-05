@@ -21,16 +21,16 @@ const ViewerEmailText = styled.span`
   color: ${applyTheme("accountProfileInfoEmailFontColor")};
   font-size: ${applyTheme("accountProfileInfoEmailFontSize")};
   align-self: left;
-  margin-bottom: 0.25rem;
-  margin-left: 1.0rem;
+  margin-bottom: 4px;
+  margin-left: 16px;
 `;
 
 const ViewerNameText = styled.span`
   ${addTypographyStyles("ViewerInfoInitials", "labelText")}
   font-size: ${applyTheme("accountProfileInfoNameFontSize")};
   align-self: left;
-  margin-bottom: 0.25rem;
-  margin-left: 1.0rem;
+  margin-bottom: 4px;
+  margin-left: 16px;
 `;
 
 class AccountProfileInfo extends Component {
