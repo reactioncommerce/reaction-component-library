@@ -21,7 +21,7 @@ const ViewerEmailText = styled.span`
   color: ${applyTheme("accountProfileInfoEmailFontColor")};
   font-size: ${applyTheme("accountProfileInfoEmailFontSize")};
   align-self: left;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
   margin-left: 1.0rem;
 `;
 
@@ -53,9 +53,13 @@ class AccountProfileInfo extends Component {
       ProfileImage: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
+     * Function to pass to button onClick
+     */
+    onClickEdit: PropTypes.func,
+    /**
      * Enable this prop when you only want to display the Edit account link
      */
-    editable: PropTypes.bool,
+    shouldShowEditButton: PropTypes.bool,
     /**
      * An object containing basic user information.
      */
@@ -69,7 +73,7 @@ class AccountProfileInfo extends Component {
   };
 
   static defaultProps = {
-    editable: false
+    shouldShowEditButton: false
   };
 
   /**
@@ -96,11 +100,11 @@ class AccountProfileInfo extends Component {
   }
 
   viewerProfileEditLink = () => {
-    const { components: { Button }, editable } = this.props;
+    const { components: { Button }, onClickEdit, shouldShowEditButton } = this.props;
 
-    if (editable) {
+    if (shouldShowEditButton) {
       return (
-        <Button isShortHeight={true} isTextOnly={true}>Edit Account</Button>
+        <Button isShortHeight={true} isTextOnly={true} onClick={onClickEdit} style={{ padding: "5px 15px" }}>Edit Account</Button>
       );
     }
     return null;
