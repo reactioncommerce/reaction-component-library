@@ -308,7 +308,7 @@ const onClick = () => { setState({ isWaiting: true }); setTimeout(() => { setSta
 
 ##### Full Width Button
 
-To make any button take up the full width of its container, add `fullWidth` prop.
+To make any button take up the full width of its container, add `isFullWidth` prop.
 
 ```jsx
 const divStyles = {
@@ -326,9 +326,9 @@ const divStyles = {
 };
 
 <div style={divStyles}>
-  <Button className="myBtn" fullWidth>Full Width Default</Button>
-  <Button className="myBtn" isShortHeight fullWidth>Full Width Default Short</Button>
-  <Button className="myBtn" isWaiting={state.isWaiting} onClick={() => { setState({ isWaiting: true }); setTimeout(() => { setState({ isWaiting: false }); }, 3000); }}>Click to See Waiting</Button>
+  <Button className="myBtn" isFullWidth>Full Width Default</Button>
+  <Button className="myBtn" isFullWidth isShortHeight>Full Width Default Short</Button>
+  <Button className="myBtn" isFullWidth isWaiting={state.isWaiting} onClick={() => { setState({ isWaiting: true }); setTimeout(() => { setState({ isWaiting: false }); }, 3000); }}>Click to See Waiting</Button>
 </div>
 ```
 

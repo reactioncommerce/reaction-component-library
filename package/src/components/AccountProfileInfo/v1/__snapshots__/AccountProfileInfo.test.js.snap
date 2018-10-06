@@ -21,6 +21,7 @@ exports[`Render default display, with profile image and no edit link 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin-left: 16px;
   position: relative;
 }
 
@@ -41,7 +42,6 @@ exports[`Render default display, with profile image and no edit link 1`] = `
   -ms-flex-item-align: left;
   align-self: left;
   margin-bottom: 4px;
-  margin-left: 16px;
 }
 
 .c2 {
@@ -61,7 +61,6 @@ exports[`Render default display, with profile image and no edit link 1`] = `
   -ms-flex-item-align: left;
   align-self: left;
   margin-bottom: 4px;
-  margin-left: 16px;
 }
 
 <div
@@ -106,6 +105,7 @@ exports[`Render with edit link 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin-left: 16px;
   position: relative;
 }
 
@@ -126,7 +126,6 @@ exports[`Render with edit link 1`] = `
   -ms-flex-item-align: left;
   align-self: left;
   margin-bottom: 4px;
-  margin-left: 16px;
 }
 
 .c2 {
@@ -146,7 +145,6 @@ exports[`Render with edit link 1`] = `
   -ms-flex-item-align: left;
   align-self: left;
   margin-bottom: 4px;
-  margin-left: 16px;
 }
 
 <div
@@ -192,6 +190,7 @@ exports[`Render with initials instead of profile image 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin-left: 16px;
   position: relative;
 }
 
@@ -212,7 +211,6 @@ exports[`Render with initials instead of profile image 1`] = `
   -ms-flex-item-align: left;
   align-self: left;
   margin-bottom: 4px;
-  margin-left: 16px;
 }
 
 .c2 {
@@ -232,7 +230,6 @@ exports[`Render with initials instead of profile image 1`] = `
   -ms-flex-item-align: left;
   align-self: left;
   margin-bottom: 4px;
-  margin-left: 16px;
 }
 
 <div
