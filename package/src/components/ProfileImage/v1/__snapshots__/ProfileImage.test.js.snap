@@ -1,0 +1,146 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProfileImage component with custom size 1`] = `
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #8ce0c9;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.c1 {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+<div
+  className="c0"
+  style={
+    Object {
+      "height": "30px",
+      "width": "30px",
+    }
+  }
+>
+  <img
+    alt="John Doe"
+    className="c1"
+    src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
+  />
+</div>
+`;
+
+exports[`ProfileImage component with image snapshot 1`] = `
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #8ce0c9;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.c1 {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+<div
+  className="c0"
+  style={
+    Object {
+      "height": "80px",
+      "width": "80px",
+    }
+  }
+>
+  <img
+    alt="John Doe"
+    className="c1"
+    src="https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
+  />
+</div>
+`;
+
+exports[`ProfileImage component with initials snapshot 1`] = `
+.c0 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background-color: #8ce0c9;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.c1 {
+  -webkit-font-smoothing: antialiased;
+  color: #ffffff;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  line-height: 1;
+}
+
+<div
+  className="c0"
+  style={
+    Object {
+      "height": "80px",
+      "width": "80px",
+    }
+  }
+>
+  <div
+    className="c1"
+    style={
+      Object {
+        "fontSize": 40,
+      }
+    }
+  >
+    JD
+  </div>
+</div>
+`;

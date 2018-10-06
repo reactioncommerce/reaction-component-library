@@ -29,8 +29,8 @@ const ButtonDiv = styled.div`
     return "pointer";
   }};
   display: ${(props) => {
-    const { fullWidth } = props;
-    if (fullWidth) {
+    const { isFullWidth } = props;
+    if (isFullWidth) {
       return "flex";
     }
     return "inline-flex";
@@ -38,14 +38,27 @@ const ButtonDiv = styled.div`
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, sans-serif;
   justify-content: center;
   margin: 0;
-  min-width: ${applyTheme("buttonMinimumWidth")};
+  min-width: ${(props) => (props.isTextOnlyNoPadding ? 0 : applyTheme("buttonMinimumWidth")(props))};
   outline: none;
-  padding-left: ${applyTheme("buttonHorizontalPadding")};
-  padding-right: ${applyTheme("buttonHorizontalPadding")};
+  padding-left: ${(props) => {
+    const { isTextOnlyNoPadding } = props;
+    if (isTextOnlyNoPadding) {
+      return "0px";
+    }
+    return applyTheme("buttonHorizontalPadding")(props);
+  }};
+  padding-right: ${(props) => {
+    const { isTextOnlyNoPadding } = props;
+    if (isTextOnlyNoPadding) {
+      return "0px";
+    }
+    return applyTheme("buttonHorizontalPadding")(props);
+  }};
   padding-top: ${paddingFunc};
   padding-bottom: ${paddingFunc};
   position: relative;
   text-align: center;
+  width: ${(props) => (props.isFullWidth ? "100%" : "fit-content")};
 
   &:hover {
     background-color: ${applyThemeWithActionType("buttonBackgroundColor", "hover")};
@@ -126,6 +139,10 @@ class Button extends Component {
      */
     isTextOnly: PropTypes.bool,
     /**
+     * Enable this in rare cases where left and right padding should be removed from a button to better align the button.
+     */
+    isTextOnlyNoPadding: PropTypes.bool,
+    /**
      * Set to `true` to prevent clicks, use waiting styles, and show a spinner
      */
     isWaiting: PropTypes.bool,
@@ -161,7 +178,7 @@ class Button extends Component {
   };
 
   render() {
-    const { actionType, children, className, components, isDisabled, isFullWidth, isShortHeight, isTextOnly, isWaiting, title } = this.props;
+    const { actionType, children, className, components, isDisabled, isFullWidth, isShortHeight, isTextOnly, isTextOnlyNoPadding, isWaiting, title } = this.props;
     const { spinner } = components || {};
 
     const moreButtonDivProps = {};
@@ -191,10 +208,11 @@ class Button extends Component {
       <ButtonDiv
         actionType={actionType}
         className={className}
-        fullWidth={isFullWidth}
         isDisabled={isDisabled}
+        isFullWidth={isFullWidth}
         isShortHeight={isShortHeight}
         isTextOnly={isTextOnly}
+        isTextOnlyNoPadding={isTextOnlyNoPadding}
         onClick={this.handleClick}
         onKeyPress={this.handleKeyPress}
         role="button"
@@ -208,6 +226,7 @@ class Button extends Component {
             actionType={actionType}
             isDisabled={isDisabled}
             isTextOnly={isTextOnly}
+            isTextOnlyNoPadding={isTextOnlyNoPadding}
             style={spinnerStyles}
           >
             {spinner}
