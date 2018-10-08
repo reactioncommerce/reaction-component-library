@@ -14,7 +14,7 @@ const FormAction = styled.div`
   > * {
     width: 100%;
 
-    @media (min-width: ${applyTheme("breakpoint_sm")}px) {
+    @media (min-width: ${applyTheme("sm", "breakpoints")}px) {
       width: auto;
     }
   }
