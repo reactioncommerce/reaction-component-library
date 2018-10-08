@@ -90,6 +90,8 @@ class Accordion extends Component {
     expanded: this.props.expanded
   };
 
+  _accordion = null;
+
   // handle accordion toggle
   handleToggle = () => {
     const { expanded } = this.state;
@@ -101,7 +103,12 @@ class Accordion extends Component {
     const { expanded } = this.state;
 
     return (
-      <AccordionWrapper className={className}>
+      <AccordionWrapper
+        className={className}
+        ref={(accordionEl) => {
+          this._accordion = accordionEl;
+        }}
+      >
         <AccordionHeader onClick={this.handleToggle}>
           <span>
             {icon ? <AccordionHeaderIcon>{icon}</AccordionHeaderIcon> : null}
