@@ -529,11 +529,6 @@ const rui_components = {
     iconRight: 0,
     iconTop: padding.ten,
     lineHeight: "1.5"
-  },
-  ViewerInfoInitials: {
-    backgroundColor: colors.teal,
-    color: colors.white,
-    size: "30px"
   }
 };
 

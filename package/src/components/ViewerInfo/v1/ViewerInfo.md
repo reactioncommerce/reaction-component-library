@@ -1,7 +1,21 @@
 ### Overview
-Renders a user's first name next to their initials.
+Renders a users first name next to their profile image. If no profile image is available, renders the users initials instead.
 
 ### Usage
+```jsx
+const viewer = {
+  firstName: "John",
+  lastName: "Doe",
+  name: "John Doe",
+  primaryEmailAddress: "john@doe.com",
+  profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
+};
+
+<ViewerInfo viewer={viewer} />
+```
+
+
+**No image provided**
 ```jsx
 const viewer = {
   primaryEmailAddress: "issac99@gravity.com",
@@ -80,14 +94,8 @@ const viewer = {
 
 ### Theme
 
-Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
-
-| Theme Prop                              | Default                                                      | Description                                                   |
-| --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------- |
-| `ViewerInfoInitials.backgroundColor` | teal | Background color for initials |
-| `ViewerInfoInitials.color` | white | Color for initials |
-| `ViewerInfoInitials.size` | 30px | Size of initials |
+See [Theming Components](./#!/Theming%20Components).
 
 #### Typography
 
-- The text uses `labelText` style with `rui_components.ViewerInfoInitials` override
+- The text uses `labelText` style with `rui_components.ViewerInfo` override

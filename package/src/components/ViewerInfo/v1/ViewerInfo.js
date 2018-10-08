@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ViewerInfoContainer = styled.div`
@@ -8,24 +9,8 @@ const ViewerInfoContainer = styled.div`
   position: relative;
 `;
 
-const ViewerInitialsCircle = styled.div`
-  background-color: ${applyTheme("ViewerInfoInitials.backgroundColor")};
-  border-radius: 50%;
-  height: ${applyTheme("ViewerInfoInitials.size")};
-  text-align: center;
-  width: ${applyTheme("ViewerInfoInitials.size")};
-`;
-
-const ViewerInitialsText = styled.div`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  color: ${applyTheme("ViewerInfoInitials.color")};
-  line-height: 1;
-  position: relative;
-  top: calc(${applyTheme("ViewerInfoInitials.size")} / 4);
-`;
-
 const ViewerFirstNameText = styled.span`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
+  ${addTypographyStyles("ViewerInfo", "labelText")}
   display: ${({ compact, full }) => {
     if (full) {
       return compact ? "none" : "inline";
@@ -47,16 +32,31 @@ class ViewerInfo extends Component {
      */
     compact: PropTypes.bool,
     /**
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
+     */
+    components: PropTypes.shape({
+      /**
+     * Profile image component to display
+     */
+      ProfileImage: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    }),
+    /**
      * Enable this prop when you want to display the initials and first name on all screens
      */
     full: PropTypes.bool,
     /**
-     * An object containing basic user information.
-     */
+    * An object containing basic user information.
+    */
     viewer: PropTypes.shape({
       firstName: PropTypes.string,
       lastName: PropTypes.string,
-      primaryEmailAddress: PropTypes.string.isRequired
+      name: PropTypes.string,
+      primaryEmailAddress: PropTypes.string.isRequired,
+      profileImage: PropTypes.string
     }).isRequired
   };
 
@@ -67,24 +67,10 @@ class ViewerInfo extends Component {
 
   /**
    *
-   * @name viewerInitials
-   * @summary Build the initials string from the `viewer` first and last name
-   * If those props are not availible use the first letter of the primary email address.
-   * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
-   */
-  get viewerInitials() {
-    const { viewer: { firstName, lastName, primaryEmailAddress } } = this.props;
-    const firstInitial = (firstName && firstName.charAt()) || primaryEmailAddress.charAt().toUpperCase();
-    const lastInitial = (lastName && lastName.charAt()) || "";
-    return `${firstInitial}${lastInitial}`;
-  }
-
-  /**
-   *
    * @name viewerName
-   * @summary If `firstName` is availible on the `viewer` object
-   * return that else return the email address
-   * @return {String} the viewers name.
+   * @summary If `firstName` is available on the `viewer` object, return that.
+   *   Otherwise return the email address.
+   * @return {String} Display name for the viewer
    */
   get viewerName() {
     const { viewer: { firstName, primaryEmailAddress } } = this.props;
@@ -92,12 +78,10 @@ class ViewerInfo extends Component {
   }
 
   render() {
-    const { compact, full } = this.props;
+    const { compact, components: { ProfileImage }, full, viewer } = this.props;
     return (
       <ViewerInfoContainer>
-        <ViewerInitialsCircle>
-          <ViewerInitialsText>{this.viewerInitials}</ViewerInitialsText>
-        </ViewerInitialsCircle>
+        <ProfileImage size={30} viewer={viewer} />
         <ViewerFirstNameText compact={compact} full={full}>
           {this.viewerName}
         </ViewerFirstNameText>
@@ -106,4 +90,4 @@ class ViewerInfo extends Component {
   }
 }
 
-export default ViewerInfo;
+export default withComponents(ViewerInfo);
