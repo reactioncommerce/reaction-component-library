@@ -51,7 +51,7 @@ const AccordionContent = styled.div`
   border-top-width: ${({ expanded }) => (expanded ? applyTheme("accordionBorderWidth") : "0")};
   color: inherit;
   height: auto;
-  max-height: ${({ expanded }) => (expanded ? "20vh" : "0")};
+  max-height: ${({ expanded }) => (expanded ? "150vh" : "0")};
   overflow: hidden;
   padding: ${({ expanded }) => (expanded ? applyTheme("accordionPadding") : "0")};
   transition: ${({ expanded }) => (expanded ? openTransition : closeTransition)};
