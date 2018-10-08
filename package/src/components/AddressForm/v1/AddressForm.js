@@ -28,15 +28,15 @@ const ColHalf = styled.div`
 class AddressForm extends Component {
   static propTypes = {
     /**
+     * Place holder for Address Name field.
+     */
+    addressNamePlaceholder: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
      */
     className: PropTypes.string,
-    /**
-     * Place holder for Address Name field.
-     */
-    addressNamePlaceholder: PropTypes.string,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)

@@ -56,12 +56,6 @@ const FooterMessage = styled.span`
 class MiniCart extends Component {
   static propTypes = {
     /**
-     * You can provide a `className` prop that will be applied to the outermost DOM element
-     * rendered by this component. We do not recommend using this for styling purposes, but
-     * it can be useful as a selector in some situations.
-     */
-    className: PropTypes.string,
-    /**
      * Cart data
      */
     cart: PropTypes.shape({
@@ -98,6 +92,12 @@ class MiniCart extends Component {
        */
       items: PropTypes.arrayOf(PropTypes.object).isRequired
     }),
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)

@@ -61,15 +61,15 @@ const Img = styled.img`
 class ProgressiveImage extends Component {
   static propTypes = {
     /**
+     * Image text alternative - https://www.w3.org/TR/WCAG20-TECHS/H37.html
+     */
+    altText: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
      */
     className: PropTypes.string,
-    /**
-     * Image text alternative - https://www.w3.org/TR/WCAG20-TECHS/H37.html
-     */
-    altText: PropTypes.string,
     /**
      * How the image should fit its container. "contain" (100% width, auto-scaled height, no clipping),
      * or "cover" (100% height, auto-scaled width centered horizontally, with clipping). Both options maintain the image's original aspect ratio.

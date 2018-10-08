@@ -41,12 +41,6 @@ const Attr = styled.p`
 class CartItemDetail extends Component {
   static propTypes = {
     /**
-     * You can provide a `className` prop that will be applied to the outermost DOM element
-     * rendered by this component. We do not recommend using this for styling purposes, but
-     * it can be useful as a selector in some situations.
-     */
-    className: PropTypes.string,
-    /**
      * Array of additional attributes of the chosen item.
      */
     attributes: PropTypes.arrayOf(PropTypes.shape({
@@ -59,6 +53,12 @@ class CartItemDetail extends Component {
        */
       value: PropTypes.string
     })),
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * Is in a MiniCart component
      */

@@ -19,13 +19,13 @@ const TopHatMessage = styled.div`
 
 class CheckoutTopHat extends Component {
   static propTypes = {
+    checkoutMessage: PropTypes.string,
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
      */
-    className: PropTypes.string,
-    checkoutMessage: PropTypes.string
+    className: PropTypes.string
   };
 
   render() {

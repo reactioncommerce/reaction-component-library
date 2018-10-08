@@ -183,12 +183,6 @@ function getCustomStyles(props) {
 class Select extends Component {
   static propTypes = {
     /**
-     * You can provide a `className` prop that will be applied to the outermost DOM element
-     * rendered by this component. We do not recommend using this for styling purposes, but
-     * it can be useful as a selector in some situations.
-     */
-    className: PropTypes.string,
-    /**
      * Alphabetize by option label
      */
     alphabetize: PropTypes.bool,
@@ -212,6 +206,13 @@ class Select extends Component {
      * Passed through to react-select package. When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
      */
     captureMenuScroll: PropTypes.bool,
+
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
 
     /**
      * Passed through to react-select package. Close the select menu when the user selects an option

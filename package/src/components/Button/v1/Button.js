@@ -97,12 +97,6 @@ const WaitingOverlay = styled.div`
 class Button extends Component {
   static propTypes = {
     /**
-     * You can provide a `className` prop that will be applied to the outermost DOM element
-     * rendered by this component. We do not recommend using this for styling purposes, but
-     * it can be useful as a selector in some situations.
-     */
-    className: PropTypes.string,
-    /**
      * The type of action performed by the button
      */
     actionType: PropTypes.oneOf(["danger", "default", "important", "secondary", "secondaryDanger"]),
@@ -211,7 +205,7 @@ class Button extends Component {
     }
 
     return (
-      <ButtonDiv className={this.props.className}
+      <ButtonDiv
         actionType={actionType}
         className={className}
         isDisabled={isDisabled}
