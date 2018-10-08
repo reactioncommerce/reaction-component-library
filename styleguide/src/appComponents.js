@@ -2,6 +2,7 @@ import iconClear from "../../package/src/svg/iconClear";
 import iconError from "../../package/src/svg/iconError";
 import iconValid from "../../package/src/svg/iconValid";
 import iconExpand from "../../package/src/svg/iconExpand";
+import iconPlus from "../../package/src/svg/iconPlus";
 import iconAmericanExpress from "../../package/src/svg/iconAmericanExpress";
 import iconDiscover from "../../package/src/svg/iconDiscover";
 import iconLock from "../../package/src/svg/iconLock";
@@ -70,6 +71,7 @@ export default {
   iconError,
   iconExpand,
   iconValid,
+  iconPlus,
   iconAmericanExpress,
   iconDiscover,
   iconLock,
