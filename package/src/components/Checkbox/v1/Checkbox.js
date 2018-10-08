@@ -5,13 +5,13 @@ import styled from "styled-components";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
-  margin-bottom: ${applyTheme("checkboxVerticalSpacing")};
+  margin-bottom: ${applyTheme("Checkbox.verticalSpacing")};
 `;
 
 /* eslint-disable max-len */
 /* eslint-disable quotes */
 // credit https://fontawesome.com/icons/check?style=solid
-const checkboxIconSVG = (props) => encodeURIComponent(`<svg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='${applyTheme("checkboxIconColor")(props)}' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'></path></svg>`);
+const checkboxIconSVG = (props) => encodeURIComponent(`<svg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><path fill='${applyTheme("Checkbox.iconColor")(props)}' d='M173.898 439.404l-166.4-166.4c-9.997-9.997-9.997-26.206 0-36.204l36.203-36.204c9.997-9.998 26.207-9.998 36.204 0L192 312.69 432.095 72.596c9.997-9.997 26.207-9.997 36.204 0l36.203 36.204c9.997 9.997 9.997 26.206 0 36.204l-294.4 294.401c-9.998 9.997-26.207 9.997-36.204-.001z'></path></svg>`);
 /* eslint-enable quotes */
 /* eslint-enable max-len */
 
@@ -27,20 +27,20 @@ const StyledInput = styled.input`
     background-image: ${(props) => `url("data:image/svg+xml; utf8,${checkboxIconSVG(props)}")`};
     display: inline-block;
     position: absolute;
-    width: ${applyTheme("checkboxIconSize")};
-    height: ${applyTheme("checkboxIconSize")};
-    top: ${applyTheme("checkboxIconTopSpacing")};
-    left: ${applyTheme("checkboxIconLeftSpacing")};
+    width: ${applyTheme("Checkbox.iconSize")};
+    height: ${applyTheme("Checkbox.iconSize")};
+    top: ${applyTheme("Checkbox.iconTopOffset")};
+    left: ${applyTheme("Checkbox.iconLeftOffset")};
   }
   &:focus + label::before {
-    outline: ${applyTheme("checkboxFocusStyle")};
+    outline: ${applyTheme("Checkbox.focusStyle")};
   }
   &:disabled + label {
-    opacity: ${applyTheme("checkboxDisabledOpacity")};
+    opacity: ${applyTheme("Checkbox.disabledOpacity")};
   }
   &:disabled + label::before {
-    background: ${applyTheme("checkboxDisabledColor")};
-    opacity: ${applyTheme("checkboxDisabledOpacity")};
+    background: ${applyTheme("Checkbox.disabledColor")};
+    opacity: ${applyTheme("Checkbox.disabledOpacity")};
   }
   &:disabled + label:hover {
     cursor: not-allowed;
@@ -50,8 +50,8 @@ const StyledInput = styled.input`
 const StyledLabel = styled.label`
   ${addTypographyStyles("CheckboxLabel", "labelText")}
   display: inline-block;
-  line-height: ${applyTheme("checkboxSize")};
-  padding-left: ${applyTheme("checkboxLabelSpacing")};
+  line-height: ${applyTheme("Checkbox.size")};
+  padding-left: ${applyTheme("Checkbox.labelSpacing")};
   position: relative;
   &:hover {
     cursor: pointer;
@@ -62,16 +62,16 @@ const StyledLabel = styled.label`
   }
   &::before {
     content: " ";
-    border-color: ${applyTheme("checkboxBorderColor")};
-    border-radius: ${applyTheme("checkboxBorderRadius")};
+    border-color: ${applyTheme("Checkbox.borderColor")};
+    border-radius: ${applyTheme("Checkbox.borderRadius")};
     border-style: solid;
-    border-width: ${applyTheme("checkboxBorderWidth")};
+    border-width: ${applyTheme("Checkbox.borderWidth")};
     box-sizing: border-box;
     display: inline-block;
-    height: ${applyTheme("checkboxSize")};
-    left: ${applyTheme("checkboxLeftSpacing")};
-    top: ${applyTheme("checkboxTopSpacing")};
-    width: ${applyTheme("checkboxSize")};
+    height: ${applyTheme("Checkbox.size")};
+    left: ${applyTheme("Checkbox.leftSpacing")};
+    top: ${applyTheme("Checkbox.topSpacing")};
+    width: ${applyTheme("Checkbox.size")};
   }
 `;
 

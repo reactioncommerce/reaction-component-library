@@ -144,25 +144,6 @@ const checkoutActions = {
   rui_checkoutActionsSpaceBetweenActiveActionButtons: padding.sixteen
 };
 
-// checkbox
-const checkbox = {
-  rui_checkboxSize: "1.4em",
-  rui_checkboxLeftSpacing: "0",
-  rui_checkboxTopSpacing: "0",
-  rui_checkboxBorderColor: colors.coolGrey500,
-  rui_checkboxBorderRadius: standardBorderRadius,
-  rui_checkboxBorderWidth: "2px",
-  rui_checkboxFocusStyle: "rgb(59, 153, 252) auto 5px",
-  rui_checkboxDisabledColor: colors.black10,
-  rui_checkboxDisabledOpacity: ".5",
-  rui_checkboxLabelSpacing: "2.2em",
-  rui_checkboxIconColor: colors.coolGrey500,
-  rui_checkboxIconSize: "0.875em",
-  rui_checkboxIconLeftSpacing: "0.3em",
-  rui_checkboxIconTopSpacing: "0.25em",
-  rui_checkboxVerticalSpacing: "17px"
-};
-
 // selectableItem
 const selectableItem = {
   rui_selectableItemRadioButtonCheckSize: "10px",
@@ -523,6 +504,23 @@ const rui_components = {
     mediaBackgroundColor: colors.white,
     verticalSpacingBetweenImageAndInfo: padding.ten
   },
+  Checkbox: {
+    borderColor: colors.coolGrey500,
+    borderRadius: standardBorderRadius,
+    borderWidth: "2px",
+    disabledColor: colors.black10,
+    disabledOpacity: ".5",
+    focusStyle: "rgb(59, 153, 252) auto 5px",
+    iconColor: colors.coolGrey500,
+    iconLeftOffset: "0.3em",
+    iconSize: "0.875em",
+    iconTopOffset: "0.25em",
+    labelSpacing: "2.2em",
+    leftSpacing: "0",
+    size: "1.4em",
+    topSpacing: "0",
+    verticalSpacing: "17px"
+  },
   CheckoutTopHatMessage: {
     typography: {
       color: colors.coolGrey500
@@ -568,7 +566,6 @@ export default {
   ...fieldStyles,
   ...errorsBlockStyles,
   ...checkoutActions,
-  ...checkbox,
   ...selectableItem,
   ...selectableList,
   ...viewerInfo,
