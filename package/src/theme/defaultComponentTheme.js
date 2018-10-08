@@ -119,26 +119,6 @@ const errorsBlockStyles = {
   rui_errorsBlockSpacingBelow: padding.ten
 };
 
-// checkoutActionComplete
-const checkoutActions = {
-  rui_checkoutActionsBorderBetweenColor: colors.black10,
-  rui_checkoutActionsBorderBetweenWidth: "1px",
-  rui_checkoutActionsBorderLeftColor: colors.black10,
-  rui_checkoutActionsBorderLeftWidth: 0,
-  rui_checkoutActionsBorderRightColor: colors.black10,
-  rui_checkoutActionsBorderRightWidth: 0,
-  rui_checkoutActionsItemPaddingBottom: padding.sixteen,
-  rui_checkoutActionsItemPaddingLeft: 0,
-  rui_checkoutActionsItemPaddingRight: 0,
-  rui_checkoutActionsItemPaddingTop: padding.sixteen,
-  rui_checkoutActionsPlaceOrderButtonSpacingBottom: 0,
-  rui_checkoutActionsPlaceOrderButtonSpacingLeft: 0,
-  rui_checkoutActionsPlaceOrderButtonSpacingRight: 0,
-  rui_checkoutActionsPlaceOrderButtonSpacingTop: padding.sixteen,
-  rui_checkoutActionsPlaceOrderButtonWidth: "252px",
-  rui_checkoutActionsSpaceBetweenActiveActionButtons: padding.sixteen
-};
-
 // selectableItem
 const selectableItem = {
   rui_selectableItemRadioButtonCheckSize: "10px",
@@ -523,6 +503,21 @@ const rui_components = {
     paddingRight: 0,
     paddingTop: padding.sixteen
   },
+  CheckoutActions: {
+    borderBetweenColor: colors.black10,
+    borderBetweenWidth: "1px",
+    borderLeftColor: colors.black10,
+    borderLeftWidth: 0,
+    borderRightColor: colors.black10,
+    borderRightWidth: 0,
+    itemPaddingBottom: padding.sixteen,
+    itemPaddingLeft: 0,
+    itemPaddingRight: 0,
+    itemPaddingTop: padding.sixteen,
+    placeOrderButtonWidth: "252px",
+    spaceAbovePlaceOrderButton: padding.sixteen,
+    spaceBetweenActiveActionButtons: padding.sixteen
+  },
   CheckoutTopHatMessage: {
     typography: {
       color: colors.coolGrey500
@@ -567,7 +562,6 @@ export default {
   ...selectStyles,
   ...fieldStyles,
   ...errorsBlockStyles,
-  ...checkoutActions,
   ...selectableItem,
   ...selectableList,
   ...viewerInfo,
