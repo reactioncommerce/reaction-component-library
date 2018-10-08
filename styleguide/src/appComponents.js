@@ -32,6 +32,7 @@ import Link from "../../package/src/components/Link/v1";
 import MiniCartSummary from "../../package/src/components/MiniCartSummary/v1";
 import PhoneNumberInput from "../../package/src/components/PhoneNumberInput/v1";
 import Price from "../../package/src/components/Price/v1";
+import ProfileImage from "../../package/src/components/ProfileImage/v1";
 import ProgressiveImage from "../../package/src/components/ProgressiveImage/v1";
 import QuantityInput from "../../package/src/components/QuantityInput/v1";
 import Select from "../../package/src/components/Select/v1";
@@ -81,6 +82,7 @@ export default {
   MiniCartSummary,
   PhoneNumberInput,
   Price,
+  ProfileImage,
   ProgressiveImage,
   QuantityInput,
   Select,

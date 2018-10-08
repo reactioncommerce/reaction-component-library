@@ -56,6 +56,7 @@ function stringifyJSONCircularSafe(obj) {
   "PhoneNumberInput",
   "Price",
   "ProgressiveImage",
+  "ProfileImage",
   "QuantityInput",
   "Select",
   "StockWarning",
