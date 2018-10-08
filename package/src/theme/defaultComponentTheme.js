@@ -110,15 +110,6 @@ const fieldStyles = {
   rui_labelSpacingToInput: padding.ten
 };
 
-// errors block
-const errorsBlockStyles = {
-  rui_errorsBlockColor: colors.red,
-  rui_errorsBlockIconColor: colors.red,
-  rui_errorsBlockIconSpacingToLabel: padding.five,
-  rui_errorsBlockSpacingAbove: padding.ten,
-  rui_errorsBlockSpacingBelow: padding.ten
-};
-
 // selectableItem
 const selectableItem = {
   rui_selectableItemRadioButtonCheckSize: "10px",
@@ -523,6 +514,15 @@ const rui_components = {
       color: colors.coolGrey500
     }
   },
+  ErrorsBlock: {
+    iconColor: colors.red,
+    iconSpacingToLabel: padding.five,
+    spacingAbove: padding.ten,
+    spacingBelow: padding.ten,
+    typography: {
+      color: colors.red
+    }
+  },
   PriceCompare: {
     typography: {
       color: colors.black25
@@ -561,7 +561,6 @@ export default {
   ...textareaStyles,
   ...selectStyles,
   ...fieldStyles,
-  ...errorsBlockStyles,
   ...selectableItem,
   ...selectableList,
   ...viewerInfo,
