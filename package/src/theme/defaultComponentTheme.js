@@ -30,52 +30,6 @@ const standardBorderRadius = "2px";
  * Default Theme Elements
  */
 
-// input
-const inputStyles = {
-  rui_inputBackgroundColor_default: colors.black02,
-  rui_inputBackgroundColor_dark: colors.white,
-  rui_inputBorderColor_default: colors.black20,
-  rui_inputBorderColor_focus: colors.teal,
-  rui_inputBorderColor_error: colors.red,
-  rui_inputBorderColor_success: colors.teal,
-  rui_inputBorderRadius: standardBorderRadius,
-  rui_inputClearButtonColor: colors.coolGrey,
-  rui_inputClearButtonLargeBackgroundColor: colors.white,
-  rui_inputClearButtonLargeBorderColor: colors.coolGrey,
-  rui_inputColor_default: colors.coolGrey500,
-  rui_inputColor_disabled: colors.black25,
-  rui_inputColor_error: colors.red,
-  rui_inputColor_focus: colors.coolGrey500,
-  rui_inputColor_success: colors.black55,
-  rui_inputPlaceholderColor: colors.black20,
-  rui_inputFontFamily: fontFamily,
-  rui_inputFontSize: "14px",
-  rui_inputLineHeight: 1,
-  rui_inputVerticalPadding: padding.eight,
-  rui_inputHorizontalPadding: padding.ten,
-  rui_iconTop: padding.ten,
-  rui_iconRight: padding.ten
-};
-
-const inputIcon = {
-  rui_inputIconColor_default: colors.black55,
-  rui_inputIconColor_disabled: colors.black25,
-  rui_inputIconColor_error: colors.red,
-  rui_inputIconColor_success: colors.forestGreen,
-  rui_inputIconTextPadding: "200px",
-  rui_inputIconWrapperSize: "1.429em"
-};
-
-// textarea
-const textareaStyles = {
-  rui_textareaClearButtonFontSize: "12px",
-  rui_textareaClearButtonPadding: "10px",
-  rui_textareaHeight: "60px",
-  rui_textareaIconRight: 0,
-  rui_textareaIconTop: padding.ten,
-  rui_textareaLineHeight: "1.5"
-};
-
 // select
 const selectStyles = {
   rui_selectBorderBottomLeftRadius: standardBorderRadius,
@@ -481,6 +435,34 @@ const rui_components = {
     summaryWrapperPaddingRight: padding.sixteen,
     summaryWrapperPaddingTop: 0
   },
+  Input: {
+    backgroundColor_dark: colors.white,
+    backgroundColor_default: colors.black02,
+    borderColor_default: colors.black20,
+    borderColor_error: colors.red,
+    borderColor_focus: colors.teal,
+    borderColor_success: colors.teal,
+    borderRadius: standardBorderRadius,
+    clearButtonColor: colors.coolGrey,
+    clearButtonLargeBackgroundColor: colors.white,
+    clearButtonLargeBorderColor: colors.coolGrey,
+    color_default: colors.coolGrey500,
+    color_disabled: colors.black25,
+    color_error: colors.red,
+    color_focus: colors.coolGrey500,
+    color_success: colors.black55,
+    fontFamily,
+    fontSize: "14px",
+    horizontalPadding: padding.ten,
+    iconColor_default: colors.black55,
+    iconColor_disabled: colors.black25,
+    iconColor_error: colors.red,
+    iconColor_success: colors.forestGreen,
+    iconWrapperSize: "1.429em",
+    lineHeight: 1,
+    placeholderColor: colors.black20,
+    verticalPadding: padding.eight
+  },
   MiniCart: {
     borderBottomColor: colors.black10,
     borderBottomWidth: "1px",
@@ -551,6 +533,14 @@ const rui_components = {
     typography: {
       color: colors.red
     }
+  },
+  Textarea: {
+    clearButtonFontSize: "12px",
+    clearButtonPadding: "10px",
+    height: "60px",
+    iconRight: 0,
+    iconTop: padding.ten,
+    lineHeight: "1.5"
   }
 };
 
@@ -564,9 +554,6 @@ export default {
     lg: breakpoint_lg,
     xl: breakpoint_xl
   },
-  ...inputStyles,
-  ...inputIcon,
-  ...textareaStyles,
   ...selectStyles,
   ...selectableItem,
   ...selectableList,
