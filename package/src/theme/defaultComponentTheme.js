@@ -143,50 +143,6 @@ const viewerInfo = {
   rui_viewerInfoInitialsSize: "30px"
 };
 
-const miniCart = {
-  rui_miniCartBorderBottomColor: colors.black10,
-  rui_miniCartBorderBottomWidth: "1px",
-  rui_miniCartBorderLeftColor: colors.black10,
-  rui_miniCartBorderLeftWidth: "1px",
-  rui_miniCartBorderRightColor: colors.black10,
-  rui_miniCartBorderRightWidth: "1px",
-  rui_miniCartBorderTopColor: colors.black10,
-  rui_miniCartBorderTopWidth: "1px",
-  rui_miniCartFooterBorderTopColor: colors.black10,
-  rui_miniCartFooterBorderTopWidth: "1px",
-  rui_miniCartFooterBoxShadow_overflow: depth1,
-  rui_miniCartFooterBoxShadow: depth0,
-  rui_miniCartFooterMessagePaddingBottom: 0,
-  rui_miniCartFooterMessagePaddingLeft: 0,
-  rui_miniCartFooterMessagePaddingRight: 0,
-  rui_miniCartFooterMessagePaddingTop: padding.eight,
-  rui_miniCartFooterPaddingBottom: padding.sixteen,
-  rui_miniCartFooterPaddingLeft: padding.sixteen,
-  rui_miniCartFooterPaddingRight: padding.sixteen,
-  rui_miniCartFooterPaddingTop: 0,
-  rui_miniCartListHeightToBeginScrolling: "420px",
-  rui_miniCartListPaddingBottom: 0,
-  rui_miniCartListPaddingLeft: padding.ten,
-  rui_miniCartListPaddingRight: padding.ten,
-  rui_miniCartListPaddingTop: 0,
-  rui_miniCartMaxWidth: "360px"
-};
-
-const miniCartSummary = {
-  rui_miniCartSummaryLeftCellPaddingBottom: padding.eight,
-  rui_miniCartSummaryLeftCellPaddingLeft: padding.eight,
-  rui_miniCartSummaryLeftCellPaddingRight: padding.five,
-  rui_miniCartSummaryLeftCellPaddingTop: padding.eight,
-  rui_miniCartSummaryPaddingBottom: padding.eight,
-  rui_miniCartSummaryPaddingLeft: padding.eight,
-  rui_miniCartSummaryPaddingRight: padding.eight,
-  rui_miniCartSummaryPaddingTop: padding.eight,
-  rui_miniCartSummaryRightCellPaddingBottom: padding.eight,
-  rui_miniCartSummaryRightCellPaddingLeft: padding.five,
-  rui_miniCartSummaryRightCellPaddingRight: padding.eight,
-  rui_miniCartSummaryRightCellPaddingTop: padding.eight
-};
-
 const rui_components = {
   AccountProfileInfo: {
     spacingAfterEmail: "4px",
@@ -525,6 +481,56 @@ const rui_components = {
     summaryWrapperPaddingRight: padding.sixteen,
     summaryWrapperPaddingTop: 0
   },
+  MiniCart: {
+    borderBottomColor: colors.black10,
+    borderBottomWidth: "1px",
+    borderLeftColor: colors.black10,
+    borderLeftWidth: "1px",
+    borderRightColor: colors.black10,
+    borderRightWidth: "1px",
+    borderTopColor: colors.black10,
+    borderTopWidth: "1px",
+    listHeightToBeginScrolling: "420px",
+    listPaddingBottom: 0,
+    listPaddingLeft: padding.ten,
+    listPaddingRight: padding.ten,
+    listPaddingTop: 0,
+    maxWidth: "360px"
+  },
+  MiniCartFooter: {
+    borderTopColor: colors.black10,
+    borderTopWidth: "1px",
+    boxShadow_overflow: depth1,
+    boxShadow: depth0,
+    paddingBottom: padding.sixteen,
+    paddingLeft: padding.sixteen,
+    paddingRight: padding.sixteen,
+    paddingTop: 0
+  },
+  MiniCartFooterMessage: {
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: padding.eight
+  },
+  MiniCartSummary: {
+    paddingBottom: padding.eight,
+    paddingLeft: padding.eight,
+    paddingRight: padding.eight,
+    paddingTop: padding.eight
+  },
+  MiniCartSummaryLeft: {
+    cellPaddingBottom: padding.eight,
+    cellPaddingLeft: padding.eight,
+    cellPaddingRight: padding.five,
+    cellPaddingTop: padding.eight
+  },
+  MiniCartSummaryRight: {
+    cellPaddingBottom: padding.eight,
+    cellPaddingLeft: padding.five,
+    cellPaddingRight: padding.eight,
+    cellPaddingTop: padding.eight
+  },
   PriceCompare: {
     typography: {
       color: colors.black25
@@ -564,7 +570,5 @@ export default {
   ...selectStyles,
   ...selectableItem,
   ...selectableList,
-  ...viewerInfo,
-  ...miniCart,
-  ...miniCartSummary
+  ...viewerInfo
 };

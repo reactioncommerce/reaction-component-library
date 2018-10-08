@@ -5,27 +5,27 @@ import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const Table = styled.table`
   width: 100%;
-  padding-top: ${applyTheme("miniCartSummaryPaddingTop")};
-  padding-bottom: ${applyTheme("miniCartSummaryPaddingBottom")};
-  padding-left: ${applyTheme("miniCartSummaryPaddingLeft")};
-  padding-right: ${applyTheme("miniCartSummaryPaddingRight")};
+  padding-top: ${applyTheme("MiniCartSummary.paddingTop")};
+  padding-bottom: ${applyTheme("MiniCartSummary.paddingBottom")};
+  padding-left: ${applyTheme("MiniCartSummary.paddingLeft")};
+  padding-right: ${applyTheme("MiniCartSummary.paddingRight")};
 `;
 
 const Td = styled.td`
   ${addTypographyStyles("MiniCartSummaryLeft", "bodyText")}
-  padding-top: ${applyTheme("miniCartSummaryLeftCellPaddingTop")};
-  padding-bottom: ${applyTheme("miniCartSummaryLeftCellPaddingBottom")};
-  padding-left: ${applyTheme("miniCartSummaryLeftCellPaddingLeft")};
-  padding-right: ${applyTheme("miniCartSummaryLeftCellPaddingRight")};
+  padding-top: ${applyTheme("MiniCartSummaryLeft.cellPaddingTop")};
+  padding-bottom: ${applyTheme("MiniCartSummaryLeft.cellPaddingBottom")};
+  padding-left: ${applyTheme("MiniCartSummaryLeft.cellPaddingLeft")};
+  padding-right: ${applyTheme("MiniCartSummaryLeft.cellPaddingRight")};
   text-align: right;
 `;
 
 const TdValue = styled.td`
   ${addTypographyStyles("MiniCartSummaryRight", "bodyTextBold")}
-  padding-top: ${applyTheme("miniCartSummaryRightCellPaddingTop")};
-  padding-bottom: ${applyTheme("miniCartSummaryRightCellPaddingBottom")};
-  padding-left: ${applyTheme("miniCartSummaryRightCellPaddingLeft")};
-  padding-right: ${applyTheme("miniCartSummaryRightCellPaddingRight")};
+  padding-top: ${applyTheme("MiniCartSummaryRight.cellPaddingTop")};
+  padding-bottom: ${applyTheme("MiniCartSummaryRight.cellPaddingBottom")};
+  padding-left: ${applyTheme("MiniCartSummaryRight.cellPaddingLeft")};
+  padding-right: ${applyTheme("MiniCartSummaryRight.cellPaddingRight")};
   text-align: left;
 `;
 

@@ -1,8 +1,8 @@
 ### Overview
 
-#### Usage
+### Usage
 
-##### Default
+#### Default
 
 ```jsx
 const checkout = {
@@ -58,7 +58,7 @@ const items = [
 <MiniCart cart={{ checkout, items }} onCheckoutButtonClick={() => alert("Checkout!")} />
 ```
 
-##### Scrolling
+#### Scrolling
 
 ```jsx
 const checkout = {
@@ -146,3 +146,40 @@ const items = [{
 
 <MiniCart cart={{ checkout, items }}  onCheckoutButtonClick={() => alert("Checkout!")} />
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                            | Default | Description                                                    |
+| ------------------------------------- | ------- | -------------------------------------------------------------- |
+| `MiniCart.borderBottomColor`          | black10 | Border bottom color                                            |
+| `MiniCart.borderBottomWidth`          | 1px     | Border bottom width                                            |
+| `MiniCart.borderLeftColor`            | black10 | Border left color                                              |
+| `MiniCart.borderLeftWidth`            | 1px     | Border left width                                              |
+| `MiniCart.borderRightColor`           | black10 | Border right color                                             |
+| `MiniCart.borderRightWidth`           | 1px     | Border right width                                             |
+| `MiniCart.borderTopColor`             | black10 | Border top color                                               |
+| `MiniCart.borderTopWidth`             | 1px     | Border top width                                               |
+| `MiniCart.listHeightToBeginScrolling` | 420px   | The maximum height of the list area before it begins to scroll |
+| `MiniCart.listPaddingBottom`          | 0       | Bottom padding for the list area                               |
+| `MiniCart.listPaddingLeft`            | 10px    | Left padding for the list area                                 |
+| `MiniCart.listPaddingRight`           | 10px    | Right padding for the list area                                |
+| `MiniCart.listPaddingTop`             | 0       | Top padding for the list area                                  |
+| `MiniCart.maxWidth`                   | 360px   | Maximum width of the component                                 |
+| `MiniCartFooter.borderTopColor`       | black10 | Top border color of the footer                                 |
+| `MiniCartFooter.borderTopWidth`       | 1px     | Top border width of the footer                                 |
+| `MiniCartFooter.boxShadow_overflow`   | depth1  | Footer box shadow after list begins to scroll                  |
+| `MiniCartFooter.boxShadow`            | depth0  | Footer box shadow before list begins to scroll                 |
+| `MiniCartFooter.paddingBottom`        | 16px    | Footer bottom padding                                          |
+| `MiniCartFooter.paddingLeft`          | 16px    | Footer left padding                                            |
+| `MiniCartFooter.paddingRight`         | 16px    | Footer right padding                                           |
+| `MiniCartFooter.paddingTop`           | 0       | Footer top padding                                             |
+| `MiniCartFooterMessage.paddingBottom` | 0       | Footer message bottom padding                                  |
+| `MiniCartFooterMessage.paddingLeft`   | 0       | Footer message left padding                                    |
+| `MiniCartFooterMessage.paddingRight`  | 0       | Footer message right padding                                   |
+| `MiniCartFooterMessage.paddingTop`    | 8px     | Footer message top padding                                     |
+
+#### Typography
+
+- The footer message text uses `captionText` style with `rui_components.MiniCartFooterMessage` override
