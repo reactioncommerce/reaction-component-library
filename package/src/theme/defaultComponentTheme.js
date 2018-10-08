@@ -212,22 +212,6 @@ const checkoutTopHat = {
   rui_checkoutTopHatHeight: "35px"
 };
 
-const checkoutEmailAddress = {
-  rui_checkoutEmailAddressBorderBottomColor: colors.black10,
-  rui_checkoutEmailAddressBorderBottomWidth: "2px",
-  rui_checkoutEmailAddressBorderLeftColor: colors.black10,
-  rui_checkoutEmailAddressBorderLeftWidth: 0,
-  rui_checkoutEmailAddressBorderRightColor: colors.black10,
-  rui_checkoutEmailAddressBorderRightWidth: 0,
-  rui_checkoutEmailAddressBorderTopColor: colors.black10,
-  rui_checkoutEmailAddressBorderTopWidth: 0,
-  rui_checkoutEmailAddressColor: colors.coolGrey500,
-  rui_checkoutEmailAddressPaddingBottom: padding.sixteen,
-  rui_checkoutEmailAddressPaddingLeft: 0,
-  rui_checkoutEmailAddressPaddingRight: 0,
-  rui_checkoutEmailAddressPaddingTop: padding.sixteen
-};
-
 const finalReviewCheckoutAction = {
   rui_finalReviewCheckoutActionBorderColor: colors.black10,
   rui_finalReviewCheckoutActionBorderWidth: "1px",
@@ -518,6 +502,23 @@ const rui_components = {
     spaceAbovePlaceOrderButton: padding.sixteen,
     spaceBetweenActiveActionButtons: padding.sixteen
   },
+  CheckoutEmailAddress: {
+    borderBottomColor: colors.black10,
+    borderBottomWidth: "2px",
+    borderLeftColor: colors.black10,
+    borderLeftWidth: 0,
+    borderRightColor: colors.black10,
+    borderRightWidth: 0,
+    borderTopColor: colors.black10,
+    borderTopWidth: 0,
+    paddingBottom: padding.sixteen,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: padding.sixteen,
+    typography: {
+      color: colors.coolGrey500
+    }
+  },
   CheckoutTopHatMessage: {
     typography: {
       color: colors.coolGrey500
@@ -567,7 +568,6 @@ export default {
   ...viewerInfo,
   ...miniCart,
   ...checkoutTopHat,
-  ...checkoutEmailAddress,
   ...finalReviewCheckoutAction,
   ...miniCartSummary
 };
