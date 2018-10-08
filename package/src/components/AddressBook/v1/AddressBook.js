@@ -1,12 +1,66 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
-// import styled from "styled-components";
+import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { CustomPropTypes } from "../../../utils";
+import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
-// onst StyledDiv = styled.div`
-//   color: #333333;
-// `;
+const AddressBookAddNewAddressAction = styled.div`
+  border-color: ${applyTheme("accordionBorderColor")};
+  border-style: ${applyTheme("accordionBorderStyle")};
+  border-width: ${applyTheme("accordionBorderWidth")};
+  border-bottom-left-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-top: none;
+  box-sizing: border-box;
+  color: inherit;
+  overflow: hidden;
+  padding: 20px;
+`;
+
+const AddressBookAddNewAddressActionButton = styled.div`
+  ${addTypographyStyles("ActionButton", "labelText")};
+  color: ${applyTheme("addressBookActionButtonColor")};
+  cursor: pointer;
+  display: table;
+  &:hover {
+    color: ${applyTheme("addressBookActionButtonHoverColor")};
+    svg {
+      color: inherit !important;
+    }
+  }
+`;
+
+const AddressBookAddNewAddressActionIcon = styled.span`
+  color: inherit;
+  height: 20px;
+  margin: 0;
+  margin-right: 10px;
+  width: 20px;
+  svg {
+    color: ${applyTheme("addressBookActionButtonIconColor")};
+    fill: currentColor;
+    height: 1em;
+    width: 1em;
+    vertical-align: middle;
+  }
+`;
+
+const FormActions = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: ${applyTheme("checkoutActionsItemPaddingBottom")};
+  padding-left: ${applyTheme("checkoutActionsItemPaddingLeft")};
+  padding-right: ${applyTheme("checkoutActionsItemPaddingRight")};
+  padding-top: ${applyTheme("checkoutActionsItemPaddingTop")};
+
+  > div:last-of-type {
+    margin-left: ${applyTheme("checkoutActionsSpaceBetweenActiveActionButtons")};
+  }
+`;
+
+const ENTRY = "entry";
+const OVERVIEW = "overview";
+const REVIEW = "review";
 
 class AddressBook extends Component {
   static propTypes = {
@@ -34,14 +88,15 @@ class AddressBook extends Component {
        */
       AddressReview: CustomPropTypes.component.isRequired,
       /**
-       * Pass either the Reaction AddressSelect component or your own component that
+       * Pass either the Reaction iconPlus component or your own component that
        * accepts compatible props.
        */
-      AddressSelect: CustomPropTypes.component.isRequired
+      iconPlus: CustomPropTypes.component.isRequired
     }).isRequired,
+    isSaving: PropTypes.bool,
+    validatedValue: PropTypes.object,
     /**
      * Value for the AddressFrom
-     * needed for editing anonymous cart shipping addresses
      */
     value: PropTypes.object
   };
@@ -53,21 +108,24 @@ class AddressBook extends Component {
   };
 
   state = {
-    selectedAddress: null, // get default address from props
-    status: "entry" // entry, select, review
+    // eslint-disable-next-line
+    status: this.props.validatedValue ? REVIEW : this.hasAddress ? OVERVIEW : ENTRY
   };
 
-  _addresForm = null;
-  _addressSelect = null;
+  _addressForm = null;
   _addressReview = null;
 
   //
   // Helper Methods
   //
-
   get hasAddress() {
     const { account: { addressBook } } = this.props;
     return addressBook.length > 0;
+  }
+
+  addressToString({ address1, address2, city, country, postal, region }) {
+    const addressString = `${address1}${address2 ? `, ${address2}` : ""}, ${city}, ${region} ${postal} ${country}`;
+    return addressString;
   }
 
   //
@@ -85,19 +143,34 @@ class AddressBook extends Component {
     console.log("edit address", value);
   };
 
+  handleAddNewAddressClick = () => {
+    const { status } = this.state;
+    console.log("add address clicked!", status);
+    this.setState({ status: ENTRY });
+  };
+
   //
   // Render Methods
   //
-
   renderAddressSelect() {
-    const { account: { addressBook }, components: { AddressSelect } } = this.props;
+    const { account: { addressBook }, components: { Accordion, AddressForm, iconPlus } } = this.props;
     return (
-      <AddressSelect
-        ref={(el) => {
-          this._addressSelect = el;
-        }}
-        addressBook={addressBook}
-      />
+      <Fragment>
+        {addressBook.map((address) => {
+          const name = `${address.firstName} ${address.lastName}`;
+          return (
+            <Accordion label={name} detail={this.addressToString(address)}>
+              <AddressForm value={address} />
+            </Accordion>
+          );
+        })}
+        <AddressBookAddNewAddressAction>
+          <AddressBookAddNewAddressActionButton onClick={this.handleAddNewAddressClick} tabIndex={0}>
+            <AddressBookAddNewAddressActionIcon>{iconPlus}</AddressBookAddNewAddressActionIcon>
+            Add a new address
+          </AddressBookAddNewAddressActionButton>
+        </AddressBookAddNewAddressAction>
+      </Fragment>
     );
   }
 
@@ -113,24 +186,31 @@ class AddressBook extends Component {
   }
 
   renderAddressForm() {
-    const { components: { AddressForm } } = this.props;
+    const { components: { AddressForm, Button }, isSaving } = this.props;
     return (
-      <AddressForm
-        ref={(el) => {
-          this._addressForm = el;
-        }}
-      />
+      <Fragment>
+        <AddressForm
+          onSubmit={this.handleAddAddress}
+          ref={(el) => {
+            this._addressForm = el;
+          }}
+        />
+        <FormActions>
+          {this.hasAddress ? <Button actionType="secondary">Cancel</Button> : ""}
+          <Button onClick={() => this._addressForm.submit()} isWaiting={isSaving}>
+            Add address
+          </Button>
+        </FormActions>
+      </Fragment>
     );
   }
 
   render() {
-    const { components: { Button } } = this.props;
-    return (
-      <Fragment>
-        {this.hasAddress ? this.renderAddressSelect() : this.renderAddressForm()}
-        <Button>Save</Button>
-      </Fragment>
-    );
+    const { status } = this.state;
+    // eslint-disable-next-line
+    return status === REVIEW
+      ? this.renderAddressReview()
+      : status === OVERVIEW ? this.renderAddressSelect() : this.renderAddressForm();
   }
 }
 
