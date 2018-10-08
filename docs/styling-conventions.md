@@ -26,20 +26,19 @@ If you must use `left`, `top`, `bottom`, or `right` styles, these should be in t
 
 ### Variable names
 
-All theme properties must start with `rui_` followed by a camelcased identifier. The general pattern is this:
+All theme properties for component styling go into the `rui_components` object on the theme object, which is then subdivided by component name. The component name keys in the theme should match your component name, but they can also be suffixed to match specific elements within your component. For example, the `BadgeOverlay` component has a `BadgeOverlay` group in `rui_components`, but it also has `BadgeOverlayPrimaryBadge` and `BadgeOverlaySecondaryBadge`, which are elements within `BadgeOverlay`. If you do this, be sure to think carefully about whether it might make more sense to actually divide your component into multiple components.
 
-- `rui_`
-- Component name, with lowercase first letter
+The general pattern is this:
+
+- Camel-case description of the variable (e.g., "borderTopWidth", "paddingLeft", "size")
 - `Mobile`, if specific to mobile
-- Capitalized description of the variable (e.g., "BorderWidth", "PaddingLeft", "Size")
 - Optionally, an underscore followed by a lowercase state suffix (e.g., "_active", "_disabled"). Do not proactively add state-suffixed variables for everything, but rather add them only as the default designs require and as requested by users in GitHub issues.
 
-Examples:
-- `rui_ButtonBorderWidth`
-- `rui_ButtonMobileBorderWidth`
-- `rui_ButtonBackgroundColor_disabled`
+Example full paths in the theme:
+- `rui_components.MiniCartSummary.paddingTop`
+- `rui_components.Button.backgroundColor_disabled`
 
-It's important to note that there should NOT be generic theme variables with names like `rui_color_disabled`. All must have component-specific names. It is fine (and ideal) to have a constant such as `color_disabled` _used_ within the theme file, in order to set multiple theme variables to the same value.
+It's important to note that there should NOT be generic theme variables with names like `rui_color_disabled` in the theme. All must have component-specific names. It is fine (and ideal) to have a constant such as `standardBorderRadius` _used_ within the theme file, in order to set multiple theme variables to the same value.
 
 ### Using a theme variable
 
@@ -51,10 +50,10 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const Div = styled.div`
-  border-left-color: ${applyTheme("someComponentBorderLeftColor")};
-  border-right-color: ${applyTheme("someComponentBorderRightColor")};
-  border-top-color: ${applyTheme("someComponentBorderTopColor")};
-  border-bottom-color: ${applyTheme("someComponentBorderBottomColor")};
+  border-left-color: ${applyTheme("SomeComponent.borderLeftColor")};
+  border-right-color: ${applyTheme("SomeComponent.borderRightColor")};
+  border-top-color: ${applyTheme("SomeComponent.borderTopColor")};
+  border-bottom-color: ${applyTheme("SomeComponent.borderBottomColor")};
 `;
 
 class SomeComponent extends Component {
@@ -68,11 +67,13 @@ class SomeComponent extends Component {
 export default SomeComponent;
 ```
 
-NOTE: `applyTheme` returns a function that accepts props. If you don't pass it `props`, then it will apply the default theme but not any custom theme from the `ThemeProvider`. So if you use `applyTheme` within another function, be sure to call the returned function and pass on the `props`:
+The theme path passed to `applyTheme` does not include `rui_components.`. That prefix is assumed.
+
+`applyTheme` returns a function that accepts props. If you don't pass it `props`, then it will apply the default theme but not any custom theme from the `ThemeProvider`. So if you use `applyTheme` within another function, be sure to call the returned function and pass on the `props`:
 
 ```js
 const Table = styled.table`
-  background-color: ${(props) => (props.isDense ? applyTheme("cartSummaryDenseBackgroundColor")(props) : applyTheme("cartSummaryBackgroundColor")(props))};
+  background-color: ${(props) => (props.isDense ? applyTheme("CartSummary.denseBackgroundColor")(props) : applyTheme("CartSummary.backgroundColor")(props))};
 `;
 ```
 
@@ -109,15 +110,15 @@ const PrimaryBadge = styled.div`
     const { type } = props;
     switch (type) {
       case BADGE_TYPES.BACKORDER:
-        return css`background-color: ${applyTheme("badgeBackgroundColor_backorder")};`;
+        return css`background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_backorder")};`;
       case BADGE_TYPES.BESTSELLER:
-        return css`background-color: ${applyTheme("badgeBackgroundColor_bestseller")};`;
+        return css`background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_bestseller")};`;
       case BADGE_TYPES.LOW_QUANTITY:
-        return css`background-color: ${applyTheme("badgeBackgroundColor_lowQuantity")};`;
+        return css`background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_lowQuantity")};`;
       case BADGE_TYPES.SOLD_OUT:
-        return css`background-color: ${applyTheme("badgeBackgroundColor_soldOut")};`;
+        return css`background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_soldOut")};`;
       case BADGE_TYPES.SALE:
-        return css`background-color: ${applyTheme("badgeBackgroundColor_sale")};`;
+        return css`background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_sale")};`;
       default:
         return "";
     }
