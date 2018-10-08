@@ -207,11 +207,6 @@ const miniCartSummary = {
   rui_miniCartSummaryRightCellPaddingTop: padding.eight
 };
 
-const checkoutTopHat = {
-  rui_checkoutTopHatBackgroundColor: colors.black05,
-  rui_checkoutTopHatHeight: "35px"
-};
-
 const finalReviewCheckoutAction = {
   rui_finalReviewCheckoutActionBorderColor: colors.black10,
   rui_finalReviewCheckoutActionBorderWidth: "1px",
@@ -519,6 +514,10 @@ const rui_components = {
       color: colors.coolGrey500
     }
   },
+  CheckoutTopHat: {
+    backgroundColor: colors.black05,
+    height: "35px"
+  },
   CheckoutTopHatMessage: {
     typography: {
       color: colors.coolGrey500
@@ -567,7 +566,6 @@ export default {
   ...selectableList,
   ...viewerInfo,
   ...miniCart,
-  ...checkoutTopHat,
   ...finalReviewCheckoutAction,
   ...miniCartSummary
 };
