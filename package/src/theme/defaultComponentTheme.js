@@ -187,19 +187,6 @@ const miniCartSummary = {
   rui_miniCartSummaryRightCellPaddingTop: padding.eight
 };
 
-const finalReviewCheckoutAction = {
-  rui_finalReviewCheckoutActionBorderColor: colors.black10,
-  rui_finalReviewCheckoutActionBorderWidth: "1px",
-  rui_finalReviewCheckoutActionItemsWrapperPaddingBottom: 0,
-  rui_finalReviewCheckoutActionItemsWrapperPaddingLeft: padding.sixteen,
-  rui_finalReviewCheckoutActionItemsWrapperPaddingRight: padding.sixteen,
-  rui_finalReviewCheckoutActionItemsWrapperPaddingTop: 0,
-  rui_finalReviewCheckoutActionSummaryWrapperPaddingBottom: 0,
-  rui_finalReviewCheckoutActionSummaryWrapperPaddingLeft: padding.sixteen,
-  rui_finalReviewCheckoutActionSummaryWrapperPaddingRight: padding.sixteen,
-  rui_finalReviewCheckoutActionSummaryWrapperPaddingTop: 0
-};
-
 const rui_components = {
   AccountProfileInfo: {
     spacingAfterEmail: "4px",
@@ -526,6 +513,18 @@ const rui_components = {
     color_success: colors.black55,
     spacingToInput: padding.ten
   },
+  FinalReviewCheckoutAction: {
+    borderColor: colors.black10,
+    borderWidth: "1px",
+    itemsWrapperPaddingBottom: 0,
+    itemsWrapperPaddingLeft: padding.sixteen,
+    itemsWrapperPaddingRight: padding.sixteen,
+    itemsWrapperPaddingTop: 0,
+    summaryWrapperPaddingBottom: 0,
+    summaryWrapperPaddingLeft: padding.sixteen,
+    summaryWrapperPaddingRight: padding.sixteen,
+    summaryWrapperPaddingTop: 0
+  },
   PriceCompare: {
     typography: {
       color: colors.black25
@@ -567,6 +566,5 @@ export default {
   ...selectableList,
   ...viewerInfo,
   ...miniCart,
-  ...finalReviewCheckoutAction,
   ...miniCartSummary
 };

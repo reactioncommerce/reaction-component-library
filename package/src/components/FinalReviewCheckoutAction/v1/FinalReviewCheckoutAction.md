@@ -1,7 +1,7 @@
 ### Overview
 This checkout action is responsible for rendering the [CartItems](/#!/CartItems) and [CartSummary](/#!/CartSummary)components used to display the final checkout review action.
 
-#### Basic Usage
+### Usage
 
 ```jsx
 const isReady = (ready) => true;
@@ -58,3 +58,24 @@ const checkoutSummary = {
 />
 
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                                              | Default | Description                                  |
+| ------------------------------------------------------- | ------- | -------------------------------------------- |
+| `FinalReviewCheckoutAction.borderColor`                 | black10 | Color of all borders                         |
+| `FinalReviewCheckoutAction.borderWidth`                 | 1px     | Width of all borders                         |
+| `FinalReviewCheckoutAction.itemsWrapperPaddingBottom`   | 0       | Bottom padding of the items review wrapper   |
+| `FinalReviewCheckoutAction.itemsWrapperPaddingLeft`     | 16px    | Left padding of the items review wrapper     |
+| `FinalReviewCheckoutAction.itemsWrapperPaddingRight`    | 16px    | Right padding of the items review wrapper    |
+| `FinalReviewCheckoutAction.itemsWrapperPaddingTop`      | 0       | Top padding of the items review wrapper      |
+| `FinalReviewCheckoutAction.summaryWrapperPaddingBottom` | 0       | Bottom padding of the summary review wrapper |
+| `FinalReviewCheckoutAction.summaryWrapperPaddingLeft`   | 16px    | Left padding of the summary review wrapper   |
+| `FinalReviewCheckoutAction.summaryWrapperPaddingRight`  | 16px    | Right padding of the summary review wrapper  |
+| `FinalReviewCheckoutAction.summaryWrapperPaddingTop`    | 0       | Top padding of the summary review wrapper    |
+
+#### Typography
+
+- The label text uses `subheadingTextBold` style with `rui_components.FinalReviewCheckoutActionTitle` override

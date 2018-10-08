@@ -37,7 +37,6 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 | `FieldLabel.color_success`  | black55 | Field label color for "success" state       |
 | `FieldLabel.spacingToInput` | 10px    | Space between the input and the field label |
 
-
 #### Typography
 
 - The field label text uses `labelText` style with `rui_components.FieldLabel` override
