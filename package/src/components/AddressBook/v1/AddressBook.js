@@ -135,16 +135,16 @@ class AddressBook extends Component {
   //
   // Handler Methods
   //
-  handleAddAddress = (value) => {
-    console.log("added new address", value);
+  handleAddAddress = () => {
+    // console.log("added new address", value);
   };
 
-  handleDeleteAddress = (value) => {
-    console.log("deleted address", value);
+  handleDeleteAddress = () => {
+    // console.log("deleted address", value);
   };
 
-  handleEditAddress = (value) => {
-    console.log("edit address", value);
+  handleEditAddress = () => {
+    // console.log("edit address", value);
   };
 
   handleAddressFormToggle = () => {
