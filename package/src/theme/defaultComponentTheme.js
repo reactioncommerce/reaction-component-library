@@ -30,29 +30,6 @@ const standardBorderRadius = "2px";
  * Default Theme Elements
  */
 
-// select
-const selectStyles = {
-  rui_selectBorderBottomLeftRadius: standardBorderRadius,
-  rui_selectBorderBottomRightRadius: 0,
-  rui_selectBorderTopLeftRadius: 0,
-  rui_selectBorderTopRightRadius: standardBorderRadius,
-  rui_selectIndicatorColor: colors.coolGrey500,
-  rui_selectLetterSpacing: "0.3px",
-  rui_selectMenuBorderBottomColor: colors.black20,
-  rui_selectMenuBorderBottomLeftRadius: standardBorderRadius,
-  rui_selectMenuBorderBottomRightRadius: 0,
-  rui_selectMenuBorderBottomWidth: "1px",
-  rui_selectMenuBorderLeftColor: colors.black20,
-  rui_selectMenuBorderLeftWidth: "1px",
-  rui_selectMenuBorderRightColor: colors.black20,
-  rui_selectMenuBorderRightWidth: "1px",
-  rui_selectMenuBorderTopLeftRadius: 0,
-  rui_selectMenuBorderTopRightRadius: standardBorderRadius,
-  rui_selectOptionHoverColor: colors.reactionBlue100,
-  rui_selectSelectedOptionBackgroundColor: colors.reactionBlue200,
-  rui_selectTextColor: colors.coolGrey500
-};
-
 // selectableItem
 const selectableItem = {
   rui_selectableItemRadioButtonCheckSize: "10px",
@@ -529,6 +506,29 @@ const rui_components = {
   ProgressiveImage: {
     backgroundColor: colors.white
   },
+  Select: {
+    borderBottomLeftRadius: standardBorderRadius,
+    borderBottomRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: standardBorderRadius,
+    indicatorColor: colors.coolGrey500,
+    letterSpacing: "0.3px",
+    optionHoverColor: colors.reactionBlue100,
+    selectedOptionBackgroundColor: colors.reactionBlue200,
+    textColor: colors.coolGrey500
+  },
+  SelectMenu: {
+    borderBottomColor: colors.black20,
+    borderBottomLeftRadius: standardBorderRadius,
+    borderBottomRightRadius: 0,
+    borderBottomWidth: "1px",
+    borderLeftColor: colors.black20,
+    borderLeftWidth: "1px",
+    borderRightColor: colors.black20,
+    borderRightWidth: "1px",
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: standardBorderRadius
+  },
   StockWarning: {
     typography: {
       color: colors.red
@@ -554,7 +554,6 @@ export default {
     lg: breakpoint_lg,
     xl: breakpoint_xl
   },
-  ...selectStyles,
   ...selectableItem,
   ...selectableList,
   ...viewerInfo

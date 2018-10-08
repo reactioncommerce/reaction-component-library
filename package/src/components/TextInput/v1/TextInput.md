@@ -253,7 +253,6 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 | `Textarea.iconTop`                      | 10px                                                         | Top offset for a textarea icon               |
 | `Textarea.lineHeight`                   | 1.5                                                          | Line height for lines within a textarea      |
 
-
 #### Typography
 
 None
