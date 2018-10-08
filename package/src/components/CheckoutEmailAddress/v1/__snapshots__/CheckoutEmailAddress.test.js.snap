@@ -3,7 +3,7 @@
 exports[`render email address of a guest 1`] = `
 .c0 {
   -webkit-font-smoothing: antialiased;
-  color: #505558;
+  color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -26,7 +26,6 @@ exports[`render email address of a guest 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -63,7 +62,7 @@ exports[`render email address of a guest 1`] = `
 exports[`render email address of a user with an account 1`] = `
 .c0 {
   -webkit-font-smoothing: antialiased;
-  color: #505558;
+  color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -86,7 +85,6 @@ exports[`render email address of a user with an account 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;

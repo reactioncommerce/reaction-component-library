@@ -10,7 +10,7 @@ exports[`renders all error messages 1`] = `
 
 .c1 {
   -webkit-font-smoothing: antialiased;
-  color: #505558;
+  color: #cd3f4c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -21,7 +21,6 @@ exports[`renders all error messages 1`] = `
   -ms-letter-spacing: .02em;
   letter-spacing: .02em;
   line-height: 1.25;
-  color: #cd3f4c;
 }
 
 <div
