@@ -94,6 +94,9 @@ class AddressBook extends Component {
       iconPlus: CustomPropTypes.component.isRequired
     }).isRequired,
     isSaving: PropTypes.bool,
+    /**
+     * Validated entred value for the AddressReview
+     */
     validatedValue: PropTypes.object,
     /**
      * Value for the AddressFrom
@@ -114,6 +117,7 @@ class AddressBook extends Component {
 
   _addressForm = null;
   _addressReview = null;
+  _refs = {};
 
   //
   // Helper Methods
@@ -143,29 +147,54 @@ class AddressBook extends Component {
     console.log("edit address", value);
   };
 
-  handleAddNewAddressClick = () => {
+  handleAddressFormToggle = () => {
     const { status } = this.state;
-    console.log("add address clicked!", status);
-    this.setState({ status: ENTRY });
+    let newStatus;
+    if (status === ENTRY && this.hasAddress) {
+      newStatus = OVERVIEW;
+    } else {
+      newStatus = ENTRY;
+    }
+    this.setState({ status: newStatus });
   };
 
   //
   // Render Methods
   //
   renderAddressSelect() {
-    const { account: { addressBook }, components: { Accordion, AddressForm, iconPlus } } = this.props;
+    const { account: { addressBook }, components: { Accordion, AddressForm, Button, iconPlus }, isSaving } = this.props;
     return (
       <Fragment>
-        {addressBook.map((address) => {
+        {addressBook.map((address, index) => {
           const name = `${address.firstName} ${address.lastName}`;
           return (
-            <Accordion label={name} detail={this.addressToString(address)}>
+            <Accordion
+              key={name}
+              label={name}
+              detail={this.addressToString(address)}
+              ref={(el) => {
+                this._refs[`accordion${index}`] = el;
+              }}
+            >
               <AddressForm value={address} />
+              <FormActions>
+                <Button
+                  actionType="secondary"
+                  onClick={() => {
+                    this._refs[`accordion${index}`].handleToggle();
+                  }}
+                >
+                  Cancel
+                </Button>
+                <Button onClick={() => this._addressForm.submit()} isWaiting={isSaving}>
+                  Save Changes
+                </Button>
+              </FormActions>
             </Accordion>
           );
         })}
         <AddressBookAddNewAddressAction>
-          <AddressBookAddNewAddressActionButton onClick={this.handleAddNewAddressClick} tabIndex={0}>
+          <AddressBookAddNewAddressActionButton onClick={this.handleAddressFormToggle} tabIndex={0}>
             <AddressBookAddNewAddressActionIcon>{iconPlus}</AddressBookAddNewAddressActionIcon>
             Add a new address
           </AddressBookAddNewAddressActionButton>
@@ -196,7 +225,13 @@ class AddressBook extends Component {
           }}
         />
         <FormActions>
-          {this.hasAddress ? <Button actionType="secondary">Cancel</Button> : ""}
+          {this.hasAddress ? (
+            <Button actionType="secondary" onClick={this.handleAddressFormToggle}>
+              Cancel
+            </Button>
+          ) : (
+            ""
+          )}
           <Button onClick={() => this._addressForm.submit()} isWaiting={isSaving}>
             Add address
           </Button>
