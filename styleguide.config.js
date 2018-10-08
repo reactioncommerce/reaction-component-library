@@ -430,8 +430,7 @@ module.exports = {
             "AddressBook",
             "AddressReview",
             "AddressSelect",
-            "ShopLogo",
-            "ViewerInfo"
+            "ShopLogo"
           ],
           content: "styleguide/src/sections/General.md",
           name: "General"
@@ -488,7 +487,8 @@ module.exports = {
         generateSection({
           componentNames: [
             "AccountProfileInfo",
-            "ProfileImage"
+            "ProfileImage",
+            "ViewerInfo"
           ],
           content: "styleguide/src/sections/Account.md",
           name: "Account"
