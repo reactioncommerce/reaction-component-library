@@ -33,6 +33,9 @@ exports[`basic snapshot 1`] = `
   padding-bottom: 10px;
   position: relative;
   text-align: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .c0:hover {
