@@ -79,23 +79,24 @@ The checkbox's check icon an `::after` pseudoelement on `<input>`, with a `conte
 
 Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
 
-| Theme Prop                                         | Default | Description                                                                             |
-| -------------------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
-| `Checkbox.borderColor` | coolGrey500 | The color of the border of the checkbox |
-| `Checkbox.borderRadius` | 2px | The radius of all corners of the border of the checkbox |
-| `Checkbox.borderWidth` | 2px | The width of the border of the checkbox |
-| `Checkbox.disabledColor` | black10 | The color of the entire control when disabled |
-| `Checkbox.disabledOpacity` | 0.5 | The opacity of the entire control when disabled |
-| `Checkbox.focusStyle` | `rgb(59, 153, 252) auto 5px` | The `outline` of the entire control when focused |
-| `Checkbox.iconColor` | coolGrey500 | The color of the check mark icon |
-| `Checkbox.iconLeftOffset` | 0.3em | The distance between the left side of the checkbox and the left side of the check mark icon |
-| `Checkbox.iconSize` | 0.875em | The size of the check mark icon |
-| `Checkbox.iconTopOffset` | 0.25em | The distance between the top side of the checkbox and the top side of the check mark icon |
-| `Checkbox.labelSpacing` | 2.2em | Space between the checkbox and the left side of the checkbox label |
-| `Checkbox.leftSpacing` | 0 | Distance between the left side of the control and the left side of the checkbox |
-| `Checkbox.size` | 1.4em | The size (same width and height) of the checkbox |
-| `Checkbox.topSpacing` | 0 | Distance between the top side of the control and the top side of the checkbox |
-| `Checkbox.verticalSpacing` | 17px | The bottom margin for the control |
+| Theme Prop                 | Default                      | Description                                                                                 |
+| -------------------------- | ---------------------------- | ------------------------------------------------------------------------------------------- |
+| `Checkbox.borderColor`     | coolGrey500                  | The color of the border of the checkbox                                                     |
+| `Checkbox.borderRadius`    | 2px                          | The radius of all corners of the border of the checkbox                                     |
+| `Checkbox.borderWidth`     | 2px                          | The width of the border of the checkbox                                                     |
+| `Checkbox.disabledColor`   | black10                      | The color of the entire control when disabled                                               |
+| `Checkbox.disabledOpacity` | 0.5                          | The opacity of the entire control when disabled                                             |
+| `Checkbox.focusStyle`      | `rgb(59, 153, 252) auto 5px` | The `outline` of the entire control when focused                                            |
+| `Checkbox.iconColor`       | coolGrey500                  | The color of the check mark icon                                                            |
+| `Checkbox.iconLeftOffset`  | 0.3em                        | The distance between the left side of the checkbox and the left side of the check mark icon |
+| `Checkbox.iconSize`        | 0.875em                      | The size of the check mark icon                                                             |
+| `Checkbox.iconTopOffset`   | 0.25em                       | The distance between the top side of the checkbox and the top side of the check mark icon   |
+| `Checkbox.labelSpacing`    | 2.2em                        | Space between the checkbox and the left side of the checkbox label                          |
+| `Checkbox.leftSpacing`     | 0                            | Distance between the left side of the control and the left side of the checkbox             |
+| `Checkbox.size`            | 1.4em                        | The size (same width and height) of the checkbox                                            |
+| `Checkbox.topSpacing`      | 0                            | Distance between the top side of the control and the top side of the checkbox               |
+| `Checkbox.verticalSpacing` | 17px                         | The bottom margin for the control                                                           |
+
 
 #### Typography
 
