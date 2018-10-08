@@ -2,12 +2,86 @@
 
 exports[`basic snapshot 1`] = `
 .c0 {
+  border-color: #e6e6e6;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
   color: inherit;
+  overflow: hidden;
+}
+
+.c0:first-of-type {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.c0:not(:first-of-type) {
+  border-top: none;
+}
+
+.c1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding: 10px 15px;
+}
+
+.c2 {
+  height: 24px;
+  margin: 0;
+  width: 38px;
+}
+
+.c2 svg {
+  height: 24px;
+  -webkit-transform: rotateZ(0);
+  -ms-transform: rotateZ(0);
+  transform: rotateZ(0);
+  -webkit-transition: -webkit-transform 250ms ease-in-out;
+  -webkit-transition: transform 250ms ease-in-out;
+  transition: transform 250ms ease-in-out;
+  width: 38px;
+}
+
+.c3 {
+  background-color: #fafafa;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 0;
+  color: inherit;
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  -webkit-transition: max-height 250ms ease-in-out,padding 0ms ease-in-out 250ms,border 0ms ease-in-out 250ms;
+  transition: max-height 250ms ease-in-out,padding 0ms ease-in-out 250ms,border 0ms ease-in-out 250ms;
 }
 
 <div
   className="c0"
 >
-  TEST
+  <div
+    className="c1"
+    onClick={[Function]}
+  >
+    <span>
+      <b>
+        mock label
+      </b>
+      
+    </span>
+    <span
+      className="c2"
+    />
+  </div>
+  <div
+    className="c3"
+  />
 </div>
 `;
