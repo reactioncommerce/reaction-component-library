@@ -45,6 +45,12 @@ const GridItem = styled.div`
 class CatalogGrid extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Labels to use for the various badges. Refer to `BadgeOverlay`'s prop documentation.
      */
     badgeLabels: PropTypes.shape({
@@ -144,7 +150,7 @@ class CatalogGrid extends Component {
     }
 
     return (
-      <ContainerQuery query={this.getContainerQueries()} initialSize={initialSize}>
+      <ContainerQuery className={this.props.className} query={this.getContainerQueries()} initialSize={initialSize}>
         {(params) => (
           <GridContainer>
             {products.map((product, index) => (

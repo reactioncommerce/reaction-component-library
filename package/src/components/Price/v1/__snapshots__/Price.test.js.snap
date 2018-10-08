@@ -34,7 +34,9 @@ exports[`Renders price with a compare at price 1`] = `
   display: block;
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
@@ -65,7 +67,9 @@ exports[`Renders price without a compare at price 1`] = `
   line-height: 1.25;
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
@@ -91,7 +95,9 @@ exports[`Renders price without a compare at price, due to the fact that the pric
   line-height: 1.25;
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >

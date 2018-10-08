@@ -32,6 +32,12 @@ const TdValue = styled.td`
 class MiniCartSummary extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * The subtotal for the items in the cart.
      */
     displaySubtotal: PropTypes.string.isRequired,
@@ -57,7 +63,7 @@ class MiniCartSummary extends Component {
     const taxes = displayTax && this.renderTax();
 
     return (
-      <Table>
+      <Table className={this.props.className}>
         <tbody>
           <tr>
             <Td>Subtotal</Td>

@@ -61,6 +61,12 @@ const Img = styled.img`
 class ProgressiveImage extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Image text alternative - https://www.w3.org/TR/WCAG20-TECHS/H37.html
      */
     altText: PropTypes.string,
@@ -253,7 +259,7 @@ class ProgressiveImage extends Component {
     const { presrc } = this.props;
     const { ready } = this.state;
     return (
-      <ImageWrapper innerRef={(wrapper) => { this._wrapper = wrapper; }}>
+      <ImageWrapper className={this.props.className} innerRef={(wrapper) => { this._wrapper = wrapper; }}>
         {ready ? this.renderImage() : null}
         {presrc && this.renderLoadingImage()}
       </ImageWrapper>

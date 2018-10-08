@@ -107,6 +107,12 @@ const BadgeLabel = styled.span`
 class BadgeOverlay extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Labels to use for the various badges
      */
     badgeLabels: PropTypes.shape({
@@ -215,7 +221,7 @@ class BadgeOverlay extends Component {
     const status = badgeStatus(product, badgeLabels) || {};
 
     return (
-      <Overlay isFaded={status.type === BADGE_TYPES.SOLD_OUT}>
+      <Overlay className={this.props.className} isFaded={status.type === BADGE_TYPES.SOLD_OUT}>
         {this.renderBadges()}
         {children}
       </Overlay>

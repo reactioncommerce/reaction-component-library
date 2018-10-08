@@ -4,6 +4,12 @@ import PropTypes from "prop-types";
 class TwoColumnExamples extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Requires two children, which are the left and right examples
      */
     children: PropTypes.arrayOf(PropTypes.node),
@@ -43,7 +49,7 @@ class TwoColumnExamples extends Component {
     };
 
     return (
-      <div style={{ display: "flex" }}>
+      <div className={this.props.className} style={{ display: "flex" }}>
         <div style={leftStyle}>
           {children[0]}
         </div>

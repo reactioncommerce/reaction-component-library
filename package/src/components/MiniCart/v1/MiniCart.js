@@ -56,6 +56,12 @@ const FooterMessage = styled.span`
 class MiniCart extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Cart data
      */
     cart: PropTypes.shape({
@@ -155,7 +161,7 @@ class MiniCart extends Component {
       ...props
     } = this.props;
     return (
-      <Cart>
+      <Cart className={this.props.className}>
         <Items>
           <CartItems items={items} components={components} {...props} isMiniCart />
         </Items>

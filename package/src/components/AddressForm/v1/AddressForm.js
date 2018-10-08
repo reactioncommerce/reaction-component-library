@@ -28,6 +28,12 @@ const ColHalf = styled.div`
 class AddressForm extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Place holder for Address Name field.
      */
     addressNamePlaceholder: PropTypes.string,
@@ -283,7 +289,7 @@ class AddressForm extends Component {
     const isCommercialInputId = `isCommercial_${this.uniqueInstanceIdentifier}`;
 
     return (
-      <Form
+      <Form className={this.props.className}
         ref={(formEl) => {
           this._form = formEl;
         }}

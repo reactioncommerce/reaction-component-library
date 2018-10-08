@@ -15,6 +15,12 @@ const Del = styled.del`
 class Price extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * A comparison price value, usually MSRP.
      * This value is expected to have the currency symbol, i.e. $300.00
      */
@@ -43,7 +49,7 @@ class Price extends Component {
     const { displayCompareAtPrice, displayPrice, hasPriceBottom } = this.props;
 
     return (
-      <div>
+      <div className={this.props.className}>
         {hasPriceBottom ? "" : <PriceDiv>{displayPrice}</PriceDiv>}
         {displayCompareAtPrice ? this.renderCompareAtPrice() : null}
         {hasPriceBottom ? <PriceDiv>{displayPrice}</PriceDiv> : ""}

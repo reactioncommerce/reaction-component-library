@@ -56,6 +56,12 @@ const PlaceOrderButtonContainer = styled.div`
 class CheckoutActions extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Checkout actions is an array of action objects, the order of this array
      * will be the render order.
      */
@@ -292,7 +298,7 @@ class CheckoutActions extends Component {
     const { activeLabel, completeLabel, incompleteLabel } = action;
 
     return (
-      <Action key={action.id}>
+      <Action className={this.props.className} key={action.id}>
         <CheckoutAction
           status={actionStatus}
           {...{ activeLabel, completeLabel, incompleteLabel }}

@@ -61,6 +61,12 @@ const Total = styled.span`
 class CartSummary extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Discount amount associated with promo code
      */
     displayDiscount: PropTypes.string,
@@ -140,7 +146,7 @@ class CartSummary extends Component {
     const discount = displayDiscount && this.renderDiscount();
 
     return (
-      <Table isDense={isDense}>
+      <Table className={this.props.className} isDense={isDense}>
         {header}
         <tbody>
           <tr>

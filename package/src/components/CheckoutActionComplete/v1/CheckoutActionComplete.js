@@ -54,6 +54,12 @@ const ActionButton = styled.div`
 class CheckoutActionComplete extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
@@ -93,7 +99,7 @@ class CheckoutActionComplete extends Component {
     const step = stepNumber ? <Fragment>{stepNumber}.&nbsp;</Fragment> : null;
 
     return (
-      <ActionContainer>
+      <ActionContainer className={this.props.className}>
         <ActionTitle>
           {step}{label}
         </ActionTitle>

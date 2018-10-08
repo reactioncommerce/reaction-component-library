@@ -27,6 +27,12 @@ const ViewerImage = styled.img`
 class ProfileImage extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Size of profile image, in pixels
      */
     size: PropTypes.number,
@@ -77,7 +83,7 @@ class ProfileImage extends Component {
     const { size } = this.props;
 
     return (
-      <ViewerImageCircle style={{ height: `${size}px`, width: `${size}px` }}>
+      <ViewerImageCircle className={this.props.className} style={{ height: `${size}px`, width: `${size}px` }}>
         {this.viewerProfileImage()}
       </ViewerImageCircle>
     );
