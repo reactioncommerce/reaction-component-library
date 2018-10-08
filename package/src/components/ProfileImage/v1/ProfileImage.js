@@ -5,7 +5,7 @@ import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ViewerImageCircle = styled.div`
   align-items: center;
-  background-color: ${applyTheme("profileImageBackgroundColor")};
+  background-color: ${applyTheme("ProfileImage.backgroundColor")};
   border-radius: 50%;
   display: flex;
   justify-content: center;

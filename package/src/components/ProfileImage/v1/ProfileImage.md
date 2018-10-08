@@ -1,7 +1,7 @@
 ### Overview
 Renders the viewers profile image, if provided. Renders the viewers initials if no image is provided.
 
-#### Usage
+### Usage
 ```jsx
 const viewer = {
   firstName: "John",
@@ -14,7 +14,7 @@ const viewer = {
 <ProfileImage viewer={viewer} />
 ```
 
-**With initials**
+#### With initials
 ```jsx
 const viewer = {
   firstName: "John",
@@ -24,10 +24,9 @@ const viewer = {
 };
 
 <ProfileImage viewer={viewer} />
-
 ```
 
-**With custom sizes**
+#### With custom sizes
 ```jsx
 const viewer = {
   firstName: "John",
@@ -37,7 +36,6 @@ const viewer = {
 };
 
 <ProfileImage size={100} viewer={viewer} />
-
 ```
 
 ```jsx
@@ -49,5 +47,16 @@ const viewer = {
 };
 
 <ProfileImage size={30} viewer={viewer} />
-
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                                         | Default | Description                                                                             |
+| -------------------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
+| `ProfileImage.backgroundColor` | teal | The background color of the image circle, generally only seen when there is no image |
+
+#### Typography
+
+- The initials text shown when there is no image uses `labelText` style with `rui_components.ProfileImageInitials` override

@@ -207,19 +207,6 @@ const viewerInfo = {
   rui_viewerInfoInitialsSize: "30px"
 };
 
-// AccountProfileInfo
-const accountProfileInfo = {
-  rui_accountProfileInfoSpacingAfterEmail: "4px",
-  rui_accountProfileInfoSpacingAfterName: "4px",
-  rui_accountProfileInfoSpacingBetweenImageAndContent: "16px"
-};
-
-// ProfileImage
-const profileImage = {
-  rui_profileImageBackgroundColor: colors.teal,
-  rui_profileImageInitialsColor: colors.white
-};
-
 const miniCart = {
   rui_miniCartBorderBottomColor: colors.black10,
   rui_miniCartBorderBottomWidth: "1px",
@@ -299,6 +286,11 @@ const finalReviewCheckoutAction = {
 };
 
 const rui_components = {
+  AccountProfileInfo: {
+    spacingAfterEmail: "4px",
+    spacingAfterName: "4px",
+    spacingBetweenImageAndContent: "16px"
+  },
   BadgeOverlay: {
     fadedOpacity: "0.5"
   },
@@ -541,6 +533,9 @@ const rui_components = {
       color: colors.black25
     }
   },
+  ProfileImage: {
+    backgroundColor: colors.teal
+  },
   ProfileImageInitials: {
     typography: {
       color: colors.white
@@ -576,8 +571,6 @@ export default {
   ...checkbox,
   ...selectableItem,
   ...selectableList,
-  ...accountProfileInfo,
-  ...profileImage,
   ...viewerInfo,
   ...miniCart,
   ...checkoutTopHat,
