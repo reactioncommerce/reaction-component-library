@@ -1,16 +1,16 @@
 ### Overview
 This checkout action is responsible for rendering the [StripeForm](/#!/StripeForm) component used to collect payment information. It is also capable of rendering a form to collect billing address information if the user chooses to use a new billing address.
 
-#### Basic Usage
+### Usage
 
 ```jsx
 const isReady = (ready) => true;
 
-<StripePaymentCheckoutAction 
-  label="Payment Information" 
+<StripePaymentCheckoutAction
+  label="Payment Information"
   status="incomplete"
-  onReadyForSaveChange={isReady} 
-  stepNumber={3} 
+  onReadyForSaveChange={isReady}
+  stepNumber={3}
 />
 
 ```
@@ -32,3 +32,12 @@ const action = StripePaymentCheckoutAction
 action.renderComplete(paymentInformation)
 
 ```
+
+### Theme
+
+See [Theming Components](./#!/Theming%20Components).
+
+#### Typography
+
+- The label text uses `subheadingTextBold` style with `rui_components.StripePaymentCheckoutAction` override
+- The secure caption text uses `captionText` style with `rui_components.StripePaymentCheckoutAction` override
