@@ -485,6 +485,7 @@ const cartItemDetail = {
 const progressiveImage = {
   rui_progressiveImageBackgroundColor: colors.white
 };
+
 const accordion = {
   rui_accordionBorderColor: colors.black10,
   rui_accordionBorderRadius: standardBorderRadius,
@@ -498,6 +499,13 @@ const accordion = {
   rui_accordionHeaderHeight: "50px",
   rui_accordionHeaderHeightMobile: "60px",
   rui_accordionContentBackgroundColor: colors.black02
+};
+
+const addressBook = {
+  rui_addressBookBorderColor: colors.black10,
+  rui_addressBookActionButtonColor: colors.coolGreyActive,
+  rui_addressBookActionButtonHoverColor: colors.coolGreyHover,
+  rui_addressBookActionButtonIconColor: colors.coolGrey500
 };
 
 const rui_components = {
@@ -600,5 +608,6 @@ export default {
   ...miniCartSummary,
   ...catalogGridItem,
   ...progressiveImage,
-  ...accordion
+  ...accordion,
+  ...addressBook
 };
