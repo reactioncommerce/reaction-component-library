@@ -30,13 +30,6 @@ const standardBorderRadius = "2px";
  * Default Theme Elements
  */
 
-// viewerinfo
-const viewerInfo = {
-  rui_viewerInfoInitialsBackgroundColor: colors.teal,
-  rui_viewerInfoInitialsColor: colors.white,
-  rui_viewerInfoInitialsSize: "30px"
-};
-
 const rui_components = {
   AccountProfileInfo: {
     spacingAfterEmail: "4px",
@@ -536,6 +529,11 @@ const rui_components = {
     iconRight: 0,
     iconTop: padding.ten,
     lineHeight: "1.5"
+  },
+  ViewerInfoInitials: {
+    backgroundColor: colors.teal,
+    color: colors.white,
+    size: "30px"
   }
 };
 
@@ -548,6 +546,5 @@ export default {
     xl: breakpoint_xl
   },
   rui_components,
-  rui_typography: typography,
-  ...viewerInfo
+  rui_typography: typography
 };

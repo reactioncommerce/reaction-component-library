@@ -9,19 +9,19 @@ const ViewerInfoContainer = styled.div`
 `;
 
 const ViewerInitialsCircle = styled.div`
-  background-color: ${applyTheme("viewerInfoInitialsBackgroundColor")};
+  background-color: ${applyTheme("ViewerInfoInitials.backgroundColor")};
   border-radius: 50%;
-  height: ${applyTheme("viewerInfoInitialsSize")};
+  height: ${applyTheme("ViewerInfoInitials.size")};
   text-align: center;
-  width: ${applyTheme("viewerInfoInitialsSize")};
+  width: ${applyTheme("ViewerInfoInitials.size")};
 `;
 
 const ViewerInitialsText = styled.div`
   ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  color: ${applyTheme("viewerInfoInitialsColor")};
+  color: ${applyTheme("ViewerInfoInitials.color")};
   line-height: 1;
   position: relative;
-  top: calc(${applyTheme("viewerInfoInitialsSize")} / 4);
+  top: calc(${applyTheme("ViewerInfoInitials.size")} / 4);
 `;
 
 const ViewerFirstNameText = styled.span`
@@ -35,7 +35,7 @@ const ViewerFirstNameText = styled.span`
   align-self: center;
   margin-left: 0.5rem;
 
-  @media (min-width: ${applyTheme("breakpoint_md")}px) {
+  @media (min-width: ${applyTheme("md", "breakpoints")}px) {
     display: ${({ compact }) => (compact ? "none" : "inline")};
   }
 `;

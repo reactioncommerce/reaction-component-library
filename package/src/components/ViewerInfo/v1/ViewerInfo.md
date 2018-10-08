@@ -1,7 +1,7 @@
 ### Overview
 Renders a user's first name next to their initials.
 
-#### Usage
+### Usage
 ```jsx
 const viewer = {
   primaryEmailAddress: "issac99@gravity.com",
@@ -12,7 +12,7 @@ const viewer = {
 <ViewerInfo viewer={viewer} />
 ```
 
-**Email Address Only**
+#### Email Address Only
 ```jsx
 const viewer = {
   primaryEmailAddress: "james.booker@ponderosafarms.com"
@@ -21,7 +21,7 @@ const viewer = {
 <ViewerInfo viewer={viewer} />
 ```
 
-**Long Name**
+#### Long Name
 ```jsx
 const viewer = {
   primaryEmailAddress: "email@domain.in",
@@ -32,7 +32,7 @@ const viewer = {
 <ViewerInfo viewer={viewer} />
 ```
 
-**Hypenated Name**
+#### Hypenated Name
 ```jsx
 const viewer = {
   primaryEmailAddress: "aas21@princeton.edu",
@@ -43,7 +43,7 @@ const viewer = {
 <ViewerInfo viewer={viewer} />
 ```
 
-**Incomplete Name**
+#### Incomplete Name
 ```jsx
 const viewer = {
   primaryEmailAddress: "baddosneh@ybnl-nation.com",
@@ -53,10 +53,10 @@ const viewer = {
 <ViewerInfo viewer={viewer} />
 ```
 
-#### Display Style
+### Display Style
 The `ViewerInfo` component's default style is to show only the viewers initials on small screen and show both the initials and first name on larger screens. You may however run into situations where you want the initials and first name or only initials to display on all screen sizes. `ViewerInfo` has a `compact` and a `full` prop to achieve either display style, keep in mind that `compact` will override `full` so they can't be used together.
 
-**Compact**
+#### Compact
 ```jsx
 const viewer = {
   primaryEmailAddress: "pat@smith.com",
@@ -67,7 +67,7 @@ const viewer = {
 <ViewerInfo viewer={viewer} compact />
 ```
 
-**Full**
+#### Full
 ```jsx
 const viewer = {
   primaryEmailAddress: "Ligaya.Ocampo@email.com",
@@ -77,3 +77,17 @@ const viewer = {
 
 <ViewerInfo viewer={viewer} full />
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                              | Default                                                      | Description                                                   |
+| --------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------- |
+| `ViewerInfoInitials.backgroundColor` | teal | Background color for initials |
+| `ViewerInfoInitials.color` | white | Color for initials |
+| `ViewerInfoInitials.size` | 30px | Size of initials |
+
+#### Typography
+
+- The text uses `labelText` style with `rui_components.ViewerInfoInitials` override
