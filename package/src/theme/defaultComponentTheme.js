@@ -121,11 +121,6 @@ const errorsBlockStyles = {
 
 // checkoutActionComplete
 const checkoutActions = {
-  rui_checkoutActionCompleteMobileMargin: padding.ten,
-  rui_checkoutActionCompletePaddingBottom: padding.sixteen,
-  rui_checkoutActionCompletePaddingLeft: 0,
-  rui_checkoutActionCompletePaddingRight: 0,
-  rui_checkoutActionCompletePaddingTop: padding.sixteen,
   rui_checkoutActionsBorderBetweenColor: colors.black10,
   rui_checkoutActionsBorderBetweenWidth: "1px",
   rui_checkoutActionsBorderLeftColor: colors.black10,
@@ -520,6 +515,13 @@ const rui_components = {
     size: "1.4em",
     topSpacing: "0",
     verticalSpacing: "17px"
+  },
+  CheckoutActionComplete: {
+    mobileMargin: padding.ten,
+    paddingBottom: padding.sixteen,
+    paddingLeft: 0,
+    paddingRight: 0,
+    paddingTop: padding.sixteen
   },
   CheckoutTopHatMessage: {
     typography: {
