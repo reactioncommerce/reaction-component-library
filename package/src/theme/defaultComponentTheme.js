@@ -30,43 +30,6 @@ const standardBorderRadius = "2px";
  * Default Theme Elements
  */
 
-// selectableItem
-const selectableItem = {
-  rui_selectableItemRadioButtonCheckSize: "10px",
-  rui_selectableItemRadioButtonColor: colors.coolGrey500,
-  rui_selectableItemRadioButtonBorderColor: colors.coolGrey500,
-  rui_selectableItemRadioButtonBorderWidth: "2px",
-  rui_selectableItemRadioButtonSize: "20px",
-  rui_selectableItemRadioButtonSpacingToLabel: "10px",
-  rui_selectableItemRadioButtonBackgroundColor: colors.white,
-  rui_selectableItemRadioFocus: `0 0 0 2px ${colors.teal}`,
-  rui_selectableItemRadioFocusOutline: "1px solid transparent",
-  rui_selectableItemRadioDisabledOpacity: ".5",
-  rui_selectableItemRadioDisabledFillColor: colors.black10,
-  rui_selectableItemRadioDisabledCursor: "not-allowed"
-};
-
-// selectableList
-const selectableList = {
-  rui_selectableListBorderColor: colors.black10,
-  rui_selectableListBorderRadius: standardBorderRadius,
-  rui_selectableListBorderStyle: "solid",
-  rui_selectableListBorderWidth: "1px",
-  rui_selectableListHeight: "50px",
-  rui_selectableListHeightMobile: "60px",
-  rui_selectableListIconHeight: "24px",
-  rui_selectableListIconLeft: "30px",
-  rui_selectableListIconSpacingToLabel: "10px",
-  rui_selectableListIconWidth: "38px",
-  rui_selectableListItemPaddingBottom: "0",
-  rui_selectableListItemPaddingLeft: "10px",
-  rui_selectableListItemPaddingRight: "10px",
-  rui_selectableListItemPaddingTop: "0",
-  rui_selectableListLeftAlignedLabelFontWeight: 700,
-  rui_selectableListLeftAlignedDetailSpacingToLabel: "2px",
-  rui_selectableListPadding: "0"
-};
-
 // viewerinfo
 const viewerInfo = {
   rui_viewerInfoInitialsBackgroundColor: colors.teal,
@@ -517,6 +480,38 @@ const rui_components = {
     selectedOptionBackgroundColor: colors.reactionBlue200,
     textColor: colors.coolGrey500
   },
+  SelectableItemRadioButton: {
+    backgroundColor: colors.white,
+    borderColor: colors.coolGrey500,
+    borderWidth: "2px",
+    checkSize: "10px",
+    color: colors.coolGrey500,
+    disabledCursor: "not-allowed",
+    disabledFillColor: colors.black10,
+    disabledOpacity: ".5",
+    focus: `0 0 0 2px ${colors.teal}`,
+    focusOutline: "1px solid transparent",
+    size: "20px",
+    spacingToLabel: "10px"
+  },
+  SelectableList: {
+    borderColor: colors.black10,
+    borderRadius: standardBorderRadius,
+    borderStyle: "solid",
+    borderWidth: "1px",
+    height: "50px",
+    heightMobile: "60px",
+    iconHeight: "24px",
+    iconLeft: "30px",
+    iconSpacingToLabel: "10px",
+    iconWidth: "38px",
+    itemPaddingBottom: "0",
+    itemPaddingLeft: "10px",
+    itemPaddingRight: "10px",
+    itemPaddingTop: "0",
+    leftAlignedLabelFontWeight: 700,
+    leftAlignedDetailSpacingToLabel: "2px"
+  },
   SelectMenu: {
     borderBottomColor: colors.black20,
     borderBottomLeftRadius: standardBorderRadius,
@@ -545,8 +540,6 @@ const rui_components = {
 };
 
 export default {
-  rui_components,
-  rui_typography: typography,
   rui_breakpoints: {
     xs: breakpoint_xs,
     sm: breakpoint_sm,
@@ -554,7 +547,7 @@ export default {
     lg: breakpoint_lg,
     xl: breakpoint_xl
   },
-  ...selectableItem,
-  ...selectableList,
+  rui_components,
+  rui_typography: typography,
   ...viewerInfo
 };
