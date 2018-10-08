@@ -179,7 +179,19 @@ class Button extends Component {
   };
 
   render() {
-    const { actionType, children, className, components, isDisabled, isFullWidth, isShortHeight, isTextOnly, isTextOnlyNoPadding, isWaiting, title } = this.props;
+    const {
+      actionType,
+      children,
+      className,
+      components,
+      isDisabled,
+      isFullWidth,
+      isShortHeight,
+      isTextOnly,
+      isTextOnlyNoPadding,
+      isWaiting,
+      title
+    } = this.props;
     const { spinner } = components || {};
 
     const moreButtonDivProps = {};

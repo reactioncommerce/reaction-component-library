@@ -5,7 +5,7 @@ import CheckoutActionComplete from "../../CheckoutActionComplete/v1";
 import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1";
 import CheckoutAction from "./CheckoutAction";
 
-const MockActiveCheckoutAciton = ({ activeLabel }) => (<span>{activeLabel}</span>);
+const MockActiveCheckoutAction = ({ activeLabel }) => (<span>{activeLabel}</span>); // eslint-disable-line react/prop-types
 
 test("CheckoutAction with `active` status & label", () => {
   const cart = {};
@@ -22,7 +22,7 @@ test("CheckoutAction with `active` status & label", () => {
   const component = renderer.create((
     <CheckoutAction
       activeLabel="Mock active label"
-      activeStepElement={<MockActiveCheckoutAciton />}
+      activeStepElement={<MockActiveCheckoutAction />}
       completeStepElement={
         <CheckoutActionComplete
           components={mockComponents}

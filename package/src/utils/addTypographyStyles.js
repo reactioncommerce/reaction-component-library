@@ -44,7 +44,9 @@ export default function addTypographyStyles(componentName, textType) {
     if (!fontSize && fontSize !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.fontSize to defaultComponentTheme`);
     if (!fontStyle && fontStyle !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.fontStyle to defaultComponentTheme`);
     if (!fontWeight && fontWeight !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.fontWeight to defaultComponentTheme`);
-    if (!letterSpacing && letterSpacing !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.letterSpacing to defaultComponentTheme`);
+    if (!letterSpacing && letterSpacing !== 0) {
+      throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.letterSpacing to defaultComponentTheme`);
+    }
     if (!lineHeight && lineHeight !== 0) throw new Error(`Error in addTypographyStyles. Add rui_typography.${textType}.lineHeight to defaultComponentTheme`);
 
     return css`
