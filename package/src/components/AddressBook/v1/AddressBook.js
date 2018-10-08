@@ -91,7 +91,7 @@ class AddressBook extends Component {
        * Pass either the Reaction iconPlus component or your own component that
        * accepts compatible props.
        */
-      iconPlus: CustomPropTypes.component.isRequired
+      iconPlus: PropTypes.node.isRequired
     }).isRequired,
     isSaving: PropTypes.bool,
     /**

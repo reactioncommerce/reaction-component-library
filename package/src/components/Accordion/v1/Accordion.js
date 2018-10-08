@@ -74,7 +74,7 @@ class Accordion extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
-      iconExpand: CustomPropTypes.component.isRequired
+      iconExpand: PropTypes.node.isRequired
     }).isRequired,
     detail: PropTypes.string,
     expanded: PropTypes.bool,
