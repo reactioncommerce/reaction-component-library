@@ -1,5 +1,5 @@
 ### Overview
-Renders a user's first name next to their initials.
+Renders a users profile image next to their first name. If no profile image is available, renders the users initials instead.
 
 #### Usage
 ```jsx
