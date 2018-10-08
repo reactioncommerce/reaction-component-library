@@ -226,7 +226,7 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 | `Input.borderColor_error`               | red                                                          | Border color in "error" state                |
 | `Input.borderColor_focus`               | teal                                                         | Border color in "focus" state                |
 | `Input.borderColor_success`             | teal                                                         | Border color in "success" state              |
-| `Input.borderRadius`                    | standardBorderRadius                                         | Border radius for all corners                |
+| `Input.borderRadius`                    | 2px                                                          | Border radius for all corners                |
 | `Input.clearButtonColor`                | coolGrey                                                     | Icon color for the clear button              |
 | `Input.clearButtonLargeBackgroundColor` | white                                                        | Background color for the large clear button  |
 | `Input.clearButtonLargeBorderColor`     | coolGrey                                                     | Border color for the large clear button      |
