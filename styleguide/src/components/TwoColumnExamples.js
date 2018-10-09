@@ -7,12 +7,6 @@ class TwoColumnExamples extends Component {
      * Requires two children, which are the left and right examples
      */
     children: PropTypes.arrayOf(PropTypes.node),
-    /**
-     * You can provide a `className` prop that will be applied to the outermost DOM element
-     * rendered by this component. We do not recommend using this for styling purposes, but
-     * it can be useful as a selector in some situations.
-     */
-    className: PropTypes.string,
     hasDarkLeftBackground: PropTypes.bool,
     hasDarkRightBackground: PropTypes.bool
   };
@@ -23,7 +17,7 @@ class TwoColumnExamples extends Component {
   };
 
   render() {
-    const { className, children, hasDarkLeftBackground, hasDarkRightBackground } = this.props;
+    const { children, hasDarkLeftBackground, hasDarkRightBackground } = this.props;
     const leftBackgroundColor = hasDarkLeftBackground ? "#f5f5f5" : "transparent";
     const rightBackgroundColor = hasDarkRightBackground ? "#f5f5f5" : "transparent";
     const leftBorderColor = hasDarkLeftBackground ? "transparent" : "#cccccc";
@@ -49,7 +43,7 @@ class TwoColumnExamples extends Component {
     };
 
     return (
-      <div className={className} style={{ display: "flex" }}>
+      <div style={{ display: "flex" }}>
         <div style={leftStyle}>
           {children[0]}
         </div>
