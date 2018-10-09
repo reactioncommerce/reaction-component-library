@@ -7,16 +7,19 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const AddressBookAddNewAddressAction = styled.div`
-  border-color: ${applyTheme("accordionBorderColor")};
-  border-style: ${applyTheme("accordionBorderStyle")};
-  border-width: ${applyTheme("accordionBorderWidth")};
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  border-color: ${applyTheme("addressBookBorderColor")};
+  border-style: ${applyTheme("addressBookBorderStyle")};
+  border-width: ${applyTheme("addressBookBorderWidth")};
+  border-bottom-left-radius: ${applyTheme("addressBookBorderRadius")};
+  border-bottom-right-radius: ${applyTheme("addressBookBorderRadius")};
   border-top: none;
   box-sizing: border-box;
   color: inherit;
   overflow: hidden;
-  padding: 20px;
+  padding-bottom: ${applyTheme("addressBookActionPaddingBottom")};
+  padding-left: ${applyTheme("addressBookActionPaddingLeft")};
+  padding-right: ${applyTheme("addressBookActionPaddingRight")};
+  padding-top: ${applyTheme("addressBookActionPaddingTop")};
 `;
 
 const AddressBookAddNewAddressActionButton = styled.div`
@@ -34,10 +37,10 @@ const AddressBookAddNewAddressActionButton = styled.div`
 
 const AddressBookAddNewAddressActionIcon = styled.span`
   color: inherit;
-  height: 20px;
+  height: ${applyTheme("addressBookActionButtonIconHeight")};
   margin: 0;
-  margin-right: 10px;
-  width: 20px;
+  margin-right: ${applyTheme("addressBookActionButtonIconMarginRight")};
+  width: ${applyTheme("addressBookActionButtonIconWidth")};
   svg {
     color: ${applyTheme("addressBookActionButtonIconColor")};
     fill: currentColor;
@@ -50,10 +53,10 @@ const AddressBookAddNewAddressActionIcon = styled.span`
 const FormActions = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding-bottom: ${applyTheme("checkoutActionsItemPaddingBottom")};
-  padding-left: ${applyTheme("checkoutActionsItemPaddingLeft")};
-  padding-right: ${applyTheme("checkoutActionsItemPaddingRight")};
-  padding-top: ${applyTheme("checkoutActionsItemPaddingTop")};
+  padding-bottom: ${applyTheme("addressBookActionPaddingBottom")};
+  padding-left: ${applyTheme("addressBookActionPaddingLeft")};
+  padding-right: ${applyTheme("addressBookActionPaddingRight")};
+  padding-top: ${applyTheme("addressBookActionPaddingTop")};
 
   > div:last-of-type {
     margin-left: ${applyTheme("checkoutActionsSpaceBetweenActiveActionButtons")};
@@ -67,7 +70,7 @@ const FormActionDelete = styled.div`
     border: none;
     &:hover {
       background-color: transparent;
-      color: #e4505e;
+      color: ${applyTheme("addressBookActionDeleteButtonHoverColor")};
     }
   }
 `;
@@ -87,6 +90,12 @@ class AddressBook extends Component {
        */
       addressBook: PropTypes.arrayOf(PropTypes.object)
     }),
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * If you've set up a components context using @reactioncommerce/components-context
      * (recommended), then this prop will come from there automatically. If you have not
@@ -320,11 +329,16 @@ class AddressBook extends Component {
   }
 
   render() {
+    const { className } = this.props;
     const { status } = this.state;
-    // eslint-disable-next-line
-    return status === REVIEW
-      ? this.renderAddressReview()
-      : status === OVERVIEW ? this.renderAddressSelect() : this.renderAddressForm();
+    return (
+      <Fragment className={className}>
+        {// eslint-disable-next-line
+        status === REVIEW
+            ? this.renderAddressReview()
+            : status === OVERVIEW ? this.renderAddressSelect() : this.renderAddressForm()}
+      </Fragment>
+    );
   }
 }
 
