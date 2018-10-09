@@ -249,6 +249,7 @@ class AddressBook extends Component {
                 ref={(el) => {
                   this._refs[`addressForm_${_id}`] = el;
                 }}
+                isOnDarkBackground
                 value={address}
               />
               <FormActions>
