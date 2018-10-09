@@ -516,9 +516,20 @@ const accordion = {
 
 const addressBook = {
   rui_addressBookBorderColor: colors.black10,
+  rui_addressBookBorderRadius: standardBorderRadius,
+  rui_addressBookBorderStyle: "solid",
+  rui_addressBookBorderWidth: "1px",
   rui_addressBookActionButtonColor: colors.coolGreyActive,
   rui_addressBookActionButtonHoverColor: colors.coolGreyHover,
-  rui_addressBookActionButtonIconColor: colors.coolGrey500
+  rui_addressBookActionButtonIconColor: colors.coolGrey500,
+  rui_addressBookActionButtonIconHeight: "20px",
+  rui_addressBookActionButtonIconMarginRight: "10px",
+  rui_addressBookActionButtonIconWidth: "20px",
+  rui_addressBookActionPaddingBottom: padding.sixteen,
+  rui_addressBookActionPaddingLeft: padding.sixteen,
+  rui_addressBookActionPaddingRight: padding.sixteen,
+  rui_addressBookActionPaddingTop: padding.sixteen,
+  rui_addressBookActionDeleteButtonHoverColor: colors.redHover
 };
 
 const rui_components = {
