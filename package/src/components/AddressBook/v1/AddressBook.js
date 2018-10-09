@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import isEmpty from "lodash.isempty";
+import isEqual from "lodash.isequal";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
@@ -58,6 +60,18 @@ const FormActions = styled.div`
   }
 `;
 
+const FormActionDelete = styled.div`
+  flex: 1 1 auto;
+
+  > div {
+    border: none;
+    &:hover {
+      background-color: transparent;
+      color: #e4505e;
+    }
+  }
+`;
+
 const ENTRY = "entry";
 const OVERVIEW = "overview";
 const REVIEW = "review";
@@ -68,6 +82,9 @@ class AddressBook extends Component {
      * User account data.
      */
     account: PropTypes.shape({
+      /**
+       * Users saved addresses
+       */
       addressBook: PropTypes.arrayOf(PropTypes.object)
     }),
     /**
@@ -77,6 +94,11 @@ class AddressBook extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
+      /**
+       * Pass either the Reaction Accordion component or your own component that
+       * accepts compatible props.
+       */
+      Accordion: CustomPropTypes.component.isRequired,
       /**
        * Pass either the Reaction AddressForm component or your own component that
        * accepts compatible props.
@@ -93,7 +115,22 @@ class AddressBook extends Component {
        */
       iconPlus: PropTypes.node.isRequired
     }).isRequired,
+    /**
+     * Is data being saved
+     */
     isSaving: PropTypes.bool,
+    /**
+     * Handles new address added to address book
+     */
+    onAddressAdded: PropTypes.func,
+    /**
+     * Handles address deletion from address book
+     */
+    onAddressDeleted: PropTypes.func,
+    /**
+     * Handles editing address in address book
+     */
+    onAddressEdited: PropTypes.func,
     /**
      * Validated entred value for the AddressReview
      */
@@ -107,13 +144,22 @@ class AddressBook extends Component {
   static defaultProps = {
     account: {
       addressBook: []
-    }
+    },
+    isSaving: false,
+    onAddressAdded() {},
+    onAddressDeleted() {},
+    onAddressEdited() {}
   };
 
   state = {
-    // eslint-disable-next-line
-    status: this.props.validatedValue ? REVIEW : this.hasAddress ? OVERVIEW : ENTRY
+    status: this.currentStatus
   };
+
+  componentDidUpdate(prevProps) {
+    const { account: { addressBook } } = this.props;
+    const { account: { addressBook: prevAddressBook } } = prevProps;
+    if (!isEqual(addressBook, prevAddressBook)) this.setState({ status: this.currentStatus });
+  }
 
   _addressForm = null;
   _addressReview = null;
@@ -122,9 +168,14 @@ class AddressBook extends Component {
   //
   // Helper Methods
   //
+  get currentStatus() {
+    // eslint-disable-next-line
+    return this.props.validatedValue ? REVIEW : this.hasAddress ? OVERVIEW : ENTRY;
+  }
+
   get hasAddress() {
     const { account: { addressBook } } = this.props;
-    return addressBook.length > 0;
+    return !isEmpty(addressBook);
   }
 
   addressToString({ address1, address2, city, country, postal, region }) {
@@ -135,16 +186,21 @@ class AddressBook extends Component {
   //
   // Handler Methods
   //
-  handleAddAddress = () => {
-    // console.log("added new address", value);
+  handleAddAddress = (value) => {
+    const { onAddressAdded } = this.props;
+    onAddressAdded(value);
   };
 
-  handleDeleteAddress = () => {
-    // console.log("deleted address", value);
+  handleDeleteAddress = (value, _id) => {
+    const { onAddressDeleted } = this.props;
+    onAddressDeleted(_id);
   };
 
-  handleEditAddress = () => {
-    // console.log("edit address", value);
+  handleEditAddress = (value, _id) => {
+    const { onAddressEdited } = this.props;
+    onAddressEdited(_id, value).then(() => {
+      this._refs[`accordion_${_id}`].toggle();
+    });
   };
 
   handleAddressFormToggle = () => {
@@ -165,28 +221,50 @@ class AddressBook extends Component {
     const { account: { addressBook }, components: { Accordion, AddressForm, Button, iconPlus }, isSaving } = this.props;
     return (
       <Fragment>
-        {addressBook.map((address, index) => {
+        {addressBook.map(({ _id, ...address }) => {
           const name = `${address.firstName} ${address.lastName}`;
           return (
             <Accordion
-              key={name}
+              key={_id}
               label={name}
               detail={this.addressToString(address)}
               ref={(el) => {
-                this._refs[`accordion${index}`] = el;
+                this._refs[`accordion_${_id}`] = el;
               }}
             >
-              <AddressForm value={address} />
+              <AddressForm
+                isSaving={isSaving}
+                onSubmit={(value) => {
+                  this.handleEditAddress(value, _id);
+                }}
+                ref={(el) => {
+                  this._refs[`addressForm_${_id}`] = el;
+                }}
+                value={address}
+              />
               <FormActions>
+                <FormActionDelete>
+                  <Button
+                    actionType="secondaryDanger"
+                    isTextOnlyNoPadding
+                    isShortHeight
+                    onClick={() => {
+                      this.handleDeleteAddress(address, _id);
+                    }}
+                  >
+                    Delete address
+                  </Button>
+                </FormActionDelete>
                 <Button
                   actionType="secondary"
+                  isShortHeight
                   onClick={() => {
-                    this._refs[`accordion${index}`].handleToggle();
+                    this._refs[`accordion_${_id}`].handleToggle();
                   }}
                 >
                   Cancel
                 </Button>
-                <Button onClick={() => this._addressForm.submit()} isWaiting={isSaving}>
+                <Button onClick={() => this._refs[`addressForm_${_id}`].submit()} isShortHeight isWaiting={isSaving}>
                   Save Changes
                 </Button>
               </FormActions>
@@ -219,6 +297,7 @@ class AddressBook extends Component {
     return (
       <Fragment>
         <AddressForm
+          isSaving={isSaving}
           onSubmit={this.handleAddAddress}
           ref={(el) => {
             this._addressForm = el;
