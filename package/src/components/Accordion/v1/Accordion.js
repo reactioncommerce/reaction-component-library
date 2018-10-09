@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme } from "../../../utils";
+import { applyTheme, addTypographyStyles } from "../../../utils";
 
 const duration = "250ms";
 const ease = "ease-in-out";
@@ -17,8 +17,8 @@ const AccordionWrapper = styled.div`
   color: inherit;
   overflow: hidden;
   &:first-of-type {
-    border-top-left-radius: 2px;
-    border-top-right-radius: 2px;
+    border-top-left-radius: ${applyTheme("accordionBorderRadius")};
+    border-top-right-radius: ${applyTheme("accordionBorderRadius")};
   }
   &:not(:first-of-type) {
     border-top: none;
@@ -32,15 +32,23 @@ const AccordionHeader = styled.div`
   padding: ${applyTheme("accordionPadding")};
 `;
 
+const AccordionHeaderLabel = styled.span`
+  ${addTypographyStyles("AccordionHeaderLabel", "labelTextBold")};
+`;
+
+const AccordionHeaderDetail = styled.span`
+  ${addTypographyStyles("AccordionHeaderDetail", "labelText")};
+`;
+
 const AccordionHeaderIcon = styled.span`
-  height: ${applyTheme("selectableListIconHeight")};
+  height: ${applyTheme("accordionIconHeight")};
   margin: 0;
-  width: ${applyTheme("selectableListIconWidth")};
+  width: ${applyTheme("accordionIconWidth")};
   svg {
-    height: ${applyTheme("selectableListIconHeight")};
+    height: ${applyTheme("accordionIconHeight")};
     transform: ${({ expanded }) => (expanded ? "rotateZ(180deg)" : "rotateZ(0)")};
     transition: transform ${duration} ${ease};
-    width: ${applyTheme("selectableListIconWidth")};
+    width: ${applyTheme("accordionIconWidth")};
   }
 `;
 
@@ -59,6 +67,9 @@ const AccordionContent = styled.div`
 
 class Accordion extends Component {
   static propTypes = {
+    /**
+     * Content to be displayed inside the accordion
+     */
     children: PropTypes.any,
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
@@ -74,11 +85,27 @@ class Accordion extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
+      /**
+       * Pass either the Reaction iconExpand component or your own component that
+       * accepts compatible props.
+       */
       iconExpand: PropTypes.node.isRequired
     }).isRequired,
+    /**
+     * Accordion header details
+     */
     detail: PropTypes.string,
+    /**
+     * Render expanded accordion
+     */
     expanded: PropTypes.bool,
+    /**
+     * Accordion header icon
+     */
     icon: PropTypes.node,
+    /**
+     * Accordion header bold label
+     */
     label: PropTypes.string.isRequired
   };
 
@@ -114,8 +141,8 @@ class Accordion extends Component {
         <AccordionHeader onClick={this.handleToggle}>
           <span>
             {icon ? <AccordionHeaderIcon>{icon}</AccordionHeaderIcon> : null}
-            <b>{label}</b>
-            {detail ? `, ${detail}` : ""}
+            <AccordionHeaderLabel>{label}</AccordionHeaderLabel>
+            {detail ? <AccordionHeaderDetail>, {detail}</AccordionHeaderDetail> : ""}
           </span>
           <AccordionHeaderIcon expanded={expanded}>{iconExpand}</AccordionHeaderIcon>
         </AccordionHeader>

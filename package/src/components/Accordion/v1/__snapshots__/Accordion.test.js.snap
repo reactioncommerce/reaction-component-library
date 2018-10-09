@@ -33,12 +33,27 @@ exports[`basic snapshot 1`] = `
 }
 
 .c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 700;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+}
+
+.c3 {
   height: 24px;
   margin: 0;
   width: 38px;
 }
 
-.c2 svg {
+.c3 svg {
   height: 24px;
   -webkit-transform: rotateZ(0);
   -ms-transform: rotateZ(0);
@@ -49,7 +64,7 @@ exports[`basic snapshot 1`] = `
   width: 38px;
 }
 
-.c3 {
+.c4 {
   background-color: #fafafa;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -71,17 +86,19 @@ exports[`basic snapshot 1`] = `
     onClick={[Function]}
   >
     <span>
-      <b>
+      <span
+        className="c2"
+      >
         mock label
-      </b>
+      </span>
       
     </span>
     <span
-      className="c2"
+      className="c3"
     />
   </div>
   <div
-    className="c3"
+    className="c4"
   />
 </div>
 `;
