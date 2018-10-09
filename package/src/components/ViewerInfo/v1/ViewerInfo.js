@@ -10,7 +10,7 @@ const ViewerInfoContainer = styled.div`
 `;
 
 const ViewerFirstNameText = styled.span`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
+  ${addTypographyStyles("ViewerInfo", "labelText")}
   display: ${({ compact, full }) => {
     if (full) {
       return compact ? "none" : "inline";
@@ -20,7 +20,7 @@ const ViewerFirstNameText = styled.span`
   align-self: center;
   margin-left: 0.5rem;
 
-  @media (min-width: ${applyTheme("breakpoint_md")}px) {
+  @media (min-width: ${applyTheme("md", "breakpoints")}px) {
     display: ${({ compact }) => (compact ? "none" : "inline")};
   }
 `;
@@ -67,24 +67,10 @@ class ViewerInfo extends Component {
 
   /**
    *
-   * @name viewerInitials
-   * @summary Build the initials string from the `viewer` first and last name
-   * If those props are not availible use the first letter of the primary email address.
-   * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
-   */
-  get viewerInitials() {
-    const { viewer: { firstName, lastName, primaryEmailAddress } } = this.props;
-    const firstInitial = (firstName && firstName.charAt()) || primaryEmailAddress.charAt().toUpperCase();
-    const lastInitial = (lastName && lastName.charAt()) || "";
-    return `${firstInitial}${lastInitial}`;
-  }
-
-  /**
-   *
    * @name viewerName
-   * @summary If `firstName` is availible on the `viewer` object
-   * return that else return the email address
-   * @return {String} the viewers name.
+   * @summary If `firstName` is available on the `viewer` object, return that.
+   *   Otherwise return the email address.
+   * @return {String} Display name for the viewer
    */
   get viewerName() {
     const { viewer: { firstName, primaryEmailAddress } } = this.props;

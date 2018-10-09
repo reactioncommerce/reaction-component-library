@@ -2,11 +2,11 @@
 
 A `SelectableList` takes an array of `SelectableItems`.
 
-#### Usage
+### Usage
 
 A `SelectableList` can be enabled or disabled.
 
-##### Default: Enabled
+#### Default: Enabled
 
 ```jsx
 const options = [{
@@ -23,7 +23,7 @@ const options = [{
 <SelectableList options={options} name="DefaultForm" value="Standard"/>
 ```
 
-##### Disabled
+#### Disabled
 
 Pass the `isReadOnly` prop to disable all options, while also displaying the chosen item.
 
@@ -42,7 +42,7 @@ const options = [{
 <SelectableList isReadOnly options={options} name="DisabledForm" value="standard"/>
 ```
 
-##### Add a list action (optional)
+#### Add a list action (optional)
 
 A `SelectableList` can optionally have a `listAction` at the end of the list. Pass any node to the  `listAction` to display a button, checkbox, or any other node.
 
@@ -65,11 +65,11 @@ const options = [{
 <SelectableList options={options} listAction={readMore} name="listActionForm"/>
 ```
 
-#### Styles
+### Styles
 
 You can alter the appearance of a `SelectableList` using `isBordered` and `isLeftAligned` props, which can also be used together.
 
-##### Bordered
+#### Bordered
 
 Pass the `isBordered` prop to get a bordered list:
 
@@ -90,7 +90,7 @@ const options = [{
 <SelectableList isBordered options={options} name="BorderedForm" value="standard"/>
 ```
 
-##### Left-aligned
+#### Left-aligned
 
 Pass the `isLeftAligned` prop to align the `detail` text to the left:
 
@@ -111,9 +111,9 @@ const options = [{
 <SelectableList isLeftAligned options={options} value="standard" name="LeftAlignedBorderedForm"/>
 ```
 
-#### Examples
+### Examples
 
-##### Shipping address list
+#### Shipping address list
 
 ```jsx
 const options = [{
@@ -144,7 +144,7 @@ const options = [{
 <SelectableList isBordered options={options} name="ShippingForm"/>
 ```
 
-##### Payment options list
+#### Payment options list
 
 ```jsx
 
@@ -166,7 +166,7 @@ const options = [{
 <SelectableList isBordered isLeftAligned options={options} name="PaymentForm"/>
 ```
 
-##### Address list
+#### Address list
 
 ```jsx
 const link = (
@@ -198,3 +198,42 @@ const options = [{
 
 <SelectableList isBordered options={options} name="AddressForm" listAction={addLink} value="address2" />
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                                       | Default                    | Description                                                |
+| ------------------------------------------------ | -------------------------- | ---------------------------------------------------------- |
+| `SelectableItemRadioButton.backgroundColor`      | white                      | Radio button background color                              |
+| `SelectableItemRadioButton.borderColor`          | coolGrey500                | Radio button border color                                  |
+| `SelectableItemRadioButton.borderWidth`          | 2px                        | Radio button border width                                  |
+| `SelectableItemRadioButton.checkSize`            | 10px                       | Radio button check height and width                        |
+| `SelectableItemRadioButton.color`                | coolGrey500                | Radio button foreground color                              |
+| `SelectableItemRadioButton.disabledCursor`       | not-allowed                | Cursor when hovering a disabled radio button               |
+| `SelectableItemRadioButton.disabledFillColor`    | black10                    | Radio button fill color when disabled                      |
+| `SelectableItemRadioButton.disabledOpacity`      | 0.5                        | Radio button opacity when disabled                         |
+| `SelectableItemRadioButton.focus`                | `0 0 0 2px ${colors.teal}` | Radio button box shadow when focused                       |
+| `SelectableItemRadioButton.focusOutline`         | `1px solid transparent`    | Radio button outline when focused                          |
+| `SelectableItemRadioButton.size`                 | 20px                       | Radio button height and width                              |
+| `SelectableItemRadioButton.spacingToLabel`       | 10px                       | Space between the radio button and its label               |
+| `SelectableList.borderColor`                     | black10                    | Border color when `isBordered`                             |
+| `SelectableList.borderRadius`                    | 2px                        | Border radius for all outside corners when `isBordered`    |
+| `SelectableList.borderStyle`                     | solid                      | Border style when `isBordered`                             |
+| `SelectableList.borderWidth`                     | 1px                        | Border width when `isBordered`                             |
+| `SelectableList.height`                          | 50px                       | Height of each item                                        |
+| `SelectableList.heightMobile`                    | 60px                       | Height of each item on a small screen                      |
+| `SelectableList.iconHeight`                      | 24px                       | Height of the icon                                         |
+| `SelectableList.iconLeft`                        | 30px                       | Left offset of the icon                                    |
+| `SelectableList.iconSpacingToLabel`              | 10px                       | Space after the icon and before the label                  |
+| `SelectableList.iconWidth`                       | 38px                       | Icon width                                                 |
+| `SelectableList.itemPaddingBottom`               | 0                          | Bottom padding for each item                               |
+| `SelectableList.itemPaddingLeft`                 | 10px                       | Left padding for each item                                 |
+| `SelectableList.itemPaddingRight`                | 10px                       | Right padding for each item                                |
+| `SelectableList.itemPaddingTop`                  | 0                          | Top padding for each item                                  |
+| `SelectableList.leftAlignedLabelFontWeight`      | 700                        | Font weight for the label when `isLeftAligned`             |
+| `SelectableList.leftAlignedDetailSpacingToLabel` | 2px                        | Spacing between label and detail text when `isLeftAligned` |
+
+#### Typography
+
+None

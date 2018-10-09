@@ -9,17 +9,17 @@ const Detail = styled.div`
 
 const Title = styled.h3`
   ${addTypographyStyles("CartItemDetailTitle", "headingTextBold")}
-  margin-top: ${applyTheme("cartItemDetailTitleMarginTop")};
-  margin-bottom: ${applyTheme("cartItemDetailTitleMarginBottom")};
-  margin-left: ${applyTheme("cartItemDetailTitleMarginLeft")};
-  margin-right: ${applyTheme("cartItemDetailTitleMarginRight")};
+  margin-top: ${applyTheme("CartItemDetailTitle.marginTop")};
+  margin-bottom: ${applyTheme("CartItemDetailTitle.marginBottom")};
+  margin-left: ${applyTheme("CartItemDetailTitle.marginLeft")};
+  margin-right: ${applyTheme("CartItemDetailTitle.marginRight")};
 
   a {
     ${addTypographyStyles("CartItemDetailTitle", "headingTextBold")}
     text-decoration: none;
     &:focus,
     &:hover {
-      color: ${applyTheme("cartItemDetailTitleColor_focus")};
+      color: ${applyTheme("CartItemDetailTitle.color_focus")};
     }
   }
 `;

@@ -19,11 +19,11 @@ const errors = [{ name: "example", message: "This field is required" }];
 </TwoColumnExamples>
 ```
 
-#### Usage
+### Usage
 
 Use `ErrorsBlock` components with form fields and pass in an array of errors to display error messages.
 
-##### With icon
+#### With icon
 
 Pass `shouldShowIcon` to show an icon before each error message.
 
@@ -35,9 +35,9 @@ const errors = [{ name: "example", message: "This field is required" }, { name: 
 </Field>
 ```
 
-#### Specs
+### Specs
 
-##### Text
+#### Text
 
 The error text is set to red.
 
@@ -47,7 +47,7 @@ The error text is set to red.
 |Spacing above   |`errorsBlockSpacingAbove` |10px                  |
 |Spacing below   |`errorsBlockSpacingBelow` |10px                  |
 
-##### Icon
+#### Icon
 
 The error icon is from FontAwesome's [exclamation-triangle](https://fontawesome.com/icons/exclamation-triangle?style=solid) as an SVG.
 
@@ -55,3 +55,18 @@ The error icon is from FontAwesome's [exclamation-triangle](https://fontawesome.
 |-------------|-----------------------|:-------------------------:|
 |Icon spacing to label  |`errorsBlockIconSpacingToLabel`|5px                |
 |Icon color   |`errorsBlockIconColor` |`#cd3f4c`                  |
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                                         | Default | Description                                                                             |
+| -------------------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
+| `iconColor` | red | Color of the error icon |
+| `iconSpacingToLabel` | 5px | Spacing between the icon and the label |
+| `spacingAbove` | 10px | Spacing above the component |
+| `spacingBelow` | 10px | Spacing below the component |
+
+#### Typography
+
+- The error text uses `labelText` style with `rui_components.ErrorsBlock` override

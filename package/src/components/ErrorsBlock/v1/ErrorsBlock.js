@@ -6,26 +6,25 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ErrorWrapper = styled.div`
-  margin-bottom: ${applyTheme("errorsBlockSpacingBelow")};
+  margin-bottom: ${applyTheme("ErrorsBlock.spacingBelow")};
   margin-left: 0;
   margin-right: 0;
-  margin-top: ${applyTheme("errorsBlockSpacingAbove")};
+  margin-top: ${applyTheme("ErrorsBlock.spacingAbove")};
 `;
 
 const Error = styled.div`
   ${addTypographyStyles("ErrorsBlock", "labelText")}
-  color: ${applyTheme("errorsBlockColor")};
 `;
 
 const IconWrapper = styled.div`
   display: inline-block;
   margin-bottom: 0;
   margin-left: 0;
-  margin-right: ${applyTheme("errorsBlockIconSpacingToLabel")};
+  margin-right: ${applyTheme("ErrorsBlock.iconSpacingToLabel")};
   margin-top: 0;
 
   path {
-   fill: ${applyTheme("errorsBlockIconColor")};
+   fill: ${applyTheme("ErrorsBlock.iconColor")};
   }
 
   svg {

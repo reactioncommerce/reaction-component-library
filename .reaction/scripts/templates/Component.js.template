@@ -4,7 +4,10 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
-  color: ${applyTheme("cOMPONENTColor")};
+  padding-bottom: ${applyTheme("COMPONENT.paddingBottom")};
+  padding-left: ${applyTheme("COMPONENT.paddingLeft")};
+  padding-right: ${applyTheme("COMPONENT.paddingRight")};
+  padding-top: ${applyTheme("COMPONENT.paddingTop")};
 `;
 
 class COMPONENT extends Component {

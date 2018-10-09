@@ -58,10 +58,10 @@ function createComponentTestFile(name) {
 
 function createComponentMarkdownFile(name) {
   const filePath = path.join(componentDirectory, "v1", `${name}.md`);
+  let template = fs.readFileSync(".reaction/scripts/templates/Component.md.template", { encoding: "utf8" });
+  template = template.replace(/COMPONENT/g, name);
   fs.ensureFileSync(filePath);
-  fs.writeFileSync(filePath, `### Overview\n#### Usage
-
-Document component here. See https://react-styleguidist.js.org/docs/documenting.html`);
+  fs.writeFileSync(filePath, template);
 }
 
 /**

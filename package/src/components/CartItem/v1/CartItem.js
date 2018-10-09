@@ -6,24 +6,24 @@ import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils
 
 const Item = styled.div`
   align-items: flex-start;
-  border-bottom-color: ${applyTheme("cartItemBorderBottomColor")};
+  border-bottom-color: ${applyTheme("CartItem.borderBottomColor")};
   border-bottom-style: solid;
-  border-bottom-width: ${applyTheme("cartItemBorderBottomWidth")};
-  border-left-color: ${applyTheme("cartItemBorderLeftColor")};
+  border-bottom-width: ${applyTheme("CartItem.borderBottomWidth")};
+  border-left-color: ${applyTheme("CartItem.borderLeftColor")};
   border-left-style: solid;
-  border-left-width: ${applyTheme("cartItemBorderLeftWidth")};
-  border-right-color: ${applyTheme("cartItemBorderRightColor")};
+  border-left-width: ${applyTheme("CartItem.borderLeftWidth")};
+  border-right-color: ${applyTheme("CartItem.borderRightColor")};
   border-right-style: solid;
-  border-right-width: ${applyTheme("cartItemBorderRightWidth")};
-  border-top-color: ${applyTheme("cartItemBorderTopColor")};
+  border-right-width: ${applyTheme("CartItem.borderRightWidth")};
+  border-top-color: ${applyTheme("CartItem.borderTopColor")};
   border-top-style: solid;
-  border-top-width: ${applyTheme("cartItemBorderTopWidth")};
+  border-top-width: ${applyTheme("CartItem.borderTopWidth")};
   box-sizing: border-box;
   display: flex;
-  padding-bottom: ${applyTheme("cartItemPaddingBottom")};
-  padding-left: ${applyTheme("cartItemPaddingLeft")};
-  padding-right: ${applyTheme("cartItemPaddingRight")};
-  padding-top: ${applyTheme("cartItemPaddingTop")};
+  padding-bottom: ${applyTheme("CartItem.paddingBottom")};
+  padding-left: ${applyTheme("CartItem.paddingLeft")};
+  padding-right: ${applyTheme("CartItem.paddingRight")};
+  padding-top: ${applyTheme("CartItem.paddingTop")};
   width: 100%;
 
   &:first-of-type {
@@ -41,7 +41,7 @@ const Item = styled.div`
 
 const ItemContent = styled.div`
   display: flex;
-  margin-left: ${applyTheme("cartItemImageContentSpacing")};
+  margin-left: ${applyTheme("CartItem.imageContentSpacing")};
   position: relative;
   width: 100%;
 `;
@@ -67,14 +67,14 @@ const ItemContentDetailInfo = styled.div`
 `;
 
 const ItemContentQuantityInput = styled.div`
-  margin-top: ${applyTheme("cartItemQuantityInputSpacingAbove")};
-  margin-bottom: ${applyTheme("cartItemQuantityInputSpacingBelow")};
+  margin-top: ${applyTheme("CartItem.quantityInputSpacingAbove")};
+  margin-bottom: ${applyTheme("CartItem.quantityInputSpacingBelow")};
   margin-left: 0;
   margin-right: 0;
 
   @media (min-width: 992px) {
-    margin-top: ${(props) => (props.isMiniCart ? applyTheme("cartItemQuantityInputSpacingAbove")(props) : "0")};
-    margin-bottom: ${(props) => (props.isMiniCart ? applyTheme("cartItemQuantityInputSpacingBelow")(props) : "0")};
+    margin-top: ${(props) => (props.isMiniCart ? applyTheme("CartItem.quantityInputSpacingAbove")(props) : "0")};
+    margin-bottom: ${(props) => (props.isMiniCart ? applyTheme("CartItem.quantityInputSpacingBelow")(props) : "0")};
   }
 `;
 
@@ -95,14 +95,14 @@ const ItemRemoveButton = styled.button`
   align-self: flex-start;
   background-color: transparent;
   border: none;
-  color: ${applyTheme("cartItemRemoveButtonColor")};
+  color: ${applyTheme("CartItem.removeButtonColor")};
   cursor: pointer;
   display: table;
   flex: 0 1 auto;
-  margin-bottom: ${applyTheme("cartItemRemoveButtonSpacingBelow")};
+  margin-bottom: ${applyTheme("CartItem.removeButtonSpacingBelow")};
   margin-left: 0;
   margin-right: 0;
-  margin-top: ${applyTheme("cartItemRemoveButtonSpacingAbove")};
+  margin-top: ${applyTheme("CartItem.removeButtonSpacingAbove")};
   padding-bottom: 0;
   padding-left: 0;
   padding-right: 0;
@@ -111,7 +111,7 @@ const ItemRemoveButton = styled.button`
 
   &:focus,
   &:hover {
-    color: ${applyTheme("cartItemRemoveButtonColor_focus")};
+    color: ${applyTheme("CartItem.removeButtonColor_focus")};
   }
 `;
 

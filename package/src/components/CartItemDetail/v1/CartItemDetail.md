@@ -1,29 +1,46 @@
 ### Overview
-Display CartItem title and attributes.
+Display title and attributes of an item in a cart or order
 
-#### Usage
+### Usage
 
-It can be used in Cart or in Mini Cart.
+Used by [CartItem](./#!/CartItem), or can be used alone.
 
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
 <CartItemDetail title="Amazing Product Title" productSlug="/product-slug" attributes={attributes} />
 ```
 
-##### With Product Vendor
+#### With Product Vendor
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
 <CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} />
 ```
 
-##### With Quantity
+#### With Quantity
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
 <CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} quantity={3} />
 ```
 
-##### In Mini Cart
+#### In Mini Cart
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
 <CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} isMiniCart />
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                         | Default     | Description                                                                              |
+| ---------------------------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| `CartItemDetailTitle.color_focus`  | coolGrey300 | Color of the item detail title text when focused (overrides the value from `typography`) |
+| `CartItemDetailTitle.marginTop`    | 0           | Margin above the item title                                                              |
+| `CartItemDetailTitle.marginBottom` | 10px        | Margin below the item title                                                              |
+| `CartItemDetailTitle.marginLeft`   | 0           | Margin left of the item title                                                            |
+| `CartItemDetailTitle.marginRight`  | 0           | Margin right of the item title                                                           |
+
+#### Typography
+
+- The item title uses `headingTextBold` style with `rui_components.CartItemDetailTitle` override
+- The attributes use `labelText` style with `rui_components.CartItemDetailAttributes` override

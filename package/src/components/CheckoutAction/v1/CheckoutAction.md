@@ -2,9 +2,9 @@
 
 The `CheckoutAction` component wraps the `CheckoutActionComplete` and `CheckoutActionIncomplete` components.
 
-#### Usage
+### Usage
 
-##### Default: `Active` status
+#### Default: `Active` status
 
 ```jsx
 const ActiveStepComp = () => <span>Active Component</span>;
@@ -36,7 +36,7 @@ const Address = (
 </div>
 ```
 
-##### Default: `Complete` status
+#### Default: `Complete` status
 ```jsx
 const ActiveStepComp = () => <span>Active Component</span>;
 const Address = (
@@ -67,7 +67,7 @@ const Address = (
 </div>
 ```
 
-##### Default: `Incomplete` status
+#### Default: `Incomplete` status
 ```jsx
 const ActiveStepComp = () => <span>Active Component</span>;
 const Address = (
@@ -169,3 +169,14 @@ const Address = (
   />
 </div>
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                             | Default | Description                              |
+| -------------------------------------- | ------- | ---------------------------------------- |
+| `CheckoutActionComplete.paddingBottom` | 16px    | Bottom padding for the completed content |
+| `CheckoutActionComplete.paddingLeft`   | 0       | Left padding for the completed content   |
+| `CheckoutActionComplete.paddingRight`  | 0       | Right padding for the completed content  |
+| `CheckoutActionComplete.paddingTop`    | 16px    | Top padding for the completed content    |

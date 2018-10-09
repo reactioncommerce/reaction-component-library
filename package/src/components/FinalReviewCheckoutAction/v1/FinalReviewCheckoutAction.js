@@ -12,26 +12,26 @@ const Title = styled.h3`
 // theme variables for each side here. Because various borders intersect, it
 // could lead to strangeness to separate them.
 const Summary = styled.div`
-  border-color: ${applyTheme("finalReviewCheckoutActionBorderColor")};
+  border-color: ${applyTheme("FinalReviewCheckoutAction.borderColor")};
   border-style: solid;
-  border-width: ${applyTheme("finalReviewCheckoutActionBorderWidth")};
+  border-width: ${applyTheme("FinalReviewCheckoutAction.borderWidth")};
 `;
 
 const CartSummaryWrapper = styled.div`
-  padding-bottom: ${applyTheme("finalReviewCheckoutActionSummaryWrapperPaddingBottom")};
-  padding-left: ${applyTheme("finalReviewCheckoutActionSummaryWrapperPaddingLeft")};
-  padding-right: ${applyTheme("finalReviewCheckoutActionSummaryWrapperPaddingRight")};
-  padding-top: ${applyTheme("finalReviewCheckoutActionSummaryWrapperPaddingTop")};
+  padding-bottom: ${applyTheme("FinalReviewCheckoutAction.summaryWrapperPaddingBottom")};
+  padding-left: ${applyTheme("FinalReviewCheckoutAction.summaryWrapperPaddingLeft")};
+  padding-right: ${applyTheme("FinalReviewCheckoutAction.summaryWrapperPaddingRight")};
+  padding-top: ${applyTheme("FinalReviewCheckoutAction.summaryWrapperPaddingTop")};
 `;
 
 const Items = styled.div`
-  border-bottom-color: ${applyTheme("finalReviewCheckoutActionBorderColor")};
+  border-bottom-color: ${applyTheme("FinalReviewCheckoutAction.borderColor")};
   border-bottom-style: solid;
-  border-bottom-width: ${applyTheme("finalReviewCheckoutActionBorderWidth")};
-  padding-bottom: ${applyTheme("finalReviewCheckoutActionItemsWrapperPaddingBottom")};
-  padding-left: ${applyTheme("finalReviewCheckoutActionItemsWrapperPaddingLeft")};
-  padding-right: ${applyTheme("finalReviewCheckoutActionItemsWrapperPaddingRight")};
-  padding-top: ${applyTheme("finalReviewCheckoutActionItemsWrapperPaddingTop")};
+  border-bottom-width: ${applyTheme("FinalReviewCheckoutAction.borderWidth")};
+  padding-bottom: ${applyTheme("FinalReviewCheckoutAction.itemsWrapperPaddingBottom")};
+  padding-left: ${applyTheme("FinalReviewCheckoutAction.itemsWrapperPaddingLeft")};
+  padding-right: ${applyTheme("FinalReviewCheckoutAction.itemsWrapperPaddingRight")};
+  padding-top: ${applyTheme("FinalReviewCheckoutAction.itemsWrapperPaddingTop")};
 `;
 
 class FinalReviewCheckoutAction extends Component {

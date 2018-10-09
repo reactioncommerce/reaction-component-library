@@ -5,7 +5,7 @@ The `CheckoutActions` component is responsible for:
   * Capturing/Editing of `CheckoutAction` data.
   * Rendering captured `CheckoutAction` data in a `CheckoutActionComplete` component.
 
-#### Usage
+### Usage
 `CheckoutActions` takes an array of `actions`, each `action` needs a `label` and a checkout action component that will be responsible to capturing a piece of checkout data as well as a `props` object to include the piece of `cart.checkout` data the action needs to display and a `onSubmit` function that needs to be called during action submission.
 
 **Example of Actions array**
@@ -347,3 +347,23 @@ class CheckoutActionsExample extends React.Component {
 }
 ;<CheckoutActionsExample />
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                                         | Default | Description                                                                             |
+| -------------------------------------------------- | ------- | --------------------------------------------------------------------------------------- |
+| `borderBetweenColor` | black10 | Horizontal border color |
+| `borderBetweenWidth` | 1px | Horizontal border width |
+| `borderLeftColor` | black10 | Left border color |
+| `borderLeftWidth` | 0 | Left border width |
+| `borderRightColor` | black10 | Right border color |
+| `borderRightWidth` | 0 | Right border width |
+| `itemPaddingBottom` | 16px | Bottom padding for each item |
+| `itemPaddingLeft` | 0 | Left padding for each item |
+| `itemPaddingRight` | 0 | Right padding for each item |
+| `itemPaddingTop` | 16px | Top padding for each item |
+| `placeOrderButtonWidth` | 252px | Width of the place order button |
+| `spaceAbovePlaceOrderButton` | 16px | Space above the place order button |
+| `spaceBetweenActiveActionButtons` | 16px | Space between action buttons for the active action |

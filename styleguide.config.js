@@ -370,6 +370,10 @@ module.exports = {
         {
           name: "Using Components",
           content: "styleguide/src/sections/InstallingandImporting.md"
+        },
+        {
+          name: "Theming Components",
+          content: "styleguide/src/sections/ThemingComponents.md"
         }
       ]
     },

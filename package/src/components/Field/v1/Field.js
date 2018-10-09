@@ -4,7 +4,7 @@ import styled from "styled-components";
 import isEmpty from "lodash.isempty";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
-function applyValidationColor(themeProp = "color") {
+function applyValidationColor(themeProp) {
   return (props) => {
     let status;
     if (props.errors && props.errors.length) {
@@ -21,29 +21,29 @@ function applyValidationColor(themeProp = "color") {
 }
 
 const StyledField = styled.div`
-  margin-bottom: ${applyTheme("fieldSpacingBelow")};
+  margin-bottom: ${applyTheme("Field.spacingBelow")};
   margin-left: 0;
   margin-right: 0;
-  margin-top: ${applyTheme("fieldSpacingAbove")};
+  margin-top: ${applyTheme("Field.spacingAbove")};
 `;
 
 const StyledLabel = styled.label`
   ${addTypographyStyles("FieldLabel", "labelText")}
-  color: ${applyValidationColor("labelColor")};
+  color: ${applyValidationColor("FieldLabel.color")};
   display: block;
-  margin-bottom: ${applyTheme("labelSpacingToInput")};
+  margin-bottom: ${applyTheme("FieldLabel.spacingToInput")};
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
 `;
 
 const StyledHelpText = styled.span`
-  ${addTypographyStyles("FieldLabel", "labelText")}
+  ${addTypographyStyles("FieldHelp", "labelText")}
   display: block;
   margin-bottom: 0;
   margin-left: 0;
   margin-right: 0;
-  margin-top: ${applyTheme("helpTextSpacingToInput")};
+  margin-top: ${applyTheme("FieldHelp.spacingToInput")};
 `;
 
 class Field extends Component {

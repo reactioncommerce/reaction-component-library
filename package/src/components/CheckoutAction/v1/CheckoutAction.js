@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const CompleteActionWrapper = styled.div`
-  padding-top: ${applyTheme("checkoutActionCompletePaddingTop")};
-  padding-bottom: ${applyTheme("checkoutActionCompletePaddingBottom")};
-  padding-left: ${applyTheme("checkoutActionCompletePaddingLeft")};
-  padding-right: ${applyTheme("checkoutActionCompletePaddingRight")};
+  padding-bottom: ${applyTheme("CheckoutActionComplete.paddingBottom")};
+  padding-left: ${applyTheme("CheckoutActionComplete.paddingLeft")};
+  padding-right: ${applyTheme("CheckoutActionComplete.paddingRight")};
+  padding-top: ${applyTheme("CheckoutActionComplete.paddingTop")};
 `;
 
 class CheckoutAction extends Component {
