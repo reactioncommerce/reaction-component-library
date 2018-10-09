@@ -553,6 +553,11 @@ const rui_components = {
       lineHeight: 1
     }
   },
+  InPageMenuItemText: {
+    typography: {
+      lineHeight: 1
+    }
+  },
   PriceCompare: {
     typography: {
       color: colors.black25
