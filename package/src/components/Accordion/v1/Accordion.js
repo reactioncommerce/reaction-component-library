@@ -46,7 +46,7 @@ const AccordionHeaderIcon = styled.span`
   width: ${applyTheme("accordionIconWidth")};
   svg {
     height: ${applyTheme("accordionIconHeight")};
-    transform: ${({ expanded }) => (expanded ? "rotateZ(180deg)" : "rotateZ(0)")};
+    transform: ${({ isExpanded }) => (isExpanded ? "rotateZ(180deg)" : "rotateZ(0)")};
     transition: transform ${duration} ${ease};
     width: ${applyTheme("accordionIconWidth")};
   }
@@ -56,13 +56,13 @@ const AccordionContent = styled.div`
   background-color: ${applyTheme("accordionContentBackgroundColor")};
   border-top-color: ${applyTheme("accordionBorderColor")};
   border-top-style: ${applyTheme("accordionBorderStyle")};
-  border-top-width: ${({ expanded }) => (expanded ? applyTheme("accordionBorderWidth") : "0")};
+  border-top-width: ${({ isExpanded }) => (isExpanded ? applyTheme("accordionBorderWidth") : "0")};
   color: inherit;
   height: auto;
-  max-height: ${({ expanded }) => (expanded ? "150vh" : "0")};
+  max-height: ${({ isExpanded }) => (isExpanded ? "150vh" : "0")};
   overflow: hidden;
-  padding: ${({ expanded }) => (expanded ? applyTheme("accordionPadding") : "0")};
-  transition: ${({ expanded }) => (expanded ? openTransition : closeTransition)};
+  padding: ${({ isExpanded }) => (isExpanded ? applyTheme("accordionPadding") : "0")};
+  transition: ${({ isExpanded }) => (isExpanded ? openTransition : closeTransition)};
 `;
 
 class Accordion extends Component {
@@ -129,7 +129,7 @@ class Accordion extends Component {
 
   render() {
     const { children, className, components: { iconExpand }, detail, icon, label } = this.props;
-    const { expanded } = this.state;
+    const { isExpanded } = this.state;
 
     return (
       <AccordionWrapper
@@ -144,9 +144,9 @@ class Accordion extends Component {
             <AccordionHeaderLabel>{label}</AccordionHeaderLabel>
             {detail ? <AccordionHeaderDetail>, {detail}</AccordionHeaderDetail> : ""}
           </span>
-          <AccordionHeaderIcon expanded={expanded}>{iconExpand}</AccordionHeaderIcon>
+          <AccordionHeaderIcon isExpanded={isExpanded}>{iconExpand}</AccordionHeaderIcon>
         </AccordionHeader>
-        <AccordionContent expanded={expanded}>{children}</AccordionContent>
+        <AccordionContent isExpanded={isExpanded}>{children}</AccordionContent>
       </AccordionWrapper>
     );
   }
