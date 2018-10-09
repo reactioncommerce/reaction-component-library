@@ -92,6 +92,8 @@ class Accordion extends Component {
 
   _accordion = null;
 
+  toggle = () => this.handleToggle();
+
   // handle accordion toggle
   handleToggle = () => {
     const { expanded } = this.state;
