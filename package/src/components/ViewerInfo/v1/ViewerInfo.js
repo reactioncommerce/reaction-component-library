@@ -1,27 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ViewerInfoContainer = styled.div`
   display: flex;
   position: relative;
-`;
-
-const ViewerInitialsCircle = styled.div`
-  background-color: ${applyTheme("viewerInfoInitialsBackgroundColor")};
-  border-radius: 50%;
-  height: ${applyTheme("viewerInfoInitialsSize")};
-  text-align: center;
-  width: ${applyTheme("viewerInfoInitialsSize")};
-`;
-
-const ViewerInitialsText = styled.div`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
-  color: ${applyTheme("viewerInfoInitialsColor")};
-  line-height: 1;
-  position: relative;
-  top: calc(${applyTheme("viewerInfoInitialsSize")} / 4);
 `;
 
 const ViewerFirstNameText = styled.span`
@@ -53,16 +38,31 @@ class ViewerInfo extends Component {
      */
     compact: PropTypes.bool,
     /**
+     * If you've set up a components context using
+     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
+     * (recommended), then this prop will come from there automatically. If you have not
+     * set up a components context or you want to override one of the components in a
+     * single spot, you can pass in the components prop directly.
+     */
+    components: PropTypes.shape({
+      /**
+     * Profile image component to display
+     */
+      ProfileImage: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
+    }),
+    /**
      * Enable this prop when you want to display the initials and first name on all screens
      */
     full: PropTypes.bool,
     /**
-     * An object containing basic user information.
-     */
+    * An object containing basic user information.
+    */
     viewer: PropTypes.shape({
       firstName: PropTypes.string,
       lastName: PropTypes.string,
-      primaryEmailAddress: PropTypes.string.isRequired
+      name: PropTypes.string,
+      primaryEmailAddress: PropTypes.string.isRequired,
+      profileImage: PropTypes.string
     }).isRequired
   };
 
@@ -98,12 +98,10 @@ class ViewerInfo extends Component {
   }
 
   render() {
-    const { compact, full } = this.props;
+    const { compact, components: { ProfileImage }, full, viewer } = this.props;
     return (
       <ViewerInfoContainer className={this.props.className}>
-        <ViewerInitialsCircle>
-          <ViewerInitialsText>{this.viewerInitials}</ViewerInitialsText>
-        </ViewerInitialsCircle>
+        <ProfileImage size={30} viewer={viewer} />
         <ViewerFirstNameText compact={compact} full={full}>
           {this.viewerName}
         </ViewerFirstNameText>
@@ -112,4 +110,4 @@ class ViewerInfo extends Component {
   }
 }
 
-export default ViewerInfo;
+export default withComponents(ViewerInfo);
