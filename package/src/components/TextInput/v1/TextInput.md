@@ -1,6 +1,6 @@
 ### Overview
 
-#### Usage
+### Usage
 The `TextInput` component is used for collecting string form values.
 
 There are two types of text inputs to choose from:
@@ -11,9 +11,9 @@ Text inputs also have two styles of inputs.
  - **Default input style**: used on light backgrounds.
  - **Dark input style**: used on dark backgrounds.
 
-#### Types
+### Types
 
-##### Single line
+#### Single line
 Default text input used in the majority of instances. It can be defined as one of four input types `"text"`, `"email"`, `"password"`, `"url"`.
 
 ```jsx
@@ -22,7 +22,7 @@ Default text input used in the majority of instances. It can be defined as one o
 </div>
 ```
 
-##### Multi-line
+#### Multi-line
 To enable the multi-line text input, pass the `shouldAllowLineBreaks` prop.
 
 ```jsx
@@ -31,11 +31,11 @@ To enable the multi-line text input, pass the `shouldAllowLineBreaks` prop.
 </div>
 ```
 
-#### Styles
+### Styles
 
 By default, text inputs are white with dark text on grey backgrounds.
 
-##### Default: Light background
+#### Default: Light background
 
 ```jsx
 const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
@@ -46,7 +46,7 @@ const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoC
 </TwoColumnExamples>
 ```
 
-##### Dark background
+#### Dark background
 
 The dark background style is applied by adding the `isOnDarkBackground` prop to the component. Use `dark` text input when the background is grey or dark. When a grey background is used to create hierarchy and sections a white text field is use.
 
@@ -59,7 +59,7 @@ const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoC
 </TwoColumnExamples>
 ```
 
-#### States
+### States
 Text inputs have 8 basic states:
 
 1. Idle unfilled
@@ -71,7 +71,7 @@ Text inputs have 8 basic states:
 1. Invalid
 1. Read Only / Disabled
 
-##### Idle Unfilled / Focused Unfilled
+#### Idle Unfilled / Focused Unfilled
 
 When a user has clicked, pressed or tabbed into an input, it’s in focused state.
 
@@ -92,7 +92,7 @@ const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoC
 </div>
 ```
 
-##### Idle Filled / Focused Filled
+#### Idle Filled / Focused Filled
 
 When a field has been filled in by the user, and has been unfocused it shows idle and filled in. When a user has filled in a text input and clicked back into the text field it is shown as focused and has an icon button that allows the user to quickly clear the whole field and edit it from scratch.
 
@@ -112,7 +112,7 @@ const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoC
 </div>
 ```
 
-##### Valid
+#### Valid
 
 When information is required and/or needs to be formatted in a specific way the text input should be validated. When it’s successful the field shows a success state. Passing the `hasBeenValidated` prop to the input will enabled the valid state.
 
@@ -133,7 +133,7 @@ const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoC
 </div>
 ```
 
-##### Invalid
+#### Invalid
 
 When information is required and/or needs to be formatted in a specific way the text input should be validated. When a input can't be validated the input is highlighted with error styling. Passing an `errors` array to the input to enabled the invalid state.
 
@@ -154,7 +154,7 @@ const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoC
 </div>
 ```
 
-##### Read Only / Disabled
+#### Read Only / Disabled
 
 A disabled input is used when an action needs to be taken before the input can be enabled. A user is unable to input information into a disabled input. Pass the `isReadOnly` prop to enabled read only / disabled state.
 
@@ -175,7 +175,7 @@ const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoC
 </div>
 ```
 
-#### Input Icons
+### Input Icons
 You can add a custom icon to the right side of any text input and optionally provide a click handler for it. Use these two props:
  - `icon` The icon node you want to display
  - `onIconClick` Click event handler for icon clicks.
@@ -188,7 +188,6 @@ The default valid, invalid and clear icons can be overwritten by passing values 
  - `iconValid`
 
 These can also be provided through the main components context for your app.
-
 
 All of the icon props will accept a few different types of nodes to create the input icon.
  - React Component
@@ -215,41 +214,45 @@ const iconComponents = {
 
 To replace an icon, like` iconValid`, across all components, update the icons in the `components` prop. Learn more [here](https://github.com/reactioncommerce/reaction-component-library/blob/master/docs/component-development-guidelines.md#using-other-components-in-a-component).
 
-#### Component usage
+### Theme
 
-The text input theme styles are broken out into three groups
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
 
-Input Styles
- - `rui_inputBackgroundColor_default`
- - `rui_inputBackgroundColor_dark `
- - `rui_inputBorderColor_default `
- - `rui_inputBorderColor_focus `
- - `rui_inputBorderColor_error `
- - `rui_inputBorderColor_success `
- - `rui_inputBorderRadius `
- - `rui_inputColor_default `
- - `rui_inputColor_disabled `
- - `rui_inputColor_error `
- - `rui_inputColor_success `
- - `rui_inputPlaceholderColor `
- - `rui_inputFontFamily `
- - `rui_inputFontSize `
- - `rui_inputLineHeight `
- - `rui_inputVerticalPadding `
- - `rui_inputHorizontalPadding `
- - `rui_iconTop `
- - `rui_iconRight `
+| Theme Prop                              | Default                                                      | Description                                  |
+| --------------------------------------- | ------------------------------------------------------------ | -------------------------------------------- |
+| `Input.backgroundColor_dark`            | white                                                        | Background color when `isDarkBackground`     |
+| `Input.backgroundColor_default`         | black02                                                      | Background color when not `isDarkBackground` |
+| `Input.borderColor_default`             | black20                                                      | Border color in "default" state              |
+| `Input.borderColor_error`               | red                                                          | Border color in "error" state                |
+| `Input.borderColor_focus`               | teal                                                         | Border color in "focus" state                |
+| `Input.borderColor_success`             | teal                                                         | Border color in "success" state              |
+| `Input.borderRadius`                    | 2px                                                          | Border radius for all corners                |
+| `Input.clearButtonColor`                | coolGrey                                                     | Icon color for the clear button              |
+| `Input.clearButtonLargeBackgroundColor` | white                                                        | Background color for the large clear button  |
+| `Input.clearButtonLargeBorderColor`     | coolGrey                                                     | Border color for the large clear button      |
+| `Input.color_default`                   | coolGrey500                                                  | Input text color when in "default" state     |
+| `Input.color_disabled`                  | black25                                                      | Input text color when in "disabled" state    |
+| `Input.color_error`                     | red                                                          | Input text color when in "error" state       |
+| `Input.color_focus`                     | coolGrey500                                                  | Input text color when in "focus" state       |
+| `Input.color_success`                   | black55                                                      | Input text color when in "success" state     |
+| `Input.fontFamily`                      | `'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif` | Input text font                              |
+| `Input.fontSize`                        | 14px                                                         | Input text font size                         |
+| `Input.horizontalPadding`               | 10px                                                         | Left and right padding                       |
+| `Input.iconColor_default`               | black55                                                      | Icon color when in "default" state           |
+| `Input.iconColor_disabled`              | black25                                                      | Icon color when in "disabled" state          |
+| `Input.iconColor_error`                 | red                                                          | Icon color when in "error" state             |
+| `Input.iconColor_success`               | forestGreen                                                  | Icon color when in "success" state           |
+| `Input.iconWrapperSize`                 | 1.429em                                                      | Height and width of the input icon           |
+| `Input.lineHeight`                      | 1                                                            | Input line height                            |
+| `Input.placeholderColor`                | black20                                                      | Placeholder text color                       |
+| `Input.verticalPadding`                 | 8px                                                          | Top and bottom padding                       |
+| `Textarea.clearButtonFontSize`          | 12px                                                         | Font size for the large clear button         |
+| `Textarea.clearButtonPadding`           | 10px                                                         | Padding for the large clear button           |
+| `Textarea.height`                       | 60px                                                         | Initial height of a textarea                 |
+| `Textarea.iconRight`                    | 0                                                            | Right offset for a textarea icon             |
+| `Textarea.iconTop`                      | 10px                                                         | Top offset for a textarea icon               |
+| `Textarea.lineHeight`                   | 1.5                                                          | Line height for lines within a textarea      |
 
-Textarea Styles
- - `rui_textareaHeight`
- - `rui_textareaLineHeight `
- - `rui_textareaClearButtonPadding `
- - `rui_textareaIconRight `
- - `rui_textareaIconTop `
+#### Typography
 
-Input Icon Styles
- - `rui_inputIconColor_default`
- - `rui_inputIconColor_disabled`
- - `rui_inputIconColor_error`
- - `rui_inputIconColor_success`
- - `rui_inputIconTextPadding`
+None

@@ -14,21 +14,21 @@ const StyledLabel = styled.label`
 
 const StyledRadioButton = styled.span`
   align-items: center;
-  background-color: ${applyTheme("selectableItemRadioButtonBackgroundColor")};
+  background-color: ${applyTheme("SelectableItemRadioButton.backgroundColor")};
   border-radius: 50%;
-  border-color: ${applyTheme("selectableItemRadioButtonBorderColor")};
+  border-color: ${applyTheme("SelectableItemRadioButton.borderColor")};
   border-style: solid;
-  border-width: ${applyTheme("selectableItemRadioButtonBorderWidth")};
+  border-width: ${applyTheme("SelectableItemRadioButton.borderWidth")};
   box-sizing: border-box;
   display: flex;
   flex-shrink: 0;
-  height: ${applyTheme("selectableItemRadioButtonSize")};
+  height: ${applyTheme("SelectableItemRadioButton.size")};
   justify-content: center;
   margin-bottom: 0;
   margin-left: 0;
-  margin-right: ${applyTheme("selectableItemRadioButtonSpacingToLabel")};
+  margin-right: ${applyTheme("SelectableItemRadioButton.spacingToLabel")};
   margin-top: 0;
-  width: ${applyTheme("selectableItemRadioButtonSize")};
+  width: ${applyTheme("SelectableItemRadioButton.size")};
 `;
 
 const StyledInput = styled.input`
@@ -47,23 +47,23 @@ const StyledInput = styled.input`
     content: " ";
     display: inline-block;
     position: relative;
-    width: ${applyTheme("selectableItemRadioButtonCheckSize")};
-    height: ${applyTheme("selectableItemRadioButtonCheckSize")};
+    width: ${applyTheme("SelectableItemRadioButton.checkSize")};
+    height: ${applyTheme("SelectableItemRadioButton.checkSize")};
     border-radius: 50%;
-    background-color: ${applyTheme("selectableItemRadioButtonColor")};
+    background-color: ${applyTheme("SelectableItemRadioButton.color")};
   }
   &:focus + ${StyledLabel} ${StyledRadioButton} {
-    box-shadow: ${applyTheme("selectableItemRadioFocus")};
-    outline: ${applyTheme("selectableItemRadioFocusOutline")}
+    box-shadow: ${applyTheme("SelectableItemRadioButton.focus")};
+    outline: ${applyTheme("SelectableItemRadioButton.focusOutline")}
   }
   &:disabled + ${StyledLabel} ${StyledRadioButton} {
-    background-color: ${applyTheme("selectableItemRadioDisabledFillColor")};
+    background-color: ${applyTheme("SelectableItemRadioButton.disabledFillColor")};
   }
   &:disabled + ${StyledLabel} {
-    opacity: ${applyTheme("selectableItemRadioDisabledOpacity")};
+    opacity: ${applyTheme("SelectableItemRadioButton.disabledOpacity")};
   }
   &:disabled + ${StyledLabel}:hover {
-    cursor:  ${applyTheme("selectableItemRadioDisabledCursor")};
+    cursor:  ${applyTheme("SelectableItemRadioButton.disabledCursor")};
   }
 `;
 
@@ -75,48 +75,47 @@ const StyledDetail = styled.div`
 `;
 
 const StyledIcon = styled.span`
-  border-radius: ${applyTheme("selectableListBorderRadius")};
-  border-color: ${applyTheme("selectableListBorderColor")};
-  border-style: ${applyTheme("selectableListBorderStyle")};
-  border-width: ${applyTheme("selectableListBorderWidth")};
-  height: ${applyTheme("selectableListIconHeight")};
+  border-radius: ${applyTheme("SelectableList.borderRadius")};
+  border-color: ${applyTheme("SelectableList.borderColor")};
+  border-style: ${applyTheme("SelectableList.borderStyle")};
+  border-width: ${applyTheme("SelectableList.borderWidth")};
+  height: ${applyTheme("SelectableList.iconHeight")};
   margin-bottom: 0;
   margin-left: 0;
-  margin-right: ${applyTheme("selectableListIconSpacingToLabel")};
+  margin-right: ${applyTheme("SelectableList.iconSpacingToLabel")};
   margin-top: 0;
-  width: ${applyTheme("selectableListIconWidth")};
+  width: ${applyTheme("SelectableList.iconWidth")};
   svg {
-    height: ${applyTheme("selectableListIconHeight")};
-    width: ${applyTheme("selectableListIconWidth")};
+    height: ${applyTheme("SelectableList.iconHeight")};
+    width: ${applyTheme("SelectableList.iconWidth")};
   }
 `;
 
 const StyledItem = styled.div`
   display: flex;
   justify-content: space-between;
-  height: ${applyTheme("selectableListHeight")};
+  height: ${applyTheme("SelectableList.height")};
   @media (max-width: 768px) {
-    height: ${applyTheme("selectableListHeightMobile")};
+    height: ${applyTheme("SelectableList.heightMobile")};
   }
 `;
 
 const LeftAlignedItem = styled.div`
   display: flex;
   justify-content: flex-start;
-  height: ${applyTheme("selectableListHeight")};
+  height: ${applyTheme("SelectableList.height")};
   @media (max-width: 768px) {
-    height: ${applyTheme("selectableListHeightMobile")};
+    height: ${applyTheme("SelectableList.heightMobile")};
   }
   ${StyledLabel} {
     position: relative;
-    font-weight: ${applyTheme("selectableListLeftAlignedLabelFontWeight")};
+    font-weight: ${applyTheme("SelectableList.leftAlignedLabelFontWeight")};
   }
   ${StyledDetail} {
-    ${addTypographyStyles("SelectableItemDetail", "labelText")}
-    margin-left: ${applyTheme("selectableListLeftAlignedDetailSpacingToLabel")};
+    ${addTypographyStyles("SelectableItemDetailLeft", "labelText")}
+    margin-left: ${applyTheme("SelectableList.leftAlignedDetailSpacingToLabel")};
   }
 `;
-
 
 class SelectableItem extends Component {
   static propTypes = {

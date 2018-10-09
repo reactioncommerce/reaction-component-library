@@ -5,7 +5,7 @@ import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ViewerImageCircle = styled.div`
   align-items: center;
-  background-color: ${applyTheme("profileImageBackgroundColor")};
+  background-color: ${applyTheme("ProfileImage.backgroundColor")};
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -34,9 +34,9 @@ class ProfileImage extends Component {
      * An object containing basic user information.
      */
     viewer: PropTypes.shape({
-      firstName: PropTypes.string.isRequired,
-      lastName: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      name: PropTypes.string,
       primaryEmailAddress: PropTypes.string,
       profileImage: PropTypes.string
     }).isRequired
@@ -50,7 +50,7 @@ class ProfileImage extends Component {
    *
    * @name viewerInitials
    * @summary Build the initials string from the `viewer` first and last name
-   * If those props are not availible use the first letter of the primary email address.
+   * If those props are not available use the first letter of the primary email address.
    * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
    */
   get viewerInitials() {

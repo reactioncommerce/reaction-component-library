@@ -1,9 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot 1`] = `
-Array [
-  "AddressForm(undefined)",
-  .c0 {
+.c0 {
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -23,10 +21,14 @@ Array [
 }
 
 <div
+  className={undefined}
+>
+  AddressForm(undefined)
+  <div
     className="c0"
   >
     
     Button(undefined)
-  </div>,
-]
+  </div>
+</div>
 `;

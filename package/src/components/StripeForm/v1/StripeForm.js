@@ -11,7 +11,7 @@ import styled, { withTheme } from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, withStripeElements } from "../../../utils";
 
-function fieldBorderColor(themeProp = "color") {
+function fieldBorderColor(themeProp) {
   return (props) => {
     let status = "default";
 
@@ -25,15 +25,17 @@ function fieldBorderColor(themeProp = "color") {
 
 const Field = styled.div`
   -webkit-font-smoothing: antialiased;
-  background-color: ${applyTheme("inputBackgroundColor_default")};
-  border: 1px solid ${fieldBorderColor("inputBorderColor")};
+  background-color: ${applyTheme("Input.backgroundColor_default")};
+  border-color: ${fieldBorderColor("Input.borderColor")};
+  border-style: solid;
+  border-width: 1px;
   box-sizing: border-box;
-  color: ${applyTheme("inputColor_default")};
-  line-height: ${applyTheme("inputLineHeight")};
+  color: ${applyTheme("Input.color_default")};
+  line-height: ${applyTheme("Input.lineHeight")};
   border-radius: 2px;
   margin-bottom: 20px;
   outline: none;
-  padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
+  padding: ${applyTheme("Input.verticalPadding")} ${applyTheme("Input.horizontalPadding")};
 `;
 
 const AcceptedPaymentMethods = styled.div`
@@ -189,11 +191,11 @@ class StripeForm extends Component {
     const commonProps = {
       style: {
         base: {
-          "fontSize": applyTheme("inputFontSize")(this.props),
-          "color": applyTheme("inputColor_default")(this.props),
-          "fontFamily": applyTheme("inputFontFamily")(this.props),
+          "fontSize": applyTheme("Input.fontSize")(this.props),
+          "color": applyTheme("Input.color_default")(this.props),
+          "fontFamily": applyTheme("Input.fontFamily")(this.props),
           "::placeholder": {
-            color: applyTheme("inputPlaceholderColor")(this.props)
+            color: applyTheme("Input.placeholderColor")(this.props)
           }
         }
       },

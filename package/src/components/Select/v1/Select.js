@@ -72,14 +72,14 @@ function applyValidationColor(themeProp = "color") {
   };
 }
 
-const getInputBorderColor = applyValidationColor("inputBorderColor");
-const getInputFontSize = applyTheme("inputFontSize");
-const getSelectOptionHoverColor = applyTheme("selectOptionHoverColor");
-const getSelectedOptionBackgroundColor = applyTheme("selectSelectedOptionBackgroundColor");
-const getSelectIndicatorColor = applyTheme("selectIndicatorColor");
-const getSelectLetterSpacing = applyTheme("selectLetterSpacing");
-const getSelectTextColor = applyTheme("selectTextColor");
-const getInputFontFamily = applyTheme("inputFontFamily");
+const getInputBorderColor = applyValidationColor("Input.borderColor");
+const getInputFontSize = applyTheme("Input.fontSize");
+const getSelectOptionHoverColor = applyTheme("Select.optionHoverColor");
+const getSelectedOptionBackgroundColor = applyTheme("Select.selectedOptionBackgroundColor");
+const getSelectIndicatorColor = applyTheme("Select.indicatorColor");
+const getSelectLetterSpacing = applyTheme("Select.letterSpacing");
+const getSelectTextColor = applyTheme("Select.textColor");
+const getInputFontFamily = applyTheme("Input.fontFamily");
 
 function getCustomStyles(props) {
   const { maxWidth } = props;
@@ -98,10 +98,10 @@ function getCustomStyles(props) {
       return {
         ...base,
         "borderColor": getInputBorderColor({ ...props, isFocused: state.isFocused }),
-        "borderTopLeftRadius": applyTheme("selectBorderTopLeftRadius")(props),
-        "borderTopRightRadius": applyTheme("selectBorderTopRightRadius")(props),
-        "borderBottomLeftRadius": applyTheme("selectBorderBottomLeftRadius")(props),
-        "borderBottomRightRadius": applyTheme("selectBorderBottomRightRadius")(props),
+        "borderTopLeftRadius": applyTheme("Select.borderTopLeftRadius")(props),
+        "borderTopRightRadius": applyTheme("Select.borderTopRightRadius")(props),
+        "borderBottomLeftRadius": applyTheme("Select.borderBottomLeftRadius")(props),
+        "borderBottomRightRadius": applyTheme("Select.borderBottomRightRadius")(props),
         "boxShadow": "none",
         "cursor": "pointer",
         "&:hover": {
@@ -159,19 +159,19 @@ function getCustomStyles(props) {
     menu(base) {
       return {
         ...base,
-        borderTopLeftRadius: applyTheme("selectMenuBorderTopLeftRadius")(props),
-        borderTopRightRadius: applyTheme("selectMenuBorderTopRightRadius")(props),
-        borderBottomLeftRadius: applyTheme("selectMenuBorderBottomLeftRadius")(props),
-        borderBottomRightRadius: applyTheme("selectMenuBorderBottomRightRadius")(props),
+        borderTopLeftRadius: applyTheme("SelectMenu.borderTopLeftRadius")(props),
+        borderTopRightRadius: applyTheme("SelectMenu.borderTopRightRadius")(props),
+        borderBottomLeftRadius: applyTheme("SelectMenu.borderBottomLeftRadius")(props),
+        borderBottomRightRadius: applyTheme("SelectMenu.borderBottomRightRadius")(props),
         borderBottomStyle: "solid",
-        borderBottomWidth: applyTheme("selectMenuBorderBottomWidth")(props),
-        borderBottomColor: applyTheme("selectMenuBorderBottomColor")(props),
+        borderBottomWidth: applyTheme("SelectMenu.borderBottomWidth")(props),
+        borderBottomColor: applyTheme("SelectMenu.borderBottomColor")(props),
         borderLeftStyle: "solid",
-        borderLeftWidth: applyTheme("selectMenuBorderLeftWidth")(props),
-        borderLeftColor: applyTheme("selectMenuBorderLeftColor")(props),
+        borderLeftWidth: applyTheme("SelectMenu.borderLeftWidth")(props),
+        borderLeftColor: applyTheme("SelectMenu.borderLeftColor")(props),
         borderRightStyle: "solid",
-        borderRightWidth: applyTheme("selectMenuBorderRightWidth")(props),
-        borderRightColor: applyTheme("selectMenuBorderRightColor")(props),
+        borderRightWidth: applyTheme("SelectMenu.borderRightWidth")(props),
+        borderRightColor: applyTheme("SelectMenu.borderRightColor")(props),
         marginTop: 0,
         boxShadow: "none",
         zIndex: MENU_Z_INDEX

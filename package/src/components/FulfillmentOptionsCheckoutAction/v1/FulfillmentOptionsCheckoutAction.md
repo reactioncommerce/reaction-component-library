@@ -1,10 +1,10 @@
 ### Overview
 
-#### Usage
+### Usage
 
 - The cheapest fulfillment option will be selected by default
 
-##### Show fulfillment options
+#### Show fulfillment options
 
 ```jsx
 const fulfillmentGroup = {
@@ -87,7 +87,7 @@ class FulfillmentExample extends React.Component {
 <FulfillmentExample />
 ```
 
-##### Render complete
+#### Render complete
 
 ```jsx
 const data = {
@@ -110,3 +110,13 @@ const action = FulfillmentOptionsCheckoutAction;
 
 action.renderComplete(data);
 ```
+
+### Theme
+
+See [Theming Components](./#!/Theming%20Components).
+
+#### Typography
+
+- The label text uses `subheadingTextBold` style with `rui_components.FulfillmentOptionsCheckoutActionTitle` override
+- The selected option text uses `bodyText` style with `rui_components.FulfillmentOptionsCheckoutActionSelectedOption` override
+- The empty message text uses `bodyText` style with `rui_components.FulfillmentOptionsCheckoutActionEmptyMessage` override

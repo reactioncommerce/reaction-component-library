@@ -7,28 +7,28 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const AddressBookAddNewAddressAction = styled.div`
-  border-color: ${applyTheme("addressBookBorderColor")};
-  border-style: ${applyTheme("addressBookBorderStyle")};
-  border-width: ${applyTheme("addressBookBorderWidth")};
-  border-bottom-left-radius: ${applyTheme("addressBookBorderRadius")};
-  border-bottom-right-radius: ${applyTheme("addressBookBorderRadius")};
+  border-color: ${applyTheme("AddressBook.borderColor")};
+  border-style: ${applyTheme("AddressBook.borderStyle")};
+  border-width: ${applyTheme("AddressBook.borderWidth")};
+  border-bottom-left-radius: ${applyTheme("AddressBook.borderRadius")};
+  border-bottom-right-radius: ${applyTheme("AddressBook.borderRadius")};
   border-top: none;
   box-sizing: border-box;
   color: inherit;
   overflow: hidden;
-  padding-bottom: ${applyTheme("addressBookAddActionPaddingBottom")};
-  padding-left: ${applyTheme("addressBookAddActionPaddingLeft")};
-  padding-right: ${applyTheme("addressBookAddActionPaddingRight")};
-  padding-top: ${applyTheme("addressBookAddActionPaddingTop")};
+  padding-bottom: ${applyTheme("AddressBook.addActionPaddingBottom")};
+  padding-left: ${applyTheme("AddressBook.addActionPaddingLeft")};
+  padding-right: ${applyTheme("AddressBook.addActionPaddingRight")};
+  padding-top: ${applyTheme("AddressBook.addActionPaddingTop")};
 `;
 
 const AddressBookAddNewAddressActionButton = styled.div`
   ${addTypographyStyles("ActionButton", "labelText")};
-  color: ${applyTheme("addressBookActionButtonColor")};
+  color: ${applyTheme("AddressBook.actionButtonColor")};
   cursor: pointer;
   display: table;
   &:hover {
-    color: ${applyTheme("addressBookActionButtonHoverColor")};
+    color: ${applyTheme("AddressBook.actionButtonHoverColor")};
     svg {
       color: inherit !important;
     }
@@ -37,12 +37,12 @@ const AddressBookAddNewAddressActionButton = styled.div`
 
 const AddressBookAddNewAddressActionIcon = styled.span`
   color: inherit;
-  height: ${applyTheme("addressBookActionButtonIconHeight")};
+  height: ${applyTheme("AddressBook.actionButtonIconHeight")};
   margin: 0;
-  margin-right: ${applyTheme("addressBookActionButtonIconMarginRight")};
-  width: ${applyTheme("addressBookActionButtonIconWidth")};
+  margin-right: ${applyTheme("AddressBook.actionButtonIconMarginRight")};
+  width: ${applyTheme("AddressBook.actionButtonIconWidth")};
   svg {
-    color: ${applyTheme("addressBookActionButtonIconColor")};
+    color: ${applyTheme("AddressBook.actionButtonIconColor")};
     fill: currentColor;
     height: 1em;
     width: 1em;
@@ -53,13 +53,13 @@ const AddressBookAddNewAddressActionIcon = styled.span`
 const FormActions = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding-bottom: ${applyTheme("addressBookActionPaddingBottom")};
-  padding-left: ${applyTheme("addressBookActionPaddingLeft")};
-  padding-right: ${applyTheme("addressBookActionPaddingRight")};
-  padding-top: ${applyTheme("addressBookActionPaddingTop")};
+  padding-bottom: ${applyTheme("AddressBook.actionPaddingBottom")};
+  padding-left: ${applyTheme("AddressBook.actionPaddingLeft")};
+  padding-right: ${applyTheme("AddressBook.actionPaddingRight")};
+  padding-top: ${applyTheme("AddressBook.actionPaddingTop")};
 
   > div:last-of-type {
-    margin-left: ${applyTheme("checkoutActionsSpaceBetweenActiveActionButtons")};
+    margin-left: ${applyTheme("AddressBook.spaceBetweenActiveActionButtons")};
   }
 `;
 
@@ -70,7 +70,7 @@ const FormActionDelete = styled.div`
     border: none;
     &:hover {
       background-color: transparent;
-      color: ${applyTheme("addressBookActionDeleteButtonHoverColor")};
+      color: ${applyTheme("AddressBook.actionDeleteButtonHoverColor")};
     }
   }
 `;

@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
-
 const AccountProfileInfoContainer = styled.div`
   display: flex;
   position: relative;
@@ -14,20 +13,20 @@ const AccountProfileInfoTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
+  margin-left: ${applyTheme("AccountProfileInfo.spacingBetweenImageAndContent")};
   position: relative;
 `;
 
 const ViewerEmailText = styled.span`
   ${addTypographyStyles("AccountProfileInfoEmail", "labelText")}
   align-self: left;
-  margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterEmail")};
+  margin-bottom: ${applyTheme("AccountProfileInfo.spacingAfterEmail")};
 `;
 
 const ViewerNameText = styled.span`
   ${addTypographyStyles("AccountProfileInfoName", "titleTextBold")}
   align-self: left;
-  margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterName")};
+  margin-bottom: ${applyTheme("AccountProfileInfo.spacingAfterName")};
 `;
 
 class AccountProfileInfo extends Component {

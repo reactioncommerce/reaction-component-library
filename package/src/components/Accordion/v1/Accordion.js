@@ -4,21 +4,16 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, addTypographyStyles } from "../../../utils";
 
-const duration = "250ms";
-const ease = "ease-in-out";
-const openTransition = `max-height ${duration} ${ease}, padding 0ms ${ease}`;
-const closeTransition = `max-height ${duration} ${ease}, padding 0ms ${ease} ${duration}, border 0ms ${ease} ${duration}`;
-
 const AccordionWrapper = styled.div`
-  border-color: ${applyTheme("accordionBorderColor")};
-  border-style: ${applyTheme("accordionBorderStyle")};
-  border-width: ${applyTheme("accordionBorderWidth")};
+  border-color: ${applyTheme("Accordion.borderColor")};
+  border-style: ${applyTheme("Accordion.borderStyle")};
+  border-width: ${applyTheme("Accordion.borderWidth")};
   box-sizing: border-box;
   color: inherit;
   overflow: hidden;
   &:first-of-type {
-    border-top-left-radius: ${applyTheme("accordionBorderRadius")};
-    border-top-right-radius: ${applyTheme("accordionBorderRadius")};
+    border-top-left-radius: ${applyTheme("Accordion.borderRadius")};
+    border-top-right-radius: ${applyTheme("Accordion.borderRadius")};
   }
   &:not(:first-of-type) {
     border-top: none;
@@ -29,7 +24,10 @@ const AccordionHeader = styled.div`
   cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: ${applyTheme("accordionPadding")};
+  padding-bottom: ${applyTheme("Accordion.paddingBottom")};
+  padding-left: ${applyTheme("Accordion.paddingLeft")};
+  padding-right: ${applyTheme("Accordion.paddingRight")};
+  padding-top: ${applyTheme("Accordion.paddingTop")};
 `;
 
 const AccordionHeaderLabel = styled.span`
@@ -41,28 +39,28 @@ const AccordionHeaderDetail = styled.span`
 `;
 
 const AccordionHeaderIcon = styled.span`
-  height: ${applyTheme("accordionIconHeight")};
+  height: ${applyTheme("Accordion.iconHeight")};
   margin: 0;
-  width: ${applyTheme("accordionIconWidth")};
+  width: ${applyTheme("Accordion.iconWidth")};
   svg {
-    height: ${applyTheme("accordionIconHeight")};
+    height: ${applyTheme("Accordion.iconHeight")};
     transform: ${({ isExpanded }) => (isExpanded ? "rotateZ(180deg)" : "rotateZ(0)")};
-    transition: transform ${duration} ${ease};
-    width: ${applyTheme("accordionIconWidth")};
+    transition: ${applyTheme("Accordion.iconTransition")};
+    width: ${applyTheme("Accordion.iconWidth")};
   }
 `;
 
 const AccordionContent = styled.div`
-  background-color: ${applyTheme("accordionContentBackgroundColor")};
-  border-top-color: ${applyTheme("accordionBorderColor")};
-  border-top-style: ${applyTheme("accordionBorderStyle")};
-  border-top-width: ${({ isExpanded }) => (isExpanded ? applyTheme("accordionBorderWidth") : "0")};
+  background-color: ${applyTheme("Accordion.contentBackgroundColor")};
+  border-top-color: ${applyTheme("Accordion.borderColor")};
+  border-top-style: ${applyTheme("Accordion.borderStyle")};
+  border-top-width: ${({ isExpanded }) => (isExpanded ? applyTheme("Accordion.borderWidth") : "0")};
   color: inherit;
   height: auto;
   max-height: ${({ isExpanded }) => (isExpanded ? "150vh" : "0")};
   overflow: hidden;
-  padding: ${({ isExpanded }) => (isExpanded ? applyTheme("accordionPadding") : "0")};
-  transition: ${({ isExpanded }) => (isExpanded ? openTransition : closeTransition)};
+  padding: ${({ isExpanded }) => (isExpanded ? applyTheme("Accordion.padding") : "0")};
+  transition: ${({ isExpanded }) => (isExpanded ? applyTheme("Accordion.openTransition") : applyTheme("Accordion.closeTransition"))};
 `;
 
 class Accordion extends Component {

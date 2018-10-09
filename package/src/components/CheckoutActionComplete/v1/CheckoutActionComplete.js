@@ -19,9 +19,9 @@ const ActionTitle = styled.div`
   justify-content: flex-start;
   order: 1;
 
-  @media (max-width: 959px) {
+  @media (max-width: ${applyTheme("md", "breakpoints")}px) {
     flex: 0 0 50%;
-    margin-bottom: ${applyTheme("checkoutActionCompleteMobileMargin")};
+    margin-bottom: ${applyTheme("CheckoutActionComplete.mobileMargin")};
   }
 `;
 
@@ -46,7 +46,7 @@ const ActionButton = styled.div`
 
   @media (max-width: 959px) {
     flex: 0 0 50%;
-    margin-bottom: ${applyTheme("checkoutActionCompleteMobileMargin")};
+    margin-bottom: ${applyTheme("CheckoutActionComplete.mobileMargin")};
     order: 2;
   }
 `;

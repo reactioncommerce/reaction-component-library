@@ -29,7 +29,10 @@ exports[`basic snapshot 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  padding: 10px 15px;
+  padding-bottom: 14px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 14px;
 }
 
 .c2 {
@@ -58,9 +61,9 @@ exports[`basic snapshot 1`] = `
   -webkit-transform: rotateZ(0);
   -ms-transform: rotateZ(0);
   transform: rotateZ(0);
-  -webkit-transition: -webkit-transform 250ms ease-in-out;
-  -webkit-transition: transform 250ms ease-in-out;
-  transition: transform 250ms ease-in-out;
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.785,0.135,0.15,0.86);
+  -webkit-transition: transform 250ms cubic-bezier(0.785,0.135,0.15,0.86);
+  transition: transform 250ms cubic-bezier(0.785,0.135,0.15,0.86);
   width: 38px;
 }
 
@@ -74,8 +77,8 @@ exports[`basic snapshot 1`] = `
   max-height: 0;
   overflow: hidden;
   padding: 0;
-  -webkit-transition: max-height 250ms ease-in-out,padding 0ms ease-in-out 250ms,border 0ms ease-in-out 250ms;
-  transition: max-height 250ms ease-in-out,padding 0ms ease-in-out 250ms,border 0ms ease-in-out 250ms;
+  -webkit-transition: max-height 250ms cubic-bezier(0.785,0.135,0.15,0.86),padding 0ms cubic-bezier(0.785,0.135,0.15,0.86) 250ms,border 0ms cubic-bezier(0.785,0.135,0.15,0.86) 250ms;
+  transition: max-height 250ms cubic-bezier(0.785,0.135,0.15,0.86),padding 0ms cubic-bezier(0.785,0.135,0.15,0.86) 250ms,border 0ms cubic-bezier(0.785,0.135,0.15,0.86) 250ms;
 }
 
 <div

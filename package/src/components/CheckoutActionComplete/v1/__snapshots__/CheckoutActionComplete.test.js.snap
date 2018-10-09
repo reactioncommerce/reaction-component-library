@@ -95,7 +95,7 @@ exports[`basic snapshot 1`] = `
   order: 3;
 }
 
-@media (max-width:959px) {
+@media (max-width:960px) {
   .c1 {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;

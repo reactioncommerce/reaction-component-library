@@ -6,7 +6,7 @@ import { addTypographyStyles, applyTheme, CustomPropTypes, preventAccidentalDoub
 import { priceByCurrencyCode } from "./utils";
 
 const ProductMediaWrapper = styled.div`
-  background-color: ${applyTheme("catalogGridItemMediaBackgroundColor")};
+  background-color: ${applyTheme("CatalogGridItem.mediaBackgroundColor")};
   position: relative;
 `;
 
@@ -14,10 +14,10 @@ const ProductInfo = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-bottom: ${applyTheme("catalogGridItemProductInfoPaddingBottom")};
-  padding-left: ${applyTheme("catalogGridItemProductInfoPaddingLeft")};
-  padding-right: ${applyTheme("catalogGridItemProductInfoPaddingRight")};
-  padding-top: ${applyTheme("catalogGridItemProductInfoPaddingTop")};
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: ${applyTheme("CatalogGridItem.verticalSpacingBetweenImageAndInfo")};
 `;
 
 const ProductTitle = styled.aside`

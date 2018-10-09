@@ -63,6 +63,10 @@ Array [
   padding-bottom: 10px;
   position: relative;
   text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -199,6 +203,10 @@ Array [
   padding-bottom: 10px;
   position: relative;
   text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;

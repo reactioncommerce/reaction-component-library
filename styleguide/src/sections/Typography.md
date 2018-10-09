@@ -1,18 +1,6 @@
-###### Designed with consistency - not rigidity - in mind, the base type style set is extensible using our type scale and typographic treatments.
+The Reaction Design System uses a small set of typographic styles, which map to key elements and functions in the user interface.
 
-Admin uses a small set of typographic styles, which map to key elements and functions in the user interface. 
-
-#### Choosing a type style
-
-Type styles are generally named for their usage within the UI. The Body text style is the most generic, and is used throughout the UI in various capacities.
-
-##### Usage
-
-These are the typographic styles used in the main admin panel, action panel, cards, modals, and forms.
-
-These typographic styles do not cover the styles used in the storefront. 
-
-##### Base styles
+#### Base styles
 
 - Title
 - Heading
@@ -21,7 +9,6 @@ These typographic styles do not cover the styles used in the storefront.
 - Label
 - Caption
 
-
 <div style="vertical-align: top; width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.5rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 1.25;margin-bottom: 20px;margin-right: 10px;">Title Text</div>
 <div style="vertical-align: top; width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 1.25;margin-right: 10px;">Heading Text</div>
 <div style="vertical-align: top; width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.125rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 1.25; vertical-align: top;">Subheading Text</div>
@@ -29,9 +16,13 @@ These typographic styles do not cover the styles used in the storefront.
 <div style="width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 0.875rem; letter-spacing: 0.02em; color: rgb(80, 85, 88);line-height: 1.25;margin-right: 10px;">Label Text</div>
 <div style="vertical-align: top; width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 0.875rem; letter-spacing: 0.02em; color: rgb(179, 179, 179);line-height: 1.25;">Caption Text</div>
 
+##### Choosing a type style
+
+Type styles are generally named for their usage within the UI. The Body text style is the most generic, and is used throughout the UI in various capacities.
+
 #### Type scale
 
-This type scale defines the font sizes that can be used by the admin UI. Admin panel type generally does not exceed 1.5rem/24px. 
+This type scale defines the font sizes that can be used by the default Reaction Design System theme. Type generally does not exceed 1.5rem/24px.
 
 |rem       |px   | Actual size                                                                  |
 |----------|-----|------------------------------------------------------------------------------|
@@ -46,37 +37,40 @@ This type scale defines the font sizes that can be used by the admin UI. Admin p
 |2.25rem   |36px |<span style="font-family: Source Sans Pro; font-size: 2.25rem">Connecting the world through commerce</span>|
 |2.625rem  |42px |<span style="font-family: Source Sans Pro; font-size: 2.625em">Connecting the world through commerce</span>|
 
-#### Typographic treatments
+#### Type treatments
 
 ##### Font weight
 
-The Admin UI uses [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) in Regular and Bold weights, which can be used to create content hierarchy.
+The default Reaction Design System theme uses [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) font in Regular and Bold weights, which can be used to create content hierarchy.
 
-|Title     |<span style="font-family: Source Sans Pro; font-weight: 200;">Light 200</span>|Regular 400|<span style="font-family: Source Sans Pro; font-weight: 700;">Bold 700</span>|
-|----------|--------------------------------------------------------------|-----------|------------------------------------------------------------|
-|Title     |<span style="font-family: Source Sans Pro; font-weight: 200; font-size: 24px; letter-spacing: 0.4px; color: #505558;">Light 200</span>|<span style="font-size: 24px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 24px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
-|Heading   |<span style="font-family: Source Sans Pro; font-weight: 200; font-size: 16px; letter-spacing: 0.4px; color: #505558;">Light 200</span>|<span style="font-size: 16px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 16px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
-|Subheading|<span style="font-family: Source Sans Pro; font-weight: 200; font-size: 18px; letter-spacing: 0.4px; color: #505558;">Light 200</span>|<span style="font-size: 18px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 18px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
-|Body      |<span style="font-family: Source Sans Pro; font-weight: 200; font-size: 16px; letter-spacing: 0.3px; color: #343434;">Light 200</span>|<span style="font-size: 16px; letter-spacing: 0.3px; color: #343434; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 16px; letter-spacing: 0.3px; color: #343434;">Bold 700</span>|
-|Label     |<span style="font-family: Source Sans Pro; font-weight: 200; font-size: 14px; letter-spacing: 0.3px; color: #505558;">Light 200</span>|<span style="font-size: 14px; letter-spacing: 0.3px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; color: #505558;">Bold 700</span>|
-|Caption   |<span style="font-family: Source Sans Pro; font-weight: 200; font-size: 14x; letter-spacing: 0.3px; color: #b3b3b3">Light 200</span>|<span style="font-size: 14x; letter-spacing: 0.3px; color: #b3b3b3; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 14x; letter-spacing: 0.3px; color: #b3b3b3">Bold 700</span>|
+|          |Regular 400                                                                                                           |<span style="font-family: Source Sans Pro; font-weight: 700;">Bold 700</span>                                                        |
+|----------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+|Title     |<span style="font-size: 24px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 24px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
+|Heading   |<span style="font-size: 16px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 16px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
+|Subheading|<span style="font-size: 18px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 18px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
+|Body      |<span style="font-size: 16px; letter-spacing: 0.3px; color: #343434; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 16px; letter-spacing: 0.3px; color: #343434;">Bold 700</span>|
+|Label     |<span style="font-size: 14px; letter-spacing: 0.3px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; color: #505558;">Bold 700</span>|
+|Caption   |<span style="font-size: 14px; letter-spacing: 0.3px; color: #b3b3b3; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; color: #b3b3b3">Bold 700</span>|
 
 Generally used for emphasis, the bold weight shouldn’t be applied to anything longer than short text strings.
 
-##### Line-height
+##### Line height
 
-Leading, or line-height, is an important factor in the legibility of copy. The admin panel uses two line-heights for text:
+Leading, or line-height, is an important factor in the legibility of copy. The default Reaction Design System theme uses two line heights for text:
+
 - 1.5 for body copy
-- 1.25 for labels, captions, headings, subheadings and titles. 
+- 1.25 for labels, captions, headings, subheadings and titles.
 
 |Line height             | Ratio |
 |------------------------|-------|
 |Body text               |1:1.5  |
-|Headers, titles, labels | 1:1.25|
+|Headers, titles, labels |1:1.25 |
 
 Body copy benefits from more spacing between lines for improved legibility, while the other styles rarely run for multiple lines and don’t require as much leading.
 
 #### Type styles specs and usage
+
+Here are the typography specs for the default Reaction Design System theme at a glance. For information about using a custom theme to override these defaults, refer to [Theming Components](./#!/Theming%20Components).
 
 <div style="vertical-align: top; width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.5rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 1.25;margin-bottom: 20px;margin-right: 10px;">Title Text</div>
 <div style="vertical-align: top; width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 1.25;margin-right: 10px;">Heading Text</div>

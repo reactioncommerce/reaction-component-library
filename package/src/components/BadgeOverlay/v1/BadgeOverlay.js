@@ -23,46 +23,46 @@ const baseBadgeStyles = css`
 const PrimaryBadge = styled.div`
   ${baseBadgeStyles}
 
-  border-bottom-left-radius: ${applyTheme("badgeOverlayPrimaryBadgeBorderBottomLeftRadius")};
-  border-bottom-right-radius: ${applyTheme("badgeOverlayPrimaryBadgeBorderBottomRightRadius")};
-  border-top-left-radius: ${applyTheme("badgeOverlayPrimaryBadgeBorderTopLeftRadius")};
-  border-top-right-radius: ${applyTheme("badgeOverlayPrimaryBadgeBorderTopRightRadius")};
-  bottom: ${applyTheme("badgeOverlayPrimaryBadgeOffsetBottom")};
-  left: ${applyTheme("badgeOverlayPrimaryBadgeOffsetLeft")};
-  padding-bottom: ${applyTheme("badgeOverlayPrimaryBadgePaddingBottom")};
-  padding-left: ${applyTheme("badgeOverlayPrimaryBadgePaddingLeft")};
-  padding-right: ${applyTheme("badgeOverlayPrimaryBadgePaddingRight")};
-  padding-top: ${applyTheme("badgeOverlayPrimaryBadgePaddingTop")};
-  right: ${applyTheme("badgeOverlayPrimaryBadgeOffsetRight")};
-  top: ${applyTheme("badgeOverlayPrimaryBadgeOffsetTop")};
+  border-bottom-left-radius: ${applyTheme("BadgeOverlayPrimaryBadge.borderBottomLeftRadius")};
+  border-bottom-right-radius: ${applyTheme("BadgeOverlayPrimaryBadge.borderBottomRightRadius")};
+  border-top-left-radius: ${applyTheme("BadgeOverlayPrimaryBadge.borderTopLeftRadius")};
+  border-top-right-radius: ${applyTheme("BadgeOverlayPrimaryBadge.borderTopRightRadius")};
+  bottom: ${applyTheme("BadgeOverlayPrimaryBadge.offsetBottom")};
+  left: ${applyTheme("BadgeOverlayPrimaryBadge.offsetLeft")};
+  padding-bottom: ${applyTheme("BadgeOverlayPrimaryBadge.paddingBottom")};
+  padding-left: ${applyTheme("BadgeOverlayPrimaryBadge.paddingLeft")};
+  padding-right: ${applyTheme("BadgeOverlayPrimaryBadge.paddingRight")};
+  padding-top: ${applyTheme("BadgeOverlayPrimaryBadge.paddingTop")};
+  right: ${applyTheme("BadgeOverlayPrimaryBadge.offsetRight")};
+  top: ${applyTheme("BadgeOverlayPrimaryBadge.offsetTop")};
 
   ${(props) => {
     const { type } = props;
     switch (type) {
       case BADGE_TYPES.BACKORDER:
         return css`
-          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_backorder")};
-          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_backorder")};
+          background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_backorder")};
+          color: ${applyTheme("BadgeOverlayPrimaryBadge.color_backorder")};
         `;
       case BADGE_TYPES.BESTSELLER:
         return css`
-          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_bestseller")};
-          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_bestseller")};
+          background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_bestseller")};
+          color: ${applyTheme("BadgeOverlayPrimaryBadge.color_bestseller")};
         `;
       case BADGE_TYPES.LOW_QUANTITY:
         return css`
-          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_lowQuantity")};
-          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_lowQuantity")};
+          background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_lowQuantity")};
+          color: ${applyTheme("BadgeOverlayPrimaryBadge.color_lowQuantity")};
         `;
       case BADGE_TYPES.SOLD_OUT:
         return css`
-          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_soldOut")};
-          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_soldOut")};
+          background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_soldOut")};
+          color: ${applyTheme("BadgeOverlayPrimaryBadge.color_soldOut")};
         `;
       case BADGE_TYPES.SALE:
         return css`
-          background-color: ${applyTheme("badgeOverlayPrimaryBadgeBackgroundColor_sale")};
-          color: ${applyTheme("badgeOverlayPrimaryBadgeColor_sale")};
+          background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_sale")};
+          color: ${applyTheme("BadgeOverlayPrimaryBadge.color_sale")};
         `;
       default:
         return "";
@@ -72,26 +72,26 @@ const PrimaryBadge = styled.div`
 
 const SecondaryBadge = styled.div`
   ${baseBadgeStyles}
-  border-bottom-left-radius: ${applyTheme("badgeOverlaySecondaryBadgeBorderBottomLeftRadius")};
-  border-bottom-right-radius: ${applyTheme("badgeOverlaySecondaryBadgeBorderBottomRightRadius")};
-  border-top-left-radius: ${applyTheme("badgeOverlaySecondaryBadgeBorderTopLeftRadius")};
-  border-top-right-radius: ${applyTheme("badgeOverlaySecondaryBadgeBorderTopRightRadius")};
-  bottom: ${applyTheme("badgeOverlaySecondaryBadgeOffsetBottom")};
-  color: ${applyTheme("badgeOverlaySecondaryBadgeColor")};
-  left: ${applyTheme("badgeOverlaySecondaryBadgeOffsetLeft")};
-  padding-bottom: ${applyTheme("badgeOverlaySecondaryBadgePaddingBottom")};
-  padding-left: ${applyTheme("badgeOverlaySecondaryBadgePaddingLeft")};
-  padding-right: ${applyTheme("badgeOverlaySecondaryBadgePaddingRight")};
-  padding-top: ${applyTheme("badgeOverlaySecondaryBadgePaddingTop")};
-  right: ${applyTheme("badgeOverlaySecondaryBadgeOffsetRight")};
-  top: ${applyTheme("badgeOverlaySecondaryBadgeOffsetTop")};
+  border-bottom-left-radius: ${applyTheme("BadgeOverlaySecondaryBadge.borderBottomLeftRadius")};
+  border-bottom-right-radius: ${applyTheme("BadgeOverlaySecondaryBadge.borderBottomRightRadius")};
+  border-top-left-radius: ${applyTheme("BadgeOverlaySecondaryBadge.borderTopLeftRadius")};
+  border-top-right-radius: ${applyTheme("BadgeOverlaySecondaryBadge.borderTopRightRadius")};
+  bottom: ${applyTheme("BadgeOverlaySecondaryBadge.offsetBottom")};
+  color: ${applyTheme("BadgeOverlaySecondaryBadge.color")};
+  left: ${applyTheme("BadgeOverlaySecondaryBadge.offsetLeft")};
+  padding-bottom: ${applyTheme("BadgeOverlaySecondaryBadge.paddingBottom")};
+  padding-left: ${applyTheme("BadgeOverlaySecondaryBadge.paddingLeft")};
+  padding-right: ${applyTheme("BadgeOverlaySecondaryBadge.paddingRight")};
+  padding-top: ${applyTheme("BadgeOverlaySecondaryBadge.paddingTop")};
+  right: ${applyTheme("BadgeOverlaySecondaryBadge.offsetRight")};
+  top: ${applyTheme("BadgeOverlaySecondaryBadge.offsetTop")};
   `;
 
 const Overlay = styled.div`
   position: relative;
   ${(props) => {
     if (props.isFaded) {
-      return `opacity: ${applyTheme("badgeOverlayFadedOpacity")(props)};`;
+      return `opacity: ${applyTheme("BadgeOverlay.fadedOpacity")(props)};`;
     }
     return "";
   }}
@@ -122,18 +122,18 @@ class BadgeOverlay extends Component {
     children: PropTypes.node,
     /**
      * Only show badge if status is of a certain type
-     * Types: BACKORDER, BESTSELLER, LOW_QUANTITY, SALE, SOLD_OUT
+     * Types: BACKORDER, BESTSELLER, LOW\_QUANTITY, SALE, SOLD\_OUT
      */
     filterOnly: PropTypes.string,
     /**
      * The product, whose properties determine which badge(s) to display
      */
     product: PropTypes.shape({
-      isSoldOut: PropTypes.bool,
       isBackorder: PropTypes.bool,
-      isOnSale: PropTypes.bool,
+      isBestseller: PropTypes.bool,
       isLowQuantity: PropTypes.bool,
-      isBestseller: PropTypes.bool
+      isOnSale: PropTypes.bool,
+      isSoldOut: PropTypes.bool
     }),
     /**
      * Whether to only display the primary badge

@@ -5,23 +5,22 @@ import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const StyledDiv = styled.div`
   ${addTypographyStyles("CheckoutEmailAddress", "labelText")}
-  border-bottom-color: ${applyTheme("checkoutEmailAddressBorderBottomColor")};
+  border-bottom-color: ${applyTheme("CheckoutEmailAddress.borderBottomColor")};
   border-bottom-style: solid;
-  border-bottom-width: ${applyTheme("checkoutEmailAddressBorderBottomWidth")};
-  border-left-color: ${applyTheme("checkoutEmailAddressBorderLeftColor")};
+  border-bottom-width: ${applyTheme("CheckoutEmailAddress.borderBottomWidth")};
+  border-left-color: ${applyTheme("CheckoutEmailAddress.borderLeftColor")};
   border-left-style: solid;
-  border-left-width: ${applyTheme("checkoutEmailAddressBorderLeftWidth")};
-  border-right-color: ${applyTheme("checkoutEmailAddressBorderRightColor")};
+  border-left-width: ${applyTheme("CheckoutEmailAddress.borderLeftWidth")};
+  border-right-color: ${applyTheme("CheckoutEmailAddress.borderRightColor")};
   border-right-style: solid;
-  border-right-width: ${applyTheme("checkoutEmailAddressBorderRightWidth")};
-  border-top-color: ${applyTheme("checkoutEmailAddressBorderTopColor")};
+  border-right-width: ${applyTheme("CheckoutEmailAddress.borderRightWidth")};
+  border-top-color: ${applyTheme("CheckoutEmailAddress.borderTopColor")};
   border-top-style: solid;
-  border-top-width: ${applyTheme("checkoutEmailAddressBorderTopWidth")};
-  color: ${applyTheme("checkoutEmailAddressColor")};
-  padding-bottom: ${applyTheme("checkoutEmailAddressPaddingBottom")};
-  padding-left: ${applyTheme("checkoutEmailAddressPaddingLeft")};
-  padding-right: ${applyTheme("checkoutEmailAddressPaddingRight")};
-  padding-top: ${applyTheme("checkoutEmailAddressPaddingTop")};
+  border-top-width: ${applyTheme("CheckoutEmailAddress.borderTopWidth")};
+  padding-bottom: ${applyTheme("CheckoutEmailAddress.paddingBottom")};
+  padding-left: ${applyTheme("CheckoutEmailAddress.paddingLeft")};
+  padding-right: ${applyTheme("CheckoutEmailAddress.paddingRight")};
+  padding-top: ${applyTheme("CheckoutEmailAddress.paddingTop")};
 `;
 
 const StyledSpan = styled.span`

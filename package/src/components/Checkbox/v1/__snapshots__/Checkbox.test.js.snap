@@ -71,14 +71,16 @@ exports[`renders disabled 1`] = `
 
 .c2::before {
   content: " ";
+  border-color: #3c3c3c;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 2px;
+  box-sizing: border-box;
   display: inline-block;
   height: 1.4em;
-  width: 1.4em;
-  border: 2px solid #3c3c3c;
-  border-radius: 2px;
-  box-sizing: border-box;
   left: 0;
   top: 0;
+  width: 1.4em;
 }
 
 <div
@@ -173,14 +175,16 @@ exports[`renders with props 1`] = `
 
 .c2::before {
   content: " ";
+  border-color: #3c3c3c;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 2px;
+  box-sizing: border-box;
   display: inline-block;
   height: 1.4em;
-  width: 1.4em;
-  border: 2px solid #3c3c3c;
-  border-radius: 2px;
-  box-sizing: border-box;
   left: 0;
   top: 0;
+  width: 1.4em;
 }
 
 <div
