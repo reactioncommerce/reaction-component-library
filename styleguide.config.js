@@ -429,7 +429,6 @@ module.exports = {
           componentNames: [
             "AddressBook",
             "AddressReview",
-            "AddressSelect",
             "ShopLogo"
           ],
           content: "styleguide/src/sections/General.md",
