@@ -16,10 +16,10 @@ const AddressBookAddNewAddressAction = styled.div`
   box-sizing: border-box;
   color: inherit;
   overflow: hidden;
-  padding-bottom: ${applyTheme("addressBookActionPaddingBottom")};
-  padding-left: ${applyTheme("addressBookActionPaddingLeft")};
-  padding-right: ${applyTheme("addressBookActionPaddingRight")};
-  padding-top: ${applyTheme("addressBookActionPaddingTop")};
+  padding-bottom: ${applyTheme("addressBookAddActionPaddingBottom")};
+  padding-left: ${applyTheme("addressBookAddActionPaddingLeft")};
+  padding-right: ${applyTheme("addressBookAddActionPaddingRight")};
+  padding-top: ${applyTheme("addressBookAddActionPaddingTop")};
 `;
 
 const AddressBookAddNewAddressActionButton = styled.div`

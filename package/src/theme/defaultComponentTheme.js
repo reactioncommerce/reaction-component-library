@@ -526,9 +526,13 @@ const addressBook = {
   rui_addressBookActionButtonIconMarginRight: "10px",
   rui_addressBookActionButtonIconWidth: "20px",
   rui_addressBookActionPaddingBottom: padding.sixteen,
-  rui_addressBookActionPaddingLeft: padding.sixteen,
-  rui_addressBookActionPaddingRight: padding.sixteen,
+  rui_addressBookActionPaddingLeft: "0px",
+  rui_addressBookActionPaddingRight: "0px",
   rui_addressBookActionPaddingTop: padding.sixteen,
+  rui_addressBookAddActionPaddingBottom: padding.sixteen,
+  rui_addressBookAddActionPaddingLeft: padding.sixteen,
+  rui_addressBookAddActionPaddingRight: padding.sixteen,
+  rui_addressBookAddActionPaddingTop: padding.sixteen,
   rui_addressBookActionDeleteButtonHoverColor: colors.redHover
 };
 
