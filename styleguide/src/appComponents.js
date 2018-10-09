@@ -13,7 +13,6 @@ import Accordion from "../../package/src/components/Accordion/v1";
 import AddressBook from "../../package/src/components/AddressBook/v1";
 import AddressForm from "../../package/src/components/AddressForm/v1";
 import AddressReview from "../../package/src/components/AddressReview/v1";
-import AddressSelect from "../../package/src/components/AddressSelect/v1";
 import BadgeOverlay from "../../package/src/components/BadgeOverlay/v1";
 import Button from "../../package/src/components/Button/v1";
 import CartItem from "../../package/src/components/CartItem/v1";
@@ -53,7 +52,6 @@ export default {
   AddressBook,
   AddressForm: AddressFormWithLocales,
   AddressReview,
-  AddressSelect,
   BadgeOverlay,
   Button,
   CartItem,
