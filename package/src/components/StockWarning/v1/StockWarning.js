@@ -27,11 +27,11 @@ class StockWarning extends Component {
   };
 
   render() {
-    const { inventoryQuantity, isLowInventoryQuantity } = this.props;
+    const { className, inventoryQuantity, isLowInventoryQuantity } = this.props;
 
     if (!isLowInventoryQuantity) return null;
 
-    return <Span className={this.props.className}>Only {inventoryQuantity} in stock</Span>;
+    return <Span className={className}>Only {inventoryQuantity} in stock</Span>;
   }
 }
 

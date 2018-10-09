@@ -29,11 +29,11 @@ class CheckoutTopHat extends Component {
   };
 
   render() {
-    const { checkoutMessage } = this.props;
+    const { className, checkoutMessage } = this.props;
 
     if (checkoutMessage) {
       return (
-        <TopHatContainer className={this.props.className}>
+        <TopHatContainer className={className}>
           <TopHatMessage>{checkoutMessage}</TopHatMessage>
         </TopHatContainer>
       );

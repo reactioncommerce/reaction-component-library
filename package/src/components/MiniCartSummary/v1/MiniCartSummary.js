@@ -59,11 +59,11 @@ class MiniCartSummary extends Component {
   };
 
   render() {
-    const { displaySubtotal, displayTax } = this.props;
+    const { className, displaySubtotal, displayTax } = this.props;
     const taxes = displayTax && this.renderTax();
 
     return (
-      <Table className={this.props.className}>
+      <Table className={className}>
         <tbody>
           <tr>
             <Td>Subtotal</Td>

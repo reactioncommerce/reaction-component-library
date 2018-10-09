@@ -46,10 +46,10 @@ class Price extends Component {
   };
 
   render() {
-    const { displayCompareAtPrice, displayPrice, hasPriceBottom } = this.props;
+    const { className, displayCompareAtPrice, displayPrice, hasPriceBottom } = this.props;
 
     return (
-      <div className={this.props.className}>
+      <div className={className}>
         {hasPriceBottom ? "" : <PriceDiv>{displayPrice}</PriceDiv>}
         {displayCompareAtPrice ? this.renderCompareAtPrice() : null}
         {hasPriceBottom ? <PriceDiv>{displayPrice}</PriceDiv> : ""}

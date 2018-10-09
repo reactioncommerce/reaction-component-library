@@ -217,11 +217,11 @@ class BadgeOverlay extends Component {
   );
 
   render() {
-    const { badgeLabels, children, product } = this.props;
+    const { className, badgeLabels, children, product } = this.props;
     const status = badgeStatus(product, badgeLabels) || {};
 
     return (
-      <Overlay className={this.props.className} isFaded={status.type === BADGE_TYPES.SOLD_OUT}>
+      <Overlay className={className} isFaded={status.type === BADGE_TYPES.SOLD_OUT}>
         {this.renderBadges()}
         {children}
       </Overlay>

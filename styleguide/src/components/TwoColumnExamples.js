@@ -23,7 +23,7 @@ class TwoColumnExamples extends Component {
   };
 
   render() {
-    const { children, hasDarkLeftBackground, hasDarkRightBackground } = this.props;
+    const { className, children, hasDarkLeftBackground, hasDarkRightBackground } = this.props;
     const leftBackgroundColor = hasDarkLeftBackground ? "#f5f5f5" : "transparent";
     const rightBackgroundColor = hasDarkRightBackground ? "#f5f5f5" : "transparent";
     const leftBorderColor = hasDarkLeftBackground ? "transparent" : "#cccccc";
@@ -49,7 +49,7 @@ class TwoColumnExamples extends Component {
     };
 
     return (
-      <div className={this.props.className} style={{ display: "flex" }}>
+      <div className={className} style={{ display: "flex" }}>
         <div style={leftStyle}>
           {children[0]}
         </div>

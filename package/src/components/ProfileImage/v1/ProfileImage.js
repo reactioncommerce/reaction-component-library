@@ -80,10 +80,10 @@ class ProfileImage extends Component {
 
 
   render() {
-    const { size } = this.props;
+    const { className, size } = this.props;
 
     return (
-      <ViewerImageCircle className={this.props.className} style={{ height: `${size}px`, width: `${size}px` }}>
+      <ViewerImageCircle className={className} style={{ height: `${size}px`, width: `${size}px` }}>
         {this.viewerProfileImage()}
       </ViewerImageCircle>
     );

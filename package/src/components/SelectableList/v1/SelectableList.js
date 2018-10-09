@@ -237,6 +237,7 @@ class SelectableList extends Component {
 
   render() {
     const {
+      className,
       options,
       listAction,
       isBordered,
@@ -245,7 +246,7 @@ class SelectableList extends Component {
       components: { SelectableItem }
     } = this.props;
     return (
-      <div className={this.props.className}>
+      <div className={className}>
         {isBordered ?
           <BorderedList>
             <fieldset>

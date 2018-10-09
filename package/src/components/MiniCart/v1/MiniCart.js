@@ -150,6 +150,7 @@ class MiniCart extends Component {
   render() {
     const {
       cart: { checkout: { summary }, items },
+      className,
       components: {
         Button,
         cartCheckoutButton,
@@ -161,7 +162,7 @@ class MiniCart extends Component {
       ...props
     } = this.props;
     return (
-      <Cart className={this.props.className}>
+      <Cart className={className}>
         <Items>
           <CartItems items={items} components={components} {...props} isMiniCart />
         </Items>

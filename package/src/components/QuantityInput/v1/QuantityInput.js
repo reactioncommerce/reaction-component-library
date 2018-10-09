@@ -114,12 +114,12 @@ class QuantityInput extends Component {
   };
 
   render() {
-    const { classes: { incrementButton, quantityContainer, quantityInput } } = this.props;
+    const { className, classes: { incrementButton, quantityContainer, quantityInput } } = this.props;
     const { value } = this.state;
     return (
       <TextField
         id="addToCartQuantityInput"
-        className={this.props.className}
+        className={className}
         value={value}
         onChange={this.handleQuantityInputChange}
         InputProps={{

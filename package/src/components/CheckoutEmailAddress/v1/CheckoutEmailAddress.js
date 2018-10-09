@@ -51,9 +51,9 @@ class CheckoutEmailAddress extends Component {
   };
 
   render() {
-    const { emailAddress } = this.props;
+    const { className, emailAddress } = this.props;
     return (
-      <StyledDiv className={this.props.className}>
+      <StyledDiv className={className}>
         {this.renderAccountEmail()} <StyledSpan>{emailAddress}</StyledSpan>
       </StyledDiv>
     );

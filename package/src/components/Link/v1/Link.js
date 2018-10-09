@@ -38,9 +38,9 @@ class Link extends Component {
   });
 
   render() {
-    const { children, href } = this.props;
+    const { className, children, href } = this.props;
     return (
-      <UnstyledLink className={this.props.className} href={href} onClick={this.onClick}>{children}</UnstyledLink>
+      <UnstyledLink className={className} href={href} onClick={this.onClick}>{children}</UnstyledLink>
     );
   }
 }

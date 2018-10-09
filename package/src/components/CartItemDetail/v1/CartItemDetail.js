@@ -122,9 +122,9 @@ class CartItemDetail extends Component {
   }
 
   render() {
-    const { productSlug, title } = this.props;
+    const { className, productSlug, title } = this.props;
     return (
-      <Detail className={this.props.className}>
+      <Detail className={className}>
         <Title>
           <a href={productSlug}>{title}</a>
         </Title>

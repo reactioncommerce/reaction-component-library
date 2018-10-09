@@ -94,12 +94,12 @@ class CheckoutActionComplete extends Component {
   handleOnChange = () => this.props.onClickChangeButton();
 
   render() {
-    const { components: { Button }, content, label, stepNumber } = this.props;
+    const { className, components: { Button }, content, label, stepNumber } = this.props;
 
     const step = stepNumber ? <Fragment>{stepNumber}.&nbsp;</Fragment> : null;
 
     return (
-      <ActionContainer className={this.props.className}>
+      <ActionContainer className={className}>
         <ActionTitle>
           {step}{label}
         </ActionTitle>

@@ -275,6 +275,7 @@ class CartItem extends Component {
 
   render() {
     const {
+      className,
       components,
       isMiniCart,
       isReadOnly,
@@ -301,7 +302,7 @@ class CartItem extends Component {
     } = components || {};
 
     return (
-      <Item className={this.props.className}>
+      <Item className={className}>
         {this.renderImage()}
         <ItemContent>
           <ItemContentDetail>

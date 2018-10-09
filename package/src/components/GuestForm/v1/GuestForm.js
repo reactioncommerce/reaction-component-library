@@ -130,6 +130,7 @@ class GuestForm extends Component {
   render() {
     const {
       buttonText,
+      className,
       components: { Button, ErrorsBlock, Field, TextInput },
       errors,
       helpText,
@@ -142,7 +143,7 @@ class GuestForm extends Component {
     const emailInputId = `email_${this.uniqueInstanceIdentifier}`;
 
     return (
-      <Form className={this.props.className}
+      <Form className={className}
         ref={(formEl) => {
           this._form = formEl;
         }}

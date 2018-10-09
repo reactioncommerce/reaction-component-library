@@ -131,6 +131,7 @@ class CatalogGrid extends Component {
   render() {
     const {
       badgeLabels,
+      className,
       components: { CatalogGridItem },
       currencyCode,
       initialSize,
@@ -150,7 +151,7 @@ class CatalogGrid extends Component {
     }
 
     return (
-      <ContainerQuery className={this.props.className} query={this.getContainerQueries()} initialSize={initialSize}>
+      <ContainerQuery className={className} query={this.getContainerQueries()} initialSize={initialSize}>
         {(params) => (
           <GridContainer>
             {products.map((product, index) => (

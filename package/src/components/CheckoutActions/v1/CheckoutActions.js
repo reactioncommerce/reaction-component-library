@@ -292,13 +292,13 @@ class CheckoutActions extends Component {
   };
 
   renderAction = (action, currentActiveActions) => {
-    const { components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
+    const { className, components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
     const isActive = currentActiveActions.find((_id) => _id === action.id);
     const actionStatus = isActive ? "active" : action.status;
     const { activeLabel, completeLabel, incompleteLabel } = action;
 
     return (
-      <Action className={this.props.className} key={action.id}>
+      <Action className={className} key={action.id}>
         <CheckoutAction
           status={actionStatus}
           {...{ activeLabel, completeLabel, incompleteLabel }}

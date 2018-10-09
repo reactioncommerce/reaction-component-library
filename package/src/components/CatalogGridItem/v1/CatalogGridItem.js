@@ -222,7 +222,7 @@ class CatalogGridItem extends Component {
   }
 
   render() {
-    const { badgeLabels, components: { BadgeOverlay, Link }, product } = this.props;
+    const { className, badgeLabels, components: { BadgeOverlay, Link }, product } = this.props;
 
     const badgeProps = { product };
 
@@ -231,7 +231,7 @@ class CatalogGridItem extends Component {
     }
 
     return (
-      <div className={this.props.className}>
+      <div className={className}>
         <Link
           href={this.productDetailHref}
           onClick={this.handleOnClick}

@@ -26,10 +26,10 @@ export default class ShopLogo extends Component {
   }
 
   render() {
-    const { shopLogoUrl, shopName } = this.props;
+    const { className, shopLogoUrl, shopName } = this.props;
 
     return (
-      <Container className={this.props.className}>
+      <Container className={className}>
         {
           shopLogoUrl ? (
             <img src={shopLogoUrl} alt={shopName} />

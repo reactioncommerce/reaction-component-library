@@ -177,6 +177,7 @@ class SelectableItem extends Component {
 
   render() {
     const {
+      className,
       detail,
       icon,
       isChecked,
@@ -210,7 +211,7 @@ class SelectableItem extends Component {
     );
 
     return (
-      <div className={this.props.className}>
+      <div className={className}>
         {isLeftAligned ?
           <LeftAlignedItem>
             {input}

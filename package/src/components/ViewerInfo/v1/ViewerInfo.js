@@ -98,9 +98,9 @@ class ViewerInfo extends Component {
   }
 
   render() {
-    const { compact, components: { ProfileImage }, full, viewer } = this.props;
+    const { className, compact, components: { ProfileImage }, full, viewer } = this.props;
     return (
-      <ViewerInfoContainer className={this.props.className}>
+      <ViewerInfoContainer className={className}>
         <ProfileImage size={30} viewer={viewer} />
         <ViewerFirstNameText compact={compact} full={full}>
           {this.viewerName}

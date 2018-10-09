@@ -114,10 +114,10 @@ class AccountProfileInfo extends Component {
   }
 
   render() {
-    const { components: { ProfileImage }, viewer } = this.props;
+    const { className, components: { ProfileImage }, viewer } = this.props;
 
     return (
-      <AccountProfileInfoContainer className={this.props.className}>
+      <AccountProfileInfoContainer className={className}>
         <ProfileImage size={80} viewer={viewer} />
         <AccountProfileInfoTextContainer>
           <ViewerNameText>

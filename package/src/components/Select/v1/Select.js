@@ -549,7 +549,7 @@ class Select extends Component {
   };
 
   render() {
-    const { alphabetize, isReadOnly, options } = this.props;
+    const { className, alphabetize, isReadOnly, options } = this.props;
     const { value } = this.state;
 
     // Unfortunately right now, react-select optgroup support is just a tad different from the
@@ -584,7 +584,7 @@ class Select extends Component {
     return (
       <ReactSelect
         {...passthroughProps}
-        className={this.props.className}
+        className={className}
         isDisabled={isReadOnly}
         value={optionValue}
         components={{ IndicatorSeparator: null }}

@@ -26,11 +26,11 @@ class CheckoutActionIncomplete extends Component {
   };
 
   render() {
-    const { label, stepNumber } = this.props;
+    const { className, label, stepNumber } = this.props;
     const stepAndLabel = stepNumber ? `${stepNumber}. ${label || ""}` : label;
 
     return (
-      <CheckoutActionIncompleteContainer className={this.props.className}>
+      <CheckoutActionIncompleteContainer className={className}>
         {stepAndLabel}
       </CheckoutActionIncompleteContainer>
     );

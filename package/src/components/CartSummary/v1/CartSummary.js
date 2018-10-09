@@ -131,6 +131,7 @@ class CartSummary extends Component {
 
   render() {
     const {
+      className,
       displayDiscount,
       displayShipping,
       displaySubtotal,
@@ -146,7 +147,7 @@ class CartSummary extends Component {
     const discount = displayDiscount && this.renderDiscount();
 
     return (
-      <Table className={this.props.className} isDense={isDense}>
+      <Table className={className} isDense={isDense}>
         {header}
         <tbody>
           <tr>

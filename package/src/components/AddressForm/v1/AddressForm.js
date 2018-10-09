@@ -266,6 +266,7 @@ class AddressForm extends Component {
     const {
       addressNamePlaceholder,
       value,
+      className,
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       errors,
       isSaving,
@@ -289,7 +290,7 @@ class AddressForm extends Component {
     const isCommercialInputId = `isCommercial_${this.uniqueInstanceIdentifier}`;
 
     return (
-      <Form className={this.props.className}
+      <Form className={className}
         ref={(formEl) => {
           this._form = formEl;
         }}
