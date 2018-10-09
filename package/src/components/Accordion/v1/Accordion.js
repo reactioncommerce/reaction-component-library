@@ -96,13 +96,13 @@ class Accordion extends Component {
      */
     detail: PropTypes.string,
     /**
-     * Render expanded accordion
-     */
-    expanded: PropTypes.bool,
-    /**
      * Accordion header icon
      */
     icon: PropTypes.node,
+    /**
+     * Render expanded accordion
+     */
+    isExpanded: PropTypes.bool,
     /**
      * Accordion header bold label
      */
@@ -110,11 +110,11 @@ class Accordion extends Component {
   };
 
   static defaultProps = {
-    expanded: false
+    isExpanded: false
   };
 
   state = {
-    expanded: this.props.expanded
+    isExpanded: this.props.isExpanded
   };
 
   _accordion = null;
@@ -123,8 +123,8 @@ class Accordion extends Component {
 
   // handle accordion toggle
   handleToggle = () => {
-    const { expanded } = this.state;
-    this.setState({ expanded: !expanded });
+    const { isExpanded } = this.state;
+    this.setState({ isExpanded: !isExpanded });
   };
 
   render() {
