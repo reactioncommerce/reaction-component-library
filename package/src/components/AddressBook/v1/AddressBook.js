@@ -333,12 +333,12 @@ class AddressBook extends Component {
     const { className } = this.props;
     const { status } = this.state;
     return (
-      <Fragment className={className}>
+      <div className={className}>
         {// eslint-disable-next-line
         status === REVIEW
             ? this.renderAddressReview()
             : status === OVERVIEW ? this.renderAddressSelect() : this.renderAddressForm()}
-      </Fragment>
+      </div>
     );
   }
 }
