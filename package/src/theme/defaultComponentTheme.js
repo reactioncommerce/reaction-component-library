@@ -23,18 +23,61 @@ const breakpoint_xl = 1920;
 /**
  * Default Theme
  */
-
 const standardBorderRadius = "2px";
+const duration = "250ms";
+const ease = "cubic-bezier(0.785, 0.135, 0.15, 0.86)";
 
 /**
  * Default Theme Elements
  */
-
 const rui_components = {
+  Accordion: {
+    borderColor: colors.black10,
+    borderRadius: standardBorderRadius,
+    borderStyle: "solid",
+    borderWidth: "1px",
+    padding: "10px 15px",
+    paddingBottom: padding.fourteen,
+    paddingLeft: padding.sixteen,
+    paddingRight: padding.sixteen,
+    paddingTop: padding.fourteen,
+    iconHeight: "24px",
+    iconLeft: "30px",
+    iconSpacingToLabel: "10px",
+    iconWidth: "38px",
+    headerHeight: "50px",
+    headerHeightMobile: "60px",
+    contentBackgroundColor: colors.black02,
+    openTransition: `max-height ${duration} ${ease}, padding 0ms ${ease}`,
+    closeTransition: `max-height ${duration} ${ease}, padding 0ms ${ease} ${duration}, border 0ms ${ease} ${duration}`,
+    iconTransition: `transform ${duration} ${ease}`
+  },
   AccountProfileInfo: {
     spacingAfterEmail: "4px",
     spacingAfterName: "4px",
     spacingBetweenImageAndContent: "16px"
+  },
+  AddressBook: {
+    borderColor: colors.black10,
+    borderRadius: standardBorderRadius,
+    borderStyle: "solid",
+    borderWidth: "1px",
+    actionButtonColor: colors.coolGreyActive,
+    actionButtonHoverColor: colors.coolGreyHover,
+    actionButtonIconColor: colors.coolGrey500,
+    actionButtonIconHeight: "20px",
+    actionButtonIconMarginRight: "10px",
+    actionButtonIconWidth: "20px",
+    actionPaddingBottom: padding.sixteen,
+    actionPaddingLeft: "0px",
+    actionPaddingRight: "0px",
+    actionPaddingTop: padding.sixteen,
+    addActionPaddingBottom: padding.sixteen,
+    addActionPaddingLeft: padding.sixteen,
+    addActionPaddingRight: padding.sixteen,
+    addActionPaddingTop: padding.sixteen,
+    actionDeleteButtonHoverColor: colors.redHover,
+    spaceBetweenActiveActionButtons: padding.sixteen
   },
   BadgeOverlay: {
     fadedOpacity: "0.5"

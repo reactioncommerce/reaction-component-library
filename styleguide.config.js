@@ -403,6 +403,7 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
+            "Accordion",
             "ProgressiveImage"
           ],
           content: "styleguide/src/sections/Content.md",
@@ -430,6 +431,8 @@ module.exports = {
       sections: [
         generateSection({
           componentNames: [
+            "AddressBook",
+            "AddressReview",
             "ShopLogo"
           ],
           content: "styleguide/src/sections/General.md",
