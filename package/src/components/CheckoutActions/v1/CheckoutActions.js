@@ -292,13 +292,13 @@ class CheckoutActions extends Component {
   };
 
   renderAction = (action, currentActiveActions) => {
-    const { className, components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
+    const { components: { CheckoutAction, CheckoutActionIncomplete } } = this.props;
     const isActive = currentActiveActions.find((_id) => _id === action.id);
     const actionStatus = isActive ? "active" : action.status;
     const { activeLabel, completeLabel, incompleteLabel } = action;
 
     return (
-      <Action className={className} key={action.id}>
+      <Action key={action.id}>
         <CheckoutAction
           status={actionStatus}
           {...{ activeLabel, completeLabel, incompleteLabel }}
@@ -312,10 +312,14 @@ class CheckoutActions extends Component {
   };
 
   render() {
-    const { actions } = this.props;
+    const { className, actions } = this.props;
     const activeActions = this.determineActiveActions();
 
-    return actions.map((action) => this.renderAction(action, activeActions));
+    return (
+      <div className={className}>
+        {actions.map((action) => this.renderAction(action, activeActions))}
+      </div>
+    );
   }
 }
 
