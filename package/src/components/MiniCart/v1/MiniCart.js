@@ -93,6 +93,12 @@ class MiniCart extends Component {
       items: PropTypes.arrayOf(PropTypes.object).isRequired
     }),
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
@@ -144,6 +150,7 @@ class MiniCart extends Component {
   render() {
     const {
       cart: { checkout: { summary }, items },
+      className,
       components: {
         Button,
         cartCheckoutButton,
@@ -155,7 +162,7 @@ class MiniCart extends Component {
       ...props
     } = this.props;
     return (
-      <Cart>
+      <Cart className={className}>
         <Items>
           <CartItems items={items} components={components} {...props} isMiniCart />
         </Items>

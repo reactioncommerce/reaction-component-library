@@ -21,6 +21,12 @@ class CheckoutAction extends Component {
      */
     activeStepElement: PropTypes.node.isRequired,
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Action label when completed
      */
     completeLabel: PropTypes.string,
@@ -99,7 +105,7 @@ class CheckoutAction extends Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         {this.renderActiveAction()}
         {this.renderCompleteAction()}
         {this.renderIncompleteAction()}

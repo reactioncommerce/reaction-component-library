@@ -28,6 +28,12 @@ const ViewerFirstNameText = styled.span`
 class ViewerInfo extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Enable this prop when you only want to display the initials/avatar on all screens
      */
     compact: PropTypes.bool,
@@ -78,9 +84,9 @@ class ViewerInfo extends Component {
   }
 
   render() {
-    const { compact, components: { ProfileImage }, full, viewer } = this.props;
+    const { className, compact, components: { ProfileImage }, full, viewer } = this.props;
     return (
-      <ViewerInfoContainer>
+      <ViewerInfoContainer className={className}>
         <ProfileImage size={30} viewer={viewer} />
         <ViewerFirstNameText compact={compact} full={full}>
           {this.viewerName}

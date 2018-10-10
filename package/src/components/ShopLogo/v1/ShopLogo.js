@@ -10,6 +10,12 @@ const Container = styled.div`
 export default class ShopLogo extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * The primary shop's logo url
      */
     shopLogoUrl: PropTypes.string,
@@ -20,10 +26,10 @@ export default class ShopLogo extends Component {
   }
 
   render() {
-    const { shopLogoUrl, shopName } = this.props;
+    const { className, shopLogoUrl, shopName } = this.props;
 
     return (
-      <Container>
+      <Container className={className}>
         {
           shopLogoUrl ? (
             <img src={shopLogoUrl} alt={shopName} />

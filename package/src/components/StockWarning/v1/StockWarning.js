@@ -10,6 +10,12 @@ const Span = styled.div`
 class StockWarning extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * The product's current stock level
      */
     inventoryQuantity: PropTypes.number,
@@ -21,11 +27,11 @@ class StockWarning extends Component {
   };
 
   render() {
-    const { inventoryQuantity, isLowInventoryQuantity } = this.props;
+    const { className, inventoryQuantity, isLowInventoryQuantity } = this.props;
 
     if (!isLowInventoryQuantity) return null;
 
-    return <Span>Only {inventoryQuantity} in stock</Span>;
+    return <Span className={className}>Only {inventoryQuantity} in stock</Span>;
   }
 }
 

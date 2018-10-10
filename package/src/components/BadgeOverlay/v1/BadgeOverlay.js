@@ -121,6 +121,12 @@ class BadgeOverlay extends Component {
      */
     children: PropTypes.node,
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Only show badge if status is of a certain type
      * Types: BACKORDER, BESTSELLER, LOW\_QUANTITY, SALE, SOLD\_OUT
      */
@@ -211,11 +217,11 @@ class BadgeOverlay extends Component {
   );
 
   render() {
-    const { badgeLabels, children, product } = this.props;
+    const { className, badgeLabels, children, product } = this.props;
     const status = badgeStatus(product, badgeLabels) || {};
 
     return (
-      <Overlay isFaded={status.type === BADGE_TYPES.SOLD_OUT}>
+      <Overlay className={className} isFaded={status.type === BADGE_TYPES.SOLD_OUT}>
         {this.renderBadges()}
         {children}
       </Overlay>

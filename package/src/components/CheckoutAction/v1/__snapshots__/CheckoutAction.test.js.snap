@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckoutAction with \`active\` status & label 1`] = `
-<div>
+<div
+  className={undefined}
+>
   <span />
 </div>
 `;
@@ -140,7 +142,9 @@ exports[`CheckoutAction with \`complete\` status & label 1`] = `
   }
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
@@ -309,7 +313,9 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   }
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
@@ -478,7 +484,9 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   }
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
@@ -529,7 +537,9 @@ exports[`CheckoutAction with \`incomplete\` status & label 1`] = `
   line-height: 1.25;
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >

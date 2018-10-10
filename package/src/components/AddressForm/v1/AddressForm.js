@@ -32,6 +32,12 @@ class AddressForm extends Component {
      */
     addressNamePlaceholder: PropTypes.string,
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
@@ -260,6 +266,7 @@ class AddressForm extends Component {
     const {
       addressNamePlaceholder,
       value,
+      className,
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       errors,
       isSaving,
@@ -283,7 +290,7 @@ class AddressForm extends Component {
     const isCommercialInputId = `isCommercial_${this.uniqueInstanceIdentifier}`;
 
     return (
-      <Form
+      <Form className={className}
         ref={(formEl) => {
           this._form = formEl;
         }}

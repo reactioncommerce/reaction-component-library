@@ -29,6 +29,12 @@ const StyledSpan = styled.span`
 
 class CheckoutEmailAddress extends Component {
   static propTypes = {
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     emailAddress: PropTypes.string.isRequired,
     isAccountEmail: PropTypes.bool.isRequired
   };
@@ -44,9 +50,9 @@ class CheckoutEmailAddress extends Component {
   };
 
   render() {
-    const { emailAddress } = this.props;
+    const { className, emailAddress } = this.props;
     return (
-      <StyledDiv>
+      <StyledDiv className={className}>
         {this.renderAccountEmail()} <StyledSpan>{emailAddress}</StyledSpan>
       </StyledDiv>
     );

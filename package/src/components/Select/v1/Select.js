@@ -208,6 +208,13 @@ class Select extends Component {
     captureMenuScroll: PropTypes.bool,
 
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+
+    /**
      * Passed through to react-select package. Close the select menu when the user selects an option
      */
     closeMenuOnSelect: PropTypes.bool,
@@ -542,7 +549,7 @@ class Select extends Component {
   };
 
   render() {
-    const { alphabetize, isReadOnly, options } = this.props;
+    const { className, alphabetize, isReadOnly, options } = this.props;
     const { value } = this.state;
 
     // Unfortunately right now, react-select optgroup support is just a tad different from the
@@ -577,6 +584,7 @@ class Select extends Component {
     return (
       <ReactSelect
         {...passthroughProps}
+        className={className}
         isDisabled={isReadOnly}
         value={optionValue}
         components={{ IndicatorSeparator: null }}

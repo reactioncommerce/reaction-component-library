@@ -120,6 +120,12 @@ const LeftAlignedItem = styled.div`
 class SelectableItem extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Optional text, SVG or element displayed on the right-hand side
      */
     detail: PropTypes.node,
@@ -170,6 +176,7 @@ class SelectableItem extends Component {
 
   render() {
     const {
+      className,
       detail,
       icon,
       isChecked,
@@ -203,7 +210,7 @@ class SelectableItem extends Component {
     );
 
     return (
-      <div>
+      <div className={className}>
         {isLeftAligned ?
           <LeftAlignedItem>
             {input}

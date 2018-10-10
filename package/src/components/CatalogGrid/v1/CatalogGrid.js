@@ -55,6 +55,12 @@ class CatalogGrid extends Component {
       SALE: PropTypes.string
     }),
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
@@ -125,6 +131,7 @@ class CatalogGrid extends Component {
   render() {
     const {
       badgeLabels,
+      className,
       components: { CatalogGridItem },
       currencyCode,
       initialSize,
@@ -144,7 +151,7 @@ class CatalogGrid extends Component {
     }
 
     return (
-      <ContainerQuery query={this.getContainerQueries()} initialSize={initialSize}>
+      <ContainerQuery className={className} query={this.getContainerQueries()} initialSize={initialSize}>
         {(params) => (
           <GridContainer>
             {products.map((product, index) => (

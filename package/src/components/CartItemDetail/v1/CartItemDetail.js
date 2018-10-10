@@ -54,6 +54,12 @@ class CartItemDetail extends Component {
       value: PropTypes.string
     })),
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Is in a MiniCart component
      */
     isMiniCart: PropTypes.bool,
@@ -116,9 +122,9 @@ class CartItemDetail extends Component {
   }
 
   render() {
-    const { productSlug, title } = this.props;
+    const { className, productSlug, title } = this.props;
     return (
-      <Detail>
+      <Detail className={className}>
         <Title>
           <a href={productSlug}>{title}</a>
         </Title>

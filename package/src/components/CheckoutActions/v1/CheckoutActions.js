@@ -90,6 +90,12 @@ class CheckoutActions extends Component {
       props: PropTypes.object
     })),
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
@@ -306,10 +312,14 @@ class CheckoutActions extends Component {
   };
 
   render() {
-    const { actions } = this.props;
+    const { className, actions } = this.props;
     const activeActions = this.determineActiveActions();
 
-    return actions.map((action) => this.renderAction(action, activeActions));
+    return (
+      <div className={className}>
+        {actions.map((action) => this.renderAction(action, activeActions))}
+      </div>
+    );
   }
 }
 
