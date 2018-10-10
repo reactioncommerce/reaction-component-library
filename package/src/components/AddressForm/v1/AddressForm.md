@@ -1,7 +1,7 @@
 ### Overview
 The `AddressForm` component is based on the [Composable Form Spec](http://forms.dairystatedesigns.com/) and uses [reacto-form](http://forms.dairystatedesigns.com/reacto-form/) to handle form state and validation.
 
-#### Usage
+### Usage
 The `AddressForm` is composed of several components: `Field`, `TextInput`, `Select`, `Button` and `ErrorsBlock` and allows for configuring selectable `regions` and `countries` objects.
 
 ```jsx
@@ -44,7 +44,7 @@ const locales = {
   "WS": {
     "name": "Westeros",
     "capital": "Kings Landing",
-    "states": {      
+    "states": {
       "DN": {
         "name": "Dorne"
       },
@@ -63,7 +63,7 @@ const locales = {
       "TV": {
         "name": "The Vale"
       }
-      
+
     }
   }
 };
@@ -130,7 +130,7 @@ export default function withLocales(ComponentWithLocales) {
 }
 ```
 
-#### Dynamic Locales & Components Context
+###### Dynamic Locales & Components Context
 If you're using the [components-context](https://github.com/reactioncommerce/components-context) you can wrap the `AddressForm` with your locales HOC before you define it in the components context. This way any components using the `AddressForm` off of `props` will automatically have locales available.
 ```js static
 import AddressForm from "@reactioncommerce/components/AddressForm/v1";
@@ -143,7 +143,6 @@ export default {
   ...
 };
 ```
-
 
 **Loading a default set of dynamic locales**
 
@@ -175,7 +174,6 @@ const AddressFormWithLocales = withLocales(AddressForm);
 
 <AddressFormWithLocales localesPath="./utils/locales/pottermore.json" />
 ```
-
 
 #### Value
 The `AddressForm` accepts a `value` object that maps to each field.
@@ -287,3 +285,11 @@ class AddressExample extends React.Component {
 
 <AddressExample />
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop           | Default | Description                                                                              |
+| -------------------- | ------- | ---------------------------------------------------------------------------------------- |
+| `rui_breakpoints.sm` | 320px   | Used to determine when the component begins to render two short fields on the same line. |

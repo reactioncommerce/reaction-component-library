@@ -9,17 +9,17 @@ const Detail = styled.div`
 
 const Title = styled.h3`
   ${addTypographyStyles("CartItemDetailTitle", "headingTextBold")}
-  margin-top: ${applyTheme("cartItemDetailTitleMarginTop")};
-  margin-bottom: ${applyTheme("cartItemDetailTitleMarginBottom")};
-  margin-left: ${applyTheme("cartItemDetailTitleMarginLeft")};
-  margin-right: ${applyTheme("cartItemDetailTitleMarginRight")};
+  margin-top: ${applyTheme("CartItemDetailTitle.marginTop")};
+  margin-bottom: ${applyTheme("CartItemDetailTitle.marginBottom")};
+  margin-left: ${applyTheme("CartItemDetailTitle.marginLeft")};
+  margin-right: ${applyTheme("CartItemDetailTitle.marginRight")};
 
   a {
     ${addTypographyStyles("CartItemDetailTitle", "headingTextBold")}
     text-decoration: none;
     &:focus,
     &:hover {
-      color: ${applyTheme("cartItemDetailTitleColor_focus")};
+      color: ${applyTheme("CartItemDetailTitle.color_focus")};
     }
   }
 `;
@@ -53,6 +53,12 @@ class CartItemDetail extends Component {
        */
       value: PropTypes.string
     })),
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * Is in a MiniCart component
      */
@@ -116,9 +122,9 @@ class CartItemDetail extends Component {
   }
 
   render() {
-    const { productSlug, title } = this.props;
+    const { className, productSlug, title } = this.props;
     return (
-      <Detail>
+      <Detail className={className}>
         <Title>
           <a href={productSlug}>{title}</a>
         </Title>

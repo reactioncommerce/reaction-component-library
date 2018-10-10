@@ -20,7 +20,7 @@ const ColFull = styled.div`
 const ColHalf = styled.div`
   flex: 1 1 100%;
 
-  @media (min-width: ${applyTheme("breakpoint_sm")}px) {
+  @media (min-width: ${applyTheme("sm", "breakpoints")}px) {
     flex: 0 1 calc(50% - 9px);
   }
 `;
@@ -31,6 +31,12 @@ class AddressForm extends Component {
      * Place holder for Address Name field.
      */
     addressNamePlaceholder: PropTypes.string,
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -83,6 +89,10 @@ class AddressForm extends Component {
          */
       name: PropTypes.string.isRequired
     })),
+    /**
+     * Enable when using the form on a dark background, disabled by default
+     */
+    isOnDarkBackground: PropTypes.bool,
     /**
      * Is the shipping address being saved
      */
@@ -150,6 +160,7 @@ class AddressForm extends Component {
     addressNamePlaceholder: "Address Name",
     errors: [],
     locales: {},
+    isOnDarkBackground: false,
     isSaving: false,
     name: "address",
     onCancel() {},
@@ -260,8 +271,10 @@ class AddressForm extends Component {
     const {
       addressNamePlaceholder,
       value,
+      className,
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
       errors,
+      isOnDarkBackground,
       isSaving,
       name,
       onChange,
@@ -283,7 +296,7 @@ class AddressForm extends Component {
     const isCommercialInputId = `isCommercial_${this.uniqueInstanceIdentifier}`;
 
     return (
-      <Form
+      <Form className={className}
         ref={(formEl) => {
           this._form = formEl;
         }}
@@ -303,6 +316,7 @@ class AddressForm extends Component {
                   id={addressNameInputId}
                   name="addressName"
                   placeholder={addressNamePlaceholder}
+                  isOnDarkBackground={isOnDarkBackground}
                   isReadOnly={isSaving}
                 />
               </Field>
@@ -320,10 +334,17 @@ class AddressForm extends Component {
                   onChange={this.handleCountryChange}
                   options={this.countryOptions}
                   placeholder="Country"
+                  isOnDarkBackground={isOnDarkBackground}
                   isReadOnly={isSaving}
                 />
               ) : (
-                <TextInput id={countryInputId} name="country" placeholder="Country" isReadOnly={isSaving} />
+                <TextInput
+                  id={countryInputId}
+                  name="country"
+                  placeholder="Country"
+                  isOnDarkBackground={isOnDarkBackground}
+                  isReadOnly={isSaving}
+                />
               )}
               <ErrorsBlock names={["country"]} />
             </Field>
@@ -331,20 +352,38 @@ class AddressForm extends Component {
 
           <ColHalf>
             <Field name="firstName" label="First Name" labelFor={firstNameInputId} isRequired>
-              <TextInput id={firstNameInputId} name="firstName" placeholder="First Name" isReadOnly={isSaving} />
+              <TextInput
+                id={firstNameInputId}
+                name="firstName"
+                placeholder="First Name"
+                isOnDarkBackground={isOnDarkBackground}
+                isReadOnly={isSaving}
+              />
               <ErrorsBlock names={["firstName"]} />
             </Field>
           </ColHalf>
           <ColHalf>
             <Field name="lastName" label="Last Name" labelFor={lastNameInputId} isRequired>
-              <TextInput id={lastNameInputId} name="lastName" placeholder="Last Name" isReadOnly={isSaving} />
+              <TextInput
+                id={lastNameInputId}
+                name="lastName"
+                placeholder="Last Name"
+                isOnDarkBackground={isOnDarkBackground}
+                isReadOnly={isSaving}
+              />
               <ErrorsBlock names={["lastName"]} />
             </Field>
           </ColHalf>
 
           <ColFull>
             <Field name="address1" label="Address" labelFor={address1InputId} isRequired>
-              <TextInput id={address1InputId} name="address1" placeholder="Address" isReadOnly={isSaving} />
+              <TextInput
+                id={address1InputId}
+                name="address1"
+                placeholder="Address"
+                isOnDarkBackground={isOnDarkBackground}
+                isReadOnly={isSaving}
+              />
               <ErrorsBlock names={["address1"]} />
             </Field>
           </ColFull>
@@ -355,6 +394,7 @@ class AddressForm extends Component {
                 id={address2InputId}
                 name="address2"
                 placeholder="Address Line 2 (Optional)"
+                isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving}
               />
             </Field>
@@ -362,7 +402,13 @@ class AddressForm extends Component {
 
           <ColFull>
             <Field name="city" label="City" labelFor={cityInputId}>
-              <TextInput id={cityInputId} name="city" placeholder="City" isReadOnly={isSaving} />
+              <TextInput
+                id={cityInputId}
+                name="city"
+                placeholder="City"
+                isOnDarkBackground={isOnDarkBackground}
+                isReadOnly={isSaving}
+              />
               <ErrorsBlock names={["city"]} />
             </Field>
           </ColFull>
@@ -377,24 +423,43 @@ class AddressForm extends Component {
                   name="region"
                   options={this.regionOptions}
                   placeholder="Region"
+                  isOnDarkBackground={isOnDarkBackground}
                   isReadOnly={isSaving}
                 />
               ) : (
-                <TextInput id={regionInputId} name="region" placeholder="Region" isReadOnly={isSaving} />
+                <TextInput
+                  id={regionInputId}
+                  name="region"
+                  placeholder="Region"
+                  isOnDarkBackground={isOnDarkBackground}
+                  isReadOnly={isSaving}
+                />
               )}
               <ErrorsBlock names={["region"]} />
             </Field>
           </ColHalf>
           <ColHalf>
             <Field name="postal" label="Postal Code" labelFor={postalInputId} isRequired>
-              <TextInput id={postalInputId} name="postal" placeholder="Postal Code" isReadOnly={isSaving} />
+              <TextInput
+                id={postalInputId}
+                name="postal"
+                placeholder="Postal Code"
+                isOnDarkBackground={isOnDarkBackground}
+                isReadOnly={isSaving}
+              />
               <ErrorsBlock names={["postal"]} />
             </Field>
           </ColHalf>
 
           <ColFull>
             <Field name="phone" label="Phone" labelFor={phoneInputId} isRequired>
-              <PhoneNumberInput id={phoneInputId} name="phone" placeholder="Phone" isReadOnly={isSaving} />
+              <PhoneNumberInput
+                id={phoneInputId}
+                name="phone"
+                placeholder="Phone"
+                isOnDarkBackground={isOnDarkBackground}
+                isReadOnly={isSaving}
+              />
               <ErrorsBlock names={["phone"]} />
             </Field>
           </ColFull>
@@ -406,6 +471,7 @@ class AddressForm extends Component {
                   id={isCommercialInputId}
                   name="isCommercial"
                   label="This is a commercial address."
+                  isOnDarkBackground={isOnDarkBackground}
                   isReadOnly={isSaving}
                 />
               </Field>

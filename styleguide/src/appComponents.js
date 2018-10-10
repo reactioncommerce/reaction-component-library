@@ -1,13 +1,18 @@
 import iconClear from "../../package/src/svg/iconClear";
 import iconError from "../../package/src/svg/iconError";
 import iconValid from "../../package/src/svg/iconValid";
+import iconExpand from "../../package/src/svg/iconExpand";
+import iconPlus from "../../package/src/svg/iconPlus";
 import iconAmericanExpress from "../../package/src/svg/iconAmericanExpress";
 import iconDiscover from "../../package/src/svg/iconDiscover";
 import iconLock from "../../package/src/svg/iconLock";
 import iconMastercard from "../../package/src/svg/iconMastercard";
 import iconVisa from "../../package/src/svg/iconVisa";
 import spinner from "../../package/src/svg/spinner";
+import Accordion from "../../package/src/components/Accordion/v1";
+import AddressBook from "../../package/src/components/AddressBook/v1";
 import AddressForm from "../../package/src/components/AddressForm/v1";
+import AddressReview from "../../package/src/components/AddressReview/v1";
 import BadgeOverlay from "../../package/src/components/BadgeOverlay/v1";
 import Button from "../../package/src/components/Button/v1";
 import CartItem from "../../package/src/components/CartItem/v1";
@@ -43,7 +48,10 @@ import withLocales from "./components/withLocales.js";
 const AddressFormWithLocales = withLocales(AddressForm);
 
 export default {
+  Accordion,
+  AddressBook,
   AddressForm: AddressFormWithLocales,
+  AddressReview,
   BadgeOverlay,
   Button,
   CartItem,
@@ -60,7 +68,9 @@ export default {
   Field,
   iconClear,
   iconError,
+  iconExpand,
   iconValid,
+  iconPlus,
   iconAmericanExpress,
   iconDiscover,
   iconLock,

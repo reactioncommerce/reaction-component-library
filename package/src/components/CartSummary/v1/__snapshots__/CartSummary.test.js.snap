@@ -24,13 +24,12 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: left;
 }
 
 .c3 {
   -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
+  color: #b3b3b3;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -41,7 +40,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #b3b3b3;
   text-align: right;
 }
 
@@ -61,7 +59,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -85,7 +82,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 1px;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -109,7 +105,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -127,7 +122,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: right;
 }
 
@@ -147,7 +141,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 1px;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -165,7 +158,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: right;
 }
 
@@ -197,7 +189,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
 }
 
 <table
@@ -302,13 +293,12 @@ exports[`Displays a summary with FREE shipping 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: left;
 }
 
 .c3 {
   -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
+  color: #b3b3b3;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -319,7 +309,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #b3b3b3;
   text-align: right;
 }
 
@@ -339,7 +328,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -363,7 +351,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 1px;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -387,7 +374,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -405,7 +391,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: right;
 }
 
@@ -425,7 +410,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 1px;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -443,7 +427,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: right;
 }
 
@@ -475,7 +458,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
 }
 
 <table
@@ -580,13 +562,12 @@ exports[`Displays a summary with applied discount 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: left;
 }
 
 .c3 {
   -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
+  color: #b3b3b3;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -597,7 +578,6 @@ exports[`Displays a summary with applied discount 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #b3b3b3;
   text-align: right;
 }
 
@@ -617,7 +597,6 @@ exports[`Displays a summary with applied discount 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -641,7 +620,6 @@ exports[`Displays a summary with applied discount 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 1px;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -665,7 +643,6 @@ exports[`Displays a summary with applied discount 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -683,7 +660,6 @@ exports[`Displays a summary with applied discount 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: right;
 }
 
@@ -703,7 +679,6 @@ exports[`Displays a summary with applied discount 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 1px;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -721,7 +696,6 @@ exports[`Displays a summary with applied discount 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: right;
 }
 
@@ -742,7 +716,7 @@ exports[`Displays a summary with applied discount 1`] = `
 
 .c6 {
   -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
+  color: #0db781;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -753,7 +727,6 @@ exports[`Displays a summary with applied discount 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #0db781;
 }
 
 .c9 {
@@ -769,7 +742,6 @@ exports[`Displays a summary with applied discount 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
 }
 
 <table
@@ -890,13 +862,12 @@ exports[`Displays a summary with calculated taxes 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: left;
 }
 
 .c3 {
   -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
+  color: #b3b3b3;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
   font-size: 16px;
   font-style: normal;
@@ -907,7 +878,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #b3b3b3;
   text-align: right;
 }
 
@@ -927,7 +897,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -951,7 +920,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 1px;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -975,7 +943,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 0;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -993,7 +960,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: right;
 }
 
@@ -1013,7 +979,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   border-top-color: #e6e6e6;
   border-top-style: solid;
   border-top-width: 1px;
-  color: #3c3c3c;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
@@ -1031,7 +996,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
   text-align: right;
 }
 
@@ -1063,7 +1027,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  color: #3c3c3c;
 }
 
 <table

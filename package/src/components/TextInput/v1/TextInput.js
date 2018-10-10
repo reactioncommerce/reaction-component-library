@@ -11,7 +11,7 @@ function applyThemeVariant(themeProp) {
   };
 }
 
-function applyValidationColor(themeProp = "color") {
+function applyValidationColor(themeProp) {
   return (props) => {
     let status;
     if (props.errors && props.errors.length) {
@@ -38,18 +38,18 @@ function applyTextareaVariant(textareaProp, inputProp) {
 
 const InputWrapper = styled.div`
   -webkit-font-smoothing: antialiased;
-  background-color: ${applyThemeVariant("inputBackgroundColor")};
-  border: 1px solid ${applyValidationColor("inputBorderColor")};
-  border-radius: ${applyTheme("inputBorderRadius")};
+  background-color: ${applyThemeVariant("Input.backgroundColor")};
+  border: 1px solid ${applyValidationColor("Input.borderColor")};
+  border-radius: ${applyTheme("Input.borderRadius")};
   box-sizing: border-box;
-  color: ${applyValidationColor("inputColor")};
+  color: ${applyValidationColor("Input.color")};
   display: flex;
   flex-direction: row;
-  font-family: ${applyTheme("inputFontFamily")};
-  font-size: ${applyTheme("inputFontSize")};
-  line-height: ${applyTheme("inputLineHeight")};
+  font-family: ${applyTheme("Input.fontFamily")};
+  font-size: ${applyTheme("Input.fontSize")};
+  line-height: ${applyTheme("Input.lineHeight")};
   outline: none;
-  padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
+  padding: ${applyTheme("Input.verticalPadding")} ${applyTheme("Input.horizontalPadding")};
   position: relative;
 `;
 
@@ -59,16 +59,16 @@ const StyledInput = styled.input`
   box-sizing: border-box;
   color: inherit;
   flex-grow: 2;
-  font-family: ${applyTheme("inputFontFamily")};
-  font-size: ${applyTheme("inputFontSize")};
+  font-family: ${applyTheme("Input.fontFamily")};
+  font-size: ${applyTheme("Input.fontSize")};
   outline: none;
 
   &::placeholder {
-    color: ${applyTheme("inputPlaceholderColor")};
+    color: ${applyTheme("Input.placeholderColor")};
   }
 
   &:read-only {
-    color: ${applyTheme("inputColor_disabled")};
+    color: ${applyTheme("Input.color_disabled")};
   }
 `;
 
@@ -76,32 +76,32 @@ const Textarea = StyledInput.withComponent("textarea");
 
 const StyledTextarea = Textarea.extend`
   -webkit-font-smoothing: antialiased;
-  background-color: ${applyThemeVariant("inputBackgroundColor")};
-  border-radius: ${applyTheme("inputBorderRadius")};
-  border: 1px solid ${applyValidationColor("inputBorderColor")};
-  color: ${applyValidationColor("inputColor")};
-  font-family: ${applyTheme("inputFontFamily")};
-  font-size: ${applyTheme("inputFontSize")};
-  line-height: ${applyTheme("textareaLineHeight")};
-  min-height: ${applyTheme("textareaHeight")};
+  background-color: ${applyThemeVariant("Input.backgroundColor")};
+  border-radius: ${applyTheme("Input.borderRadius")};
+  border: 1px solid ${applyValidationColor("Input.borderColor")};
+  color: ${applyValidationColor("Input.color")};
+  font-family: ${applyTheme("Input.fontFamily")};
+  font-size: ${applyTheme("Input.fontSize")};
+  line-height: ${applyTheme("Textarea.lineHeight")};
+  min-height: ${applyTheme("Textarea.height")};
   outline: none;
-  padding: ${applyTheme("inputVerticalPadding")} ${applyTheme("inputHorizontalPadding")};
+  padding: ${applyTheme("Input.verticalPadding")} ${applyTheme("Input.horizontalPadding")};
   resize: vertical;
   width: 100%;
 
   &:read-only {
-    color: ${applyTheme("inputColor_disabled")};
+    color: ${applyTheme("Input.color_disabled")};
   }
 `;
 
 const IconWrapper = styled.div`
   box-sizing: border-box;
-  margin-left: ${applyTheme("inputHorizontalPadding")};
-  height: ${applyTheme("inputIconWrapperSize")};
-  width: ${applyTheme("inputIconWrapperSize")};
+  margin-left: ${applyTheme("Input.horizontalPadding")};
+  height: ${applyTheme("Input.iconWrapperSize")};
+  width: ${applyTheme("Input.iconWrapperSize")};
   position: relative;
-  right: ${applyTextareaVariant(applyTheme("textareaIconRight"), 0)};
-  top: ${applyTextareaVariant(applyTheme("textareaIconTop"), 0)};
+  right: ${applyTextareaVariant(applyTheme("Textarea.iconRight"), 0)};
+  top: ${applyTextareaVariant(applyTheme("Textarea.iconTop"), 0)};
 
   & * {
     display: inline-block;
@@ -111,9 +111,9 @@ const IconWrapper = styled.div`
 const ClearButton = styled.div`
   background-color: transparent;
   border: none;
-  border-radius: ${applyTheme("inputBorderRadius")};
+  border-radius: ${applyTheme("Input.borderRadius")};
   box-sizing: border-box;
-  color: ${applyTheme("inputClearButtonColor")};
+  color: ${applyTheme("Input.clearButtonColor")};
   cursor: pointer;
   height: 100%;
   margin: 0;
@@ -140,17 +140,17 @@ const ClearButton = styled.div`
 }`;
 
 const TextareaClearButton = styled.div`
-  background-color: ${applyTheme("inputClearButtonLargeBackgroundColor")};
-  border-radius: ${applyTheme("inputBorderRadius")};
-  border: 1px solid ${applyTheme("inputClearButtonLargeBorderColor")};
+  background-color: ${applyTheme("Input.clearButtonLargeBackgroundColor")};
+  border-radius: ${applyTheme("Input.borderRadius")};
+  border: 1px solid ${applyTheme("Input.clearButtonLargeBorderColor")};
   box-sizing: content-box;
-  color: ${applyTheme("inputClearButtonColor")};
+  color: ${applyTheme("Input.clearButtonColor")};
   cursor: pointer;
   display: inline-block;
-  font-size: ${applyTheme("textareaClearButtonFontSize")};
-  height: ${applyTheme("textareaClearButtonFontSize")};
+  font-size: ${applyTheme("Textarea.clearButtonFontSize")};
+  height: ${applyTheme("Textarea.clearButtonFontSize")};
   margin: 0;
-  padding: ${applyTheme("textareaClearButtonPadding")};
+  padding: ${applyTheme("Textarea.clearButtonPadding")};
   line-height: 0;
 
   &:hover,

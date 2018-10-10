@@ -4,10 +4,10 @@ The `ShippingAddressCheckoutAction` serves 4 purposes:
   * To provide `CheckoutActions` with a `renderComplete` method that renders the captured checkout data.
   * To provide `ChecoutActions` a way to know the action is ready for save,
   * To Provide `CheckoutActions` a way to capture the `AddressForm` values.
- 
+
 For a full implementation example see the [CheckoutActions](/#!/CheckoutActions)
 
-#### Usage
+### Usage
 
 ```jsx
 const fullfillment = {
@@ -91,3 +91,12 @@ const action = ShippingAddressCheckoutAction;
 action.renderComplete(capturedData);
 
 ```
+
+### Theme
+
+See [Theming Components](./#!/Theming%20Components).
+
+#### Typography
+
+- The label text uses `subheadingTextBold` style with `rui_components.ShippingAddressCheckoutActionTitle` override
+- The address preview text uses `bodyText` style with `rui_components.ShippingAddressCheckoutActionAddress` override

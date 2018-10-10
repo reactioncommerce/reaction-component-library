@@ -10,7 +10,7 @@ const ViewerInfoContainer = styled.div`
 `;
 
 const ViewerFirstNameText = styled.span`
-  ${addTypographyStyles("ViewerInfoInitials", "labelText")}
+  ${addTypographyStyles("ViewerInfo", "labelText")}
   display: ${({ compact, full }) => {
     if (full) {
       return compact ? "none" : "inline";
@@ -20,13 +20,19 @@ const ViewerFirstNameText = styled.span`
   align-self: center;
   margin-left: 0.5rem;
 
-  @media (min-width: ${applyTheme("breakpoint_md")}px) {
+  @media (min-width: ${applyTheme("md", "breakpoints")}px) {
     display: ${({ compact }) => (compact ? "none" : "inline")};
   }
 `;
 
 class ViewerInfo extends Component {
   static propTypes = {
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * Enable this prop when you only want to display the initials/avatar on all screens
      */
@@ -67,24 +73,10 @@ class ViewerInfo extends Component {
 
   /**
    *
-   * @name viewerInitials
-   * @summary Build the initials string from the `viewer` first and last name
-   * If those props are not availible use the first letter of the primary email address.
-   * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
-   */
-  get viewerInitials() {
-    const { viewer: { firstName, lastName, primaryEmailAddress } } = this.props;
-    const firstInitial = (firstName && firstName.charAt()) || primaryEmailAddress.charAt().toUpperCase();
-    const lastInitial = (lastName && lastName.charAt()) || "";
-    return `${firstInitial}${lastInitial}`;
-  }
-
-  /**
-   *
    * @name viewerName
-   * @summary If `firstName` is availible on the `viewer` object
-   * return that else return the email address
-   * @return {String} the viewers name.
+   * @summary If `firstName` is available on the `viewer` object, return that.
+   *   Otherwise return the email address.
+   * @return {String} Display name for the viewer
    */
   get viewerName() {
     const { viewer: { firstName, primaryEmailAddress } } = this.props;
@@ -92,9 +84,9 @@ class ViewerInfo extends Component {
   }
 
   render() {
-    const { compact, components: { ProfileImage }, full, viewer } = this.props;
+    const { className, compact, components: { ProfileImage }, full, viewer } = this.props;
     return (
-      <ViewerInfoContainer>
+      <ViewerInfoContainer className={className}>
         <ProfileImage size={30} viewer={viewer} />
         <ViewerFirstNameText compact={compact} full={full}>
           {this.viewerName}

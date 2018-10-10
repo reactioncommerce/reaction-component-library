@@ -18,7 +18,9 @@ exports[`basic snapshot 1`] = `
   padding: 0;
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >

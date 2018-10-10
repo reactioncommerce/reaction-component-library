@@ -2,7 +2,7 @@
 
 Buttons are used to enable a user to take an action. Buttons should clearly and simply communicate the action that will happen when they are pressed.
 
-#### Usage
+### Usage
 
 There are four types of buttons you can choose from, and which one you choose should be based on which type of action it causes.
 
@@ -332,66 +332,86 @@ const divStyles = {
 </div>
 ```
 
-#### Component usage
+### Theme
 
-The `Button` component can render with four different possible appearances, which are chosen based on the `actionType` prop value. You should choose the appropriate appearance based on what type of action will happen if you click it.
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
 
-The actual colors of the appearance are defined by your theme. The examples here use our default theme. The theme properties used by the `Button` component are:
-
-- `rui_buttonBackgroundColor_danger_active`
-- `rui_buttonBackgroundColor_danger_hover`
-- `rui_buttonBackgroundColor_danger`
-- `rui_buttonBackgroundColor_default_active`
-- `rui_buttonBackgroundColor_default_hover`
-- `rui_buttonBackgroundColor_default`
-- `rui_buttonBackgroundColor_disabled`
-- `rui_buttonBackgroundColor_important_active`
-- `rui_buttonBackgroundColor_important_hover`
-- `rui_buttonBackgroundColor_important`
-- `rui_buttonBackgroundColor_secondary_active`
-- `rui_buttonBackgroundColor_secondary_hover`
-- `rui_buttonBackgroundColor_secondary`
-- `rui_buttonBackgroundColor_secondaryDanger_active`
-- `rui_buttonBackgroundColor_secondaryDanger_hover`
-- `rui_buttonBackgroundColor_secondaryDanger`
-- `rui_buttonBorderColor_danger_active`
-- `rui_buttonBorderColor_danger_hover`
-- `rui_buttonBorderColor_danger`
-- `rui_buttonBorderColor_default_active`
-- `rui_buttonBorderColor_default_hover`
-- `rui_buttonBorderColor_default`
-- `rui_buttonBorderColor_disabled`
-- `rui_buttonBorderColor_important_active`
-- `rui_buttonBorderColor_important_hover`
-- `rui_buttonBorderColor_important`
-- `rui_buttonBorderColor_secondary_active`
-- `rui_buttonBorderColor_secondary_hover`
-- `rui_buttonBorderColor_secondary`
-- `rui_buttonBorderColor_secondaryDanger_active`
-- `rui_buttonBorderColor_secondaryDanger_hover`
-- `rui_buttonBorderColor_secondaryDanger`
-- `rui_buttonBorderRadius`
-- `rui_buttonForegroundColor_danger_active`
-- `rui_buttonForegroundColor_danger_hover`
-- `rui_buttonForegroundColor_danger`
-- `rui_buttonForegroundColor_default_active`
-- `rui_buttonForegroundColor_default_hover`
-- `rui_buttonForegroundColor_default`
-- `rui_buttonForegroundColor_disabled`
-- `rui_buttonForegroundColor_important_active`
-- `rui_buttonForegroundColor_important_hover`
-- `rui_buttonForegroundColor_important`
-- `rui_buttonForegroundColor_secondary_active`
-- `rui_buttonForegroundColor_secondary_hover`
-- `rui_buttonForegroundColor_secondary`
-- `rui_buttonForegroundColor_secondaryDanger_active`
-- `rui_buttonForegroundColor_secondaryDanger_hover`
-- `rui_buttonForegroundColor_secondaryDanger`
-- `rui_buttonHorizontalPadding`
-- `rui_buttonMinimumWidth`
-- `rui_buttonTextOnlyColor_default_active`
-- `rui_buttonTextOnlyColor_default_hover`
-- `rui_buttonTextOnlyColor_default`
-- `rui_buttonTextOnlyColor_disabled`
-- `rui_buttonVerticalPadding`
-- `rui_buttonVerticalPaddingShort`
+| Theme Prop                                        | Default             | Description                                                                                                                                                                |
+| ------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Button.backgroundColor_danger`                   | red                 | Background color of a button with `actionType="danger"`                                                                                                                    |
+| `Button.backgroundColor_danger_active`            | red400              | Background color of a button with `actionType="danger"` when active                                                                                                        |
+| `Button.backgroundColor_danger_disabled`          | coolGrey200         | Background color of a button with `actionType="danger"` when disabled                                                                                                      |
+| `Button.backgroundColor_danger_hover`             | redHover            | Background color of a button with `actionType="danger"` when hovered                                                                                                       |
+| `Button.backgroundColor_default`                  | coolGrey            | Background color of a button with `actionType="default"`                                                                                                                   |
+| `Button.backgroundColor_default_active`           | coolGreyActive      | Background color of a button with `actionType="default"` when active                                                                                                       |
+| `Button.backgroundColor_default_disabled`         | coolGrey200         | Background color of a button with `actionType="default"` when disabled                                                                                                     |
+| `Button.backgroundColor_default_hover`            | coolGreyHover       | Background color of a button with `actionType="default"` when hovered                                                                                                      |
+| `Button.backgroundColor_important`                | reactionBlue        | Background color of a button with `actionType="important"`                                                                                                                 |
+| `Button.backgroundColor_important_active`         | reactionBlueActive  | Background color of a button with `actionType="important"` when active                                                                                                     |
+| `Button.backgroundColor_important_disabled`       | coolGrey200         | Background color of a button with `actionType="important"` when disabled                                                                                                   |
+| `Button.backgroundColor_important_hover`          | reactionBlueHover   | Background color of a button with `actionType="important"` when hovered                                                                                                    |
+| `Button.backgroundColor_secondary`                | transparent         | Background color of a button with `actionType="secondary"`                                                                                                                 |
+| `Button.backgroundColor_secondary_active`         | coolGreyActiveLight | Background color of a button with `actionType="secondary"` when active                                                                                                     |
+| `Button.backgroundColor_secondary_disabled`       | coolGrey200         | Background color of a button with `actionType="secondary"` when disabled                                                                                                   |
+| `Button.backgroundColor_secondary_hover`          | coolGreyHoverLight  | Background color of a button with `actionType="secondary"` when hovered                                                                                                    |
+| `Button.backgroundColor_secondaryDanger`          | transparent         | Background color of a button with `actionType="secondaryDanger"`                                                                                                           |
+| `Button.backgroundColor_secondaryDanger_active`   | red400              | Background color of a button with `actionType="secondaryDanger"` when active                                                                                               |
+| `Button.backgroundColor_secondaryDanger_disabled` | coolGrey200         | Background color of a button with `actionType="secondaryDanger"` when disabled                                                                                             |
+| `Button.backgroundColor_secondaryDanger_hover`    | redHover            | Background color of a button with `actionType="secondaryDanger"` when hovered                                                                                              |
+| `Button.backgroundColor_textOnly`                 | transparent         | Background color of a button with `isTextOnly`                                                                                                                             |
+| `Button.backgroundColor_textOnly_active`          | lightBlueGrey       | Background color of a button with `isTextOnly` when active                                                                                                                 |
+| `Button.backgroundColor_textOnly_disabled`        | transparent         | Background color of a button with `isTextOnly` when disabled                                                                                                               |
+| `Button.backgroundColor_textOnly_hover`           | paleGrey            | Background color of a button with `isTextOnly` when hovered                                                                                                                |
+| `Button.borderColor_danger`                       | red                 | Border color of a button with `actionType="danger"`                                                                                                                        |
+| `Button.borderColor_danger_active`                | red400              | Border color of a button with `actionType="danger"` when active                                                                                                            |
+| `Button.borderColor_danger_disabled`              | coolGrey200         | Border color of a button with `actionType="danger"` when disabled                                                                                                          |
+| `Button.borderColor_danger_hover`                 | redHover            | Border color of a button with `actionType="danger"` when hovered                                                                                                           |
+| `Button.borderColor_default`                      | coolGrey            | Border color of a button with `actionType="default"`                                                                                                                       |
+| `Button.borderColor_default_active`               | coolGreyActive      | Border color of a button with `actionType="default"` when active                                                                                                           |
+| `Button.borderColor_default_disabled`             | coolGrey200         | Border color of a button with `actionType="default"` when disabled                                                                                                         |
+| `Button.borderColor_default_hover`                | coolGreyHover       | Border color of a button with `actionType="default"` when hovered                                                                                                          |
+| `Button.borderColor_important`                    | reactionBlue        | Border color of a button with `actionType="important"`                                                                                                                     |
+| `Button.borderColor_important_active`             | reactionBlueActive  | Border color of a button with `actionType="important"` when active                                                                                                         |
+| `Button.borderColor_important_disabled`           | coolGrey200         | Border color of a button with `actionType="important"` when disabled                                                                                                       |
+| `Button.borderColor_important_hover`              | reactionBlueHover   | Border color of a button with `actionType="important"` when hovered                                                                                                        |
+| `Button.borderColor_secondary`                    | coolGrey            | Border color of a button with `actionType="secondary"`                                                                                                                     |
+| `Button.borderColor_secondary_active`             | coolGrey            | Border color of a button with `actionType="secondary"` when active                                                                                                         |
+| `Button.borderColor_secondary_disabled`           | coolGrey200         | Border color of a button with `actionType="secondary"` when disabled                                                                                                       |
+| `Button.borderColor_secondary_hover`              | coolGrey            | Border color of a button with `actionType="secondary"` when hovered                                                                                                        |
+| `Button.borderColor_secondaryDanger`              | red                 | Border color of a button with `actionType="secondaryDanger"`                                                                                                               |
+| `Button.borderColor_secondaryDanger_active`       | red400              | Border color of a button with `actionType="secondaryDanger"` when active                                                                                                   |
+| `Button.borderColor_secondaryDanger_disabled`     | coolGrey200         | Border color of a button with `actionType="secondaryDanger"` when disabled                                                                                                 |
+| `Button.borderColor_secondaryDanger_hover`        | redHover            | Border color of a button with `actionType="secondaryDanger"` when hovered                                                                                                  |
+| `Button.borderColor_textOnly`                     | transparent         | Border color of a button with `isTextOnly`                                                                                                                                 |
+| `Button.borderColor_textOnly_active`              | lightBlueGrey       | Border color of a button with `isTextOnly` when active                                                                                                                     |
+| `Button.borderColor_textOnly_disabled`            | transparent         | Border color of a button with `isTextOnly` when disabled                                                                                                                   |
+| `Button.borderColor_textOnly_hover`               | paleGrey            | Border color of a button with `isTextOnly` when hovered                                                                                                                    |
+| `Button.borderRadius`                             | 2px                 | Border radius for all corners                                                                                                                                              |
+| `Button.foregroundColor_danger`                   | white               | Foreground color of a button with `actionType="danger"`                                                                                                                    |
+| `Button.foregroundColor_danger_active`            | white               | Foreground color of a button with `actionType="danger"` when active                                                                                                        |
+| `Button.foregroundColor_danger_disabled`          | white               | Foreground color of a button with `actionType="danger"` when disabled                                                                                                      |
+| `Button.foregroundColor_danger_hover`             | white               | Foreground color of a button with `actionType="danger"` when hovered                                                                                                       |
+| `Button.foregroundColor_default`                  | white               | Foreground color of a button with `actionType="default"`                                                                                                                   |
+| `Button.foregroundColor_default_active`           | white               | Foreground color of a button with `actionType="default"` when active                                                                                                       |
+| `Button.foregroundColor_default_disabled`         | white               | Foreground color of a button with `actionType="default"` when disabled                                                                                                     |
+| `Button.foregroundColor_default_hover`            | white               | Foreground color of a button with `actionType="default"` when hovered                                                                                                      |
+| `Button.foregroundColor_important`                | white               | Foreground color of a button with `actionType="important"`                                                                                                                 |
+| `Button.foregroundColor_important_active`         | white               | Foreground color of a button with `actionType="important"` when active                                                                                                     |
+| `Button.foregroundColor_important_disabled`       | white               | Foreground color of a button with `actionType="important"` when disabled                                                                                                   |
+| `Button.foregroundColor_important_hover`          | white               | Foreground color of a button with `actionType="important"` when hovered                                                                                                    |
+| `Button.foregroundColor_secondary`                | coolGrey500         | Foreground color of a button with `actionType="secondary"`                                                                                                                 |
+| `Button.foregroundColor_secondary_active`         | coolGrey500         | Foreground color of a button with `actionType="secondary"` when active                                                                                                     |
+| `Button.foregroundColor_secondary_disabled`       | white               | Foreground color of a button with `actionType="secondary"` when disabled                                                                                                   |
+| `Button.foregroundColor_secondary_hover`          | coolGrey500         | Foreground color of a button with `actionType="secondary"` when hovered                                                                                                    |
+| `Button.foregroundColor_secondaryDanger`          | red                 | Foreground color of a button with `actionType="secondaryDanger"`                                                                                                           |
+| `Button.foregroundColor_secondaryDanger_active`   | white               | Foreground color of a button with `actionType="secondaryDanger"` when active                                                                                               |
+| `Button.foregroundColor_secondaryDanger_disabled` | white               | Foreground color of a button with `actionType="secondaryDanger"` when disabled                                                                                             |
+| `Button.foregroundColor_secondaryDanger_hover`    | white               | Foreground color of a button with `actionType="secondaryDanger"` when hovered                                                                                              |
+| `Button.foregroundColor_textOnly`                 | coolGrey400         | Foreground color of a button with `isTextOnly`                                                                                                                             |
+| `Button.foregroundColor_textOnly_active`          | coolGrey400         | Foreground color of a button with `isTextOnly` when active                                                                                                                 |
+| `Button.foregroundColor_textOnly_disabled`        | coolGrey200         | Foreground color of a button with `isTextOnly` when disabled                                                                                                               |
+| `Button.foregroundColor_textOnly_hover`           | coolGrey400         | Foreground color of a button with `isTextOnly` when hovered                                                                                                                |
+| `Button.horizontalPadding`                        | 20px                | Padding between the left edge of button content and the left border of the button, and between the right edge of button content and the right border of the button         |
+| `Button.minimumWidth`                             | 100px               | The minimum width a button will be, even if its content is smaller, when it is not a full width button. This may result in increased horizontal padding for short content. |
+| `Button.verticalPadding`                          | 10px                | Padding between the top of button content and the top border of the button, and between the bottom of button content and the bottom border of the button                   |
+| `Button.verticalPaddingShort`                     | 5px                 | Same as `verticalPadding`, but for when `isShortHeight`                                                                                                                    |

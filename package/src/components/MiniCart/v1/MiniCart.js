@@ -5,51 +5,51 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Cart = styled.div`
-  border-bottom-color: ${applyTheme("miniCartBorderBottomColor")};
+  border-bottom-color: ${applyTheme("MiniCart.borderBottomColor")};
   border-bottom-style: solid;
-  border-bottom-width: ${applyTheme("miniCartBorderBottomWidth")};
-  border-left-color: ${applyTheme("miniCartBorderLeftColor")};
+  border-bottom-width: ${applyTheme("MiniCart.borderBottomWidth")};
+  border-left-color: ${applyTheme("MiniCart.borderLeftColor")};
   border-left-style: solid;
-  border-left-width: ${applyTheme("miniCartBorderLeftWidth")};
-  border-right-color: ${applyTheme("miniCartBorderRightColor")};
+  border-left-width: ${applyTheme("MiniCart.borderLeftWidth")};
+  border-right-color: ${applyTheme("MiniCart.borderRightColor")};
   border-right-style: solid;
-  border-right-width: ${applyTheme("miniCartBorderRightWidth")};
-  border-top-color: ${applyTheme("miniCartBorderTopColor")};
+  border-right-width: ${applyTheme("MiniCart.borderRightWidth")};
+  border-top-color: ${applyTheme("MiniCart.borderTopColor")};
   border-top-style: solid;
-  border-top-width: ${applyTheme("miniCartBorderTopWidth")};
-  max-width: ${applyTheme("miniCartMaxWidth")};
+  border-top-width: ${applyTheme("MiniCart.borderTopWidth")};
+  max-width: ${applyTheme("MiniCart.maxWidth")};
   overflow: hidden;
 `;
 
 const Items = styled.div`
-  max-height: ${applyTheme("miniCartListHeightToBeginScrolling")};
+  max-height: ${applyTheme("MiniCart.listHeightToBeginScrolling")};
   overflow-x: hidden;
   overflow-y: auto;
-  padding-bottom: ${applyTheme("miniCartListPaddingBottom")};
-  padding-left: ${applyTheme("miniCartListPaddingLeft")};
-  padding-right: ${applyTheme("miniCartListPaddingRight")};
-  padding-top: ${applyTheme("miniCartListPaddingTop")};
+  padding-bottom: ${applyTheme("MiniCart.listPaddingBottom")};
+  padding-left: ${applyTheme("MiniCart.listPaddingLeft")};
+  padding-right: ${applyTheme("MiniCart.listPaddingRight")};
+  padding-top: ${applyTheme("MiniCart.listPaddingTop")};
 `;
 
 const Footer = styled.div`
-  border-top-color: ${applyTheme("miniCartFooterBorderTopColor")};
+  border-top-color: ${applyTheme("MiniCartFooter.borderTopColor")};
   border-top-style: solid;
-  border-top-width: ${applyTheme("miniCartFooterBorderTopWidth")};
-  box-shadow: ${({ count }) => (count > 2 ? applyTheme("miniCartFooterBoxShadow_overflow") : applyTheme("miniCartFooterBoxShadow"))};
-  padding-bottom: ${applyTheme("miniCartFooterPaddingBottom")};
-  padding-left: ${applyTheme("miniCartFooterPaddingLeft")};
-  padding-right: ${applyTheme("miniCartFooterPaddingRight")};
-  padding-top: ${applyTheme("miniCartFooterPaddingTop")};
+  border-top-width: ${applyTheme("MiniCartFooter.borderTopWidth")};
+  box-shadow: ${({ count }) => (count > 2 ? applyTheme("MiniCartFooter.boxShadow_overflow") : applyTheme("MiniCartFooter.boxShadow"))};
+  padding-bottom: ${applyTheme("MiniCartFooter.paddingBottom")};
+  padding-left: ${applyTheme("MiniCartFooter.paddingLeft")};
+  padding-right: ${applyTheme("MiniCartFooter.paddingRight")};
+  padding-top: ${applyTheme("MiniCartFooter.paddingTop")};
   position: relative;
 `;
 
 const FooterMessage = styled.span`
   ${addTypographyStyles("MiniCartFooterMessage", "captionText")}
   display: block;
-  padding-bottom: ${applyTheme("miniCartFooterMessagePaddingBottom")};
-  padding-left: ${applyTheme("miniCartFooterMessagePaddingLeft")};
-  padding-right: ${applyTheme("miniCartFooterMessagePaddingRight")};
-  padding-top: ${applyTheme("miniCartFooterMessagePaddingTop")};
+  padding-bottom: ${applyTheme("MiniCartFooterMessage.paddingBottom")};
+  padding-left: ${applyTheme("MiniCartFooterMessage.paddingLeft")};
+  padding-right: ${applyTheme("MiniCartFooterMessage.paddingRight")};
+  padding-top: ${applyTheme("MiniCartFooterMessage.paddingTop")};
   text-align: center;
 `;
 
@@ -92,6 +92,12 @@ class MiniCart extends Component {
        */
       items: PropTypes.arrayOf(PropTypes.object).isRequired
     }),
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -144,6 +150,7 @@ class MiniCart extends Component {
   render() {
     const {
       cart: { checkout: { summary }, items },
+      className,
       components: {
         Button,
         cartCheckoutButton,
@@ -155,7 +162,7 @@ class MiniCart extends Component {
       ...props
     } = this.props;
     return (
-      <Cart>
+      <Cart className={className}>
         <Items>
           <CartItems items={items} components={components} {...props} isMiniCart />
         </Items>

@@ -72,14 +72,14 @@ function applyValidationColor(themeProp = "color") {
   };
 }
 
-const getInputBorderColor = applyValidationColor("inputBorderColor");
-const getInputFontSize = applyTheme("inputFontSize");
-const getSelectOptionHoverColor = applyTheme("selectOptionHoverColor");
-const getSelectedOptionBackgroundColor = applyTheme("selectSelectedOptionBackgroundColor");
-const getSelectIndicatorColor = applyTheme("selectIndicatorColor");
-const getSelectLetterSpacing = applyTheme("selectLetterSpacing");
-const getSelectTextColor = applyTheme("selectTextColor");
-const getInputFontFamily = applyTheme("inputFontFamily");
+const getInputBorderColor = applyValidationColor("Input.borderColor");
+const getInputFontSize = applyTheme("Input.fontSize");
+const getSelectOptionHoverColor = applyTheme("Select.optionHoverColor");
+const getSelectedOptionBackgroundColor = applyTheme("Select.selectedOptionBackgroundColor");
+const getSelectIndicatorColor = applyTheme("Select.indicatorColor");
+const getSelectLetterSpacing = applyTheme("Select.letterSpacing");
+const getSelectTextColor = applyTheme("Select.textColor");
+const getInputFontFamily = applyTheme("Input.fontFamily");
 
 function getCustomStyles(props) {
   const { maxWidth } = props;
@@ -98,10 +98,10 @@ function getCustomStyles(props) {
       return {
         ...base,
         "borderColor": getInputBorderColor({ ...props, isFocused: state.isFocused }),
-        "borderTopLeftRadius": applyTheme("selectBorderTopLeftRadius")(props),
-        "borderTopRightRadius": applyTheme("selectBorderTopRightRadius")(props),
-        "borderBottomLeftRadius": applyTheme("selectBorderBottomLeftRadius")(props),
-        "borderBottomRightRadius": applyTheme("selectBorderBottomRightRadius")(props),
+        "borderTopLeftRadius": applyTheme("Select.borderTopLeftRadius")(props),
+        "borderTopRightRadius": applyTheme("Select.borderTopRightRadius")(props),
+        "borderBottomLeftRadius": applyTheme("Select.borderBottomLeftRadius")(props),
+        "borderBottomRightRadius": applyTheme("Select.borderBottomRightRadius")(props),
         "boxShadow": "none",
         "cursor": "pointer",
         "&:hover": {
@@ -159,19 +159,19 @@ function getCustomStyles(props) {
     menu(base) {
       return {
         ...base,
-        borderTopLeftRadius: applyTheme("selectMenuBorderTopLeftRadius")(props),
-        borderTopRightRadius: applyTheme("selectMenuBorderTopRightRadius")(props),
-        borderBottomLeftRadius: applyTheme("selectMenuBorderBottomLeftRadius")(props),
-        borderBottomRightRadius: applyTheme("selectMenuBorderBottomRightRadius")(props),
+        borderTopLeftRadius: applyTheme("SelectMenu.borderTopLeftRadius")(props),
+        borderTopRightRadius: applyTheme("SelectMenu.borderTopRightRadius")(props),
+        borderBottomLeftRadius: applyTheme("SelectMenu.borderBottomLeftRadius")(props),
+        borderBottomRightRadius: applyTheme("SelectMenu.borderBottomRightRadius")(props),
         borderBottomStyle: "solid",
-        borderBottomWidth: applyTheme("selectMenuBorderBottomWidth")(props),
-        borderBottomColor: applyTheme("selectMenuBorderBottomColor")(props),
+        borderBottomWidth: applyTheme("SelectMenu.borderBottomWidth")(props),
+        borderBottomColor: applyTheme("SelectMenu.borderBottomColor")(props),
         borderLeftStyle: "solid",
-        borderLeftWidth: applyTheme("selectMenuBorderLeftWidth")(props),
-        borderLeftColor: applyTheme("selectMenuBorderLeftColor")(props),
+        borderLeftWidth: applyTheme("SelectMenu.borderLeftWidth")(props),
+        borderLeftColor: applyTheme("SelectMenu.borderLeftColor")(props),
         borderRightStyle: "solid",
-        borderRightWidth: applyTheme("selectMenuBorderRightWidth")(props),
-        borderRightColor: applyTheme("selectMenuBorderRightColor")(props),
+        borderRightWidth: applyTheme("SelectMenu.borderRightWidth")(props),
+        borderRightColor: applyTheme("SelectMenu.borderRightColor")(props),
         marginTop: 0,
         boxShadow: "none",
         zIndex: MENU_Z_INDEX
@@ -206,6 +206,13 @@ class Select extends Component {
      * Passed through to react-select package. When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
      */
     captureMenuScroll: PropTypes.bool,
+
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
 
     /**
      * Passed through to react-select package. Close the select menu when the user selects an option
@@ -542,7 +549,7 @@ class Select extends Component {
   };
 
   render() {
-    const { alphabetize, isReadOnly, options } = this.props;
+    const { className, alphabetize, isReadOnly, options } = this.props;
     const { value } = this.state;
 
     // Unfortunately right now, react-select optgroup support is just a tad different from the
@@ -577,6 +584,7 @@ class Select extends Component {
     return (
       <ReactSelect
         {...passthroughProps}
+        className={className}
         isDisabled={isReadOnly}
         value={optionValue}
         components={{ IndicatorSeparator: null }}

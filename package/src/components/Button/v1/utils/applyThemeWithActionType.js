@@ -7,7 +7,7 @@ export default function applyThemeWithActionType(themeProp, stateSuffix) {
     const finalSuffix = isTextOnly ? "textOnly" : actionType;
     const finalStateSuffix = isDisabled ? "disabled" : stateSuffix;
 
-    let key = `rui_${themeProp}_${finalSuffix}`;
+    let key = `rui_components.${themeProp}_${finalSuffix}`;
     if (typeof finalStateSuffix === "string") key += `_${finalStateSuffix}`;
 
     return getFromTheme(props, key);

@@ -1,7 +1,7 @@
 ### Overview
 The `GuestForm` component is based on the [Composable Form Spec](http://forms.dairystatedesigns.com/) and uses [reacto-form](http://forms.dairystatedesigns.com/reacto-form/) to handle form state and validation.
 
-#### Usage
+### Usage
 The `GuestForm` is a simple form that captures a users email address.
 ```jsx
 <GuestForm onSubmit={(value) => console.log("GuestForm value", value)} />
@@ -24,3 +24,11 @@ const setEmailAddress = (value) => new Promise((resolve, reject) => {
 
 <GuestForm onSubmit={setEmailAddress} isSaving={state.isSavingEmail} />
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop           | Default | Description                                                            |
+| -------------------- | ------- | ---------------------------------------------------------------------- |
+| `rui_breakpoints.sm` | 320px   | Below this breakpoint, the component renders the button as full width. |

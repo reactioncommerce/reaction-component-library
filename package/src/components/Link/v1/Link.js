@@ -14,6 +14,12 @@ class Link extends Component {
      */
     children: PropTypes.node.isRequired,
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * The URL the link should navigate to
      */
     href: PropTypes.string.isRequired,
@@ -32,9 +38,9 @@ class Link extends Component {
   });
 
   render() {
-    const { children, href } = this.props;
+    const { className, children, href } = this.props;
     return (
-      <UnstyledLink href={href} onClick={this.onClick}>{children}</UnstyledLink>
+      <UnstyledLink className={className} href={href} onClick={this.onClick}>{children}</UnstyledLink>
     );
   }
 }

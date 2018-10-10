@@ -4,10 +4,10 @@ import styled from "styled-components";
 import { applyTheme } from "../../../utils";
 
 const CompleteActionWrapper = styled.div`
-  padding-top: ${applyTheme("checkoutActionCompletePaddingTop")};
-  padding-bottom: ${applyTheme("checkoutActionCompletePaddingBottom")};
-  padding-left: ${applyTheme("checkoutActionCompletePaddingLeft")};
-  padding-right: ${applyTheme("checkoutActionCompletePaddingRight")};
+  padding-bottom: ${applyTheme("CheckoutActionComplete.paddingBottom")};
+  padding-left: ${applyTheme("CheckoutActionComplete.paddingLeft")};
+  padding-right: ${applyTheme("CheckoutActionComplete.paddingRight")};
+  padding-top: ${applyTheme("CheckoutActionComplete.paddingTop")};
 `;
 
 class CheckoutAction extends Component {
@@ -20,6 +20,12 @@ class CheckoutAction extends Component {
      * The component to display if workflow status is `active`
      */
     activeStepElement: PropTypes.node.isRequired,
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * Action label when completed
      */
@@ -99,7 +105,7 @@ class CheckoutAction extends Component {
 
   render() {
     return (
-      <div>
+      <div className={this.props.className}>
         {this.renderActiveAction()}
         {this.renderCompleteAction()}
         {this.renderIncompleteAction()}

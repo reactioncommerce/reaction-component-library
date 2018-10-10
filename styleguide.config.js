@@ -370,6 +370,10 @@ module.exports = {
         {
           name: "Using Components",
           content: "styleguide/src/sections/InstallingandImporting.md"
+        },
+        {
+          name: "Theming Components",
+          content: "styleguide/src/sections/ThemingComponents.md"
         }
       ]
     },
@@ -399,6 +403,7 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
+            "Accordion",
             "ProgressiveImage"
           ],
           content: "styleguide/src/sections/Content.md",
@@ -434,6 +439,8 @@ module.exports = {
       sections: [
         generateSection({
           componentNames: [
+            "AddressBook",
+            "AddressReview",
             "ShopLogo"
           ],
           content: "styleguide/src/sections/General.md",

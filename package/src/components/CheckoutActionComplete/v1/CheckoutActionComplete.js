@@ -19,9 +19,9 @@ const ActionTitle = styled.div`
   justify-content: flex-start;
   order: 1;
 
-  @media (max-width: 959px) {
+  @media (max-width: ${applyTheme("md", "breakpoints")}px) {
     flex: 0 0 50%;
-    margin-bottom: ${applyTheme("checkoutActionCompleteMobileMargin")};
+    margin-bottom: ${applyTheme("CheckoutActionComplete.mobileMargin")};
   }
 `;
 
@@ -46,13 +46,19 @@ const ActionButton = styled.div`
 
   @media (max-width: 959px) {
     flex: 0 0 50%;
-    margin-bottom: ${applyTheme("checkoutActionCompleteMobileMargin")};
+    margin-bottom: ${applyTheme("CheckoutActionComplete.mobileMargin")};
     order: 2;
   }
 `;
 
 class CheckoutActionComplete extends Component {
   static propTypes = {
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -88,12 +94,12 @@ class CheckoutActionComplete extends Component {
   handleOnChange = () => this.props.onClickChangeButton();
 
   render() {
-    const { components: { Button }, content, label, stepNumber } = this.props;
+    const { className, components: { Button }, content, label, stepNumber } = this.props;
 
     const step = stepNumber ? <Fragment>{stepNumber}.&nbsp;</Fragment> : null;
 
     return (
-      <ActionContainer>
+      <ActionContainer className={className}>
         <ActionTitle>
           {step}{label}
         </ActionTitle>

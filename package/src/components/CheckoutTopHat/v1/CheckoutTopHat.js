@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const TopHatContainer = styled.div`
-  background-color: ${applyTheme("checkoutTopHatBackgroundColor")};
+  background-color: ${applyTheme("CheckoutTopHat.backgroundColor")};
   display: flex;
-  height: ${applyTheme("checkoutTopHatHeight")};
+  height: ${applyTheme("CheckoutTopHat.height")};
   justify-content: center;
   width: 100%;
 `;
@@ -19,15 +19,21 @@ const TopHatMessage = styled.div`
 
 class CheckoutTopHat extends Component {
   static propTypes = {
-    checkoutMessage: PropTypes.string
+    checkoutMessage: PropTypes.string,
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string
   };
 
   render() {
-    const { checkoutMessage } = this.props;
+    const { className, checkoutMessage } = this.props;
 
     if (checkoutMessage) {
       return (
-        <TopHatContainer>
+        <TopHatContainer className={className}>
           <TopHatMessage>{checkoutMessage}</TopHatMessage>
         </TopHatContainer>
       );

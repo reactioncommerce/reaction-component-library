@@ -20,7 +20,7 @@ const imageContainerQueries = {
  */
 
 const ImageWrapper = styled.div`
-  background-color: ${applyTheme("progressiveImageBackgroundColor")};
+  background-color: ${applyTheme("ProgressiveImage.backgroundColor")};
   display: block;
   height: 0;
   overflow: hidden;
@@ -64,6 +64,12 @@ class ProgressiveImage extends Component {
      * Image text alternative - https://www.w3.org/TR/WCAG20-TECHS/H37.html
      */
     altText: PropTypes.string,
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * How the image should fit its container. "contain" (100% width, auto-scaled height, no clipping),
      * or "cover" (100% height, auto-scaled width centered horizontally, with clipping). Both options maintain the image's original aspect ratio.
@@ -250,10 +256,10 @@ class ProgressiveImage extends Component {
   }
 
   render() {
-    const { presrc } = this.props;
+    const { className, presrc } = this.props;
     const { ready } = this.state;
     return (
-      <ImageWrapper innerRef={(wrapper) => { this._wrapper = wrapper; }}>
+      <ImageWrapper className={className} innerRef={(wrapper) => { this._wrapper = wrapper; }}>
         {ready ? this.renderImage() : null}
         {presrc && this.renderLoadingImage()}
       </ImageWrapper>

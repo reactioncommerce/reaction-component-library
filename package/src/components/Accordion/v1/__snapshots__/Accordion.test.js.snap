@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  border-color: #e6e6e6;
+  border-style: solid;
+  border-width: 1px;
+  box-sizing: border-box;
+  color: inherit;
+  overflow: hidden;
+}
+
+.c0:first-of-type {
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.c0:not(:first-of-type) {
+  border-top: none;
+}
+
+.c1 {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -webkit-justify-content: space-between;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-top: 14px;
+}
+
+.c2 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 700;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+}
+
+.c3 {
+  height: 24px;
+  margin: 0;
+  width: 38px;
+}
+
+.c3 svg {
+  height: 24px;
+  -webkit-transform: rotateZ(0);
+  -ms-transform: rotateZ(0);
+  transform: rotateZ(0);
+  -webkit-transition: -webkit-transform 250ms cubic-bezier(0.785,0.135,0.15,0.86);
+  -webkit-transition: transform 250ms cubic-bezier(0.785,0.135,0.15,0.86);
+  transition: transform 250ms cubic-bezier(0.785,0.135,0.15,0.86);
+  width: 38px;
+}
+
+.c4 {
+  background-color: #fafafa;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 0;
+  color: inherit;
+  height: auto;
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  -webkit-transition: max-height 250ms cubic-bezier(0.785,0.135,0.15,0.86),padding 0ms cubic-bezier(0.785,0.135,0.15,0.86) 250ms,border 0ms cubic-bezier(0.785,0.135,0.15,0.86) 250ms;
+  transition: max-height 250ms cubic-bezier(0.785,0.135,0.15,0.86),padding 0ms cubic-bezier(0.785,0.135,0.15,0.86) 250ms,border 0ms cubic-bezier(0.785,0.135,0.15,0.86) 250ms;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    onClick={[Function]}
+  >
+    <span>
+      <span
+        className="c2"
+      >
+        mock label
+      </span>
+      
+    </span>
+    <span
+      className="c3"
+    />
+  </div>
+  <div
+    className="c4"
+  />
+</div>
+`;

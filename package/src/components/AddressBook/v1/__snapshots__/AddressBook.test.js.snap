@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+  -webkit-justify-content: flex-end;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding-bottom: 16px;
+  padding-left: 0px;
+  padding-right: 0px;
+  padding-top: 16px;
+}
+
+.c0 > div:last-of-type {
+  margin-left: 16px;
+}
+
+<div
+  className={undefined}
+>
+  AddressForm(undefined)
+  <div
+    className="c0"
+  >
+    
+    Button(undefined)
+  </div>
+</div>
+`;

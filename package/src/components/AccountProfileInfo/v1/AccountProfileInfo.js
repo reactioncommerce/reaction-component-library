@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
-
 const AccountProfileInfoContainer = styled.div`
   display: flex;
   position: relative;
@@ -14,24 +13,30 @@ const AccountProfileInfoTextContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: ${applyTheme("accountProfileInfoSpacingBetweenImageAndContent")};
+  margin-left: ${applyTheme("AccountProfileInfo.spacingBetweenImageAndContent")};
   position: relative;
 `;
 
 const ViewerEmailText = styled.span`
   ${addTypographyStyles("AccountProfileInfoEmail", "labelText")}
   align-self: left;
-  margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterEmail")};
+  margin-bottom: ${applyTheme("AccountProfileInfo.spacingAfterEmail")};
 `;
 
 const ViewerNameText = styled.span`
   ${addTypographyStyles("AccountProfileInfoName", "titleTextBold")}
   align-self: left;
-  margin-bottom: ${applyTheme("accountProfileInfoSpacingAfterName")};
+  margin-bottom: ${applyTheme("AccountProfileInfo.spacingAfterName")};
 `;
 
 class AccountProfileInfo extends Component {
   static propTypes = {
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -108,10 +113,10 @@ class AccountProfileInfo extends Component {
   }
 
   render() {
-    const { components: { ProfileImage }, viewer } = this.props;
+    const { className, components: { ProfileImage }, viewer } = this.props;
 
     return (
-      <AccountProfileInfoContainer>
+      <AccountProfileInfoContainer className={className}>
         <ProfileImage size={80} viewer={viewer} />
         <AccountProfileInfoTextContainer>
           <ViewerNameText>

@@ -1,7 +1,7 @@
 ### Overview
 This component renders a list of CartItems that are in a customers cart.
 
-#### Usage
+### Usage
 
 CartItems can be used in the Cart or the MiniCart.
 
@@ -157,3 +157,11 @@ const handleRemoveItemFromCart = (_id) => console.log("cart items remove this it
   onRemoveItemFromCart={handleRemoveItemFromCart}
 />
 ```
+
+### Theme
+
+Refer to [CartItem](./#!/CartItem) theme
+
+#### Typography
+
+Refer to [CartItem](./#!/CartItem) theme

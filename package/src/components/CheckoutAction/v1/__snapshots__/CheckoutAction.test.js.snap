@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CheckoutAction with \`active\` status & label 1`] = `
-<div>
+<div
+  className={undefined}
+>
   <span />
 </div>
 `;
@@ -102,13 +104,13 @@ exports[`CheckoutAction with \`complete\` status & label 1`] = `
 }
 
 .c0 {
-  padding-top: 16px;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
+  padding-top: 16px;
 }
 
-@media (max-width:959px) {
+@media (max-width:960px) {
   .c2 {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
@@ -140,7 +142,9 @@ exports[`CheckoutAction with \`complete\` status & label 1`] = `
   }
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
@@ -271,13 +275,13 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
 }
 
 .c0 {
-  padding-top: 16px;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
+  padding-top: 16px;
 }
 
-@media (max-width:959px) {
+@media (max-width:960px) {
   .c2 {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
@@ -309,7 +313,9 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
   }
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
@@ -440,13 +446,13 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
 }
 
 .c0 {
-  padding-top: 16px;
   padding-bottom: 16px;
   padding-left: 0;
   padding-right: 0;
+  padding-top: 16px;
 }
 
-@media (max-width:959px) {
+@media (max-width:960px) {
   .c2 {
     -webkit-flex: 0 0 50%;
     -ms-flex: 0 0 50%;
@@ -478,7 +484,9 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
   }
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
@@ -529,7 +537,9 @@ exports[`CheckoutAction with \`incomplete\` status & label 1`] = `
   line-height: 1.25;
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >

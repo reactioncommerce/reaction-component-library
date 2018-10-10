@@ -8,33 +8,33 @@ const StyledListAction = styled.div`
   align-options: center;
   box-sizing: border-box;
   display: flex;
-  height: ${applyTheme("selectableListHeight")};
-  padding-bottom: ${applyTheme("selectableListItemPaddingBottom")};
-  padding-left: ${applyTheme("selectableListItemPaddingLeft")};
-  padding-right: ${applyTheme("selectableListItemPaddingRight")};
-  padding-top: ${applyTheme("selectableListItemPaddingTop")};
+  height: ${applyTheme("SelectableList.height")};
+  padding-bottom: ${applyTheme("SelectableList.itemPaddingBottom")};
+  padding-left: ${applyTheme("SelectableList.itemPaddingLeft")};
+  padding-right: ${applyTheme("SelectableList.itemPaddingRight")};
+  padding-top: ${applyTheme("SelectableList.itemPaddingTop")};
   @media (max-width: 768px) {
-    height: ${applyTheme("selectableListHeightMobile")};
+    height: ${applyTheme("SelectableList.heightMobile")};
   }
 `;
 
 const BorderedListAction = styled(StyledListAction)`
-  border-bottom-color: ${applyTheme("selectableListBorderColor")};
-  border-bottom-style: ${applyTheme("selectableListBorderStyle")};
-  border-bottom-width: ${applyTheme("selectableListBorderWidth")};
-  border-left-color: ${applyTheme("selectableListBorderColor")};
-  border-left-style: ${applyTheme("selectableListBorderStyle")};
-  border-left-width: ${applyTheme("selectableListBorderWidth")};
-  border-right-color: ${applyTheme("selectableListBorderColor")};
-  border-right-style: ${applyTheme("selectableListBorderStyle")};
-  border-right-width: ${applyTheme("selectableListBorderWidth")};
+  border-bottom-color: ${applyTheme("SelectableList.borderColor")};
+  border-bottom-style: ${applyTheme("SelectableList.borderStyle")};
+  border-bottom-width: ${applyTheme("SelectableList.borderWidth")};
+  border-left-color: ${applyTheme("SelectableList.borderColor")};
+  border-left-style: ${applyTheme("SelectableList.borderStyle")};
+  border-left-width: ${applyTheme("SelectableList.borderWidth")};
+  border-right-color: ${applyTheme("SelectableList.borderColor")};
+  border-right-style: ${applyTheme("SelectableList.borderStyle")};
+  border-right-width: ${applyTheme("SelectableList.borderWidth")};
 `;
 
 const StyledWrapper = styled.div`
-  padding-bottom: ${applyTheme("selectableListItemPaddingBottom")};
-  padding-left: ${applyTheme("selectableListItemPaddingLeft")};
-  padding-right: ${applyTheme("selectableListItemPaddingRight")};
-  padding-top: ${applyTheme("selectableListItemPaddingTop")};
+  padding-bottom: ${applyTheme("SelectableList.itemPaddingBottom")};
+  padding-left: ${applyTheme("SelectableList.itemPaddingLeft")};
+  padding-right: ${applyTheme("SelectableList.itemPaddingRight")};
+  padding-top: ${applyTheme("SelectableList.itemPaddingTop")};
 `;
 
 const StyledList = styled.div`
@@ -42,7 +42,7 @@ const StyledList = styled.div`
   fieldset {
     border-color: transparent;
     margin: 0;
-    padding: ${applyTheme("selectableListPadding")};
+    padding: 0;
   }
 `;
 
@@ -51,39 +51,39 @@ const BorderedList = styled(StyledList)`
     border-bottom: none;
     border-left: none;
     border-right: none;
-    border-top-color: ${applyTheme("selectableListBorderColor")};
-    border-top-left-radius: ${applyTheme("selectableListBorderRadius")};
-    border-top-right-radius: ${applyTheme("selectableListBorderRadius")};
-    border-top-style: ${applyTheme("selectableListBorderStyle")};
-    border-top-width: ${applyTheme("selectableListBorderWidth")};
+    border-top-color: ${applyTheme("SelectableList.borderColor")};
+    border-top-left-radius: ${applyTheme("SelectableList.borderRadius")};
+    border-top-right-radius: ${applyTheme("SelectableList.borderRadius")};
+    border-top-style: ${applyTheme("SelectableList.borderStyle")};
+    border-top-width: ${applyTheme("SelectableList.borderWidth")};
   }
   > *:last-child {
-    border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
-    border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
+    border-bottom-right-radius: ${applyTheme("SelectableList.borderRadius")};
+    border-bottom-left-radius: ${applyTheme("SelectableList.borderRadius")};
     div:last-child {
-      border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
-      border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
+      border-bottom-right-radius: ${applyTheme("SelectableList.borderRadius")};
+      border-bottom-left-radius: ${applyTheme("SelectableList.borderRadius")};
     }
   }
 `;
 
 const BorderedWrapper = styled.div`
-  border-bottom-color: ${applyTheme("selectableListBorderColor")};
-  border-bottom-style: ${applyTheme("selectableListBorderStyle")};
-  border-bottom-width: ${applyTheme("selectableListBorderWidth")};
-  border-left-color: ${applyTheme("selectableListBorderColor")};
-  border-left-style: ${applyTheme("selectableListBorderStyle")};
-  border-left-width: ${applyTheme("selectableListBorderWidth")};
-  border-right-color: ${applyTheme("selectableListBorderColor")};
-  border-right-style: ${applyTheme("selectableListBorderStyle")};
-  border-right-width: ${applyTheme("selectableListBorderWidth")};
-  padding-bottom: ${applyTheme("selectableListItemPaddingBottom")};
-  padding-left: ${applyTheme("selectableListItemPaddingLeft")};
-  padding-right: ${applyTheme("selectableListItemPaddingRight")};
-  padding-top: ${applyTheme("selectableListItemPaddingTop")};
+  border-bottom-color: ${applyTheme("SelectableList.borderColor")};
+  border-bottom-style: ${applyTheme("SelectableList.borderStyle")};
+  border-bottom-width: ${applyTheme("SelectableList.borderWidth")};
+  border-left-color: ${applyTheme("SelectableList.borderColor")};
+  border-left-style: ${applyTheme("SelectableList.borderStyle")};
+  border-left-width: ${applyTheme("SelectableList.borderWidth")};
+  border-right-color: ${applyTheme("SelectableList.borderColor")};
+  border-right-style: ${applyTheme("SelectableList.borderStyle")};
+  border-right-width: ${applyTheme("SelectableList.borderWidth")};
+  padding-bottom: ${applyTheme("SelectableList.itemPaddingBottom")};
+  padding-left: ${applyTheme("SelectableList.itemPaddingLeft")};
+  padding-right: ${applyTheme("SelectableList.itemPaddingRight")};
+  padding-top: ${applyTheme("SelectableList.itemPaddingTop")};
   > *:last-child {
-    border-bottom-left-radius: ${applyTheme("selectableListBorderRadius")};
-    border-bottom-right-radius: ${applyTheme("selectableListBorderRadius")};
+    border-bottom-left-radius: ${applyTheme("SelectableList.borderRadius")};
+    border-bottom-right-radius: ${applyTheme("SelectableList.borderRadius")};
   }
 `;
 
@@ -91,6 +91,12 @@ class SelectableList extends Component {
   static isFormInput = true;
 
   static propTypes = {
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -231,6 +237,7 @@ class SelectableList extends Component {
 
   render() {
     const {
+      className,
       options,
       listAction,
       isBordered,
@@ -239,7 +246,7 @@ class SelectableList extends Component {
       components: { SelectableItem }
     } = this.props;
     return (
-      <div>
+      <div className={className}>
         {isBordered ?
           <BorderedList>
             <fieldset>

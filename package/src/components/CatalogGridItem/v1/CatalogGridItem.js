@@ -6,7 +6,7 @@ import { addTypographyStyles, applyTheme, CustomPropTypes, preventAccidentalDoub
 import { priceByCurrencyCode } from "./utils";
 
 const ProductMediaWrapper = styled.div`
-  background-color: ${applyTheme("catalogGridItemMediaBackgroundColor")};
+  background-color: ${applyTheme("CatalogGridItem.mediaBackgroundColor")};
   position: relative;
 `;
 
@@ -14,10 +14,10 @@ const ProductInfo = styled.div`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  padding-bottom: ${applyTheme("catalogGridItemProductInfoPaddingBottom")};
-  padding-left: ${applyTheme("catalogGridItemProductInfoPaddingLeft")};
-  padding-right: ${applyTheme("catalogGridItemProductInfoPaddingRight")};
-  padding-top: ${applyTheme("catalogGridItemProductInfoPaddingTop")};
+  padding-bottom: 0;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: ${applyTheme("CatalogGridItem.verticalSpacingBetweenImageAndInfo")};
 `;
 
 const ProductTitle = styled.aside`
@@ -45,6 +45,12 @@ class CatalogGridItem extends Component {
       SOLD_OUT: PropTypes.string,
       SALE: PropTypes.string
     }),
+    /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -216,7 +222,7 @@ class CatalogGridItem extends Component {
   }
 
   render() {
-    const { badgeLabels, components: { BadgeOverlay, Link }, product } = this.props;
+    const { className, badgeLabels, components: { BadgeOverlay, Link }, product } = this.props;
 
     const badgeProps = { product };
 
@@ -225,7 +231,7 @@ class CatalogGridItem extends Component {
     }
 
     return (
-      <div>
+      <div className={className}>
         <Link
           href={this.productDetailHref}
           onClick={this.handleOnClick}

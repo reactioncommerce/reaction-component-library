@@ -1,10 +1,11 @@
 ### Overview
 The `CatalogGridItem` component is used for displaying a product in a catalog.
 
-#### Usage
+### Usage
 
-##### With product image
+#### With product image
 ```jsx
+<div style={{ borderStyle: "dotted", borderWidth: "1px", borderColor: "#999999", width: 400 }}>
   <CatalogGridItem
   placeholderImageURL="/resources/placeholder.gif"
     product={{
@@ -34,10 +35,12 @@ The `CatalogGridItem` component is used for displaying a product in a catalog.
     }}
     currencyCode="USD"
   />
+</div>
 ```
 
-##### With placeholder image
+#### With placeholder image
 ```jsx
+<div style={{ borderStyle: "dotted", borderWidth: "1px", borderColor: "#999999", width: 400 }}>
   <CatalogGridItem
     placeholderImageURL="/images/placeholder.gif"
     product={{
@@ -60,4 +63,19 @@ The `CatalogGridItem` component is used for displaying a product in a catalog.
     }}
     currencyCode="USD"
   />
+</div>
 ```
+
+### Theme
+
+Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+
+| Theme Prop                         | Default     | Description                                                                              |
+| ---------------------------------- | ----------- | ---------------------------------------------------------------------------------------- |
+| `CatalogGridItem.mediaBackgroundColor` | white | The background color for the media block |
+| `CatalogGridItem.verticalSpacingBetweenImageAndInfo` | 10px | Vertical space between the bottom of the image and the top of the item info |
+
+#### Typography
+
+- The left column header uses `headingTextBold` style with `rui_components.CatalogGridItemProductTitle` override
+- The left column header uses `labelText` style with `rui_components.CatalogGridItemProductVendor` override

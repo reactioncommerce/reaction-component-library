@@ -5,7 +5,7 @@ import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const ViewerImageCircle = styled.div`
   align-items: center;
-  background-color: ${applyTheme("profileImageBackgroundColor")};
+  background-color: ${applyTheme("ProfileImage.backgroundColor")};
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -27,6 +27,12 @@ const ViewerImage = styled.img`
 class ProfileImage extends Component {
   static propTypes = {
     /**
+     * You can provide a `className` prop that will be applied to the outermost DOM element
+     * rendered by this component. We do not recommend using this for styling purposes, but
+     * it can be useful as a selector in some situations.
+     */
+    className: PropTypes.string,
+    /**
      * Size of profile image, in pixels
      */
     size: PropTypes.number,
@@ -34,9 +40,9 @@ class ProfileImage extends Component {
      * An object containing basic user information.
      */
     viewer: PropTypes.shape({
-      firstName: PropTypes.string.isRequired,
-      lastName: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      name: PropTypes.string,
       primaryEmailAddress: PropTypes.string,
       profileImage: PropTypes.string
     }).isRequired
@@ -50,7 +56,7 @@ class ProfileImage extends Component {
    *
    * @name viewerInitials
    * @summary Build the initials string from the `viewer` first and last name
-   * If those props are not availible use the first letter of the primary email address.
+   * If those props are not available use the first letter of the primary email address.
    * @return {String} the viewers initials. (Patricia Smith => PS, Olamide => O, james.booker@ponderosafarms.com => J)
    */
   get viewerInitials() {
@@ -74,10 +80,10 @@ class ProfileImage extends Component {
 
 
   render() {
-    const { size } = this.props;
+    const { className, size } = this.props;
 
     return (
-      <ViewerImageCircle style={{ height: `${size}px`, width: `${size}px` }}>
+      <ViewerImageCircle className={className} style={{ height: `${size}px`, width: `${size}px` }}>
         {this.viewerProfileImage()}
       </ViewerImageCircle>
     );

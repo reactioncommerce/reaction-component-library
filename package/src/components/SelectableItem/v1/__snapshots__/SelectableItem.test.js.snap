@@ -142,7 +142,9 @@ exports[`basic snapshot with empty props 1`] = `
   }
 }
 
-<div>
+<div
+  className={undefined}
+>
   <div
     className="c0"
   >
