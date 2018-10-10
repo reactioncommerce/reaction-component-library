@@ -6,7 +6,12 @@ import { applyTheme, addTypographyStyles, preventAccidentalDoubleClick } from ".
 
 const InPageMenuItemContainer = styled.div`
   align-items: center;
-  background-color: ${(props) => (props.isSelected ? "#ecf8fe" : "#f5f5f5")};
+  ${(props) => {
+    if (props.isSelected) {
+      return `background-color: ${applyTheme("InPageMenuItemContainer.backgroundColor_selected")(props)};`;
+    }
+    return `background-color: ${applyTheme("InPageMenuItemContainer.backgroundColor_default")(props)};`;
+  }}
   cursor: pointer;
   display: flex;
   flex-direction: row;
@@ -14,7 +19,7 @@ const InPageMenuItemContainer = styled.div`
   padding-right: ${applyTheme("InPageMenuItemContainer.paddingRight")};
   padding-top: ${applyTheme("InPageMenuItemContainer.paddingTop")};
   padding-bottom: ${applyTheme("InPageMenuItemContainer.paddingBottom")};
-  margin-bottom: ${applyTheme("InPageMenuItemContainer.marginBottom")};;
+  margin-bottom: ${applyTheme("InPageMenuItemContainer.marginBottom")};
 `;
 const InPageMenuItemText = styled.div`
   ${addTypographyStyles("InPageMenuItemText", "headingTextBold")}
@@ -24,13 +29,13 @@ const InPageMenuItemText = styled.div`
 const InPageMenuItemIcon = styled.span`
   display: flex;
   flex: 0 0 auto;
-  height: 24px;
+  height: ${applyTheme("InPageMenuItemIcon.height")};
   margin: 0;
-  width: 24px;
+  width: ${applyTheme("InPageMenuItemIcon.width")};
   svg {
-    height: 24px;
+    height: ${applyTheme("InPageMenuItemIcon.height")};
     transform: rotateZ(270deg);
-    width: 24px;
+    width: ${applyTheme("InPageMenuItemIcon.width")};
   }
 `;
 

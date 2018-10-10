@@ -412,8 +412,8 @@ const rui_components = {
     summaryWrapperPaddingTop: 0
   },
   InPageMenuItemContainer: {
-    backgroundColor_default: colors.white,
-    backgroundColor_selected: colors.white,
+    backgroundColor_default: colors.black05,
+    backgroundColor_selected: colors.reactionBlue100,
     marginBottom: "4px",
     marginLeft: "0px",
     marginRight: "0px",
