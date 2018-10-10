@@ -16,7 +16,7 @@ When `addressBook` has address objects the `AddressBook` will display as an addr
 const account = {
   addressBook: [
     {
-      _id: "1",
+      _id: "20",
       address1: "7742 Hwy 23",
       address2: "",
       country: "US",
@@ -28,7 +28,7 @@ const account = {
       phone: "(504) 393-7303"
     },
     {
-      _id: "2",
+      _id: "21",
       address1: "35 Akin Adesola St",
       address2: "",
       country: "NG",
@@ -111,72 +111,93 @@ const oceanBasket = {
 initialState = { isSaving: false, account: { addressBook: [ salvos, oceanBasket ] } };
 
 function findAddressByID(_id) {
-  return state.account.addressBook.find(({_id: addressBookID}) => addressBookID === _id);
-};
+  return state.account.addressBook.find(
+    ({ _id: addressBookID }) => addressBookID === _id
+  );
+}
 
 function findAddressIndex(address) {
   return state.account.addressBook.indexOf(address);
-};
+}
 
 function addAddress(newAddress) {
   return new Promise((resolve, reject) => {
-  setState({ isSaving: true });
-  setTimeout(() => {
-    const { account: { addressBook } } = state;
-    const randID = Math.floor(Math.random() * 1000) + 1;
-    
-    setState({ 
-      isSaving: false, 
-      account: { 
-        addressBook: [...addressBook, {...newAddress, _id: randID }] 
-      } 
-    });
-    
-    console.log("address added", newAddress);
-    resolve(newAddress);
-  }, 2000, { newAddress });
-  });
-};
+    setState({ isSaving: true });
+    setTimeout(
+      () => {
+        const { account: { addressBook } } = state;
+        const randID = Math.floor(Math.random() * 1000) + 1;
 
-function deleteAddress(_id) { 
-  new Promise((resolve, reject) => {
-  setState({ isSaving: true });
-  setTimeout(() => {
-    const { account: { addressBook } } = state;
-    const addressIndex = findAddressIndex(findAddressByID(_id));
-    
-    setState({ 
-      isSaving: false, 
-      account: { 
-        addressBook: [...addressBook.slice(0, addressIndex), ...addressBook.slice(addressIndex + 1)] 
-      } 
-    });
-    
-    console.log("address deleted", _id);
-    resolve(_id);
-  }, 2000, { _id });
+        setState({
+          isSaving: false,
+          account: {
+            addressBook: [...addressBook, { ...newAddress, _id: randID }]
+          }
+        });
+
+        console.log("address added", newAddress);
+        resolve(newAddress);
+      },
+      2000,
+      { newAddress }
+    );
   });
-};
+}
+
+function deleteAddress(_id) {
+  return new Promise((resolve, reject) => {
+    setState({ isSaving: true });
+    setTimeout(
+      () => {
+        const { account: { addressBook } } = state;
+        const addressIndex = findAddressIndex(findAddressByID(_id));
+
+        setState({
+          isSaving: false,
+          account: {
+            addressBook: [
+              ...addressBook.slice(0, addressIndex),
+              ...addressBook.slice(addressIndex + 1)
+            ]
+          }
+        });
+
+        console.log("address deleted", _id);
+        resolve(_id);
+      },
+      2000,
+      { _id }
+    );
+  });
+}
 
 function editAddress(_id, editedAddress) {
-  new Promise((resolve, reject) => {
-  setState({ isSaving: true });
-  setTimeout(() => {
-    const { account: { addressBook } } = state;
-    const oldAddress = findAddressByID(_id);
-    const updatedAddress = {...oldAddress, ...editedAddress};
-    const addressIndex = findAddressIndex(oldAddress);
-    
-    setState({ 
-      isSaving: false, 
-      account: { 
-        addressBook: [...addressBook.slice(0, addressIndex), ...updatedAddress, ...addressBook.slice(addressIndex + 1)] 
-      } 
-    });
-    
-    console.log("address updated", updatedAddress);
-    resolve(_id);
-  }, 2000, { _id });
+  return new Promise((resolve, reject) => {
+    setState({ isSaving: true });
+    setTimeout(
+      () => {
+        const { account: { addressBook } } = state;
+        const oldAddress = findAddressByID(_id);
+        const updatedAddress = { ...oldAddress, ...editedAddress };
+        const addressIndex = findAddressIndex(oldAddress);
+
+        setState({
+          isSaving: false,
+          account: {
+            addressBook: [
+              ...addressBook.slice(0, addressIndex),
+              ...updatedAddress,
+              ...addressBook.slice(addressIndex + 1)
+            ]
+          }
+        });
+
+        console.log("address updated", updatedAddress);
+        resolve(_id);
+      },
+      2000,
+      { _id }
+    );
   });
 }
 
