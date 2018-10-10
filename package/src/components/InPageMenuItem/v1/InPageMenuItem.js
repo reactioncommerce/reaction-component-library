@@ -6,14 +6,15 @@ import { applyTheme, addTypographyStyles, preventAccidentalDoubleClick } from ".
 
 const InPageMenuItemContainer = styled.div`
   align-items: center;
-  background: ${(props) => (props.isSelected ? "#ecf8fe" : "#f5f5f5")};
+  background-color: ${(props) => (props.isSelected ? "#ecf8fe" : "#f5f5f5")};
+  cursor: pointer;
   display: flex;
   flex-direction: row;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 13px;
-  padding-bottom: 13px;
-  margin-bottom: 4px;
+  padding-left: ${applyTheme("InPageMenuItemContainer.paddingLeft")};
+  padding-right: ${applyTheme("InPageMenuItemContainer.paddingRight")};
+  padding-top: ${applyTheme("InPageMenuItemContainer.paddingTop")};
+  padding-bottom: ${applyTheme("InPageMenuItemContainer.paddingBottom")};
+  margin-bottom: ${applyTheme("InPageMenuItemContainer.marginBottom")};;
 `;
 const InPageMenuItemText = styled.div`
   ${addTypographyStyles("InPageMenuItemText", "headingTextBold")}
