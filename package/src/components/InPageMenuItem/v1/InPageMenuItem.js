@@ -1,10 +1,36 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme } from "../../../utils";
+import { withComponents } from "@reactioncommerce/components-context";
+import { applyTheme, addTypographyStyles, preventAccidentalDoubleClick } from "../../../utils";
 
-const StyledDiv = styled.div`
-  color: ${applyTheme("inPageMenuItemColor")};
+const InPageMenuItemContainer = styled.div`
+  align-items: center;
+  background: ${(props) => (props.isSelected ? "#ecf8fe" : "#f5f5f5")};
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  margin-bottom: 4px;
+`;
+const InPageMenuItemText = styled.div`
+  ${addTypographyStyles("InPageMenuItemText", "headingTextBold")}
+  display: flex;
+  flex: 1 1 auto;
+`;
+const InPageMenuItemIcon = styled.span`
+  display: flex;
+  flex: 0 0 auto;
+  height: 24px;
+  margin: 0;
+  width: 24px;
+  svg {
+    height: 24px;
+    transform: rotateZ(270deg);
+    width: 24px;
+  }
 `;
 
 class InPageMenuItem extends Component {
@@ -23,20 +49,57 @@ class InPageMenuItem extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
-    }).isRequired
+      /**
+       * Pass either the Reaction iconExpand component or your own component that
+       * accepts compatible props.
+       */
+      iconExpand: PropTypes.node.isRequired,
+      Link: PropTypes.node.isRequired
+    }).isRequired,
+    /**
+     * URL to provide to MenuItem
+     */
+    href: PropTypes.string.isRequired,
+    /**
+     * Render selected style
+     */
+    isSelected: PropTypes.bool,
+    /**
+     * Menu Item label
+     */
+    label: PropTypes.string.isRequired,
+    /**
+     * Function to pass to button onClick
+     */
+    onClick: PropTypes.func,
   };
 
   static defaultProps = {
-
+    isSelected: false
   };
 
+  handleClick = preventAccidentalDoubleClick((event) => {
+    const { onClick } = this.props;
+
+    if (onClick) {
+      return onClick();
+    }
+
+    return null;
+  });
+
   render() {
-    const { className } = this.props;
+    const { className, components: { iconExpand, Link }, href, isSelected, label } = this.props;
 
     return (
-      <StyledDiv className={className}>TEST</StyledDiv>
+      <Link href={href} onClick={this.handleClick}>
+        <InPageMenuItemContainer className={className} isSelected={isSelected}>
+          <InPageMenuItemText>{label}</InPageMenuItemText>
+          <InPageMenuItemIcon>{iconExpand}</InPageMenuItemIcon>
+        </InPageMenuItemContainer>
+      </Link>
     );
   }
 }
 
-export default InPageMenuItem;
+export default withComponents(InPageMenuItem);
