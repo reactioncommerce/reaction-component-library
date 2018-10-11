@@ -68,7 +68,7 @@ const PrimaryBadge = styled.div`
         return "";
     }
   }}
-`;
+  `;
 
 const SecondaryBadge = styled.div`
   ${baseBadgeStyles}
