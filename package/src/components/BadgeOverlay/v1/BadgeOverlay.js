@@ -43,27 +43,27 @@ const PrimaryBadge = styled.div`
         return css`
           background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_backorder")};
           color: ${applyTheme("BadgeOverlayPrimaryBadge.color_backorder")};
-`;
+        `;
       case BADGE_TYPES.BESTSELLER:
         return css`
           background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_bestseller")};
           color: ${applyTheme("BadgeOverlayPrimaryBadge.color_bestseller")};
-`;
+        `;
       case BADGE_TYPES.LOW_QUANTITY:
         return css`
           background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_lowQuantity")};
           color: ${applyTheme("BadgeOverlayPrimaryBadge.color_lowQuantity")};
-`;
+        `;
       case BADGE_TYPES.SOLD_OUT:
         return css`
           background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_soldOut")};
           color: ${applyTheme("BadgeOverlayPrimaryBadge.color_soldOut")};
-`;
+        `;
       case BADGE_TYPES.SALE:
         return css`
           background-color: ${applyTheme("BadgeOverlayPrimaryBadge.backgroundColor_sale")};
           color: ${applyTheme("BadgeOverlayPrimaryBadge.color_sale")};
-`;
+        `;
       default:
         return "";
     }
@@ -85,7 +85,7 @@ const SecondaryBadge = styled.div`
   padding-top: ${applyTheme("BadgeOverlaySecondaryBadge.paddingTop")};
   right: ${applyTheme("BadgeOverlaySecondaryBadge.offsetRight")};
   top: ${applyTheme("BadgeOverlaySecondaryBadge.offsetTop")};
-`;
+  `;
 
 const Overlay = styled.div`
   position: relative;
@@ -95,14 +95,14 @@ const Overlay = styled.div`
     }
     return "";
   }}
-`;
+  `;
 
 const BadgeLabel = styled.span`
   ${addTypographyStyles("BadgeOverlayBadgeLabel", "labelText")}
   padding: 0;
   position: relative;
   white-space: nowrap;
-`;
+  `;
 
 class BadgeOverlay extends Component {
   static propTypes = {

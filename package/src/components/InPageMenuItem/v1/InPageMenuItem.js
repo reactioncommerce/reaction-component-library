@@ -20,12 +20,12 @@ const InPageMenuItemContainer = styled.div`
   padding-top: ${applyTheme("InPageMenuItemContainer.paddingTop")};
   padding-bottom: ${applyTheme("InPageMenuItemContainer.paddingBottom")};
   margin-bottom: ${applyTheme("InPageMenuItemContainer.marginBottom")};
-`;
+  `;
 const InPageMenuItemText = styled.div`
   ${addTypographyStyles("InPageMenuItemText", "headingTextBold")}
   display: flex;
   flex: 1 1 auto;
-`;
+  `;
 const InPageMenuItemIcon = styled.span`
   display: flex;
   flex: 0 0 auto;
@@ -37,7 +37,7 @@ const InPageMenuItemIcon = styled.span`
     transform: rotateZ(270deg);
     width: ${applyTheme("InPageMenuItemIcon.width")};
   }
-`;
+  `;
 
 class InPageMenuItem extends Component {
   static propTypes = {
