@@ -65,14 +65,14 @@ const actions = [
 
 ```jsx
 const fulfillmentGroups = [{
-  id: 1,
+  _id: 1,
   type: "shipping",
   data: {
     shippingAddress: null
   },
   availableFulfillmentOptions: [{
     fulfillmentMethod: {
-      id: "111",
+      _id: "111",
       name: "Standard",
       displayName: "Standard (5-9 Days)"
     },
@@ -83,7 +83,7 @@ const fulfillmentGroups = [{
   },
   {
     fulfillmentMethod: {
-      id: "222",
+      _id: "222",
       name: "Priority",
       displayName: "Priority (3-5 Days)"
     },
@@ -94,7 +94,7 @@ const fulfillmentGroups = [{
   },
   {
     fulfillmentMethod: {
-      id: "333",
+      _id: "333",
       name: "Express",
       displayName: "Express 2 Day"
     },
@@ -105,7 +105,7 @@ const fulfillmentGroups = [{
   },
   {
     fulfillmentMethod: {
-      id: "444",
+      _id: "444",
       name: "Overnight",
       displayName: "Overnight Expedited"
     },
@@ -122,7 +122,7 @@ const checkoutSummary = {
   displayTotal: "$135.58",
   displayTax: "$12.33",
   items: [{
-    id: "123",
+    _id: "123",
     attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
     compareAtPrice: {
       displayAmount: "$45.00"
@@ -142,7 +142,7 @@ const checkoutSummary = {
     quantity: 2
   },
   {
-    id: "456",
+    _id: "456",
     attributes: [{ label: "Color", value: "Black" }, { label: "Size", value: "10" }],
     currentQuantity: 500,
     imageURLs: {
@@ -161,7 +161,7 @@ const checkoutSummary = {
 };
 
 const paymentMethods = [{
-  id: 1,
+  _id: 1,
   name: "reactionstripe",
   data: {
     billingAddress: null,
