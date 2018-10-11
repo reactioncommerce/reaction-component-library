@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme } from "../../../utils";
 
 const InPageMenuContainer = styled.div`
   box-sizing: border-box;
@@ -32,7 +31,7 @@ class InPageMenu extends Component {
        * Pass either the Reaction iconExpand component or your own component that
        * accepts compatible props.
        */
-      InPageMenuItem: PropTypes.node.isRequired,
+      InPageMenuItem: PropTypes.node.isRequired
     }).isRequired,
     menuItems: PropTypes.arrayOf(PropTypes.object)
   };
@@ -46,7 +45,7 @@ class InPageMenu extends Component {
 
     return (
       <InPageMenuContainer className={className}>
-        {menuItems.map((menuItem, index) => (
+        {menuItems.map((menuItem) => (
           <InPageMenuItem href={menuItem.href} isSelected={menuItem.isSelected} label={menuItem.label} />
         ))}
       </InPageMenuContainer>
