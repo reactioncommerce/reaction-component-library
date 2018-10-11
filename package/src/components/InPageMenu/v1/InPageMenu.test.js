@@ -1,5 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import mockComponents from "../../../tests/mockComponents";
 import InPageMenu from "./InPageMenu";
 
 test("basic snapshot", () => {
@@ -27,7 +28,7 @@ test("basic snapshot", () => {
     }
   ];
 
-  const component = renderer.create(<InPageMenu menuItems={menuItems} />);
+  const component = renderer.create(<InPageMenu menuItems={menuItems} components={mockComponents} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

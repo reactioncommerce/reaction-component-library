@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot 1`] = `
+.c0 {
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+<div
+  className="c0"
+>
+  InPageMenuItem(undefined)
+  InPageMenuItem(undefined)
+  InPageMenuItem(undefined)
+  InPageMenuItem(undefined)
+  InPageMenuItem(undefined)
+</div>
+`;
