@@ -77,7 +77,7 @@ class InPageMenuItem extends Component {
     /**
      * Function to pass to button onClick
      */
-    onClick: PropTypes.func,
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
