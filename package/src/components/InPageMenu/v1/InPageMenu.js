@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
-const StyledDiv = styled.div`
-  color: ${applyTheme("inPageMenuColor")};
+const InPageMenuContainer = styled.div`
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 100%;
 `;
 
 class InPageMenu extends Component {
@@ -23,20 +28,31 @@ class InPageMenu extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
-    }).isRequired
+      /**
+       * Pass either the Reaction iconExpand component or your own component that
+       * accepts compatible props.
+       */
+      InPageMenuItem: PropTypes.node.isRequired,
+    }).isRequired,
+    menuItems: PropTypes.arrayOf(PropTypes.object)
   };
 
   static defaultProps = {
-
+    menuItems: []
   };
 
   render() {
-    const { className } = this.props;
+    const { className, components: { InPageMenuItem }, menuItems } = this.props;
 
     return (
-      <StyledDiv className={className}>TEST</StyledDiv>
+      <InPageMenuContainer className={className}>
+        {menuItems.map((menuItem, index) => (
+          <InPageMenuItem href={menuItem.href} isSelected={menuItem.isSelected} label={menuItem.label} />
+        ))}
+      </InPageMenuContainer>
     );
   }
 }
 
-export default InPageMenu;
+export default withComponents(InPageMenu);
+
