@@ -51,6 +51,7 @@ function stringifyJSONCircularSafe(obj) {
   "CheckoutActionIncomplete",
   "ErrorsBlock",
   "Field",
+  "InPageMenuItem",
   "Link",
   "MiniCartSummary",
   "PhoneNumberInput",
@@ -74,6 +75,7 @@ function stringifyJSONCircularSafe(obj) {
 [
   "iconClear",
   "iconError",
+  "iconExpand",
   "iconValid",
   "spinner",
   "iconVisa",
