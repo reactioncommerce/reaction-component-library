@@ -435,7 +435,7 @@ const rui_components = {
     typography: {
       lineHeight: 1
     },
-    width: "24px",
+    width: "24px"
   },
   InPageMenuItemText: {
     typography: {
