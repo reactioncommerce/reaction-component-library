@@ -73,7 +73,7 @@ class InPageMenuItem extends Component {
     /**
      * Menu Item label
      */
-    label: PropTypes.string.isRequired,
+    label: PropTypes.node.isRequired,
     /**
      * Function to pass to button onClick
      */
