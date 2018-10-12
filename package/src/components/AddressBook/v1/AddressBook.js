@@ -231,11 +231,10 @@ class AddressBook extends Component {
     return (
       <Fragment>
         {addressBook.map(({ _id, ...address }) => {
-          const name = `${address.firstName} ${address.lastName}`;
           return (
             <Accordion
               key={_id}
-              label={name}
+              label={address.fullName}
               detail={this.addressToString(address)}
               ref={(el) => {
                 this._refs[`accordion_${_id}`] = el;
