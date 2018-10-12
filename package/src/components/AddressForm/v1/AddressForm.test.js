@@ -16,8 +16,7 @@ test("Render with a US address value", () => {
     address2: "",
     country: "US",
     city: "Belle Chasse",
-    firstName: "Salvos",
-    lastName: "Seafood",
+    fullName: "Salvos Seafood",
     postal: "70037",
     region: "LA",
     phone: "(504) 393-7303"
@@ -34,8 +33,7 @@ test("Render with a NG address value", () => {
     address2: "",
     country: "NG",
     city: "Lagos",
-    firstName: "Ocean Basket",
-    lastName: "Victoria Island",
+    fullName: "Ocean Basket Victoria Island",
     postal: "101241",
     region: "Victoria Island",
     phone: "234 816 059 1821"

@@ -6,13 +6,13 @@ import ShippingAddressCheckoutAction from "./ShippingAddressCheckoutAction";
 test("basic snapshot with empty address", () => {
   /* eslint-disable */
   const component = renderer.create(
-    <ShippingAddressCheckoutAction 
+    <ShippingAddressCheckoutAction
       label="Shipping Address"
       stepNumber={1}
       onReadyForSaveChange={() => true}
       onSubmit={() => true}
-      components={mockComponents} 
-      fulfillmentGroup={{ data: { shippingAddress: null } }} 
+      components={mockComponents}
+      fulfillmentGroup={{ data: { shippingAddress: null } }}
     />
   );
   /* eslint-enable */
@@ -27,8 +27,7 @@ test("basic snapshot with address", () => {
     address2: "",
     country: "US",
     city: "Belle Chasse",
-    firstName: "Salvos",
-    lastName: "Seafood",
+    fullName: "Salvos Seafood",
     postal: "70037",
     region: "LA",
     phone: "(504) 393-7303"
