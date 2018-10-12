@@ -48,12 +48,7 @@ exports[`Render with a NG address value 1`] = `
       Field(undefined)
     </div>
     <div
-      className="c2"
-    >
-      Field(undefined)
-    </div>
-    <div
-      className="c2"
+      className="c1"
     >
       Field(undefined)
     </div>
@@ -139,12 +134,7 @@ exports[`Render with a US address value 1`] = `
       Field(undefined)
     </div>
     <div
-      className="c2"
-    >
-      Field(undefined)
-    </div>
-    <div
-      className="c2"
+      className="c1"
     >
       Field(undefined)
     </div>
@@ -230,12 +220,7 @@ exports[`Render with a partial address value 1`] = `
       Field(undefined)
     </div>
     <div
-      className="c2"
-    >
-      Field(undefined)
-    </div>
-    <div
-      className="c2"
+      className="c1"
     >
       Field(undefined)
     </div>
@@ -321,12 +306,7 @@ exports[`Render with locales 1`] = `
       Field(undefined)
     </div>
     <div
-      className="c2"
-    >
-      Field(undefined)
-    </div>
-    <div
-      className="c2"
+      className="c1"
     >
       Field(undefined)
     </div>
@@ -412,12 +392,7 @@ exports[`Render with only the components on props 1`] = `
       Field(undefined)
     </div>
     <div
-      className="c2"
-    >
-      Field(undefined)
-    </div>
-    <div
-      className="c2"
+      className="c1"
     >
       Field(undefined)
     </div>
