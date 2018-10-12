@@ -21,8 +21,7 @@ const account = {
       address2: "",
       country: "US",
       city: "Belle Chasse",
-      firstName: "Salvos",
-      lastName: "Seafood",
+      fullName: "Salvos Seafood",
       postal: "70037",
       region: "LA",
       phone: "(504) 393-7303"
@@ -33,8 +32,7 @@ const account = {
       address2: "",
       country: "NG",
       city: "Lagos",
-      firstName: "Ocean Basket",
-      lastName: "Victoria Island",
+      fullName: "Ocean Basket Victoria Island",
       postal: "101241",
       region: "Victoria Island",
       phone: "234 816 059 1821"
@@ -57,8 +55,7 @@ const props = {
     address2: "",
     country: "US",
     city: "Belle Chasse",
-    firstName: "Salvos",
-    lastName: "Seafood",
+    fullName: "Salvos Seafood",
     postal: "70047",
     region: "LA",
     phone: "(504) 393-7303"
@@ -68,8 +65,7 @@ const props = {
     address2: "",
     country: "US",
     city: "Belle Chasse",
-    firstName: "Salvos",
-    lastName: "Seafood",
+    fullName: "Salvos Seafood",
     postal: "70037",
     region: "LA",
     phone: "(504) 393-7303"
@@ -88,8 +84,7 @@ const salvos =  {
   address2: "",
   country: "US",
   city: "Belle Chasse",
-  firstName: "Salvos",
-  lastName: "Seafood",
+  fullName: "Salvos Seafood",
   postal: "70037",
   region: "LA",
   phone: "(504) 393-7303"
@@ -101,8 +96,7 @@ const oceanBasket = {
   address2: "",
   country: "NG",
   city: "Lagos",
-  firstName: "Ocean Basket",
-  lastName: "Victoria Island",
+  fullName: "Ocean Basket Victoria Island",
   postal: "101241",
   region: "Victoria Island",
   phone: "234 816 059 1821"
