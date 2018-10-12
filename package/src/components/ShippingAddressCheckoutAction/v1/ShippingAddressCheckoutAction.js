@@ -113,7 +113,7 @@ const WrappedShippingAddressCheckoutAction = withComponents(ShippingAddressCheck
 // eslint-disable-next-line
 WrappedShippingAddressCheckoutAction.renderComplete = ({ fulfillmentGroup: { data: { shippingAddress } } }) => (
   <Address>
-    {shippingAddress.firstName} {shippingAddress.lastName}
+    {shippingAddress.fullName}
     <br />
     {shippingAddress.address1}
     <br />

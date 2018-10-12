@@ -147,9 +147,8 @@ class AddressForm extends Component {
       address2: PropTypes.string,
       country: PropTypes.string,
       city: PropTypes.string,
-      firstName: PropTypes.string,
+      fullName: PropTypes.string,
       isCommercial: PropTypes.bool,
-      lastName: PropTypes.string,
       postal: PropTypes.string,
       region: PropTypes.string,
       phone: PropTypes.string
@@ -170,8 +169,7 @@ class AddressForm extends Component {
     shouldShowIsCommercialField: false,
     validator: getRequiredValidator(
       "country",
-      "firstName",
-      "lastName",
+      "fullName",
       "address1",
       "city",
       "phone",
@@ -184,8 +182,7 @@ class AddressForm extends Component {
       address2: "",
       country: "",
       city: "",
-      firstName: "",
-      lastName: "",
+      fullName: "",
       postal: "",
       region: "",
       phone: "",
@@ -285,8 +282,7 @@ class AddressForm extends Component {
 
     const addressNameInputId = `addressName_${this.uniqueInstanceIdentifier}`;
     const countryInputId = `country_${this.uniqueInstanceIdentifier}`;
-    const firstNameInputId = `firstName_${this.uniqueInstanceIdentifier}`;
-    const lastNameInputId = `lastName_${this.uniqueInstanceIdentifier}`;
+    const fullNameInputId = `fullName_${this.uniqueInstanceIdentifier}`;
     const address1InputId = `address1_${this.uniqueInstanceIdentifier}`;
     const address2InputId = `address2_${this.uniqueInstanceIdentifier}`;
     const cityInputId = `city_${this.uniqueInstanceIdentifier}`;
@@ -350,30 +346,19 @@ class AddressForm extends Component {
             </Field>
           </ColFull>
 
-          <ColHalf>
-            <Field name="firstName" label="First Name" labelFor={firstNameInputId} isRequired>
+          <ColFull>
+            <Field name="fullName" label="Full Name" labelFor={fullNameInputId} isRequired>
               <TextInput
-                id={firstNameInputId}
-                name="firstName"
-                placeholder="First Name"
+                id={fullNameInputId}
+                name="fullName"
+                placeholder="Full Name"
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving}
               />
-              <ErrorsBlock names={["firstName"]} />
+              <ErrorsBlock names={["fullName"]} />
             </Field>
-          </ColHalf>
-          <ColHalf>
-            <Field name="lastName" label="Last Name" labelFor={lastNameInputId} isRequired>
-              <TextInput
-                id={lastNameInputId}
-                name="lastName"
-                placeholder="Last Name"
-                isOnDarkBackground={isOnDarkBackground}
-                isReadOnly={isSaving}
-              />
-              <ErrorsBlock names={["lastName"]} />
-            </Field>
-          </ColHalf>
+          </ColFull>
+
 
           <ColFull>
             <Field name="address1" label="Address" labelFor={address1InputId} isRequired>
