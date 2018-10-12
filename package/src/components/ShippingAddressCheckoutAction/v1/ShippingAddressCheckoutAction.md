@@ -28,8 +28,7 @@ const fullfillment = {
       address2: "",
       country: "US",
       city: "Belle Chasse",
-      firstName: "Salvos",
-      lastName: "Seafood",
+      fullName: "Salvos Seafood"
       postal: "70037",
       region: "LA",
       phone: "(504) 393-7303"
@@ -77,8 +76,7 @@ const capturedData = {
         address2: "",
         country: "US",
         city: "Belle Chasse",
-        firstName: "Salvos",
-        lastName: "Seafood",
+        fullName: "Salvos Seafood"
         postal: "70037",
         region: "LA",
         phone: "(504) 393-7303"
