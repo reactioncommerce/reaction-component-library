@@ -230,56 +230,54 @@ class AddressBook extends Component {
     const { account: { addressBook }, components: { Accordion, AddressForm, Button, iconPlus }, isSaving } = this.props;
     return (
       <Fragment>
-        {addressBook.map(({ _id, ...address }) => {
-          return (
-            <Accordion
-              key={_id}
-              label={address.fullName}
-              detail={this.addressToString(address)}
-              ref={(el) => {
-                this._refs[`accordion_${_id}`] = el;
+        {addressBook.map(({ _id, ...address }) => (
+          <Accordion
+            key={_id}
+            label={address.fullName}
+            detail={this.addressToString(address)}
+            ref={(el) => {
+              this._refs[`accordion_${_id}`] = el;
+            }}
+          >
+            <AddressForm
+              isSaving={isSaving}
+              onSubmit={(value) => {
+                this.handleEditAddress(value, _id);
               }}
-            >
-              <AddressForm
-                isSaving={isSaving}
-                onSubmit={(value) => {
-                  this.handleEditAddress(value, _id);
-                }}
-                ref={(el) => {
-                  this._refs[`addressForm_${_id}`] = el;
-                }}
-                isOnDarkBackground
-                value={address}
-              />
-              <FormActions>
-                <FormActionDelete>
-                  <Button
-                    actionType="secondaryDanger"
-                    isTextOnlyNoPadding
-                    isShortHeight
-                    onClick={() => {
-                      this.handleDeleteAddress(address, _id);
-                    }}
-                  >
-                    Delete address
-                  </Button>
-                </FormActionDelete>
+              ref={(el) => {
+                this._refs[`addressForm_${_id}`] = el;
+              }}
+              isOnDarkBackground
+              value={address}
+            />
+            <FormActions>
+              <FormActionDelete>
                 <Button
-                  actionType="secondary"
+                  actionType="secondaryDanger"
+                  isTextOnlyNoPadding
                   isShortHeight
                   onClick={() => {
-                    this._refs[`accordion_${_id}`].handleToggle();
+                    this.handleDeleteAddress(address, _id);
                   }}
                 >
-                  Cancel
+                  Delete address
                 </Button>
-                <Button onClick={() => this._refs[`addressForm_${_id}`].submit()} isShortHeight isWaiting={isSaving}>
-                  Save Changes
-                </Button>
-              </FormActions>
-            </Accordion>
-          );
-        })}
+              </FormActionDelete>
+              <Button
+                actionType="secondary"
+                isShortHeight
+                onClick={() => {
+                  this._refs[`accordion_${_id}`].handleToggle();
+                }}
+              >
+                Cancel
+              </Button>
+              <Button onClick={() => this._refs[`addressForm_${_id}`].submit()} isShortHeight isWaiting={isSaving}>
+                Save Changes
+              </Button>
+            </FormActions>
+          </Accordion>
+        ))}
         <AddressBookAddNewAddressAction>
           <AddressBookAddNewAddressActionButton onClick={this.handleAddressFormToggle} tabIndex={0}>
             <AddressBookAddNewAddressActionIcon>{iconPlus}</AddressBookAddNewAddressActionIcon>
