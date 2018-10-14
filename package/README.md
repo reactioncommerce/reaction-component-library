@@ -3,16 +3,18 @@
 ## Getting Started
 
 ```bash
-npm install --save react@16.4.1 prop-types@15.6.2 styled-components@3.3.3 @reactioncommerce/components
+npm install --save react@16.4.2 prop-types@15.6.2 styled-components@3.3.3 reacto-form@0.0.2 @reactioncommerce/components-context@1.0.0 @reactioncommerce/components
 ```
 
 or
 
 ```bash
-yarn add react@16.4.1 prop-types@15.6.2 styled-components@3.3.3 @reactioncommerce/components
+yarn add react@16.4.2 prop-types@15.6.2 styled-components@3.3.3 reacto-form@0.0.2 @reactioncommerce/components-context@1.0.0 @reactioncommerce/components
 ```
 
-Note that the minimum required React version is 16.4.1 because this package uses newer APIs like `createContext` and `forwardRef`. The `react`, `prop-types`, and `styled-components` packages are peer dependencies, which means that you must install the proper versions in your app. They are not included with this package.
+Note that the minimum required React version is 16.4.1 because this package uses newer APIs like `createContext` and `forwardRef`. The `react`, `prop-types`, `@reactioncommerce/components-context`, `reacto-form`, and `styled-components` packages are peer dependencies, which means that you must install the proper versions in your app. They are not included with this package.
+
+> If you use the `StripeForm` component, then you must also install `react-stripe-elements@2.0.1`. It is an optional peer dependency.
 
 Then import a component:
 

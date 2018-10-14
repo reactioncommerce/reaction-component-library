@@ -7,7 +7,7 @@ import {
   PostalCodeElement,
   injectStripe
 } from "react-stripe-elements";
-import styled, { withTheme } from "styled-components";
+import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, withStripeElements } from "../../../utils";
 
@@ -243,4 +243,8 @@ class StripeForm extends Component {
   }
 }
 
-export default withTheme(withComponents(withStripeElements(injectStripe(StripeForm))));
+// We should be using `withTheme` here, but it seems to cause serious errors in the
+// deployed app, and does not work anyway. Need to investigate why `withComponents`
+// works and does not cause errors but `withTheme` does not work. It is surely
+// something related to the iframes that Stripe uses.
+export default withComponents(withStripeElements(injectStripe(StripeForm)));
