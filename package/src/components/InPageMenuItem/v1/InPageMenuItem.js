@@ -88,7 +88,8 @@ class InPageMenuItem extends Component {
     isSelected: false
   };
 
-  handleClick = preventAccidentalDoubleClick(() => {
+  handleClick = preventAccidentalDoubleClick((event) => {
+    event.preventDefault();
     const { onClick } = this.props;
 
     if (onClick) {
