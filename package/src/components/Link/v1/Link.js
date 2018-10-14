@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { preventAccidentalDoubleClick } from "../../../utils";
 
-const UnstyledLink = styled.a`
+const UnstyledLinkHref = styled.a`
+  text-decoration: none;
+`;
+
+const UnstyledLinkOnClick = styled.div`
+  cursor: pointer;
+  display: inline-block;
   text-decoration: none;
 `;
 
@@ -22,7 +28,7 @@ class Link extends Component {
     /**
      * The URL the link should navigate to
      */
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     /**
      * Called with a single event parameter when a user clicks the link
      */
@@ -39,8 +45,15 @@ class Link extends Component {
 
   render() {
     const { className, children, href } = this.props;
+
+    if (href) {
+      return (
+        <UnstyledLinkHref className={className} href={href} onClick={this.onClick}>{children}</UnstyledLinkHref>
+      );
+    }
+
     return (
-      <UnstyledLink className={className} href={href} onClick={this.onClick}>{children}</UnstyledLink>
+      <UnstyledLinkOnClick className={className} onClick={this.onClick} role="button">{children}</UnstyledLinkOnClick>
     );
   }
 }
