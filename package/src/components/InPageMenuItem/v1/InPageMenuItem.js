@@ -60,6 +60,10 @@ class InPageMenuItem extends Component {
        * accepts compatible props.
        */
       iconExpand: PropTypes.node.isRequired,
+      /**
+       * Pass either the Reaction Link component or your own component that
+       * accepts compatible props.
+       */
       Link: PropTypes.node.isRequired
     }).isRequired,
     /**

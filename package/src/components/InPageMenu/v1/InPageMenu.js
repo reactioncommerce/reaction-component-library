@@ -28,11 +28,14 @@ class InPageMenu extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction iconExpand component or your own component that
+       * Pass either the Reaction InPageMenuItem component or your own component that
        * accepts compatible props.
        */
       InPageMenuItem: PropTypes.node.isRequired
     }).isRequired,
+    /**
+     * An array that contains objects of label and navigational data for each InPageMenuItem
+     */
     menuItems: PropTypes.arrayOf(PropTypes.object)
   };
 
