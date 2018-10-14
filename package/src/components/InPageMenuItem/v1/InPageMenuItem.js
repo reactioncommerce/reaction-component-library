@@ -69,7 +69,7 @@ class InPageMenuItem extends Component {
     /**
      * URL to provide to MenuItem
      */
-    href: PropTypes.string.isRequired,
+    href: PropTypes.string,
     /**
      * Render selected style
      */
