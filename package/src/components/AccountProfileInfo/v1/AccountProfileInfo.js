@@ -66,9 +66,9 @@ class AccountProfileInfo extends Component {
      * An object containing basic user information.
      */
     viewer: PropTypes.shape({
-      firstName: PropTypes.string.isRequired,
-      lastName: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      name: PropTypes.string,
       primaryEmailAddress: PropTypes.string.isRequired,
       profileImage: PropTypes.string
     }).isRequired
