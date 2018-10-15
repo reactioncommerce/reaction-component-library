@@ -27,6 +27,7 @@ import CheckoutActionComplete from "../../package/src/components/CheckoutActionC
 import CheckoutActionIncomplete from "../../package/src/components/CheckoutActionIncomplete/v1";
 import ErrorsBlock from "../../package/src/components/ErrorsBlock/v1";
 import Field from "../../package/src/components/Field/v1";
+import InPageMenuItem from "../../package/src/components/InPageMenuItem/v1";
 import Link from "../../package/src/components/Link/v1";
 import MiniCartSummary from "../../package/src/components/MiniCartSummary/v1";
 import PhoneNumberInput from "../../package/src/components/PhoneNumberInput/v1";
@@ -69,13 +70,14 @@ export default {
   iconClear,
   iconError,
   iconExpand,
-  iconValid,
   iconPlus,
+  iconValid,
   iconAmericanExpress,
   iconDiscover,
   iconLock,
   iconMastercard,
   iconVisa,
+  InPageMenuItem,
   Link,
   MiniCartSummary,
   PhoneNumberInput,

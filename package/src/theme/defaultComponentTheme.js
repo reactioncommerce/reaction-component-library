@@ -411,6 +411,37 @@ const rui_components = {
     summaryWrapperPaddingRight: padding.sixteen,
     summaryWrapperPaddingTop: 0
   },
+  InPageMenuItemContainer: {
+    backgroundColor_default: colors.black05,
+    backgroundColor_selected: colors.reactionBlue100,
+    marginBottom: "4px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    marginTop: "0px",
+    paddingBottom: "13px",
+    paddingLeft: "20px",
+    paddingRight: "20px",
+    paddingTop: "13px",
+    typography: {
+      lineHeight: 1
+    }
+  },
+  InPageMenuItemIcon: {
+    height: "24px",
+    marginBottom: "0px",
+    marginLeft: "0px",
+    marginRight: "0px",
+    marginTop: "0px",
+    typography: {
+      lineHeight: 1
+    },
+    width: "24px"
+  },
+  InPageMenuItemText: {
+    typography: {
+      lineHeight: 1
+    }
+  },
   Input: {
     backgroundColor_dark: colors.white,
     backgroundColor_default: colors.black02,
@@ -489,6 +520,7 @@ const rui_components = {
     cellPaddingRight: padding.eight,
     cellPaddingTop: padding.eight
   },
+
   PriceCompare: {
     typography: {
       color: colors.black25

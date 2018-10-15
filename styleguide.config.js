@@ -423,6 +423,14 @@ module.exports = {
           ],
           content: "styleguide/src/sections/Forms.md",
           name: "Forms"
+        }),
+        generateSection({
+          componentNames: [
+            "InPageMenu",
+            "InPageMenuItem"
+          ],
+          content: "styleguide/src/sections/Menus.md",
+          name: "Menus"
         })
       ]
     },

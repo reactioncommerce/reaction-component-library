@@ -33,3 +33,14 @@ test("Link component with onClick hander", () => {
 
   expect(testClickHandler).toHaveBeenCalled();
 });
+
+test("Link component with onClick hander and no href", () => {
+  const testClickHandler = jest.fn();
+  const component = shallow((
+    <Link onClick={testClickHandler}>Click here</Link>
+  ));
+
+  component.simulate("click");
+
+  expect(testClickHandler).toHaveBeenCalled();
+});
