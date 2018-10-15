@@ -17,6 +17,18 @@ test("Render default display, with profile image and no edit link", () => {
   expect(tree).toMatchSnapshot();
 });
 
+test("Render with first name only", () => {
+  const mockViewer = {
+    firstName: "John",
+    primaryEmailAddress: "john@doe.com",
+    profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
+  };
+
+  const component = renderer.create(<AccountProfileInfo components={mockComponents} viewer={mockViewer} />);
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
 test("Render with initials instead of profile image", () => {
   const mockViewer = {
     firstName: "John",

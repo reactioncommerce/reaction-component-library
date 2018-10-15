@@ -92,13 +92,15 @@ class AccountProfileInfo extends Component {
   /**
    *
    * @name viewerName
-   * @summary If `firstName` is availible on the `viewer` object
-   * return that else return the email address
+   * @summary If `name` is availible on the `viewer` object
+   * return that else return `fistName` and `lastName`,
+   * else return `firstName`, else return null
    * @return {String} the viewers name.
    */
   get viewerName() {
-    const { viewer: { name } } = this.props;
-    return name;
+    const { viewer: { firstName, lastName, name } } = this.props;
+
+    return name || (firstName && lastName && `${firstName} ${lastName}`) || firstName || null;
   }
 
   viewerProfileEditLink = () => {
