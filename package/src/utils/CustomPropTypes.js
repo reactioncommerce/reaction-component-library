@@ -17,15 +17,13 @@ PropTypeError.prototype = Error.prototype;
 
 // These follow the composable form specification
 // http://forms.dairystatedesigns.com/user/input/#selection-inputs
-const optionsSyntax = PropTypes.arrayOf(PropTypes.shape({
-  id: PropTypes.string,
-  label: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool
-  ]).isRequired
-}));
+const optionsSyntax = PropTypes.arrayOf(
+  PropTypes.shape({
+    id: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
+  })
+);
 
 // See https://github.com/facebook/prop-types/issues/200.
 // If that gets added to prop-types package, we won't need this.
@@ -35,13 +33,19 @@ function getComponentValidator() {
     if (val === null || val === undefined) {
       if (isRequired) {
         if (val === null) {
-          return new PropTypeError(`The ${location} '${propFullName}' is marked as required in '${componentName}', but its value is 'null'.`);
+          return new PropTypeError(
+            `The ${location} '${propFullName}' is marked as required in '${componentName}', but its value is 'null'.`
+          );
         }
-        return new PropTypeError(`The ${location} '${propFullName}' is marked as required in '${componentName}', but its value is 'undefined'.`);
+        return new PropTypeError(
+          `The ${location} '${propFullName}' is marked as required in '${componentName}', but its value is 'undefined'.`
+        );
       }
     } else if (!isValidElementType(val)) {
-      return new PropTypeError(`Invalid ${location} '${propFullName}' supplied to ${componentName}. ` +
-        "Expected a string (for built-in components) or a class/function (for composite components).");
+      return new PropTypeError(
+        `Invalid ${location} '${propFullName}' supplied to ${componentName}. ` +
+          "Expected a string (for built-in components) or a class/function (for composite components)."
+      );
     }
     return null;
   }
@@ -51,13 +55,32 @@ function getComponentValidator() {
   return chainedCheckType;
 }
 
+// address
+const addressSyntax = PropTypes.shape({
+  addressName: PropTypes.string,
+  address1: PropTypes.string,
+  address2: PropTypes.string,
+  country: PropTypes.string,
+  city: PropTypes.string,
+  fullName: PropTypes.string,
+  isCommercial: PropTypes.bool,
+  postal: PropTypes.string,
+  region: PropTypes.string,
+  phone: PropTypes.string
+});
+
+// address book
+
 export default {
+  address: addressSyntax,
   component: getComponentValidator(),
   options: PropTypes.oneOfType([
     optionsSyntax,
-    PropTypes.arrayOf(PropTypes.shape({
-      optgroup: PropTypes.string,
-      options: optionsSyntax
-    }))
+    PropTypes.arrayOf(
+      PropTypes.shape({
+        optgroup: PropTypes.string,
+        options: optionsSyntax
+      })
+    )
   ])
 };
