@@ -31,12 +31,18 @@ import React from "react";
 import iconClear from "@reactioncommerce/svg/iconClear";
 import iconError from "@reactioncommerce/svg/iconError";
 import iconValid from "@reactioncommerce/svg/iconValid";
+import iconExpand from "@reactioncommerce/svg/iconExpand";
+import iconPlus from "@reactioncommerce/svg/iconPlus";
 import iconAmericanExpress from "@reactioncommerce/svg/iconAmericanExpress";
 import iconDiscover from "@reactioncommerce/svg/iconDiscover";
+import iconLock from "@reactioncommerce/svg/iconLock";
 import iconMastercard from "@reactioncommerce/svg/iconMastercard";
 import iconVisa from "@reactioncommerce/svg/iconVisa";
 import spinner from "@reactioncommerce/svg/spinner";
+import Accordion from "@reactioncommerce/components/Accordion/v1";
+import AddressBook from "@reactioncommerce/components/AddressBook/v1";
 import AddressForm from "@reactioncommerce/components/AddressForm/v1";
+import AddressReview from "@reactioncommerce/components/AddressReview/v1";
 import BadgeOverlay from "@reactioncommerce/components/BadgeOverlay/v1";
 import Button from "@reactioncommerce/components/Button/v1";
 import CartItem from "@reactioncommerce/components/CartItem/v1";
@@ -51,6 +57,7 @@ import CheckoutActionComplete from "@reactioncommerce/components/CheckoutActionC
 import CheckoutActionIncomplete from "@reactioncommerce/components/CheckoutActionIncomplete/v1";
 import ErrorsBlock from "@reactioncommerce/components/ErrorsBlock/v1";
 import Field from "@reactioncommerce/components/Field/v1";
+import InPageMenuItem from "@reactioncommerce/components/InPageMenuItem/v1";
 import Link from "@reactioncommerce/components/Link/v1";
 import MiniCartSummary from "@reactioncommerce/components/MiniCartSummary/v1";
 import PhoneNumberInput from "@reactioncommerce/components/PhoneNumberInput/v1";
@@ -67,7 +74,10 @@ import TextInput from "@reactioncommerce/components/TextInput/v1";
 
 
 export default {
+  Accordion,
+  AddressBook,
   AddressForm,
+  AddressReview,
   BadgeOverlay,
   Button,
   CartItem,
@@ -84,11 +94,15 @@ export default {
   Field,
   iconClear,
   iconError,
+  iconExpand,
+  iconPlus,
   iconValid,
   iconAmericanExpress,
   iconDiscover,
+  iconLock,
   iconMastercard,
   iconVisa,
+  InPageMenuItem,
   Link,
   MiniCartSummary,
   PhoneNumberInput,
