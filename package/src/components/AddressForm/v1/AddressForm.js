@@ -141,18 +141,7 @@ class AddressForm extends Component {
     /**
      * Address object to be edited
      */
-    value: PropTypes.shape({
-      addressName: PropTypes.string,
-      address1: PropTypes.string,
-      address2: PropTypes.string,
-      country: PropTypes.string,
-      city: PropTypes.string,
-      fullName: PropTypes.string,
-      isCommercial: PropTypes.bool,
-      postal: PropTypes.string,
-      region: PropTypes.string,
-      phone: PropTypes.string
-    })
+    value: CustomPropTypes.address
   };
 
   static defaultProps = {
