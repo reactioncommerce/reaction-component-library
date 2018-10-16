@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const AddressElement = styled.address`
-  ${addTypographyStyles("ShippingAddressCheckoutActionAddress", "bodyText")};
+  ${addTypographyStyles("Address", "bodyText")};
 `;
 
 class Address extends Component {

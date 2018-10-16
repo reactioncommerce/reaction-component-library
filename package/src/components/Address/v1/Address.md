@@ -15,8 +15,7 @@ const address = {
   postal: "70037",
   region: "LA",
   phone: "(504) 393-7303"
-  
-}
+};
 
 <Address address={address} />
 
@@ -24,6 +23,8 @@ const address = {
 
 ### Theme
 
-Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
+See [Theming Components](./#!/Theming%20Components).
 
-| Theme Prop | Default | Description |
+#### Typography
+
+- The address preview text uses `bodyText` style with `rui_components.Address` override
