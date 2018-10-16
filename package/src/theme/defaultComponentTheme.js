@@ -64,10 +64,10 @@ const rui_components = {
     addressPropertyErrorBorderStyle: "solid",
     addressPropertyErrorBorderWidth: "1px",
     addressPropertyErrorColor: colors.red400,
-    addressPropertyErrorPaddingBottom: padding.two,
+    addressPropertyErrorPaddingBottom: "0",
     addressPropertyErrorPaddingLeft: padding.four,
     addressPropertyErrorPaddingRight: padding.four,
-    addressPropertyErrorPaddingTop: padding.two
+    addressPropertyErrorPaddingTop: "0"
   },
   AddressBook: {
     borderColor: colors.black10,
