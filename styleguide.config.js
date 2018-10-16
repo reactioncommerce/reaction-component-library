@@ -439,6 +439,7 @@ module.exports = {
       sections: [
         generateSection({
           componentNames: [
+            "Address",
             "AddressBook",
             "AddressReview",
             "ShopLogo"
