@@ -1,10 +1,24 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { addTypographyStyles, CustomPropTypes } from "../../../utils";
+import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const AddressElement = styled.address`
   ${addTypographyStyles("Address", "bodyText")};
+`;
+
+const AddressPropertyError = styled.span`
+  ${addTypographyStyles("AddressPropertyError", "bodyTextBold")};
+  background-color: ${applyTheme("Address.addressPropertyErrorBackgroundColor")};
+  border-color: ${applyTheme("Address.addressPropertyErrorBorderColor")};
+  border-style: ${applyTheme("Address.addressPropertyErrorBorderStyle")};
+  border-width: ${applyTheme("Address.addressPropertyErrorBorderWidth")};
+  border-radius: ${applyTheme("Address.addressPropertyErrorBorderRadius")};
+  color: ${applyTheme("Address.addressPropertyErrorColor")};
+  padding-bottom: ${applyTheme("Address.addressPropertyErrorPaddingBottom")};
+  padding-left: ${applyTheme("Address.addressPropertyErrorPaddingLeft")};
+  padding-right: ${applyTheme("Address.addressPropertyErrorPaddingRight")};
+  padding-top: ${applyTheme("Address.addressPropertyErrorPaddingTop")};
 `;
 
 class Address extends Component {
@@ -19,34 +33,37 @@ class Address extends Component {
      * it can be useful as a selector in some situations.
      */
     className: PropTypes.string,
-    /**
-     * If you've set up a components context using
-     * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
-     * (recommended), then this prop will come from there automatically. If you have not
-     * set up a components context or you want to override one of the components in a
-     * single spot, you can pass in the components prop directly.
-     */
-    components: PropTypes.shape({}).isRequired
+    invalidAddressProperties: PropTypes.arrayOf(PropTypes.string)
   };
 
-  static defaultProps = {};
+  static defaultProps = {
+    invalidAddressProperties: []
+  };
+
+  renderAddressProperty(key, value) {
+    const { invalidAddressProperties } = this.props;
+    const invalid = invalidAddressProperties.includes(key);
+    return invalid ? <AddressPropertyError>{value}</AddressPropertyError> : value;
+  }
 
   render() {
     const { address, className } = this.props;
 
     return (
       <AddressElement className={className}>
-        {address.fullName}
+        {this.renderAddressProperty("fullName", address.fullName)}
         <br />
-        {address.address1}
+        {this.renderAddressProperty("address1", address.address1)}
         <br />
         {address.address2 !== null && address.address2 !== "" ? (
           <span>
-            {address.address2} <br />
+            {this.renderAddressProperty("address2", address.address2)}
+            <br />
           </span>
         ) : null}
-        {address.city}, {address.region} {address.postal} <br />
-        {address.country}
+        {this.renderAddressProperty("city", address.city)}, {this.renderAddressProperty("region", address.region)}{" "}
+        {this.renderAddressProperty("postal", address.postal)} <br />
+        {this.renderAddressProperty("country", address.country)}
       </AddressElement>
     );
   }
