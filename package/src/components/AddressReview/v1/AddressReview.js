@@ -7,20 +7,20 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 // TODO: make grid utiil
-const Grid = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: ${applyTheme("AddressReview.warningMessagePaddingLeft")};
-`;
+// const Grid = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
+//   padding: ${applyTheme("AddressReview.warningMessagePaddingLeft")};
+// `;
 
-const ColHalf = styled.div`
-  flex: 1 1 100%;
+// const ColHalf = styled.div`
+//   flex: 1 1 100%;
 
-  @media (min-width: ${applyTheme("sm", "breakpoints")}px) {
-    flex: 0 1 calc(50% - 9px);
-  }
-`;
+//   @media (min-width: ${applyTheme("sm", "breakpoints")}px) {
+//     flex: 0 1 calc(50% - 9px);
+//   }
+// `;
 
 // component styles
 const WarningMessage = styled.div`
@@ -35,6 +35,9 @@ const WarningMessage = styled.div`
   padding-right: ${applyTheme("AddressReview.warningMessagePaddingRight")};
   padding-top: ${applyTheme("AddressReview.warningMessagePaddingTop")};
 `;
+
+const ENTERED = "entered";
+const SUGGESTED = "suggested";
 
 class AddressReview extends Component {
   static propTypes = {
@@ -79,49 +82,74 @@ class AddressReview extends Component {
      * Is data being saved
      */
     isSaving: PropTypes.bool,
+    /**
+     * Form name
+     */
+    name: PropTypes.string,
+    /**
+     * Form submit event callback
+     */
+    onSubmit: PropTypes.func,
+    /**
+     * The selected address option
+     */
     value: PropTypes.string
   };
 
   static defaultProps = {
-    isSaving: false
+    isSaving: false,
+    value: SUGGESTED
   };
 
-  _addressReviewForm = null;
+  _form = null;
 
   uniqueInstanceIdentifier = uniqueId("AddressReviewForm_");
+
+  submit = () => this._form.submit();
 
   render() {
     const {
       addressEntered,
       addressSuggestion,
       className,
-      components: { Address, SelectableItem, Field },
-      isSaving
+      components: { Address, SelectableList },
+      isSaving,
+      onSubmit,
+      value
     } = this.props;
+
+    const options = [
+      {
+        id: `${ENTERED}_${this.uniqueInstanceIdentifier}`,
+        detail: <Address address={addressEntered} />,
+        label: "Entered Address:",
+        value: ENTERED
+      },
+      {
+        id: `${SUGGESTED}_${this.uniqueInstanceIdentifier}`,
+        detail: <Address address={addressSuggestion} />,
+        label: "Suggested Address:",
+        value: SUGGESTED
+      }
+    ];
 
     return (
       <div className={className}>
         <WarningMessage>Dat address be wrong!</WarningMessage>
         <Form
           ref={(formEl) => {
-            this._addressReviewForm = formEl;
+            this._form = formEl;
           }}
+          onSubmit={onSubmit}
         >
-          <Grid>
-            <ColHalf>
-              {" "}
-              <Field>
-                <SelectableItem label="Entered Address:" isReadOnly={isSaving} />
-                <Address address={addressEntered} />
-              </Field>
-            </ColHalf>
-            <ColHalf>
-              <Field>
-                <SelectableItem label="Suggested Address:" isChecked isReadOnly={isSaving} />
-                <Address address={addressSuggestion} />
-              </Field>
-            </ColHalf>
-          </Grid>
+          <SelectableList
+            isBordered
+            isLeftAligned
+            options={options}
+            name="AddressReview"
+            value={value}
+            isReadOnly={isSaving}
+          />
         </Form>
       </div>
     );
