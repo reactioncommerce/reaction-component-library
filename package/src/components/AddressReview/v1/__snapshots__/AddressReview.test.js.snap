@@ -2,12 +2,42 @@
 
 exports[`basic snapshot 1`] = `
 .c0 {
-  color: #333333;
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  border-color: #fbc120;
+  border-style: solid;
+  border-width: 1px;
+  background-color: #fcf3dc;
+  color: #7a6322;
+  padding-bottom: 14px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 14px;
 }
 
 <div
-  className="c0"
+  className={undefined}
 >
-  Address Review
+  <div
+    className="c0"
+  >
+    Dat address be wrong!
+  </div>
+  <div
+    className={null}
+    style={Object {}}
+  >
+    SelectableList(undefined)
+  </div>
 </div>
 `;
