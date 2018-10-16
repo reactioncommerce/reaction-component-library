@@ -404,6 +404,7 @@ module.exports = {
         generateSection({
           componentNames: [
             "Accordion",
+            "Address",
             "ProgressiveImage"
           ],
           content: "styleguide/src/sections/Content.md",
@@ -439,9 +440,6 @@ module.exports = {
       sections: [
         generateSection({
           componentNames: [
-            "Address",
-            "AddressBook",
-            "AddressReview",
             "ShopLogo"
           ],
           content: "styleguide/src/sections/General.md",
@@ -490,6 +488,7 @@ module.exports = {
         generateSection({
           componentNames: [
             "AddressForm",
+            "AddressReview",
             "GuestForm",
             "StripeForm"
           ],
@@ -499,6 +498,7 @@ module.exports = {
         generateSection({
           componentNames: [
             "AccountProfileInfo",
+            "AddressBook",
             "ProfileImage",
             "ViewerInfo"
           ],
