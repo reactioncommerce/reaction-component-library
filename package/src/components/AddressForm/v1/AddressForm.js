@@ -336,11 +336,11 @@ class AddressForm extends Component {
           </ColFull>
 
           <ColFull>
-            <Field name="fullName" label="Full Name" labelFor={fullNameInputId} isRequired>
+            <Field name="fullName" label="Name" labelFor={fullNameInputId} isRequired>
               <TextInput
                 id={fullNameInputId}
                 name="fullName"
-                placeholder="Full Name"
+                placeholder="Name"
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving}
               />
