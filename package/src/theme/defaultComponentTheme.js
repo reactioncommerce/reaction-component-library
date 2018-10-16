@@ -57,6 +57,18 @@ const rui_components = {
     spacingAfterName: "4px",
     spacingBetweenImageAndContent: "16px"
   },
+  Address: {
+    addressPropertyErrorBackgroundColor: colors.red100,
+    addressPropertyErrorBorderColor: colors.red400,
+    addressPropertyErrorBorderRadius: standardBorderRadius,
+    addressPropertyErrorBorderStyle: "solid",
+    addressPropertyErrorBorderWidth: "1px",
+    addressPropertyErrorColor: colors.red400,
+    addressPropertyErrorPaddingBottom: padding.two,
+    addressPropertyErrorPaddingLeft: padding.four,
+    addressPropertyErrorPaddingRight: padding.four,
+    addressPropertyErrorPaddingTop: padding.two
+  },
   AddressBook: {
     borderColor: colors.black10,
     borderRadius: standardBorderRadius,
@@ -78,6 +90,17 @@ const rui_components = {
     addActionPaddingTop: padding.sixteen,
     actionDeleteButtonHoverColor: colors.redHover,
     spaceBetweenActiveActionButtons: padding.sixteen
+  },
+  AddressReview: {
+    warningMessageBorderColor: colors.yellow400,
+    warningMessageBorderStyle: "solid",
+    warningMessageBorderWidth: "1px",
+    warningMessageBackgroundColor: colors.yellow100,
+    warningMessageColor: colors.yellow600,
+    warningMessagePaddingBottom: padding.fourteen,
+    warningMessagePaddingLeft: padding.twenty,
+    warningMessagePaddingRight: padding.twenty,
+    warningMessagePaddingTop: padding.fourteen
   },
   BadgeOverlay: {
     fadedOpacity: "0.5"
