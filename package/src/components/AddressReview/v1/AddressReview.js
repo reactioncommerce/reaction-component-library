@@ -107,6 +107,12 @@ class AddressReview extends Component {
 
   submit = () => this._form.submit();
 
+  handleSubmit = (value) => {
+    const { addressEntered, addressSuggestion, onSubmit } = this.props;
+    const selectedAddress = value === ENTERED ? addressEntered : addressSuggestion;
+    onSubmit(selectedAddress);
+  };
+
   render() {
     const {
       addressEntered,
@@ -142,14 +148,7 @@ class AddressReview extends Component {
           }}
           onSubmit={onSubmit}
         >
-          <SelectableList
-            isBordered
-            isLeftAligned
-            options={options}
-            name="AddressReview"
-            value={value}
-            isReadOnly={isSaving}
-          />
+          <SelectableList isHorizontal options={options} name="AddressReview" value={value} isReadOnly={isSaving} />
         </Form>
       </div>
     );
