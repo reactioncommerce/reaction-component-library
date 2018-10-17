@@ -60,7 +60,7 @@ const addressSyntax = PropTypes.shape({
   /**
    * Street information for address
    */
-  address1: PropTypes.string.isRequired,
+  address1: PropTypes.string,
   /**
    * Additional street information for address
    */
@@ -68,11 +68,11 @@ const addressSyntax = PropTypes.shape({
   /**
    * Country code for address
    */
-  country: PropTypes.string.isRequired,
+  country: PropTypes.string,
   /**
    * City information for address
    */
-  city: PropTypes.string.isRequired,
+  city: PropTypes.string,
   /**
    * User's name
    */
@@ -84,11 +84,11 @@ const addressSyntax = PropTypes.shape({
   /**
    * Postal code information for address
    */
-  postal: PropTypes.string.isRequired,
+  postal: PropTypes.string,
   /**
    * Region information for address
    */
-  region: PropTypes.string.isRequired,
+  region: PropTypes.string,
   /**
    * User's associated phone number
    */
