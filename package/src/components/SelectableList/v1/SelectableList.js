@@ -87,6 +87,14 @@ const BorderedWrapper = styled.div`
   }
 `;
 
+const HorizontalList = styled.div`
+  display: flex;
+`;
+
+const HorizontalWrapper = styled.div`
+  flex: 0 1 calc(50% - 10px);
+`;
+
 class SelectableList extends Component {
   static isFormInput = true;
 
@@ -116,6 +124,10 @@ class SelectableList extends Component {
      */
     isBordered: PropTypes.bool,
     /**
+     * Displays SelectableList horizontaly
+     */
+    isHorizontal: PropTypes.bool,
+    /**
      * Is Left Aligned
      */
     isLeftAligned: PropTypes.bool,
@@ -123,6 +135,7 @@ class SelectableList extends Component {
      * Adds styles and blocks users from selecting items
      */
     isReadOnly: PropTypes.bool,
+    isStacked: PropTypes.bool,
     /**
      * An extra row at the bottom of the list for an action, like Add an address
      */
@@ -142,29 +155,31 @@ class SelectableList extends Component {
     /**
      * Options, an Array of SelectableItems
      */
-    options: PropTypes.arrayOf(PropTypes.shape({
-      /**
-       * Optional text, SVG or element displayed on the right-hand side
-       */
-      detail: PropTypes.node,
-      /**
-       * Optional icon (SVG) displayed on the left-hand side
-       */
-      icon: PropTypes.node,
-      /**
-       * The item ID. Each option must have a unique ID
-       */
-      id: PropTypes.string.isRequired,
-      /**
-       * Label
-       */
-      label: PropTypes.string.isRequired,
-      /**
-       * Value of this option, which will be the value passed back from SelectableList if
-       * this option is selected.
-       */
-      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
-    })).isRequired,
+    options: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
+         * Optional text, SVG or element displayed on the right-hand side
+         */
+        detail: PropTypes.node,
+        /**
+         * Optional icon (SVG) displayed on the left-hand side
+         */
+        icon: PropTypes.node,
+        /**
+         * The item ID. Each option must have a unique ID
+         */
+        id: PropTypes.string.isRequired,
+        /**
+         * Label
+         */
+        label: PropTypes.string.isRequired,
+        /**
+         * Value of this option, which will be the value passed back from SelectableList if
+         * this option is selected.
+         */
+        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
+      })
+    ).isRequired,
     /**
      * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
      * the Composable Forms spec will pass this automatically.
@@ -174,10 +189,11 @@ class SelectableList extends Component {
 
   static defaultProps = {
     isBordered: false,
+    isHorizontal: false,
     isLeftAligned: false,
     isReadOnly: false,
-    onChange() { },
-    onChanging() { }
+    onChange() {},
+    onChanging() {}
   };
 
   constructor(props) {
@@ -187,11 +203,13 @@ class SelectableList extends Component {
     };
   }
 
-  UNSAFE_componentWillMount() { // eslint-disable-line camelcase
+  UNSAFE_componentWillMount() {
+    // eslint-disable-line camelcase
     this.handleChange(this.props.value || "");
   }
 
-  UNSAFE_componentWillReceiveProps(nextProps) { // eslint-disable-line camelcase
+  UNSAFE_componentWillReceiveProps(nextProps) {
+    // eslint-disable-line camelcase
     const { value } = this.props;
     const { value: nextValue } = nextProps;
 
@@ -235,59 +253,88 @@ class SelectableList extends Component {
     return this.state.value !== this.props.value;
   }
 
+  renderBorderedList() {
+    const { options, listAction, isLeftAligned, isReadOnly, components: { SelectableItem } } = this.props;
+
+    return (
+      <BorderedList>
+        <fieldset>
+          {options.map((option) => (
+            <BorderedWrapper key={option.id}>
+              <SelectableItem
+                detail={option.detail}
+                icon={option.icon}
+                isChecked={option.value === this.state.value}
+                isLeftAligned={isLeftAligned}
+                isReadOnly={isReadOnly}
+                label={option.label}
+                onChange={this.onChange}
+                value={option.value}
+              />
+            </BorderedWrapper>
+          ))}
+        </fieldset>
+        {listAction ? <BorderedListAction>{listAction}</BorderedListAction> : null}
+      </BorderedList>
+    );
+  }
+
+  renderVerticalList() {
+    const { options, listAction, isLeftAligned, isReadOnly, components: { SelectableItem } } = this.props;
+
+    return (
+      <StyledList>
+        <fieldset>
+          {options.map((option) => (
+            <StyledWrapper key={option.id}>
+              <SelectableItem
+                detail={option.detail}
+                icon={option.icon}
+                isChecked={option.value === this.state.value}
+                isLeftAligned={isLeftAligned}
+                isReadOnly={isReadOnly}
+                label={option.label}
+                onChange={this.onChange}
+                value={option.value}
+              />
+            </StyledWrapper>
+          ))}
+        </fieldset>
+        {listAction ? <StyledListAction>{listAction}</StyledListAction> : null}
+      </StyledList>
+    );
+  }
+
+  renderHorizontalList() {
+    const { options, listAction, isStacked, isReadOnly, components: { SelectableItem } } = this.props;
+    return (
+      <HorizontalList>
+        {options.map((option) => (
+          <HorizontalWrapper key={option.id}>
+            <SelectableItem
+              detail={option.detail}
+              icon={option.icon}
+              isChecked={option.value === this.state.value}
+              isStacked={isStacked}
+              isReadOnly={isReadOnly}
+              label={option.label}
+              onChange={this.onChange}
+              value={option.value}
+            />
+          </HorizontalWrapper>
+        ))}
+        {listAction ? <StyledListAction>{listAction}</StyledListAction> : null}
+      </HorizontalList>
+    );
+  }
+
   render() {
-    const {
-      className,
-      options,
-      listAction,
-      isBordered,
-      isLeftAligned,
-      isReadOnly,
-      components: { SelectableItem }
-    } = this.props;
+    const { className, isBordered, isHorizontal } = this.props;
     return (
       <div className={className}>
-        {isBordered ?
-          <BorderedList>
-            <fieldset>
-              {options.map((option) => (
-                <BorderedWrapper key={option.id}>
-                  <SelectableItem
-                    detail={option.detail}
-                    icon={option.icon}
-                    isChecked={option.value === this.state.value}
-                    isLeftAligned={isLeftAligned}
-                    isReadOnly={isReadOnly}
-                    label={option.label}
-                    onChange={this.onChange}
-                    value={option.value}
-                  />
-                </BorderedWrapper>
-              ))}
-            </fieldset>
-            {listAction ? <BorderedListAction>{listAction}</BorderedListAction> : null}
-          </BorderedList>
-          :
-          <StyledList>
-            <fieldset>
-              {options.map((option) => (
-                <StyledWrapper key={option.id}>
-                  <SelectableItem
-                    detail={option.detail}
-                    icon={option.icon}
-                    isChecked={option.value === this.state.value}
-                    isLeftAligned={isLeftAligned}
-                    isReadOnly={isReadOnly}
-                    label={option.label}
-                    onChange={this.onChange}
-                    value={option.value}
-                  />
-                </StyledWrapper>
-              ))}
-            </fieldset>
-            {listAction ? <StyledListAction>{listAction}</StyledListAction> : null}
-          </StyledList>
-        }
+        {isHorizontal
+          ? this.renderHorizontalList()
+          : isBordered ? this.renderBorderedList() : this.renderVerticalList()}
       </div>
     );
   }
