@@ -100,7 +100,8 @@ const rui_components = {
     warningMessagePaddingBottom: padding.fourteen,
     warningMessagePaddingLeft: padding.twenty,
     warningMessagePaddingRight: padding.twenty,
-    warningMessagePaddingTop: padding.fourteen
+    warningMessagePaddingTop: padding.fourteen,
+    spacingTop: "40px"
   },
   BadgeOverlay: {
     fadedOpacity: "0.5"
@@ -601,7 +602,13 @@ const rui_components = {
     itemPaddingRight: "10px",
     itemPaddingTop: "0",
     leftAlignedLabelFontWeight: 700,
-    leftAlignedDetailSpacingToLabel: "2px"
+    leftAlignedDetailSpacingToLabel: "2px",
+    horizontalItemPaddingBottom: padding.twenty,
+    horizontalItemPaddingLeft: padding.twenty,
+    horizontalItemPaddingRight: padding.twenty,
+    horizontalItemPaddingTop: padding.twenty,
+    horizontalFirstItemPaddingRight: "40px",
+    horizontalLastItemPaddingLeft: "40px"
   },
   SelectMenu: {
     borderBottomColor: colors.black20,

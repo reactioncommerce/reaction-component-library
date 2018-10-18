@@ -89,10 +89,32 @@ const BorderedWrapper = styled.div`
 
 const HorizontalList = styled.div`
   display: flex;
+  margin-top: 40px;
 `;
 
 const HorizontalWrapper = styled.div`
-  flex: 0 1 calc(50% - 10px);
+  border-left-color: ${applyTheme("SelectableList.borderColor")};
+  border-left-style: ${applyTheme("SelectableList.borderStyle")};
+  border-left-width: ${applyTheme("SelectableList.borderWidth")};
+  flex: 1 1 auto;
+  padding-bottom: ${applyTheme("SelectableList.horizontalItemPaddingBottom")};
+  padding-left: ${applyTheme("SelectableList.horizontalItemPaddingLeft")};
+  padding-right: ${applyTheme("SelectableList.horizontalItemPaddingRight")};
+  padding-top: ${applyTheme("SelectableList.horizontalItemPaddingTop")};
+
+  &:first-of-type {
+    border-left: none;
+    padding-right: ${applyTheme("SelectableList.horizontalFirstItemPaddingRight")};
+  }
+
+  &:last-of-type {
+    padding-left: ${applyTheme("SelectableList.horizontalLastItemPaddingLeft")};
+  }
+
+  div {
+    display: block;
+    height: auto;
+  }
 `;
 
 class SelectableList extends Component {
