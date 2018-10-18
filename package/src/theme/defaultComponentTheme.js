@@ -101,7 +101,7 @@ const rui_components = {
     warningMessagePaddingLeft: padding.twenty,
     warningMessagePaddingRight: padding.twenty,
     warningMessagePaddingTop: padding.fourteen,
-    spacingTop: "40px"
+    formSpacingTop: "40px"
   },
   BadgeOverlay: {
     fadedOpacity: "0.5"

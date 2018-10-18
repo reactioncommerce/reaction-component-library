@@ -89,7 +89,6 @@ const BorderedWrapper = styled.div`
 
 const HorizontalList = styled.div`
   display: flex;
-  margin-top: 40px;
 `;
 
 const HorizontalWrapper = styled.div`

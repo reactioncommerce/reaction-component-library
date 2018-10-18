@@ -21,6 +21,10 @@ const WarningMessage = styled.div`
   white-space: pre-wrap;
 `;
 
+const FormWrapper = styled.div`
+  margin-top: ${applyTheme("AddressReview.formSpacingTop")};
+`;
+
 const ENTERED = "entered";
 const SUGGESTED = "suggested";
 
@@ -96,6 +100,11 @@ class AddressReview extends Component {
 
   uniqueInstanceIdentifier = uniqueId("AddressReviewForm_");
 
+  get invalidAddressProperties() {
+    const { addressEntered, addressSuggestion } = this.props;
+    return Object.keys(addressEntered).filter((key) => (addressEntered[key] !== addressSuggestion[key] ? key : null));
+  }
+
   submit = () => this._form.submit();
 
   handleSubmit = (value) => {
@@ -119,7 +128,7 @@ class AddressReview extends Component {
     const options = [
       {
         id: `${ENTERED}_${this.uniqueInstanceIdentifier}`,
-        detail: <Address address={addressEntered} />,
+        detail: <Address address={addressEntered} invalidAddressProperties={this.invalidAddressProperties} />,
         label: "Entered Address:",
         value: ENTERED
       },
@@ -134,21 +143,23 @@ class AddressReview extends Component {
     return (
       <div className={className}>
         <WarningMessage>{warningMessage}</WarningMessage>
-        <Form
-          ref={(formEl) => {
-            this._form = formEl;
-          }}
-          onSubmit={onSubmit}
-        >
-          <SelectableList
-            isHorizontal
-            isStacked
-            options={options}
-            name="AddressReview"
-            value={value}
-            isReadOnly={isSaving}
-          />
-        </Form>
+        <FormWrapper>
+          <Form
+            ref={(formEl) => {
+              this._form = formEl;
+            }}
+            onSubmit={onSubmit}
+          >
+            <SelectableList
+              isHorizontal
+              isStacked
+              options={options}
+              name="AddressReview"
+              value={value}
+              isReadOnly={isSaving}
+            />
+          </Form>
+        </FormWrapper>
       </div>
     );
   }
