@@ -6,22 +6,6 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
-// TODO: make grid utiil
-// const Grid = styled.div`
-//   display: flex;
-//   flex-wrap: wrap;
-//   justify-content: space-between;
-//   padding: ${applyTheme("AddressReview.warningMessagePaddingLeft")};
-// `;
-
-// const ColHalf = styled.div`
-//   flex: 1 1 100%;
-
-//   @media (min-width: ${applyTheme("sm", "breakpoints")}px) {
-//     flex: 0 1 calc(50% - 9px);
-//   }
-// `;
-
 // component styles
 const WarningMessage = styled.div`
   ${addTypographyStyles("WarningMessage", "labelText")};
@@ -34,6 +18,7 @@ const WarningMessage = styled.div`
   padding-left: ${applyTheme("AddressReview.warningMessagePaddingLeft")};
   padding-right: ${applyTheme("AddressReview.warningMessagePaddingRight")};
   padding-top: ${applyTheme("AddressReview.warningMessagePaddingTop")};
+  white-space: pre-wrap;
 `;
 
 const ENTERED = "entered";
@@ -93,12 +78,18 @@ class AddressReview extends Component {
     /**
      * The selected address option
      */
-    value: PropTypes.string
+    value: PropTypes.string,
+    /**
+     * Warning message to display above the form
+     */
+    warningMessage: PropTypes.string
   };
 
   static defaultProps = {
     isSaving: false,
-    value: SUGGESTED
+    value: SUGGESTED,
+    // eslint-disable-next-line
+    warningMessage: `The address you entered may be incorrect or incomplete.\n\nPlease review our suggestion below, and choose which version you’d like to use. Errors are shown in red.`
   };
 
   _form = null;
@@ -121,7 +112,8 @@ class AddressReview extends Component {
       components: { Address, SelectableList },
       isSaving,
       onSubmit,
-      value
+      value,
+      warningMessage
     } = this.props;
 
     const options = [
@@ -141,14 +133,21 @@ class AddressReview extends Component {
 
     return (
       <div className={className}>
-        <WarningMessage>Dat address be wrong!</WarningMessage>
+        <WarningMessage>{warningMessage}</WarningMessage>
         <Form
           ref={(formEl) => {
             this._form = formEl;
           }}
           onSubmit={onSubmit}
         >
-          <SelectableList isHorizontal options={options} name="AddressReview" value={value} isReadOnly={isSaving} />
+          <SelectableList
+            isHorizontal
+            isStacked
+            options={options}
+            name="AddressReview"
+            value={value}
+            isReadOnly={isSaving}
+          />
         </Form>
       </div>
     );

@@ -24,5 +24,7 @@ const addressSuggestion = {
   phone: "(504) 393-7303"
 };
 
-<AddressReview {...{ addressEntered, addressSuggestion }} />
+<div style={{width: "550px"}} >
+  <AddressReview {...{ addressEntered, addressSuggestion }} />
+</div>
 ```
