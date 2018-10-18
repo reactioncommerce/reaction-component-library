@@ -122,8 +122,7 @@ exports[`basic snapshot with empty props 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
-  margin-top: 0;
-  margin-left: 0;
+  margin-left: 0 margin-top:0;
 }
 
 .c0 {

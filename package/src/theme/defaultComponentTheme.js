@@ -608,7 +608,9 @@ const rui_components = {
     horizontalItemPaddingRight: padding.twenty,
     horizontalItemPaddingTop: padding.twenty,
     horizontalFirstItemPaddingRight: "40px",
-    horizontalLastItemPaddingLeft: "40px"
+    horizontalLastItemPaddingLeft: "40px",
+    stackedSpacingToLabel: "30px",
+    stackedSpacingBelowLabel: "10px"
   },
   SelectMenu: {
     borderBottomColor: colors.black20,
