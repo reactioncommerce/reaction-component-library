@@ -77,8 +77,8 @@ const StyledDetail = styled.div`
   align-items: center;
   display: flex;
   justify-content: ${(props) => (props.isStacked ? "flex-start" : "center")};
-  margin-left: ${(props) => (props.isStacked ? applyTheme("SelectableList.stackedSpacingToLabel") : "0")}
-  margin-top: ${(props) => (props.isStacked ? applyTheme("SelectableList.stackedSpacingBelowLabel") : "0")};
+  margin-left: ${(props) => (props.isStacked ? applyTheme("SelectableList.stackedSpacingToLabel")(props) : "0")};
+  margin-top: ${(props) => (props.isStacked ? applyTheme("SelectableList.stackedSpacingBelowLabel")(props) : "0")};
 `;
 
 const StyledIcon = styled.span`
