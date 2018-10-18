@@ -6,10 +6,15 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const StyledLabel = styled.label`
-  ${addTypographyStyles("SelectableItemLabel", "labelText")}
   align-items: center;
   cursor: pointer;
   display: flex;
+  ${(props) => {
+    if (props.isStacked) {
+      return addTypographyStyles("SelectableItemLabel", "labelTextBold");
+    }
+    return addTypographyStyles("SelectableItemLabel", "labelText");
+  }}
 `;
 
 const StyledRadioButton = styled.span`
@@ -71,7 +76,9 @@ const StyledDetail = styled.div`
   ${addTypographyStyles("SelectableItemDetail", "bodyText")}
   align-items: center;
   display: flex;
-  justify-content: center;
+  justify-content: ${(props) => (props.isStacked ? "flex-start" : "center")};
+  margin-top: ${(props) => (props.isStacked ? "10px" : "0")};
+  margin-left: ${(props) => (props.isStacked ? "30px" : "0")}
 `;
 
 const StyledIcon = styled.span`
@@ -93,8 +100,9 @@ const StyledIcon = styled.span`
 
 const StyledItem = styled.div`
   display: flex;
-  justify-content: space-between;
-  height: ${applyTheme("SelectableList.height")};
+  justify-content: ${(props) => (props.isStacked ? "none" : "space-between")};
+  flex-direction: ${(props) => (props.isStacked ? "column" : "row")};
+  height:${(props) => (props.isStacked ? "inherit" : applyTheme("SelectableList.height"))};
   @media (max-width: 768px) {
     height: ${applyTheme("SelectableList.heightMobile")};
   }
@@ -146,6 +154,10 @@ class SelectableItem extends Component {
      */
     isReadOnly: PropTypes.bool,
     /**
+     * Stacked style, designed to be used with isHorizontal SelectableList
+     */
+    isStacked: PropTypes.bool,
+    /**
      * Label
      */
     label: PropTypes.string.isRequired,
@@ -164,7 +176,8 @@ class SelectableItem extends Component {
     onChange() { },
     isChecked: false,
     isLeftAligned: false,
-    isReadOnly: false
+    isReadOnly: false,
+    isStacked: false
   };
 
   uniqueInstanceIdentifier = uniqueId("SelectableItem_");
@@ -182,6 +195,7 @@ class SelectableItem extends Component {
       isChecked,
       isLeftAligned,
       isReadOnly,
+      isStacked,
       label,
       value
     } = this.props;
@@ -202,6 +216,7 @@ class SelectableItem extends Component {
     const labelAndButton = (
       <StyledLabel
         htmlFor={id}
+        isStacked={isStacked}
       >
         <StyledRadioButton />
         {icon ? <StyledIcon>{icon}</StyledIcon> : null}
@@ -212,17 +227,17 @@ class SelectableItem extends Component {
     return (
       <div className={className}>
         {isLeftAligned ?
-          <LeftAlignedItem>
+          <LeftAlignedItem isStacked={isStacked}>
             {input}
             {labelAndButton}
-            {detail ? <StyledDetail>{detail}</StyledDetail> : null}
-          </LeftAlignedItem >
+            {detail ? <StyledDetail isStacked={isStacked}>{detail}</StyledDetail> : null}
+          </LeftAlignedItem>
           :
-          <StyledItem>
+          <StyledItem isStacked={isStacked}>
             {input}
             {labelAndButton}
-            {detail ? <StyledDetail>{detail}</StyledDetail> : null}
-          </StyledItem >
+            {detail ? <StyledDetail isStacked={isStacked}>{detail}</StyledDetail> : null}
+          </StyledItem>
         }
       </div>
     );

@@ -2,6 +2,15 @@
 
 exports[`basic snapshot with empty props 1`] = `
 .c3 {
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-font-smoothing: antialiased;
   color: #505558;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -14,15 +23,6 @@ exports[`basic snapshot with empty props 1`] = `
   -ms-letter-spacing: .02em;
   letter-spacing: .02em;
   line-height: 1.25;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
 }
 
 .c5 {
@@ -122,6 +122,8 @@ exports[`basic snapshot with empty props 1`] = `
   -webkit-justify-content: center;
   -ms-flex-pack: center;
   justify-content: center;
+  margin-top: 0;
+  margin-left: 0;
 }
 
 .c0 {
@@ -133,6 +135,9 @@ exports[`basic snapshot with empty props 1`] = `
   -webkit-justify-content: space-between;
   -ms-flex-pack: justify;
   justify-content: space-between;
+  -webkit-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   height: 50px;
 }
 
