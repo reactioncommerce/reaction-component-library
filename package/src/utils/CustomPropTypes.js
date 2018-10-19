@@ -20,11 +20,7 @@ PropTypeError.prototype = Error.prototype;
 const optionsSyntax = PropTypes.arrayOf(PropTypes.shape({
   id: PropTypes.string,
   label: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.number,
-    PropTypes.bool
-  ]).isRequired
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
 }));
 
 // See https://github.com/facebook/prop-types/issues/200.
@@ -41,7 +37,7 @@ function getComponentValidator() {
       }
     } else if (!isValidElementType(val)) {
       return new PropTypeError(`Invalid ${location} '${propFullName}' supplied to ${componentName}. ` +
-        "Expected a string (for built-in components) or a class/function (for composite components).");
+          "Expected a string (for built-in components) or a class/function (for composite components).");
     }
     return null;
   }
@@ -51,7 +47,60 @@ function getComponentValidator() {
   return chainedCheckType;
 }
 
+// address proptype
+const addressSyntax = PropTypes.shape({
+  /**
+   * Address ID (not all addreses will have an ID)
+   */
+  _id: PropTypes.string,
+  /**
+   * Name identifier for address (example: "Mom's House", "Work")
+   */
+  addressName: PropTypes.string,
+  /**
+   * Street information for address
+   */
+  address1: PropTypes.string,
+  /**
+   * Additional street information for address
+   */
+  address2: PropTypes.string,
+  /**
+   * Country code for address
+   */
+  country: PropTypes.string,
+  /**
+   * City information for address
+   */
+  city: PropTypes.string,
+  /**
+   * User's name
+   */
+  fullName: PropTypes.string,
+  /**
+   * Is this address a commercial property
+   */
+  isCommercial: PropTypes.bool,
+  /**
+   * Postal code information for address
+   */
+  postal: PropTypes.string,
+  /**
+   * Region information for address
+   */
+  region: PropTypes.string,
+  /**
+   * User's associated phone number
+   */
+  phone: PropTypes.string
+});
+
+// address book proptype
+const addressBookSyntax = PropTypes.arrayOf(addressSyntax);
+
 export default {
+  address: addressSyntax,
+  addressBook: addressBookSyntax,
   component: getComponentValidator(),
   options: PropTypes.oneOfType([
     optionsSyntax,

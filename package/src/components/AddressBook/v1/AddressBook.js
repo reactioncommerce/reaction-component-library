@@ -88,7 +88,7 @@ class AddressBook extends Component {
       /**
        * Users saved addresses
        */
-      addressBook: PropTypes.arrayOf(PropTypes.object)
+      addressBook: CustomPropTypes.addressBook
     }),
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element

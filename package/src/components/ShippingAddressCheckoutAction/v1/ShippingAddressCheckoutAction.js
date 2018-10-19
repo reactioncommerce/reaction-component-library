@@ -33,7 +33,7 @@ class ShippingAddressCheckoutAction extends Component {
      */
     fulfillmentGroup: PropTypes.shape({
       data: PropTypes.shape({
-        shippingAddress: PropTypes.object
+        shippingAddress: CustomPropTypes.address
       })
     }),
     /**
