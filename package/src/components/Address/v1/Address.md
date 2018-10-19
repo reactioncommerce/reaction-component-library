@@ -101,15 +101,16 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 
 | Theme Prop           | Default | Description                                                                              |
 | -------------------- | ------- | ---------------------------------------------------------------------------------------- |
-| `Address.addressPropertyErrorBorderColor` | yellow400   | Warning message border color |
-| `Address.addressPropertyErrorBorderStyle` | solid   | Warning message border style |
-| `Address.addressPropertyErrorBorderWidth` | 1px   | Warning message border width |
-| `Address.addressPropertyErrorBackgroundColor` | yellow100   | Warning message background color |
-| `Address.addressPropertyErrorColor` | yellow600  | Warning message color |
-| `Address.addressPropertyErrorPaddingBottom` | 14px   | Warning message bottom padding |
-| `Address.addressPropertyErrorPaddingLeft` | 20px   | Warning message left padding |
-| `Address.addressPropertyErrorPaddingRight` | 20px   | Warning message right padding |
-| `Address.addressPropertyErrorPaddingTop` | 14px   | Warning message top padding |
+| `Address.addressPropertyErrorBorderColor` | red400   | Address property error border color |
+| `Address.addressPropertyErrorBorderRadius` | 2px | Address property error border radius |
+| `Address.addressPropertyErrorBorderStyle` | solid   | Address property error border style |
+| `Address.addressPropertyErrorBorderWidth` | 1px   | Address property error border width |
+| `Address.addressPropertyErrorBackgroundColor` | red100   | Address property error background color |
+| `Address.addressPropertyErrorColor` | red400  | Address property error color |
+| `Address.addressPropertyErrorPaddingBottom` | 0   | Address property error bottom padding |
+| `Address.addressPropertyErrorPaddingLeft` | padding.four   | Address property error left padding |
+| `Address.addressPropertyErrorPaddingRight` | padding.four   | Address property error right padding |
+| `Address.addressPropertyErrorPaddingTop` | 0  | Address property error top padding |
 
 #### Typography
 

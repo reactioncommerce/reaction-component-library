@@ -23,7 +23,7 @@ test("basic snapshot with required props", () => {
 });
 
 test("basic snapshot with is flat prop", () => {
-  const component = renderer.create(<Address address={mockAddress} isflat />);
+  const component = renderer.create(<Address address={mockAddress} isFlat />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
