@@ -419,6 +419,7 @@ module.exports = {
             "Checkbox",
             "ErrorsBlock",
             "Field",
+            "InlineAlert",
             "PhoneNumberInput",
             "QuantityInput",
             "Select",
