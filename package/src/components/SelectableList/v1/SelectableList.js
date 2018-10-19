@@ -156,7 +156,6 @@ class SelectableList extends Component {
      * Adds styles and blocks users from selecting items
      */
     isReadOnly: PropTypes.bool,
-    isStacked: PropTypes.bool,
     /**
      * An extra row at the bottom of the list for an action, like Add an address
      */
@@ -176,31 +175,29 @@ class SelectableList extends Component {
     /**
      * Options, an Array of SelectableItems
      */
-    options: PropTypes.arrayOf(
-      PropTypes.shape({
-        /**
+    options: PropTypes.arrayOf(PropTypes.shape({
+      /**
          * Optional text, SVG or element displayed on the right-hand side
          */
-        detail: PropTypes.node,
-        /**
+      detail: PropTypes.node,
+      /**
          * Optional icon (SVG) displayed on the left-hand side
          */
-        icon: PropTypes.node,
-        /**
+      icon: PropTypes.node,
+      /**
          * The item ID. Each option must have a unique ID
          */
-        id: PropTypes.string.isRequired,
-        /**
+      id: PropTypes.string.isRequired,
+      /**
          * Label
          */
-        label: PropTypes.string.isRequired,
-        /**
+      label: PropTypes.string.isRequired,
+      /**
          * Value of this option, which will be the value passed back from SelectableList if
          * this option is selected.
          */
-        value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
-      })
-    ).isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
+    })).isRequired,
     /**
      * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
      * the Composable Forms spec will pass this automatically.
@@ -224,13 +221,13 @@ class SelectableList extends Component {
     };
   }
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillMount() {
-    // eslint-disable-line camelcase
     this.handleChange(this.props.value || "");
   }
 
+  // eslint-disable-next-line camelcase
   UNSAFE_componentWillReceiveProps(nextProps) {
-    // eslint-disable-line camelcase
     const { value } = this.props;
     const { value: nextValue } = nextProps;
 
@@ -327,7 +324,7 @@ class SelectableList extends Component {
   }
 
   renderHorizontalList() {
-    const { options, listAction, isStacked, isReadOnly, components: { SelectableItem } } = this.props;
+    const { options, listAction, isHorizontal, isReadOnly, components: { SelectableItem } } = this.props;
     return (
       <HorizontalList>
         {options.map((option) => (
@@ -336,7 +333,7 @@ class SelectableList extends Component {
               detail={option.detail}
               icon={option.icon}
               isChecked={option.value === this.state.value}
-              isStacked={isStacked}
+              isStacked={isHorizontal}
               isReadOnly={isReadOnly}
               label={option.label}
               onChange={this.onChange}
@@ -353,9 +350,10 @@ class SelectableList extends Component {
     const { className, isBordered, isHorizontal } = this.props;
     return (
       <div className={className}>
-        {isHorizontal
-          ? this.renderHorizontalList()
-          : isBordered ? this.renderBorderedList() : this.renderVerticalList()}
+        {// eslint-disable-next-line
+          isHorizontal
+            ? this.renderHorizontalList()
+            : isBordered ? this.renderBorderedList() : this.renderVerticalList()}
       </div>
     );
   }

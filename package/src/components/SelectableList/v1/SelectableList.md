@@ -111,6 +111,27 @@ const options = [{
 <SelectableList isLeftAligned options={options} value="standard" name="LeftAlignedBorderedForm"/>
 ```
 
+#### Horizontal
+
+Pass the `isHorizontal` prop to get a horizontal list:
+
+```jsx
+const options = [{
+  id: "331",
+  label: "Standard (5-9 days)",
+  detail: "Free",
+  value: "standard"
+},
+{
+  id: "232",
+  label: "Priority (3-5 days)",
+  value: "priority",
+  detail: "$5.99"
+}];
+
+<SelectableList isHorizontal options={options} name="HorizontalForm" value="standard"/>
+```
+
 ### Examples
 
 #### Shipping address list
@@ -233,6 +254,12 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 | `SelectableList.itemPaddingTop`                  | 0                          | Top padding for each item                                  |
 | `SelectableList.leftAlignedLabelFontWeight`      | 700                        | Font weight for the label when `isLeftAligned`             |
 | `SelectableList.leftAlignedDetailSpacingToLabel` | 2px                        | Spacing between label and detail text when `isLeftAligned` |
+| `SelectableList.horizontalItemPaddingBottom` | 20px                        | Item bottom padding when `isHorizontal` |
+| `SelectableList.horizontalItemPaddingLeft` | 20px                        | Item left padding when `isHorizontal` |
+| `SelectableList.horizontalItemPaddingRight` | 20px                        | Item right padding when `isHorizontal` |
+| `SelectableList.horizontalItemPaddingTop` | 20px                        | Item top padding when `isHorizontal` |
+| `SelectableList.horizontalFirstItemPaddingRight` | 40px                        | First item right padding when `isHorizontal` |
+| `SelectableList.horizontalLastItemPaddingLeft` | 40px                        | Last item left padding when `isHorizontal` |
 
 #### Typography
 
