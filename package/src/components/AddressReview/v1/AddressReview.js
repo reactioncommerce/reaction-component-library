@@ -100,13 +100,38 @@ class AddressReview extends Component {
 
   uniqueInstanceIdentifier = uniqueId("AddressReviewForm_");
 
+  /**
+   *
+   * @name submit
+   * @summary Instance method that submits the form, this allows a parent component access to the Form submit event.
+   * @return {Undefined} - Nothing
+   */
+  submit = () => {
+    this._form.submit();
+  };
+
+  /**
+   *
+   * @name invalidAddressProperties
+   * @summary Creates an array of invalid address property keys.
+   * @return {Array} - `["address1", "postal"]`
+   */
   get invalidAddressProperties() {
     const { addressEntered, addressSuggestion } = this.props;
-    return Object.keys(addressEntered).filter((key) => (addressEntered[key] !== addressSuggestion[key] ? key : null));
+    return (
+      addressEntered &&
+      Object.keys(addressEntered).filter((key) => (addressEntered[key] !== addressSuggestion[key] ? key : null))
+    );
   }
 
-  submit = () => this._form.submit();
-
+  /**
+   *
+   * @name handleSubmit
+   * @summary Form `onSubmit` callback that check the submitted value
+   * and passes the correct address object to the `props.onSubmit` function.
+   * @param {String} value - "entered" or "seggested"
+   * @return {Undefined} - Nothing
+   */
   handleSubmit = (value) => {
     const { addressEntered, addressSuggestion, onSubmit } = this.props;
     const selectedAddress = value === ENTERED ? addressEntered : addressSuggestion;
@@ -120,7 +145,6 @@ class AddressReview extends Component {
       className,
       components: { Address, SelectableList },
       isSaving,
-      onSubmit,
       value,
       warningMessage
     } = this.props;
@@ -148,7 +172,7 @@ class AddressReview extends Component {
             ref={(formEl) => {
               this._form = formEl;
             }}
-            onSubmit={onSubmit}
+            onSubmit={this.handleSubmit}
           >
             <SelectableList
               isHorizontal

@@ -26,12 +26,25 @@ const mockAddressSuggestion = {
   phone: "(504) 393-7303"
 };
 
-test("basic snapshot", () => {
+test("basic snapshot with only required props", () => {
   const component = renderer.create(<AddressReview
     addressEntered={mockAddressEntered}
-    addressSugestion={mockAddressSuggestion}
+    addressSuggestion={mockAddressSuggestion}
     components={mockComponents}
-  />);
+                                    />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("basic snapshot with all props", () => {
+  const component = renderer.create(<AddressReview
+    addressEntered={mockAddressEntered}
+    addressSuggestion={mockAddressSuggestion}
+    components={mockComponents}
+    value="entered"
+    warningMessage="Something is wrong"
+                                    />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
