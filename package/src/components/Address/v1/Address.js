@@ -1,7 +1,7 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
+import { addressToString, applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const AddressElement = styled.address`
   ${addTypographyStyles("Address", "bodyText")};
@@ -21,49 +21,85 @@ const AddressPropertyError = styled.span`
   padding-top: ${applyTheme("Address.addressPropertyErrorPaddingTop")};
 `;
 
+const ADDRESS_ORDER = ["fullName", "address1", "address2", "city", "region", "postal", "country"];
+
 class Address extends Component {
   static propTypes = {
     /**
-     * Address data
+     * Address object to render
      */
     address: CustomPropTypes.address.isRequired,
+    /**
+     * Order of `address` properties
+     */
+    addressOrder: PropTypes.arrayOf(PropTypes.string),
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
      */
     className: PropTypes.string,
-    invalidAddressProperties: PropTypes.arrayOf(PropTypes.string)
+    /**
+     * Array of invalid address property keys
+     */
+    invalidAddressProperties: PropTypes.arrayOf(PropTypes.string),
+    /**
+     * Render the address as a flat string.
+     */
+    isFlat: PropTypes.bool
   };
 
   static defaultProps = {
-    invalidAddressProperties: []
+    addressOrder: ADDRESS_ORDER,
+    invalidAddressProperties: [],
+    isFlat: false
   };
 
-  renderAddressProperty(key, value) {
-    const { invalidAddressProperties } = this.props;
-    const invalid = invalidAddressProperties.includes(key);
-    return invalid ? <AddressPropertyError>{value}</AddressPropertyError> : value;
-  }
+  /**
+   *
+   * @name renderAddressProperty
+   * @summary Renders each address object property
+   * @param {String} key - Address property key
+   * @return {String|Element|null} -  value string, `<span />` with value string or `null`
+   */
+  renderAddressProperty = (key) => {
+    const { address, invalidAddressProperties } = this.props;
+
+    // Skip empty address values
+    if (!address[key]) return null;
+
+    // Is the address property invalid?
+    const isInvalid = invalidAddressProperties.includes(key);
+    const addressProp = isInvalid ? <AddressPropertyError>{address[key]}</AddressPropertyError> : address[key];
+
+    // Formating the address
+    let addressElement;
+    switch (key) {
+      case "city":
+        addressElement = <Fragment>{addressProp}, </Fragment>;
+        break;
+      case "country":
+        addressElement = addressProp;
+        break;
+      case "region":
+        addressElement = <Fragment>{addressProp} </Fragment>;
+        break;
+      default:
+        addressElement = (
+          <Fragment>
+            {addressProp} <br />
+          </Fragment>
+        );
+    }
+
+    return <Fragment key={key}>{addressElement}</Fragment>;
+  };
 
   render() {
-    const { address, className } = this.props;
-
+    const { address, addressOrder, className, isFlat } = this.props;
     return (
       <AddressElement className={className}>
-        {this.renderAddressProperty("fullName", address.fullName)}
-        <br />
-        {this.renderAddressProperty("address1", address.address1)}
-        <br />
-        {address.address2 !== null && address.address2 !== "" ? (
-          <span>
-            {this.renderAddressProperty("address2", address.address2)}
-            <br />
-          </span>
-        ) : null}
-        {this.renderAddressProperty("city", address.city)}, {this.renderAddressProperty("region", address.region)}{" "}
-        {this.renderAddressProperty("postal", address.postal)} <br />
-        {this.renderAddressProperty("country", address.country)}
+        {isFlat ? addressToString(address) : addressOrder.map(this.renderAddressProperty)}
       </AddressElement>
     );
   }

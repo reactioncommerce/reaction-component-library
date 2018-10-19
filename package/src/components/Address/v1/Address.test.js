@@ -15,8 +15,33 @@ const mockAddress = {
   phone: "(504) 393-7303"
 };
 
-test("basic snapshot", () => {
+test("basic snapshot with required props", () => {
   const component = renderer.create(<Address address={mockAddress} />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("basic snapshot with is flat prop", () => {
+  const component = renderer.create(<Address address={mockAddress} isflat />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("basic snapshot with address order prop", () => {
+  const addressOrder = ["fullName", "phone"];
+  const address = mockAddress;
+  const component = renderer.create(<Address {...{ address, addressOrder }} />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("basic snapshot with invalid address properties prop", () => {
+  const invalidAddressProperties = ["country", "address1"];
+  const address = mockAddress;
+  const component = renderer.create(<Address {...{ address, invalidAddressProperties }} />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
