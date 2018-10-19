@@ -31,7 +31,7 @@ test("basic snapshot with only required props", () => {
     addressEntered={mockAddressEntered}
     addressSuggestion={mockAddressSuggestion}
     components={mockComponents}
-                                    />);
+  />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
@@ -44,7 +44,7 @@ test("basic snapshot with all props", () => {
     components={mockComponents}
     value="entered"
     warningMessage="Something is wrong"
-                                    />);
+  />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
