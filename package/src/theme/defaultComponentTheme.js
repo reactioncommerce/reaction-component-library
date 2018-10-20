@@ -435,6 +435,28 @@ const rui_components = {
     summaryWrapperPaddingRight: padding.sixteen,
     summaryWrapperPaddingTop: 0
   },
+  InlineAlert: {
+    backgroundColor_error: colors.red100,
+    backgroundColor_information: colors.reactionBlue100,
+    backgroundColor_success: colors.forestGreen100,
+    backgroundColor_warning: colors.yellow100,
+    borderColor_error: colors.red,
+    borderColor_information: colors.reactionBlue,
+    borderColor_success: colors.forestGreen,
+    borderColor_warning: colors.yellow500,
+    borderWidth: "2px",
+    borderStyle: "solid",
+    borderRadius: standardBorderRadius,
+    color_error: colors.red600,
+    color_information: colors.reactionBlue500,
+    color_success: colors.forestGreen600,
+    color_warning: colors.yellow600,
+    paddingBottom: padding.fifteen,
+    paddingLeft: padding.fifteen,
+    paddingRight: padding.fifteen,
+    paddingTop: padding.fifteen
+
+  },
   InPageMenuItemContainer: {
     backgroundColor_default: colors.black05,
     backgroundColor_selected: colors.reactionBlue100,
