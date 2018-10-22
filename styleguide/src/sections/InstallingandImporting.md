@@ -92,6 +92,7 @@ export default {
   ErrorsBlock,
   Field,
   iconClear,
+  iconDismiss,
   iconError,
   iconExpand,
   iconPlus,
