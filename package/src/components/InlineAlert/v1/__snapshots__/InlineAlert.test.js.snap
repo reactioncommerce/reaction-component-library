@@ -21,6 +21,7 @@ exports[`basic error snapshot 1`] = `
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 15px;
+  position: relative;
   white-space: pre-wrap;
   color: #3c1f21;
   background-color: #ffeeef;
@@ -76,6 +77,7 @@ exports[`basic information snapshot 1`] = `
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 15px;
+  position: relative;
   white-space: pre-wrap;
   color: #285268;
   background-color: #ecf8fe;
@@ -131,6 +133,7 @@ exports[`basic snapshot without title 1`] = `
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 15px;
+  position: relative;
   white-space: pre-wrap;
   color: #7a6322;
   background-color: #fcf3dc;
@@ -165,6 +168,7 @@ exports[`basic success snapshot 1`] = `
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 15px;
+  position: relative;
   white-space: pre-wrap;
   color: #1e4035;
   background-color: #dcfaf1;
@@ -220,6 +224,7 @@ exports[`basic warning snapshot 1`] = `
   padding-left: 15px;
   padding-right: 15px;
   padding-top: 15px;
+  position: relative;
   white-space: pre-wrap;
   color: #7a6322;
   background-color: #fcf3dc;

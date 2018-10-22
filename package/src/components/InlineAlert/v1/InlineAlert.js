@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
+import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, addTypographyStyles } from "../../../utils";
 
 const StyledDiv = styled.div`
@@ -12,6 +13,7 @@ const StyledDiv = styled.div`
   padding-left: ${applyTheme("InlineAlert.paddingLeft")};
   padding-right: ${applyTheme("InlineAlert.paddingRight")};
   padding-top: ${applyTheme("InlineAlert.paddingTop")};
+  position: relative;
   white-space: pre-wrap;
   ${(props) => {
     const { alertType } = props;
@@ -48,7 +50,19 @@ const StyledDiv = styled.div`
 const StyledTitle = styled.div`
   ${addTypographyStyles("InlineAlert", "bodyTextSemiBold")};
   padding-bottom: 10px;
-`;
+  `;
+
+const StyledDismissButton = styled.button`
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  height: 16px;
+  padding: 0;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 16px;
+  `;
 
 class InlineAlert extends Component {
   static propTypes = {
@@ -70,7 +84,15 @@ class InlineAlert extends Component {
      * single spot, you can pass in the components prop directly.
      */
     components: PropTypes.shape({
+      /**
+       * Pass an element (e.g., rendered SVG) to use as the Dismiss/Close icon
+       */
+      iconDismiss: PropTypes.node
     }).isRequired,
+    /**
+     * isDismissable: Display a Close/Dismiss button
+     */
+    isDismissable: PropTypes.bool,
     /**
      * Alert message
      */
@@ -82,19 +104,22 @@ class InlineAlert extends Component {
   };
 
   static defaultProps = {
-
+    isDismissable: false
   };
 
   render() {
-    const { alertType, className, message, title } = this.props;
+    const { alertType, className, components, isDismissable, message, title } = this.props;
+    const { iconDismiss } = components || {};
 
     return (
       <StyledDiv className={className} alertType={alertType}>
         {title ? <StyledTitle>{title}</StyledTitle> : null}
+        {isDismissable ? <StyledDismissButton type="button" aria-label="close">{iconDismiss}</StyledDismissButton> : null}
         {message}
       </StyledDiv>
     );
   }
 }
+const WrappedInlineAlert = withComponents(InlineAlert);
 
-export default InlineAlert;
+export default WrappedInlineAlert;

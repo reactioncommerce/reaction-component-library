@@ -3,12 +3,16 @@
 Inline alerts are used to give action-based feedback messages and convey critical or informational account-related messages. Use inline alerts when a user needs more detailed information for an action.
 
 ```jsx noeditor
+const iconComponents = {
+  iconDismiss: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /><path d="M0 0h24v24H0z" fill="none" /></svg>
+};
+
 <div style={{display: "flex", flexDirection: "column"}}>
    <div style={{margin: "10px 0"}}>
         <InlineAlert alertType="warning" message="Card ending in 0000 is expiring soon."/>
     </div>
    <div style={{margin: "10px 0"}}>
-        <InlineAlert alertType="information" title="Release 3.1 is now available" message="Reaction Platform has a new update. Read the release notes here."/>
+        <InlineAlert isDismissable components={iconComponents} alertType="information" title="Release 3.1 is now available" message="Reaction Platform has a new update. Read the release notes here."/>
     </div>
    <div style={{margin: "10px 0"}}>
         <InlineAlert alertType="success" title="CSV imported successfully" message="Your jobs have been added to the queue."/>
