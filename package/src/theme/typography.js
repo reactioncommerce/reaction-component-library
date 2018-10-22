@@ -3,6 +3,7 @@ import colors from "./colors";
 export const fontFamily = "'Source Sans Pro', 'Helvetica Neue', Helvetica, sans-serif";
 const fontWeightRegular = 400;
 const fontWeightBold = 700;
+const fontWeightSemiBold = 600;
 
 const bodyTextColor = colors.coolGrey500;
 const captionTextColor = colors.black30;
@@ -78,6 +79,15 @@ export default {
     fontSize: "16px",
     fontStyle: "normal",
     fontWeight: fontWeightBold,
+    letterSpacing: ".03em",
+    lineHeight: "1.5"
+  },
+  bodyTextSemiBold: {
+    color: bodyTextColor,
+    fontFamily,
+    fontSize: "16px",
+    fontStyle: "normal",
+    fontWeight: fontWeightSemiBold,
     letterSpacing: ".03em",
     lineHeight: "1.5"
   },

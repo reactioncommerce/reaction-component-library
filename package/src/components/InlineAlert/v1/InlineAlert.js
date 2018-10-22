@@ -46,7 +46,7 @@ const StyledDiv = styled.div`
   }} `;
 
 const StyledTitle = styled.div`
-  ${addTypographyStyles("InlineAlert", "bodyTextBold")};
+  ${addTypographyStyles("InlineAlert", "bodyTextSemiBold")};
   padding-bottom: 10px;
 `;
 
