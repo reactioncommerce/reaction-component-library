@@ -78,27 +78,27 @@ All alerts:
 
 Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
 
-| Theme Prop                                | Default                      | Description                                 |
-| ----------------------------------------- | ---------------------------- | ------------------------------------------- |
-| `InlineAlert.borderRadius`                | 2px                          | Alert border radius size                    |
-| `InlineAlert.borderStyle`                 | solid                        | Alert border style                          |
-| `InlineAlert.borderWidth`                 | 2px                          | Alert border width size                     |
-| `InlineAlert.paddingBottom`               | 15px                         | Alert padding bottom                        |
-| `InlineAlert.paddingLeft`                 | 15px                         | Alert padding left                          |
-| `InlineAlert.paddingRight`                | 15px                         | Alert padding right                         |
-| `InlineAlert.paddingTop`                  | 15px                         | Alert padding top                           |
-| `InlineAlert.color_error`                 | red600                       | Message color for error alert type          |
-| `InlineAlert.backgroundColor_error`       | red100, 50% opacity          | Background color for error alert type       |
-| `InlineAlert.borderColor_error`           | red, 25% opacity             | Border color for error alert type           |
-| `InlineAlert.color_information`           | reactionBlue600              | Message color for information alert type    |
-| `InlineAlert.backgroundColor_information` | reactionBlue100, 50% opacity | Background color for information alert type |
-| `InlineAlert.borderColor_information`     | reactionBlue, 25% opacity    | Border color for information alert type     |
-| `InlineAlert.color_success`               | forestGreen600               | Message color for success alert type        |
-| `InlineAlert.backgroundColor_success`     | forestGreen100, 50% opacity  | Background color for success alert type     |
-| `InlineAlert.borderColor_success`         | forestGreen, 25% opacity     | Border color for success alert type         |
-| `InlineAlert.color_warning`               | yellow600                    | Message color for warning alert type        |
-| `InlineAlert.backgroundColor_warning`     | yellow100, 50% opacity       | Background color for warning alert type     |
-| `InlineAlert.borderColor_warning`         | yellow500, 25% opacity       | Border color for warning alert type         |
+| Theme Prop                                | Default                | Description                                 |
+| ----------------------------------------- | ---------------------- | ------------------------------------------- |
+| `InlineAlert.borderRadius`                | 2px                    | Alert border radius size                    |
+| `InlineAlert.borderStyle`                 | solid                  | Alert border style                          |
+| `InlineAlert.borderWidth`                 | 2px                    | Alert border width size                     |
+| `InlineAlert.paddingBottom`               | 15px                   | Alert padding bottom                        |
+| `InlineAlert.paddingLeft`                 | 15px                   | Alert padding left                          |
+| `InlineAlert.paddingRight`                | 15px                   | Alert padding right                         |
+| `InlineAlert.paddingTop`                  | 15px                   | Alert padding top                           |
+| `InlineAlert.color_error`                 | red600                 | Message color for error alert type          |
+| `InlineAlert.backgroundColor_error`       | redBackground          | Background color for error alert type       |
+| `InlineAlert.borderColor_error`           | redBorder              | Border color for error alert type           |
+| `InlineAlert.color_information`           | reactionBlue600        | Message color for information alert type    |
+| `InlineAlert.backgroundColor_information` | reactionBlueBackground | Background color for information alert type |
+| `InlineAlert.borderColor_information`     | reactionBlueBorder     | Border color for information alert type     |
+| `InlineAlert.color_success`               | forestGreen600         | Message color for success alert type        |
+| `InlineAlert.backgroundColor_success`     | forestGreenBackground  | Background color for success alert type     |
+| `InlineAlert.borderColor_success`         | forestGreenBorder      | Border color for success alert type         |
+| `InlineAlert.color_warning`               | yellow600              | Message color for warning alert type        |
+| `InlineAlert.backgroundColor_warning`     | yellowBackground       | Background color for warning alert type     |
+| `InlineAlert.borderColor_warning`         | yellow500Border        | Border color for warning alert type         |
 
 #### Typography
 
