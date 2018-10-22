@@ -14,6 +14,17 @@ const viewer = {
 <AccountProfileInfo viewer={viewer} />
 ```
 
+#### With `firstName` only
+```jsx
+const viewer = {
+  firstName: "John",
+  primaryEmailAddress: "john@doe.com",
+  profileImage: "https://www.gravatar.com/avatar/00000000000000000000000000000000?d=identicon&f=y"
+};
+
+<AccountProfileInfo viewer={viewer} />
+```
+
 #### With initials (when profileImage is null)
 ```jsx
 const viewer = {

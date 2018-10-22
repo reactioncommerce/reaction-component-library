@@ -374,6 +374,10 @@ module.exports = {
         {
           name: "Theming Components",
           content: "styleguide/src/sections/ThemingComponents.md"
+        },
+        {
+          name: "Understanding Component References",
+          content: "styleguide/src/sections/ComponentsContext.md"
         }
       ]
     },
