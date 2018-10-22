@@ -28,7 +28,7 @@ In your HTML:
 
 ```html
 // Font for display type
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700" rel="stylesheet">
 ```
 
 ## SVGs
