@@ -24,21 +24,20 @@ Most components in this library do not directly import other components in this 
 
 Component injection also allows you to, for example, use a Button component from another library while still using any of our components that render buttons for you.
 
-Check out the [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context) package documentation for details about how to provide this context. To get started quickly, you may start by using the following object as the `value` of your app's `ComponentsProvider`.
+Check out the [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context) package documentation for details about how to provide this context. To get started quickly, you may start by using the following object as the `value` of your app's `ComponentsProvider`. However, we recommend that you remove the imports for any components that aren't used by the components you use. (Refer to `components` prop documentation for each component you use.)
 
 ```jsx static
-import React from "react";
-import iconClear from "@reactioncommerce/svg/iconClear";
-import iconError from "@reactioncommerce/svg/iconError";
-import iconValid from "@reactioncommerce/svg/iconValid";
-import iconExpand from "@reactioncommerce/svg/iconExpand";
-import iconPlus from "@reactioncommerce/svg/iconPlus";
-import iconAmericanExpress from "@reactioncommerce/svg/iconAmericanExpress";
-import iconDiscover from "@reactioncommerce/svg/iconDiscover";
-import iconLock from "@reactioncommerce/svg/iconLock";
-import iconMastercard from "@reactioncommerce/svg/iconMastercard";
-import iconVisa from "@reactioncommerce/svg/iconVisa";
-import spinner from "@reactioncommerce/svg/spinner";
+import iconClear from "@reactioncommerce/components/svg/iconClear";
+import iconError from "@reactioncommerce/components/svg/iconError";
+import iconValid from "@reactioncommerce/components/svg/iconValid";
+import iconExpand from "@reactioncommerce/components/svg/iconExpand";
+import iconPlus from "@reactioncommerce/components/svg/iconPlus";
+import iconAmericanExpress from "@reactioncommerce/components/svg/iconAmericanExpress";
+import iconDiscover from "@reactioncommerce/components/svg/iconDiscover";
+import iconLock from "@reactioncommerce/components/svg/iconLock";
+import iconMastercard from "@reactioncommerce/components/svg/iconMastercard";
+import iconVisa from "@reactioncommerce/components/svg/iconVisa";
+import spinner from "@reactioncommerce/components/svg/spinner";
 import Accordion from "@reactioncommerce/components/Accordion/v1";
 import AddressBook from "@reactioncommerce/components/AddressBook/v1";
 import AddressForm from "@reactioncommerce/components/AddressForm/v1";
