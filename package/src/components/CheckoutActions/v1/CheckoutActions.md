@@ -64,6 +64,28 @@ const actions = [
 ```
 
 ```jsx
+const addressEntered = {
+  address1: "7742 Hwy 25",
+  address2: "",
+  country: "US",
+  city: "Belle Chasse",
+  fullName: "Salvos Seafood",
+  postal: "70047",
+  region: "LA",
+  phone: "(504) 393-7303"
+};
+
+const addressSuggestion = {
+  address1: "7742 Hwy 23",
+  address2: "",
+  country: "US",
+  city: "Belle Chasse",
+  fullName: "Salvos Seafood",
+  postal: "70037",
+  region: "LA",
+  phone: "(504) 393-7303"
+};
+
 const fulfillmentGroups = [{
   _id: 1,
   type: "shipping",
@@ -298,6 +320,11 @@ class CheckoutActionsExample extends React.Component {
         component: ShippingAddressCheckoutAction,
         onSubmit: this.setShippingAddress,
         props:  {
+          addressValidationResults: {
+            submittedAddress: addressEntered,
+            suggestedAddresses: [addressSuggestion],
+            validationErrors: []
+          },
           fulfillmentGroup: checkout.fulfillmentGroups[0]
         }
       },
