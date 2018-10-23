@@ -5,15 +5,19 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const Title = styled.h3`
-  ${addTypographyStyles("ShippingAddressCheckoutActionTitle", "subheadingTextBold")}
+  ${addTypographyStyles("ShippingAddressCheckoutActionTitle", "subheadingTextBold")};
 `;
 
 const Address = styled.address`
-  ${addTypographyStyles("ShippingAddressCheckoutActionAddress", "bodyText")}
+  ${addTypographyStyles("ShippingAddressCheckoutActionAddress", "bodyText")};
 `;
+
+const ENTRY = "entry";
+const REVIEW = "review";
 
 class ShippingAddressCheckoutAction extends Component {
   static propTypes = {
+    addressValidationResults: PropTypes.object,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -26,7 +30,12 @@ class ShippingAddressCheckoutAction extends Component {
        * Pass either the Reaction AddressForm component or your own component that
        * accepts compatible props.
        */
-      AddressForm: CustomPropTypes.component.isRequired
+      AddressForm: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction AddressReview component or your own component that
+       * accepts compatible props.
+       */
+      AddressReview: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Checkout data needed for form
@@ -67,12 +76,42 @@ class ShippingAddressCheckoutAction extends Component {
     onReadyForSaveChange() {}
   };
 
-  state = {};
+  state = {
+    status: !this.hasShippingAddressOnCart && this.hasValidationResults ? REVIEW : ENTRY
+  };
 
-  _addressForm = null;
+  get hasShippingAddressOnCart() {
+    const { fulfillmentGroup } = this.props;
+    return !!(fulfillmentGroup && fulfillmentGroup.data.shippingAddress);
+  }
+
+  get hasValidationResults() {
+    const { addressValidationResults } = this.props;
+    return !!(
+      addressValidationResults &&
+      addressValidationResults.suggestedAddresses.length &&
+      addressValidationResults.submittedAddress
+    );
+  }
+
+  get isReady() {
+    return false;
+  }
+
+  componentDidMount() {
+    const { status } = this.state;
+    if (!this.isReady && status === REVIEW) this.ready();
+  }
+
+  _form = null;
 
   submit = () => {
-    this._addressForm.submit();
+    this._form.submit();
+  };
+
+  ready = () => {
+    const { onReadyForSaveChange } = this.props;
+    onReadyForSaveChange(true);
   };
 
   handleSubmit = async (value) => {
@@ -81,28 +120,52 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   handleChange = (values) => {
-    const { onReadyForSaveChange } = this.props;
     const isFilled = Object.keys(values).every((key) => (key === "address2" ? true : values[key] !== null));
-    onReadyForSaveChange(isFilled);
+    if (isFilled) this.ready();
   };
 
-  render() {
-    const { components: { AddressForm }, fulfillmentGroup, isSaving, label, stepNumber } = this.props;
+  renderAddressReview() {
+    const {
+      addressValidationResults: { submittedAddress, suggestedAddresses },
+      components: { AddressReview }
+    } = this.props;
+    return (
+      <AddressReview
+        ref={(formEl) => {
+          this._form = formEl;
+        }}
+        addressEntered={submittedAddress}
+        addressSuggestion={suggestedAddresses[0]}
+        onSubmit={this.handleSubmit}
+      />
+    );
+  }
+
+  renderAddressForm() {
+    const { components: { AddressForm }, fulfillmentGroup, isSaving } = this.props;
     const shippingAddress = fulfillmentGroup ? fulfillmentGroup.data.shippingAddress : null;
+    return (
+      <AddressForm
+        ref={(formEl) => {
+          this._form = formEl;
+        }}
+        isSaving={isSaving}
+        onChange={this.handleChange}
+        onSubmit={this.handleSubmit}
+        value={shippingAddress}
+      />
+    );
+  }
+
+  render() {
+    const { label, stepNumber } = this.props;
+    const { status } = this.state;
     return (
       <Fragment>
         <Title>
           {stepNumber}. {label}
         </Title>
-        <AddressForm
-          ref={(formEl) => {
-            this._addressForm = formEl;
-          }}
-          isSaving={isSaving}
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-          value={shippingAddress}
-        />
+        {status === REVIEW ? this.renderAddressReview() : this.renderAddressForm()}
       </Fragment>
     );
   }
