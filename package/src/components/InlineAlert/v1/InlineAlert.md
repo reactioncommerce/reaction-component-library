@@ -33,7 +33,7 @@ Inline alerts should guide the user into taking corrective action if necessary. 
 
 User should be able to dismiss inline alerts when appropriate. Information and success alerts can close automaticallly after 10 seconds. Error alerts should be persistent, and close only when action is resolved.
 
-### Types
+### Alert Types
 
 All alerts:
 - Can link to other pages
@@ -77,6 +77,30 @@ All alerts:
 - Used when the system has failed to complete an action, or the user has made an error
 - Used when an action or item needs attention
 - Should **not** close automatically, unless the action has been resolved
+
+### Optional Types
+
+#### Title (optional)
+
+```jsx
+<InlineAlert alertType="information" title="Title goes here" message="Card ending in 0000 is expiring soon."/>
+```
+
+#### Dismissable (optional)
+
+```jsx
+const iconComponents = {
+  iconDismiss: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /><path d="M0 0h24v24H0z" fill="none" /></svg>
+};
+
+<InlineAlert  isDismissable components={iconComponents} alertType="information" message="Card ending in 0000 is expiring soon."/>
+```
+
+#### Autoclose (optional)
+
+<!-- ```jsx
+<InlineAlert isAutoClosing alertType="information" message="Card ending in 0000 is expiring soon."/>
+``` -->
 
 ### Theme
 

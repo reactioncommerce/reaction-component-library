@@ -15,6 +15,10 @@ const StyledDiv = styled.div`
   padding-top: ${applyTheme("InlineAlert.paddingTop")};
   position: relative;
   white-space: pre-wrap;
+  overflow: hidden;
+  display: ${({ isClosed }) => (isClosed ? "none" : "block")};
+  opacity: ${({ isClosed }) => (isClosed ? 0 : 1)};
+  transition: ${({ isClosed }) => (isClosed ? "opacity .25s ease-out, display 0s ease .25s" : "none")};
   ${(props) => {
     const { alertType } = props;
     switch (alertType) {
@@ -90,6 +94,14 @@ class InlineAlert extends Component {
       iconDismiss: PropTypes.node
     }).isRequired,
     /**
+     * isAutoClosing: Closes automatically in 10 seconds
+     */
+    isAutoClosing: PropTypes.bool,
+    /**
+     * isClosed: Whether the alert is closed or open
+     */
+    isClosed: PropTypes.bool,
+    /**
      * isDismissable: Display a Close/Dismiss button
      */
     isDismissable: PropTypes.bool,
@@ -104,27 +116,35 @@ class InlineAlert extends Component {
   };
 
   static defaultProps = {
+    isAutoClosing: false,
+    isClosed: false,
     isDismissable: false
+  };
+
+  state = {
+    isClosed: this.props.isClosed
   };
 
   handleDismissClick = (event) => {
     event.preventDefault();
-    // close window
-    const alertElement = event.target.parentNode;
-    alertElement.style.opacity = "0";
-    alertElement.style.transition = "opacity .25s ease-out";
+    this.setState({ isClosed: true });
   };
 
   handleDismissKeyPress = (event) => {
-    if (event.keyCode === 13) this.handleDismissClick(event);
+    if (event.keyCode === 13) this.handleDismissClick(this.setState({ isClosed: true }));
+  };
+
+  autoClose = () => {
+    window.setTimeout(10000, this.setState({ isClosed: true }));
   };
 
   render() {
     const { alertType, className, components, isDismissable, message, title } = this.props;
     const { iconDismiss } = components || {};
+    const { isClosed } = this.state;
 
     return (
-      <StyledDiv className={className} alertType={alertType}>
+      <StyledDiv className={className} alertType={alertType} isClosed={isClosed}>
         {title
           ?
           <StyledTitle>{title}</StyledTitle>
