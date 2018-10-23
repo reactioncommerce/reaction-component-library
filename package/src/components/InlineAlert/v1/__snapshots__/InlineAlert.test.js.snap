@@ -29,8 +29,8 @@ exports[`basic error snapshot 1`] = `
   -webkit-transition: none;
   transition: none;
   color: #3c1f21;
-  background-color: #ffeeef;
-  border-color: #cd3f4c;
+  background-color: #FEF6F7;
+  border-color: #F4C9CC;
 }
 
 .c1 {
@@ -90,8 +90,8 @@ exports[`basic information snapshot 1`] = `
   -webkit-transition: none;
   transition: none;
   color: #285268;
-  background-color: #ecf8fe;
-  border-color: #1999dd;
+  background-color: #F5FBFE;
+  border-color: #C4E3F6;
 }
 
 .c1 {
@@ -151,8 +151,8 @@ exports[`basic snapshot without title 1`] = `
   -webkit-transition: none;
   transition: none;
   color: #7a6322;
-  background-color: #fcf3dc;
-  border-color: #a2832d;
+  background-color: #FEF9ED;
+  border-color: #E6DBBE;
 }
 
 <div
@@ -191,8 +191,8 @@ exports[`basic success snapshot 1`] = `
   -webkit-transition: none;
   transition: none;
   color: #1e4035;
-  background-color: #dcfaf1;
-  border-color: #158562;
+  background-color: #EDFCF8;
+  border-color: #BCDFD2;
 }
 
 .c1 {
@@ -252,8 +252,8 @@ exports[`basic warning snapshot 1`] = `
   -webkit-transition: none;
   transition: none;
   color: #7a6322;
-  background-color: #fcf3dc;
-  border-color: #a2832d;
+  background-color: #FEF9ED;
+  border-color: #E6DBBE;
 }
 
 .c1 {

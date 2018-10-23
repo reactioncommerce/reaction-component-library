@@ -78,9 +78,12 @@ All alerts:
 - Used when an action or item needs attention
 - Should **not** close automatically, unless the action has been resolved
 
-### Optional Types
+### Options
 
 #### Title (optional)
+
+- Pass a `title` string
+- The `title` is displayed in SemiBold weight
 
 ```jsx
 <InlineAlert alertType="information" title="Title goes here" message="Card ending in 0000 is expiring soon."/>
@@ -88,19 +91,24 @@ All alerts:
 
 #### Dismissable (optional)
 
+- Pass `isDismissable` with `components` to allow the user to close the alert by clicking the dismiss button
+- The icon can be overridden by providing your own `iconDismiss` in `components`
+
 ```jsx
 const iconComponents = {
   iconDismiss: <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" /><path d="M0 0h24v24H0z" fill="none" /></svg>
 };
 
-<InlineAlert  isDismissable components={iconComponents} alertType="information" message="Card ending in 0000 is expiring soon."/>
+<InlineAlert isDismissable components={iconComponents} alertType="information" message="Card ending in 0000 is expiring soon."/>
 ```
 
-#### Autoclose (optional)
+#### Autoclosing (optional)
 
-<!-- ```jsx
-<InlineAlert isAutoClosing alertType="information" message="Card ending in 0000 is expiring soon."/>
-``` -->
+- Pass `isAutoClosing` to close the window automatically after 10 seconds
+
+```jsx
+<InlineAlert isAutoClosing alertType="information" message="This will close in 10 seconds."/>
+```
 
 ### Theme
 
