@@ -15,7 +15,7 @@ const iconComponents = {
         <InlineAlert isDismissable components={iconComponents} alertType="information" title="Release 3.1 is now available" message="Reaction Platform has a new update. Read the release notes here."/>
     </div>
    <div style={{margin: "10px 0"}}>
-        <InlineAlert alertType="success" title="CSV imported successfully" message="Your jobs have been added to the queue."/>
+        <InlineAlert alertType="success" title="CSV imported successfully" message="Your jobs have been added to the queue." isAutoClosing />
     </div>
    <div style={{margin: "10px 0"}}>
         <InlineAlert alertType="error" message="Please correct the errors below."/>

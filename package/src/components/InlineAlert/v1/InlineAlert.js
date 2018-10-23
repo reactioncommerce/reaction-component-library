@@ -125,6 +125,14 @@ class InlineAlert extends Component {
     isClosed: this.props.isClosed
   };
 
+  componentDidMount() {
+    if (this.props.isAutoClosing === true) {
+      setTimeout(() => {
+        this.setState({ isClosed: true });
+      }, 10000);
+    }
+  }
+
   handleDismissClick = (event) => {
     event.preventDefault();
     this.setState({ isClosed: true });
