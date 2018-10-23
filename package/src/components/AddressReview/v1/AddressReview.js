@@ -132,7 +132,7 @@ class AddressReview extends Component {
    * @param {String} value - "entered" or "seggested"
    * @return {Undefined} - Nothing
    */
-  handleSubmit = (value) => {
+  handleSubmit = ({ AddressReview: value }) => {
     const { addressEntered, addressSuggestion, onSubmit } = this.props;
     const selectedAddress = value === ENTERED ? addressEntered : addressSuggestion;
     onSubmit(selectedAddress);
