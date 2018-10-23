@@ -195,12 +195,14 @@ class CheckoutActionsExample extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      addressValidationResults: null,
       checkout: {
         fulfillmentGroups,
         payments: paymentMethods
       }
     }
-
+    
+    this.validateShippingAddress = this.validateShippingAddress.bind(this);
     this.setShippingAddress = this.setShippingAddress.bind(this);
     this.setFulfillmentOption = this.setFulfillmentOption.bind(this);
     this.setPaymentMethod = this.setPaymentMethod.bind(this);
@@ -228,6 +230,25 @@ class CheckoutActionsExample extends React.Component {
 
     return (paymentWithoutData) ? "incomplete" : "complete";
   }
+  
+  validateShippingAddress(data) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.setState((state, props) => {
+            const { checkout } = state;
+            return {
+              addressValidationResults: {
+                submittedAddress: addressEntered,
+                suggestedAddresses: [addressSuggestion],
+                validationErrors: []
+              },
+              checkout
+            };
+          });
+        resolve(data);
+        }, 1000, { data });
+    });
+  }
 
   setShippingAddress(data) {
     return new Promise((resolve, reject) => {
@@ -235,6 +256,7 @@ class CheckoutActionsExample extends React.Component {
           this.setState((state, props) => {
             const { checkout } = state;
             return {
+              addressValidationResults: null,
               checkout: {
               payments: checkout.payments,
               fulfillmentGroups: [{
@@ -308,7 +330,7 @@ class CheckoutActionsExample extends React.Component {
   }
 
   render() {
-    const { checkout } = this.state;
+    const { addressValidationResults, checkout } = this.state;
 
     const actions = [
       {
@@ -320,12 +342,9 @@ class CheckoutActionsExample extends React.Component {
         component: ShippingAddressCheckoutAction,
         onSubmit: this.setShippingAddress,
         props:  {
-          addressValidationResults: {
-            submittedAddress: addressEntered,
-            suggestedAddresses: [addressSuggestion],
-            validationErrors: []
-          },
-          fulfillmentGroup: checkout.fulfillmentGroups[0]
+          addressValidationResults,
+          fulfillmentGroup: checkout.fulfillmentGroups[0],
+          validation: this.validateShippingAddress
         }
       },
       {
