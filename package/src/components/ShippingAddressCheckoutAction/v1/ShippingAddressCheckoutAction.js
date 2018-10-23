@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import isEqual from "lodash.isequal";
 import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, CustomPropTypes } from "../../../utils";
 
@@ -80,6 +81,17 @@ class ShippingAddressCheckoutAction extends Component {
     status: !this.hasShippingAddressOnCart && this.hasValidationResults ? REVIEW : ENTRY
   };
 
+  componentDidMount() {
+    if (this.inReview) this.ready();
+  }
+
+  componentDidUpdate({ addressValidationResults: prevValidationResults }) {
+    const { addressValidationResults } = this.props;
+    if (!isEqual(prevValidationResults, addressValidationResults) && this.inEntry) this.toggleStatus = REVIEW;
+  }
+
+  _form = null;
+
   get hasShippingAddressOnCart() {
     const { fulfillmentGroup } = this.props;
     return !!(fulfillmentGroup && fulfillmentGroup.data.shippingAddress);
@@ -94,16 +106,21 @@ class ShippingAddressCheckoutAction extends Component {
     );
   }
 
-  get isReady() {
-    return false;
-  }
-
-  componentDidMount() {
+  get inEntry() {
     const { status } = this.state;
-    if (!this.isReady && status === REVIEW) this.ready();
+    return status === ENTRY;
   }
 
-  _form = null;
+  get inReview() {
+    const { status } = this.state;
+    return status === REVIEW;
+  }
+
+  set toggleStatus(status) {
+    this.setState({ status });
+  }
+
+  isFormFilled = (values) => Object.keys(values).every((key) => (key === "address2" ? true : values[key] !== null));
 
   submit = () => {
     this._form.submit();
@@ -115,18 +132,21 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   handleSubmit = async (value) => {
-    const { onSubmit } = this.props;
-    await onSubmit(value);
+    const { onSubmit, validation } = this.props;
+    if (validation && this.inEntry) {
+      await validation(value);
+    } else {
+      await onSubmit(value);
+    }
   };
 
   handleChange = (values) => {
-    const isFilled = Object.keys(values).every((key) => (key === "address2" ? true : values[key] !== null));
-    if (isFilled) this.ready();
+    if (this.isFormFilled(values)) this.ready();
   };
 
   renderAddressReview() {
     const {
-      addressValidationResults: { submittedAddress, suggestedAddresses },
+      addressValidationResults: { submittedAddress, suggestedAddresses, validationErrors },
       components: { AddressReview }
     } = this.props;
     return (
@@ -137,6 +157,7 @@ class ShippingAddressCheckoutAction extends Component {
         addressEntered={submittedAddress}
         addressSuggestion={suggestedAddresses[0]}
         onSubmit={this.handleSubmit}
+        warningMessage={validationErrors.length ? validationErrors[0].details : undefined}
       />
     );
   }
