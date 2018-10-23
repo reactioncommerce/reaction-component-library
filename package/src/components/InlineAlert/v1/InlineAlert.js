@@ -107,14 +107,40 @@ class InlineAlert extends Component {
     isDismissable: false
   };
 
+  handleDismissClick = (event) => {
+    event.preventDefault();
+    // close window
+    const alertElement = event.target.parentNode;
+    alertElement.style.opacity = "0";
+    alertElement.style.transition = "opacity .25s ease-out";
+  };
+
+  handleDismissKeyPress = (event) => {
+    if (event.keyCode === 13) this.handleDismissClick(event);
+  };
+
   render() {
     const { alertType, className, components, isDismissable, message, title } = this.props;
     const { iconDismiss } = components || {};
 
     return (
       <StyledDiv className={className} alertType={alertType}>
-        {title ? <StyledTitle>{title}</StyledTitle> : null}
-        {isDismissable ? <StyledDismissButton type="button" aria-label="close">{iconDismiss}</StyledDismissButton> : null}
+        {title
+          ?
+          <StyledTitle>{title}</StyledTitle>
+          : null
+        }
+        {isDismissable
+          ?
+          <StyledDismissButton
+            type="button"
+            aria-label="close"
+            onClick={this.handleDismissClick}
+            onKeyPress={this.handleDismissKeyPress}
+          >{iconDismiss}
+          </StyledDismissButton>
+          : null
+        }
         {message}
       </StyledDiv>
     );
