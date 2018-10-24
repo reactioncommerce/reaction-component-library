@@ -244,7 +244,7 @@ exports[`basic information snapshot 1`] = `
 </div>
 `;
 
-exports[`basic snapshot without title 1`] = `
+exports[`basic snapshot with only required props 1`] = `
 .c0 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;

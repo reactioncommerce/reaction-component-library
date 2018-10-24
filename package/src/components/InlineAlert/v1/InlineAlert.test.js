@@ -3,7 +3,7 @@ import renderer from "react-test-renderer";
 import mockComponents from "../../../tests/mockComponents";
 import InlineAlert from "./InlineAlert";
 
-test("basic snapshot without title", () => {
+test("basic snapshot with only required props", () => {
   const component = renderer.create(<InlineAlert alertType="warning" message="Card ending in 0000 is expiring soon." />);
 
   const tree = component.toJSON();
