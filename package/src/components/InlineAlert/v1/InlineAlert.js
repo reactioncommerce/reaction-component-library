@@ -50,12 +50,12 @@ const StyledDiv = styled.div`
         return "";
     }
   }};
-`;
+  `;
 
 const StyledTitle = styled.div`
   ${addTypographyStyles("InlineAlert", "bodyTextSemiBold")};
   padding-bottom: ${applyTheme("InlineAlert.titlePaddingBottom")};
-`;
+  `;
 
 const StyledDismissButton = styled.button`
   background-color: transparent;
@@ -67,7 +67,7 @@ const StyledDismissButton = styled.button`
   right: ${applyTheme("InlineAlert.buttonPositionRight")};
   top: ${applyTheme("InlineAlert.buttonPositionTop")};
   width: ${applyTheme("InlineAlert.buttonWidth")};
-`;
+  `;
 
 class InlineAlert extends Component {
   static propTypes = {
