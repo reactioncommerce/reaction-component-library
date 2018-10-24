@@ -28,6 +28,7 @@ Check out the [@reactioncommerce/components-context](https://github.com/reaction
 
 ```jsx static
 import iconClear from "@reactioncommerce/components/svg/iconClear";
+import iconDismiss from "@reactioncommerce/components/svg/iconDismiss";
 import iconError from "@reactioncommerce/components/svg/iconError";
 import iconValid from "@reactioncommerce/components/svg/iconValid";
 import iconExpand from "@reactioncommerce/components/svg/iconExpand";
