@@ -459,8 +459,8 @@ const rui_components = {
     paddingLeft: padding.fifteen,
     paddingRight: padding.fifteen,
     paddingTop: padding.fifteen,
-    transition: `opacity ${ease}`,
-    titlePaddingBottom: padding.ten
+    transition: `border 0s ${ease} ${duration}, max-height 0s ${ease} ${duration}, padding 0s ${ease} ${duration}, opacity ${duration} ${ease}`,
+    titlePaddingBottom: "10px"
   },
   InPageMenuItemContainer: {
     backgroundColor_default: colors.black05,

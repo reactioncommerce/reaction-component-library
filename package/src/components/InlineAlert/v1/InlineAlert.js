@@ -8,17 +8,17 @@ const StyledDiv = styled.div`
   ${addTypographyStyles("InlineAlert", "bodyText")};
   border-radius: ${applyTheme("InlineAlert.borderRadius")};
   border-style: ${applyTheme("InlineAlert.borderStyle")};
-  border-width: ${applyTheme("InlineAlert.borderWidth")};
-  padding-bottom: ${applyTheme("InlineAlert.paddingBottom")};
-  padding-left: ${applyTheme("InlineAlert.paddingLeft")};
-  padding-right: ${applyTheme("InlineAlert.paddingRight")};
-  padding-top: ${applyTheme("InlineAlert.paddingTop")};
+  border-width: ${({ isClosed }) => (isClosed ? "0px" : applyTheme("InlineAlert.borderWidth"))};
+  padding-bottom: ${({ isClosed }) => (isClosed ? "0px" : applyTheme("InlineAlert.paddingBottom"))};
+  padding-left: ${({ isClosed }) => (isClosed ? "0px" : applyTheme("InlineAlert.paddingLeft"))};
+  padding-right: ${({ isClosed }) => (isClosed ? "0px" : applyTheme("InlineAlert.paddingRight"))};
+  padding-top: ${({ isClosed }) => (isClosed ? "0px" : applyTheme("InlineAlert.paddingTop"))};
   position: relative;
   white-space: pre-wrap;
   overflow: hidden;
-  display: ${({ isClosed }) => (isClosed ? "none" : "block")};
+  max-height: ${({ isClosed }) => (isClosed ? "0px" : "3000vh")};
   opacity: ${({ isClosed }) => (isClosed ? 0 : 1)};
-  transition: ${({ isClosed }) => (isClosed ? applyTheme("InlineAlert.transition") : "none")};
+  transition: ${applyTheme("InlineAlert.transition")};
   ${(props) => {
     const { alertType } = props;
     switch (alertType) {
@@ -49,12 +49,13 @@ const StyledDiv = styled.div`
       default:
         return "";
     }
-  }} `;
+  }};
+`;
 
 const StyledTitle = styled.div`
   ${addTypographyStyles("InlineAlert", "bodyTextSemiBold")};
-  padding-bottom:  ${applyTheme("InlineAlert.titlePaddingBottom")};
-  `;
+  padding-bottom: ${applyTheme("InlineAlert.titlePaddingBottom")};
+`;
 
 const StyledDismissButton = styled.button`
   background-color: transparent;
@@ -65,8 +66,8 @@ const StyledDismissButton = styled.button`
   position: absolute;
   right: ${applyTheme("InlineAlert.buttonPositionRight")};
   top: ${applyTheme("InlineAlert.buttonPositionTop")};
-  width: ${applyTheme("InlineAlert.buttonWidth")}; 
-  `;
+  width: ${applyTheme("InlineAlert.buttonWidth")};
+`;
 
 class InlineAlert extends Component {
   static propTypes = {
@@ -153,22 +154,17 @@ class InlineAlert extends Component {
 
     return (
       <StyledDiv className={className} alertType={alertType} isClosed={isClosed}>
-        {title
-          ?
-          <StyledTitle>{title}</StyledTitle>
-          : null
-        }
-        {isDismissable
-          ?
+        {title ? <StyledTitle>{title}</StyledTitle> : null}
+        {isDismissable ? (
           <StyledDismissButton
             type="button"
             aria-label="close"
             onClick={this.handleDismissClick}
             onKeyPress={this.handleDismissKeyPress}
-          >{iconDismiss}
+          >
+            {iconDismiss}
           </StyledDismissButton>
-          : null
-        }
+        ) : null}
         {message}
       </StyledDiv>
     );
