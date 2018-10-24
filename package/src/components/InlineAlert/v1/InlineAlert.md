@@ -114,29 +114,35 @@ const iconComponents = {
 
 Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
 
-| Theme Prop                                | Default                | Description                                 |
-| ----------------------------------------- | ---------------------- | ------------------------------------------- |
-| `InlineAlert.borderRadius`                | 2px                    | Alert border radius size                    |
-| `InlineAlert.borderStyle`                 | solid                  | Alert border style                          |
-| `InlineAlert.borderWidth`                 | 2px                    | Alert border width size                     |
-| `InlineAlert.paddingBottom`               | 15px                   | Alert padding bottom                        |
-| `InlineAlert.paddingLeft`                 | 15px                   | Alert padding left                          |
-| `InlineAlert.paddingRight`                | 15px                   | Alert padding right                         |
-| `InlineAlert.paddingTop`                  | 15px                   | Alert padding top                           |
-| `InlineAlert.color_error`                 | red600                 | Message color for error alert type          |
-| `InlineAlert.backgroundColor_error`       | redBackground          | Background color for error alert type       |
-| `InlineAlert.borderColor_error`           | redBorder              | Border color for error alert type           |
-| `InlineAlert.color_information`           | reactionBlue600        | Message color for information alert type    |
-| `InlineAlert.backgroundColor_information` | reactionBlueBackground | Background color for information alert type |
-| `InlineAlert.borderColor_information`     | reactionBlueBorder     | Border color for information alert type     |
-| `InlineAlert.color_success`               | forestGreen600         | Message color for success alert type        |
-| `InlineAlert.backgroundColor_success`     | forestGreenBackground  | Background color for success alert type     |
-| `InlineAlert.borderColor_success`         | forestGreenBorder      | Border color for success alert type         |
-| `InlineAlert.color_warning`               | yellow600              | Message color for warning alert type        |
-| `InlineAlert.backgroundColor_warning`     | yellowBackground       | Background color for warning alert type     |
-| `InlineAlert.borderColor_warning`         | yellow500Border        | Border color for warning alert type         |
+| Theme Prop                                | Default                                        | Description                                 |
+| ----------------------------------------- | ---------------------------------------------- | ------------------------------------------- |
+| `InlineAlert.borderRadius`                | 2px                                            | Alert border radius size                    |
+| `InlineAlert.borderStyle`                 | solid                                          | Alert border style                          |
+| `InlineAlert.borderWidth`                 | 2px                                            | Alert border width size                     |
+| `InlineAlert.paddingBottom`               | 15px                                           | Alert padding bottom                        |
+| `InlineAlert.paddingLeft`                 | 15px                                           | Alert padding left                          |
+| `InlineAlert.paddingRight`                | 15px                                           | Alert padding right                         |
+| `InlineAlert.paddingTop`                  | 15px                                           | Alert padding top                           |
+| `InlineAlert.buttonHeight`                | 15px                                           | Dismiss button (optional) height            |
+| `InlineAlert.buttonWidth`                 | 15px                                           | Dismiss button (optional) width             |
+| `InlineAlert.buttonPositionRight`         | 15px                                           | Dismiss button (optional) position          |
+| `InlineAlert.buttonPositionTop`           | 15px                                           | Dismiss button (optional) position          |
+| `InlineAlert.titlePaddingBottom`          | 10px                                           | Padding under title (optional)              |
+| `InlineAlert.transition`                  | opacity cubic-bezier(0.785, 0.135, 0.15, 0.86) | Dismiss animation (optional)                |
+| `InlineAlert.color_error`                 | red600                                         | Message color for error alert type          |
+| `InlineAlert.backgroundColor_error`       | redBackground                                  | Background color for error alert type       |
+| `InlineAlert.borderColor_error`           | redBorder                                      | Border color for error alert type           |
+| `InlineAlert.color_information`           | reactionBlue600                                | Message color for information alert type    |
+| `InlineAlert.backgroundColor_information` | reactionBlueBackground                         | Background color for information alert type |
+| `InlineAlert.borderColor_information`     | reactionBlueBorder                             | Border color for information alert type     |
+| `InlineAlert.color_success`               | forestGreen600                                 | Message color for success alert type        |
+| `InlineAlert.backgroundColor_success`     | forestGreenBackground                          | Background color for success alert type     |
+| `InlineAlert.borderColor_success`         | forestGreenBorder                              | Border color for success alert type         |
+| `InlineAlert.color_warning`               | yellow600                                      | Message color for warning alert type        |
+| `InlineAlert.backgroundColor_warning`     | yellowBackground                               | Background color for warning alert type     |
+| `InlineAlert.borderColor_warning`         | yellow500Border                                | Border color for warning alert type         |
 
 #### Typography
 
 - The message  uses `bodyText` style with `rui_components.InlineAlert` override
-- The title uses `bodyTextBold` style with `rui_components.InlineAlert` override
+- The title uses `bodyTextSemiBold` style with `rui_components.InlineAlert` override

@@ -447,6 +447,10 @@ const rui_components = {
     borderWidth: "2px",
     borderStyle: "solid",
     borderRadius: standardBorderRadius,
+    buttonHeight: "15px",
+    buttonPositionRight: "15px",
+    buttonPositionTop: "15px",
+    buttonWidth: "15px",
     color_error: colors.red600,
     color_information: colors.reactionBlue500,
     color_success: colors.forestGreen600,
@@ -454,8 +458,9 @@ const rui_components = {
     paddingBottom: padding.fifteen,
     paddingLeft: padding.fifteen,
     paddingRight: padding.fifteen,
-    paddingTop: padding.fifteen
-
+    paddingTop: padding.fifteen,
+    transition: `opacity ${ease}`,
+    titlePaddingBottom: "10px"
   },
   InPageMenuItemContainer: {
     backgroundColor_default: colors.black05,

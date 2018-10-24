@@ -18,7 +18,7 @@ const StyledDiv = styled.div`
   overflow: hidden;
   display: ${({ isClosed }) => (isClosed ? "none" : "block")};
   opacity: ${({ isClosed }) => (isClosed ? 0 : 1)};
-  transition: ${({ isClosed }) => (isClosed ? "opacity .25s ease-out, display 0s ease .25s" : "none")};
+  transition: ${({ isClosed }) => (isClosed ? applyTheme("InlineAlert.transition") : "none")};
   ${(props) => {
     const { alertType } = props;
     switch (alertType) {
@@ -53,25 +53,25 @@ const StyledDiv = styled.div`
 
 const StyledTitle = styled.div`
   ${addTypographyStyles("InlineAlert", "bodyTextSemiBold")};
-  padding-bottom: 10px;
+  padding-bottom:  ${applyTheme("InlineAlert.titlePaddingBottom")};
   `;
 
 const StyledDismissButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;
-  height: 16px;
+  height: ${applyTheme("InlineAlert.buttonHeight")};
   padding: 0;
   position: absolute;
-  right: 15px;
-  top: 15px;
-  width: 16px;
+  right: ${applyTheme("InlineAlert.buttonPositionRight")};
+  top: ${applyTheme("InlineAlert.buttonPositionTop")};
+  width: ${applyTheme("InlineAlert.buttonWidth")}; 
   `;
 
 class InlineAlert extends Component {
   static propTypes = {
     /**
-     * The type of alert
+     * The type of alert: Error, Information, Success or Warning
      */
     alertType: PropTypes.oneOf(["error", "information", "success", "warning"]).isRequired,
     /**
