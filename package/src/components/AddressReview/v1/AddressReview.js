@@ -87,7 +87,7 @@ class AddressReview extends Component {
     isSaving: false,
     value: SUGGESTED,
     // eslint-disable-next-line
-    warningMessage: `Please review our suggestion below, and choose which version you’d like to use. Errors are shown in red.`,
+    warningMessage: "Please review our suggestion below, and choose which version you’d like to use. Errors are shown in red.",
     warningTitle: "The address you entered may be incorrect or incomplete."
   };
 
