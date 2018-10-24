@@ -75,7 +75,6 @@ All alerts:
 ```
 
 - Used when the system has failed to complete an action, or the user has made an error
-- Used when an action or item needs attention
 - Should **not** close automatically, unless the action has been resolved
 
 ### Options
