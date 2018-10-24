@@ -92,15 +92,6 @@ const rui_components = {
     spaceBetweenActiveActionButtons: padding.sixteen
   },
   AddressReview: {
-    warningMessageBorderColor: colors.yellow400,
-    warningMessageBorderStyle: "solid",
-    warningMessageBorderWidth: "1px",
-    warningMessageBackgroundColor: colors.yellow100,
-    warningMessageColor: colors.yellow600,
-    warningMessagePaddingBottom: padding.fourteen,
-    warningMessagePaddingLeft: padding.twenty,
-    warningMessagePaddingRight: padding.twenty,
-    warningMessagePaddingTop: padding.fourteen,
     formSpacingTop: "40px"
   },
   BadgeOverlay: {
@@ -436,14 +427,14 @@ const rui_components = {
     summaryWrapperPaddingTop: 0
   },
   InlineAlert: {
-    backgroundColor_error: colors.red100,
-    backgroundColor_information: colors.reactionBlue100,
-    backgroundColor_success: colors.forestGreen100,
-    backgroundColor_warning: colors.yellow100,
-    borderColor_error: colors.red,
-    borderColor_information: colors.reactionBlue,
-    borderColor_success: colors.forestGreen,
-    borderColor_warning: colors.yellow500,
+    backgroundColor_error: colors.redBackground,
+    backgroundColor_information: colors.reactionBlueBackground,
+    backgroundColor_success: colors.forestGreenBackground,
+    backgroundColor_warning: colors.yellowBackground,
+    borderColor_error: colors.redBorder,
+    borderColor_information: colors.reactionBlueBorder,
+    borderColor_success: colors.forestGreenBorder,
+    borderColor_warning: colors.yellowBorder,
     borderWidth: "2px",
     borderStyle: "solid",
     borderRadius: standardBorderRadius,
