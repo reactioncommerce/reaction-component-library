@@ -93,7 +93,7 @@ class InlineAlert extends Component {
        * Pass an element (e.g., rendered SVG) to use as the Dismiss/Close icon
        */
       iconDismiss: PropTypes.node
-    }).isRequired,
+    }),
     /**
      * isAutoClosing: Closes automatically in 10 seconds
      */
