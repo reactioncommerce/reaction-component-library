@@ -160,4 +160,4 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 
 #### Typography
 
-- The warning message text uses `labelText` style with `rui_components.WarningMessage` override
+None
