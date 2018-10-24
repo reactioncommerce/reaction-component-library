@@ -409,6 +409,7 @@ module.exports = {
           componentNames: [
             "Accordion",
             "Address",
+            "InlineAlert",
             "ProgressiveImage"
           ],
           content: "styleguide/src/sections/Content.md",

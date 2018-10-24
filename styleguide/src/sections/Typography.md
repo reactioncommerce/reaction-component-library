@@ -24,18 +24,18 @@ Type styles are generally named for their usage within the UI. The Body text sty
 
 This type scale defines the font sizes that can be used by the default Reaction Design System theme. Type generally does not exceed 1.5rem/24px.
 
-|rem       |px   | Actual size                                                                  |
-|----------|-----|------------------------------------------------------------------------------|
-|0.75rem   |12px |<span style="font-family: Source Sans Pro; font-size: 0.75rem">Connecting the world through commerce</span> |
-|0.875rem  |14px |<span style="font-family: Source Sans Pro; font-size: 0.875rem">Connecting the world through commerce</span>|
-|1rem      |16px |<span style="font-family: Source Sans Pro; font-size: 1rem">Connecting the world through commerce</span>|
-|1.125rem  |18px |<span style="font-family: Source Sans Pro; font-size: 1.125rem">Connecting the world through commerce</span>|
-|1.25rem   |20px |<span style="font-family: Source Sans Pro; font-size: 1.25rem">Connecting the world through commerce</span>|
-|1.5rem    |24px |<span style="font-family: Source Sans Pro; font-size: 1.5rem">Connecting the world through commerce</span>|
-|1.75rem   |28px |<span style="font-family: Source Sans Pro; font-size: 1.75rem">Connecting the world through commerce</span>|
-|2rem      |32px |<span style="font-family: Source Sans Pro; font-size: 2rem">Connecting the world through commerce</span>|
-|2.25rem   |36px |<span style="font-family: Source Sans Pro; font-size: 2.25rem">Connecting the world through commerce</span>|
-|2.625rem  |42px |<span style="font-family: Source Sans Pro; font-size: 2.625em">Connecting the world through commerce</span>|
+| rem      | px   | Actual size                                                                                                  |
+| -------- | ---- | ------------------------------------------------------------------------------------------------------------ |
+| 0.75rem  | 12px | <span style="font-family: Source Sans Pro; font-size: 0.75rem">Connecting the world through commerce</span>  |
+| 0.875rem | 14px | <span style="font-family: Source Sans Pro; font-size: 0.875rem">Connecting the world through commerce</span> |
+| 1rem     | 16px | <span style="font-family: Source Sans Pro; font-size: 1rem">Connecting the world through commerce</span>     |
+| 1.125rem | 18px | <span style="font-family: Source Sans Pro; font-size: 1.125rem">Connecting the world through commerce</span> |
+| 1.25rem  | 20px | <span style="font-family: Source Sans Pro; font-size: 1.25rem">Connecting the world through commerce</span>  |
+| 1.5rem   | 24px | <span style="font-family: Source Sans Pro; font-size: 1.5rem">Connecting the world through commerce</span>   |
+| 1.75rem  | 28px | <span style="font-family: Source Sans Pro; font-size: 1.75rem">Connecting the world through commerce</span>  |
+| 2rem     | 32px | <span style="font-family: Source Sans Pro; font-size: 2rem">Connecting the world through commerce</span>     |
+| 2.25rem  | 36px | <span style="font-family: Source Sans Pro; font-size: 2.25rem">Connecting the world through commerce</span>  |
+| 2.625rem | 42px | <span style="font-family: Source Sans Pro; font-size: 2.625em">Connecting the world through commerce</span>  |
 
 #### Type treatments
 
@@ -43,14 +43,14 @@ This type scale defines the font sizes that can be used by the default Reaction 
 
 The default Reaction Design System theme uses [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) font in Regular and Bold weights, which can be used to create content hierarchy.
 
-|          |Regular 400                                                                                                           |<span style="font-family: Source Sans Pro; font-weight: 700;">Bold 700</span>                                                        |
-|----------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-|Title     |<span style="font-size: 24px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 24px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
-|Heading   |<span style="font-size: 16px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 16px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
-|Subheading|<span style="font-size: 18px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 18px; letter-spacing: 0.4px; color: #505558;">Bold 700</span>|
-|Body      |<span style="font-size: 16px; letter-spacing: 0.3px; color: #343434; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 16px; letter-spacing: 0.3px; color: #343434;">Bold 700</span>|
-|Label     |<span style="font-size: 14px; letter-spacing: 0.3px; color: #505558; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; color: #505558;">Bold 700</span>|
-|Caption   |<span style="font-size: 14px; letter-spacing: 0.3px; color: #b3b3b3; font-family: Source Sans Pro;">Regular 400</span>|<span style="font-family: Source Sans Pro; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; color: #b3b3b3">Bold 700</span>|
+|            | Regular 400                                                                                                            | <span style="font-family: Source Sans Pro; font-weight: 700;">Bold 700</span>                                                         | <span style="font-family: Source Sans Pro; font-weight: 600;">SemiBold 600</span>                                                         |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| Title      | <span style="font-size: 24px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span> | <span style="font-family: Source Sans Pro; font-weight: 700; font-size: 24px; letter-spacing: 0.4px; color: #505558;">Bold 700</span> |                                                                                                                                           |
+| Heading    | <span style="font-size: 16px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span> | <span style="font-family: Source Sans Pro; font-weight: 700; font-size: 16px; letter-spacing: 0.4px; color: #505558;">Bold 700</span> |                                                                                                                                           |
+| Subheading | <span style="font-size: 18px; letter-spacing: 0.4px; color: #505558; font-family: Source Sans Pro;">Regular 400</span> | <span style="font-family: Source Sans Pro; font-weight: 700; font-size: 18px; letter-spacing: 0.4px; color: #505558;">Bold 700</span> |                                                                                                                                           |
+| Body       | <span style="font-size: 16px; letter-spacing: 0.3px; color: #343434; font-family: Source Sans Pro;">Regular 400</span> | <span style="font-family: Source Sans Pro; font-weight: 700; font-size: 16px; letter-spacing: 0.3px; color: #343434;">Bold 700</span> | <span style="font-family: Source Sans Pro; font-weight: 600; font-size: 16px; letter-spacing: 0.3px; color: #343434;">SemiBold 600</span> |
+| Label      | <span style="font-size: 14px; letter-spacing: 0.3px; color: #505558; font-family: Source Sans Pro;">Regular 400</span> | <span style="font-family: Source Sans Pro; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; color: #505558;">Bold 700</span> |                                                                                                                                           |
+| Caption    | <span style="font-size: 14px; letter-spacing: 0.3px; color: #b3b3b3; font-family: Source Sans Pro;">Regular 400</span> | <span style="font-family: Source Sans Pro; font-weight: 700; font-size: 14px; letter-spacing: 0.3px; color: #b3b3b3">Bold 700</span>  |                                                                                                                                           |
 
 Generally used for emphasis, the bold weight shouldn’t be applied to anything longer than short text strings.
 
@@ -61,10 +61,10 @@ Leading, or line-height, is an important factor in the legibility of copy. The d
 - 1.5 for body copy
 - 1.25 for labels, captions, headings, subheadings and titles.
 
-|Line height             | Ratio |
-|------------------------|-------|
-|Body text               |1:1.5  |
-|Headers, titles, labels |1:1.25 |
+| Line height             | Ratio  |
+| ----------------------- | ------ |
+| Body text               | 1:1.5  |
+| Headers, titles, labels | 1:1.25 |
 
 Body copy benefits from more spacing between lines for improved legibility, while the other styles rarely run for multiple lines and don’t require as much leading.
 

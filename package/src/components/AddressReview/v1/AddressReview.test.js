@@ -43,6 +43,7 @@ test("basic snapshot with all props", () => {
     addressSuggestion={mockAddressSuggestion}
     components={mockComponents}
     value="entered"
+    warningTitle="Warning"
     warningMessage="Something is wrong"
   />);
 

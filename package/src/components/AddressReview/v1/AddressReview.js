@@ -4,22 +4,7 @@ import uniqueId from "lodash.uniqueid";
 import { Form } from "reacto-form";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
-
-// component styles
-const WarningMessage = styled.div`
-  ${addTypographyStyles("WarningMessage", "labelText")};
-  border-color: ${applyTheme("AddressReview.warningMessageBorderColor")};
-  border-style: ${applyTheme("AddressReview.warningMessageBorderStyle")};
-  border-width: ${applyTheme("AddressReview.warningMessageBorderWidth")};
-  background-color: ${applyTheme("AddressReview.warningMessageBackgroundColor")};
-  color: ${applyTheme("AddressReview.warningMessageColor")};
-  padding-bottom: ${applyTheme("AddressReview.warningMessagePaddingBottom")};
-  padding-left: ${applyTheme("AddressReview.warningMessagePaddingLeft")};
-  padding-right: ${applyTheme("AddressReview.warningMessagePaddingRight")};
-  padding-top: ${applyTheme("AddressReview.warningMessagePaddingTop")};
-  white-space: pre-wrap;
-`;
+import { applyTheme, CustomPropTypes } from "../../../utils";
 
 const FormWrapper = styled.div`
   margin-top: ${applyTheme("AddressReview.formSpacingTop")};
@@ -65,7 +50,12 @@ class AddressReview extends Component {
        * Pass either the Reaction Field component or your own component that
        * accepts compatible props.
        */
-      Field: CustomPropTypes.component.isRequired
+      Field: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction InlineAlert component or your own component that
+       * accepts compatible props
+       */
+      InlineAlert: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Is data being saved
@@ -84,16 +74,21 @@ class AddressReview extends Component {
      */
     value: PropTypes.string,
     /**
-     * Warning message to display above the form
+     * Warning message copy to display above the form
      */
-    warningMessage: PropTypes.string
+    warningMessage: PropTypes.string,
+    /**
+     * Warning message title to display above the form
+     */
+    warningTitle: PropTypes.string
   };
 
   static defaultProps = {
     isSaving: false,
     value: SUGGESTED,
     // eslint-disable-next-line
-    warningMessage: `The address you entered may be incorrect or incomplete.\n\nPlease review our suggestion below, and choose which version you’d like to use. Errors are shown in red.`
+    warningMessage: "Please review our suggestion below, and choose which version you’d like to use. Possible errors are shown in red.",
+    warningTitle: "The address you entered may be incorrect or incomplete."
   };
 
   _form = null;
@@ -143,10 +138,11 @@ class AddressReview extends Component {
       addressEntered,
       addressSuggestion,
       className,
-      components: { Address, SelectableList },
+      components: { Address, InlineAlert, SelectableList },
       isSaving,
       value,
-      warningMessage
+      warningMessage,
+      warningTitle
     } = this.props;
 
     const options = [
@@ -166,7 +162,7 @@ class AddressReview extends Component {
 
     return (
       <div className={className}>
-        <WarningMessage>{warningMessage}</WarningMessage>
+        <InlineAlert alertType="warning" title={warningTitle} message={warningMessage} />
         <FormWrapper>
           <Form
             ref={(formEl) => {

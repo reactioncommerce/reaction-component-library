@@ -37,6 +37,8 @@ export default {
   reactionBlue600: "#172f3c",
   reactionBlueActive: "#057dbe",
   reactionBlueHover: "#25b0f9",
+  reactionBlueBackground: "#F5FBFE",
+  reactionBlueBorder: "#C4E3F6",
 
   coolGrey: "#5e7480",
   coolGrey100: "#e3ebf0",
@@ -61,6 +63,8 @@ export default {
   forestGreen400: "#066144",
   forestGreen500: "#285749",
   forestGreen600: "#1e4035",
+  forestGreenBackground: "#EDFCF8",
+  forestGreenBorder: "#BCDFD2",
 
   darkBlue: "#23566d",
   darkBlue100: "#d9ebf3",
@@ -78,6 +82,8 @@ export default {
   yellow400: "#fbc120",
   yellow500: "#a2832d",
   yellow600: "#7a6322",
+  yellowBackground: "#FEF9ED",
+  yellowBorder: "#E6DBBE",
 
   red: "#cd3f4c",
   red100: "#ffeeef",
@@ -87,6 +93,8 @@ export default {
   red500: "#5e3033",
   red600: "#3c1f21",
   redHover: "#e4505e",
+  redBackground: "#FEF6F7",
+  redBorder: "#F4C9CC",
 
   teal: "#8ce0c9",
   teal100: "#edfdf8",

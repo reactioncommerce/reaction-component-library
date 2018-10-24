@@ -28,6 +28,7 @@ Check out the [@reactioncommerce/components-context](https://github.com/reaction
 
 ```jsx static
 import iconClear from "@reactioncommerce/components/svg/iconClear";
+import iconDismiss from "@reactioncommerce/components/svg/iconDismiss";
 import iconError from "@reactioncommerce/components/svg/iconError";
 import iconValid from "@reactioncommerce/components/svg/iconValid";
 import iconExpand from "@reactioncommerce/components/svg/iconExpand";
@@ -92,6 +93,7 @@ export default {
   ErrorsBlock,
   Field,
   iconClear,
+  iconDismiss,
   iconError,
   iconExpand,
   iconPlus,
@@ -133,7 +135,7 @@ In your HTML:
 
 ```html
 <!-- Font for display type -->
-<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,600,700" rel="stylesheet">
 ```
 
 #### Updating
