@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import { shallow } from "enzyme";
+import mockComponents from "../../../tests/mockComponents";
 import InlineAlert from "./InlineAlert";
 
 test("basic snapshot without title", () => {
@@ -35,6 +35,20 @@ test("basic error snapshot", () => {
 
 test("basic success snapshot", () => {
   const component = renderer.create(<InlineAlert alertType="success" title="Success" message="Card ending in 0000 is expiring soon." />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("basic autoclosing snapshot", () => {
+  const component = renderer.create(<InlineAlert isAutoClosing alertType="success" title="Success" message="Card ending in 0000 is expiring soon." />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+test("basic dismissable snapshot", () => {
+  const component = renderer.create(<InlineAlert isDismissable components={mockComponents} alertType="success" message="Card." />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
