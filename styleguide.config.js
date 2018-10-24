@@ -409,6 +409,7 @@ module.exports = {
           componentNames: [
             "Accordion",
             "Address",
+            "InlineAlert",
             "ProgressiveImage"
           ],
           content: "styleguide/src/sections/Content.md",
@@ -419,7 +420,6 @@ module.exports = {
             "Checkbox",
             "ErrorsBlock",
             "Field",
-            "InlineAlert",
             "PhoneNumberInput",
             "QuantityInput",
             "Select",
