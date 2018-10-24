@@ -43,7 +43,6 @@ const account = {
 <AddressBook account={account} />
 ```
 
-**WIP**
 If the`AddressBook` is provided an `validatedValue` the address review view will display.
 ```jsx
 const props = {

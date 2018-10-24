@@ -36,9 +36,9 @@ An individual item can be checked or unchecked, and read-only or editable:
 
 #### SelectableItem with `detail`
 
-Pass any element - text, SVGs or React elements - into `detail` to display a secondary action on the right-hand side.
+Pass any element - text, SVGs, other components, like `Address`,  or any React elements - into `detail` to display a secondary information and action on the right-hand side.
 
-##### Plain text
+##### Plain text as detail
 
 ```jsx
 <SelectableItem label="Free shipping" detail="$0.00" value="free"/>
@@ -48,7 +48,7 @@ Pass any element - text, SVGs or React elements - into `detail` to display a sec
 <SelectableItem label="Free shipping" detail="\u2714" value="free"/>
 ```
 
-##### Element
+##### Element as detail
 
 ```jsx
 const link = (
@@ -56,6 +56,28 @@ const link = (
 );
 
 <SelectableItem label="Default" detail={link} value="default8" />
+```
+
+##### Address as detail
+
+```jsx
+const address = {
+  _id: "1",
+  address1: "7742 Hwy 23",
+  address2: "",
+  country: "US",
+  city: "Belle Chasse",
+  fullName: "Salvos Seafood",
+  postal: "70037",
+  region: "LA",
+  phone: "(504) 393-7303"
+};
+
+const addressElement = (
+  <Address address={address} />
+);
+
+<SelectableItem isStacked label="Entered address:" detail={addressElement} value="default12" />
 ```
 
 ##### Icon as detail
@@ -74,17 +96,19 @@ const iconVisa = require("../../../../../package/src/svg/iconVisa").default;
 
 ### Specs
 
-|Property                                |Style                                |
-|----------------------------------------|:-----------------------------------:|
-|Label font                              | `@rui-label-text` capitalized       |
-|Label color                             | `@cool-grey-500`                    |
-|Border color                            | `@cool-grey-500`                    |
-|Radio button color                      | `@cool-grey-500`                    |
-|Radio button height and width           | 20px                                |
-|Radio button and label spacing          | 11px                                |
-|Radio button border                     | 2px solid `@cool-grey-500`          |
-|Selected circle size                    | 11px                                |
-|Cursor                                  | Pointer (radio button and label)    |
+| Property                       | Style                                     |
+| ------------------------------ | :---------------------------------------: |
+| Label font                     | `@rui-label-text` capitalized             |
+| Label font weight              | `400`                                     |
+| Label font weight              | `700` when `isStacked` or `isLeftAligned` |
+| Label color                    | `@cool-grey-500`                          |
+| Border color                   | `@cool-grey-500`                          |
+| Radio button color             | `@cool-grey-500`                          |
+| Radio button height and width  | 20px                                      |
+| Radio button and label spacing | 11px                                      |
+| Radio button border            | 2px solid `@cool-grey-500`                |
+| Selected circle size           | 11px                                      |
+| Cursor                         | Pointer (radio button and label)          |
 
 ### Theme
 
@@ -120,7 +144,8 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 | `SelectableList.itemPaddingTop`                  | 0                          | Top padding for each item                                  |
 | `SelectableList.leftAlignedLabelFontWeight`      | 700                        | Font weight for the label when `isLeftAligned`             |
 | `SelectableList.leftAlignedDetailSpacingToLabel` | 2px                        | Spacing between label and detail text when `isLeftAligned` |
-
+| `SelectableList.stackedSpacingToLabel`           | 30px                       | Spacing between radio button and detail when `isStacked`   |
+| `SelectableList.stackedSpacingBelowLabel`        | 10px                       | Spacing between label and detail when `isStacked`          |
 #### Typography
 
 - The label text uses `labelText` style with `rui_components.SelectableItemLabel` override

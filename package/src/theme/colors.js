@@ -71,7 +71,7 @@ export default {
   darkBlue600: "#242c30",
 
   // support colors
-  yellow: "#3fc95f",
+  yellow: "#efc95f",
   yellow100: "#fcf3dc",
   yellow200: "#e9e1cb",
   yellow300: "#fdda79",

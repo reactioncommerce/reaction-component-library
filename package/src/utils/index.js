@@ -6,3 +6,4 @@ export { default as preventAccidentalDoubleClick } from "./preventAccidentalDoub
 export { default as getRequiredValidator } from "./getRequiredValidator";
 export { default as getPhoneNumberValidator } from "./getPhoneNumberValidator";
 export { default as withStripeElements } from "./withStripeElements";
+export { default as addressToString } from "./addressToString";

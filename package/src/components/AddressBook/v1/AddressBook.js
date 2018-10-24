@@ -4,7 +4,7 @@ import styled from "styled-components";
 import isEmpty from "lodash.isempty";
 import isEqual from "lodash.isequal";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
+import { addressToString, applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
 
 const AddressBookAddNewAddressAction = styled.div`
   border-color: ${applyTheme("AddressBook.borderColor")};
@@ -157,7 +157,9 @@ class AddressBook extends Component {
     isSaving: false,
     onAddressAdded() {},
     onAddressDeleted() {},
-    onAddressEdited() {}
+    onAddressEdited() {},
+    validatedValue: {},
+    value: {}
   };
 
   state = {
@@ -179,17 +181,12 @@ class AddressBook extends Component {
   //
   get currentStatus() {
     // eslint-disable-next-line
-    return this.props.validatedValue ? REVIEW : this.hasAddress ? OVERVIEW : ENTRY;
+    return !isEmpty(this.props.validatedValue) ? REVIEW : this.hasAddress ? OVERVIEW : ENTRY;
   }
 
   get hasAddress() {
     const { account: { addressBook } } = this.props;
     return !isEmpty(addressBook);
-  }
-
-  addressToString({ address1, address2, city, country, postal, region }) {
-    const addressString = `${address1}${address2 ? `, ${address2}` : ""}, ${city}, ${region} ${postal} ${country}`;
-    return addressString;
   }
 
   //
@@ -234,7 +231,7 @@ class AddressBook extends Component {
           <Accordion
             key={_id}
             label={address.fullName}
-            detail={this.addressToString(address)}
+            detail={addressToString(address)}
             ref={(el) => {
               this._refs[`accordion_${_id}`] = el;
             }}
@@ -289,12 +286,14 @@ class AddressBook extends Component {
   }
 
   renderAddressReview() {
-    const { components: { AddressReview } } = this.props;
+    const { components: { AddressReview }, value, validatedValue } = this.props;
     return (
       <AddressReview
         ref={(el) => {
           this._addressReview = el;
         }}
+        addressEntered={value}
+        addressSuggestion={validatedValue}
       />
     );
   }

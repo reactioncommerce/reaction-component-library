@@ -57,6 +57,18 @@ const rui_components = {
     spacingAfterName: "4px",
     spacingBetweenImageAndContent: "16px"
   },
+  Address: {
+    addressPropertyErrorBackgroundColor: colors.red100,
+    addressPropertyErrorBorderColor: colors.red400,
+    addressPropertyErrorBorderRadius: standardBorderRadius,
+    addressPropertyErrorBorderStyle: "solid",
+    addressPropertyErrorBorderWidth: "1px",
+    addressPropertyErrorColor: colors.red400,
+    addressPropertyErrorPaddingBottom: "0",
+    addressPropertyErrorPaddingLeft: padding.four,
+    addressPropertyErrorPaddingRight: padding.four,
+    addressPropertyErrorPaddingTop: "0"
+  },
   AddressBook: {
     borderColor: colors.black10,
     borderRadius: standardBorderRadius,
@@ -78,6 +90,18 @@ const rui_components = {
     addActionPaddingTop: padding.sixteen,
     actionDeleteButtonHoverColor: colors.redHover,
     spaceBetweenActiveActionButtons: padding.sixteen
+  },
+  AddressReview: {
+    warningMessageBorderColor: colors.yellow400,
+    warningMessageBorderStyle: "solid",
+    warningMessageBorderWidth: "1px",
+    warningMessageBackgroundColor: colors.yellow100,
+    warningMessageColor: colors.yellow600,
+    warningMessagePaddingBottom: padding.fourteen,
+    warningMessagePaddingLeft: padding.twenty,
+    warningMessagePaddingRight: padding.twenty,
+    warningMessagePaddingTop: padding.fourteen,
+    formSpacingTop: "40px"
   },
   BadgeOverlay: {
     fadedOpacity: "0.5"
@@ -578,7 +602,15 @@ const rui_components = {
     itemPaddingRight: "10px",
     itemPaddingTop: "0",
     leftAlignedLabelFontWeight: 700,
-    leftAlignedDetailSpacingToLabel: "2px"
+    leftAlignedDetailSpacingToLabel: "2px",
+    horizontalItemPaddingBottom: padding.twenty,
+    horizontalItemPaddingLeft: padding.twenty,
+    horizontalItemPaddingRight: padding.twenty,
+    horizontalItemPaddingTop: padding.twenty,
+    horizontalFirstItemPaddingRight: "40px",
+    horizontalLastItemPaddingLeft: "40px",
+    stackedSpacingToLabel: "30px",
+    stackedSpacingBelowLabel: "10px"
   },
   SelectMenu: {
     borderBottomColor: colors.black20,
