@@ -115,7 +115,9 @@ exports[`basic dismissable snapshot 1`] = `
     onClick={[Function]}
     onKeyPress={[Function]}
     type="button"
-  />
+  >
+    iconDismiss
+  </button>
   Card.
 </div>
 `;
