@@ -5,6 +5,7 @@ import defaultComponentTheme from "../theme/defaultComponentTheme";
 const validTextTypes = [
   "bodyText",
   "bodyTextBold",
+  "bodyTextSemiBold",
   "captionText",
   "captionTextBold",
   "headingText",

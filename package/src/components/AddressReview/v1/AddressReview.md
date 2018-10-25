@@ -94,7 +94,7 @@ const props = {
 <AddressReview {...props} />
 ```
 
-#### Example implamentation
+#### Example implementation
 Simple `AddressReview` example.
 ```jsx
 const addressEntered = {
@@ -154,19 +154,10 @@ class AddressExample extends React.Component {
 
 Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
 
-| Theme Prop           | Default | Description                                                                              |
-| -------------------- | ------- | ---------------------------------------------------------------------------------------- |
-| `AddressReview.warningMessageBorderColor` | yellow400   | Warning message border color |
-| `AddressReview.warningMessageBorderStyle` | solid   | Warning message border style |
-| `AddressReview.warningMessageBorderWidth` | 1px   | Warning message border width |
-| `AddressReview.warningMessageBackgroundColor` | yellow100   | Warning message background color |
-| `AddressReview.warningMessageColor` | yellow600  | Warning message color |
-| `AddressReview.warningMessagePaddingBottom` | 14px   | Warning message bottom padding |
-| `AddressReview.warningMessagePaddingLeft` | 20px   | Warning message left padding |
-| `AddressReview.warningMessagePaddingRight` | 20px   | Warning message right padding |
-| `AddressReview.warningMessagePaddingTop` | 14px   | Warning message top padding |
-| `AddressReview.formSpacingTop` | 40px   | Space between form and warning message |
+| Theme Prop                     | Default | Description                            |
+| ------------------------------ | ------- | -------------------------------------- |
+| `AddressReview.formSpacingTop` | 40px    | Space between form and warning message |
 
 #### Typography
 
-- The warning message text uses `labelText` style with `rui_components.WarningMessage` override
+None
