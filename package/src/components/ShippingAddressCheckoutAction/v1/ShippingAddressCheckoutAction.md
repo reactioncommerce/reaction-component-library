@@ -91,6 +91,7 @@ action.renderComplete(capturedData);
 ```
 
 ### Implementation Examples
+A naive exmaple to demonstrate a basic shipping address checkout action UX flow. 
 **Basic set shipping address**
 ```jsx
 initState = {
@@ -139,7 +140,7 @@ const props = {
 ```
 
 **With simple address validation**
-
+A naive exmaple to demonstrate a validation shipping address checkout action UX flow. 
 ```jsx
 initState = {
   addressValidationResults: null,
