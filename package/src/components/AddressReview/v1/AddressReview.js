@@ -42,20 +42,10 @@ class AddressReview extends Component {
        */
       Address: CustomPropTypes.component.isRequired,
       /**
-       * Pass either the Reaction Checkbox component or your own component that
+       * Pass either the Reaction SelectableList component or your own component that
        * accepts compatible props.
        */
-      Checkbox: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction Field component or your own component that
-       * accepts compatible props.
-       */
-      Field: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction InlineAlert component or your own component that
-       * accepts compatible props
-       */
-      InlineAlert: CustomPropTypes.component.isRequired
+      SelectableList: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Is data being saved
@@ -72,23 +62,12 @@ class AddressReview extends Component {
     /**
      * The selected address option
      */
-    value: PropTypes.string,
-    /**
-     * Warning message copy to display above the form
-     */
-    warningMessage: PropTypes.string,
-    /**
-     * Warning message title to display above the form
-     */
-    warningTitle: PropTypes.string
+    value: PropTypes.string
   };
 
   static defaultProps = {
     isSaving: false,
-    value: SUGGESTED,
-    // eslint-disable-next-line
-    warningMessage: "Please review our suggestion below, and choose which version you’d like to use. Possible errors are shown in red.",
-    warningTitle: "The address you entered may be incorrect or incomplete."
+    value: SUGGESTED
   };
 
   _form = null;
@@ -138,11 +117,9 @@ class AddressReview extends Component {
       addressEntered,
       addressSuggestion,
       className,
-      components: { Address, InlineAlert, SelectableList },
+      components: { Address, SelectableList },
       isSaving,
-      value,
-      warningMessage,
-      warningTitle
+      value
     } = this.props;
 
     const options = [
@@ -162,7 +139,6 @@ class AddressReview extends Component {
 
     return (
       <div className={className}>
-        <InlineAlert alertType="warning" title={warningTitle} message={warningMessage} />
         <FormWrapper>
           <Form
             ref={(formEl) => {
