@@ -18,7 +18,13 @@ const REVIEW = "review";
 
 class ShippingAddressCheckoutAction extends Component {
   static propTypes = {
+    /**
+     * Address validation results object
+     */
     addressValidationResults: PropTypes.object,
+    /**
+     * Alert object provides alert into to InlineAlert.
+     */
     alert: PropTypes.shape({
       alertType: PropTypes.string,
       message: PropTypes.string,
@@ -79,7 +85,11 @@ class ShippingAddressCheckoutAction extends Component {
     /**
      * Checkout process step number
      */
-    stepNumber: PropTypes.number.isRequired
+    stepNumber: PropTypes.number.isRequired,
+    /**
+     * Address validation function.
+     */
+    validation: PropTypes.func
   };
 
   static defaultProps = {
