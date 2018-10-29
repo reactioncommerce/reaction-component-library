@@ -140,7 +140,7 @@ const props = {
 ```
 
 **With simple address validation**
-A naive exmaple to demonstrate a validation shipping address checkout action UX flow. 
+A naive example to demonstrate a validation shipping address checkout action UX flow. 
 ```jsx
 initState = {
   addressValidationResults: null,
