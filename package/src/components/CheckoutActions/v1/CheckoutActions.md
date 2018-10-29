@@ -196,6 +196,12 @@ class CheckoutActionsExample extends React.Component {
     super(props)
     this.state = {
       addressValidationResults: null,
+      actionAlerts: {
+        1: null,
+        2: null,
+        3: null,
+        4: null
+      },
       checkout: {
         fulfillmentGroups,
         payments: paymentMethods
@@ -235,13 +241,20 @@ class CheckoutActionsExample extends React.Component {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
           this.setState((state, props) => {
-            const { checkout } = state;
+            const { actionAlerts, checkout } = state;
+            actionAlerts["1"] = {
+              alertType: "warning",
+              title: "Invalid Address",
+              message: "Sorry but the address you entered appears to be invalid."
+            };
+            
             return {
               addressValidationResults: {
                 submittedAddress: addressEntered,
                 suggestedAddresses: [addressSuggestion],
                 validationErrors: []
               },
+              actionAlerts,
               checkout
             };
           });
@@ -254,8 +267,10 @@ class CheckoutActionsExample extends React.Component {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
           this.setState((state, props) => {
-            const { checkout } = state;
+            const { actionAlerts, checkout } = state;
+            actionAlerts["1"] = null;
             return {
+              actionAlerts,
               addressValidationResults: null,
               checkout: {
               payments: checkout.payments,
@@ -330,12 +345,12 @@ class CheckoutActionsExample extends React.Component {
   }
 
   render() {
-    const { addressValidationResults, checkout } = this.state;
+    const { actionAlerts, addressValidationResults, checkout } = this.state;
 
     const actions = [
       {
         id: "1",
-        activeLabel: "Enter a shipping address",
+        activeLabel: "Enter a shipping address",        
         completeLabel: "Shipping address",
         incompleteLabel: "Shipping address",
         status: this.getShippingStatus(),
@@ -344,7 +359,8 @@ class CheckoutActionsExample extends React.Component {
         props:  {
           addressValidationResults,
           fulfillmentGroup: checkout.fulfillmentGroups[0],
-          validation: this.validateShippingAddress
+          validation: this.validateShippingAddress,
+          alert: actionAlerts["1"]
         }
       },
       {
@@ -357,7 +373,8 @@ class CheckoutActionsExample extends React.Component {
         onSubmit: this.setFulfillmentOption,
         readyForSave: true,
         props:  {
-          fulfillmentGroup: checkout.fulfillmentGroups[0]
+          fulfillmentGroup: checkout.fulfillmentGroups[0],
+          alert: actionAlerts["2"]
         }
       },
       {
@@ -369,7 +386,8 @@ class CheckoutActionsExample extends React.Component {
         component: StripePaymentCheckoutAction,
         onSubmit: this.setPaymentMethod,
         props: {
-            payment: checkout.payments[0]
+            payment: checkout.payments[0],
+            alert: actionAlerts["3"]
         }
       },
       {
@@ -381,7 +399,8 @@ class CheckoutActionsExample extends React.Component {
         component: FinalReviewCheckoutAction,
         onSubmit: this.placeOrder,
         props: {
-          checkoutSummary
+          checkoutSummary,
+          alert: actionAlerts["4"]
         }
       }
     ];

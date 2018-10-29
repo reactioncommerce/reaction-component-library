@@ -119,7 +119,7 @@ class CheckoutActions extends Component {
        */
       CheckoutActionComplete: CustomPropTypes.component.isRequired,
       /**
-       * Pass either the Reaction CheckboxActionIncomplete component or your own component that
+       * Pass either the Reaction CheckoutActionIncomplete component or your own component that
        * accepts compatible props.
        */
       CheckoutActionIncomplete: CustomPropTypes.component.isRequired
@@ -270,7 +270,6 @@ class CheckoutActions extends Component {
 
   renderActiveAction = ({ component: Comp, ...action }) => {
     const { isSaving } = this.getCurrentActionByID(action.id);
-
     return (
       <Fragment>
         <Comp
@@ -315,11 +314,7 @@ class CheckoutActions extends Component {
     const { className, actions } = this.props;
     const activeActions = this.determineActiveActions();
 
-    return (
-      <div className={className}>
-        {actions.map((action) => this.renderAction(action, activeActions))}
-      </div>
-    );
+    return <div className={className}>{actions.map((action) => this.renderAction(action, activeActions))}</div>;
   }
 }
 
