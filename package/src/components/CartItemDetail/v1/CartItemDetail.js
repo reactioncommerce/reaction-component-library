@@ -64,6 +64,10 @@ class CartItemDetail extends Component {
      */
     isMiniCart: PropTypes.bool,
     /**
+     * Product URL path to be prepended before the slug
+     */
+    productURLPath: PropTypes.string,
+    /**
      * Product slug of chosen item.
      */
     productSlug: PropTypes.string,
@@ -122,11 +126,11 @@ class CartItemDetail extends Component {
   }
 
   render() {
-    const { className, productSlug, title } = this.props;
+    const { className, productURLPath, productSlug, title } = this.props;
     return (
       <Detail className={className}>
         <Title>
-          <a href={productSlug}>{title}</a>
+          <a href={[productURLPath, productSlug].join("")}>{title}</a>
         </Title>
         {this.renderAttributes()}
       </Detail>

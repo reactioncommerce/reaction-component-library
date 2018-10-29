@@ -45,3 +45,10 @@ test("basic snapshot with isReadOnly prop", () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test("basic snapshot with productURLPath prop", () => {
+  const component = renderer.create(<CartItem components={mockComponents} item={mockItem} productURLPath="/product" isReadOnly />);
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});

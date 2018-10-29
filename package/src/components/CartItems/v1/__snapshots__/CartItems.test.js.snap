@@ -6,7 +6,16 @@ exports[`basic snapshot with empty props 1`] = `
 />
 `;
 
-exports[`basic snapshot with props 1`] = `
+exports[`basic snapshot with required props 1`] = `
+<div
+  className=""
+>
+  CartItem(undefined)
+  CartItem(undefined)
+</div>
+`;
+
+exports[`basic snapshot with required props and optional prop 1`] = `
 <div
   className=""
 >

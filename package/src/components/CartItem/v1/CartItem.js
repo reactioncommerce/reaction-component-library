@@ -232,14 +232,18 @@ class CartItem extends Component {
     /**
      * On remove item from cart handler
      */
-    onRemoveItemFromCart: PropTypes.func
+    onRemoveItemFromCart: PropTypes.func,
+    /**
+     * Product URL path to be prepended before the slug
+     */
+    productURLPath: PropTypes.string
   };
 
   static defaultProps = {
     isMiniCart: false,
     isReadOnly: false,
-    onChangeCartItemQuantity() {},
-    onRemoveItemFromCart() {}
+    onChangeCartItemQuantity() { },
+    onRemoveItemFromCart() { }
   };
 
   state = {
@@ -279,6 +283,7 @@ class CartItem extends Component {
       components,
       isMiniCart,
       isReadOnly,
+      productURLPath,
       item: {
         attributes,
         compareAtPrice,
@@ -311,6 +316,7 @@ class CartItem extends Component {
                 <CartItemDetail
                   attributes={attributes}
                   isMiniCart={isMiniCart}
+                  productURLPath={productURLPath}
                   productSlug={productSlug}
                   productVendor={productVendor}
                   quantity={isReadOnly ? quantity : null}

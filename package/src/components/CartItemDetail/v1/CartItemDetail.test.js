@@ -53,3 +53,21 @@ test("basic snapshot with quantity attribute", () => {
   expect(tree).toMatchSnapshot();
 });
 
+test("basic snapshot with product url path prop", () => {
+  const attributes = [
+    { label: "Color", value: "Red" },
+    { label: "Size", value: "Medium" }
+  ];
+  const component = renderer.create((
+    <CartItemDetail
+      title="Mock Product Title"
+      productURLPath="/product"
+      productSlug="/product-slug"
+      attributes={attributes}
+    />
+  ));
+
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
+

@@ -51,6 +51,7 @@ const handleRemoveItemFromCart = (_id) => console.log("cart items remove this it
 
 <CartItems
   items={items}
+  productURLPath="/product"
   onChangeCartItemQuantity={handleChangeCartItemQuantity}
   onRemoveItemFromCart={handleRemoveItemFromCart}
 />
