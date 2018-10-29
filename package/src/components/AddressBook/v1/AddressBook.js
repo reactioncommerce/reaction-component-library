@@ -332,8 +332,8 @@ class AddressBook extends Component {
       <div className={className}>
         {// eslint-disable-next-line
         status === REVIEW
-          ? this.renderAddressReview()
-          : status === OVERVIEW ? this.renderAddressSelect() : this.renderAddressForm()}
+            ? this.renderAddressReview()
+            : status === OVERVIEW ? this.renderAddressSelect() : this.renderAddressForm()}
       </div>
     );
   }
