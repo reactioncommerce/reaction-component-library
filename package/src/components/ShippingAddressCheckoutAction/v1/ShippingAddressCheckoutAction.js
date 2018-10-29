@@ -19,6 +19,11 @@ const REVIEW = "review";
 class ShippingAddressCheckoutAction extends Component {
   static propTypes = {
     addressValidationResults: PropTypes.object,
+    alert: PropTypes.shape({
+      alertType: PropTypes.string,
+      message: PropTypes.string,
+      title: PropTypes.string
+    }),
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -36,7 +41,12 @@ class ShippingAddressCheckoutAction extends Component {
        * Pass either the Reaction AddressReview component or your own component that
        * accepts compatible props.
        */
-      AddressReview: CustomPropTypes.component.isRequired
+      AddressReview: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction InlineAlert component or your own component that
+       * accepts compatible props.
+       */
+      InlineAlert: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Checkout data needed for form
@@ -179,13 +189,14 @@ class ShippingAddressCheckoutAction extends Component {
   }
 
   render() {
-    const { label, stepNumber } = this.props;
+    const { alert, components: { InlineAlert }, label, stepNumber } = this.props;
     const { status } = this.state;
     return (
       <Fragment>
         <Title>
           {stepNumber}. {label}
         </Title>
+        {alert ? <InlineAlert {...alert} /> : ""}
         {status === REVIEW ? this.renderAddressReview() : this.renderAddressForm()}
       </Fragment>
     );
