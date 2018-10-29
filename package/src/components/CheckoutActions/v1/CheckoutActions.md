@@ -244,8 +244,8 @@ class CheckoutActionsExample extends React.Component {
             const { actionAlerts, checkout } = state;
             actionAlerts["1"] = {
               alertType: "warning",
-              title: "Invalid Address",
-              message: "Sorry but the address you entered appears to be invalid."
+              title: "The address you entered may be incorrect or incomplete.",
+              message: "Please review our suggestion below, and choose which version you’d like to use. Possible errors are shown in red."
             };
             
             return {
