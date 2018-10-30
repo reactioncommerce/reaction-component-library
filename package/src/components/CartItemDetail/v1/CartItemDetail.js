@@ -64,13 +64,13 @@ class CartItemDetail extends Component {
      */
     isMiniCart: PropTypes.bool,
     /**
-     * Product URL path to be prepended before the slug
-     */
-    productURLPath: PropTypes.string,
-    /**
      * Product slug of chosen item.
      */
     productSlug: PropTypes.string,
+    /**
+     * Product URL path to be prepended before the slug
+     */
+    productURLPath: PropTypes.string,
     /**
      * Product vendor of chosen item.
      */
