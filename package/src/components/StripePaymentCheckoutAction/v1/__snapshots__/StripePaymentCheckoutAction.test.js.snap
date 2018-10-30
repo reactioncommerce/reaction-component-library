@@ -24,6 +24,7 @@ Array [
     . 
     Payment Information
   </h3>,
+  "",
   "StripeForm(undefined)",
   .c0 {
   -webkit-font-smoothing: antialiased;
