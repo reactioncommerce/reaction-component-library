@@ -10,18 +10,18 @@ For a full implementation example see the [CheckoutActions](/#!/CheckoutActions)
 ### Usage
 
 ```jsx
-const fullfillment = {
+const fulfillment = {
   data: {
     shippingAddress: null
   }
 };
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} label="Shipping Address" stepNumber={1} />
+<ShippingAddressCheckoutAction fulfillmentGroup={fulfillment} label="Shipping Address" stepNumber={1} />
 ```
 
 #### With Address
 ```jsx
-const fullfillment = {
+const fulfillment = {
   data: {
     shippingAddress: {
       address1: "7742 Hwy 23",
@@ -36,25 +36,93 @@ const fullfillment = {
   }
 };
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} label="Shipping Address" stepNumber={1} />
+<ShippingAddressCheckoutAction fulfillmentGroup={fulfillment} label="Shipping Address" stepNumber={1} />
 ```
 
 #### Without Address
 ```jsx
-const fullfillment = {
+const fulfillment = {
   data: {
     shippingAddress: null
   }
 };
 
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} label="Shipping Address" stepNumber={1} />
+<ShippingAddressCheckoutAction fulfillmentGroup={fulfillment} label="Shipping Address" stepNumber={1} />
+```
+
+#### With Alert
+```jsx
+const fulfillment = {
+  data: {
+    shippingAddress: null
+  }
+};
+
+const alert = {
+  alertType: "warning",
+  title: "The address you entered may be incorrect or incomplete.",
+  message: "Please review our suggestion below, and choose which version you’d like to use. Possible errors are shown in red."
+};
+
+
+<ShippingAddressCheckoutAction alert={alert} fulfillmentGroup={fulfillment} label="Shipping Address" stepNumber={1} />
+```
+
+#### With Address Validation Results
+```jsx
+const fulfillmentGroup = {
+  data: {
+    shippingAddress: null
+  }
+};
+
+const alert = {
+  alertType: "warning",
+  title: "The address you entered may be incorrect or incomplete.",
+  message: "Please review our suggestion below, and choose which version you’d like to use. Possible errors are shown in red."
+};
+
+
+const addressValidationResults = {
+  submittedAddress: {
+    address1: "7742 Hwy 25",
+    address2: "",
+    country: "US",
+    city: "Belle Chasse",
+    fullName: "Salvos Seafood",
+    postal: "70047",
+    region: "LA",
+    phone: "(504) 393-7303"
+  },
+  suggestedAddresses: [{
+    address1: "7742 Hwy 23",
+    address2: "",
+    country: "US",
+    city: "Belle Chasse",
+    fullName: "Salvos Seafood",
+    postal: "70037",
+    region: "LA",
+    phone: "(504) 393-7303"
+  }],
+  validationErrors: []
+};
+
+const props = {
+ fulfillmentGroup,
+ alert,
+ addressValidationResults,
+ label: "Shipping Address",
+ stepNumber: 1
+};
+
+<ShippingAddressCheckoutAction {...props} />
 ```
 
 #### Ready For Save
 Open the browser terminal and fill out this form to see the `onReadyForSaveChange` callback fire.
 ```jsx
-const fullfillment = {
+const fulfillment = {
   data: {
     shippingAddress: null
   }
@@ -63,7 +131,7 @@ const fullfillment = {
 
 const isReady = (ready) => console.log("is action ready for save?", ready);
 
-<ShippingAddressCheckoutAction fulfillmentGroup={fullfillment} onReadyForSaveChange={isReady} label="Shipping Address" stepNumber={1} />
+<ShippingAddressCheckoutAction fulfillmentGroup={fulfillment} onReadyForSaveChange={isReady} label="Shipping Address" stepNumber={1} />
 ```
 
 #### Render Complete Method

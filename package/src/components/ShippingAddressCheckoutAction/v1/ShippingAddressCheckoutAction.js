@@ -26,8 +26,17 @@ class ShippingAddressCheckoutAction extends Component {
      * Alert object provides alert into to InlineAlert.
      */
     alert: PropTypes.shape({
-      alertType: PropTypes.string,
-      message: PropTypes.string,
+      /**
+       * The type of alert: Error, Information, Success or Warning
+       */
+      alertType: PropTypes.oneOf(["error", "information", "success", "warning"]),
+      /**
+       * Alert message
+       */
+      message: PropTypes.string.isRequired,
+      /**
+       * Alert title, optional
+       */
       title: PropTypes.string
     }),
     /**
@@ -166,7 +175,7 @@ class ShippingAddressCheckoutAction extends Component {
 
   renderAddressReview() {
     const {
-      addressValidationResults: { submittedAddress, suggestedAddresses, validationErrors },
+      addressValidationResults: { submittedAddress, suggestedAddresses },
       components: { AddressReview }
     } = this.props;
     return (
@@ -177,7 +186,6 @@ class ShippingAddressCheckoutAction extends Component {
         addressEntered={submittedAddress}
         addressSuggestion={suggestedAddresses[0]}
         onSubmit={this.handleSubmit}
-        warningMessage={validationErrors.length ? validationErrors[0].details : undefined}
       />
     );
   }
