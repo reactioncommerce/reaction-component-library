@@ -239,7 +239,7 @@ class CheckoutActions extends Component {
 
     const saveAndContinueButtons = (
       <React.Fragment>
-        {action.props ? (
+        {(action.props.fulfillmentGroup && action.props.fulfillmentGroup.data.shippingAddress) || action.id !== "1" ? (
           <Button
             actionType="secondary"
             onClick={() => {

@@ -14,6 +14,7 @@ const Address = styled.address`
 `;
 
 const ENTRY = "entry";
+const EDIT = "edit";
 const REVIEW = "review";
 
 class ShippingAddressCheckoutAction extends Component {
@@ -135,9 +136,26 @@ class ShippingAddressCheckoutAction extends Component {
     );
   }
 
+  get getSubmittedAddress() {
+    if (!this.hasValidationResults) return null;
+    const { addressValidationResults: { submittedAddress } } = this.props;
+    return submittedAddress;
+  }
+
+  get getShippingAddress() {
+    if (!this.hasShippingAddressOnCart) return null;
+    const { fulfillmentGroup: { data: { shippingAddress } } } = this.props;
+    return shippingAddress;
+  }
+
   get inEntry() {
     const { status } = this.state;
     return status === ENTRY;
+  }
+
+  get inEdit() {
+    const { status } = this.state;
+    return status === EDIT;
   }
 
   get inReview() {
@@ -176,23 +194,32 @@ class ShippingAddressCheckoutAction extends Component {
   renderAddressReview() {
     const {
       addressValidationResults: { submittedAddress, suggestedAddresses },
-      components: { AddressReview }
+      components: { AddressReview, Button }
     } = this.props;
     return (
-      <AddressReview
-        ref={(formEl) => {
-          this._form = formEl;
-        }}
-        addressEntered={submittedAddress}
-        addressSuggestion={suggestedAddresses[0]}
-        onSubmit={this.handleSubmit}
-      />
+      <Fragment>
+        <AddressReview
+          ref={(formEl) => {
+            this._form = formEl;
+          }}
+          addressEntered={submittedAddress}
+          addressSuggestion={suggestedAddresses[0]}
+          onSubmit={this.handleSubmit}
+        />
+        <Button
+          isTextOnly
+          onClick={() => {
+            this.toggleStatus = EDIT;
+          }}
+        >
+          Edit entered address
+        </Button>
+      </Fragment>
     );
   }
 
   renderAddressForm() {
-    const { components: { AddressForm }, fulfillmentGroup, isSaving } = this.props;
-    const shippingAddress = fulfillmentGroup ? fulfillmentGroup.data.shippingAddress : null;
+    const { components: { AddressForm }, isSaving } = this.props;
     return (
       <AddressForm
         ref={(formEl) => {
@@ -201,7 +228,7 @@ class ShippingAddressCheckoutAction extends Component {
         isSaving={isSaving}
         onChange={this.handleChange}
         onSubmit={this.handleSubmit}
-        value={shippingAddress}
+        value={this.inEdit ? this.getSubmittedAddress : this.getShippingAddress}
       />
     );
   }
