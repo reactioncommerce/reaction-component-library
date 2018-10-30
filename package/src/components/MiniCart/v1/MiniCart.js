@@ -138,13 +138,17 @@ class MiniCart extends Component {
     /**
      * On remove item from cart handler
      */
-    onRemoveItemFromCart: PropTypes.func
+    onRemoveItemFromCart: PropTypes.func,
+    /**
+     * Product URL path to be prepended before the slug
+    */
+    productURLPath: PropTypes.string
   };
 
   static defaultProps = {
-    onChangeCartItemQuantity() {},
-    onCheckoutButtonClick() {},
-    onRemoveItemFromCart() {}
+    onChangeCartItemQuantity() { },
+    onCheckoutButtonClick() { },
+    onRemoveItemFromCart() { }
   };
 
   render() {

@@ -68,6 +68,10 @@ class CartItemDetail extends Component {
      */
     productSlug: PropTypes.string,
     /**
+     * Product URL path to be prepended before the slug
+     */
+    productURLPath: PropTypes.string,
+    /**
      * Product vendor of chosen item.
      */
     productVendor: PropTypes.string,
@@ -122,11 +126,11 @@ class CartItemDetail extends Component {
   }
 
   render() {
-    const { className, productSlug, title } = this.props;
+    const { className, productURLPath, productSlug, title } = this.props;
     return (
       <Detail className={className}>
         <Title>
-          <a href={productSlug}>{title}</a>
+          <a href={[productURLPath, productSlug].join("")}>{title}</a>
         </Title>
         {this.renderAttributes()}
       </Detail>

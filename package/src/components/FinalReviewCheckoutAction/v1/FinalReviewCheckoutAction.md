@@ -55,6 +55,7 @@ const checkoutSummary = {
   onReadyForSaveChange={isReady}
   checkoutSummary={checkoutSummary}
   stepNumber={4}
+  productURLPath="/product"
 />
 
 ```

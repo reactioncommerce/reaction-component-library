@@ -28,6 +28,21 @@ const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "M
 <CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} isMiniCart />
 ```
 
+#### With `ProductURLPath`
+Pass a custom URL path into `productURLPath` to customize the product link:
+
+- With a `productURLPath` of "/products"
+```jsx
+const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
+<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productURLPath="/products" productVendor="Patagonia" attributes={attributes} isMiniCart />
+```
+
+- With a longer `productURLPath`
+```jsx
+const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
+<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productURLPath="/fall-winter/women/products" productVendor="Patagonia" attributes={attributes} isMiniCart />
+```
+
 ### Theme
 
 Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).

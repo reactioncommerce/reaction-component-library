@@ -157,6 +157,38 @@ const item = {
 />
 ```
 
+#### With `productURLPath`
+
+```jsx
+const item = {
+  _id: "123",
+  attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  compareAtPrice: {
+    displayAmount: "$45.00"
+  },
+  currentQuantity: 3,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: true,
+  price: {
+    displayAmount: "$20.00"
+  },
+  productSlug: "/product-slug",
+  productVendor: "Patagonia",
+  title: "A Great Product",
+  quantity: 2
+};
+
+<CartItem
+  item={item}
+  productURLPath="/product/path/here"
+  onChangeCartItemQuantity={(value, _id) => console.log("cart item quantity changed to", value, "for item", _id)}
+  onRemoveItemFromCart={() => console.log("Item removed from cart")}
+/>
+```
+
 ### Theme
 
 Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).

@@ -54,14 +54,18 @@ class CartItems extends Component {
     /**
      * On remove item from cart handler
      */
-    onRemoveItemFromCart: PropTypes.func
+    onRemoveItemFromCart: PropTypes.func,
+    /**
+     * Product URL path to be prepended before the slug. Should start with "/"
+     */
+    productURLPath: PropTypes.string
   };
 
   static defaultProps = {
     isMiniCart: false,
     isReadOnly: false,
-    onChangeCartItemQuantity() {},
-    onRemoveItemFromCart() {}
+    onChangeCartItemQuantity() { },
+    onRemoveItemFromCart() { }
   };
 
   render() {

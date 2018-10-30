@@ -51,6 +51,7 @@ const handleRemoveItemFromCart = (_id) => console.log("cart items remove this it
 
 <CartItems
   items={items}
+  productURLPath="/product"
   onChangeCartItemQuantity={handleChangeCartItemQuantity}
   onRemoveItemFromCart={handleRemoveItemFromCart}
 />
@@ -157,6 +158,58 @@ const handleRemoveItemFromCart = (_id) => console.log("cart items remove this it
   onRemoveItemFromCart={handleRemoveItemFromCart}
 />
 ```
+
+#### With `productURLPath`
+```jsx
+const items = [{
+  _id: "123",
+  attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  compareAtPrice: {
+    displayAmount: "$45.00"
+  },
+  currentQuantity: 3,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: true,
+  price: {
+    displayAmount: "$20.00"
+  },
+  productVendor: "Patagonia",
+  productSlug: "/product-slug",
+  title: "A Great Product",
+  quantity: 2
+},
+{
+  _id: "456",
+  attributes: [{ label: "Color", value: "Black" }, { label: "Size", value: "10" }],
+  currentQuantity: 500,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: false,
+  price: {
+    displayAmount: "$78.00"
+  },
+  productSlug: "/product-slug",
+  productVendor: "Nike",
+  title: "Another Great Product",
+  quantity: 1
+}];
+
+const handleChangeCartItemQuantity = (value, _id) => console.log("cart items new quantity", value, "for item", _id);
+const handleRemoveItemFromCart = (_id) => console.log("cart items remove this item", _id);
+
+<CartItems
+  productURLPath="/special/path"
+  items={items}
+  onChangeCartItemQuantity={handleChangeCartItemQuantity}
+  onRemoveItemFromCart={handleRemoveItemFromCart}
+/>
+```
+
 
 ### Theme
 

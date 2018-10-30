@@ -1,5 +1,112 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`basic snapshot with product url path prop 1`] = `
+.c0 {
+  -webkit-flex: 0 0 fit;
+  -ms-flex: 0 0 fit;
+  flex: 0 0 fit;
+}
+
+.c1 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 700;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 10px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.c1 a {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 700;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.c1 a:focus,
+.c1 a:hover {
+  color: #5d8ea9;
+}
+
+.c2 {
+  margin-bottom: 0.5rem;
+}
+
+.c3 {
+  -webkit-font-smoothing: antialiased;
+  color: #595959;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  margin: 0;
+}
+
+<div
+  className="c0"
+>
+  <h3
+    className="c1"
+  >
+    <a
+      href="/product/product-slug"
+    >
+      Mock Product Title
+    </a>
+  </h3>
+  <div
+    className="c2"
+  >
+    <p
+      className="c3"
+    >
+      <span>
+        Color
+        :
+      </span>
+       
+      Red
+    </p>
+    <p
+      className="c3"
+    >
+      <span>
+        Size
+        :
+      </span>
+       
+      Medium
+    </p>
+  </div>
+</div>
+`;
+
 exports[`basic snapshot with props 1`] = `
 .c0 {
   -webkit-flex: 0 0 fit;
@@ -419,7 +526,7 @@ exports[`basic snapshot without props 1`] = `
     className="c1"
   >
     <a
-      href={undefined}
+      href=""
     />
   </h3>
 </div>
