@@ -139,7 +139,8 @@ class FinalReviewCheckoutAction extends Component {
         CartSummary
       },
       label,
-      stepNumber
+      stepNumber,
+      ...props
     } = this.props;
 
     return (
@@ -152,6 +153,7 @@ class FinalReviewCheckoutAction extends Component {
             <CartItems
               isReadOnly
               items={items}
+              {...props}
             />
           </Items>
           <CartSummaryWrapper>
