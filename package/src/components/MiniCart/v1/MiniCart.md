@@ -1,5 +1,7 @@
 ### Overview
 
+The MiniCart is designed to show the cart in a dropdown menu or side panel throughout the application.
+
 ### Usage
 
 #### Default
@@ -55,7 +57,7 @@ const items = [
   quantity: 1
 }];
 
-<MiniCart cart={{ checkout, items }} onCheckoutButtonClick={() => alert("Checkout!")} />
+<MiniCart cart={{ checkout, items }} productURLPath="/product" onCheckoutButtonClick={() => alert("Checkout!")} />
 ```
 
 #### Scrolling
