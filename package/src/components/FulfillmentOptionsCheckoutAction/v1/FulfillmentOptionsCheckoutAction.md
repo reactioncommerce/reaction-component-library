@@ -87,6 +87,72 @@ class FulfillmentExample extends React.Component {
 <FulfillmentExample />
 ```
 
+#### With Alert
+```jsx
+const fulfillmentGroup = {
+  availableFulfillmentOptions: [
+    {
+      fulfillmentMethod: {
+        _id: "111",
+        name: "Standard",
+        displayName: "Standard (5-9 Days)"
+      },
+      price: {
+        amount: 0,
+        displayAmount: "Free"
+      }
+    },
+    {
+      fulfillmentMethod: {
+        _id: "222",
+        name: "Priority",
+        displayName: "Priority (3-5 Days)"
+      },
+      price: {
+        amount: 5.99,
+        displayAmount: "$5.99"
+      }
+    },
+    {
+      fulfillmentMethod: {
+        _id: "333",
+        name: "Express",
+        displayName: "Express 2 Day"
+      },
+      price: {
+        amount: 12.99,
+        displayAmount: "$12.99"
+      }
+    }, {
+      fulfillmentMethod: {
+        _id: "444",
+        name: "Overnight",
+        displayName: "Overnight Expedited"
+      },
+      price: {
+        amount: 24.99,
+        displayAmount: "$24.99"
+      }
+    }
+  ]
+};
+
+const alert = {
+  alertType: "information",
+  title: "Shipping Restrictions",
+  message: "Please review our shipping restrictions."
+};
+
+
+<FulfillmentOptionsCheckoutAction 
+  alert={alert}  
+  label="Choose a shipping method"
+  fulfillmentGroup={fulfillmentGroup}
+  status="incomplete"
+  stepNumber={2} 
+/>
+```
+
 #### Render complete
 
 ```jsx

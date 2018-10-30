@@ -24,6 +24,7 @@ Array [
     . 
     Choose a shipping method
   </h3>,
+  "",
   .c0 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
@@ -71,6 +72,7 @@ Array [
     . 
     Choose a shipping method
   </h3>,
+  "",
   <div
     className={null}
     style={Object {}}
