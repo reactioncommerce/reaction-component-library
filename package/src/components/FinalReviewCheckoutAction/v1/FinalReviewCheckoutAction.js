@@ -104,6 +104,10 @@ class FinalReviewCheckoutAction extends Component {
      */
     onSubmit: PropTypes.func,
     /**
+     * Product URL path to be prepended before the slug
+    */
+    productURLPath: PropTypes.string,
+    /**
      * Checkout process step number
      */
     stepNumber: PropTypes.number.isRequired
