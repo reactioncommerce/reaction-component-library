@@ -261,7 +261,7 @@ class CartItem extends Component {
   };
 
   renderImage() {
-    const { isMiniCart, item: { imageURLs, productSlug, productURLPath } } = this.props;
+    const { isMiniCart, item: { imageURLs, productSlug }, productURLPath } = this.props;
 
     const { small, thumbnail } = imageURLs || {};
 
