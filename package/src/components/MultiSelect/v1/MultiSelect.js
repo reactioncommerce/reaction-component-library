@@ -20,6 +20,7 @@ const supportedPassthroughProps = [
   "captureMenuScroll",
   "closeMenuOnSelect",
   "components",
+  "defaultValue",
   "escapeClearsValue",
   "formatGroupLabel",
   "formatOptionLabel",
@@ -258,6 +259,11 @@ class MultiSelect extends Component {
     components: PropTypes.object,
 
     /**
+     * Passed through to react-select package. default selected values
+     */
+    defaultValue: PropTypes.arrayOf(PropTypes.object),
+
+    /**
      * An array of validation errors
      */
     errors: PropTypes.array,
@@ -458,7 +464,7 @@ class MultiSelect extends Component {
      * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
      * the Composable Forms spec will pass this automatically.
      */
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool])
+    value: PropTypes.arrayOf(PropTypes.object)
   };
 
   static defaultProps = {
@@ -523,25 +529,7 @@ class MultiSelect extends Component {
   };
 
   handleSelectLibChanged = (selection) => {
-    let { value } = selection || {};
-
-    if (value !== undefined && value !== null) {
-      switch (this.dataType) {
-        case "string":
-          value = String(value);
-          break;
-        case "number":
-          value = value === "" ? null : Number(value);
-          break;
-        case "boolean":
-          value = value === "" ? null : Boolean(value);
-          break;
-        default:
-        // do nothing
-      }
-    }
-
-    this.setValue(value || null);
+    this.setValue(selection || null);
   };
 
   // Input is dirty if value prop doesn't match value state. Whenever a changed
