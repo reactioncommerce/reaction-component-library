@@ -176,6 +176,39 @@ function getCustomStyles(props) {
         boxShadow: "none",
         zIndex: MENU_Z_INDEX
       };
+    },
+    multiValue(base) {
+      return {
+        ...base,
+        backgroundColor: "#ebf7fc",
+        border: "1px solid #5d8ea9",
+        borderTopLeftRadius: "2px",
+        borderTopRightRadius: "2px",
+        borderBottomLeftRadius: "2px",
+        borderBottomRightRadius: "2px"
+      };
+    },
+    multiValueLabel(base) {
+      return {
+        ...base,
+        color: "#505558",
+        fontSize: "14px"
+      };
+    },
+    multiValueRemove(base) {
+      return {
+        ...base,
+        borderTopLeftRadius: "0",
+        borderTopRightRadius: "0",
+        borderBottomLeftRadius: "0",
+        borderBottomRightRadius: "0",
+        fontSize: "14px",
+        marginLeft: "5px",
+        ":hover": {
+          backgroundColor: "#5d8ea9",
+          color: "#ebf7fc"
+        }
+      };
     }
   };
 }
