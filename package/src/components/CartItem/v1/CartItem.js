@@ -261,14 +261,14 @@ class CartItem extends Component {
   };
 
   renderImage() {
-    const { isMiniCart, item: { imageURLs, productSlug } } = this.props;
+    const { isMiniCart, item: { imageURLs, productSlug, productURLPath } } = this.props;
 
     const { small, thumbnail } = imageURLs || {};
 
     if (!small || !thumbnail) return null;
 
     return (
-      <a href={productSlug}>
+      <a href={[productURLPath, productSlug].join("")}>
         <picture>
           {isMiniCart ? "" : <source srcSet={small} media="(min-width: 768px)" />}
           <img src={thumbnail} alt="" style={{ display: "block" }} />
