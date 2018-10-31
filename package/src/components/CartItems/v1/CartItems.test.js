@@ -30,7 +30,7 @@ test("basic snapshot with required props", () => {
       price: {
         displayAmount: "$20.00"
       },
-      productSlug: "/product-slug",
+      productSlug: "product-slug",
       productVendor: "Patagonia",
       title: "A Great Product",
       quantity: 2
@@ -51,7 +51,7 @@ test("basic snapshot with required props", () => {
         displayAmount: "$78.00"
       },
       productVendor: "Nike",
-      productSlug: "/product-slug",
+      productSlug: "product-slug",
       title: "Another Great Product",
       quantity: 1
     }
@@ -83,7 +83,7 @@ test("basic snapshot with required props and optional prop", () => {
       price: {
         displayAmount: "$20.00"
       },
-      productSlug: "/product-slug",
+      productSlug: "product-slug",
       productVendor: "Patagonia",
       title: "A Great Product",
       quantity: 2
@@ -104,13 +104,13 @@ test("basic snapshot with required props and optional prop", () => {
         displayAmount: "$78.00"
       },
       productVendor: "Nike",
-      productSlug: "/product-slug",
+      productSlug: "product-slug",
       title: "Another Great Product",
       quantity: 1
     }
   ];
 
-  const component = renderer.create(<CartItems items={mockItems} components={mockComponents} productURLPath="/product" />);
+  const component = renderer.create(<CartItems items={mockItems} components={mockComponents} productURLPath="product/" />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

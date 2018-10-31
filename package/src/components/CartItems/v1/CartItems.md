@@ -23,7 +23,7 @@ const items = [{
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -40,7 +40,7 @@ const items = [{
   price: {
     displayAmount: "$78.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "Another Great Product",
   quantity: 1
@@ -51,7 +51,7 @@ const handleRemoveItemFromCart = (_id) => console.log("cart items remove this it
 
 <CartItems
   items={items}
-  productURLPath="/product"
+  productURLPath="product/"
   onChangeCartItemQuantity={handleChangeCartItemQuantity}
   onRemoveItemFromCart={handleRemoveItemFromCart}
 />
@@ -75,7 +75,7 @@ const items = [{
     displayAmount: "$20.00"
   },
   productVendor: "Patagonia",
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   title: "A Great Product",
   quantity: 2
 },
@@ -91,7 +91,7 @@ const items = [{
   price: {
     displayAmount: "$78.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Nike",
   title: "Another Great Product",
   quantity: 1
@@ -126,7 +126,7 @@ const items = [{
     displayAmount: "$20.00"
   },
   productVendor: "Patagonia",
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   title: "A Great Product",
   quantity: 2
 },
@@ -142,7 +142,7 @@ const items = [{
   price: {
     displayAmount: "$78.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Nike",
   title: "Another Great Product",
   quantity: 1
@@ -177,7 +177,7 @@ const items = [{
     displayAmount: "$20.00"
   },
   productVendor: "Patagonia",
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   title: "A Great Product",
   quantity: 2
 },
@@ -193,7 +193,7 @@ const items = [{
   price: {
     displayAmount: "$78.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Nike",
   title: "Another Great Product",
   quantity: 1
@@ -203,7 +203,7 @@ const handleChangeCartItemQuantity = (value, _id) => console.log("cart items new
 const handleRemoveItemFromCart = (_id) => console.log("cart items remove this item", _id);
 
 <CartItems
-  productURLPath="/special/path"
+  productURLPath="special/path/"
   items={items}
   onChangeCartItemQuantity={handleChangeCartItemQuantity}
   onRemoveItemFromCart={handleRemoveItemFromCart}

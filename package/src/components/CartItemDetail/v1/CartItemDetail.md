@@ -7,40 +7,40 @@ Used by [CartItem](./#!/CartItem), or can be used alone.
 
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
-<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" attributes={attributes} />
+<CartItemDetail title="Amazing Product Title" productSlug="product-slug" attributes={attributes} />
 ```
 
 #### With Product Vendor
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
-<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} />
+<CartItemDetail title="Amazing Product Title" productSlug="product-slug" productVendor="Patagonia" attributes={attributes} />
 ```
 
 #### With Quantity
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
-<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} quantity={3} />
+<CartItemDetail title="Amazing Product Title" productSlug="product-slug" productVendor="Patagonia" attributes={attributes} quantity={3} />
 ```
 
 #### In Mini Cart
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
-<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productVendor="Patagonia" attributes={attributes} isMiniCart />
+<CartItemDetail title="Amazing Product Title" productSlug="product-slug" productVendor="Patagonia" attributes={attributes} isMiniCart />
 ```
 
 #### With `ProductURLPath`
 Pass a custom URL path into `productURLPath` to customize the product link:
 
-- With a `productURLPath` of "/products"
+- With a `productURLPath` of "products/"
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
-<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productURLPath="/products" productVendor="Patagonia" attributes={attributes} isMiniCart />
+<CartItemDetail title="Amazing Product Title" productSlug="product-slug" productURLPath="products/" productVendor="Patagonia" attributes={attributes} isMiniCart />
 ```
 
 - With a longer `productURLPath`
 ```jsx
 const attributes = [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }];
-<CartItemDetail title="Amazing Product Title" productSlug="/product-slug" productURLPath="/fall-winter/women/products" productVendor="Patagonia" attributes={attributes} isMiniCart />
+<CartItemDetail title="Amazing Product Title" productSlug="product-slug" productURLPath="fall-winter/women/products" productVendor="Patagonia" attributes={attributes} isMiniCart />
 ```
 
 ### Theme

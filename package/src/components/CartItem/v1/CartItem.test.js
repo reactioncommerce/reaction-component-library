@@ -19,7 +19,7 @@ const mockItem = {
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -47,7 +47,7 @@ test("basic snapshot with isReadOnly prop", () => {
 });
 
 test("basic snapshot with productURLPath prop", () => {
-  const component = renderer.create(<CartItem components={mockComponents} item={mockItem} productURLPath="/product" isReadOnly />);
+  const component = renderer.create(<CartItem components={mockComponents} item={mockItem} productURLPath="product/" isReadOnly />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

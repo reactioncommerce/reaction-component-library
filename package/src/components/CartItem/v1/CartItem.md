@@ -24,7 +24,7 @@ const item = {
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -51,7 +51,7 @@ const item = {
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -81,7 +81,7 @@ const item = {
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -111,7 +111,7 @@ const item = {
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -142,7 +142,7 @@ const item = {
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -175,7 +175,7 @@ const item = {
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -183,7 +183,7 @@ const item = {
 
 <CartItem
   item={item}
-  productURLPath="/product/path/here"
+  productURLPath="product/path/here/"
   onChangeCartItemQuantity={(value, _id) => console.log("cart item quantity changed to", value, "for item", _id)}
   onRemoveItemFromCart={() => console.log("Item removed from cart")}
 />
