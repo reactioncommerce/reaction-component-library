@@ -15,6 +15,26 @@ const isReady = (ready) => true;
 
 ```
 
+#### With Alert
+```jsx
+const isReady = (ready) => true;
+
+const alert = {
+  alertType: "error",
+  title: "The payment information you entered may be incorrect.",
+  message: "Please review our error."
+};
+
+
+<StripePaymentCheckoutAction 
+  alert={alert}  
+  label="Payment Information" 
+  status="incomplete"
+  onReadyForSaveChange={isReady}
+  stepNumber={3} 
+/>
+```
+
 #### Completed state
 
 ```jsx

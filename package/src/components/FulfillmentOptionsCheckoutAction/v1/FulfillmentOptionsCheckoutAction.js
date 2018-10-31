@@ -32,6 +32,23 @@ const FulfillmentOptionShape = PropTypes.shape({
 class FulfillmentOptionsCheckoutAction extends Component {
   static propTypes = {
     /**
+     * Alert object provides alert into to InlineAlert.
+     */
+    alert: PropTypes.shape({
+      /**
+       * The type of alert: Error, Information, Success or Warning
+       */
+      alertType: PropTypes.oneOf(["error", "information", "success", "warning"]),
+      /**
+       * Alert message
+       */
+      message: PropTypes.string.isRequired,
+      /**
+       * Alert title, optional
+       */
+      title: PropTypes.string
+    }),
+    /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
@@ -43,7 +60,12 @@ class FulfillmentOptionsCheckoutAction extends Component {
        * Pass either the Reaction [`SelectableList`](#!/SelectableList) component or your own component that
        * accepts compatible props.
        */
-      SelectableList: CustomPropTypes.component.isRequired
+      SelectableList: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction InlineAlert component or your own component that
+       * accepts compatible props.
+       */
+      InlineAlert: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Checkout data needed for form
@@ -134,7 +156,8 @@ class FulfillmentOptionsCheckoutAction extends Component {
 
   render() {
     const {
-      components: { SelectableList },
+      alert,
+      components: { InlineAlert, SelectableList },
       isSaving,
       label,
       fulfillmentGroup: {
@@ -148,6 +171,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
         <Title>
           {stepNumber}. {label}
         </Title>
+        {alert ? <InlineAlert {...alert} /> : ""}
         {availableFulfillmentOptions && availableFulfillmentOptions.length ?
           <Form
             ref={(formEl) => {

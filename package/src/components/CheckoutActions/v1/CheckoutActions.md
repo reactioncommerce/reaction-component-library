@@ -64,6 +64,28 @@ const actions = [
 ```
 
 ```jsx
+const addressEntered = {
+  address1: "7742 Hwy 25",
+  address2: "",
+  country: "US",
+  city: "Belle Chasse",
+  fullName: "Salvos Seafood",
+  postal: "70047",
+  region: "LA",
+  phone: "(504) 393-7303"
+};
+
+const addressSuggestion = {
+  address1: "7742 Hwy 23",
+  address2: "",
+  country: "US",
+  city: "Belle Chasse",
+  fullName: "Salvos Seafood",
+  postal: "70037",
+  region: "LA",
+  phone: "(504) 393-7303"
+};
+
 const fulfillmentGroups = [{
   _id: 1,
   type: "shipping",
@@ -173,12 +195,20 @@ class CheckoutActionsExample extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      addressValidationResults: null,
+      actionAlerts: {
+        1: null,
+        2: null,
+        3: null,
+        4: null
+      },
       checkout: {
         fulfillmentGroups,
         payments: paymentMethods
       }
     }
-
+    
+    this.validateShippingAddress = this.validateShippingAddress.bind(this);
     this.setShippingAddress = this.setShippingAddress.bind(this);
     this.setFulfillmentOption = this.setFulfillmentOption.bind(this);
     this.setPaymentMethod = this.setPaymentMethod.bind(this);
@@ -206,13 +236,42 @@ class CheckoutActionsExample extends React.Component {
 
     return (paymentWithoutData) ? "incomplete" : "complete";
   }
+  
+  validateShippingAddress(data) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          this.setState((state, props) => {
+            const { actionAlerts, checkout } = state;
+            actionAlerts["1"] = {
+              alertType: "warning",
+              title: "The address you entered may be incorrect or incomplete.",
+              message: "Please review our suggestion below, and choose which version you’d like to use. Possible errors are shown in red."
+            };
+            
+            return {
+              addressValidationResults: {
+                submittedAddress: addressEntered,
+                suggestedAddresses: [addressSuggestion],
+                validationErrors: []
+              },
+              actionAlerts,
+              checkout
+            };
+          });
+        resolve(data);
+        }, 1000, { data });
+    });
+  }
 
   setShippingAddress(data) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
           this.setState((state, props) => {
-            const { checkout } = state;
+            const { actionAlerts, checkout } = state;
+            actionAlerts["1"] = null;
             return {
+              actionAlerts,
+              addressValidationResults: null,
               checkout: {
               payments: checkout.payments,
               fulfillmentGroups: [{
@@ -286,19 +345,22 @@ class CheckoutActionsExample extends React.Component {
   }
 
   render() {
-    const { checkout } = this.state;
+    const { actionAlerts, addressValidationResults, checkout } = this.state;
 
     const actions = [
       {
         id: "1",
-        activeLabel: "Enter a shipping address",
+        activeLabel: "Enter a shipping address",        
         completeLabel: "Shipping address",
         incompleteLabel: "Shipping address",
         status: this.getShippingStatus(),
         component: ShippingAddressCheckoutAction,
         onSubmit: this.setShippingAddress,
         props:  {
-          fulfillmentGroup: checkout.fulfillmentGroups[0]
+          addressValidationResults,
+          fulfillmentGroup: checkout.fulfillmentGroups[0],
+          validation: this.validateShippingAddress,
+          alert: actionAlerts["1"]
         }
       },
       {
@@ -311,7 +373,8 @@ class CheckoutActionsExample extends React.Component {
         onSubmit: this.setFulfillmentOption,
         readyForSave: true,
         props:  {
-          fulfillmentGroup: checkout.fulfillmentGroups[0]
+          fulfillmentGroup: checkout.fulfillmentGroups[0],
+          alert: actionAlerts["2"]
         }
       },
       {
@@ -323,7 +386,8 @@ class CheckoutActionsExample extends React.Component {
         component: StripePaymentCheckoutAction,
         onSubmit: this.setPaymentMethod,
         props: {
-            payment: checkout.payments[0]
+            payment: checkout.payments[0],
+            alert: actionAlerts["3"]
         }
       },
       {
@@ -335,7 +399,8 @@ class CheckoutActionsExample extends React.Component {
         component: FinalReviewCheckoutAction,
         onSubmit: this.placeOrder,
         props: {
-          checkoutSummary
+          checkoutSummary,
+          alert: actionAlerts["4"]
         }
       }
     ];

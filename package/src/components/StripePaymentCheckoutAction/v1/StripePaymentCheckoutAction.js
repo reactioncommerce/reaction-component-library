@@ -37,6 +37,23 @@ const billingAddressOptions = [{
 class StripePaymentCheckoutAction extends Component {
   static propTypes = {
     /**
+     * Alert object provides alert into to InlineAlert.
+     */
+    alert: PropTypes.shape({
+      /**
+       * The type of alert: Error, Information, Success or Warning
+       */
+      alertType: PropTypes.oneOf(["error", "information", "success", "warning"]),
+      /**
+       * Alert message
+       */
+      message: PropTypes.string.isRequired,
+      /**
+       * Alert title, optional
+       */
+      title: PropTypes.string
+    }),
+    /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
@@ -61,7 +78,12 @@ class StripePaymentCheckoutAction extends Component {
        * Pass either the Reaction StripeForm component or your own component that
        * accepts compatible props.
        */
-      StripeForm: CustomPropTypes.component.isRequired
+      StripeForm: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction InlineAlert component or your own component that
+       * accepts compatible props.
+       */
+      InlineAlert: CustomPropTypes.component.isRequired
     }),
     /**
      * Is the payment method being saved?
@@ -195,7 +217,8 @@ class StripePaymentCheckoutAction extends Component {
 
   render() {
     const {
-      components: { iconLock, SelectableList, StripeForm },
+      alert,
+      components: { iconLock, InlineAlert, SelectableList, StripeForm },
       label,
       stepNumber
     } = this.props;
@@ -207,6 +230,7 @@ class StripePaymentCheckoutAction extends Component {
         <Title>
           {stepNumber}. {label}
         </Title>
+        {alert ? <InlineAlert {...alert} /> : ""}
         <StripeForm
           isComplete={this.handleStripeFormIsComplete}
           stripeRef={(stripe) => { this._stripe = stripe; }}

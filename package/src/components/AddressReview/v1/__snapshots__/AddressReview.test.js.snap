@@ -8,7 +8,6 @@ exports[`basic snapshot with all props 1`] = `
 <div
   className={undefined}
 >
-  InlineAlert(undefined)
   <div
     className="c0"
   >
@@ -30,7 +29,6 @@ exports[`basic snapshot with only required props 1`] = `
 <div
   className={undefined}
 >
-  InlineAlert(undefined)
   <div
     className="c0"
   >

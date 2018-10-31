@@ -192,19 +192,19 @@ class AddressBook extends Component {
   //
   // Handler Methods
   //
-  handleAddAddress = (value) => {
+  handleAddAddress = async (value) => {
     const { onAddressAdded } = this.props;
-    onAddressAdded(value);
+    await onAddressAdded(value);
   };
 
-  handleDeleteAddress = (value, _id) => {
+  handleDeleteAddress = async (value, _id) => {
     const { onAddressDeleted } = this.props;
-    onAddressDeleted(_id);
+    await onAddressDeleted(_id);
   };
 
-  handleEditAddress = (value, _id) => {
+  handleEditAddress = async (value, _id) => {
     const { onAddressEdited } = this.props;
-    onAddressEdited(_id, value).then(() => {
+    await onAddressEdited(_id, value).then(() => {
       this._refs[`accordion_${_id}`].toggle();
     });
   };

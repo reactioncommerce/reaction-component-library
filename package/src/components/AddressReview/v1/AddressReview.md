@@ -60,40 +60,6 @@ const props = { addressEntered, addressSuggestion, value: "entered" };
 <AddressReview {...props} />
 ```
 
-##### Warning Message
-The displayed warning message can be changed by providing a `warningMessage` string as a prop. The text of this element respects line breaks via `\n` within the strings text.
-```jsx
-const addressEntered = {
-  address1: "46 Avenue M",
-  address2: "",
-  country: "HT",
-  city: "Port-au-Prince",
-  fullName: "Yanvalou",
-  postal: "6111",
-  region: "OU",
-  phone: "509 38 01 7051"
-};
-
-const addressSuggestion = {
-  address1: "46 Avenue N",
-  address2: "",
-  country: "HT",
-  city: "Port-au-Prince",
-  fullName: "Yanvalou",
-  postal: "6110",
-  region: "OU",
-  phone: "509 38 01 7051"
-};
-
-const props = { 
-  addressEntered, 
-  addressSuggestion, 
-  warningMessage: "Adrès ou te antre a ka kòrèk oswa enkonplè.\n\nTanpri revize sijesyon nou anba a, epi chwazi ki vèsyon ou ta renmen itilize. Erè yo montre nan wouj." 
-};
-
-<AddressReview {...props} />
-```
-
 #### Example implementation
 Simple `AddressReview` example.
 ```jsx
@@ -156,7 +122,7 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 
 | Theme Prop                     | Default | Description                            |
 | ------------------------------ | ------- | -------------------------------------- |
-| `AddressReview.formSpacingTop` | 40px    | Space between form and warning message |
+| `AddressReview.formSpacingTop` | 40px    | Space between form and content above |
 
 #### Typography
 
