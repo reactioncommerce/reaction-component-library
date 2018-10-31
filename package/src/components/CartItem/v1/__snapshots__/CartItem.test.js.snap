@@ -470,7 +470,7 @@ exports[`basic snapshot with productURLPath prop 1`] = `
   className="c0"
 >
   <a
-    href="/productproduct-slug"
+    href="product/product-slug"
   >
     <picture>
       <source
