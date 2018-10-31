@@ -55,3 +55,11 @@ test("alphabetize option snapshot", () => {
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
+
+test("when value prop changes to `null`, selection is cleared", () => {
+  const wrapper = mount(<Select options={OPTIONS} value="c" />);
+  expect(wrapper.html().indexOf(">C</div>")).not.toBe(-1);
+
+  wrapper.setProps({ value: null });
+  expect(wrapper.html().indexOf(">Select...</div>")).not.toBe(-1);
+});

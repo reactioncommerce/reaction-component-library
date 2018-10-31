@@ -573,7 +573,7 @@ class Select extends Component {
       passthroughProps[prop] = this.props[prop];
     });
 
-    let optionValue;
+    let optionValue = null;
     if (value !== undefined && value !== null) {
       optionValue = reactSelectOptions.find((opt) => {
         if (opt.options) return opt.options.find((o) => o.value === value);
