@@ -34,7 +34,7 @@ const items = [
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -51,13 +51,13 @@ const items = [
   price: {
     displayAmount: "$78.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "Another Great Product",
   quantity: 1
 }];
 
-<MiniCart cart={{ checkout, items }} productURLPath="/product" onCheckoutButtonClick={() => alert("Checkout!")} />
+<MiniCart cart={{ checkout, items }} productURLPath="product/" onCheckoutButtonClick={() => alert("Checkout!")} />
 ```
 
 #### Scrolling
@@ -89,7 +89,7 @@ const items = [{
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
   quantity: 2
@@ -106,7 +106,7 @@ const items = [{
   price: {
     displayAmount: "$78.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Nike",
   title: "Another Great Product",
   quantity: 1
@@ -123,7 +123,7 @@ const items = [{
   price: {
     displayAmount: "$20.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
   productVendor: "Everlane",
   title: "A Product",
   quantity: 2
@@ -140,7 +140,7 @@ const items = [{
   price: {
     displayAmount: "$150.00"
   },
-  productSlug: "/product-slug",
+  productSlug: "product-slug",
    productVendor: "Greats",
   title: "Another Product",
   quantity: 1

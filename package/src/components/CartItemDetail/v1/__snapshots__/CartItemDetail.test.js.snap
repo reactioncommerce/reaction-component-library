@@ -75,7 +75,7 @@ exports[`basic snapshot with product url path prop 1`] = `
     className="c1"
   >
     <a
-      href="/product/product-slug"
+      href="product/product-slug"
     >
       Mock Product Title
     </a>
@@ -182,7 +182,7 @@ exports[`basic snapshot with props 1`] = `
     className="c1"
   >
     <a
-      href="/product-slug"
+      href="product-slug"
     >
       Mock Product Title
     </a>
@@ -305,7 +305,7 @@ exports[`basic snapshot with quantity attribute 1`] = `
     className="c1"
   >
     <a
-      href="/product-slug"
+      href="product-slug"
     >
       Mock Product Title
     </a>
@@ -434,7 +434,7 @@ exports[`basic snapshot with vendor attribute 1`] = `
     className="c1"
   >
     <a
-      href="/product-slug"
+      href="product-slug"
     >
       Mock Product Title
     </a>

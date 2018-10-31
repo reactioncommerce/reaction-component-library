@@ -136,7 +136,7 @@ const checkoutSummary = {
     price: {
       displayAmount: "$20.00"
     },
-    productSlug: "/product-slug",
+    productSlug: "product-slug",
     productVendor: "Patagonia",
     title: "A Great Product",
     quantity: 2
@@ -153,7 +153,7 @@ const checkoutSummary = {
     price: {
       displayAmount: "$78.00"
     },
-    productSlug: "/product-slug",
+    productSlug: "product-slug",
     productVendor: "Patagonia",
     title: "Another Great Product",
     quantity: 1
