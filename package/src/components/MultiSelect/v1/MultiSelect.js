@@ -75,11 +75,11 @@ function applyValidationColor(themeProp = "color") {
 
 const getInputBorderColor = applyValidationColor("Input.borderColor");
 const getInputFontSize = applyTheme("Input.fontSize");
-const getSelectOptionHoverColor = applyTheme("Select.optionHoverColor");
-const getSelectedOptionBackgroundColor = applyTheme("Select.selectedOptionBackgroundColor");
-const getSelectIndicatorColor = applyTheme("Select.indicatorColor");
-const getSelectLetterSpacing = applyTheme("Select.letterSpacing");
-const getSelectTextColor = applyTheme("Select.textColor");
+const getSelectOptionHoverColor = applyTheme("MultiSelect.optionHoverColor");
+const getSelectedOptionBackgroundColor = applyTheme("MultiSelect.selectedOptionBackgroundColor");
+const getSelectIndicatorColor = applyTheme("MultiSelect.indicatorColor");
+const getSelectLetterSpacing = applyTheme("MultiSelect.letterSpacing");
+const getSelectTextColor = applyTheme("MultiSelect.textColor");
 const getInputFontFamily = applyTheme("Input.fontFamily");
 
 function getCustomStyles(props) {
@@ -92,17 +92,19 @@ function getCustomStyles(props) {
         ...base,
         maxWidth,
         fontFamily: getInputFontFamily(props),
-        fontSize: getInputFontSize(props)
+        fontSize: getInputFontSize(props),
+        paddingLeft: applyTheme("MultiSelect.paddingLeft")(props),
+        paddingRight: applyTheme("MultiSelect.paddingRight")(props)
       };
     },
     control(base, state) {
       return {
         ...base,
         "borderColor": getInputBorderColor({ ...props, isFocused: state.isFocused }),
-        "borderTopLeftRadius": applyTheme("Select.borderTopLeftRadius")(props),
-        "borderTopRightRadius": applyTheme("Select.borderTopRightRadius")(props),
-        "borderBottomLeftRadius": applyTheme("Select.borderBottomLeftRadius")(props),
-        "borderBottomRightRadius": applyTheme("Select.borderBottomRightRadius")(props),
+        "borderTopLeftRadius": applyTheme("MultiSelect.borderTopLeftRadius")(props),
+        "borderTopRightRadius": applyTheme("MultiSelect.borderTopRightRadius")(props),
+        "borderBottomLeftRadius": applyTheme("MultiSelect.borderBottomLeftRadius")(props),
+        "borderBottomRightRadius": applyTheme("MultiSelect.borderBottomRightRadius")(props),
         "boxShadow": "none",
         "cursor": "pointer",
         "&:hover": {
@@ -181,17 +183,17 @@ function getCustomStyles(props) {
     multiValue(base) {
       return {
         ...base,
-        backgroundColor: applyTheme("Select.multiValueBackgroundColor")(props),
-        borderStyle: applyTheme("Select.multiValueBorderStyle")(props),
-        borderWidth: applyTheme("Select.multiValueBorderWidth")(props),
-        borderColor: applyTheme("Select.multiValueBorderColor")(props),
-        borderRadius: applyTheme("Select.multiValueBorderRadius")(props)
+        backgroundColor: applyTheme("MultiSelect.multiValueBackgroundColor")(props),
+        borderStyle: applyTheme("MultiSelect.multiValueBorderStyle")(props),
+        borderWidth: applyTheme("MultiSelect.multiValueBorderWidth")(props),
+        borderColor: applyTheme("MultiSelect.multiValueBorderColor")(props),
+        borderRadius: applyTheme("MultiSelect.multiValueBorderRadius")(props)
       };
     },
     multiValueLabel(base) {
       return {
         ...base,
-        color: applyTheme("Select.multiValueLabelColor")(props),
+        color: applyTheme("MultiSelect.multiValueLabelColor")(props),
         fontSize: getInputFontSize(props)
       };
     },
@@ -200,10 +202,10 @@ function getCustomStyles(props) {
         ...base,
         "borderRadius": "0",
         "fontSize": getInputFontSize(props),
-        "marginLeft": applyTheme("Select.multiValueRemoveLeftSpacing")(props),
+        "marginLeft": applyTheme("MultiSelect.multiValueRemoveLeftSpacing")(props),
         ":hover": {
-          backgroundColor: applyTheme("Select.multiValueRemoveHoverBackgroundColor")(props),
-          color: applyTheme("Select.multiValueRemoveHoverColor")(props)
+          backgroundColor: applyTheme("MultiSelect.multiValueRemoveHoverBackgroundColor")(props),
+          color: applyTheme("MultiSelect.multiValueRemoveHoverColor")(props)
         }
       };
     }

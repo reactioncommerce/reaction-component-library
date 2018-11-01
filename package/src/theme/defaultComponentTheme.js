@@ -562,7 +562,28 @@ const rui_components = {
     cellPaddingRight: padding.eight,
     cellPaddingTop: padding.eight
   },
-
+  MultiSelect: {
+    borderBottomLeftRadius: standardBorderRadius,
+    borderBottomRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderTopRightRadius: standardBorderRadius,
+    indicatorColor: colors.coolGrey500,
+    letterSpacing: "0.3px",
+    optionHoverColor: colors.reactionBlue100,
+    paddingLeft: padding.two,
+    paddingRight: padding.two,
+    selectedOptionBackgroundColor: colors.reactionBlue200,
+    textColor: colors.coolGrey500,
+    multiValueBackgroundColor: colors.reactionBlue100,
+    multiValueBorderColor: colors.coolGrey300,
+    multiValueBorderStyle: "solid",
+    multiValueBorderWidth: "1px",
+    multiValueBorderRadius: standardBorderRadius,
+    multiValueLabelColor: colors.black65,
+    multiValueRemoveHoverBackgroundColor: colors.coolGrey300,
+    multiValueRemoveHoverColor: colors.reactionBlue100,
+    multiValueRemoveLeftSpacing: "5px"
+  },
   PriceCompare: {
     typography: {
       color: colors.black25
