@@ -57,6 +57,7 @@ import CheckoutActionComplete from "@reactioncommerce/components/CheckoutActionC
 import CheckoutActionIncomplete from "@reactioncommerce/components/CheckoutActionIncomplete/v1";
 import ErrorsBlock from "@reactioncommerce/components/ErrorsBlock/v1";
 import Field from "@reactioncommerce/components/Field/v1";
+import InlineAlert from "@reactioncommerce/components/InlineAlert/v1";
 import InPageMenuItem from "@reactioncommerce/components/InPageMenuItem/v1";
 import Link from "@reactioncommerce/components/Link/v1";
 import MiniCartSummary from "@reactioncommerce/components/MiniCartSummary/v1";
@@ -65,6 +66,7 @@ import Price from "@reactioncommerce/components/Price/v1";
 import ProfileImage from "@reactioncommerce/components/ProfileImage/v1";
 import ProgressiveImage from "@reactioncommerce/components/ProgressiveImage/v1";
 import QuantityInput from "@reactioncommerce/components/QuantityInput/v1";
+import RegionInput from "@reactioncommerce/components/RegionInput/v1";
 import Select from "@reactioncommerce/components/Select/v1";
 import StockWarning from "@reactioncommerce/components/StockWarning/v1";
 import StripeForm from "@reactioncommerce/components/StripeForm/v1";
@@ -103,6 +105,7 @@ export default {
   iconLock,
   iconMastercard,
   iconVisa,
+  InlineAlert,
   InPageMenuItem,
   Link,
   MiniCartSummary,
@@ -111,6 +114,7 @@ export default {
   ProfileImage,
   ProgressiveImage,
   QuantityInput,
+  RegionInput,
   Select,
   spinner,
   StockWarning,
