@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`basic snapshot with only the components on props should render a TextInput 1`] = `"TextInput(undefined)"`;
+
+exports[`basic snapshot with options should render a Select 1`] = `"Select(undefined)"`;
+
+exports[`basic snapshot with other form props 1`] = `"TextInput(undefined)"`;
+
+exports[`basic snapshot with pre-filled value in Select 1`] = `"Select(undefined)"`;
+
+exports[`basic snapshot with pre-filled value in TextInput 1`] = `"TextInput(undefined)"`;
