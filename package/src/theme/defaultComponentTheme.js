@@ -588,7 +588,16 @@ const rui_components = {
     letterSpacing: "0.3px",
     optionHoverColor: colors.reactionBlue100,
     selectedOptionBackgroundColor: colors.reactionBlue200,
-    textColor: colors.coolGrey500
+    textColor: colors.coolGrey500,
+    multiValueBackgroundColor: colors.reactionBlue100,
+    multiValueBorderColor: colors.coolGrey300,
+    multiValueBorderStyle: "solid",
+    multiValueBorderWidth: "1px",
+    multiValueBorderRadius: standardBorderRadius,
+    multiValueLabelColor: colors.black65,
+    multiValueRemoveHoverBackgroundColor: colors.coolGrey300,
+    multiValueRemoveHoverColor: colors.reactionBlue100,
+    multiValueRemoveLeftSpacing: "5px"
   },
   SelectableItemRadioButton: {
     backgroundColor: colors.white,

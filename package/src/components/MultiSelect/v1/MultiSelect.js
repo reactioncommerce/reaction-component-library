@@ -98,13 +98,13 @@ function getCustomStyles(props) {
     control(base, state) {
       return {
         ...base,
-        borderColor: getInputBorderColor({ ...props, isFocused: state.isFocused }),
-        borderTopLeftRadius: applyTheme("Select.borderTopLeftRadius")(props),
-        borderTopRightRadius: applyTheme("Select.borderTopRightRadius")(props),
-        borderBottomLeftRadius: applyTheme("Select.borderBottomLeftRadius")(props),
-        borderBottomRightRadius: applyTheme("Select.borderBottomRightRadius")(props),
-        boxShadow: "none",
-        cursor: "pointer",
+        "borderColor": getInputBorderColor({ ...props, isFocused: state.isFocused }),
+        "borderTopLeftRadius": applyTheme("Select.borderTopLeftRadius")(props),
+        "borderTopRightRadius": applyTheme("Select.borderTopRightRadius")(props),
+        "borderBottomLeftRadius": applyTheme("Select.borderBottomLeftRadius")(props),
+        "borderBottomRightRadius": applyTheme("Select.borderBottomRightRadius")(props),
+        "boxShadow": "none",
+        "cursor": "pointer",
         "&:hover": {
           borderColor: getInputBorderColor({ ...props, isFocused: true })
         }
@@ -135,9 +135,9 @@ function getCustomStyles(props) {
       return {
         ...base,
         backgroundColor,
-        color: getSelectTextColor(props),
-        cursor: "pointer",
-        letterSpacing: getSelectLetterSpacing(props),
+        "color": getSelectTextColor(props),
+        "cursor": "pointer",
+        "letterSpacing": getSelectLetterSpacing(props),
         ":hover": {
           backgroundColor: getSelectOptionHoverColor(props)
         }
@@ -181,33 +181,29 @@ function getCustomStyles(props) {
     multiValue(base) {
       return {
         ...base,
-        backgroundColor: "#ebf7fc",
-        border: "1px solid #5d8ea9",
-        borderTopLeftRadius: "2px",
-        borderTopRightRadius: "2px",
-        borderBottomLeftRadius: "2px",
-        borderBottomRightRadius: "2px"
+        backgroundColor: applyTheme("Select.multiValueBackgroundColor")(props),
+        borderStyle: applyTheme("Select.multiValueBorderStyle")(props),
+        borderWidth: applyTheme("Select.multiValueBorderWidth")(props),
+        borderColor: applyTheme("Select.multiValueBorderColor")(props),
+        borderRadius: applyTheme("Select.multiValueBorderRadius")(props)
       };
     },
     multiValueLabel(base) {
       return {
         ...base,
-        color: "#505558",
-        fontSize: "14px"
+        color: applyTheme("Select.multiValueLabelColor")(props),
+        fontSize: getInputFontSize(props)
       };
     },
     multiValueRemove(base) {
       return {
         ...base,
-        borderTopLeftRadius: "0",
-        borderTopRightRadius: "0",
-        borderBottomLeftRadius: "0",
-        borderBottomRightRadius: "0",
-        fontSize: "14px",
-        marginLeft: "5px",
+        "borderRadius": "0",
+        "fontSize": getInputFontSize(props),
+        "marginLeft": applyTheme("Select.multiValueRemoveLeftSpacing")(props),
         ":hover": {
-          backgroundColor: "#5d8ea9",
-          color: "#ebf7fc"
+          backgroundColor: applyTheme("Select.multiValueRemoveHoverBackgroundColor")(props),
+          color: applyTheme("Select.multiValueRemoveHoverColor")(props)
         }
       };
     }
@@ -464,7 +460,7 @@ class MultiSelect extends Component {
      * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
      * the Composable Forms spec will pass this automatically.
      */
-    value: PropTypes.arrayOf(PropTypes.object)
+    value: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]))
   };
 
   static defaultProps = {
@@ -529,7 +525,8 @@ class MultiSelect extends Component {
   };
 
   handleSelectLibChanged = (selection) => {
-    this.setValue(selection || null);
+    const value = selection.map((item) => item.value);
+    this.setValue(value.length ? value : null);
   };
 
   // Input is dirty if value prop doesn't match value state. Whenever a changed
@@ -552,8 +549,7 @@ class MultiSelect extends Component {
           throw new Error(
             `All option values must have the same data type. The data type of the first option is "${
               this.dataType
-            }" while the data type of the ${option.label} option is "${checkDataType}"`
-          );
+            }" while the data type of the ${option.label} option is "${checkDataType}"`);
         }
       }
     });
@@ -597,9 +593,14 @@ class MultiSelect extends Component {
 
     let optionValue;
     if (value !== undefined && value !== null) {
-      optionValue = reactSelectOptions.find((opt) => {
-        if (opt.options) return opt.options.find((o) => o.value === value);
-        return opt.value === value;
+      optionValue = [];
+      reactSelectOptions.forEach((opt) => {
+        if (opt.options) {
+          opt.options.forEach((o) => {
+            if (value.includes(o.value)) optionValue.push(o);
+          });
+        }
+        if (value.includes(opt.value)) optionValue.push(opt);
       });
     }
 
