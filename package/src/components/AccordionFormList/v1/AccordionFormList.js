@@ -10,7 +10,7 @@ const AddNewItemAction = styled.div`
   border-width: ${applyTheme("Accordion.borderWidth")};
   border-bottom-left-radius: ${applyTheme("Accordion.borderRadius")};
   border-bottom-right-radius: ${applyTheme("Accordion.borderRadius")};
-  border-top: none;
+  border-top-width: ${(props) => (props.listCount > 0 ? 0 : applyTheme("Accordion.borderWidth")(props))};
   box-sizing: border-box;
   color: inherit;
   overflow: hidden;
@@ -182,12 +182,20 @@ class AccordionFormList extends Component {
   };
 
   handleAddClick = () => {
-    this.setState({ status: ENTRY });
+    this.showEntryForm();
   };
 
   handleEntryFormCancel = () => {
-    this.setState({ status: LIST });
+    this.showList();
   };
+
+  showEntryForm() {
+    this.setState({ status: ENTRY });
+  }
+
+  showList() {
+    this.setState({ status: LIST });
+  }
 
   toggleAccordionForItem(itemId) {
     this._refs[`accordion_${itemId}`].toggle();
@@ -250,7 +258,7 @@ class AccordionFormList extends Component {
             </FormActions>
           </Accordion>
         ))}
-        <AddNewItemAction>
+        <AddNewItemAction listCount={items.length}>
           <AddNewItemActionButton onClick={this.handleAddClick} tabIndex={0}>
             <AddNewItemActionIcon>{iconPlus}</AddNewItemActionIcon>
             {addNewItemButtonText}

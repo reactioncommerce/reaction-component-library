@@ -46,7 +46,7 @@ const account = {
 <AddressBook account={account} />
 ```
 
-If the`AddressBook` is provided an `validatedValue` the address review view will display.
+If the`AddressBook` is provided a `validatedValue`, the address review view will display.
 ```jsx
 const props = {
   account: {
@@ -127,7 +127,7 @@ function addAddress(newAddress) {
         setState({
           isSaving: false,
           account: {
-            addressBook: [...addressBook, { ...newAddress, _id: randID }]
+            addressBook: [...addressBook, { ...newAddress, _id: String(randID) }]
           }
         });
 
@@ -199,3 +199,7 @@ function editAddress(_id, editedAddress) {
 
 <AddressBook {...state} onAddressAdded={addAddress} onAddressDeleted={deleteAddress} onAddressEdited={editAddress} />
 ```
+
+### Theme
+
+See [AccordionFormList](./#!/AccordionFormList) and [AddressForm](./#!/AddressForm) theme documentation.
