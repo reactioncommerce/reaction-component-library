@@ -226,7 +226,7 @@ class AddressForm extends Component {
     return options;
   }
 
-  regionOptions() {
+  get regionOptions() {
     const { locales } = this.props;
     const { activeCountry } = this.state;
     const options = [];
@@ -263,9 +263,8 @@ class AddressForm extends Component {
       addressNamePlaceholder,
       value,
       className,
-      components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
+      components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput, RegionInput },
       errors,
-      locales,
       isOnDarkBackground,
       isSaving,
       name,
@@ -397,8 +396,7 @@ class AddressForm extends Component {
             <Field name="region" label="Region" labelFor={regionInputId} isRequired>
               <RegionInput
                 id={regionInputId}
-                onChange={this.handleCountryChange}
-                options={this.regionOptions(locales)}
+                options={this.regionOptions}
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving}
                 name="region"

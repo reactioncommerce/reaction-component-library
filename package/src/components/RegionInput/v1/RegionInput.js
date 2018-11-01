@@ -45,6 +45,7 @@ class RegionInput extends Component {
   render() {
     const {
       className,
+      components: { Select, TextInput },
       options,
       value,
       ...props
@@ -75,4 +76,8 @@ class RegionInput extends Component {
   }
 }
 
-export default withComponents(RegionInput);
+const WrappedRegionInput = withComponents(RegionInput);
+
+WrappedRegionInput.isFormInput = true;
+
+export default WrappedRegionInput;
