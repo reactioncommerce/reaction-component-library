@@ -421,6 +421,7 @@ module.exports = {
             "ErrorsBlock",
             "Field",
             "PhoneNumberInput",
+            "RegionInput",
             "QuantityInput",
             "Select",
             "SelectableItem",
