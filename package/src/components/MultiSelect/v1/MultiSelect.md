@@ -45,7 +45,7 @@ const options = [
   { value: 'vanilla', label: 'Vanilla' }
 ];
 
-<MultiSelect options={options} maxWidth={150} />
+<MultiSelect options={options} maxWidth={350} />
 ```
 
 #### Alphabetizing multi select options
@@ -158,12 +158,14 @@ When used within a form, a selected value might be deemed valid after its value 
 
 ```jsx
 const options = [
+  { value: 'mintchip', label: 'Mint Chip' },
   { value: 'chocolate', label: 'Chocolate' },
   { value: 'strawberry', label: 'Strawberry' },
-  { value: 'vanilla', label: 'Vanilla' }
+  { value: 'vanilla', label: 'Vanilla' },
+  { value: 'darkchocolate', label: 'Dark Chocolate' }
 ];
 
-<MultiSelect options={options} value="vanilla" hasBeenValidated />
+<MultiSelect options={options} value={["vanilla", "mintchip"]} hasBeenValidated />
 ```
 
 ### Theme
@@ -217,6 +219,15 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 | `SelectMenu.borderRightWidth`           | 1px                                                          | Width of the right border of the options menu                 |
 | `SelectMenu.borderTopLeftRadius`        | 0                                                            | Border radius for the top left corner of the menu             |
 | `SelectMenu.borderTopRightRadius`       | 2px                                                          | Border radius for the top right corner of the menu            |
+| `Select.multiValueBackgroundColor`       | reactiionBlue100                                                          | Background color for selected values            |
+| `Select.multiValueBorderStyle`       | "solid"                                                          | Border style for selected values            |
+| `Select.multiValueBorderWidth`       | 1px                                                          | Border width for selected values            |
+| `Select.multiValueBorderColor`       | coolGrey300                                                         | Border color for selected values            |
+| `Select.multiValueBorderRadius`       | 2px                                                         | Border radius for selected values            |
+| `Select.multiValueLabelColor`       | black65                                                        | Text color for selected values            |
+| `Select.multiValueRemoveLeftSpacing`       | 5px                                                        | Spacing between text and remove icon for selected values            |
+| `Select.multiValueRemoveBackgroundcolor`       | coolGrey300                                                        | Remove icon hover background color for selected values            |
+| `Select.multiValueRemoveLeftSpacing`       | reactionBlue100                                                        | Remove icon hover color for selected values            |
 
 #### Typography
 
