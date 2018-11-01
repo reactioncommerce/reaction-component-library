@@ -1,5 +1,8 @@
 ### Overview
-#### Usage
+
+The `AddressBook` component shows a list of addresses in an `Accordion`, allowing you to edit them, delete them, and add more.
+
+### Usage
 
 The `AddressBook` excepts the `account` object as a prop and uses the `account.addressBook` array to populate the address book list. If the `account.addressBook` array is empty the `AddressBook` will default to the `AddressForm`.
 

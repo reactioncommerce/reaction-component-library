@@ -417,6 +417,7 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
+            "AccordionFormList",
             "Checkbox",
             "ErrorsBlock",
             "Field",

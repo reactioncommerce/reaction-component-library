@@ -52,28 +52,7 @@ const rui_components = {
     closeTransition: `max-height ${duration} ${ease}, padding 0ms ${ease} ${duration}, border 0ms ${ease} ${duration}`,
     iconTransition: `transform ${duration} ${ease}`
   },
-  AccountProfileInfo: {
-    spacingAfterEmail: "4px",
-    spacingAfterName: "4px",
-    spacingBetweenImageAndContent: "16px"
-  },
-  Address: {
-    addressPropertyErrorBackgroundColor: colors.red100,
-    addressPropertyErrorBorderColor: colors.red400,
-    addressPropertyErrorBorderRadius: standardBorderRadius,
-    addressPropertyErrorBorderStyle: "solid",
-    addressPropertyErrorBorderWidth: "1px",
-    addressPropertyErrorColor: colors.red400,
-    addressPropertyErrorPaddingBottom: "0",
-    addressPropertyErrorPaddingLeft: padding.four,
-    addressPropertyErrorPaddingRight: padding.four,
-    addressPropertyErrorPaddingTop: "0"
-  },
-  AddressBook: {
-    borderColor: colors.black10,
-    borderRadius: standardBorderRadius,
-    borderStyle: "solid",
-    borderWidth: "1px",
+  AccordionFormList: {
     actionButtonColor: colors.coolGreyActive,
     actionButtonHoverColor: colors.coolGreyHover,
     actionButtonIconColor: colors.coolGrey500,
@@ -90,6 +69,23 @@ const rui_components = {
     addActionPaddingTop: padding.sixteen,
     actionDeleteButtonHoverColor: colors.redHover,
     spaceBetweenActiveActionButtons: padding.sixteen
+  },
+  AccountProfileInfo: {
+    spacingAfterEmail: "4px",
+    spacingAfterName: "4px",
+    spacingBetweenImageAndContent: "16px"
+  },
+  Address: {
+    addressPropertyErrorBackgroundColor: colors.red100,
+    addressPropertyErrorBorderColor: colors.red400,
+    addressPropertyErrorBorderRadius: standardBorderRadius,
+    addressPropertyErrorBorderStyle: "solid",
+    addressPropertyErrorBorderWidth: "1px",
+    addressPropertyErrorColor: colors.red400,
+    addressPropertyErrorPaddingBottom: "0",
+    addressPropertyErrorPaddingLeft: padding.four,
+    addressPropertyErrorPaddingRight: padding.four,
+    addressPropertyErrorPaddingTop: "0"
   },
   AddressReview: {
     formSpacingTop: "40px"

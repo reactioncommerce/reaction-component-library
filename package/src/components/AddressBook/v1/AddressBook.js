@@ -104,10 +104,10 @@ class AddressBook extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction Accordion component or your own component that
+       * Pass either the Reaction AccordionFormList component or your own component that
        * accepts compatible props.
        */
-      Accordion: CustomPropTypes.component.isRequired,
+      AccordionFormList: CustomPropTypes.component.isRequired,
       /**
        * Pass either the Reaction AddressForm component or your own component that
        * accepts compatible props.
@@ -117,12 +117,7 @@ class AddressBook extends Component {
        * Pass either the Reaction AddressReview component or your own component that
        * accepts compatible props.
        */
-      AddressReview: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction iconPlus component or your own component that
-       * accepts compatible props.
-       */
-      iconPlus: PropTypes.node.isRequired
+      AddressReview: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Is data being saved
@@ -141,7 +136,7 @@ class AddressBook extends Component {
      */
     onAddressEdited: PropTypes.func,
     /**
-     * Validated entred value for the AddressReview
+     * Validated entered value for the AddressReview
      */
     validatedValue: PropTypes.object,
     /**
