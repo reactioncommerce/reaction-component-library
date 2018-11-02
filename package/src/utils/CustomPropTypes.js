@@ -98,9 +98,38 @@ const addressSyntax = PropTypes.shape({
 // address book proptype
 const addressBookSyntax = PropTypes.arrayOf(addressSyntax);
 
+// alert proptype
+const alertSyntax = PropTypes.shape({
+  /**
+   * The type of alert: Error, Information, Success or Warning
+   */
+  alertType: PropTypes.oneOf(["error", "information", "success", "warning"]),
+  /**
+   * isAutoClosing: Closes automatically in 10 seconds
+   */
+  isAutoClosing: PropTypes.bool,
+  /**
+   * isClosed: Whether the alert is closed or open
+   */
+  isClosed: PropTypes.bool,
+  /**
+   * isDismissable: Display a Close/Dismiss button
+   */
+  isDismissable: PropTypes.bool,
+  /**
+   * Alert message
+   */
+  message: PropTypes.string,
+  /**
+   * Alert title, optional
+   */
+  title: PropTypes.string
+});
+
 export default {
   address: addressSyntax,
   addressBook: addressBookSyntax,
+  alert: alertSyntax,
   component: getComponentValidator(),
   options: PropTypes.oneOfType([
     optionsSyntax,
