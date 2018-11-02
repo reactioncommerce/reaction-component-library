@@ -74,7 +74,12 @@ class AddressForm extends Component {
        * Pass either the Reaction PhoneNumberInput component or your own component that is
        * compatible with ReactoForm.
        */
-      PhoneNumberInput: CustomPropTypes.component.isRequired
+      PhoneNumberInput: CustomPropTypes.component.isRequired,
+      /**
+       * Pass either the Reaction RegionInput component or your own component that is
+       * compatible with ReactoForm.
+       */
+      RegionInput: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Errors array
@@ -107,7 +112,7 @@ class AddressForm extends Component {
       continent: PropTypes.string,
       capital: PropTypes.string,
       currency: PropTypes.string,
-      languges: PropTypes.string,
+      languages: PropTypes.string,
       states: PropTypes.objectOf(PropTypes.shape({ name: PropTypes.string }))
     })),
     /**
@@ -151,9 +156,9 @@ class AddressForm extends Component {
     isOnDarkBackground: false,
     isSaving: false,
     name: "address",
-    onCancel() {},
-    onChange() {},
-    onSubmit() {},
+    onCancel() { },
+    onChange() { },
+    onSubmit() { },
     shouldShowAddressNameField: false,
     shouldShowIsCommercialField: false,
     validator: getRequiredValidator(
@@ -258,7 +263,7 @@ class AddressForm extends Component {
       addressNamePlaceholder,
       value,
       className,
-      components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput },
+      components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput, RegionInput },
       errors,
       isOnDarkBackground,
       isSaving,
@@ -389,26 +394,14 @@ class AddressForm extends Component {
 
           <ColHalf>
             <Field name="region" label="Region" labelFor={regionInputId} isRequired>
-              {this.regionOptions && this.regionOptions.length > 1 ? (
-                <Select
-                  id={regionInputId}
-                  alphabetize
-                  isSearchable
-                  name="region"
-                  options={this.regionOptions}
-                  placeholder="Region"
-                  isOnDarkBackground={isOnDarkBackground}
-                  isReadOnly={isSaving}
-                />
-              ) : (
-                <TextInput
-                  id={regionInputId}
-                  name="region"
-                  placeholder="Region"
-                  isOnDarkBackground={isOnDarkBackground}
-                  isReadOnly={isSaving}
-                />
-              )}
+              <RegionInput
+                id={regionInputId}
+                options={this.regionOptions}
+                isOnDarkBackground={isOnDarkBackground}
+                isReadOnly={isSaving}
+                name="region"
+                placeholder="Region"
+              />
               <ErrorsBlock names={["region"]} />
             </Field>
           </ColHalf>

@@ -423,6 +423,7 @@ module.exports = {
             "Field",
             "MultiSelect",
             "PhoneNumberInput",
+            "RegionInput",
             "QuantityInput",
             "Select",
             "SelectableItem",
