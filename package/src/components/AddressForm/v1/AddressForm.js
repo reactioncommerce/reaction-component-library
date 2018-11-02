@@ -401,7 +401,6 @@ class AddressForm extends Component {
                 isReadOnly={isSaving}
                 name="region"
                 placeholder="Region"
-                value={value ? value.region : null}
               />
               <ErrorsBlock names={["region"]} />
             </Field>

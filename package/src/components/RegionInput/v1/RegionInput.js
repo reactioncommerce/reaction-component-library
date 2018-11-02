@@ -4,7 +4,6 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
 
 class RegionInput extends Component {
-  static isFormInput = true;
 
   static propTypes = {
     /**
@@ -32,6 +31,10 @@ class RegionInput extends Component {
        */
       Select: CustomPropTypes.component.isRequired
     }).isRequired,
+    /**
+     * Name of input
+     */
+    name: PropTypes.string.isRequired,
     /**
      * Region options to populate the form's region fields
      */
@@ -76,8 +79,4 @@ class RegionInput extends Component {
   }
 }
 
-const WrappedRegionInput = withComponents(RegionInput);
-
-WrappedRegionInput.isFormInput = true;
-
-export default WrappedRegionInput;
+export default withComponents(RegionInput);
