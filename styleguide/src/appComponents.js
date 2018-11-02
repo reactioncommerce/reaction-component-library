@@ -11,6 +11,7 @@ import iconMastercard from "../../package/src/svg/iconMastercard";
 import iconVisa from "../../package/src/svg/iconVisa";
 import spinner from "../../package/src/svg/spinner";
 import Accordion from "../../package/src/components/Accordion/v1";
+import AccordionFormList from "../../package/src/components/AccordionFormList/v1";
 import Address from "../../package/src/components/Address/v1";
 import AddressBook from "../../package/src/components/AddressBook/v1";
 import AddressForm from "../../package/src/components/AddressForm/v1";
@@ -53,6 +54,7 @@ const AddressFormWithLocales = withLocales(AddressForm);
 
 export default {
   Accordion,
+  AccordionFormList,
   Address,
   AddressBook,
   AddressForm: AddressFormWithLocales,

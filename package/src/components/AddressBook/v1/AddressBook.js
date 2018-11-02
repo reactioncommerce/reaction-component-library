@@ -1,82 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
 import isEmpty from "lodash.isempty";
-import isEqual from "lodash.isequal";
 import { withComponents } from "@reactioncommerce/components-context";
-import { addressToString, applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
+import { addressToString, CustomPropTypes } from "../../../utils";
 
-const AddressBookAddNewAddressAction = styled.div`
-  border-color: ${applyTheme("AddressBook.borderColor")};
-  border-style: ${applyTheme("AddressBook.borderStyle")};
-  border-width: ${applyTheme("AddressBook.borderWidth")};
-  border-bottom-left-radius: ${applyTheme("AddressBook.borderRadius")};
-  border-bottom-right-radius: ${applyTheme("AddressBook.borderRadius")};
-  border-top: none;
-  box-sizing: border-box;
-  color: inherit;
-  overflow: hidden;
-  padding-bottom: ${applyTheme("AddressBook.addActionPaddingBottom")};
-  padding-left: ${applyTheme("AddressBook.addActionPaddingLeft")};
-  padding-right: ${applyTheme("AddressBook.addActionPaddingRight")};
-  padding-top: ${applyTheme("AddressBook.addActionPaddingTop")};
-`;
-
-const AddressBookAddNewAddressActionButton = styled.div`
-  ${addTypographyStyles("ActionButton", "labelText")};
-  color: ${applyTheme("AddressBook.actionButtonColor")};
-  cursor: pointer;
-  display: table;
-  &:hover {
-    color: ${applyTheme("AddressBook.actionButtonHoverColor")};
-    svg {
-      color: inherit !important;
-    }
-  }
-`;
-
-const AddressBookAddNewAddressActionIcon = styled.span`
-  color: inherit;
-  height: ${applyTheme("AddressBook.actionButtonIconHeight")};
-  margin: 0;
-  margin-right: ${applyTheme("AddressBook.actionButtonIconMarginRight")};
-  width: ${applyTheme("AddressBook.actionButtonIconWidth")};
-  svg {
-    color: ${applyTheme("AddressBook.actionButtonIconColor")};
-    fill: currentColor;
-    height: 1em;
-    width: 1em;
-    vertical-align: middle;
-  }
-`;
-
-const FormActions = styled.div`
-  display: flex;
-  justify-content: flex-end;
-  padding-bottom: ${applyTheme("AddressBook.actionPaddingBottom")};
-  padding-left: ${applyTheme("AddressBook.actionPaddingLeft")};
-  padding-right: ${applyTheme("AddressBook.actionPaddingRight")};
-  padding-top: ${applyTheme("AddressBook.actionPaddingTop")};
-
-  > div:last-of-type {
-    margin-left: ${applyTheme("AddressBook.spaceBetweenActiveActionButtons")};
-  }
-`;
-
-const FormActionDelete = styled.div`
-  flex: 1 1 auto;
-
-  > div {
-    border: none;
-    &:hover {
-      background-color: transparent;
-      color: ${applyTheme("AddressBook.actionDeleteButtonHoverColor")};
-    }
-  }
-`;
-
-const ENTRY = "entry";
-const OVERVIEW = "overview";
+const NORMAL = "normal";
 const REVIEW = "review";
 
 class AddressBook extends Component {
@@ -104,10 +32,10 @@ class AddressBook extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction Accordion component or your own component that
+       * Pass either the Reaction AccordionFormList component or your own component that
        * accepts compatible props.
        */
-      Accordion: CustomPropTypes.component.isRequired,
+      AccordionFormList: CustomPropTypes.component.isRequired,
       /**
        * Pass either the Reaction AddressForm component or your own component that
        * accepts compatible props.
@@ -117,12 +45,7 @@ class AddressBook extends Component {
        * Pass either the Reaction AddressReview component or your own component that
        * accepts compatible props.
        */
-      AddressReview: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction iconPlus component or your own component that
-       * accepts compatible props.
-       */
-      iconPlus: PropTypes.node.isRequired
+      AddressReview: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * Is data being saved
@@ -141,7 +64,7 @@ class AddressBook extends Component {
      */
     onAddressEdited: PropTypes.func,
     /**
-     * Validated entred value for the AddressReview
+     * Validated entered value for the AddressReview
      */
     validatedValue: PropTypes.object,
     /**
@@ -166,22 +89,15 @@ class AddressBook extends Component {
     status: this.currentStatus
   };
 
-  componentDidUpdate(prevProps) {
-    const { account: { addressBook } } = this.props;
-    const { account: { addressBook: prevAddressBook } } = prevProps;
-    if (!isEqual(addressBook, prevAddressBook)) this.setState({ status: this.currentStatus });
-  }
-
-  _addressForm = null;
   _addressReview = null;
-  _refs = {};
+  _accordionFormList = null;
 
   //
   // Helper Methods
   //
   get currentStatus() {
     // eslint-disable-next-line
-    return !isEmpty(this.props.validatedValue) ? REVIEW : this.hasAddress ? OVERVIEW : ENTRY;
+    return isEmpty(this.props.validatedValue) ? NORMAL : REVIEW;
   }
 
   get hasAddress() {
@@ -195,93 +111,60 @@ class AddressBook extends Component {
   handleAddAddress = async (value) => {
     const { onAddressAdded } = this.props;
     await onAddressAdded(value);
+    if (this._accordionFormList) {
+      this._accordionFormList.showList();
+    }
   };
 
-  handleDeleteAddress = async (value, _id) => {
+  handleDeleteAddress = async (id) => {
     const { onAddressDeleted } = this.props;
-    await onAddressDeleted(_id);
+    await onAddressDeleted(id);
   };
 
   handleEditAddress = async (value, _id) => {
     const { onAddressEdited } = this.props;
-    await onAddressEdited(_id, value).then(() => {
-      this._refs[`accordion_${_id}`].toggle();
-    });
-  };
-
-  handleAddressFormToggle = () => {
-    const { status } = this.state;
-    let newStatus;
-    if (status === ENTRY && this.hasAddress) {
-      newStatus = OVERVIEW;
-    } else {
-      newStatus = ENTRY;
+    await onAddressEdited(_id, value);
+    if (this._accordionFormList) {
+      this._accordionFormList.toggleAccordionForItem(_id);
     }
-    this.setState({ status: newStatus });
   };
 
   //
   // Render Methods
   //
-  renderAddressSelect() {
-    const { account: { addressBook }, components: { Accordion, AddressForm, Button, iconPlus }, isSaving } = this.props;
+  renderAccordionFormList() {
+    const { account: { addressBook }, components: { AccordionFormList, AddressForm }, isSaving } = this.props;
+
+    const items = addressBook.map(({ _id, ...address }) => ({
+      id: _id,
+      detail: addressToString(address),
+      itemEditFormProps: {
+        isOnDarkBackground: true,
+        isSaving,
+        onSubmit: (value) => {
+          this.handleEditAddress(value, _id);
+        },
+        value: address
+      },
+      label: address.fullName
+    }));
+
+    const itemAddFormProps = {
+      isSaving,
+      onSubmit: this.handleAddAddress
+    };
+
     return (
-      <Fragment>
-        {addressBook.map(({ _id, ...address }) => (
-          <Accordion
-            key={_id}
-            label={address.fullName}
-            detail={addressToString(address)}
-            ref={(el) => {
-              this._refs[`accordion_${_id}`] = el;
-            }}
-          >
-            <AddressForm
-              isSaving={isSaving}
-              onSubmit={(value) => {
-                this.handleEditAddress(value, _id);
-              }}
-              ref={(el) => {
-                this._refs[`addressForm_${_id}`] = el;
-              }}
-              isOnDarkBackground
-              value={address}
-            />
-            <FormActions>
-              <FormActionDelete>
-                <Button
-                  actionType="secondaryDanger"
-                  isTextOnlyNoPadding
-                  isShortHeight
-                  onClick={() => {
-                    this.handleDeleteAddress(address, _id);
-                  }}
-                >
-                  Delete address
-                </Button>
-              </FormActionDelete>
-              <Button
-                actionType="secondary"
-                isShortHeight
-                onClick={() => {
-                  this._refs[`accordion_${_id}`].handleToggle();
-                }}
-              >
-                Cancel
-              </Button>
-              <Button onClick={() => this._refs[`addressForm_${_id}`].submit()} isShortHeight isWaiting={isSaving}>
-                Save Changes
-              </Button>
-            </FormActions>
-          </Accordion>
-        ))}
-        <AddressBookAddNewAddressAction>
-          <AddressBookAddNewAddressActionButton onClick={this.handleAddressFormToggle} tabIndex={0}>
-            <AddressBookAddNewAddressActionIcon>{iconPlus}</AddressBookAddNewAddressActionIcon>
-            Add a new address
-          </AddressBookAddNewAddressActionButton>
-        </AddressBookAddNewAddressAction>
-      </Fragment>
+      <AccordionFormList
+        addNewItemButtonText="Add a new address"
+        components={{ ItemAddForm: AddressForm, ItemEditForm: AddressForm }}
+        deleteItemButtonText="Delete address"
+        entryFormSubmitButtonText="Save Changes"
+        itemAddFormProps={itemAddFormProps}
+        items={items}
+        onItemDeleted={this.handleDeleteAddress}
+        ref={(instance) => { this._accordionFormList = instance; }}
+      />
     );
   }
 
@@ -298,42 +181,12 @@ class AddressBook extends Component {
     );
   }
 
-  renderAddressForm() {
-    const { components: { AddressForm, Button }, isSaving } = this.props;
-    return (
-      <Fragment>
-        <AddressForm
-          isSaving={isSaving}
-          onSubmit={this.handleAddAddress}
-          ref={(el) => {
-            this._addressForm = el;
-          }}
-        />
-        <FormActions>
-          {this.hasAddress ? (
-            <Button actionType="secondary" onClick={this.handleAddressFormToggle}>
-              Cancel
-            </Button>
-          ) : (
-            ""
-          )}
-          <Button onClick={() => this._addressForm.submit()} isWaiting={isSaving}>
-            Add address
-          </Button>
-        </FormActions>
-      </Fragment>
-    );
-  }
-
   render() {
     const { className } = this.props;
     const { status } = this.state;
     return (
       <div className={className}>
-        {// eslint-disable-next-line
-        status === REVIEW
-            ? this.renderAddressReview()
-            : status === OVERVIEW ? this.renderAddressSelect() : this.renderAddressForm()}
+        {status === REVIEW ? this.renderAddressReview() : this.renderAccordionFormList()}
       </div>
     );
   }

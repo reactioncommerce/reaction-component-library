@@ -40,6 +40,7 @@ import iconMastercard from "@reactioncommerce/components/svg/iconMastercard";
 import iconVisa from "@reactioncommerce/components/svg/iconVisa";
 import spinner from "@reactioncommerce/components/svg/spinner";
 import Accordion from "@reactioncommerce/components/Accordion/v1";
+import AccordionFormList from "@reactioncommerce/components/AccordionFormList/v1";
 import AddressBook from "@reactioncommerce/components/AddressBook/v1";
 import AddressForm from "@reactioncommerce/components/AddressForm/v1";
 import AddressReview from "@reactioncommerce/components/AddressReview/v1";
@@ -75,6 +76,7 @@ import TextInput from "@reactioncommerce/components/TextInput/v1";
 
 export default {
   Accordion,
+  AccordionFormList,
   AddressBook,
   AddressForm,
   AddressReview,
