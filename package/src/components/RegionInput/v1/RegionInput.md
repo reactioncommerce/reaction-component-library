@@ -11,7 +11,7 @@ Pass any related form input props, like `isReadOnly`, `placeholder`, `maxLength`
 #### With a value in a TextInput
 
 ```jsx
-<RegionInput isOnDarkBackground isReadOnly value="California" />
+<RegionInput name="region" isOnDarkBackground isReadOnly value="California" />
 ```
 
 #### With a value in a Select
@@ -28,7 +28,7 @@ const options = [
   }
 ];
 
-<RegionInput options={options} value="BB" />
+<RegionInput name="region" options={options} value="BB" />
 ```
 
 #### Implemented in an AddressForm
