@@ -61,6 +61,7 @@ import Field from "@reactioncommerce/components/Field/v1";
 import InPageMenuItem from "@reactioncommerce/components/InPageMenuItem/v1";
 import Link from "@reactioncommerce/components/Link/v1";
 import MiniCartSummary from "@reactioncommerce/components/MiniCartSummary/v1";
+import MultiSelect from "@reactioncommerce/components/MultiSelect/v1";
 import PhoneNumberInput from "@reactioncommerce/components/PhoneNumberInput/v1";
 import Price from "@reactioncommerce/components/Price/v1";
 import ProfileImage from "@reactioncommerce/components/ProfileImage/v1";
@@ -108,6 +109,7 @@ export default {
   InPageMenuItem,
   Link,
   MiniCartSummary,
+  MultiSelect,
   PhoneNumberInput,
   Price,
   ProfileImage,
