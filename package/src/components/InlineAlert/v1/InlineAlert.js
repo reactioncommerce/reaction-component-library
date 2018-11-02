@@ -74,7 +74,7 @@ class InlineAlert extends Component {
     /**
      * The type of alert: Error, Information, Success or Warning
      */
-    alertType: PropTypes.oneOf(["error", "information", "success", "warning"]).isRequired,
+    alertType: PropTypes.oneOf(["error", "information", "success", "warning"]),
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
@@ -109,7 +109,7 @@ class InlineAlert extends Component {
     /**
      * Alert message
      */
-    message: PropTypes.string.isRequired,
+    message: PropTypes.string,
     /**
      * Alert title, optional
      */
@@ -117,6 +117,8 @@ class InlineAlert extends Component {
   };
 
   static defaultProps = {
+    actionType: "information",
+    message: "Alert",
     isAutoClosing: false,
     isClosed: false,
     isDismissable: false
