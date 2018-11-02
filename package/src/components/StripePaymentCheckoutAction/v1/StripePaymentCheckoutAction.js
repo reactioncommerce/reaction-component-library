@@ -39,20 +39,7 @@ class StripePaymentCheckoutAction extends Component {
     /**
      * Alert object provides alert into to InlineAlert.
      */
-    alert: PropTypes.shape({
-      /**
-       * The type of alert: Error, Information, Success or Warning
-       */
-      alertType: PropTypes.oneOf(["error", "information", "success", "warning"]),
-      /**
-       * Alert message
-       */
-      message: PropTypes.string.isRequired,
-      /**
-       * Alert title, optional
-       */
-      title: PropTypes.string
-    }),
+    alert: CustomPropTypes.alert,
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
