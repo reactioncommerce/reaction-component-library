@@ -33,6 +33,8 @@ function stringifyJSONCircularSafe(obj) {
  * Components
  */
 [
+  "Accordion",
+  "AccordionFormList",
   "AddressBook",
   "AddressForm",
   "AddressReview",

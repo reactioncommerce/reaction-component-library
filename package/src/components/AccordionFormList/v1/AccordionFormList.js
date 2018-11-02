@@ -215,7 +215,7 @@ class AccordionFormList extends Component {
 
     return (
       <Fragment>
-        {items.map(({ detail, id, itemEditFormProps, label }) => (
+        {items && items.map(({ detail, id, itemEditFormProps, label }) => (
           <Accordion
             key={id}
             label={label}
@@ -258,7 +258,7 @@ class AccordionFormList extends Component {
             </FormActions>
           </Accordion>
         ))}
-        <AddNewItemAction listCount={items.length}>
+        <AddNewItemAction listCount={items && items.length}>
           <AddNewItemActionButton onClick={this.handleAddClick} tabIndex={0}>
             <AddNewItemActionIcon>{iconPlus}</AddNewItemActionIcon>
             {addNewItemButtonText}
