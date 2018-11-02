@@ -4,7 +4,6 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
 
 class RegionInput extends Component {
-
   static propTypes = {
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element

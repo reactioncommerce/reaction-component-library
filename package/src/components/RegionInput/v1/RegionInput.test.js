@@ -11,7 +11,9 @@ test("basic snapshot with only the components and required props should render a
 });
 
 test("basic snapshot with other form props", () => {
-  const component = renderer.create(<RegionInput components={mockComponents} value="California" name="region" isOnDarkBackground isReadOnly />);
+  const component = renderer.create(<RegionInput components={mockComponents} value="California" name="region" isOnDarkBackground
+    isReadOnly
+                                    />);
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
