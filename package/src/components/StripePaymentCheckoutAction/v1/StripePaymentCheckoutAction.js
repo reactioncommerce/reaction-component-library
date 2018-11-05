@@ -163,15 +163,19 @@ class StripePaymentCheckoutAction extends Component {
   }
 
   handleUseNewBillingAddress = (billingAddress) => {
-    // Only react to value changes
-    if (typeof billingAddress === "string") {
+    if (billingAddress === "use_different_billing_address") {
       this.setState({ billingAddress });
+    } else if (billingAddress === "same_as_shipping") {
+      // If a user decides to use the same address
+      this.setState({ billingAddress });
+      // Confirm if Stripe Form is filled out
+      // to trigger onReadyForSaveChange()
+      this.handleStripeFormIsComplete();
     }
   }
 
   handleStripeFormIsComplete = (isComplete) => {
     const { onReadyForSaveChange } = this.props;
-
     onReadyForSaveChange(isComplete);
   }
 
