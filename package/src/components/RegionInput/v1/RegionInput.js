@@ -4,6 +4,8 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
 
 class RegionInput extends Component {
+  static isFormInput = true;
+
   static propTypes = {
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
@@ -78,4 +80,8 @@ class RegionInput extends Component {
   }
 }
 
-export default withComponents(RegionInput);
+const WrappedRegionInput = withComponents(RegionInput);
+
+WrappedRegionInput.isFormInput = true;
+
+export default WrappedRegionInput;
