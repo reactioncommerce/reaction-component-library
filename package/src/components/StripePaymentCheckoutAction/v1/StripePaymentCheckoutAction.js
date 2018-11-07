@@ -105,6 +105,7 @@ class StripePaymentCheckoutAction extends Component {
     activeCountry: "US",
     status: "active",
     billingAddress: "same_as_shipping",
+    isStripeFormComplete: false,
     countries: [
       { value: "US", label: "United States" },
       { value: "DE", label: "Germany" },
@@ -163,20 +164,26 @@ class StripePaymentCheckoutAction extends Component {
   }
 
   handleUseNewBillingAddress = (billingAddress) => {
+    const { isStripeFormComplete } = this.state;
     if (billingAddress === "use_different_billing_address") {
       this.setState({ billingAddress });
     } else if (billingAddress === "same_as_shipping") {
       // If a user decides to use the same address
       this.setState({ billingAddress });
       // Confirm if Stripe Form is filled out
-      // to trigger onReadyForSaveChange()
-      this.handleStripeFormIsComplete();
+      if (isStripeFormComplete) {
+        // Trigger onReadyForSaveChange()
+        this.handleStripeFormIsComplete(true);
+      }
     }
   }
 
   handleStripeFormIsComplete = (isComplete) => {
     const { onReadyForSaveChange } = this.props;
     onReadyForSaveChange(isComplete);
+    this.setState({
+      isStripeFormComplete: true
+    });
   }
 
   renderBillingAddressForm = () => {
