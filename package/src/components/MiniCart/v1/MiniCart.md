@@ -60,6 +60,65 @@ const items = [
 <MiniCart cart={{ checkout, items }} productURLPath="product/" onCheckoutButtonClick={() => alert("Checkout!")} />
 ```
 
+### Custom Cart Checkout Button
+Provide a custom checkout button via `props.components.CartCheckoutButton`, you can add this directly to the `MiniCart` within your app or just add your custom button to the `components-context`.
+```jsx
+const checkout = {
+  summary: {
+    itemTotal: {
+      displayAmount: "$25.00"
+    },
+    taxTotal: {
+      displayAmount: "$2.50"
+    }
+  }
+}
+
+const items = [
+{
+  _id: "123",
+  attributes: [{ label: "Color", value: "Red" }, { label: "Size", value: "Medium" }],
+  compareAtPrice: {
+    displayAmount: "$45.00"
+  },
+  currentQuantity: 3,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: true,
+  price: {
+    displayAmount: "$20.00"
+  },
+  productSlug: "product-slug",
+  productVendor: "Patagonia",
+  title: "A Great Product",
+  quantity: 2
+},
+{
+  _id: "456",
+  attributes: [{ label: "Color", value: "Black" }, { label: "Size", value: "10" }],
+  currentQuantity: 500,
+  imageURLs: {
+    small: "//placehold.it/150",
+    thumbnail: "//placehold.it/100"
+  },
+  isLowQuantity: false,
+  price: {
+    displayAmount: "$78.00"
+  },
+  productSlug: "product-slug",
+  productVendor: "Patagonia",
+  title: "Another Great Product",
+  quantity: 1
+}];
+
+const CustomCartCheckoutButton = ({ onClick }) => (<button onClick={onClick} style={{width: "100%", padding: "10px", backgroundColor: "limegreen", font: "20px serif" }}>Custom</button>);
+
+<MiniCart components={{CartCheckoutButton: CustomCartCheckoutButton}} cart={{ checkout, items }} productURLPath="product/" onCheckoutButtonClick={() => alert("Checkout!")} />
+
+```
+
 #### Scrolling
 
 ```jsx

@@ -35,7 +35,8 @@ const Footer = styled.div`
   border-top-color: ${applyTheme("MiniCartFooter.borderTopColor")};
   border-top-style: solid;
   border-top-width: ${applyTheme("MiniCartFooter.borderTopWidth")};
-  box-shadow: ${({ count }) => (count > 2 ? applyTheme("MiniCartFooter.boxShadow_overflow") : applyTheme("MiniCartFooter.boxShadow"))};
+  box-shadow: ${({ count }) =>
+    (count > 2 ? applyTheme("MiniCartFooter.boxShadow_overflow") : applyTheme("MiniCartFooter.boxShadow"))};
   padding-bottom: ${applyTheme("MiniCartFooter.paddingBottom")};
   padding-left: ${applyTheme("MiniCartFooter.paddingLeft")};
   padding-right: ${applyTheme("MiniCartFooter.paddingRight")};
@@ -44,8 +45,7 @@ const Footer = styled.div`
 `;
 
 const FooterMessage = styled.span`
-  ${addTypographyStyles("MiniCartFooterMessage", "captionText")}
-  display: block;
+  ${addTypographyStyles("MiniCartFooterMessage", "captionText")} display: block;
   padding-bottom: ${applyTheme("MiniCartFooterMessage.paddingBottom")};
   padding-left: ${applyTheme("MiniCartFooterMessage.paddingLeft")};
   padding-right: ${applyTheme("MiniCartFooterMessage.paddingRight")};
@@ -115,7 +115,7 @@ class MiniCart extends Component {
        * An element to show as the cart checkout button. If this isn't provided,
        * a button will be rendered using Button component.
        */
-      cartCheckoutButton: PropTypes.node,
+      CartCheckoutButton: PropTypes.any,
       /**
        * Pass either the Reaction CartItems component or your own component that
        * accepts compatible props.
@@ -132,7 +132,7 @@ class MiniCart extends Component {
      */
     onChangeCartItemQuantity: PropTypes.func,
     /**
-     * On default checkout button click. Not used if a custom button is supplied by `components.cartCheckoutButton`
+     * On default checkout button click. Not used if a custom button is supplied by `components.CartCheckoutButton`
      */
     onCheckoutButtonClick: PropTypes.func,
     /**
@@ -141,38 +141,36 @@ class MiniCart extends Component {
     onRemoveItemFromCart: PropTypes.func,
     /**
      * Product URL path to be prepended before the slug
-    */
+     */
     productURLPath: PropTypes.string
   };
 
   static defaultProps = {
-    onChangeCartItemQuantity() { },
-    onCheckoutButtonClick() { },
-    onRemoveItemFromCart() { }
+    onChangeCartItemQuantity() {},
+    onCheckoutButtonClick() {},
+    onRemoveItemFromCart() {}
   };
 
   render() {
     const {
       cart: { checkout: { summary }, items },
       className,
-      components: {
-        Button,
-        cartCheckoutButton,
-        CartItems,
-        MiniCartSummary,
-        ...components
-      },
+      components: { Button, CartCheckoutButton, CartItems, MiniCartSummary },
       onCheckoutButtonClick,
       ...props
     } = this.props;
     return (
       <Cart className={className}>
         <Items>
-          <CartItems items={items} components={components} {...props} isMiniCart />
+          <CartItems items={items} {...props} isMiniCart />
         </Items>
         <Footer count={items.length}>
-          <MiniCartSummary components={components} displaySubtotal={summary.itemTotal.displayAmount} />
-          {cartCheckoutButton || <Button actionType="important" components={components} isFullWidth onClick={onCheckoutButtonClick}>Checkout</Button>}
+          <MiniCartSummary displaySubtotal={summary.itemTotal.displayAmount} />
+          {(CartCheckoutButton && <CartCheckoutButton onClick={onCheckoutButtonClick} />) || (
+            <Button actionType="important" isFullWidth onClick={onCheckoutButtonClick}>
+              Checkout
+            </Button>
+          )}
           <FooterMessage>Shipping and tax calculated in checkout</FooterMessage>
         </Footer>
       </Cart>
