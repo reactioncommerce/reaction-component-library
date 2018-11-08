@@ -113,9 +113,9 @@ const items = [
   quantity: 1
 }];
 
-const CartCheckoutButton = ({ onClick }) => (<button onClick={onClick} style={{width: "100%", padding: "10px", backgroundColor: "limegreen", font: "20px serif" }}>Custom</button>);
+const CustomCartCheckoutButton = ({ onClick }) => (<button onClick={onClick} style={{width: "100%", padding: "10px", backgroundColor: "limegreen", font: "20px serif" }}>Custom</button>);
 
-<MiniCart components={{CartCheckoutButton}} cart={{ checkout, items }} productURLPath="product/" onCheckoutButtonClick={() => alert("Checkout!")} />
+<MiniCart components={{CartCheckoutButton: CustomCartCheckoutButton}} cart={{ checkout, items }} productURLPath="product/" onCheckoutButtonClick={() => alert("Checkout!")} />
 
 ```
 
