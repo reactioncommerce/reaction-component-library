@@ -11,6 +11,7 @@ const isReady = (ready) => true;
   status="incomplete"
   onReadyForSaveChange={isReady}
   stepNumber={3}
+  alert={{}}
 />
 
 ```
