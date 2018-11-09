@@ -77,7 +77,7 @@ const props = {
 <AddressBook {...props} />
 ```
 
-#### Example implamentation
+#### Example implementation
 Simple `AddressBook` example with two saved addresses.
 ```jsx
 const salvos =  {

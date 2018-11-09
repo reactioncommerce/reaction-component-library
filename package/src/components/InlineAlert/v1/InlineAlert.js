@@ -75,6 +75,7 @@ class InlineAlert extends Component {
   static propTypes = {
     /**
      * The type of alert: Error, Information, Success or Warning
+     * An empty alertType will not render an alert
      */
     alertType: PropTypes.oneOf(["error", "information", "success", "warning"]),
     /**
