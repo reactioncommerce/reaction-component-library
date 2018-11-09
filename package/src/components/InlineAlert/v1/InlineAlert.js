@@ -47,7 +47,9 @@ const StyledDiv = styled.div`
           border-color: ${applyTheme("InlineAlert.borderColor_warning")};
         `;
       default:
-        return "";
+        return css`
+          display: none;
+        `;
     }
   }};
   `;
@@ -117,8 +119,8 @@ class InlineAlert extends Component {
   };
 
   static defaultProps = {
-    actionType: "information",
-    message: "Alert",
+    actionType: "",
+    message: "",
     isAutoClosing: false,
     isClosed: false,
     isDismissable: false
