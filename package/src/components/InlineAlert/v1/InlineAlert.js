@@ -47,7 +47,9 @@ const StyledDiv = styled.div`
           border-color: ${applyTheme("InlineAlert.borderColor_warning")};
         `;
       default:
-        return "";
+        return css`
+          display: none;
+        `;
     }
   }};
   `;
@@ -73,6 +75,7 @@ class InlineAlert extends Component {
   static propTypes = {
     /**
      * The type of alert: Error, Information, Success or Warning
+     * An empty alertType will not render an alert
      */
     alertType: PropTypes.oneOf(["error", "information", "success", "warning"]),
     /**
@@ -117,8 +120,8 @@ class InlineAlert extends Component {
   };
 
   static defaultProps = {
-    actionType: "information",
-    message: "Alert",
+    actionType: "",
+    message: "",
     isAutoClosing: false,
     isClosed: false,
     isDismissable: false

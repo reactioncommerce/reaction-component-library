@@ -31,7 +31,9 @@ Alert language should be polite, clear and concise. Alert language can also incl
 
 Inline alerts should guide the user into taking corrective action if necessary. If the alert relates to a form, form field validation should be used in conjunction with the alert.
 
-User should be able to dismiss inline alerts when appropriate. Information and success alerts can close automaticallly after 10 seconds. Error alerts should be persistent, and close only when action is resolved.
+Users should be able to dismiss inline alerts when appropriate. Information and success alerts can close automaticallly after 10 seconds. Error alerts should be persistent, and close only when action is resolved.
+
+An empty `<InlineAlert/>` without an `alertType`, or a blank `alertType`, will not be rendered.
 
 ### Alert Types
 
@@ -109,6 +111,18 @@ const iconComponents = {
 <InlineAlert isAutoClosing alertType="information" message="This will close in 10 seconds."/>
 ```
 
+#### No props
+
+- An empty `<InlineAlert/>`, specifically, an alert without a specified `alertType`, will not be rendered:
+
+```jsx
+<InlineAlert alertType="" message="Message" title="Title"/>
+```
+
+```jsx
+<InlineAlert />
+```
+
 ### Theme
 
 Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
@@ -143,5 +157,5 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 
 #### Typography
 
-- The message  uses `bodyText` style with `rui_components.InlineAlert` override
+- The message uses `bodyText` style with `rui_components.InlineAlert` override
 - The title uses `bodyTextSemiBold` style with `rui_components.InlineAlert` override
