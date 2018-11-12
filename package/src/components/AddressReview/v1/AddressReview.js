@@ -94,8 +94,34 @@ class AddressReview extends Component {
     const { addressEntered, addressSuggestion } = this.props;
     return (
       addressEntered &&
-      Object.keys(addressEntered).filter((key) => (addressEntered[key] !== addressSuggestion[key] ? key : null))
+      Object.keys(addressEntered).filter((key) => {
+        if (key === "fullName") return null;
+        return addressEntered[key] !== addressSuggestion[key] ? key : null;
+      })
     );
+  }
+
+  /**
+   *
+   * @method xformAddress
+   * @summary If missing adds the entered addresses `fullName`, `phone` & `isCommercial` property to a suggested address.
+   * This is needed since most validation service results will not have these Reaction expected properties.
+   * @param {Object} address - An address object
+   * @return {Object} Address - complete Reaction `Address` object
+   */
+  xformAddress(address) {
+    const {
+      fullName: enteredFullName,
+      phone: enteredPhone,
+      isCommercial: enteredIsCommercial
+    } = this.props.addressEntered;
+    const { fullName, phone, isCommercial } = address;
+    return {
+      fullName: fullName || enteredFullName,
+      phone: phone || enteredPhone,
+      isCommercial: isCommercial || enteredIsCommercial,
+      ...address
+    };
   }
 
   /**
@@ -108,7 +134,8 @@ class AddressReview extends Component {
    */
   handleSubmit = async ({ AddressReview: value }) => {
     const { addressEntered, addressSuggestion, onSubmit } = this.props;
-    const selectedAddress = value === ENTERED ? addressEntered : addressSuggestion;
+    const selectedAddress =
+      value === ENTERED ? this.xformAddress(addressEntered) : this.xformAddress(addressSuggestion);
     await onSubmit(selectedAddress);
   };
 
@@ -125,13 +152,18 @@ class AddressReview extends Component {
     const options = [
       {
         id: `${ENTERED}_${this.uniqueInstanceIdentifier}`,
-        detail: <Address address={addressEntered} invalidAddressProperties={this.invalidAddressProperties} />,
+        detail: (
+          <Address
+            address={this.xformAddress(addressEntered)}
+            invalidAddressProperties={this.invalidAddressProperties}
+          />
+        ),
         label: "Entered Address:",
         value: ENTERED
       },
       {
         id: `${SUGGESTED}_${this.uniqueInstanceIdentifier}`,
-        detail: <Address address={addressSuggestion} />,
+        detail: <Address address={this.xformAddress(addressSuggestion)} />,
         label: "Suggested Address:",
         value: SUGGESTED
       }
