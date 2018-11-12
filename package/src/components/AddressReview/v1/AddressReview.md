@@ -19,10 +19,8 @@ const addressSuggestion = {
   address2: "",
   country: "US",
   city: "Belle Chasse",
-  fullName: "Salvos Seafood",
   postal: "70037",
-  region: "LA",
-  phone: "(504) 393-7303"
+  region: "LA"
 };
 
 const props = { addressEntered, addressSuggestion };
@@ -49,10 +47,8 @@ const addressSuggestion = {
   address2: "",
   country: "US",
   city: "Belle Chasse",
-  fullName: "Salvos Seafood",
   postal: "70037",
-  region: "LA",
-  phone: "(504) 393-7303"
+  region: "LA"
 };
 
 const props = { addressEntered, addressSuggestion, value: "entered" };
@@ -79,10 +75,8 @@ const addressSuggestion = {
   address2: "",
   country: "US",
   city: "Belle Chasse",
-  fullName: "Salvos Seafood",
   postal: "70037",
-  region: "LA",
-  phone: "(504) 393-7303"
+  region: "LA"
 };
 
 class AddressExample extends React.Component {
