@@ -251,37 +251,86 @@ Some `fulfillmentMethods` will charge a different shipping rate if shipping to a
 
 #### Address Form Implementation Example
 Simple `AddressForm` implementation example. Bind to the form element via a `ref` method that can be used by any `Button` to trigger `submit` & `validate` form methods.
-
 ```jsx
+initState = { isProcessing: false };
 const withLocales = require("../../../../../styleguide/src/components/withLocales").default;
 const AddressFormWithLocales = withLocales(AddressForm);
-class AddressExample extends React.Component {
-  constructor(props) {
-    super(props);
-    this._addressForm;
-    this.bindForm.bind(this);
-  }
+let _form = null;
 
-  bindForm(formEl) {
-    if (formEl) {
-      this._addressForm = formEl;
-    }
-  }
+const handleSubmit = (value) => new Promise((resolve, reject) => {
+  setState({ isProcessing: true });
+  setTimeout(async () => {
+    console.log("Address saved", value);
+    setState({ isProcessing: false });
+    resolve(value)
+  }, 2000);
+});
 
-  render() {
-    return (
-      <div>
-        <AddressFormWithLocales
-          ref={(formEl) => { this.bindForm(formEl) }}
-          onSubmit={(address) => console.log("Address submitted", address)}
-        />
-        <Button onClick={() => this._addressForm.submit()}>Submit</Button>
-      </div>
-    );
-  }
-}
+<div>
+  <AddressFormWithLocales ref={(formEl) => { _form = formEl; }} onSubmit={handleSubmit} />
+  <Button onClick={() => { _form.submit(); }} isWaiting={state.isProcessing} >Submit</Button>
+</div>
+```
 
-<AddressExample />
+#### With Address Validation Implementation Example
+A naive example to demonstrate an address validation UX flow.
+```jsx
+initState = { 
+  isProcessing: false,
+  submittedAddress: null,
+  suggestedAddresses: [],
+  validationErrors: []
+};
+const withLocales = require("../../../../../styleguide/src/components/withLocales").default;
+const AddressFormWithLocales = withLocales(AddressForm);
+let _form = null;
+
+const handleAddressValidation = (value) => new Promise((resolve, reject) => {
+  setState({ isProcessing: true, submittedAddress: value });
+  setTimeout(async () => {
+    console.log("Address validated", value);
+    const validationResults = {
+      suggestedAddresses: [{
+        ...value,
+        address1: "Corrected " + value.address1
+      }],
+      validationErrors: [{
+        summary: "Address Not Found",
+        details: "The address as submitted could not be found. Please check for excessive abbreviations in " +
+        "the street address line or in the City name.",
+        source: "USPS",
+        type: "error" 
+      }]
+    };
+    setState({ isProcessing: false, ...validationResults });
+    resolve(value);
+  }, 2000);
+});
+
+const handleSubmit = (value) => new Promise((resolve, reject) => {
+  setState({ isProcessing: true, submittedAddress: value });
+  setTimeout(async () => {
+    console.log("Address saved", value);
+    setState({ isProcessing: false });
+    resolve(value)
+  }, 2000);
+});
+
+const addressValidationResults = { 
+  submittedAddress: state.submittedAddress, 
+  suggestedAddresses: state.suggestedAddresses,
+  validationErrors: state.validationErrors
+};
+
+<div>
+  <AddressFormWithLocales 
+    addressValidationResults={addressValidationResults}
+    onAddressValidation={handleAddressValidation}
+    onSubmit={handleSubmit}
+    ref={(formEl) => { _form = formEl; }}
+  />
+  <Button onClick={() => { _form.submit(); }} isWaiting={state.isProcessing} >Submit</Button>
+</div>
 ```
 
 ### Theme
