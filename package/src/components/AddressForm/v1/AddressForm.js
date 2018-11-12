@@ -156,20 +156,12 @@ class AddressForm extends Component {
     isOnDarkBackground: false,
     isSaving: false,
     name: "address",
-    onCancel() { },
-    onChange() { },
-    onSubmit() { },
+    onCancel() {},
+    onChange() {},
+    onSubmit() {},
     shouldShowAddressNameField: false,
     shouldShowIsCommercialField: false,
-    validator: getRequiredValidator(
-      "country",
-      "fullName",
-      "address1",
-      "city",
-      "phone",
-      "postal",
-      "region"
-    ),
+    validator: getRequiredValidator("country", "fullName", "address1", "city", "phone", "postal", "region"),
     value: {
       addressName: "",
       address1: "",
@@ -250,6 +242,15 @@ class AddressForm extends Component {
     onCancel();
   };
 
+  handleSubmit = async (value) => {
+    const { onAddressValidation, onSubmit } = this.props;
+    if (onAddressValidation) {
+      await onAddressValidation(value);
+    } else {
+      await onSubmit(value);
+    }
+  };
+
   getValue = () => this._form.getValue();
 
   submit = () => {
@@ -286,14 +287,15 @@ class AddressForm extends Component {
     const isCommercialInputId = `isCommercial_${this.uniqueInstanceIdentifier}`;
 
     return (
-      <Form className={className}
+      <Form
+        className={className}
         ref={(formEl) => {
           this._form = formEl;
         }}
         errors={errors}
         name={name}
         onChange={onChange}
-        onSubmit={this.props.onSubmit}
+        onSubmit={this.handleSubmit}
         validator={validator}
         revalidateOn="changed"
         value={value}
@@ -352,7 +354,6 @@ class AddressForm extends Component {
               <ErrorsBlock names={["fullName"]} />
             </Field>
           </ColFull>
-
 
           <ColFull>
             <Field name="address1" label="Address" labelFor={address1InputId} isRequired>
