@@ -11,8 +11,10 @@ const validTextTypes = [
   "headingText",
   "headingTextBold",
   "labelText",
+  "labelTextSemiBold",
   "labelTextBold",
   "subheadingText",
+  "subheadingTextSemiBold",
   "subheadingTextBold",
   "titleText",
   "titleTextBold"

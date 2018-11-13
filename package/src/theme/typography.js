@@ -55,6 +55,15 @@ export default {
     letterSpacing: ".03em",
     lineHeight: "1.25"
   },
+  subheadingTextSemiBold: {
+    color: titleTextColor,
+    fontFamily,
+    fontSize: "18px",
+    fontStyle: "normal",
+    fontWeight: fontWeightSemiBold,
+    letterSpacing: ".03em",
+    lineHeight: "1.25"
+  },
   subheadingTextBold: {
     color: titleTextColor,
     fontFamily,
@@ -97,6 +106,15 @@ export default {
     fontSize: "14px",
     fontStyle: "normal",
     fontWeight: fontWeightRegular,
+    letterSpacing: ".02em",
+    lineHeight: "1.25"
+  },
+  labelTextSemiBold: {
+    color: bodyTextColor,
+    fontFamily,
+    fontSize: "14px",
+    fontStyle: "normal",
+    fontWeight: fontWeightSemiBold,
     letterSpacing: ".02em",
     lineHeight: "1.25"
   },

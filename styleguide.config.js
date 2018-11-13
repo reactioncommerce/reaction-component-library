@@ -486,6 +486,7 @@ module.exports = {
             "CheckoutEmailAddress",
             "CheckoutTopHat",
             "FinalReviewCheckoutAction",
+            "PaymentsCheckoutAction",
             "ShippingAddressCheckoutAction",
             "StripePaymentCheckoutAction",
             "FulfillmentOptionsCheckoutAction"
