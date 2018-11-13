@@ -84,16 +84,18 @@ class AddressForm extends Component {
     /**
      * Errors array
      */
-    errors: PropTypes.arrayOf(PropTypes.shape({
-      /**
+    errors: PropTypes.arrayOf(
+      PropTypes.shape({
+        /**
          * Error message
          */
-      message: PropTypes.string.isRequired,
-      /**
+        message: PropTypes.string.isRequired,
+        /**
          * Error name
          */
-      name: PropTypes.string.isRequired
-    })),
+        name: PropTypes.string.isRequired
+      })
+    ),
     /**
      * Enable when using the form on a dark background, disabled by default
      */
@@ -105,16 +107,18 @@ class AddressForm extends Component {
     /**
      * Locale options to populate the forms country and region fields
      */
-    locales: PropTypes.objectOf(PropTypes.shape({
-      name: PropTypes.string,
-      native: PropTypes.string,
-      phone: PropTypes.string,
-      continent: PropTypes.string,
-      capital: PropTypes.string,
-      currency: PropTypes.string,
-      languages: PropTypes.string,
-      states: PropTypes.objectOf(PropTypes.shape({ name: PropTypes.string }))
-    })),
+    locales: PropTypes.objectOf(
+      PropTypes.shape({
+        name: PropTypes.string,
+        native: PropTypes.string,
+        phone: PropTypes.string,
+        continent: PropTypes.string,
+        capital: PropTypes.string,
+        currency: PropTypes.string,
+        languages: PropTypes.string,
+        states: PropTypes.objectOf(PropTypes.shape({ name: PropTypes.string }))
+      })
+    ),
     /**
      * Form name
      */
@@ -244,7 +248,7 @@ class AddressForm extends Component {
 
   handleSubmit = async (value) => {
     const { onAddressValidation, onSubmit } = this.props;
-    if (onAddressValidation) {
+    if (onAddressValidation && !value.isValid) {
       await onAddressValidation(value);
     } else {
       await onSubmit(value);
@@ -259,7 +263,7 @@ class AddressForm extends Component {
 
   validate = () => this._form.validate();
 
-  render() {
+  renderForm() {
     const {
       addressNamePlaceholder,
       value,
@@ -448,6 +452,27 @@ class AddressForm extends Component {
         </Grid>
       </Form>
     );
+  }
+
+  renderReview() {
+    const { addressValidationResults, components: { AddressReview }, name } = this.props;
+    return (
+      <AddressReview
+        ref={(formEl) => {
+          this._form = formEl;
+        }}
+        name={name}
+        onSubmit={this.handleSubmit}
+        addressEntered={addressValidationResults.submittedAddress}
+        addressSuggestion={addressValidationResults.suggestedAddresses[0]}
+      />
+    );
+  }
+
+  render() {
+    const { addressValidationResults } = this.props;
+    const { suggestedAddresses } = addressValidationResults || [];
+    return suggestedAddresses && suggestedAddresses.length ? this.renderReview() : this.renderForm();
   }
 }
 

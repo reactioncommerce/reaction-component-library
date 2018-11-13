@@ -292,7 +292,8 @@ const handleAddressValidation = (value) => new Promise((resolve, reject) => {
     const validationResults = {
       suggestedAddresses: [{
         ...value,
-        address1: "Corrected " + value.address1
+        address1: "Corrected " + value.address1,
+        isValid: true
       }],
       validationErrors: [{
         summary: "Address Not Found",
