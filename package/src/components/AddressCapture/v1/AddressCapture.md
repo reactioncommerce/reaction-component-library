@@ -1,8 +1,10 @@
 ### Overview
+The `AddressCapture` is a wrapper component that provides a simple API to orchestrate an address validation UX flow using the `AddressForm` and `AddressReview` components.
 
 ### Usage
 
 #### Add an address
+A naive exmaple to demonstrate a basic address add UX flow. 
 ```jsx
 initialState = { isProcessing: false, savedAddress: null };
 let _form = null;
@@ -32,6 +34,7 @@ state.savedAddress ? <Address address={state.savedAddress} /> : <div>
 ```
 
 #### Edit an address
+A naive exmaple to demonstrate a basic address edit UX flow. 
 ```jsx
 initialState = { 
   isProcessing: false,
@@ -68,7 +71,6 @@ const props = {
   onSubmit: handleSubmit
 };
 
-console.log("whats the saved address", state.savedAddress);
 
 state.updatedAddress ? <Address address={state.updatedAddress} /> : <div>
   <AddressCapture {...props} ref={(formEl) => { _form = formEl; }} />
@@ -77,6 +79,7 @@ state.updatedAddress ? <Address address={state.updatedAddress} /> : <div>
 ```
 
 #### Validate an address
+A naive exmaple to demonstrate a basic address validation UX flow. Address postal codes that start with "1" will pass validation, all others will fail.
 ```jsx
 initialState = { isProcessing: false, savedAddress: null, submittedAddress: null, validationResults: null };
 let _form = null;
@@ -95,18 +98,11 @@ const handleAddressValidation = (value) => new Promise((resolve, reject) => {
   setTimeout(async () => {
     console.log("Address validated", value);
     const validationResults = {
-      suggestedAddresses: [{
+      suggestedAddresses: value.postal[0] === "1" ? [] : [{
         ...value,
         address1: "Corrected " + value.address1,
         postal: "90210",
         isValid: true
-      }],
-      validationErrors: [{
-        summary: "Address Not Found",
-        details: "The address as submitted could not be found. Please check for excessive abbreviations in " +
-        "the street address line or in the City name.",
-        source: "USPS",
-        type: "error" 
       }]
     };
     setState({ isProcessing: false, validationResults });
