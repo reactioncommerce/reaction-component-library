@@ -272,68 +272,6 @@ const handleSubmit = (value) => new Promise((resolve, reject) => {
 </div>
 ```
 
-#### With Address Validation Implementation Example
-A naive example to demonstrate an address validation UX flow.
-```jsx
-initState = { 
-  isProcessing: false,
-  submittedAddress: null,
-  suggestedAddresses: [],
-  validationErrors: []
-};
-const withLocales = require("../../../../../styleguide/src/components/withLocales").default;
-const AddressFormWithLocales = withLocales(AddressForm);
-let _form = null;
-
-const handleAddressValidation = (value) => new Promise((resolve, reject) => {
-  setState({ isProcessing: true, submittedAddress: value });
-  setTimeout(async () => {
-    console.log("Address validated", value);
-    const validationResults = {
-      suggestedAddresses: [{
-        ...value,
-        address1: "Corrected " + value.address1,
-        isValid: true
-      }],
-      validationErrors: [{
-        summary: "Address Not Found",
-        details: "The address as submitted could not be found. Please check for excessive abbreviations in " +
-        "the street address line or in the City name.",
-        source: "USPS",
-        type: "error" 
-      }]
-    };
-    setState({ isProcessing: false, ...validationResults });
-    resolve(value);
-  }, 2000);
-});
-
-const handleSubmit = (value) => new Promise((resolve, reject) => {
-  setState({ isProcessing: true, submittedAddress: value });
-  setTimeout(async () => {
-    console.log("Address saved", value);
-    setState({ isProcessing: false });
-    resolve(value)
-  }, 2000);
-});
-
-const addressValidationResults = { 
-  submittedAddress: state.submittedAddress, 
-  suggestedAddresses: state.suggestedAddresses,
-  validationErrors: state.validationErrors
-};
-
-<div>
-  <AddressFormWithLocales 
-    addressValidationResults={addressValidationResults}
-    onAddressValidation={handleAddressValidation}
-    onSubmit={handleSubmit}
-    ref={(formEl) => { _form = formEl; }}
-  />
-  <Button onClick={() => { _form.submit(); }} isWaiting={state.isProcessing} >Submit</Button>
-</div>
-```
-
 ### Theme
 
 Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).

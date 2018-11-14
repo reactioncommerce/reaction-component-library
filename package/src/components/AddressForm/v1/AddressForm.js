@@ -242,15 +242,6 @@ class AddressForm extends Component {
     onCancel();
   };
 
-  handleSubmit = async (value) => {
-    const { onAddressValidation, onSubmit } = this.props;
-    if (onAddressValidation && !value.isValid) {
-      await onAddressValidation(value);
-    } else {
-      await onSubmit(value);
-    }
-  };
-
   getValue = () => this._form.getValue();
 
   submit = () => {
@@ -259,7 +250,7 @@ class AddressForm extends Component {
 
   validate = () => this._form.validate();
 
-  renderForm() {
+  render() {
     const {
       addressNamePlaceholder,
       value,
@@ -295,7 +286,7 @@ class AddressForm extends Component {
         errors={errors}
         name={name}
         onChange={onChange}
-        onSubmit={this.handleSubmit}
+        onSubmit={this.props.onSubmit}
         validator={validator}
         revalidateOn="changed"
         value={value}
@@ -448,27 +439,6 @@ class AddressForm extends Component {
         </Grid>
       </Form>
     );
-  }
-
-  renderReview() {
-    const { addressValidationResults, components: { AddressReview }, name } = this.props;
-    return (
-      <AddressReview
-        ref={(formEl) => {
-          this._form = formEl;
-        }}
-        name={name}
-        onSubmit={this.handleSubmit}
-        addressEntered={addressValidationResults.submittedAddress}
-        addressSuggestion={addressValidationResults.suggestedAddresses[0]}
-      />
-    );
-  }
-
-  render() {
-    const { addressValidationResults } = this.props;
-    const { suggestedAddresses } = addressValidationResults || [];
-    return suggestedAddresses && suggestedAddresses.length ? this.renderReview() : this.renderForm();
   }
 }
 
