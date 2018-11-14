@@ -46,7 +46,7 @@ class AddressForm extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction Field component or your own component that is
+       * Pass either the Reaction Checkbox component or your own component that is
        * compatible with ReactoForm.
        */
       Checkbox: CustomPropTypes.component.isRequired,
