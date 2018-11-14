@@ -159,7 +159,8 @@ action.renderComplete(capturedData);
 ```
 
 ### Implementation Examples
-A naive exmaple to demonstrate a basic shipping address checkout action UX flow. 
+A naive exmaple to demonstrate a basic shipping address checkout action UX flow.
+
 **Basic set shipping address**
 ```jsx
 initState = {
@@ -208,6 +209,7 @@ const props = {
 ```
 
 **With simple address validation**
+
 A naive example to demonstrate a validation shipping address checkout action UX flow. 
 ```jsx
 initState = {
@@ -232,7 +234,8 @@ const salvos = {
   fullName: "Salvos Seafood",
   postal: "70037",
   region: "LA",
-  phone: "(504) 393-7303"
+  phone: "(504) 393-7303",
+  isValid: true
 };
 
 const handleSubmit = (value) => new Promise((resolve, reject) => {
@@ -258,8 +261,10 @@ const handleValidation = (value) => new Promise((resolve, reject) => {
         submittedAddress: value,
         suggestedAddresses: [salvos],
         validationErrors: [{
-          details: "Sorry but we believe you meant to enter the address of Salvos Seafood",
-          type: "warning"
+         summary: "Address Not Found",
+         details: "The address as submitted could not be found. Please check for excessive abbreviations in the street address line or in the City name.",
+         source: "USPS",
+         type: "error"
         }]
       },
       isProcessing: false
@@ -273,9 +278,9 @@ const props = {
   fulfillmentGroup: state.fulfillmentGroup,
   label: "Shipping Address",
   stepNumber: 1,
+  onAddressValidation: handleValidation,
   onSubmit: handleSubmit,
-  onReadyForSaveChange() { setState({ isReady: true }); },
-  validation: handleValidation
+  onReadyForSaveChange() { setState({ isReady: true }); }
 };
 
 <div>
