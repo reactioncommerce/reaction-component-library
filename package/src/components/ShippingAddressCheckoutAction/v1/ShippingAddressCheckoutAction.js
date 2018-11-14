@@ -68,6 +68,10 @@ class ShippingAddressCheckoutAction extends Component {
      */
     label: PropTypes.string.isRequired,
     /**
+     * Address validation function.
+     */
+    onAddressValidation: PropTypes.func,
+    /**
      * When action is ready for save call this prop method to
      * enable the save button with in the `CheckoutActions`
      */
@@ -82,11 +86,7 @@ class ShippingAddressCheckoutAction extends Component {
     /**
      * Checkout process step number
      */
-    stepNumber: PropTypes.number.isRequired,
-    /**
-     * Address validation function.
-     */
-    validation: PropTypes.func
+    stepNumber: PropTypes.number.isRequired
   };
 
   static defaultProps = {
@@ -166,9 +166,9 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   handleSubmit = async (value) => {
-    const { onSubmit, validation } = this.props;
-    if (validation && this.inEntry) {
-      await validation(value);
+    const { onSubmit, onAddressValidation } = this.props;
+    if (onAddressValidation && this.inEntry) {
+      await onAddressValidation(value);
     } else {
       await onSubmit(value);
     }
@@ -220,16 +220,47 @@ class ShippingAddressCheckoutAction extends Component {
     );
   }
 
+  renderAddressCapture() {
+    const {
+      addressValidationResults,
+      components: { AddressCapture },
+      isSaving,
+      onSubmit,
+      onAddressValidation
+    } = this.props;
+    const captureProps = {
+      addressFormProps: {
+        onChange: this.handleChange,
+        shouldShowIsCommercialField: true,
+        value: this.inEdit ? this.getSubmittedAddress : this.getShippingAddress
+      },
+      addressReviewProps: {
+        addressEntered: this.getSubmittedAddress,
+        addressSuggestion: this.hasValidationResults ? addressValidationResults.suggestedAddresses[0] : null
+      },
+      isSaving,
+      onAddressValidation,
+      onSubmit
+    };
+    return (
+      <AddressCapture
+        ref={(formEl) => {
+          this._form = formEl;
+        }}
+        {...captureProps}
+      />
+    );
+  }
+
   render() {
     const { alert, components: { InlineAlert }, label, stepNumber } = this.props;
-    const { status } = this.state;
     return (
       <Fragment>
         <Title>
           {stepNumber}. {label}
         </Title>
-        {alert ? <InlineAlert {...alert} /> : ""}
-        {status === REVIEW ? this.renderAddressReview() : this.renderAddressForm()}
+        {alert ? <InlineAlert alertType="warning" {...alert} /> : ""}
+        {this.renderAddressCapture()}
       </Fragment>
     );
   }
