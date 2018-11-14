@@ -448,6 +448,7 @@ module.exports = {
       sections: [
         generateSection({
           componentNames: [
+            "AddressCapture",
             "ShopLogo"
           ],
           content: "styleguide/src/sections/General.md",
