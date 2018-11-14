@@ -5,15 +5,42 @@ import { CustomPropTypes } from "../../../utils";
 
 class AddressCapture extends Component {
   static propTypes = {
+    /**
+     * AddressForm component props
+     */
     addressFormProps: PropTypes.shape({
+      /**
+       * Place holder for Address Name field.
+       */
       addressNamePlaceholder: PropTypes.string,
+      /**
+       * Should the AddressForm show the "Address Names" field.
+       */
       shouldShowAddressNameField: PropTypes.bool,
+      /**
+       * Should the AddressForm show the "Is Commercial Address" field.
+       */
       shouldShowIsCommercialField: PropTypes.bool,
+      /**
+       * Address object to be edited
+       */
       value: CustomPropTypes.address
     }),
+    /**
+     * AddressReview component props
+     */
     addressReviewProps: PropTypes.shape({
+      /**
+       * Address entered
+       */
       addressEntered: CustomPropTypes.address,
+      /**
+       * Address validations address suggestion
+       */
       addressSuggestion: CustomPropTypes.address,
+      /**
+       * The selected address option
+       */
       value: PropTypes.string
     }),
     /**
@@ -41,9 +68,21 @@ class AddressCapture extends Component {
        */
       AddressReview: CustomPropTypes.component.isRequired
     }).isRequired,
+    /**
+     * Is data being saved
+     */
     isSaving: PropTypes.bool,
+    /**
+     * Form name
+     */
     name: PropTypes.string,
+    /**
+     * Address validation event callback.
+     */
     onAddressValidation: PropTypes.func,
+    /**
+     * Form submit event callback
+     */
     onSubmit: PropTypes.func
   };
 
@@ -59,18 +98,48 @@ class AddressCapture extends Component {
 
   /**
    *
+   * @method hasAddressSuggestion
+   * @summary returns true if we have a suggested address from a address validation service
+   * @return {Boolean} - true if address suggestion on props
+   */
+  get hasAddressSuggestion() {
+    const { addressReviewProps: { addressSuggestion } } = this.props;
+    return !!addressSuggestion;
+  }
+
+  /**
+   *
+   * @method formRef
+   * @summary binds the active form element to the `_form` property
+   * @param {Object} form - React ref element
+   * @return {undefined}
+   */
+  formRef = (form) => {
+    this._form = form;
+  };
+
+  /**
+   *
    * @name submit
    * @summary Instance method that submits the form, this allows a parent component access to the Form submit event.
-   * @return {Undefined} - Nothing
+   * @return {undefined}
    */
   submit = () => {
     this._form.submit();
   };
 
+  /**
+   *
+   * @method handleSubmit
+   * @summary validate or submit the entered address object.
+   * @param {Object} address - submited address object
+   * @return {undefined}
+   */
   handleSubmit = async (address) => {
     const { onAddressValidation, onSubmit } = this.props;
     if (onAddressValidation && !address.isValid) {
       await onAddressValidation(address);
+      if (!this.hasAddressSuggestion) await onSubmit(address);
     } else {
       await onSubmit(address);
     }
@@ -78,35 +147,19 @@ class AddressCapture extends Component {
 
   renderForm() {
     const { addressFormProps, components: { AddressForm }, isSaving } = this.props;
-    return (
-      <AddressForm
-        {...addressFormProps}
-        ref={(el) => {
-          this._form = el;
-        }}
-        isSaving={isSaving}
-        onSubmit={this.handleSubmit}
-      />
-    );
+    return <AddressForm {...addressFormProps} ref={this.formRef} isSaving={isSaving} onSubmit={this.handleSubmit} />;
   }
 
   renderReview() {
     const { addressReviewProps, components: { AddressReview }, isSaving } = this.props;
     return (
-      <AddressReview
-        {...addressReviewProps}
-        ref={(el) => {
-          this._form = el;
-        }}
-        isSaving={isSaving}
-        onSubmit={this.handleSubmit}
-      />
+      <AddressReview {...addressReviewProps} ref={this.formRef} isSaving={isSaving} onSubmit={this.handleSubmit} />
     );
   }
 
   render() {
-    const { addressReviewProps: { addressSuggestion }, className } = this.props;
-    return <div className={className}>{addressSuggestion ? this.renderReview() : this.renderForm()}</div>;
+    const { className } = this.props;
+    return <div className={className}>{this.hasAddressSuggestion ? this.renderReview() : this.renderForm()}</div>;
   }
 }
 
