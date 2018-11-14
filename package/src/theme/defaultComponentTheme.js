@@ -632,6 +632,7 @@ const rui_components = {
   },
   SelectableList: {
     borderColor: colors.black10,
+    borderedItemPaddingLeft: padding.twenty,
     borderRadius: standardBorderRadius,
     borderStyle: "solid",
     borderWidth: "1px",
@@ -642,7 +643,7 @@ const rui_components = {
     iconSpacingToLabel: "10px",
     iconWidth: "38px",
     itemPaddingBottom: "0",
-    itemPaddingLeft: "10px",
+    itemPaddingLeft: "0",
     itemPaddingRight: "10px",
     itemPaddingTop: "0",
     leftAlignedLabelFontWeight: 700,

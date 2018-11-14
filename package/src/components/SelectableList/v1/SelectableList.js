@@ -78,7 +78,7 @@ const BorderedWrapper = styled.div`
   border-right-style: ${applyTheme("SelectableList.borderStyle")};
   border-right-width: ${applyTheme("SelectableList.borderWidth")};
   padding-bottom: ${applyTheme("SelectableList.itemPaddingBottom")};
-  padding-left: ${applyTheme("SelectableList.itemPaddingLeft")};
+  padding-left: ${applyTheme("SelectableList.borderedItemPaddingLeft")};
   padding-right: ${applyTheme("SelectableList.itemPaddingRight")};
   padding-top: ${applyTheme("SelectableList.itemPaddingTop")};
   > *:last-child {
