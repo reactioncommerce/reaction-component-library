@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
 import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
@@ -13,6 +13,10 @@ class AddressCapture extends Component {
        * Place holder for Address Name field.
        */
       addressNamePlaceholder: PropTypes.string,
+      /**
+       * OnChange event callback
+       */
+      onChange: PropTypes.func,
       /**
        * Should the AddressForm show the "Address Names" field.
        */
@@ -151,9 +155,12 @@ class AddressCapture extends Component {
   }
 
   renderReview() {
-    const { addressReviewProps, components: { AddressReview }, isSaving } = this.props;
+    const { addressReviewProps, components: { AddressReview, Button }, isSaving } = this.props;
     return (
-      <AddressReview {...addressReviewProps} ref={this.formRef} isSaving={isSaving} onSubmit={this.handleSubmit} />
+      <Fragment>
+        <AddressReview {...addressReviewProps} ref={this.formRef} isSaving={isSaving} onSubmit={this.handleSubmit} />
+        <Button isTextOnly>Edit entered address</Button>
+      </Fragment>
     );
   }
 
