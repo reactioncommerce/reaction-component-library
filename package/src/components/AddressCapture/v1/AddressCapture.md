@@ -43,7 +43,7 @@ const props = {
 ### Implementation Example
 
 #### Add Address
-A naive exmaple to demonstrate a basic address add UX flow. 
+A naive example to demonstrate a basic address add UX flow. 
 ```jsx
 initialState = { isProcessing: false, savedAddress: null };
 let _form = null;
@@ -73,7 +73,7 @@ state.savedAddress ? <Address address={state.savedAddress} /> : <div>
 ```
 
 #### Edit Address
-A naive exmaple to demonstrate a basic address edit UX flow. 
+A naive example to demonstrate a basic address edit UX flow. 
 ```jsx
 initialState = { 
   isProcessing: false,
@@ -118,7 +118,7 @@ state.updatedAddress ? <Address address={state.updatedAddress} /> : <div>
 ```
 
 #### Validate Address
-A naive exmaple to demonstrate a basic address validation UX flow.
+A naive example to demonstrate a basic address validation UX flow.
 
 *Address postal codes that start with "1" will pass validation, all others will fail.*
 ```jsx
@@ -170,9 +170,3 @@ state.savedAddress ? <Address address={state.savedAddress} /> : <div>
   <Button onClick={() => { _form.submit() }} isWaiting={state.isProcessing}>{state.validationResults ? "Capture" : "Validate"}</Button>
 </div>
 ```
-
-### Theme
-
-Assume that any theme prop that does not begin with "rui" is within `rui_components`. See [Theming Components](./#!/Theming%20Components).
-
-| Theme Prop | Default | Description |
