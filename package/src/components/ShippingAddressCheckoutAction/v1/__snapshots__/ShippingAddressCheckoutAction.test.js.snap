@@ -25,7 +25,7 @@ Array [
     Shipping Address
   </h3>,
   "",
-  "AddressForm(undefined)",
+  "AddressCapture(undefined)",
 ]
 `;
 
@@ -54,6 +54,6 @@ Array [
     Shipping Address
   </h3>,
   "",
-  "AddressForm(undefined)",
+  "AddressCapture(undefined)",
 ]
 `;

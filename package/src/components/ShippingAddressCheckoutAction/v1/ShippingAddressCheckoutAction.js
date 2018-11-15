@@ -36,15 +36,10 @@ class ShippingAddressCheckoutAction extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction AddressForm component or your own component that
+       * Pass either the Reaction AddressCapture component or your own component that
        * accepts compatible props.
        */
-      AddressForm: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction AddressReview component or your own component that
-       * accepts compatible props.
-       */
-      AddressReview: CustomPropTypes.component.isRequired,
+      AddressCapture: CustomPropTypes.component.isRequired,
       /**
        * Pass either the Reaction InlineAlert component or your own component that
        * accepts compatible props.
@@ -116,11 +111,7 @@ class ShippingAddressCheckoutAction extends Component {
 
   get hasValidationResults() {
     const { addressValidationResults } = this.props;
-    return !!(
-      addressValidationResults &&
-      addressValidationResults.suggestedAddresses.length &&
-      addressValidationResults.submittedAddress
-    );
+    return !!(addressValidationResults && addressValidationResults.suggestedAddresses.length);
   }
 
   get getSubmittedAddress() {
@@ -165,60 +156,9 @@ class ShippingAddressCheckoutAction extends Component {
     onReadyForSaveChange(true);
   };
 
-  handleSubmit = async (value) => {
-    const { onSubmit, onAddressValidation } = this.props;
-    if (onAddressValidation && this.inEntry) {
-      await onAddressValidation(value);
-    } else {
-      await onSubmit(value);
-    }
-  };
-
   handleChange = (values) => {
     if (this.isFormFilled(values)) this.ready();
   };
-
-  renderAddressReview() {
-    const {
-      addressValidationResults: { submittedAddress, suggestedAddresses },
-      components: { AddressReview, Button }
-    } = this.props;
-    return (
-      <Fragment>
-        <AddressReview
-          ref={(formEl) => {
-            this._form = formEl;
-          }}
-          addressEntered={submittedAddress}
-          addressSuggestion={suggestedAddresses[0]}
-          onSubmit={this.handleSubmit}
-        />
-        <Button
-          isTextOnly
-          onClick={() => {
-            this.toggleStatus = EDIT;
-          }}
-        >
-          Edit entered address
-        </Button>
-      </Fragment>
-    );
-  }
-
-  renderAddressForm() {
-    const { components: { AddressForm }, isSaving } = this.props;
-    return (
-      <AddressForm
-        ref={(formEl) => {
-          this._form = formEl;
-        }}
-        isSaving={isSaving}
-        onChange={this.handleChange}
-        onSubmit={this.handleSubmit}
-        value={this.inEdit ? this.getSubmittedAddress : this.getShippingAddress}
-      />
-    );
-  }
 
   renderAddressCapture() {
     const {

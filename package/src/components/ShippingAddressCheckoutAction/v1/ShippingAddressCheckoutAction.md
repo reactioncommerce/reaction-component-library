@@ -259,7 +259,12 @@ const handleValidation = (value) => new Promise((resolve, reject) => {
     setState({
       addressValidationResults: {
         submittedAddress: value,
-        suggestedAddresses: [salvos],
+        suggestedAddresses:  value.postal[0] === "1" ? [] : [{
+          ...value,
+          address1: "Corrected " + value.address1,
+          postal: "90210",
+          isValid: true
+        }],
         validationErrors: [{
          summary: "Address Not Found",
          details: "The address as submitted could not be found. Please check for excessive abbreviations in the street address line or in the City name.",
