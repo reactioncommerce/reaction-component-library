@@ -3,7 +3,46 @@ The `AddressCapture` is a wrapper component that provides a simple API to orches
 
 ### Usage
 
-#### Add an address
+**Default Address Form**
+```jsx
+<AddressCapture name="example" />
+```
+
+**Address Review**
+```jsx
+const props = {
+  addressReviewProps: {
+    addressEntered: {
+      address1: "2111 Main Street",
+      address2: "Suite 207",
+      country: "US",
+      city: "Santa Monica",
+      fullName: "Reaction Commerce, Inc.",
+      postal: "90305",
+      region: "CA",
+      phone: "123-123-1234",
+      isCommercial: true
+    },
+    addressSuggestion: {
+      address1: "2110 Main Street",
+      address2: "Suite 207",
+      country: "US",
+      city: "Santa Monica",
+      postal: "90405",
+      region: "CA"
+    }
+  },
+  name: "example"
+};
+
+<AddressCapture {...props} />
+```
+
+
+
+### Implementation Example
+
+#### Add Address
 A naive exmaple to demonstrate a basic address add UX flow. 
 ```jsx
 initialState = { isProcessing: false, savedAddress: null };
@@ -33,7 +72,7 @@ state.savedAddress ? <Address address={state.savedAddress} /> : <div>
 </div>
 ```
 
-#### Edit an address
+#### Edit Address
 A naive exmaple to demonstrate a basic address edit UX flow. 
 ```jsx
 initialState = { 
@@ -78,8 +117,10 @@ state.updatedAddress ? <Address address={state.updatedAddress} /> : <div>
 </div>
 ```
 
-#### Validate an address
-A naive exmaple to demonstrate a basic address validation UX flow. Address postal codes that start with "1" will pass validation, all others will fail.
+#### Validate Address
+A naive exmaple to demonstrate a basic address validation UX flow.
+
+*Address postal codes that start with "1" will pass validation, all others will fail.*
 ```jsx
 initialState = { isProcessing: false, savedAddress: null, submittedAddress: null, validationResults: null };
 let _form = null;
