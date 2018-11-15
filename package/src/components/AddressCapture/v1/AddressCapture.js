@@ -1,7 +1,12 @@
 import React, { Component, Fragment } from "react";
 import PropTypes from "prop-types";
+import isEqual from "lodash.isequal";
 import { withComponents } from "@reactioncommerce/components-context";
 import { CustomPropTypes } from "../../../utils";
+
+const ENTRY = "entry";
+const EDIT = "edit";
+const REVIEW = "review";
 
 class AddressCapture extends Component {
   static propTypes = {
@@ -91,12 +96,23 @@ class AddressCapture extends Component {
   };
 
   static defaultProps = {
-    addressFormProps: {},
+    addressFormProps: {
+      value: null
+    },
     addressReviewProps: {
+      addressEntered: null,
       addressSuggestion: null
     },
     isSaving: false
   };
+
+  state = { status: this.hasAddressSuggestion ? REVIEW : ENTRY };
+
+  componentDidUpdate({ addressReviewProps: { addressSuggestion: prevAddressSuggestion } }) {
+    if (!isEqual(prevAddressSuggestion, this.addressSuggestion) && this.hasAddressSuggestion) {
+      this.toggleStatus = REVIEW;
+    }
+  }
 
   _form = null;
 
@@ -109,6 +125,82 @@ class AddressCapture extends Component {
   get hasAddressSuggestion() {
     const { addressReviewProps: { addressSuggestion } } = this.props;
     return !!addressSuggestion;
+  }
+
+  /**
+   *
+   * @method addressEntered
+   * @summary getter that returns the entered address
+   * @return {Object} addressEntered -  Address object
+   */
+  get addressEntered() {
+    const { addressReviewProps: { addressEntered } } = this.props;
+    return addressEntered && addressEntered;
+  }
+
+  /**
+   *
+   * @method addressSuggestion
+   * @summary getter that returns the suggested address
+   * @return {Object} addressSuggestion -  Address object
+   */
+  get addressSuggestion() {
+    const { addressReviewProps: { addressSuggestion } } = this.props;
+    return addressSuggestion && addressSuggestion;
+  }
+
+  /**
+   *
+   * @method addressProvided
+   * @summary getter that returns the provided address form value
+   * @return {Object} addressProvided -  Address object
+   */
+  get addressProvided() {
+    const { addressFormProps: { value } } = this.props;
+    return value && value;
+  }
+
+  /**
+   *
+   * @method inEntry
+   * @summary getter that returns true if in entry mode
+   * @return {Boolean}
+   */
+  get inEntry() {
+    const { status } = this.state;
+    return status === ENTRY;
+  }
+
+  /**
+   *
+   * @method inEdit
+   * @summary getter that returns true if in edit mode
+   * @return {Boolean}
+   */
+  get inEdit() {
+    const { status } = this.state;
+    return status === EDIT;
+  }
+
+  /**
+   *
+   * @method inReview
+   * @summary getter that returns true if in review mode
+   * @return {Boolean}
+   */
+  get inReview() {
+    const { status } = this.state;
+    return status === REVIEW;
+  }
+
+  /**
+   *
+   * @method toggleStatus
+   * @summary setter that toggles the Component's status.
+   * @return {undefined}
+   */
+  set toggleStatus(status) {
+    this.setState({ status });
   }
 
   /**
@@ -151,7 +243,15 @@ class AddressCapture extends Component {
 
   renderForm() {
     const { addressFormProps, components: { AddressForm }, isSaving } = this.props;
-    return <AddressForm {...addressFormProps} ref={this.formRef} isSaving={isSaving} onSubmit={this.handleSubmit} />;
+    return (
+      <AddressForm
+        {...addressFormProps}
+        ref={this.formRef}
+        isSaving={isSaving}
+        onSubmit={this.handleSubmit}
+        value={this.inEdit ? this.addressEntered : this.addressProvided}
+      />
+    );
   }
 
   renderReview() {
@@ -159,14 +259,21 @@ class AddressCapture extends Component {
     return (
       <Fragment>
         <AddressReview {...addressReviewProps} ref={this.formRef} isSaving={isSaving} onSubmit={this.handleSubmit} />
-        <Button isTextOnly>Edit entered address</Button>
+        <Button
+          isTextOnly
+          onClick={() => {
+            this.toggleStatus = EDIT;
+          }}
+        >
+          Edit entered address
+        </Button>
       </Fragment>
     );
   }
 
   render() {
     const { className } = this.props;
-    return <div className={className}>{this.hasAddressSuggestion ? this.renderReview() : this.renderForm()}</div>;
+    return <div className={className}>{this.inReview ? this.renderReview() : this.renderForm()}</div>;
   }
 }
 
