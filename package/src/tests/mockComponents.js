@@ -36,6 +36,7 @@ function stringifyJSONCircularSafe(obj) {
   "Accordion",
   "AccordionFormList",
   "AddressBook",
+  "AddressCapture",
   "AddressForm",
   "AddressReview",
   "AddressSelect",
