@@ -46,7 +46,7 @@ class AddressForm extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction Field component or your own component that is
+       * Pass either the Reaction Checkbox component or your own component that is
        * compatible with ReactoForm.
        */
       Checkbox: CustomPropTypes.component.isRequired,
@@ -156,20 +156,12 @@ class AddressForm extends Component {
     isOnDarkBackground: false,
     isSaving: false,
     name: "address",
-    onCancel() { },
-    onChange() { },
-    onSubmit() { },
+    onCancel() {},
+    onChange() {},
+    onSubmit() {},
     shouldShowAddressNameField: false,
     shouldShowIsCommercialField: false,
-    validator: getRequiredValidator(
-      "country",
-      "fullName",
-      "address1",
-      "city",
-      "phone",
-      "postal",
-      "region"
-    ),
+    validator: getRequiredValidator("country", "fullName", "address1", "city", "phone", "postal", "region"),
     value: {
       addressName: "",
       address1: "",
@@ -286,7 +278,8 @@ class AddressForm extends Component {
     const isCommercialInputId = `isCommercial_${this.uniqueInstanceIdentifier}`;
 
     return (
-      <Form className={className}
+      <Form
+        className={className}
         ref={(formEl) => {
           this._form = formEl;
         }}
@@ -352,7 +345,6 @@ class AddressForm extends Component {
               <ErrorsBlock names={["fullName"]} />
             </Field>
           </ColFull>
-
 
           <ColFull>
             <Field name="address1" label="Address" labelFor={address1InputId} isRequired>

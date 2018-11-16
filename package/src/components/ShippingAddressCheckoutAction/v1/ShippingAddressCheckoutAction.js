@@ -36,15 +36,10 @@ class ShippingAddressCheckoutAction extends Component {
      */
     components: PropTypes.shape({
       /**
-       * Pass either the Reaction AddressForm component or your own component that
+       * Pass either the Reaction AddressCapture component or your own component that
        * accepts compatible props.
        */
-      AddressForm: CustomPropTypes.component.isRequired,
-      /**
-       * Pass either the Reaction AddressReview component or your own component that
-       * accepts compatible props.
-       */
-      AddressReview: CustomPropTypes.component.isRequired,
+      AddressCapture: CustomPropTypes.component.isRequired,
       /**
        * Pass either the Reaction InlineAlert component or your own component that
        * accepts compatible props.
@@ -68,6 +63,10 @@ class ShippingAddressCheckoutAction extends Component {
      */
     label: PropTypes.string.isRequired,
     /**
+     * Address validation function.
+     */
+    onAddressValidation: PropTypes.func,
+    /**
      * When action is ready for save call this prop method to
      * enable the save button with in the `CheckoutActions`
      */
@@ -82,11 +81,7 @@ class ShippingAddressCheckoutAction extends Component {
     /**
      * Checkout process step number
      */
-    stepNumber: PropTypes.number.isRequired,
-    /**
-     * Address validation function.
-     */
-    validation: PropTypes.func
+    stepNumber: PropTypes.number.isRequired
   };
 
   static defaultProps = {
@@ -116,11 +111,7 @@ class ShippingAddressCheckoutAction extends Component {
 
   get hasValidationResults() {
     const { addressValidationResults } = this.props;
-    return !!(
-      addressValidationResults &&
-      addressValidationResults.suggestedAddresses.length &&
-      addressValidationResults.submittedAddress
-    );
+    return !!(addressValidationResults && addressValidationResults.suggestedAddresses.length);
   }
 
   get getSubmittedAddress() {
@@ -165,71 +156,51 @@ class ShippingAddressCheckoutAction extends Component {
     onReadyForSaveChange(true);
   };
 
-  handleSubmit = async (value) => {
-    const { onSubmit, validation } = this.props;
-    if (validation && this.inEntry) {
-      await validation(value);
-    } else {
-      await onSubmit(value);
-    }
-  };
-
   handleChange = (values) => {
     if (this.isFormFilled(values)) this.ready();
   };
 
-  renderAddressReview() {
+  renderAddressCapture() {
     const {
-      addressValidationResults: { submittedAddress, suggestedAddresses },
-      components: { AddressReview, Button }
+      addressValidationResults,
+      components: { AddressCapture },
+      isSaving,
+      onSubmit,
+      onAddressValidation
     } = this.props;
+    const captureProps = {
+      addressFormProps: {
+        onChange: this.handleChange,
+        shouldShowIsCommercialField: true,
+        value: this.inEdit ? this.getSubmittedAddress : this.getShippingAddress
+      },
+      addressReviewProps: {
+        addressEntered: this.getSubmittedAddress,
+        addressSuggestion: this.hasValidationResults ? addressValidationResults.suggestedAddresses[0] : null
+      },
+      isSaving,
+      onAddressValidation,
+      onSubmit
+    };
     return (
-      <Fragment>
-        <AddressReview
-          ref={(formEl) => {
-            this._form = formEl;
-          }}
-          addressEntered={submittedAddress}
-          addressSuggestion={suggestedAddresses[0]}
-          onSubmit={this.handleSubmit}
-        />
-        <Button
-          isTextOnly
-          onClick={() => {
-            this.toggleStatus = EDIT;
-          }}
-        >
-          Edit entered address
-        </Button>
-      </Fragment>
-    );
-  }
-
-  renderAddressForm() {
-    const { components: { AddressForm }, isSaving } = this.props;
-    return (
-      <AddressForm
+      <AddressCapture
         ref={(formEl) => {
           this._form = formEl;
         }}
-        isSaving={isSaving}
-        onChange={this.handleChange}
-        onSubmit={this.handleSubmit}
-        value={this.inEdit ? this.getSubmittedAddress : this.getShippingAddress}
+        {...captureProps}
       />
     );
   }
 
   render() {
     const { alert, components: { InlineAlert }, label, stepNumber } = this.props;
-    const { status } = this.state;
     return (
       <Fragment>
         <Title>
           {stepNumber}. {label}
         </Title>
-        {alert ? <InlineAlert {...alert} /> : ""}
-        {status === REVIEW ? this.renderAddressReview() : this.renderAddressForm()}
+        {alert ? <InlineAlert alertType="warning" {...alert} /> : ""}
+        {this.renderAddressCapture()}
       </Fragment>
     );
   }

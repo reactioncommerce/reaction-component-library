@@ -14,6 +14,7 @@ import Accordion from "../../package/src/components/Accordion/v1";
 import AccordionFormList from "../../package/src/components/AccordionFormList/v1";
 import Address from "../../package/src/components/Address/v1";
 import AddressBook from "../../package/src/components/AddressBook/v1";
+import AddressCapture from "../../package/src/components/AddressCapture/v1";
 import AddressForm from "../../package/src/components/AddressForm/v1";
 import AddressReview from "../../package/src/components/AddressReview/v1";
 import BadgeOverlay from "../../package/src/components/BadgeOverlay/v1";
@@ -59,6 +60,7 @@ export default {
   AccordionFormList,
   Address,
   AddressBook,
+  AddressCapture,
   AddressForm: AddressFormWithLocales,
   AddressReview,
   BadgeOverlay,

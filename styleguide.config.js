@@ -495,6 +495,7 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
+            "AddressCapture",
             "AddressForm",
             "AddressReview",
             "GuestForm",
