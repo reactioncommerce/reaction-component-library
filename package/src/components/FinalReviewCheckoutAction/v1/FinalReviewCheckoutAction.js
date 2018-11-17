@@ -53,6 +53,10 @@ class FinalReviewCheckoutAction extends Component {
        */
       displaySubtotal: PropTypes.string.isRequired,
       /**
+       * Surcharges added to this cart
+       */
+      displaySurcharge: PropTypes.string,
+      /**
        * Calculated tax amount
        */
       displayTax: PropTypes.string,
@@ -134,6 +138,7 @@ class FinalReviewCheckoutAction extends Component {
         displayDiscount,
         displayShipping,
         displaySubtotal,
+        displaySurcharge,
         displayTax,
         displayTotal,
         items
@@ -166,6 +171,7 @@ class FinalReviewCheckoutAction extends Component {
               displayDiscount={displayDiscount}
               displayShipping={displayShipping}
               displaySubtotal={displaySubtotal}
+              displaySurcharge={displaySurcharge}
               displayTax={displayTax}
               displayTotal={displayTotal}
             />
