@@ -279,6 +279,12 @@ const rui_components = {
       lineHeight: 1
     }
   },
+  CartSummarySurcharge: {
+    typography: {
+      color: colors.red300,
+      lineHeight: 1
+    }
+  },
   CartSummaryTotal: {
     typography: {
       color: colors.coolGrey500,

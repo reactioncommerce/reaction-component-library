@@ -48,6 +48,10 @@ const Discount = styled.span`
   ${addTypographyStyles("CartSummaryDiscount", "bodyTextBold")}
 `;
 
+const Surcharge = styled.span`
+  ${addTypographyStyles("CartSummarySurcharge", "bodyTextBold")}
+`;
+
 const Total = styled.span`
   ${addTypographyStyles("CartSummaryTotal", "bodyTextBold")}
 `;
@@ -72,6 +76,10 @@ class CartSummary extends Component {
      * Subtotal amount
      */
     displaySubtotal: PropTypes.string.isRequired,
+    /**
+     * Surcharge amount
+     */
+    displaySurcharge: PropTypes.string,
     /**
      * Calculated tax amount
      */
@@ -123,12 +131,26 @@ class CartSummary extends Component {
     );
   }
 
+  renderSurcharge() {
+    const { displaySurcharge, isDense } = this.props;
+
+    return (
+      <tr>
+        <Td isDense={isDense}>Surcharge applied</Td>
+        <TdValue isDense={isDense}>
+          <Surcharge>{displaySurcharge}</Surcharge>
+        </TdValue>
+      </tr>
+    );
+  }
+
   render() {
     const {
       className,
       displayDiscount,
       displayShipping,
       displaySubtotal,
+      displaySurcharge,
       displayTax,
       displayTotal,
       isDense,
@@ -139,6 +161,7 @@ class CartSummary extends Component {
     const tax = displayTax || "-";
     const header = !isDense && this.renderHeader();
     const discount = displayDiscount && this.renderDiscount();
+    const surcharge = displaySurcharge && this.renderSurcharge();
 
     return (
       <Table className={className} isDense={isDense}>
@@ -153,6 +176,7 @@ class CartSummary extends Component {
             <TdValue isDense={isDense}>{shipping}</TdValue>
           </tr>
           {discount}
+          {surcharge}
           <tr>
             <Td isDense={isDense}>Tax</Td>
             <TdValue isDense={isDense}>{tax}</TdValue>
