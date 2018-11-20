@@ -52,6 +52,19 @@ The CartSummary displays item quantity, subtotal, shipping, tax and total. The c
 />
 ```
 
+#### Display add surcharges
+
+```jsx
+<CartSummary
+  displaySurcharge="$9.99"
+  displayShipping="$5.25"
+  displaySubtotal="$275.77"
+  displayTotal="$298.63"
+  itemsQuantity={3}
+  displayTax="$7.62"
+/>
+```
+
 #### Dense layout
 
 ```jsx
