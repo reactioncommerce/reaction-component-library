@@ -5,6 +5,7 @@ import { withComponents } from "@reactioncommerce/components-context";
 import { addTypographyStyles, applyTheme, CustomPropTypes } from "../../../utils";
 
 const Item = styled.div`
+  position: relative;
   align-items: flex-start;
   border-bottom-color: ${applyTheme("CartItem.borderBottomColor")};
   border-bottom-style: solid;
@@ -88,6 +89,22 @@ const ItemContentPrice = styled.div`
     margin-left: 1.5rem;
     position: ${({ isMiniCart }) => (isMiniCart ? "absolute" : "relative")};
   }
+`;
+
+const ItemContentSubtotal = styled.div`
+  position: absolute;
+  bottom: 16px;
+  right: 0;
+  text-align: right;
+`;
+
+const ItemContentSubtotalTitle = styled.div`
+  ${addTypographyStyles("ItemContentSubtotalTitle", "labelText")};
+  white-space: pre;
+`;
+
+const ItemContentSubtotalDisplay = styled.div`
+  ${addTypographyStyles("ItemContentSubtotalDisplay", "bodyTextSemiBold")};
 `;
 
 const ItemRemoveButton = styled.button`
@@ -219,6 +236,12 @@ class CartItem extends Component {
       /**
        * Chosen items title
        */
+      subtotal: PropTypes.shape({
+        /**
+         * The display subtotal
+         */
+        displayAmount: PropTypes.string,
+      }),
       title: PropTypes.string,
       /**
        * Quantity of chosen item in cart
@@ -293,10 +316,12 @@ class CartItem extends Component {
         title,
         quantity,
         isLowQuantity,
-        price: { displayAmount: displayPrice }
+        price: { displayAmount: displayPrice },
+        subtotal
       }
     } = this.props;
 
+    const { displayAmount: displaySubtotal } = subtotal || {};
     const { displayAmount: displayCompareAtPrice } = compareAtPrice || {};
 
     const {
@@ -339,15 +364,20 @@ class CartItem extends Component {
 
             {!isReadOnly && <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>}
           </ItemContentDetail>
-
-          <ItemContentPrice isMiniCart={isMiniCart}>
-            <Price
-              displayPrice={displayPrice}
-              displayCompareAtPrice={displayCompareAtPrice}
-              hasPriceBottom={isMiniCart}
-            />
-          </ItemContentPrice>
         </ItemContent>
+        <ItemContentPrice isMiniCart={isMiniCart}>
+          <Price
+            displayPrice={displayPrice}
+            displayCompareAtPrice={displayCompareAtPrice}
+            hasPriceBottom={isMiniCart}
+          />
+          {displaySubtotal && 
+            <ItemContentSubtotal>
+              <ItemContentSubtotalTitle>Total ({quantity}):</ItemContentSubtotalTitle>
+              <ItemContentSubtotalDisplay>{displaySubtotal}</ItemContentSubtotalDisplay>
+            </ItemContentSubtotal>
+          }
+        </ItemContentPrice>        
       </Item>
     );
   }

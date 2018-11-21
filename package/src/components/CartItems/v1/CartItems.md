@@ -26,7 +26,10 @@ const items = [{
   productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 },
 {
   _id: "456",
@@ -43,7 +46,10 @@ const items = [{
   productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "Another Great Product",
-  quantity: 1
+  quantity: 1,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 }];
 
 const handleChangeCartItemQuantity = (value, _id) => console.log("cart items new quantity", value, "for item", _id);
@@ -77,7 +83,10 @@ const items = [{
   productVendor: "Patagonia",
   productSlug: "product-slug",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 },
 {
   _id: "456",
@@ -94,7 +103,10 @@ const items = [{
   productSlug: "product-slug",
   productVendor: "Nike",
   title: "Another Great Product",
-  quantity: 1
+  quantity: 1,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 }];
 
 const handleChangeCartItemQuantity = (value, _id) => console.log("cart items new quantity", value, "for item", _id);
