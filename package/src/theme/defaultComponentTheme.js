@@ -236,6 +236,7 @@ const rui_components = {
     paddingLeft: 0,
     paddingRight: 0,
     paddingTop: padding.sixteen,
+    subtotalDisplaySpacingAbove: padding.ten,
     quantityInputSpacingAbove: padding.twelve,
     quantityInputSpacingBelow: padding.eight,
     removeButtonColor_focus: colors.coolGrey,

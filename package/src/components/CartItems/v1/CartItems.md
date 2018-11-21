@@ -64,6 +64,7 @@ const handleRemoveItemFromCart = (_id) => console.log("cart items remove this it
 ```
 
 #### In Mini Cart
+
 ```jsx
 const items = [{
   _id: "123",

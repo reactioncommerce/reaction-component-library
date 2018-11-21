@@ -80,22 +80,28 @@ const ItemContentQuantityInput = styled.div`
 `;
 
 const ItemContentPrice = styled.div`
-  bottom: 0;
-  flex: 0 1 auto;
-  position: absolute;
+  position: ${(props) => (props.isMiniCart ? "absolute" : "initial")};
+  bottom: ${applyTheme("CartItem.paddingBottom")};
   right: 0;
-
+  text-align: right;
+  @media (max-width: 768px) {
+    position: absolute;
+  }
   @media (min-width: 768px) {
     margin-left: 1.5rem;
-    position: ${({ isMiniCart }) => (isMiniCart ? "absolute" : "relative")};
   }
 `;
 
 const ItemContentSubtotal = styled.div`
-  position: absolute;
-  bottom: 16px;
+  position: ${(props) => (props.isMiniCart ? "initial" : "absolute")};
+  margin-top: ${(props) => (props.isMiniCart ? applyTheme("CartItem.subtotalDisplaySpacingAbove")(props) : "0")};
+  bottom: ${applyTheme("CartItem.paddingBottom")};
   right: 0;
   text-align: right;
+  @media (max-width: 768px) {
+    position: initial;
+    margin-top: ${applyTheme("CartItem.subtotalDisplaySpacingAbove")};
+  }
 `;
 
 const ItemContentSubtotalTitle = styled.div`
@@ -372,7 +378,7 @@ class CartItem extends Component {
             hasPriceBottom={isMiniCart}
           />
           {displaySubtotal && 
-            <ItemContentSubtotal>
+            <ItemContentSubtotal isMiniCart={isMiniCart}>
               <ItemContentSubtotalTitle>Total ({quantity}):</ItemContentSubtotalTitle>
               <ItemContentSubtotalDisplay>{displaySubtotal}</ItemContentSubtotalDisplay>
             </ItemContentSubtotal>
