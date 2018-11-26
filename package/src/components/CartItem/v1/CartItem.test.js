@@ -22,7 +22,7 @@ const mockItem = {
   productSlug: "product-slug",
   productVendor: "Patagonia",
   subtotal: {
-    displayAmount: "$40.00",
+    displayAmount: "$40.00"
   },
   title: "A Great Product",
   quantity: 2

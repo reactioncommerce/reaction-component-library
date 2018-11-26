@@ -246,7 +246,7 @@ class CartItem extends Component {
         /**
          * The display subtotal
          */
-        displayAmount: PropTypes.string,
+        displayAmount: PropTypes.string
       }),
       title: PropTypes.string,
       /**
@@ -377,13 +377,13 @@ class CartItem extends Component {
             displayCompareAtPrice={displayCompareAtPrice}
             hasPriceBottom={isMiniCart}
           />
-          {displaySubtotal && 
+          {displaySubtotal &&
             <ItemContentSubtotal isMiniCart={isMiniCart}>
               <ItemContentSubtotalTitle>Total ({quantity}):</ItemContentSubtotalTitle>
               <ItemContentSubtotalDisplay>{displaySubtotal}</ItemContentSubtotalDisplay>
             </ItemContentSubtotal>
           }
-        </ItemContentPrice>        
+        </ItemContentPrice>
       </Item>
     );
   }
