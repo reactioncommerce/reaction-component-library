@@ -377,11 +377,13 @@ class CartItem extends Component {
             displayCompareAtPrice={displayCompareAtPrice}
             hasPriceBottom={isMiniCart}
           />
-          {displaySubtotal && 
+          { quantity != 1 ?
             <ItemContentSubtotal isMiniCart={isMiniCart}>
               <ItemContentSubtotalTitle>Total ({quantity}):</ItemContentSubtotalTitle>
               <ItemContentSubtotalDisplay>{displaySubtotal}</ItemContentSubtotalDisplay>
             </ItemContentSubtotal>
+            :
+            null
           }
         </ItemContentPrice>        
       </Item>

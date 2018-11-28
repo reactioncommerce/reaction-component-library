@@ -106,7 +106,7 @@ const items = [{
   title: "Another Great Product",
   quantity: 1,
   subtotal: {
-    displayAmount: "$40.00",
+    displayAmount: "$78.00",
   }
 }];
 
