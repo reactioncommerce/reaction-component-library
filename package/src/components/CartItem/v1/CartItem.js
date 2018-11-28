@@ -246,7 +246,7 @@ class CartItem extends Component {
         /**
          * The display subtotal
          */
-        displayAmount: PropTypes.string,
+        displayAmount: PropTypes.string
       }),
       title: PropTypes.string,
       /**
@@ -385,7 +385,7 @@ class CartItem extends Component {
             :
             null
           }
-        </ItemContentPrice>        
+        </ItemContentPrice>
       </Item>
     );
   }
