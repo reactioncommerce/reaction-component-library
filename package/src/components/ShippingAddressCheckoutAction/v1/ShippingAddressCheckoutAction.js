@@ -111,7 +111,7 @@ class ShippingAddressCheckoutAction extends Component {
 
   get hasValidationResults() {
     const { addressValidationResults } = this.props;
-    return !!(addressValidationResults && addressValidationResults.suggestedAddresses.length);
+    return !!(addressValidationResults && addressValidationResults.validationErrors.length);
   }
 
   get getSubmittedAddress() {
