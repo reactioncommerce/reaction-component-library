@@ -222,7 +222,7 @@ class ShippingAddressCheckoutAction extends Component {
         <Title>
           {stepNumber}. {label}
         </Title>
-        {alert ? <InlineAlert alertType="warning" {...alert} /> : ""}
+        {alert ? <InlineAlert {...alert} /> : ""}
         {this.renderAddressCapture()}
       </Fragment>
     );
