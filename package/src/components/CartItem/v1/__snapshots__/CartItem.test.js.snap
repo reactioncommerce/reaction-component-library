@@ -2,6 +2,7 @@
 
 exports[`basic snapshot with empty props 1`] = `
 .c0 {
+  position: relative;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -92,12 +93,49 @@ exports[`basic snapshot with empty props 1`] = `
 }
 
 .c7 {
-  bottom: 0;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  position: absolute;
+  position: initial;
+  bottom: 16px;
   right: 0;
+  text-align: right;
+}
+
+.c8 {
+  position: absolute;
+  margin-top: 0;
+  bottom: 16px;
+  right: 0;
+  text-align: right;
+}
+
+.c9 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  white-space: pre;
+}
+
+.c10 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 600;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
 }
 
 .c6 {
@@ -155,10 +193,22 @@ exports[`basic snapshot with empty props 1`] = `
   }
 }
 
+@media (max-width:768px) {
+  .c7 {
+    position: absolute;
+  }
+}
+
 @media (min-width:768px) {
   .c7 {
     margin-left: 1.5rem;
-    position: relative;
+  }
+}
+
+@media (max-width:768px) {
+  .c8 {
+    position: initial;
+    margin-top: 10px;
   }
 }
 
@@ -193,10 +243,23 @@ exports[`basic snapshot with empty props 1`] = `
         Remove
       </button>
     </div>
+  </div>
+  <div
+    className="c7"
+  >
+    Price(undefined)
     <div
-      className="c7"
+      className="c8"
     >
-      Price(undefined)
+      <div
+        className="c9"
+      >
+        Total (
+        ):
+      </div>
+      <div
+        className="c10"
+      />
     </div>
   </div>
 </div>
@@ -204,6 +267,7 @@ exports[`basic snapshot with empty props 1`] = `
 
 exports[`basic snapshot with isReadOnly prop 1`] = `
 .c0 {
+  position: relative;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -287,12 +351,49 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
 }
 
 .c5 {
-  bottom: 0;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  position: absolute;
+  position: initial;
+  bottom: 16px;
   right: 0;
+  text-align: right;
+}
+
+.c6 {
+  position: absolute;
+  margin-top: 0;
+  bottom: 16px;
+  right: 0;
+  text-align: right;
+}
+
+.c7 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  white-space: pre;
+}
+
+.c8 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 600;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
 }
 
 @media (min-width:992px) {
@@ -303,10 +404,22 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
   }
 }
 
+@media (max-width:768px) {
+  .c5 {
+    position: absolute;
+  }
+}
+
 @media (min-width:768px) {
   .c5 {
     margin-left: 1.5rem;
-    position: relative;
+  }
+}
+
+@media (max-width:768px) {
+  .c6 {
+    position: initial;
+    margin-top: 10px;
   }
 }
 
@@ -349,10 +462,26 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="c5"
+  >
+    Price(undefined)
     <div
-      className="c5"
+      className="c6"
     >
-      Price(undefined)
+      <div
+        className="c7"
+      >
+        Total (
+        2
+        ):
+      </div>
+      <div
+        className="c8"
+      >
+        $40.00
+      </div>
     </div>
   </div>
 </div>
@@ -360,6 +489,7 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
 
 exports[`basic snapshot with productURLPath prop 1`] = `
 .c0 {
+  position: relative;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -443,12 +573,49 @@ exports[`basic snapshot with productURLPath prop 1`] = `
 }
 
 .c5 {
-  bottom: 0;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  position: absolute;
+  position: initial;
+  bottom: 16px;
   right: 0;
+  text-align: right;
+}
+
+.c6 {
+  position: absolute;
+  margin-top: 0;
+  bottom: 16px;
+  right: 0;
+  text-align: right;
+}
+
+.c7 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  white-space: pre;
+}
+
+.c8 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 600;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
 }
 
 @media (min-width:992px) {
@@ -459,10 +626,22 @@ exports[`basic snapshot with productURLPath prop 1`] = `
   }
 }
 
+@media (max-width:768px) {
+  .c5 {
+    position: absolute;
+  }
+}
+
 @media (min-width:768px) {
   .c5 {
     margin-left: 1.5rem;
-    position: relative;
+  }
+}
+
+@media (max-width:768px) {
+  .c6 {
+    position: initial;
+    margin-top: 10px;
   }
 }
 
@@ -505,10 +684,26 @@ exports[`basic snapshot with productURLPath prop 1`] = `
         </div>
       </div>
     </div>
+  </div>
+  <div
+    className="c5"
+  >
+    Price(undefined)
     <div
-      className="c5"
+      className="c6"
     >
-      Price(undefined)
+      <div
+        className="c7"
+      >
+        Total (
+        2
+        ):
+      </div>
+      <div
+        className="c8"
+      >
+        $40.00
+      </div>
     </div>
   </div>
 </div>
@@ -516,6 +711,7 @@ exports[`basic snapshot with productURLPath prop 1`] = `
 
 exports[`basic snapshot with props 1`] = `
 .c0 {
+  position: relative;
   -webkit-align-items: flex-start;
   -webkit-box-align: flex-start;
   -ms-flex-align: flex-start;
@@ -606,12 +802,49 @@ exports[`basic snapshot with props 1`] = `
 }
 
 .c7 {
-  bottom: 0;
-  -webkit-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto;
-  position: absolute;
+  position: initial;
+  bottom: 16px;
   right: 0;
+  text-align: right;
+}
+
+.c8 {
+  position: absolute;
+  margin-top: 0;
+  bottom: 16px;
+  right: 0;
+  text-align: right;
+}
+
+.c9 {
+  -webkit-font-smoothing: antialiased;
+  color: #505558;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1.25;
+  white-space: pre;
+}
+
+.c10 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 600;
+  -webkit-letter-spacing: .03em;
+  -moz-letter-spacing: .03em;
+  -ms-letter-spacing: .03em;
+  letter-spacing: .03em;
+  line-height: 1.5;
 }
 
 .c6 {
@@ -669,10 +902,22 @@ exports[`basic snapshot with props 1`] = `
   }
 }
 
+@media (max-width:768px) {
+  .c7 {
+    position: absolute;
+  }
+}
+
 @media (min-width:768px) {
   .c7 {
     margin-left: 1.5rem;
-    position: relative;
+  }
+}
+
+@media (max-width:768px) {
+  .c8 {
+    position: initial;
+    margin-top: 10px;
   }
 }
 
@@ -726,10 +971,26 @@ exports[`basic snapshot with props 1`] = `
         Remove
       </button>
     </div>
+  </div>
+  <div
+    className="c7"
+  >
+    Price(undefined)
     <div
-      className="c7"
+      className="c8"
     >
-      Price(undefined)
+      <div
+        className="c9"
+      >
+        Total (
+        2
+        ):
+      </div>
+      <div
+        className="c10"
+      >
+        $40.00
+      </div>
     </div>
   </div>
 </div>
