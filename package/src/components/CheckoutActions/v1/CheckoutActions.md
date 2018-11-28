@@ -63,6 +63,8 @@ const actions = [
 
 ```
 
+*Address postal codes that start with "11" will pass validation, all others will fail.*
+*Address postal codes that start with "10" will fail validation with 0 suggested addresses.*
 ```jsx
 const fulfillmentGroups = [{
   _id: 1,
@@ -235,7 +237,7 @@ class CheckoutActionsExample extends React.Component {
                   postal: "90210",
                   isValid: true
                 }],
-                validationErrors: []
+                validationErrors: value.postal[1] === "1" ? [] : [actionAlerts]
               },
               actionAlerts,
               checkout

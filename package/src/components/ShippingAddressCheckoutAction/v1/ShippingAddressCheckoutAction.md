@@ -210,7 +210,9 @@ const props = {
 
 **With simple address validation**
 
-A naive example to demonstrate a validation shipping address checkout action UX flow. 
+A naive example to demonstrate a validation shipping address checkout action UX flow
+*Address postal codes that start with "11" will pass validation, all others will fail.*
+*Address postal codes that start with "10" will fail validation with 0 suggested addresses.*
 ```jsx
 initState = {
   addressValidationResults: null,
@@ -265,7 +267,7 @@ const handleValidation = (value) => new Promise((resolve, reject) => {
           postal: "90210",
           isValid: true
         }],
-        validationErrors: [{
+        validationErrors: value.postal[1] === "1" ? [] : [{
          summary: "Address Not Found",
          details: "The address as submitted could not be found. Please check for excessive abbreviations in the street address line or in the City name.",
          source: "USPS",
