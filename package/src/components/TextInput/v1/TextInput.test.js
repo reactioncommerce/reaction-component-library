@@ -1,36 +1,30 @@
+/* eslint-disable require-jsdoc  */
 import React from "react";
 import renderer from "react-test-renderer";
-// import styled from "styled-components";
-// import { mount } from "enzyme";
-// import { testInput } from "composable-form-tests";
+import { mount } from "enzyme";
+import { testInput } from "composable-form-tests";
 import mockComponents from "../../../tests/mockComponents";
 import TextInput from "./TextInput";
 
-/**
- * NOTE: Some tests in here are commented out because wrapper.instance() is
- * not working in our fork of enzyme packages. After we switch back to using
- * the real enzyme packages, re-enable these tests.
- */
-
-// testInput({
-//   component: TextInput,
-//   props: {
-//     components: mockComponents
-//   },
-//   defaultValue: null,
-//   exampleValueOne: "ONE",
-//   exampleValueTwo: "TWO",
-//   mount,
-//   simulateChanging(wrapper, value) {
-//     wrapper.find("input").simulate("change", { target: { value } });
-//   },
-//   simulateChanged(wrapper, value) {
-//     wrapper.find("input").simulate("blur", { target: { value } });
-//   },
-//   simulateSubmit(wrapper) {
-//     wrapper.find("input").simulate("keypress", { which: 13 });
-//   }
-// });
+testInput({
+  component: TextInput,
+  props: {
+    components: mockComponents
+  },
+  defaultValue: null,
+  exampleValueOne: "ONE",
+  exampleValueTwo: "TWO",
+  mount,
+  simulateChanging(wrapper, value) {
+    wrapper.find("input").simulate("change", { target: { value } });
+  },
+  simulateChanged(wrapper, value) {
+    wrapper.find("input").simulate("blur", { target: { value } });
+  },
+  simulateSubmit(wrapper) {
+    wrapper.find("input").simulate("keypress", { which: 13 });
+  }
+});
 
 test("renders", () => {
   const component = renderer.create(<TextInput components={mockComponents} name="test" />);
@@ -77,39 +71,115 @@ test("renders textarea with props", () => {
   expect(tree).toMatchSnapshot();
 });
 
-// test("getValue default trimming and null", () => {
-//   const wrapper = mount(<TextInput components={mockComponents} name="test" value=" " />);
-//   expect(wrapper.instance().getValue()).toBeNull();
-// });
+test("value default trimming and null", () => {
+  let initialValue;
 
-// test("getValue with shouldConvertEmptyStringToNull false", () => {
-//   const wrapper = mount(<TextInput components={mockComponents} name="test" shouldConvertEmptyStringToNull={false} />);
-//   expect(wrapper.instance().getValue()).toBe("");
-// });
+  function onChange(value) {
+    initialValue = value;
+  }
 
-// test("getValue with shouldTrimValue false", () => {
-//   const wrapper = mount(<TextInput components={mockComponents} name="test" shouldTrimValue={false} value=" " />);
-//   expect(wrapper.instance().getValue()).toBe(" ");
-// });
+  mount(<TextInput components={mockComponents} name="test" onChange={onChange} value=" " />);
+  expect(initialValue).toBeNull();
+});
 
-// test("getValue with null value", () => {
-//   const wrapper = mount(<TextInput components={mockComponents} name="test" shouldConvertEmptyStringToNull={false} value={null} />);
-//   expect(wrapper.instance().getValue()).toBe("");
-// });
+test("value with shouldConvertEmptyStringToNull false", () => {
+  let initialValue;
+  function onChange(value) {
+    initialValue = value;
+  }
 
-// test("getValue with undefined value", () => {
-//   const wrapper = mount(<TextInput components={mockComponents} name="test" shouldConvertEmptyStringToNull={false} value={undefined} />);
-//   expect(wrapper.instance().getValue()).toBe("");
-// });
+  mount(<TextInput components={mockComponents} name="test" onChange={onChange} shouldConvertEmptyStringToNull={false} />);
+  expect(initialValue).toBe("");
+});
 
-// test("getValue with null value after changed prop", () => {
-//   const wrapper = mount(<TextInput components={mockComponents} name="test" shouldConvertEmptyStringToNull={false} value="123" />);
-//   wrapper.setProps({ value: null });
-//   expect(wrapper.instance().getValue()).toBe("");
-// });
+test("value with shouldTrimValue false", () => {
+  let initialValue;
+  function onChange(value) {
+    initialValue = value;
+  }
 
-// test("getValue with undefined value after changed prop", () => {
-//   const wrapper = mount(<TextInput components={mockComponents} name="test" shouldConvertEmptyStringToNull={false} value="123" />);
-//   wrapper.setProps({ value: undefined });
-//   expect(wrapper.instance().getValue()).toBe("");
-// });
+  mount((
+    <TextInput
+      components={mockComponents}
+      name="test"
+      onChange={onChange}
+      shouldTrimValue={false}
+      value=" "
+    />
+  ));
+  expect(initialValue).toBe(" ");
+});
+
+test("value with null value", () => {
+  let initialValue;
+  function onChange(value) {
+    initialValue = value;
+  }
+
+  mount((
+    <TextInput
+      components={mockComponents}
+      name="test"
+      onChange={onChange}
+      shouldConvertEmptyStringToNull={false}
+      value={null}
+    />
+  ));
+  expect(initialValue).toBe("");
+});
+
+test("value with undefined value", () => {
+  let initialValue;
+  function onChange(value) {
+    initialValue = value;
+  }
+
+  mount((
+    <TextInput
+      components={mockComponents}
+      name="test"
+      onChange={onChange}
+      shouldConvertEmptyStringToNull={false}
+      value={undefined}
+    />
+  ));
+  expect(initialValue).toBe("");
+});
+
+test("value with null value after changed prop", () => {
+  let currentValue;
+  function onChange(value) {
+    currentValue = value;
+  }
+
+  const wrapper = mount((
+    <TextInput
+      components={mockComponents}
+      name="test"
+      onChange={onChange}
+      shouldConvertEmptyStringToNull={false}
+      value="123"
+    />
+  ));
+  wrapper.setProps({ value: null });
+  expect(currentValue).toBe("");
+});
+
+test("value with undefined value after changed prop", () => {
+  let currentValue;
+  function onChange(value) {
+    currentValue = value;
+  }
+
+  const wrapper = mount((
+    <TextInput
+      components={mockComponents}
+      name="test"
+      onChange={onChange}
+      shouldConvertEmptyStringToNull={false}
+      value="123"
+    />
+  ));
+  wrapper.setProps({ value: undefined });
+  expect(currentValue).toBe("");
+});
