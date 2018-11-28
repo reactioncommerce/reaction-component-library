@@ -25,7 +25,7 @@ Array [
     Shipping Address
   </h3>,
   "",
-  "AddressCapture(undefined)",
+  "AddressCapture({\\"addressFormProps\\":\\"[Object]\\",\\"addressReviewProps\\":\\"[Object]\\",\\"isSaving\\":false})",
 ]
 `;
 
@@ -54,6 +54,6 @@ Array [
     Shipping Address
   </h3>,
   "",
-  "AddressCapture(undefined)",
+  "AddressCapture({\\"addressFormProps\\":\\"[Object]\\",\\"addressReviewProps\\":\\"[Object]\\",\\"isSaving\\":false})",
 ]
 `;

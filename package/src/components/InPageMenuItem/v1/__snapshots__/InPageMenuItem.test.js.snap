@@ -1,7 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`InPageMenuItem basic component 1`] = `"Link(undefined)"`;
+exports[`InPageMenuItem basic component 1`] = `"Link({\\"href\\":\\"/test/url/\\",\\"children\\":\\"[Object]\\"})"`;
 
-exports[`InPageMenuItem selected 1`] = `"Link(undefined)"`;
+exports[`InPageMenuItem selected 1`] = `"Link({\\"href\\":\\"/test/url/\\",\\"children\\":\\"[Object]\\"})"`;
 
-exports[`InPageMenuItem with onClick instead of href 1`] = `"Link(undefined)"`;
+exports[`InPageMenuItem with onClick instead of href 1`] = `"Link({\\"children\\":\\"[Object]\\"})"`;

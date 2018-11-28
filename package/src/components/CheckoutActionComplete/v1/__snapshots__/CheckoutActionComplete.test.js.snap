@@ -145,7 +145,7 @@ exports[`basic snapshot 1`] = `
   <div
     className="c3"
   >
-    Button(undefined)
+    Button({"actionType":"important","isShortHeight":true,"isTextOnly":true,"children":"Change"})
   </div>
 </div>
 `;

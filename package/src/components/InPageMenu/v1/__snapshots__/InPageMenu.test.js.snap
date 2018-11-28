@@ -19,10 +19,10 @@ exports[`basic snapshot 1`] = `
 <div
   className="c0"
 >
-  InPageMenuItem(undefined)
-  InPageMenuItem(undefined)
-  InPageMenuItem(undefined)
-  InPageMenuItem(undefined)
-  InPageMenuItem(undefined)
+  InPageMenuItem({"href":"/label/a","label":"Label A"})
+  InPageMenuItem({"href":"/label/b","label":"Label B"})
+  InPageMenuItem({"href":"/label/c","isSelected":true,"label":"Label C (Selected / Active)"})
+  InPageMenuItem({"href":"/label/d","label":"Label D"})
+  InPageMenuItem({"href":"/label/e","label":"Label E"})
 </div>
 `;

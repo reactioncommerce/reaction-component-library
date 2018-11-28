@@ -53,12 +53,12 @@ Array [
     <div
       className="c1"
     >
-      CartItems(undefined)
+      CartItems({"isReadOnly":true,"items":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      CartSummary(undefined)
+      CartSummary({"isDense":true,"displayShipping":"$5.25","displaySubtotal":"$275.77","displayTax":"$7.62","displayTotal":"$288.64"})
     </div>
   </div>,
 ]

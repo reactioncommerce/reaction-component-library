@@ -77,7 +77,7 @@ Array [
     className={null}
     style={Object {}}
   >
-    SelectableList(undefined)
+    SelectableList({"isBordered":true,"isSaving":false,"name":"selectedFulfillmentOptionId","options":"[Object]"})
   </div>,
 ]
 `;

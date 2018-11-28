@@ -15,7 +15,7 @@ exports[`basic snapshot with all props 1`] = `
       className={null}
       style={Object {}}
     >
-      SelectableList(undefined)
+      SelectableList({"isHorizontal":true,"isStacked":true,"options":"[Object]","name":"AddressReview","value":"entered","isReadOnly":false})
     </div>
   </div>
 </div>
@@ -36,7 +36,7 @@ exports[`basic snapshot with only required props 1`] = `
       className={null}
       style={Object {}}
     >
-      SelectableList(undefined)
+      SelectableList({"isHorizontal":true,"isStacked":true,"options":"[Object]","name":"AddressReview","value":"suggested","isReadOnly":false})
     </div>
   </div>
 </div>
