@@ -237,7 +237,7 @@ class CheckoutActionsExample extends React.Component {
                   postal: "90210",
                   isValid: true
                 }],
-                validationErrors: value.postal[1] === "1" ? [] : [actionAlerts]
+                validationErrors: data.postal[1] === "1" ? [] : [actionAlerts]
               },
               actionAlerts,
               checkout
