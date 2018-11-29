@@ -225,7 +225,7 @@ class CheckoutActionsExample extends React.Component {
             actionAlerts["1"] = {
               alertType: "warning",
               title: "The address you entered may be incorrect or incomplete.",
-              message: "Please review our suggestion below, and choose which version you’d like to use. Possible errors are shown in red."
+              message: "Please review your entered address below. Possible errors are shown in red."
             };
             
             return {
