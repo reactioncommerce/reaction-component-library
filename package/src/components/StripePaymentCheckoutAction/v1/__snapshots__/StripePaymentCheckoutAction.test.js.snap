@@ -25,7 +25,7 @@ Array [
     Payment Information
   </h3>,
   "",
-  "StripeForm(undefined)",
+  "StripeForm({})",
   .c0 {
   -webkit-font-smoothing: antialiased;
   color: #b3b3b3;
@@ -84,6 +84,6 @@ Array [
   >
     Billing Address
   </h3>,
-  "SelectableList(undefined)",
+  "SelectableList({\\"options\\":\\"[Object]\\",\\"name\\":\\"billingAddressForm\\",\\"value\\":\\"same_as_shipping\\"})",
 ]
 `;

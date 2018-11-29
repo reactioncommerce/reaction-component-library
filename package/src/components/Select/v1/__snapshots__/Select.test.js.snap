@@ -21,7 +21,7 @@ exports[`alphabetize option snapshot 1`] = `
       </div>
       <input
         className="css-14uuagi"
-        id="react-select-10-input"
+        id="react-select-6-input"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -65,7 +65,7 @@ exports[`alphabetize option snapshot 1`] = `
       >
         <div
           className="css-1gnokty"
-          id="react-select-10-option-0"
+          id="react-select-6-option-0"
           onClick={[Function]}
           onMouseMove={[Function]}
           onMouseOver={[Function]}
@@ -76,7 +76,7 @@ exports[`alphabetize option snapshot 1`] = `
         </div>
         <div
           className="css-1gnokty"
-          id="react-select-10-option-1"
+          id="react-select-6-option-1"
           onClick={[Function]}
           onMouseMove={[Function]}
           onMouseOver={[Function]}
@@ -87,7 +87,7 @@ exports[`alphabetize option snapshot 1`] = `
         </div>
         <div
           className="css-1gnokty"
-          id="react-select-10-option-2"
+          id="react-select-6-option-2"
           onClick={[Function]}
           onMouseMove={[Function]}
           onMouseOver={[Function]}
@@ -98,7 +98,7 @@ exports[`alphabetize option snapshot 1`] = `
         </div>
         <div
           className="css-1gnokty"
-          id="react-select-10-option-3"
+          id="react-select-6-option-3"
           onClick={[Function]}
           onMouseMove={[Function]}
           onMouseOver={[Function]}
@@ -134,7 +134,7 @@ exports[`basic snapshot 1`] = `
       </div>
       <input
         className="css-14uuagi"
-        id="react-select-9-input"
+        id="react-select-5-input"
         onBlur={[Function]}
         onChange={[Function]}
         onFocus={[Function]}
@@ -178,7 +178,7 @@ exports[`basic snapshot 1`] = `
       >
         <div
           className="css-1gnokty"
-          id="react-select-9-option-0"
+          id="react-select-5-option-0"
           onClick={[Function]}
           onMouseMove={[Function]}
           onMouseOver={[Function]}
@@ -189,7 +189,7 @@ exports[`basic snapshot 1`] = `
         </div>
         <div
           className="css-1gnokty"
-          id="react-select-9-option-1"
+          id="react-select-5-option-1"
           onClick={[Function]}
           onMouseMove={[Function]}
           onMouseOver={[Function]}
@@ -200,7 +200,7 @@ exports[`basic snapshot 1`] = `
         </div>
         <div
           className="css-1gnokty"
-          id="react-select-9-option-2"
+          id="react-select-5-option-2"
           onClick={[Function]}
           onMouseMove={[Function]}
           onMouseOver={[Function]}

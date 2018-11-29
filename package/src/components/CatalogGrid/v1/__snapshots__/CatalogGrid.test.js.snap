@@ -44,32 +44,32 @@ exports[`CatalogGrid 325px fixed-width snapshot 1`] = `
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
   </div>
 </div>
@@ -119,32 +119,32 @@ exports[`CatalogGrid 450px fixed-width snapshot 1`] = `
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
   </div>
 </div>
@@ -194,32 +194,32 @@ exports[`CatalogGrid 650px fixed-width snapshot 1`] = `
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
   </div>
 </div>
@@ -269,32 +269,32 @@ exports[`CatalogGrid 960px fixed-width snapshot 1`] = `
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
     <div
       className="c1"
     >
-      CatalogGridItem(undefined)
+      CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
     </div>
   </div>
 </div>
@@ -333,12 +333,12 @@ exports[`CatalogGrid contain vs fit snapshot 1`] = `
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
   </div>
 </div>
 `;
@@ -376,32 +376,32 @@ exports[`CatalogGrid custom badge label snapshot 1`] = `
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif","badgeLabels":"[Object]"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif","badgeLabels":"[Object]"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif","badgeLabels":"[Object]"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif","badgeLabels":"[Object]"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif","badgeLabels":"[Object]"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif","badgeLabels":"[Object]"})
   </div>
 </div>
 `;
@@ -439,32 +439,32 @@ exports[`CatalogGrid custom placeholder image snapshot 1`] = `
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/path/to/custom/placeholder.png"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/path/to/custom/placeholder.png"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/path/to/custom/placeholder.png"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/path/to/custom/placeholder.png"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/path/to/custom/placeholder.png"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/path/to/custom/placeholder.png"})
   </div>
 </div>
 `;
@@ -502,32 +502,32 @@ exports[`CatalogGrid default responsive snapshot 1`] = `
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
   </div>
   <div
     className="c1"
   >
-    CatalogGridItem(undefined)
+    CatalogGridItem({"product":"[Object]","currencyCode":"USD","placeholderImageURL":"/resources/placeholder.gif"})
   </div>
 </div>
 `;

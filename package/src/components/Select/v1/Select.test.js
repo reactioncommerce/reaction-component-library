@@ -1,3 +1,4 @@
+/* eslint-disable require-jsdoc  */
 import React from "react";
 import { mount } from "enzyme";
 import renderer from "react-test-renderer";

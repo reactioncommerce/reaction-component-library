@@ -45,42 +45,42 @@ exports[`Render with a NG address value 1`] = `
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"country","label":"Country","labelFor":"country_AddressForm_3","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"fullName","label":"Name","labelFor":"fullName_AddressForm_3","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address1","label":"Address","labelFor":"address1_AddressForm_3","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address2","label":"Address Line 2","labelFor":"address2_AddressForm_3","isOptional":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"city","label":"City","labelFor":"city_AddressForm_3","children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"region","label":"Region","labelFor":"region_AddressForm_3","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"postal","label":"Postal Code","labelFor":"postal_AddressForm_3","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"phone","label":"Phone","labelFor":"phone_AddressForm_3","isRequired":true,"children":"[Object]"})
     </div>
   </div>
 </div>
@@ -131,42 +131,42 @@ exports[`Render with a US address value 1`] = `
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"country","label":"Country","labelFor":"country_AddressForm_2","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"fullName","label":"Name","labelFor":"fullName_AddressForm_2","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address1","label":"Address","labelFor":"address1_AddressForm_2","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address2","label":"Address Line 2","labelFor":"address2_AddressForm_2","isOptional":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"city","label":"City","labelFor":"city_AddressForm_2","children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"region","label":"Region","labelFor":"region_AddressForm_2","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"postal","label":"Postal Code","labelFor":"postal_AddressForm_2","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"phone","label":"Phone","labelFor":"phone_AddressForm_2","isRequired":true,"children":"[Object]"})
     </div>
   </div>
 </div>
@@ -217,42 +217,42 @@ exports[`Render with a partial address value 1`] = `
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"country","label":"Country","labelFor":"country_AddressForm_4","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"fullName","label":"Name","labelFor":"fullName_AddressForm_4","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address1","label":"Address","labelFor":"address1_AddressForm_4","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address2","label":"Address Line 2","labelFor":"address2_AddressForm_4","isOptional":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"city","label":"City","labelFor":"city_AddressForm_4","children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"region","label":"Region","labelFor":"region_AddressForm_4","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"postal","label":"Postal Code","labelFor":"postal_AddressForm_4","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"phone","label":"Phone","labelFor":"phone_AddressForm_4","isRequired":true,"children":"[Object]"})
     </div>
   </div>
 </div>
@@ -303,42 +303,42 @@ exports[`Render with locales 1`] = `
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"country","label":"Country","labelFor":"country_AddressForm_5","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"fullName","label":"Name","labelFor":"fullName_AddressForm_5","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address1","label":"Address","labelFor":"address1_AddressForm_5","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address2","label":"Address Line 2","labelFor":"address2_AddressForm_5","isOptional":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"city","label":"City","labelFor":"city_AddressForm_5","children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"region","label":"Region","labelFor":"region_AddressForm_5","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"postal","label":"Postal Code","labelFor":"postal_AddressForm_5","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"phone","label":"Phone","labelFor":"phone_AddressForm_5","isRequired":true,"children":"[Object]"})
     </div>
   </div>
 </div>
@@ -389,42 +389,42 @@ exports[`Render with only the components on props 1`] = `
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"country","label":"Country","labelFor":"country_AddressForm_1","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"fullName","label":"Name","labelFor":"fullName_AddressForm_1","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address1","label":"Address","labelFor":"address1_AddressForm_1","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"address2","label":"Address Line 2","labelFor":"address2_AddressForm_1","isOptional":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"city","label":"City","labelFor":"city_AddressForm_1","children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"region","label":"Region","labelFor":"region_AddressForm_1","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c2"
     >
-      Field(undefined)
+      Field({"name":"postal","label":"Postal Code","labelFor":"postal_AddressForm_1","isRequired":true,"children":"[Object]"})
     </div>
     <div
       className="c1"
     >
-      Field(undefined)
+      Field({"name":"phone","label":"Phone","labelFor":"phone_AddressForm_1","isRequired":true,"children":"[Object]"})
     </div>
   </div>
 </div>

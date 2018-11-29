@@ -4,6 +4,6 @@ exports[`basic snapshot 1`] = `
 <div
   className={undefined}
 >
-  AccordionFormList(undefined)
+  AccordionFormList({"addNewItemButtonText":"Add a new address","components":"[Object]","deleteItemButtonText":"Delete address","entryFormSubmitButtonText":"Save Changes","itemAddFormProps":"[Object]","items":"[Object]"})
 </div>
 `;

@@ -172,7 +172,7 @@ exports[`CheckoutAction with \`complete\` status & label 1`] = `
       <div
         className="c4"
       >
-        Button(undefined)
+        Button({"actionType":"important","isShortHeight":true,"isTextOnly":true,"children":"Change"})
       </div>
     </div>
   </div>
@@ -343,7 +343,7 @@ exports[`CheckoutAction with \`complete\` status and label override via props 1`
       <div
         className="c4"
       >
-        Button(undefined)
+        Button({"actionType":"important","isShortHeight":true,"isTextOnly":true,"children":"Change"})
       </div>
     </div>
   </div>
@@ -514,7 +514,7 @@ exports[`CheckoutAction with \`complete\` status and stepNumber override via pro
       <div
         className="c4"
       >
-        Button(undefined)
+        Button({"actionType":"important","isShortHeight":true,"isTextOnly":true,"children":"Change"})
       </div>
     </div>
   </div>

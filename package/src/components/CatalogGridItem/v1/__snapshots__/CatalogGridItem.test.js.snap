@@ -4,7 +4,7 @@ exports[`CatalogGridItem basic snapshot 1`] = `
 <div
   className={undefined}
 >
-  Link(undefined)
+  Link({"href":"/product/basic-reaction-product","children":"[Object]"})
 </div>
 `;
 
@@ -12,6 +12,6 @@ exports[`CatalogGridItem with placeholder image 1`] = `
 <div
   className={undefined}
 >
-  Link(undefined)
+  Link({"href":"/product/basic-reaction-product","children":"[Object]"})
 </div>
 `;

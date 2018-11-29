@@ -38,7 +38,7 @@ exports[`Render with compact prop 1`] = `
 <div
   className="c0"
 >
-  ProfileImage(undefined)
+  ProfileImage({"size":30,"viewer":"[Object]"})
   <span
     className="c1"
   >
@@ -85,7 +85,7 @@ exports[`Render with full name and email props 1`] = `
 <div
   className="c0"
 >
-  ProfileImage(undefined)
+  ProfileImage({"size":30,"viewer":"[Object]"})
   <span
     className="c1"
   >
@@ -132,7 +132,7 @@ exports[`Render with full prop 1`] = `
 <div
   className="c0"
 >
-  ProfileImage(undefined)
+  ProfileImage({"size":30,"viewer":"[Object]"})
   <span
     className="c1"
   >
@@ -179,7 +179,7 @@ exports[`Render with only email & first name props 1`] = `
 <div
   className="c0"
 >
-  ProfileImage(undefined)
+  ProfileImage({"size":30,"viewer":"[Object]"})
   <span
     className="c1"
   >
@@ -226,7 +226,7 @@ exports[`Render with only required props 1`] = `
 <div
   className="c0"
 >
-  ProfileImage(undefined)
+  ProfileImage({"size":30,"viewer":"[Object]"})
   <span
     className="c1"
   >
@@ -273,7 +273,7 @@ exports[`Render with profile image 1`] = `
 <div
   className="c0"
 >
-  ProfileImage(undefined)
+  ProfileImage({"size":30,"viewer":"[Object]"})
   <span
     className="c1"
   >

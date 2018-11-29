@@ -227,13 +227,13 @@ exports[`basic snapshot with empty props 1`] = `
         <div
           className="c4"
         >
-          CartItemDetail(undefined)
-          StockWarning(undefined)
+          CartItemDetail({"isMiniCart":false,"quantity":null})
+          StockWarning({})
         </div>
         <div
           className="c5"
         >
-          QuantityInput(undefined)
+          QuantityInput({})
         </div>
       </div>
       <button
@@ -247,7 +247,7 @@ exports[`basic snapshot with empty props 1`] = `
   <div
     className="c7"
   >
-    Price(undefined)
+    Price({"displayPrice":"$9.99","hasPriceBottom":false})
     <div
       className="c8"
     >
@@ -457,8 +457,8 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
         <div
           className="c4"
         >
-          CartItemDetail(undefined)
-          StockWarning(undefined)
+          CartItemDetail({"attributes":"[Object]","isMiniCart":false,"productSlug":"product-slug","productVendor":"Patagonia","quantity":2,"title":"A Great Product"})
+          StockWarning({"inventoryQuantity":3})
         </div>
       </div>
     </div>
@@ -466,7 +466,7 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
   <div
     className="c5"
   >
-    Price(undefined)
+    Price({"displayPrice":"$20.00","displayCompareAtPrice":"$45.00","hasPriceBottom":false})
     <div
       className="c6"
     >
@@ -679,8 +679,8 @@ exports[`basic snapshot with productURLPath prop 1`] = `
         <div
           className="c4"
         >
-          CartItemDetail(undefined)
-          StockWarning(undefined)
+          CartItemDetail({"attributes":"[Object]","isMiniCart":false,"productURLPath":"product/","productSlug":"product-slug","productVendor":"Patagonia","quantity":2,"title":"A Great Product"})
+          StockWarning({"inventoryQuantity":3})
         </div>
       </div>
     </div>
@@ -688,7 +688,7 @@ exports[`basic snapshot with productURLPath prop 1`] = `
   <div
     className="c5"
   >
-    Price(undefined)
+    Price({"displayPrice":"$20.00","displayCompareAtPrice":"$45.00","hasPriceBottom":false})
     <div
       className="c6"
     >
@@ -955,13 +955,13 @@ exports[`basic snapshot with props 1`] = `
         <div
           className="c4"
         >
-          CartItemDetail(undefined)
-          StockWarning(undefined)
+          CartItemDetail({"attributes":"[Object]","isMiniCart":false,"productSlug":"product-slug","productVendor":"Patagonia","quantity":null,"title":"A Great Product"})
+          StockWarning({"inventoryQuantity":3})
         </div>
         <div
           className="c5"
         >
-          QuantityInput(undefined)
+          QuantityInput({"value":2})
         </div>
       </div>
       <button
@@ -975,7 +975,7 @@ exports[`basic snapshot with props 1`] = `
   <div
     className="c7"
   >
-    Price(undefined)
+    Price({"displayPrice":"$20.00","displayCompareAtPrice":"$45.00","hasPriceBottom":false})
     <div
       className="c8"
     >

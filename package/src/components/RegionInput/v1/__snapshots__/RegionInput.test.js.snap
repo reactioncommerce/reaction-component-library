@@ -1,11 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`basic snapshot with only the components and required props should render a TextInput 1`] = `"TextInput(undefined)"`;
+exports[`basic snapshot with only the components and required props should render a TextInput 1`] = `"TextInput({\\"name\\":\\"region\\"})"`;
 
-exports[`basic snapshot with options should render a Select 1`] = `"Select(undefined)"`;
+exports[`basic snapshot with options should render a Select 1`] = `"Select({\\"alphabetize\\":true,\\"isSearchable\\":true,\\"options\\":\\"[Object]\\",\\"name\\":\\"region\\"})"`;
 
-exports[`basic snapshot with other form props 1`] = `"TextInput(undefined)"`;
+exports[`basic snapshot with other form props 1`] = `"TextInput({\\"value\\":\\"California\\",\\"name\\":\\"region\\",\\"isReadOnly\\":true})"`;
 
-exports[`basic snapshot with pre-filled value in Select 1`] = `"Select(undefined)"`;
+exports[`basic snapshot with pre-filled value in Select 1`] = `"Select({\\"alphabetize\\":true,\\"isSearchable\\":true,\\"options\\":\\"[Object]\\",\\"value\\":\\"BB\\",\\"name\\":\\"region\\"})"`;
 
-exports[`basic snapshot with pre-filled value in TextInput 1`] = `"TextInput(undefined)"`;
+exports[`basic snapshot with pre-filled value in TextInput 1`] = `"TextInput({\\"value\\":\\"California\\",\\"name\\":\\"region\\"})"`;

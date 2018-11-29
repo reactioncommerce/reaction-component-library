@@ -4,6 +4,6 @@ exports[`basic snapshot 1`] = `
 <div
   className={undefined}
 >
-  AddressForm(undefined)
+  AddressForm({"value":null,"isSaving":false})
 </div>
 `;
