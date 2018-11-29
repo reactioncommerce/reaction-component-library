@@ -86,6 +86,7 @@ exports[`basic snapshot with invalid address properties prop 1`] = `
   , 
   LA
    
+  <br />
   70037
    
   <br />
@@ -149,6 +150,7 @@ exports[`basic snapshot with required props 1`] = `
   , 
   LA
    
+  <br />
   70037
    
   <br />

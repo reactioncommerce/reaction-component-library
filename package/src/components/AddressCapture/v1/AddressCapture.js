@@ -21,18 +21,16 @@ class AddressCapture extends Component {
       /**
        * Errors array
        */
-      errors: PropTypes.arrayOf(
-        PropTypes.shape({
-          /**
+      errors: PropTypes.arrayOf(PropTypes.shape({
+        /**
            * Error message
            */
-          message: PropTypes.string.isRequired,
-          /**
+        message: PropTypes.string.isRequired,
+        /**
            * Error name
            */
-          name: PropTypes.string.isRequired
-        })
-      ),
+        name: PropTypes.string.isRequired
+      })),
       /**
        * OnChange event callback
        */
