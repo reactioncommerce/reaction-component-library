@@ -19,6 +19,19 @@ class AddressCapture extends Component {
        */
       addressNamePlaceholder: PropTypes.string,
       /**
+       * Errors array
+       */
+      errors: PropTypes.arrayOf(PropTypes.shape({
+        /**
+           * Error message
+           */
+        message: PropTypes.string.isRequired,
+        /**
+           * Error name
+           */
+        name: PropTypes.string.isRequired
+      })),
+      /**
        * OnChange event callback
        */
       onChange: PropTypes.func,
@@ -47,6 +60,10 @@ class AddressCapture extends Component {
        * Address validations address suggestion
        */
       addressSuggestion: CustomPropTypes.address,
+      /**
+       * Address validation error object
+       */
+      validationError: PropTypes.object,
       /**
        * The selected address option
        */
@@ -125,6 +142,17 @@ class AddressCapture extends Component {
   get hasAddressSuggestion() {
     const { addressReviewProps: { addressSuggestion } } = this.props;
     return !!addressSuggestion;
+  }
+
+  /**
+   *
+   * @method hasValidationError
+   * @summary returns true if we have any validation errors from a address validation service
+   * @return {Boolean} - true if validation errors on props
+   */
+  get hasValidationError() {
+    const { addressReviewProps: { validationError } } = this.props;
+    return !!validationError;
   }
 
   /**
@@ -235,7 +263,7 @@ class AddressCapture extends Component {
     const { onAddressValidation, onSubmit } = this.props;
     if (onAddressValidation && !address.isValid) {
       await onAddressValidation(address);
-      if (!this.hasAddressSuggestion) await onSubmit(address);
+      if (!this.hasAddressSuggestion && !this.hasValidationError) await onSubmit(address);
     } else {
       await onSubmit(address);
     }

@@ -16,6 +16,14 @@ const Address = styled.address`
 const ENTRY = "entry";
 const EDIT = "edit";
 const REVIEW = "review";
+const FORM_ERRORS = [
+  { message: "", name: "country" },
+  { message: "", name: "fullName" },
+  { message: "", name: "address1" },
+  { message: "", name: "city" },
+  { message: "", name: "region" },
+  { message: "", name: "postal" }
+];
 
 class ShippingAddressCheckoutAction extends Component {
   static propTypes = {
@@ -90,7 +98,8 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   state = {
-    status: !this.hasShippingAddressOnCart && this.hasValidationResults ? REVIEW : ENTRY
+    status: !this.hasShippingAddressOnCart && this.hasValidationResults ? REVIEW : ENTRY,
+    formErrors: this.hasValidationResults ? FORM_ERRORS : []
   };
 
   componentDidMount() {
@@ -99,7 +108,10 @@ class ShippingAddressCheckoutAction extends Component {
 
   componentDidUpdate({ addressValidationResults: prevValidationResults }) {
     const { addressValidationResults } = this.props;
-    if (!isEqual(prevValidationResults, addressValidationResults) && this.inEntry) this.toggleStatus = REVIEW;
+    if (!isEqual(prevValidationResults, addressValidationResults) && this.hasValidationResults) {
+      this.setFormErrors = FORM_ERRORS;
+      this.toggleStatus = EDIT;
+    }
   }
 
   _form = null;
@@ -111,7 +123,7 @@ class ShippingAddressCheckoutAction extends Component {
 
   get hasValidationResults() {
     const { addressValidationResults } = this.props;
-    return !!(addressValidationResults && addressValidationResults.suggestedAddresses.length);
+    return !!(addressValidationResults && addressValidationResults.validationErrors.length);
   }
 
   get getSubmittedAddress() {
@@ -145,6 +157,10 @@ class ShippingAddressCheckoutAction extends Component {
     this.setState({ status });
   }
 
+  set setFormErrors(formErrors) {
+    this.setState({ formErrors });
+  }
+
   isFormFilled = (values) => Object.keys(values).every((key) => (key === "address2" ? true : values[key] !== null));
 
   submit = () => {
@@ -157,6 +173,8 @@ class ShippingAddressCheckoutAction extends Component {
   };
 
   handleChange = (values) => {
+    const { formErrors } = this.state;
+    if (formErrors.length) this.setFormErrors = [];
     if (this.isFormFilled(values)) this.ready();
   };
 
@@ -168,20 +186,25 @@ class ShippingAddressCheckoutAction extends Component {
       onSubmit,
       onAddressValidation
     } = this.props;
+    const { formErrors } = this.state;
+
     const captureProps = {
       addressFormProps: {
         onChange: this.handleChange,
         shouldShowIsCommercialField: true,
-        value: this.inEdit ? this.getSubmittedAddress : this.getShippingAddress
+        value: this.inEdit ? this.getSubmittedAddress : this.getShippingAddress,
+        errors: formErrors
       },
       addressReviewProps: {
         addressEntered: this.getSubmittedAddress,
-        addressSuggestion: this.hasValidationResults ? addressValidationResults.suggestedAddresses[0] : null
+        addressSuggestion: this.hasValidationResults ? addressValidationResults.suggestedAddresses[0] : null,
+        validationError: this.hasValidationResults ? addressValidationResults.validationErrors[0] : null
       },
       isSaving,
       onAddressValidation,
       onSubmit
     };
+
     return (
       <AddressCapture
         ref={(formEl) => {
@@ -199,7 +222,7 @@ class ShippingAddressCheckoutAction extends Component {
         <Title>
           {stepNumber}. {label}
         </Title>
-        {alert ? <InlineAlert alertType="warning" {...alert} /> : ""}
+        {alert ? <InlineAlert {...alert} /> : ""}
         {this.renderAddressCapture()}
       </Fragment>
     );
