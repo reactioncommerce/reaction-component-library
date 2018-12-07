@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, addTypographyStyles, CustomPropTypes } from "../../../utils";
+import { addTypographyStyles, CustomPropTypes } from "../../../utils";
 import { STATUS_LABELS, inventoryStatus } from "./utils";
 
 const SoldOutSpan = styled.div`

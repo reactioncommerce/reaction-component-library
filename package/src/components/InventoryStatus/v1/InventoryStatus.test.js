@@ -1,6 +1,7 @@
 import React from "react";
 import renderer from "react-test-renderer";
 import checkPropTypes from "check-prop-types";
+import mockComponents from "../../../tests/mockComponents";
 import InventoryStatus from "./InventoryStatus";
 
 test("Displays error warning about required props", () => {
@@ -17,7 +18,7 @@ test("Renders backorder notification when inventory is sold out and backorder is
   };
 
   const component = renderer.create((
-    <InventoryStatus product={productData} />
+    <InventoryStatus components={mockComponents} product={productData} />
   ));
 
   const tree = component.toJSON();
@@ -33,7 +34,7 @@ test("Renders low inventory notification when inventory is lower than threshold"
   };
 
   const component = renderer.create((
-    <InventoryStatus product={productData} />
+    <InventoryStatus components={mockComponents} product={productData} />
   ));
 
   const tree = component.toJSON();
@@ -49,7 +50,7 @@ test("Renders nothing when inventory is ready to be sold", () => {
   };
 
   const component = renderer.create((
-    <InventoryStatus product={productData} />
+    <InventoryStatus components={mockComponents} product={productData} />
   ));
 
   const tree = component.toJSON();
@@ -65,7 +66,7 @@ test("Renders sold out notification when inventory is sold out and backorder is 
   };
 
   const component = renderer.create((
-    <InventoryStatus product={productData} />
+    <InventoryStatus components={mockComponents} product={productData} />
   ));
 
   const tree = component.toJSON();
