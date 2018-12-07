@@ -11,14 +11,14 @@ test("inventoryStatus util should return `backorder` status", () => {
   const callFunction = inventoryStatus(backorderProduct, STATUS_LABELS);
 
   expect(typeof inventoryStatus).toBe("function");
-  expect(callFunction).toEqual({ type: STATUS_TYPES.BACKORDER, label: "Backorder" });
+  expect(callFunction).toEqual({ type: STATUS_TYPES.BACKORDER, label: "Backordered - ships when available" });
 });
 
 test("inventoryStatus util should return `sold out` status", () => {
   const callFunction = inventoryStatus(soldOutProduct, STATUS_LABELS);
 
   expect(typeof inventoryStatus).toBe("function");
-  expect(callFunction).toEqual({ type: STATUS_TYPES.SOLD_OUT, label: "Sold Out" });
+  expect(callFunction).toEqual({ type: STATUS_TYPES.SOLD_OUT, label: "Out of stock" });
 });
 
 test("inventoryStatus util should return `low inventory` status", () => {
