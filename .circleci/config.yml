@@ -50,7 +50,7 @@ jobs:
               --build-arg "CIRCLE_WORKSPACE_ID=$CIRCLE_WORKSPACE_ID" \
               --build-arg "GIT_REPOSITORY_URL=$CIRCLE_REPOSITORY_URL" \
               --build-arg "GIT_SHA1=$CIRCLE_SHA1" \
-              --build-arg "LICENSE=GPL-3.0-only" \
+              --build-arg "LICENSE=Apache-2.0" \
               --build-arg "VCS_REF=$CIRCLE_SHA1" \
               --build-arg "VENDOR=Reaction Commerce" \
               -t "$DOCKER_REPOSITORY:$CIRCLE_SHA1" .

@@ -9,7 +9,7 @@
     "email": "engineering@reactioncommerce.com",
     "url": "https://reactioncommerce.com"
   },
-  "license": "GPL-3.0-only",
+  "license": "Apache-2.0",
   "private": false,
   "scripts": {
     "prebuild": "rimraf dist && node ./scripts/prebuild.js",
