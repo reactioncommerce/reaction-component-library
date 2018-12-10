@@ -27,7 +27,7 @@ ARG GIT_SHA1
 ARG LICENSE
 
 ENV APP_SOURCE_DIR=/usr/local/src/reaction-app \
-    PATH=$PATH:/usr/local/src/node_modules/.bin
+    PATH=$PATH:/usr/local/src/reaction-app/node_modules/.bin
 
 LABEL maintainer="Reaction Commerce <engineering@reactioncommerce.com>" \
       com.reactioncommerce.build-date=$BUILD_DATE \
@@ -57,8 +57,12 @@ LABEL maintainer="Reaction Commerce <engineering@reactioncommerce.com>" \
 # Because Docker Compose uses a volume for node_modules and volumes are owned
 # by root by default, we have to initially create node_modules here with correct owner.
 # Without this Yarn cannot write packages into node_modules later, when running in a container.
-RUN mkdir -p "/usr/local/src/node_modules" && chown node "/usr/local/src" && chown node "/usr/local/src/node_modules"
-RUN mkdir -p "/usr/local/src/reaction-app/node_modules" && chown node "/usr/local/src/reaction-app" && chown node "/usr/local/src/reaction-app/node_modules"
+RUN mkdir -p "/usr/local/src/reaction-app/node_modules"
+RUN mkdir -p "/usr/local/src/reaction-app/package/node_modules"
+RUN chown node "/usr/local/src"
+RUN chown node "/usr/local/src/reaction-app"
+RUN chown node "/usr/local/src/reaction-app/node_modules"
+RUN chown node "/usr/local/src/reaction-app/package/node_modules"
 
 WORKDIR $APP_SOURCE_DIR/..
 COPY --chown=node package.json yarn.lock $APP_SOURCE_DIR/../
@@ -75,8 +79,16 @@ RUN set -ex; \
       --frozen-lockfile \
       --ignore-scripts \
       --no-cache; \
+    cd package && yarn install \
+      --frozen-lockfile \
+      --ignore-scripts \
+      --no-cache; \
   elif [ "$BUILD_ENV" = "test" ]; then \
     yarn install \
+      --frozen-lockfile \
+      --ignore-scripts \
+      --no-cache; \
+    cd package && yarn install \
       --frozen-lockfile \
       --ignore-scripts \
       --no-cache; \
@@ -97,12 +109,6 @@ COPY --chown=node ./.reaction/yarnrc-docker.template /home/node/.yarnrc
 
 WORKDIR $APP_SOURCE_DIR
 COPY --chown=node . $APP_SOURCE_DIR
-
-RUN set -ex; \
-    cd package && yarn install \
-      --frozen-lockfile \
-      --ignore-scripts \
-      --no-cache;
 
 # Important: Make sure we're the "node" user before we begin doing things because
 # our tools use "/home/node" as the HOME dir.
