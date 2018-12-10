@@ -1,9 +1,9 @@
 ### Overview
-The `InventoryStatus` displays a low inventory warning when the `isLowInventoryQuantity` prop is true.
+The `InventoryStatus` displays a low inventory warning when the `isLowQuantity` prop is true.
 
 ### Usage
 
-An inventory warning will be rendered when the `isLowInventoryQuantity` prop is `true`, and does not render when a product has a normal inventory level.
+An inventory warning will be rendered when the `isLowQuantity` prop is `true`, and does not render when a product has a normal inventory level.
 
 #### Backorder
 ```jsx
