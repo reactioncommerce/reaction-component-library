@@ -39,6 +39,7 @@ class InventoryStatus extends Component {
      * The product, whose properties determine which badge(s) to display
      */
     product: PropTypes.shape({
+      inventoryAvailableToSell: PropTypes.number,
       isBackorder: PropTypes.bool,
       isLowQuantity: PropTypes.bool,
       isSoldOut: PropTypes.bool
@@ -68,7 +69,7 @@ class InventoryStatus extends Component {
     if (status.type && status.type === "LOW_QUANTITY") {
       return (
         <StockWarning
-          inventoryQuantity={product.currentQuantity}
+          inventoryQuantity={product.inventoryAvailableToSell}
           isLowInventoryQuantity={product.isLowQuantity}
         />
       );

@@ -11,7 +11,7 @@ An inventory warning will be rendered when the `isLowInventoryQuantity` prop is 
     isBackorder: true,
     isLowQuantity: true,
     isSoldOut: true,
-    currentQuantity: 0
+    inventoryAvailableToSell: 0
   };
 
   <InventoryStatus product={productData} />
@@ -23,7 +23,7 @@ An inventory warning will be rendered when the `isLowInventoryQuantity` prop is 
     isBackorder: false,
     isLowQuantity: true,
     isSoldOut: false,
-    currentQuantity: 4
+    inventoryAvailableToSell: 4
   };
 
   <InventoryStatus product={productData} />
@@ -35,7 +35,7 @@ An inventory warning will be rendered when the `isLowInventoryQuantity` prop is 
     isBackorder: false,
     isLowQuantity: false,
     isSoldOut: false,
-    currentQuantity: 4
+    inventoryAvailableToSell: 4
   };
 
   <InventoryStatus product={productData} />
@@ -47,7 +47,7 @@ An inventory warning will be rendered when the `isLowInventoryQuantity` prop is 
     isBackorder: false,
     isLowQuantity: true,
     isSoldOut: true,
-    currentQuantity: 0
+    inventoryAvailableToSell: 0
   };
 
   <InventoryStatus product={productData} />

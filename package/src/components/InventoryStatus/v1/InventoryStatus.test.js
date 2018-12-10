@@ -14,7 +14,7 @@ test("Renders backorder notification when inventory is sold out and backorder is
     isBackorder: true,
     isLowQuantity: true,
     isSoldOut: true,
-    currentQuantity: 0
+    inventoryAvailableToSell: 0
   };
 
   const component = renderer.create((
@@ -30,7 +30,7 @@ test("Renders low inventory notification when inventory is lower than threshold"
     isBackorder: false,
     isLowQuantity: true,
     isSoldOut: false,
-    currentQuantity: 6
+    inventoryAvailableToSell: 6
   };
 
   const component = renderer.create((
@@ -46,7 +46,7 @@ test("Renders nothing when inventory is ready to be sold", () => {
     isBackorder: false,
     isLowQuantity: false,
     isSoldOut: false,
-    currentQuantity: 4
+    inventoryAvailableToSell: 4
   };
 
   const component = renderer.create((
@@ -62,7 +62,7 @@ test("Renders sold out notification when inventory is sold out and backorder is 
     isBackorder: false,
     isLowQuantity: true,
     isSoldOut: true,
-    currentQuantity: 0
+    inventoryAvailableToSell: 0
   };
 
   const component = renderer.create((
