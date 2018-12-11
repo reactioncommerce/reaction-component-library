@@ -72,7 +72,9 @@ exports[`basic snapshot 1`] = `
     >
       <span
         className="c2"
-      />
+      >
+        iconPlus
+      </span>
       Add an item
     </div>
   </div>
