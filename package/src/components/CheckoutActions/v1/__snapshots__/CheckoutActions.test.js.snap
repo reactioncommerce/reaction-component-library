@@ -34,7 +34,7 @@ exports[`basic snapshot 1`] = `
   <div
     className="c0"
   >
-    CheckoutAction({"status":"incomplete","activeLabel":"mock active action one","completeLabel":"mock complete action one","incompleteLabel":"mock inactive action one","stepNumber":1,"activeStepElement":"[Object]","completeStepElement":"[Object]","incompleteStepElement":"[Object]"})
+    CheckoutAction({"status":"active","activeLabel":"mock active action one","completeLabel":"mock complete action one","incompleteLabel":"mock inactive action one","stepNumber":1,"activeStepElement":"[Object]","completeStepElement":"[Object]","incompleteStepElement":"[Object]"})
   </div>
 </div>
 `;
