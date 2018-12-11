@@ -58,7 +58,7 @@ class InPageMenu extends Component {
           <InPageMenuItem
             href={menuItem.href}
             isSelected={menuItem.isSelected}
-            key={menuItem.id || index}
+            key={menuItem.id || `item-${index}`}
             label={menuItem.label}
           />
         ))}
