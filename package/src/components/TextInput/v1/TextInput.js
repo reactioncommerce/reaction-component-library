@@ -592,8 +592,4 @@ class TextInput extends Component {
   }
 }
 
-const WrappedTextInput = withComponents(TextInput);
-
-WrappedTextInput.isFormInput = true;
-
-export default WrappedTextInput;
+export default withComponents(TextInput);

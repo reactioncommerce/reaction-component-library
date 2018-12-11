@@ -479,8 +479,4 @@ class PhoneNumberInput extends Component {
   }
 }
 
-const WrappedPhoneNumberInput = withComponents(PhoneNumberInput);
-
-WrappedPhoneNumberInput.isFormInput = true;
-
-export default WrappedPhoneNumberInput;
+export default withComponents(PhoneNumberInput);

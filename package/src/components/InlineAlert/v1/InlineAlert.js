@@ -175,6 +175,5 @@ class InlineAlert extends Component {
     );
   }
 }
-const WrappedInlineAlert = withComponents(InlineAlert);
 
-export default WrappedInlineAlert;
+export default withComponents(InlineAlert);

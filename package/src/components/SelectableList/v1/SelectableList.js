@@ -359,8 +359,4 @@ class SelectableList extends Component {
   }
 }
 
-const WrappedSelectableList = withComponents(SelectableList);
-
-WrappedSelectableList.isFormInput = true;
-
-export default WrappedSelectableList;
+export default withComponents(SelectableList);

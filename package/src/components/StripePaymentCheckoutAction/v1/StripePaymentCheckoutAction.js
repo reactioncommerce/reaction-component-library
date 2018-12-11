@@ -35,6 +35,14 @@ const billingAddressOptions = [{
 }];
 
 class StripePaymentCheckoutAction extends Component {
+  static renderComplete({ payment: { data: { displayName } } }) {
+    return (
+      <div>
+        {displayName}
+      </div>
+    );
+  }
+
   static propTypes = {
     /**
      * Alert object provides alert into to InlineAlert.
@@ -249,13 +257,4 @@ class StripePaymentCheckoutAction extends Component {
   }
 }
 
-const WrappedStripePaymentCheckoutAction = withComponents(StripePaymentCheckoutAction);
-
-// eslint-disable-next-line
-WrappedStripePaymentCheckoutAction.renderComplete = ({ payment: { data: { billingAddress, displayName } }}) => (
-  <div>
-    {displayName}
-  </div>
-);
-
-export default WrappedStripePaymentCheckoutAction;
+export default withComponents(StripePaymentCheckoutAction);

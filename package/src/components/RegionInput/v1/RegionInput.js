@@ -80,8 +80,4 @@ class RegionInput extends Component {
   }
 }
 
-const WrappedRegionInput = withComponents(RegionInput);
-
-WrappedRegionInput.isFormInput = true;
-
-export default WrappedRegionInput;
+export default withComponents(RegionInput);

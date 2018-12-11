@@ -27,25 +27,29 @@ const mockAddressSuggestion = {
 };
 
 test("basic snapshot with only required props", () => {
-  const component = renderer.create(<AddressReview
-    addressEntered={mockAddressEntered}
-    addressSuggestion={mockAddressSuggestion}
-    components={mockComponents}
-  />);
+  const component = renderer.create((
+    <AddressReview
+      addressEntered={mockAddressEntered}
+      addressSuggestion={mockAddressSuggestion}
+      components={mockComponents}
+    />
+  ));
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();
 });
 
 test("basic snapshot with all props", () => {
-  const component = renderer.create(<AddressReview
-    addressEntered={mockAddressEntered}
-    addressSuggestion={mockAddressSuggestion}
-    components={mockComponents}
-    value="entered"
-    warningTitle="Warning"
-    warningMessage="Something is wrong"
-  />);
+  const component = renderer.create((
+    <AddressReview
+      addressEntered={mockAddressEntered}
+      addressSuggestion={mockAddressSuggestion}
+      components={mockComponents}
+      value="entered"
+      warningTitle="Warning"
+      warningMessage="Something is wrong"
+    />
+  ));
 
   const tree = component.toJSON();
   expect(tree).toMatchSnapshot();

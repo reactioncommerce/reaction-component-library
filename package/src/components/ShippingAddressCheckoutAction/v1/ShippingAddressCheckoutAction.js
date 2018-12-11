@@ -26,6 +26,24 @@ const FORM_ERRORS = [
 ];
 
 class ShippingAddressCheckoutAction extends Component {
+  static renderComplete({ fulfillmentGroup: { data: { shippingAddress } } }) {
+    return (
+      <Address>
+        {shippingAddress.fullName}
+        <br />
+        {shippingAddress.address1}
+        <br />
+        {shippingAddress.address2 !== null && shippingAddress.address2 !== "" ? (
+          <span>
+            {shippingAddress.address2} <br />
+          </span>
+        ) : null}
+        {shippingAddress.city}, {shippingAddress.region} {shippingAddress.postal} <br />
+        {shippingAddress.country}
+      </Address>
+    );
+  }
+
   static propTypes = {
     /**
      * Address validation results object
@@ -229,23 +247,4 @@ class ShippingAddressCheckoutAction extends Component {
   }
 }
 
-const WrappedShippingAddressCheckoutAction = withComponents(ShippingAddressCheckoutAction);
-
-// eslint-disable-next-line
-WrappedShippingAddressCheckoutAction.renderComplete = ({ fulfillmentGroup: { data: { shippingAddress } } }) => (
-  <Address>
-    {shippingAddress.fullName}
-    <br />
-    {shippingAddress.address1}
-    <br />
-    {shippingAddress.address2 !== null && shippingAddress.address2 !== "" ? (
-      <span>
-        {shippingAddress.address2} <br />
-      </span>
-    ) : null}
-    {shippingAddress.city}, {shippingAddress.region} {shippingAddress.postal} <br />
-    {shippingAddress.country}
-  </Address>
-);
-
-export default WrappedShippingAddressCheckoutAction;
+export default withComponents(ShippingAddressCheckoutAction);

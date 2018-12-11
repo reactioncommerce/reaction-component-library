@@ -35,6 +35,9 @@ const Items = styled.div`
 `;
 
 class FinalReviewCheckoutAction extends Component {
+  // Checkout review is the final step so it has no complete state
+  static renderComplete = () => null;
+
   static propTypes = {
     /**
      * Cart data
@@ -182,10 +185,4 @@ class FinalReviewCheckoutAction extends Component {
   }
 }
 
-const WrappedFinalReviewCheckoutAction = withComponents(FinalReviewCheckoutAction);
-
-// Checkout review is the final step so it has no complete state
-// eslint-disable-next-line
-WrappedFinalReviewCheckoutAction.renderComplete = () => null
-
-export default WrappedFinalReviewCheckoutAction;
+export default withComponents(FinalReviewCheckoutAction);
