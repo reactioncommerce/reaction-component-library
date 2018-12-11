@@ -23,7 +23,7 @@
     "styleguide:build": "styleguidist build",
     "test": "jest package/src",
     "test:watch": "jest --watch package/src",
-    "test:file": "jest --no-cache --watch",
+    "test:file": "jest --no-cache --watch --coverage=false",
     "snyk-protect": "snyk protect"
   },
   "babel": {
