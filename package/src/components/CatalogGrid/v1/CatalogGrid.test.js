@@ -1,8 +1,12 @@
 import React from "react";
 import renderer from "react-test-renderer";
+import * as ReactContainerQueryExports from "react-container-query";
 import mockComponents from "../../../tests/mockComponents";
 import CatalogGrid from "./CatalogGrid";
 import mockProducts from "./__mocks__/products";
+
+// ContainerQuery component causes errors inside `renderer.create` so we mock it
+ReactContainerQueryExports.ContainerQuery = jest.fn().mockImplementation((props) => props.children({}));
 
 test("CatalogGrid default responsive snapshot", () => {
   const component = renderer.create((
