@@ -134,7 +134,6 @@ class AddressCapture extends Component {
   _form = null;
 
   /**
-   *
    * @method hasAddressSuggestion
    * @summary returns true if we have a suggested address from a address validation service
    * @return {Boolean} - true if address suggestion on props
@@ -145,7 +144,6 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method hasValidationError
    * @summary returns true if we have any validation errors from a address validation service
    * @return {Boolean} - true if validation errors on props
@@ -156,7 +154,6 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method addressEntered
    * @summary getter that returns the entered address
    * @return {Object} addressEntered -  Address object
@@ -167,7 +164,6 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method addressSuggestion
    * @summary getter that returns the suggested address
    * @return {Object} addressSuggestion -  Address object
@@ -178,7 +174,6 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method addressProvided
    * @summary getter that returns the provided address form value
    * @return {Object} addressProvided -  Address object
@@ -189,10 +184,9 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method inEntry
    * @summary getter that returns true if in entry mode
-   * @return {Boolean}
+   * @return {Boolean} True if currently in entry status
    */
   get inEntry() {
     const { status } = this.state;
@@ -200,10 +194,9 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method inEdit
    * @summary getter that returns true if in edit mode
-   * @return {Boolean}
+   * @return {Boolean} True if currently in edit status
    */
   get inEdit() {
     const { status } = this.state;
@@ -211,10 +204,9 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method inReview
    * @summary getter that returns true if in review mode
-   * @return {Boolean}
+   * @return {Boolean} True if currently in review status
    */
   get inReview() {
     const { status } = this.state;
@@ -222,9 +214,9 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method toggleStatus
    * @summary setter that toggles the Component's status.
+   * @param {String} status The new status
    * @return {undefined}
    */
   set toggleStatus(status) {
@@ -232,7 +224,6 @@ class AddressCapture extends Component {
   }
 
   /**
-   *
    * @method formRef
    * @summary binds the active form element to the `_form` property
    * @param {Object} form - React ref element
@@ -243,8 +234,7 @@ class AddressCapture extends Component {
   };
 
   /**
-   *
-   * @name submit
+   * @method submit
    * @summary Instance method that submits the form, this allows a parent component access to the Form submit event.
    * @return {undefined}
    */
@@ -253,10 +243,9 @@ class AddressCapture extends Component {
   };
 
   /**
-   *
    * @method handleSubmit
    * @summary validate or submit the entered address object.
-   * @param {Object} address - submited address object
+   * @param {Object} address - submitted address object
    * @return {undefined}
    */
   handleSubmit = async (address) => {

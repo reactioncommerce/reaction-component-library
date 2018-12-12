@@ -30,6 +30,14 @@ const FulfillmentOptionShape = PropTypes.shape({
 });
 
 class FulfillmentOptionsCheckoutAction extends Component {
+  static renderComplete({ fulfillmentGroup: { selectedFulfillmentOption } }) {
+    return (
+      <FulfillmentOption>
+        {selectedFulfillmentOption.fulfillmentMethod.displayName} • {selectedFulfillmentOption.price.displayAmount}
+      </FulfillmentOption>
+    );
+  }
+
   static propTypes = {
     /**
      * Alert object provides alert into to InlineAlert.
@@ -183,13 +191,4 @@ class FulfillmentOptionsCheckoutAction extends Component {
   }
 }
 
-const WrappedFullfillmentOptionsCheckoutAction = withComponents(FulfillmentOptionsCheckoutAction);
-
-// eslint-disable-next-line
-WrappedFullfillmentOptionsCheckoutAction.renderComplete = ({ fulfillmentGroup: { selectedFulfillmentOption } }) => (
-  <FulfillmentOption>
-    {selectedFulfillmentOption.fulfillmentMethod.displayName} • {selectedFulfillmentOption.price.displayAmount}
-  </FulfillmentOption>
-);
-
-export default WrappedFullfillmentOptionsCheckoutAction;
+export default withComponents(FulfillmentOptionsCheckoutAction);

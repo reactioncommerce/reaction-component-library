@@ -98,8 +98,4 @@ class ErrorsBlock extends Component {
   }
 }
 
-const WrappedErrorsBlock = withComponents(ErrorsBlock);
-
-WrappedErrorsBlock.isFormErrors = true;
-
-export default WrappedErrorsBlock;
+export default withComponents(ErrorsBlock);
