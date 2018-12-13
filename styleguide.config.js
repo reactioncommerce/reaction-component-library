@@ -455,11 +455,12 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
-            "Price",
-            "StockWarning",
             "BadgeOverlay",
             "CatalogGridItem",
-            "CatalogGrid"
+            "CatalogGrid",
+            "InventoryStatus",
+            "Price",
+            "StockWarning"
           ],
           content: "styleguide/src/sections/Product.md",
           name: "Product"
