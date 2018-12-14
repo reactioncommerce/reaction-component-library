@@ -14,10 +14,11 @@ const mockActions = [
   {
     activeLabel: "mock active action one",
     completeLabel: "mock complete action one",
-    incompleteLabel: "mock inactive action one",
-    status: "incomplete",
     component: mockCheckoutAction,
+    id: "123",
+    incompleteLabel: "mock inactive action one",
     onSubmit: () => true,
+    status: "incomplete",
     props: {
       cartData: {
         data: null

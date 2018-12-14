@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
+import { CustomPropTypes } from "../../../utils";
 
 const InPageMenuContainer = styled.div`
   box-sizing: border-box;
@@ -31,12 +32,17 @@ class InPageMenu extends Component {
        * Pass either the Reaction InPageMenuItem component or your own component that
        * accepts compatible props.
        */
-      InPageMenuItem: PropTypes.node.isRequired
+      InPageMenuItem: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * An array that contains objects of label and navigational data for each InPageMenuItem
      */
-    menuItems: PropTypes.arrayOf(PropTypes.object)
+    menuItems: PropTypes.arrayOf(PropTypes.shape({
+      href: PropTypes.string,
+      id: PropTypes.string,
+      isSelected: PropTypes.bool,
+      label: PropTypes.string
+    }))
   };
 
   static defaultProps = {
@@ -48,8 +54,13 @@ class InPageMenu extends Component {
 
     return (
       <InPageMenuContainer className={className}>
-        {menuItems.map((menuItem) => (
-          <InPageMenuItem href={menuItem.href} isSelected={menuItem.isSelected} label={menuItem.label} />
+        {menuItems.map((menuItem, index) => (
+          <InPageMenuItem
+            href={menuItem.href}
+            isSelected={menuItem.isSelected}
+            key={menuItem.id || `item-${index}`}
+            label={menuItem.label}
+          />
         ))}
       </InPageMenuContainer>
     );

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
-import { applyTheme, addTypographyStyles, preventAccidentalDoubleClick } from "../../../utils";
+import { applyTheme, addTypographyStyles, CustomPropTypes, preventAccidentalDoubleClick } from "../../../utils";
 
 const InPageMenuItemContainer = styled.div`
   align-items: center;
@@ -64,7 +64,7 @@ class InPageMenuItem extends Component {
        * Pass either the Reaction Link component or your own component that
        * accepts compatible props.
        */
-      Link: PropTypes.node.isRequired
+      Link: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
      * URL to provide to MenuItem

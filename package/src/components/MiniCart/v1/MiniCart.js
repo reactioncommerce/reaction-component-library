@@ -110,12 +110,12 @@ class MiniCart extends Component {
        * Pass either the Reaction Button component or your own component that
        * accepts compatible props.
        */
-      Button: CustomPropTypes.component.isRequired,
+      Button: CustomPropTypes.component,
       /**
        * An element to show as the cart checkout button. If this isn't provided,
        * a button will be rendered using Button component.
        */
-      CartCheckoutButton: PropTypes.any,
+      CartCheckoutButton: CustomPropTypes.component,
       /**
        * Pass either the Reaction CartItems component or your own component that
        * accepts compatible props.
