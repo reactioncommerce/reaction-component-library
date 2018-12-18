@@ -74,7 +74,7 @@ const StyledInput = styled.input`
 
 const Textarea = StyledInput.withComponent("textarea");
 
-const StyledTextarea = Textarea.extend`
+const StyledTextarea = styled(Textarea)`
   -webkit-font-smoothing: antialiased;
   background-color: ${applyThemeVariant("Input.backgroundColor")};
   border-radius: ${applyTheme("Input.borderRadius")};

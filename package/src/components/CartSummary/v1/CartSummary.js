@@ -35,7 +35,7 @@ const Td = styled.td`
   text-align: left;
 `;
 
-const TdValue = Td.extend`
+const TdValue = styled(Td)`
   ${addTypographyStyles("CartSummaryRightColumn", "bodyText")}
   text-align: right;
 `;
