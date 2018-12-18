@@ -102,62 +102,6 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  border-top-color: #e6e6e6;
-  border-top-style: solid;
-  border-top-width: 0;
-  padding-bottom: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 16px;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
-  text-align: right;
-}
-
-.c7 {
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
-  border-top-color: #e6e6e6;
-  border-top-style: solid;
-  border-top-width: 1px;
-  padding-bottom: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 16px;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
   text-align: right;
 }
 
@@ -176,7 +120,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   line-height: 1;
 }
 
-.c8 {
+.c7 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -220,7 +164,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
         Item total
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         $246.22
       </td>
@@ -232,7 +176,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
         Shipping
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         3-5 Days
       </td>
@@ -244,7 +188,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
         Tax
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         -
       </td>
@@ -256,10 +200,10 @@ exports[`Displays a summary of the current items in the cart 1`] = `
         Order total
       </td>
       <td
-        className="c7"
+        className="c5 c6"
       >
         <span
-          className="c8"
+          className="c7"
         >
           $300.424
         </span>
@@ -371,62 +315,6 @@ exports[`Displays a summary with FREE shipping 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  border-top-color: #e6e6e6;
-  border-top-style: solid;
-  border-top-width: 0;
-  padding-bottom: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 16px;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
-  text-align: right;
-}
-
-.c7 {
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
-  border-top-color: #e6e6e6;
-  border-top-style: solid;
-  border-top-width: 1px;
-  padding-bottom: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 16px;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
   text-align: right;
 }
 
@@ -445,7 +333,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
   line-height: 1;
 }
 
-.c8 {
+.c7 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -489,7 +377,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
         Item total
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         $246.22
       </td>
@@ -501,7 +389,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
         Shipping
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         FREE
       </td>
@@ -513,7 +401,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
         Tax
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         -
       </td>
@@ -525,10 +413,10 @@ exports[`Displays a summary with FREE shipping 1`] = `
         Order total
       </td>
       <td
-        className="c7"
+        className="c5 c6"
       >
         <span
-          className="c8"
+          className="c7"
         >
           $300.424
         </span>
@@ -640,62 +528,6 @@ exports[`Displays a summary with applied discount 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  border-top-color: #e6e6e6;
-  border-top-style: solid;
-  border-top-width: 0;
-  padding-bottom: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 16px;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
-  text-align: right;
-}
-
-.c8 {
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
-  border-top-color: #e6e6e6;
-  border-top-style: solid;
-  border-top-width: 1px;
-  padding-bottom: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 16px;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
   text-align: right;
 }
 
@@ -729,7 +561,7 @@ exports[`Displays a summary with applied discount 1`] = `
   line-height: 1;
 }
 
-.c9 {
+.c8 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -773,7 +605,7 @@ exports[`Displays a summary with applied discount 1`] = `
         Item total
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         $246.22
       </td>
@@ -785,7 +617,7 @@ exports[`Displays a summary with applied discount 1`] = `
         Shipping
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         3-5 Days
       </td>
@@ -797,7 +629,7 @@ exports[`Displays a summary with applied discount 1`] = `
         Promo code applied
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         <span
           className="c6"
@@ -813,7 +645,7 @@ exports[`Displays a summary with applied discount 1`] = `
         Tax
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         -
       </td>
@@ -825,10 +657,10 @@ exports[`Displays a summary with applied discount 1`] = `
         Order total
       </td>
       <td
-        className="c8"
+        className="c5 c7"
       >
         <span
-          className="c9"
+          className="c8"
         >
           $300.424
         </span>
@@ -940,62 +772,6 @@ exports[`Displays a summary with calculated taxes 1`] = `
   -ms-letter-spacing: .03em;
   letter-spacing: .03em;
   line-height: 1;
-  border-top-color: #e6e6e6;
-  border-top-style: solid;
-  border-top-width: 0;
-  padding-bottom: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 16px;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
-  text-align: right;
-}
-
-.c7 {
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
-  border-top-color: #e6e6e6;
-  border-top-style: solid;
-  border-top-width: 1px;
-  padding-bottom: 16px;
-  padding-left: 0;
-  padding-right: 0;
-  padding-top: 16px;
-  text-align: left;
-  -webkit-font-smoothing: antialiased;
-  color: #3c3c3c;
-  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-stretch: normal;
-  font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
-  line-height: 1;
   text-align: right;
 }
 
@@ -1014,7 +790,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
   line-height: 1;
 }
 
-.c8 {
+.c7 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
@@ -1058,7 +834,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
         Item total
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         $246.22
       </td>
@@ -1070,7 +846,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
         Shipping
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         3-5 Days
       </td>
@@ -1082,7 +858,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
         Tax
       </td>
       <td
-        className="c5"
+        className="c5 c4"
       >
         $24.88
       </td>
@@ -1094,10 +870,10 @@ exports[`Displays a summary with calculated taxes 1`] = `
         Order total
       </td>
       <td
-        className="c7"
+        className="c5 c6"
       >
         <span
-          className="c8"
+          className="c7"
         >
           $300.424
         </span>
