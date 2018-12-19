@@ -6,6 +6,7 @@
 - [Running and Developing Locally](./developing.md)
 - [Repo Structure](./repo-structure.md)
 - [Style Guide Development](./style-guide-development.md)
+- [Contributing](./contributing.md)
 
 ### Editor Extensions
 
