@@ -1,5 +1,9 @@
 # Contributing
 
+We're thrilled that you want to contribute to the Reaction Component Library!
+
+Before submitting your first contribution, please consult the [official guide on contributing to the Reaction code base] first. The sections below are currently specific to the Reaction Component Library and should be considered in addition to the official guide.
+
 # Signing your Commits
 
 Contributing to the Reaction Component Library requires signing your work by way of signed Git commits.
@@ -9,6 +13,12 @@ The Reaction Component Library uses the Apache 2.0 license to allow our communit
 As a contributor, we want to make sure that you understand your rights as the copyright holder. We also want to make sure that contributions done on behalf of companies (i.e. by their employees) are submitted with the acknowledgement that the contributor (employee) isn't the copyright holder (employer).
 
 The Reaction Components Library is using a Developer Certificate of Origin (DCO), by way of signed commits, to help contributors acknowledge that they're aware of their rights, and that they have the authority to submit their contributions either on their or on their employer's behalf.
+
+To sign off on the DCO for your commits, use the command `git commit -s` which adds a line to every commit that looks like this:
+
+`Signed-Off-By: Jane Doe <jane@example.com>`
+
+We do ask that you use your full name and a valid email address in this process.
 
 The DCO signoff is attached to every single commit, thereby stating that the committer agrees to the DCO as shown below or on <https://developercertificate.org/>.
 
