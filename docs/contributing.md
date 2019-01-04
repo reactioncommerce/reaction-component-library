@@ -2,7 +2,7 @@
 
 We're thrilled that you want to contribute to the Reaction Component Library!
 
-Before submitting your first contribution, please consult the [official guide on contributing to the Reaction code base] first. The sections below are currently specific to the Reaction Component Library and should be considered in addition to the official guide.
+Before submitting your first contribution, please consult the [official guide on contributing to the Reaction code base](https://docs.reactioncommerce.com/docs/contributing-to-reaction) first. The sections below are currently specific to the Reaction Component Library and should be considered in addition to the official guide.
 
 # Signing your Commits
 
