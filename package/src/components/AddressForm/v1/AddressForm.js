@@ -99,7 +99,11 @@ class AddressForm extends Component {
      */
     isOnDarkBackground: PropTypes.bool,
     /**
-     * Is the shipping address being saved
+     * Do not allow editing of the form fields
+     */
+    isReadOnly: PropTypes.bool,
+    /**
+     * Is the address being saved
      */
     isSaving: PropTypes.bool,
     /**
@@ -154,6 +158,7 @@ class AddressForm extends Component {
     errors: [],
     locales: {},
     isOnDarkBackground: false,
+    isReadOnly: false,
     isSaving: false,
     name: "address",
     onCancel() {},
@@ -258,6 +263,7 @@ class AddressForm extends Component {
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput, RegionInput },
       errors,
       isOnDarkBackground,
+      isReadOnly,
       isSaving,
       name,
       onChange,
@@ -300,7 +306,7 @@ class AddressForm extends Component {
                   name="addressName"
                   placeholder={addressNamePlaceholder}
                   isOnDarkBackground={isOnDarkBackground}
-                  isReadOnly={isSaving}
+                  isReadOnly={isSaving || isReadOnly}
                 />
               </Field>
             </ColFull>
@@ -318,7 +324,7 @@ class AddressForm extends Component {
                   options={this.countryOptions}
                   placeholder="Country"
                   isOnDarkBackground={isOnDarkBackground}
-                  isReadOnly={isSaving}
+                  isReadOnly={isSaving || isReadOnly}
                 />
               ) : (
                 <TextInput
@@ -326,7 +332,7 @@ class AddressForm extends Component {
                   name="country"
                   placeholder="Country"
                   isOnDarkBackground={isOnDarkBackground}
-                  isReadOnly={isSaving}
+                  isReadOnly={isSaving || isReadOnly}
                 />
               )}
               <ErrorsBlock names={["country"]} />
@@ -340,7 +346,7 @@ class AddressForm extends Component {
                 name="fullName"
                 placeholder="Name"
                 isOnDarkBackground={isOnDarkBackground}
-                isReadOnly={isSaving}
+                isReadOnly={isSaving || isReadOnly}
               />
               <ErrorsBlock names={["fullName"]} />
             </Field>
@@ -353,7 +359,7 @@ class AddressForm extends Component {
                 name="address1"
                 placeholder="Address"
                 isOnDarkBackground={isOnDarkBackground}
-                isReadOnly={isSaving}
+                isReadOnly={isSaving || isReadOnly}
               />
               <ErrorsBlock names={["address1"]} />
             </Field>
@@ -366,7 +372,7 @@ class AddressForm extends Component {
                 name="address2"
                 placeholder="Address Line 2 (Optional)"
                 isOnDarkBackground={isOnDarkBackground}
-                isReadOnly={isSaving}
+                isReadOnly={isSaving || isReadOnly}
               />
             </Field>
           </ColFull>
@@ -378,7 +384,7 @@ class AddressForm extends Component {
                 name="city"
                 placeholder="City"
                 isOnDarkBackground={isOnDarkBackground}
-                isReadOnly={isSaving}
+                isReadOnly={isSaving || isReadOnly}
               />
               <ErrorsBlock names={["city"]} />
             </Field>
@@ -390,7 +396,7 @@ class AddressForm extends Component {
                 id={regionInputId}
                 options={this.regionOptions}
                 isOnDarkBackground={isOnDarkBackground}
-                isReadOnly={isSaving}
+                isReadOnly={isSaving || isReadOnly}
                 name="region"
                 placeholder="Region"
               />
@@ -404,7 +410,7 @@ class AddressForm extends Component {
                 name="postal"
                 placeholder="Postal Code"
                 isOnDarkBackground={isOnDarkBackground}
-                isReadOnly={isSaving}
+                isReadOnly={isSaving || isReadOnly}
               />
               <ErrorsBlock names={["postal"]} />
             </Field>
@@ -417,7 +423,7 @@ class AddressForm extends Component {
                 name="phone"
                 placeholder="Phone"
                 isOnDarkBackground={isOnDarkBackground}
-                isReadOnly={isSaving}
+                isReadOnly={isSaving || isReadOnly}
               />
               <ErrorsBlock names={["phone"]} />
             </Field>
@@ -431,7 +437,7 @@ class AddressForm extends Component {
                   name="isCommercial"
                   label="This is a commercial address."
                   isOnDarkBackground={isOnDarkBackground}
-                  isReadOnly={isSaving}
+                  isReadOnly={isSaving || isReadOnly}
                 />
               </Field>
             </ColFull>
