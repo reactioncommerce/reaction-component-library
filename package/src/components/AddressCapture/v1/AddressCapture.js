@@ -23,12 +23,12 @@ class AddressCapture extends Component {
        */
       errors: PropTypes.arrayOf(PropTypes.shape({
         /**
-           * Error message
-           */
+         * Error message
+         */
         message: PropTypes.string.isRequired,
         /**
-           * Error name
-           */
+         * Error name
+         */
         name: PropTypes.string.isRequired
       })),
       /**
@@ -134,9 +134,8 @@ class AddressCapture extends Component {
   _form = null;
 
   /**
-   * @method hasAddressSuggestion
    * @summary returns true if we have a suggested address from a address validation service
-   * @return {Boolean} - true if address suggestion on props
+   * @return {Boolean} True if address suggestion on props
    */
   get hasAddressSuggestion() {
     const { addressReviewProps: { addressSuggestion } } = this.props;
@@ -144,9 +143,8 @@ class AddressCapture extends Component {
   }
 
   /**
-   * @method hasValidationError
    * @summary returns true if we have any validation errors from a address validation service
-   * @return {Boolean} - true if validation errors on props
+   * @return {Boolean} True if validation errors on props
    */
   get hasValidationError() {
     const { addressReviewProps: { validationError } } = this.props;
@@ -154,9 +152,8 @@ class AddressCapture extends Component {
   }
 
   /**
-   * @method addressEntered
    * @summary getter that returns the entered address
-   * @return {Object} addressEntered -  Address object
+   * @return {Object} Address object
    */
   get addressEntered() {
     const { addressReviewProps: { addressEntered } } = this.props;
@@ -164,9 +161,8 @@ class AddressCapture extends Component {
   }
 
   /**
-   * @method addressSuggestion
    * @summary getter that returns the suggested address
-   * @return {Object} addressSuggestion -  Address object
+   * @return {Object} Address object
    */
   get addressSuggestion() {
     const { addressReviewProps: { addressSuggestion } } = this.props;
@@ -174,9 +170,8 @@ class AddressCapture extends Component {
   }
 
   /**
-   * @method addressProvided
    * @summary getter that returns the provided address form value
-   * @return {Object} addressProvided -  Address object
+   * @return {Object} Address object
    */
   get addressProvided() {
     const { addressFormProps: { value } } = this.props;
@@ -184,7 +179,6 @@ class AddressCapture extends Component {
   }
 
   /**
-   * @method inEntry
    * @summary getter that returns true if in entry mode
    * @return {Boolean} True if currently in entry status
    */
@@ -194,7 +188,6 @@ class AddressCapture extends Component {
   }
 
   /**
-   * @method inEdit
    * @summary getter that returns true if in edit mode
    * @return {Boolean} True if currently in edit status
    */
@@ -204,7 +197,6 @@ class AddressCapture extends Component {
   }
 
   /**
-   * @method inReview
    * @summary getter that returns true if in review mode
    * @return {Boolean} True if currently in review status
    */
@@ -214,40 +206,44 @@ class AddressCapture extends Component {
   }
 
   /**
-   * @method toggleStatus
    * @summary setter that toggles the Component's status.
    * @param {String} status The new status
-   * @return {undefined}
    */
   set toggleStatus(status) {
     this.setState({ status });
   }
 
+  /* eslint-disable valid-jsdoc */
   /**
    * @method formRef
    * @summary binds the active form element to the `_form` property
-   * @param {Object} form - React ref element
-   * @return {undefined}
+   * @param {Object} form React ref element
+   * Can't include "return {undefined}" because react-docgen doesn't support it.
    */
+  /* eslint-enable valid-jsdoc */
   formRef = (form) => {
     this._form = form;
   };
 
+  /* eslint-disable valid-jsdoc */
   /**
    * @method submit
    * @summary Instance method that submits the form, this allows a parent component access to the Form submit event.
-   * @return {undefined}
+   * Can't include "return {undefined}" because react-docgen doesn't support it.
    */
+  /* eslint-enable valid-jsdoc */
   submit = () => {
     this._form.submit();
   };
 
+  /* eslint-disable valid-jsdoc */
   /**
    * @method handleSubmit
    * @summary validate or submit the entered address object.
    * @param {Object} address - submitted address object
-   * @return {undefined}
+   * Can't include "return {undefined}" because react-docgen doesn't support it.
    */
+  /* eslint-enable valid-jsdoc */
   handleSubmit = async (address) => {
     const { onAddressValidation, onSubmit } = this.props;
     if (onAddressValidation && !address.isValid) {
