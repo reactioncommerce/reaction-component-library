@@ -189,9 +189,8 @@ jobs:
               --env-file docker-cache/.env \
               -e "SNYK_TOKEN=$SNYK_TOKEN" \
               --name reactionapp_web_1 \
-              -w /usr/local/src \
               "$DOCKER_REPOSITORY:$CIRCLE_SHA1" \
-              sh -c "cp reaction-app/package.json ./ && cp reaction-app/.snyk ./ && snyk test"
+              sh -c "snyk test"
 
   publish-npm-package:
     docker:

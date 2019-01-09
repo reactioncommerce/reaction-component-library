@@ -11,5 +11,4 @@ yarn-offline-mirror-pruning true
 
 --install.cache-folder /home/node/.cache/yarn
 --install.ignore-scripts true
---install.modules-folder /usr/local/src/node_modules
 --install.prefer-offline true
