@@ -64,8 +64,11 @@ RUN chown node "/usr/local/src/reaction-app"
 RUN chown node "/usr/local/src/reaction-app/node_modules"
 RUN chown node "/usr/local/src/reaction-app/package/node_modules"
 
-WORKDIR $APP_SOURCE_DIR/..
-COPY --chown=node package.json yarn.lock $APP_SOURCE_DIR/../
+WORKDIR $APP_SOURCE_DIR
+
+# Note that the two node_modules directories will not be copied during
+# this due to being listed in the `.dockerignore` file.
+COPY --chown=node . $APP_SOURCE_DIR
 
 # Build the dependencies into the Docker image in a cacheable way. Dependencies
 # are only rebuilt when package.json or yarn.lock is modified.
@@ -92,8 +95,7 @@ RUN set -ex; \
       --frozen-lockfile \
       --ignore-scripts \
       --no-cache; \
-  fi; \
-  rm package.json yarn.lock
+  fi;
 
 # For development, we will yarn install on each container start.
 # This ensures that we use our Docker development .yarnrc config
@@ -106,9 +108,6 @@ RUN set -ex; \
 # Note that this will be copied in for a prod build, too, but since
 # we already ran yarn install above, it doesn't matter.
 COPY --chown=node ./.reaction/yarnrc-docker.template /home/node/.yarnrc
-
-WORKDIR $APP_SOURCE_DIR
-COPY --chown=node . $APP_SOURCE_DIR
 
 # Important: Make sure we're the "node" user before we begin doing things because
 # our tools use "/home/node" as the HOME dir.
