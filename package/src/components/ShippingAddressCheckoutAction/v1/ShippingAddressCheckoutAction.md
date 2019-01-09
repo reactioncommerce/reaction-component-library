@@ -5,7 +5,7 @@ The `ShippingAddressCheckoutAction` serves 4 purposes:
   * To provide `CheckoutActions` a way to know the action is ready for save,
   * To Provide `CheckoutActions` a way to capture the `AddressForm` values.
 
-For a full implementation example see the [CheckoutActions](/#!/CheckoutActions)
+Typically you will use this component with the [CheckoutActions](./#!/CheckoutActions) component rather than directly rendering it. For a full implementation example see [CheckoutActions](/#!/CheckoutActions).
 
 ### Usage
 
@@ -199,10 +199,10 @@ const props = {
 };
 
 <div>
-  {state.fulfillmentGroup && state.fulfillmentGroup.data.shippingAddress 
+  {state.fulfillmentGroup && state.fulfillmentGroup.data.shippingAddress
     ? action.renderComplete(state)
     : (<div>
-      <ShippingAddressCheckoutAction {...props} ref={(el) => {_form = el}} /> 
+      <ShippingAddressCheckoutAction {...props} ref={(el) => {_form = el}} />
       <Button onClick={() => {_form.submit()}} isDisabled={!state.isReady} isWaiting={state.isProcessing}>Submit</Button>
     </div>)}
 </div>
@@ -291,10 +291,10 @@ const props = {
 };
 
 <div>
-  {state.fulfillmentGroup && state.fulfillmentGroup.data.shippingAddress 
+  {state.fulfillmentGroup && state.fulfillmentGroup.data.shippingAddress
     ? action.renderComplete(state)
     : (<div>
-      <ShippingAddressCheckoutAction {...props} ref={(el) => {_form = el}} /> 
+      <ShippingAddressCheckoutAction {...props} ref={(el) => {_form = el}} />
       <Button onClick={() => {_form.submit()}} isDisabled={!state.isReady} isWaiting={state.isProcessing}>Submit</Button>
     </div>)}
 </div>

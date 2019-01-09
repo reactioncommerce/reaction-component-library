@@ -489,6 +489,7 @@ module.exports = {
             "ExampleIOUPaymentForm",
             "FinalReviewCheckoutAction",
             "FulfillmentOptionsCheckoutAction",
+            "PaymentsCheckoutAction",
             "ShippingAddressCheckoutAction",
             "StripePaymentCheckoutAction",
             "StripePaymentInput"

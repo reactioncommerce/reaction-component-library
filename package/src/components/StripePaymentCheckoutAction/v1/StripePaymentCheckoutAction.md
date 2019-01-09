@@ -1,4 +1,18 @@
 ### Overview
+
+DEPRECATED. Use [PaymentsCheckoutAction](/#!/PaymentsCheckoutAction) with the following payment method config instead:
+
+```js static
+const paymentMethods = [
+  {
+    displayName: "Credit Card",
+    InputComponent: StripePaymentInput,
+    name: "stripe_card",
+    shouldCollectBillingAddress: true
+  }
+];
+```
+
 This checkout action is responsible for rendering the [StripeForm](/#!/StripeForm) component used to collect payment information. It is also capable of rendering a form to collect billing address information if the user chooses to use a new billing address.
 
 ### Usage
@@ -27,12 +41,12 @@ const alert = {
 };
 
 
-<StripePaymentCheckoutAction 
-  alert={alert}  
-  label="Payment Information" 
+<StripePaymentCheckoutAction
+  alert={alert}
+  label="Payment Information"
   status="incomplete"
   onReadyForSaveChange={isReady}
-  stepNumber={3} 
+  stepNumber={3}
 />
 ```
 

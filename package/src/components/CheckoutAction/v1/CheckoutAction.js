@@ -58,50 +58,40 @@ class CheckoutAction extends Component {
     incompleteLabel: "Incomplete Step"
   };
 
-  renderActiveAction = () => {
+  renderActiveAction() {
     const { activeStepElement, activeLabel, status, stepNumber } = this.props;
 
-    const component = React.cloneElement(activeStepElement, {
+    if (status !== "active") return null;
+
+    return React.cloneElement(activeStepElement, {
       label: (activeStepElement.props && activeStepElement.props.label) || activeLabel,
       stepNumber: (activeStepElement.props && activeStepElement.props.stepNumber) || stepNumber
     });
+  }
 
-    if (status === "active") {
-      return component;
-    }
-
-    return null;
-  };
-
-  renderCompleteAction = () => {
+  renderCompleteAction() {
     const { completeStepElement, completeLabel, status, stepNumber } = this.props;
+
+    if (status !== "complete") return null;
 
     const component = React.cloneElement(completeStepElement, {
       label: (completeStepElement.props && completeStepElement.props.label) || completeLabel,
       stepNumber: (completeStepElement.props && completeStepElement.props.stepNumber) || stepNumber
     });
 
-    if (status === "complete") {
-      return <CompleteActionWrapper>{component}</CompleteActionWrapper>;
-    }
+    return <CompleteActionWrapper>{component}</CompleteActionWrapper>;
+  }
 
-    return null;
-  };
-
-  renderIncompleteAction = () => {
+  renderIncompleteAction() {
     const { incompleteStepElement, incompleteLabel, status, stepNumber } = this.props;
 
-    const component = React.cloneElement(incompleteStepElement, {
+    if (status !== "incomplete") return null;
+
+    return React.cloneElement(incompleteStepElement, {
       label: (incompleteStepElement.props && incompleteStepElement.props.label) || incompleteLabel,
       stepNumber: (incompleteStepElement.props && incompleteStepElement.props.stepNumber) || stepNumber
     });
-
-    if (status === "incomplete") {
-      return component;
-    }
-
-    return null;
-  };
+  }
 
   render() {
     return (
