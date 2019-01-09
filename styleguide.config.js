@@ -500,6 +500,7 @@ module.exports = {
             "AddressChoice",
             "AddressForm",
             "AddressReview",
+            "ExampleIOUPaymentForm",
             "GuestForm",
             "StripeForm"
           ],
