@@ -128,8 +128,6 @@ class CheckoutActions extends Component {
 
   static defaultProps = {};
 
-  state = {};
-
   static getDerivedStateFromProps(props, state) {
     if (!isEqual(props.actions, state.previousActionsProp)) {
       const { currentActions = [] } = state;
@@ -151,6 +149,8 @@ class CheckoutActions extends Component {
 
     return null;
   }
+
+  state = {};
 
   _refs = {};
 
