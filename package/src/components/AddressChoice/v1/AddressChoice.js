@@ -34,7 +34,7 @@ class AddressChoice extends Component {
       SelectableList: CustomPropTypes.component.isRequired
     }),
     /**
-     * Disable editing?
+     * If true, choosing an address and typing in address fields is disabled
      */
     isReadOnly: PropTypes.bool,
     /**

@@ -99,11 +99,12 @@ class AddressForm extends Component {
      */
     isOnDarkBackground: PropTypes.bool,
     /**
-     * Do not allow editing of the form fields
+     * If true, typing in address fields is disabled
      */
     isReadOnly: PropTypes.bool,
     /**
-     * Is the address being saved
+     * Pass true if the address is in the process of being saved.
+     * While true, typing in address fields is disabled.
      */
     isSaving: PropTypes.bool,
     /**

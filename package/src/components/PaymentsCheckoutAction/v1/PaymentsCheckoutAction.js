@@ -27,9 +27,9 @@ class PaymentsCheckoutAction extends Component {
 
   static propTypes = {
     /**
-     * Provide the shipping address and any other known addresses.
+     * Provide the shipping address and any other previously saved addresses.
      * The user will be able to choose from these rather than entering
-     * the billing address, if the billing address is one of them.
+     * the billing address if they want.
      */
     addresses: CustomPropTypes.addressBook,
     /**
@@ -66,7 +66,9 @@ class PaymentsCheckoutAction extends Component {
       SelectableList: CustomPropTypes.component.isRequired
     }),
     /**
-     * Is the payment input being saved?
+     * Pass true while the input data is in the process of being saved.
+     * This is passed down as the `isSaving` prop of each payment method's
+     * InputComponent, and typically will result in the form fields being disabled.
      */
     isSaving: PropTypes.bool,
     /**

@@ -1,6 +1,6 @@
 ### Overview
 
-The `AddressChoice` component is a way of collecting an address while giving an option of choosing an already known address. If no already known addresses are provided, it will render an [AddressForm](./#!/AddressForm). Otherwise it will render a choice list where each address is in the list and the final option is to enter a new address.
+The `AddressChoice` component is a way of collecting an address while giving an option of choosing a previously saved address. If no previously saved addresses are provided, it will render an [AddressForm](./#!/AddressForm). Otherwise it will render a choice list where each address is in the list and the final option is to enter a new address.
 
 ### Usage
 

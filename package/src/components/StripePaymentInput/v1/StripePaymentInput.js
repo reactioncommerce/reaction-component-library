@@ -45,7 +45,8 @@ class StripePaymentInput extends Component {
       StripeForm: CustomPropTypes.component.isRequired
     }),
     /**
-     * Is the payment input being saved?
+     * Pass true while the input data is in the process of being saved.
+     * While true, the form fields are disabled.
      */
     isSaving: PropTypes.bool,
     /**
