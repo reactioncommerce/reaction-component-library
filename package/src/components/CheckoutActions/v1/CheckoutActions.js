@@ -299,12 +299,14 @@ class CheckoutActions extends Component {
     return (
       <Action key={action.id}>
         <CheckoutAction
-          status={actionStatus}
-          {...{ activeLabel, completeLabel, incompleteLabel }}
-          stepNumber={this.getCurrentActionIndex(action.id) + 1}
+          activeLabel={activeLabel}
           activeStepElement={this.renderActiveAction(action)}
+          completeLabel={completeLabel}
           completeStepElement={this.renderCompleteAction(action)}
+          incompleteLabel={incompleteLabel}
           incompleteStepElement={<CheckoutActionIncomplete />}
+          status={actionStatus}
+          stepNumber={this.getCurrentActionIndex(action.id) + 1}
         />
       </Action>
     );

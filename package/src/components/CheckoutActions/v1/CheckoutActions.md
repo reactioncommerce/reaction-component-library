@@ -30,7 +30,7 @@ const actions = [
     incompleteLabel: "Shipping method",
     status: "incomplete",
     component: FulfillmentOptionsCheckoutAction,
-    onSubmit: setFulfillmentOption
+    onSubmit: this.setFulfillmentOption
     props: {
       availableFulfillmentGroups: cart.checkout.fulfillmentGroups[0]
     }
@@ -40,11 +40,16 @@ const actions = [
     activeLabel: "Enter payment information",
     completeLabel: "Payment information",
     incompleteLabel: "Payment information",
-    status: "incomplete",
-    component: PaymentCheckoutAction,
-    onSubmit: setPayment,
+    status: remainingAmountDue === 0 && !actionAlerts["3"] ? "complete" : "incomplete",
+    component: PaymentsCheckoutAction,
+    onSubmit: this.handlePaymentSubmit,
     props: {
-      payment: cart.checkout.payments[0]
+      addresses,
+      alert: actionAlerts["3"],
+      onReset: this.handlePaymentsReset,
+      payments,
+      paymentMethods,
+      remainingAmountDue
     }
   },
   {
@@ -162,14 +167,20 @@ const checkoutSummary = {
   }]
 };
 
-const paymentMethods = [{
-  _id: 1,
-  name: "reactionstripe",
-  data: {
-    billingAddress: null,
-    displayName: null
+const paymentMethods = [
+  {
+    displayName: "Credit Card",
+    InputComponent: StripePaymentInput,
+    name: "stripe_card",
+    shouldCollectBillingAddress: true
+  },
+  {
+    displayName: "IOU",
+    InputComponent: ExampleIOUPaymentForm,
+    name: "iou_example",
+    shouldCollectBillingAddress: true
   }
-}];
+];
 
 class CheckoutActionsExample extends React.Component {
   constructor(props) {
@@ -183,15 +194,16 @@ class CheckoutActionsExample extends React.Component {
         4: null
       },
       checkout: {
-        fulfillmentGroups,
-        payments: paymentMethods
-      }
-    }
-    
+        fulfillmentGroups
+      },
+      payments: []
+    };
+
     this.validateShippingAddress = this.validateShippingAddress.bind(this);
     this.setShippingAddress = this.setShippingAddress.bind(this);
     this.setFulfillmentOption = this.setFulfillmentOption.bind(this);
-    this.setPaymentMethod = this.setPaymentMethod.bind(this);
+    this.handlePaymentSubmit = this.handlePaymentSubmit.bind(this);
+    this.handlePaymentsReset = this.handlePaymentsReset.bind(this);
   }
 
   getFulfillmentOptionStatus() {
@@ -209,14 +221,6 @@ class CheckoutActionsExample extends React.Component {
     return (groupWithoutAddress) ? "incomplete" : "complete";
   }
 
-  getPaymentStatus() {
-    const paymentWithoutData = this.state.checkout.payments.find((payment) => {
-      return !payment.data.displayName;
-    })
-
-    return (paymentWithoutData) ? "incomplete" : "complete";
-  }
-  
   validateShippingAddress(data) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
@@ -227,7 +231,7 @@ class CheckoutActionsExample extends React.Component {
               title: "The address you entered may be incorrect or incomplete.",
               message: "Please review your entered address below. Possible errors are shown in red."
             };
-            
+
             return {
               addressValidationResults: {
                 submittedAddress: data,
@@ -250,15 +254,14 @@ class CheckoutActionsExample extends React.Component {
 
   setShippingAddress(data) {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.setState((state, props) => {
-            const { actionAlerts, checkout } = state;
-            actionAlerts["1"] = null;
-            return {
-              actionAlerts,
-              addressValidationResults: null,
-              checkout: {
-              payments: checkout.payments,
+      setTimeout(() => {
+        this.setState((state, props) => {
+          const { actionAlerts, checkout } = state;
+          actionAlerts["1"] = null;
+          return {
+            actionAlerts,
+            addressValidationResults: null,
+            checkout: {
               fulfillmentGroups: [{
                 data: {
                   shippingAddress: data,
@@ -270,54 +273,46 @@ class CheckoutActionsExample extends React.Component {
           }
         });
         resolve(data);
-        }, 1000, { data });
+      }, 1000, { data });
     });
   }
 
   setFulfillmentOption(data) {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.setState((state, props) => {
-            const { checkout } = state;
-            return {
-              checkout: {
-                payments: checkout.payments,
-                fulfillmentGroups: [{
-                  data: {
-                    shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress
-                  },
-                  selectedFulfillmentOption: data.selectedFulfillmentOption,
-                  availableFulfillmentOptions: checkout.fulfillmentGroups[0].availableFulfillmentOptions
-                }]
-              }
-            };
-          }
-        );
+      setTimeout(() => {
+        this.setState((state, props) => {
+          const { checkout } = state;
+          return {
+            checkout: {
+              fulfillmentGroups: [{
+                data: {
+                  shippingAddress: checkout.fulfillmentGroups[0].data.shippingAddress
+                },
+                selectedFulfillmentOption: data.selectedFulfillmentOption,
+                availableFulfillmentOptions: checkout.fulfillmentGroups[0].availableFulfillmentOptions
+              }]
+            }
+          };
+        });
         resolve(data);
-        }, 1000, { data });
+      }, 1000, { data });
     });
   }
 
-  setPaymentMethod(data) {
-    const { billingAddress, token: { card } } = data;
-    const payment = {
-      data: {
-        billingAddress,
-        displayName: `${card.brand} ending in ${card.last4}`
-      }
-    }
-
+  handlePaymentSubmit(paymentInput) {
     return new Promise((resolve, reject) => {
-        setTimeout(() => {
-          this.setState((state, props) => (
-            { checkout: {
-                fulfillmentGroups: state.checkout.fulfillmentGroups,
-                payments: [payment]
-              }
-            }
-          ));
-          resolve(payment);
-        }, 1000, { payment });
+      setTimeout(() => {
+        this.setState({
+          payments: [...this.state.payments, paymentInput]
+        });
+        resolve();
+      }, 1000);
+    });
+  };
+
+  handlePaymentsReset() {
+    this.setState({
+      payments: []
     });
   }
 
@@ -330,12 +325,16 @@ class CheckoutActionsExample extends React.Component {
   }
 
   render() {
-    const { actionAlerts, addressValidationResults, checkout } = this.state;
+    const { actionAlerts, addressValidationResults, checkout, payments } = this.state;
+
+    const remainingAmountDue = payments.reduce((val, { payment }) => val - (payment.amount || val), 105.75);
+
+    const addresses = checkout.fulfillmentGroups && checkout.fulfillmentGroups[0] && [checkout.fulfillmentGroups[0].data.shippingAddress];
 
     const actions = [
       {
         id: "1",
-        activeLabel: "Enter a shipping address",        
+        activeLabel: "Enter a shipping address",
         completeLabel: "Shipping address",
         incompleteLabel: "Shipping address",
         status: this.getShippingStatus(),
@@ -367,12 +366,16 @@ class CheckoutActionsExample extends React.Component {
         activeLabel: "Enter payment information",
         completeLabel: "Payment information",
         incompleteLabel: "Payment information",
-        status: this.getPaymentStatus(),
-        component: StripePaymentCheckoutAction,
-        onSubmit: this.setPaymentMethod,
+        status: remainingAmountDue === 0 && !actionAlerts["3"] ? "complete" : "incomplete",
+        component: PaymentsCheckoutAction,
+        onSubmit: this.handlePaymentSubmit,
         props: {
-            payment: checkout.payments[0],
-            alert: actionAlerts["3"]
+          addresses,
+          alert: actionAlerts["3"],
+          onReset: this.handlePaymentsReset,
+          payments,
+          paymentMethods,
+          remainingAmountDue
         }
       },
       {

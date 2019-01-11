@@ -46,6 +46,7 @@ function stringifyJSONCircularSafe(obj) {
   "Address",
   "AddressBook",
   "AddressCapture",
+  "AddressChoice",
   "AddressForm",
   "AddressReview",
   "AddressSelect",
@@ -62,6 +63,7 @@ function stringifyJSONCircularSafe(obj) {
   "CheckoutActionComplete",
   "CheckoutActionIncomplete",
   "ErrorsBlock",
+  "ExampleIOUPaymentForm",
   "Field",
   "InlineAlert",
   "InPageMenuItem",
@@ -69,6 +71,7 @@ function stringifyJSONCircularSafe(obj) {
   "ItemEditForm",
   "Link",
   "MiniCartSummary",
+  "PaymentsCheckoutAction",
   "PhoneNumberInput",
   "Price",
   "ProgressiveImage",
@@ -80,7 +83,8 @@ function stringifyJSONCircularSafe(obj) {
   "TextInput",
   "SelectableItem",
   "SelectableList",
-  "StripeForm"
+  "StripeForm",
+  "StripePaymentInput"
 ].forEach((componentName) => {
   mockComponents[componentName] = makeMockedComponent(componentName);
 });
