@@ -48,10 +48,6 @@ const Discount = styled.span`
   ${addTypographyStyles("CartSummaryDiscount", "bodyTextBold")}
 `;
 
-const Surcharge = styled.span`
-  ${addTypographyStyles("CartSummarySurcharge", "bodyText")}
-`;
-
 const Total = styled.span`
   ${addTypographyStyles("CartSummaryTotal", "bodyTextBold")}
 `;
@@ -131,19 +127,6 @@ class CartSummary extends Component {
     );
   }
 
-  renderSurcharge() {
-    const { displaySurcharge, isDense } = this.props;
-
-    return (
-      <tr>
-        <Td isDense={isDense}>Surcharge applied</Td>
-        <TdValue isDense={isDense}>
-          <Surcharge>{displaySurcharge}</Surcharge>
-        </TdValue>
-      </tr>
-    );
-  }
-
   render() {
     const {
       className,
@@ -157,11 +140,11 @@ class CartSummary extends Component {
       isFreeShipping
     } = this.props;
 
-    const shipping = isFreeShipping ? "FREE" : displayShipping;
+    const shipping = (isFreeShipping ? "FREE" : displayShipping) || "-";
     const tax = displayTax || "-";
     const header = !isDense && this.renderHeader();
     const discount = displayDiscount && this.renderDiscount();
-    const surcharge = displaySurcharge && this.renderSurcharge();
+    const surcharge = displaySurcharge || "-";
 
     return (
       <Table className={className} isDense={isDense}>
@@ -176,7 +159,10 @@ class CartSummary extends Component {
             <TdValue isDense={isDense}>{shipping}</TdValue>
           </tr>
           {discount}
-          {surcharge}
+          <tr>
+            <Td isDense={isDense}>Surcharge</Td>
+            <TdValue isDense={isDense}>{surcharge}</TdValue>
+          </tr>
           <tr>
             <Td isDense={isDense}>Tax</Td>
             <TdValue isDense={isDense}>{tax}</TdValue>
