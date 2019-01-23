@@ -157,11 +157,11 @@ class CartSummary extends Component {
       isFreeShipping
     } = this.props;
 
-    const shipping = isFreeShipping ? "FREE" : displayShipping;
+    const shipping = (isFreeShipping ? "FREE" : displayShipping) || "-";
     const tax = displayTax || "-";
     const header = !isDense && this.renderHeader();
     const discount = displayDiscount && this.renderDiscount();
-    const surcharge = displaySurcharge && this.renderSurcharge();
+    const surcharge = (displaySurcharge && this.renderSurcharge()) || "-";
 
     return (
       <Table className={className} isDense={isDense}>
