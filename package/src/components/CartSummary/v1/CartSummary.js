@@ -48,10 +48,6 @@ const Discount = styled.span`
   ${addTypographyStyles("CartSummaryDiscount", "bodyTextBold")}
 `;
 
-const Surcharge = styled.span`
-  ${addTypographyStyles("CartSummarySurcharge", "bodyText")}
-`;
-
 const Total = styled.span`
   ${addTypographyStyles("CartSummaryTotal", "bodyTextBold")}
 `;
