@@ -136,7 +136,7 @@ class CartSummary extends Component {
 
     return (
       <tr>
-        <Td isDense={isDense}>Surcharge applied</Td>
+        <Td isDense={isDense}>Surcharge</Td>
         <TdValue isDense={isDense}>
           <Surcharge>{displaySurcharge}</Surcharge>
         </TdValue>
