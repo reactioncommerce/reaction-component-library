@@ -1,5 +1,9 @@
 ### Overview
 
+The `FulfillmentOptionsCheckoutAction` component is a checkout action component responsible for presenting a list of available fulfillment options (e.g., shipping methods) during a checkout flow. It will render a [SelectableList](./#!/AddressChoice) of the provided options.
+
+Typically you will use this component with the [CheckoutActions](./#!/CheckoutActions) component rather than directly rendering it.
+
 ### Usage
 
 - The cheapest fulfillment option will be selected by default
@@ -144,12 +148,12 @@ const alert = {
 };
 
 
-<FulfillmentOptionsCheckoutAction 
-  alert={alert}  
+<FulfillmentOptionsCheckoutAction
+  alert={alert}
   label="Choose a shipping method"
   fulfillmentGroup={fulfillmentGroup}
   status="incomplete"
-  stepNumber={2} 
+  stepNumber={2}
 />
 ```
 

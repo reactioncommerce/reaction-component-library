@@ -481,15 +481,18 @@ module.exports = {
         generateSection({
           componentNames: [
             "CheckoutAction",
-            "CheckoutActions",
             "CheckoutActionComplete",
             "CheckoutActionIncomplete",
+            "CheckoutActions",
             "CheckoutEmailAddress",
             "CheckoutTopHat",
+            "ExampleIOUPaymentForm",
             "FinalReviewCheckoutAction",
+            "FulfillmentOptionsCheckoutAction",
+            "PaymentsCheckoutAction",
             "ShippingAddressCheckoutAction",
             "StripePaymentCheckoutAction",
-            "FulfillmentOptionsCheckoutAction"
+            "StripePaymentInput"
           ],
           content: "styleguide/src/sections/Checkout.md",
           name: "Checkout"
@@ -497,6 +500,7 @@ module.exports = {
         generateSection({
           componentNames: [
             "AddressCapture",
+            "AddressChoice",
             "AddressForm",
             "AddressReview",
             "GuestForm",
