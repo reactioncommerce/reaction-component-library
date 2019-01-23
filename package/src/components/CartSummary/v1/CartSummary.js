@@ -131,19 +131,6 @@ class CartSummary extends Component {
     );
   }
 
-  renderSurcharge() {
-    const { displaySurcharge, isDense } = this.props;
-
-    return (
-      <tr>
-        <Td isDense={isDense}>Surcharge</Td>
-        <TdValue isDense={isDense}>
-          <Surcharge>{displaySurcharge}</Surcharge>
-        </TdValue>
-      </tr>
-    );
-  }
-
   render() {
     const {
       className,
@@ -161,7 +148,7 @@ class CartSummary extends Component {
     const tax = displayTax || "-";
     const header = !isDense && this.renderHeader();
     const discount = displayDiscount && this.renderDiscount();
-    const surcharge = (displaySurcharge && this.renderSurcharge()) || "-";
+    const surcharge = displaySurcharge || "-";
 
     return (
       <Table className={className} isDense={isDense}>
@@ -176,7 +163,10 @@ class CartSummary extends Component {
             <TdValue isDense={isDense}>{shipping}</TdValue>
           </tr>
           {discount}
-          {surcharge}
+          <tr>
+            <Td isDense={isDense}>Surcharge</Td>
+            <TdValue isDense={isDense}>{surcharge}</TdValue>
+          </tr>
           <tr>
             <Td isDense={isDense}>Tax</Td>
             <TdValue isDense={isDense}>{tax}</TdValue>
