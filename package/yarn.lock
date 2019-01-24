@@ -235,7 +235,6 @@ abbrev@1:
 accounting-js@^1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/accounting-js/-/accounting-js-1.1.1.tgz#7fe4b3f70c01ebe0b85c02c5f107f1393b880c9e"
-  integrity sha1-f+Sz9wwB6+C4XALF8QfxOTuIDJ4=
   dependencies:
     is-string "^1.0.4"
     object-assign "^4.0.1"
@@ -3787,9 +3786,9 @@ math-random@^1.0.1:
   version "1.0.1"
   resolved "https://registry.npmjs.org/math-random/-/math-random-1.0.1.tgz#8b3aac588b8a66e4975e3cdea67f7bb329601fac"
 
-mdi-material-ui@^5.4.0:
-  version "5.4.0"
-  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-5.4.0.tgz#355526e342414bb5a320bd35cdbd4b653fadea18"
+mdi-material-ui@^5.8.0:
+  version "5.8.0"
+  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-5.8.0.tgz#2b92231a37ac52bef46e4ef5450ca7432fec5695"
 
 mem@^1.1.0:
   version "1.1.0"
