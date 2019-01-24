@@ -140,6 +140,7 @@ class CartSummary extends Component {
       isFreeShipping
     } = this.props;
 
+    // Use "-" to indicate we are still calculating this field.
     const shipping = (isFreeShipping ? "FREE" : displayShipping) || "-";
     const tax = displayTax || "-";
     const header = !isDense && this.renderHeader();
