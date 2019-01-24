@@ -35,7 +35,7 @@
     "lodash.isempty": "^4.4.0",
     "lodash.isequal": "^4.5.0",
     "lodash.uniqueid": "^4.0.1",
-    "mdi-material-ui": "^5.4.0",
+    "mdi-material-ui": "^5.8.0",
     "react-is": "^16.4.1",
     "react-select": "^2.0.0"
   },
