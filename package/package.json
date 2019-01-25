@@ -76,7 +76,7 @@
     "access": "public"
   },
   "peerDependencies": {
-    "@reactioncommerce/components-context": "^1.0.0",
+    "@reactioncommerce/components-context": "^1.2.0",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-container-query": "^0.11.0",
