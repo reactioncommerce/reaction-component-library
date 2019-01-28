@@ -56,6 +56,14 @@ const supportedPassthroughProps = [
   "value"
 ];
 
+/**
+ * @summary A function for use in styled-components template string, which
+ *   returns a props function that returns a validation color from the theme
+ *   based on the current validation state reflected in `props`
+ * @param {String} themeProp The name of the theme variable to get the value for
+ * @returns {Function} A function that takes `props` argument and returns the
+ *   value from a custom theme or the default theme.
+ */
 function applyValidationColor(themeProp = "color") {
   return (props) => {
     let status;
@@ -81,6 +89,11 @@ const getSelectLetterSpacing = applyTheme("Select.letterSpacing");
 const getSelectTextColor = applyTheme("Select.textColor");
 const getInputFontFamily = applyTheme("Input.fontFamily");
 
+/**
+ * @summary Returns custom Select styles
+ * @param {Object} props The component props object
+ * @returns {Object} The style object
+ */
 function getCustomStyles(props) {
   const { maxWidth } = props;
 

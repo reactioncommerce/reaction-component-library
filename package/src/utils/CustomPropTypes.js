@@ -2,11 +2,13 @@ import PropTypes from "prop-types";
 import { isValidElementType } from "react-is";
 
 /**
- * We use an Error-like object for backward compatibility as people may call
- * PropTypes directly and inspect their output. However, we don't use real
- * Errors anymore. We don't inspect their stack anyway, and creating them
- * is prohibitively expensive if they are created too often, such as what
- * happens in oneOfType() for any type before the one that matched.
+ * @class PropTypeError
+ * @summary We use an Error-like object for backward compatibility as people may call
+ *   PropTypes directly and inspect their output. However, we don't use real
+ *   Errors anymore. We don't inspect their stack anyway, and creating them
+ *   is prohibitively expensive if they are created too often, such as what
+ *   happens in oneOfType() for any type before the one that matched.
+ * @param {String} message The error message
  */
 function PropTypeError(message) {
   this.message = message;
@@ -23,9 +25,23 @@ const optionsSyntax = PropTypes.arrayOf(PropTypes.shape({
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number, PropTypes.bool]).isRequired
 }));
 
-// See https://github.com/facebook/prop-types/issues/200.
-// If that gets added to prop-types package, we won't need this.
+/**
+ * @summary Get a prop type validator for all valid "components" (element types)
+ *   See https://github.com/facebook/prop-types/issues/200.
+ *   If that gets added to prop-types package, we won't need this.
+ * @returns {Function} Validator
+ */
 function getComponentValidator() {
+  /**
+   * @summary Prop type validator
+   * @param {Boolean} isRequired Is the prop required?
+   * @param {Object} props The full props object
+   * @param {String} propName The name of the prop to validate
+   * @param {String} componentName The name of the component
+   * @param {String} location The location of the component
+   * @param {String} propFullName The full name of the prop being validated
+   * @returns {PropTypeError|null} PropTypeError instance if invalid
+   */
   function checkType(isRequired, props, propName, componentName, location, propFullName) {
     const val = props[propName];
     if (val === null || val === undefined) {
@@ -47,10 +63,10 @@ function getComponentValidator() {
   return chainedCheckType;
 }
 
-// address proptype
+// address prop type
 const addressSyntax = PropTypes.shape({
   /**
-   * Address ID (not all addreses will have an ID)
+   * Address ID (not all addresses will have an ID)
    */
   _id: PropTypes.string,
   /**
@@ -95,10 +111,10 @@ const addressSyntax = PropTypes.shape({
   phone: PropTypes.string
 });
 
-// address book proptype
+// address book prop type
 const addressBookSyntax = PropTypes.arrayOf(addressSyntax);
 
-// alert proptype
+// alert prop type
 const alertSyntax = PropTypes.shape({
   /**
    * The type of alert: Error, Information, Success or Warning

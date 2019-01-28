@@ -8,12 +8,21 @@ import replaceInFiles from "replace-in-files";
 const DIST_FOLDER = path.join(process.cwd(), "dist");
 const COMPONENTS_FOLDER = path.join(DIST_FOLDER, "components");
 
+/**
+ * @summary Copies a file to the build directory
+ * @param {String} file File path
+ * @returns {Promise<undefined>} Nothing
+ */
 async function copyFile(file) {
   const buildPath = path.resolve(process.cwd(), "dist", path.basename(file));
   await fse.copy(file, buildPath);
   console.log(`Copied ${file} to ${buildPath}`);
 }
 
+/**
+ * @summary Copies the package.json file into the `dist` folder
+ * @returns {Promise<Object>} The package.json object
+ */
 async function createPackageFile() {
   const packageData = await fse.readFile(path.resolve(__dirname, "../package.json"), "utf8");
   const { devDependencies, jest, scripts, ...packageDataOther } = JSON.parse(packageData);
@@ -31,7 +40,12 @@ async function createPackageFile() {
   return newPackageData;
 }
 
-// After a component has been moved to `dist` and flattened, change all "../../../utils" to "../../utils"
+/**
+ * @summary After a component has been moved to `dist` and flattened,
+ *   change all "../../../utils" to "../../utils"
+ * @param {String} componentFolderPath The full path to the components folder
+ * @returns {Promise<undefined>} Nothing
+ */
 async function replaceUtilsPathForComponent(componentFolderPath) {
   return replaceInFiles({
     files: `${componentFolderPath}/**/*.js`,
@@ -40,6 +54,10 @@ async function replaceUtilsPathForComponent(componentFolderPath) {
   });
 }
 
+/**
+ * @summary The main post-build script
+ * @returns {Promise<undefined>} Nothing
+ */
 async function run() {
   // After the Babel build step, we have a `dist` folder but we want to remove the extra `components`
   // folder inside it in order to have flatter import paths. We"ll traverse the `dist/components/*`

@@ -4,6 +4,17 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme } from "../../../utils";
 
+/**
+ * @summary A function for use in styled-components template string, which
+ *   returns a props function that returns a value from the theme
+ *   based on the current validation state reflected in `props`.
+ *   If `isOnDarkBackground` prop is `true`, the theme prop with "dark"
+ *   appended is used; otherwise the theme prop with "default" appended
+ *   is used.
+ * @param {String} themeProp The name of the theme variable to get the value for
+ * @returns {Function} A function that takes `props` argument and returns the
+ *   value from a custom theme or the default theme.
+ */
 function applyThemeVariant(themeProp) {
   return (props) => {
     const inputType = props.isOnDarkBackground ? "dark" : "default";
@@ -11,6 +22,14 @@ function applyThemeVariant(themeProp) {
   };
 }
 
+/**
+ * @summary A function for use in styled-components template string, which
+ *   returns a props function that returns a validation color from the theme
+ *   based on the current validation state reflected in `props`
+ * @param {String} themeProp The name of the theme variable to get the value for
+ * @returns {Function} A function that takes `props` argument and returns the
+ *   value from a custom theme or the default theme.
+ */
 function applyValidationColor(themeProp) {
   return (props) => {
     let status;
@@ -27,12 +46,22 @@ function applyValidationColor(themeProp) {
   };
 }
 
-function applyTextareaVariant(textareaProp, inputProp) {
+/**
+ * @summary A function for use in styled-components template string, which
+ *   returns a props function that returns a value from the theme
+ *   based on the current validation state reflected in `props`.
+ *   If `isTextarea` prop is `true`, returns `textareaValue`, else `inputValue`
+ * @param {String} textareaValue The value to use if the input is a textarea
+ * @param {String} inputValue The value to use if the input is an input
+ * @returns {Function} A function that takes `props` argument and returns the
+ *   value from a custom theme or the default theme.
+ */
+function applyTextareaVariant(textareaValue, inputValue) {
   return ({ isTextarea }) => {
     if (isTextarea) {
-      return textareaProp;
+      return textareaValue;
     }
-    return inputProp;
+    return inputValue;
   };
 }
 

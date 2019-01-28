@@ -18,6 +18,15 @@ const validTextTypes = [
   "titleTextBold"
 ];
 
+/**
+ * @summary A function for use in styled-components template string, which
+ *   returns a props function that returns CSS for proper typography styling
+ * @param {String} componentName The component name, for finding component-specific
+ *   typography style overrides in the theme
+ * @param {String} textType One of `validTextTypes`, such as "bodyText"
+ * @returns {Function} A function that takes `props` argument and returns
+ *   CSS for proper typography styling.
+ */
 export default function addTypographyStyles(componentName, textType) {
   if (validTextTypes.indexOf(textType) === -1) {
     throw new Error(`Error in addTypographyStyles. Expected textType argument to be one of ${validTextTypes}. Got ${textType}`);
