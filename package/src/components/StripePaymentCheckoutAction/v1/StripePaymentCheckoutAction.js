@@ -142,6 +142,7 @@ class StripePaymentCheckoutAction extends Component {
     }
 
     this._addressForm.submit();
+    return null;
   }
 
   handleSubmit = async (value) => {
