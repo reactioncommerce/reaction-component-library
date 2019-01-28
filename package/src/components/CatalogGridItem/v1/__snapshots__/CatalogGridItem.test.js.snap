@@ -1,17 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CatalogGridItem basic snapshot 1`] = `
-<div
-  className={undefined}
->
+<div>
   Link({"href":"/product/basic-reaction-product","children":"[Object]"})
 </div>
 `;
 
 exports[`CatalogGridItem with placeholder image 1`] = `
-<div
-  className={undefined}
->
+<div>
   Link({"href":"/product/basic-reaction-product","children":"[Object]"})
 </div>
 `;

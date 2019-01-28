@@ -59,9 +59,7 @@ exports[`basic snapshot 1`] = `
   vertical-align: middle;
 }
 
-<div
-  className={undefined}
->
+<div>
   <div
     className="c0"
   >

@@ -3,7 +3,6 @@
 exports[`alphabetize option snapshot 1`] = `
 <div
   className="css-15mpz6f react-select"
-  id={undefined}
   onKeyDown={[Function]}
 >
   <div
@@ -116,7 +115,6 @@ exports[`alphabetize option snapshot 1`] = `
 exports[`basic snapshot 1`] = `
 <div
   className="css-15mpz6f react-select"
-  id={undefined}
   onKeyDown={[Function]}
 >
   <div

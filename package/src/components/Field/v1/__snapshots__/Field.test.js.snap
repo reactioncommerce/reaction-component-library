@@ -100,14 +100,11 @@ exports[`renders with help text 1`] = `
   >
     <input
       className="c2"
-      id={undefined}
-      maxLength={undefined}
       name="test"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       onKeyPress={[Function]}
-      placeholder={undefined}
       readOnly={false}
       type="text"
       value=""
@@ -218,7 +215,6 @@ exports[`renders with label 1`] = `
 >
   <label
     className="c1"
-    htmlFor={undefined}
   >
     Foo
   </label>
@@ -231,14 +227,11 @@ exports[`renders with label 1`] = `
   >
     <input
       className="c3"
-      id={undefined}
-      maxLength={undefined}
       name="test"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       onKeyPress={[Function]}
-      placeholder={undefined}
       readOnly={false}
       type="text"
       value=""
@@ -330,14 +323,11 @@ exports[`renders with no help text 1`] = `
   >
     <input
       className="c2"
-      id={undefined}
-      maxLength={undefined}
       name="test"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       onKeyPress={[Function]}
-      placeholder={undefined}
       readOnly={false}
       type="text"
       value=""
@@ -429,14 +419,11 @@ exports[`renders with no label 1`] = `
   >
     <input
       className="c2"
-      id={undefined}
-      maxLength={undefined}
       name="test"
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
       onKeyPress={[Function]}
-      placeholder={undefined}
       readOnly={false}
       type="text"
       value=""

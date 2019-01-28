@@ -28,9 +28,7 @@ exports[`basic snapshot 1`] = `
   border-bottom-width: 0;
 }
 
-<div
-  className={undefined}
->
+<div>
   <div
     className="c0"
   >
