@@ -74,4 +74,8 @@ ignore:
     - node-pre-gyp > request > http-signature > sshpk:
         reason: No way to fix
         expires: '2018-08-31T14:45:41.656Z'
+  'npm:mem:20180117':
+    - libnpx > yargs > os-locale > mem:
+        reason: No update available
+        expires: '2019-02-27T23:23:28.353Z'
 patch: {}
