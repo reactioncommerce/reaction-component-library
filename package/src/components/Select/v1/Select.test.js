@@ -21,7 +21,7 @@ function simulateChanged(wrapper, value) {
   const labelToSelect = value.toString().toUpperCase();
   const selectOption = wrapper
     .find("[role=\"option\"]")
-    .findWhere((n) => (n.props().children || "").trim() === labelToSelect);
+    .findWhere((option) => (option.props().children || "").trim() === labelToSelect);
   wrapper.setState({ focusedOption: undefined });
 
   selectOption.simulate("click");

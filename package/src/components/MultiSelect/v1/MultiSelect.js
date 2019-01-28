@@ -611,8 +611,8 @@ class MultiSelect extends Component {
       optionValue = [];
       reactSelectOptions.forEach((opt) => {
         if (opt.options) {
-          opt.options.forEach((o) => {
-            if (value.includes(o.value)) optionValue.push(o);
+          opt.options.forEach((subOpt) => {
+            if (value.includes(subOpt.value)) optionValue.push(subOpt);
           });
         }
         if (value.includes(opt.value)) optionValue.push(opt);

@@ -589,7 +589,7 @@ class Select extends Component {
     let optionValue = null;
     if (value !== undefined && value !== null) {
       optionValue = reactSelectOptions.find((opt) => {
-        if (opt.options) return opt.options.find((o) => o.value === value);
+        if (opt.options) return opt.options.find((subOpt) => subOpt.value === value);
         return opt.value === value;
       });
     }
