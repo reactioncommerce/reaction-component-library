@@ -198,27 +198,27 @@ class Select extends Component {
     /**
      * Alphabetize by option label
      */
-    alphabetize: PropTypes.bool,
+    alphabetize: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
     /**
      * Passed through to react-select package. Focus the control when it is mounted
      */
-    autoFocus: PropTypes.bool,
+    autoFocus: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Remove the currently focused option when the user presses backspace
      */
-    backspaceRemovesValue: PropTypes.bool,
+    backspaceRemovesValue: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package.
      * Remove focus from the input when the user selects an option (handy for dismissing the keyboard on touch devices)
      */
-    blurInputOnSelect: PropTypes.bool,
+    blurInputOnSelect: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
      */
-    captureMenuScroll: PropTypes.bool,
+    captureMenuScroll: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
@@ -230,7 +230,7 @@ class Select extends Component {
     /**
      * Passed through to react-select package. Close the select menu when the user selects an option
      */
-    closeMenuOnSelect: PropTypes.bool,
+    closeMenuOnSelect: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Custom components to use
@@ -245,7 +245,7 @@ class Select extends Component {
     /**
      * Passed through to react-select package. Clear all values when the user presses escape AND the menu is closed
      */
-    escapeClearsValue: PropTypes.bool,
+    escapeClearsValue: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Formats group labels in the menu as React components
@@ -275,7 +275,7 @@ class Select extends Component {
     /**
      * Passed through to react-select package. Hide the selected option from the menu
      */
-    hideSelectedOptions: PropTypes.bool,
+    hideSelectedOptions: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. The value of the search input
@@ -330,7 +330,7 @@ class Select extends Component {
     /**
      * Passed through to react-select package. Whether the menu is open
      */
-    menuIsOpen: PropTypes.bool,
+    menuIsOpen: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Default placement of the menu in relation to the control. 'auto' will flip
@@ -427,12 +427,12 @@ class Select extends Component {
     /**
      * Passed through to react-select package. Whether the menu should be scrolled into view when it opens
      */
-    scrollMenuIntoView: PropTypes.bool,
+    scrollMenuIntoView: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Select the currently focused option when the user presses tab
      */
-    tabSelectsValue: PropTypes.bool,
+    tabSelectsValue: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing

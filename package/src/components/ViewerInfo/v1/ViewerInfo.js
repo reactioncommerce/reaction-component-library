@@ -36,7 +36,7 @@ class ViewerInfo extends Component {
     /**
      * Enable this prop when you only want to display the initials/avatar on all screens
      */
-    compact: PropTypes.bool,
+    compact: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
     /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
@@ -53,7 +53,7 @@ class ViewerInfo extends Component {
     /**
      * Enable this prop when you want to display the initials and first name on all screens
      */
-    full: PropTypes.bool,
+    full: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
     /**
     * An object containing basic user information.
     */
