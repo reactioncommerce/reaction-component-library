@@ -4,9 +4,9 @@ import debounce from "lodash.debounce";
 const DEBOUNCE_MS = 600;
 
 /**
- * Wraps a function to prevent accidental double-clicks from
- * executing it too often.
+ * @summary Wraps a function to prevent accidental double-clicks from executing it too often.
  * @param {Function} func - The onClick function to return, debounced
+ * @returns {undefined}
  */
 export default function preventAccidentalDoubleClick(func) {
   return debounce(func, DEBOUNCE_MS, {

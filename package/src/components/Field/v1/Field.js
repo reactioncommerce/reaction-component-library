@@ -4,6 +4,14 @@ import styled from "styled-components";
 import isEmpty from "lodash.isempty";
 import { addTypographyStyles, applyTheme } from "../../../utils";
 
+/**
+ * @summary A function for use in styled-components template string, which
+ *   returns a props function that returns a validation color from the theme
+ *   based on the current validation state reflected in `props`
+ * @param {String} themeProp The name of the theme variable to get the value for
+ * @returns {Function} A function that takes `props` argument and returns the
+ *   value from a custom theme or the default theme.
+ */
 function applyValidationColor(themeProp) {
   return (props) => {
     let status;

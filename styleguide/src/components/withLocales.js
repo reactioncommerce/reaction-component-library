@@ -4,6 +4,11 @@ import isEmpty from "lodash.isempty";
 
 const DEFAULT_LOCALES_PATH = "./utils/locales/locales.json";
 
+/**
+ * @summary Creates a HOC that provides `locales` prop
+ * @param {React.Component|Function} ComponentWithLocales The component class or function to wrap
+ * @returns {React.Component} Higher order component
+ */
 export default function withLocales(ComponentWithLocales) {
   class WithLocales extends Component {
     static propTypes = {
@@ -26,6 +31,7 @@ export default function withLocales(ComponentWithLocales) {
       if (isEmpty(currentLocales)) {
         await this.loadLocales().then((locales) => {
           this.setState({ locales });
+          return null;
         });
       }
     }
@@ -47,5 +53,7 @@ export default function withLocales(ComponentWithLocales) {
     }
   }
 
+  /* eslint-disable react/display-name,react/no-multi-comp */
   return React.forwardRef((props, ref) => <WithLocales {...props} forwardRef={ref} />);
+  /* eslint-enable react/display-name,react/no-multi-comp */
 }

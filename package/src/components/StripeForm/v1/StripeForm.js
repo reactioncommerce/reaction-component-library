@@ -11,6 +11,16 @@ import styled from "styled-components";
 import { withComponents } from "@reactioncommerce/components-context";
 import { applyTheme, withStripeElements } from "../../../utils";
 
+/**
+ * @summary A function for use in styled-components template string, which
+ *   returns a props function that returns a value from the theme
+ *   based on the current focused state reflected in `props`.
+ *   If `isFocused` is `true`, uses theme prop with "focus" appended; otherwise
+ *   uses theme prop with "default" appended.
+ * @param {String} themeProp The name of the theme variable to get the value for
+ * @returns {Function} A function that takes `props` argument and returns the
+ *   value from a custom theme or the default theme.
+ */
 function fieldBorderColor(themeProp) {
   return (props) => {
     let status = "default";

@@ -89,9 +89,7 @@ class QuantityInput extends Component {
 
     const numericValue = Math.floor(Number(value));
 
-    if (Number.isNaN(numericValue)) {
-      return null;
-    }
+    if (Number.isNaN(numericValue)) return;
 
     this.setState({ value: numericValue });
     this.handleChanged(numericValue);
