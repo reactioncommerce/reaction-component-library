@@ -57,6 +57,14 @@ const supportedPassthroughProps = [
   "value"
 ];
 
+/**
+ * @summary A function for use in styled-components template string, which
+ *   returns a props function that returns a validation color from the theme
+ *   based on the current validation state reflected in `props`
+ * @param {String} themeProp The name of the theme variable to get the value for
+ * @returns {Function} A function that takes `props` argument and returns the
+ *   value from a custom theme or the default theme.
+ */
 function applyValidationColor(themeProp = "color") {
   return (props) => {
     let status;
@@ -82,6 +90,11 @@ const getSelectLetterSpacing = applyTheme("MultiSelect.letterSpacing");
 const getSelectTextColor = applyTheme("MultiSelect.textColor");
 const getInputFontFamily = applyTheme("Input.fontFamily");
 
+/**
+ * @summary Returns custom Select styles
+ * @param {Object} props The component props object
+ * @returns {Object} The style object
+ */
 function getCustomStyles(props) {
   const { maxWidth } = props;
 
@@ -217,27 +230,27 @@ class MultiSelect extends Component {
     /**
      * Alphabetize by option label
      */
-    alphabetize: PropTypes.bool,
+    alphabetize: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
     /**
      * Passed through to react-select package. Focus the control when it is mounted
      */
-    autoFocus: PropTypes.bool,
+    autoFocus: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Remove the currently focused option when the user presses backspace
      */
-    backspaceRemovesValue: PropTypes.bool,
+    backspaceRemovesValue: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package.
      * Remove focus from the input when the user selects an option (handy for dismissing the keyboard on touch devices)
      */
-    blurInputOnSelect: PropTypes.bool,
+    blurInputOnSelect: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. When the user reaches the top/bottom of the menu, prevent scroll on the scroll-parent
      */
-    captureMenuScroll: PropTypes.bool,
+    captureMenuScroll: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
@@ -249,7 +262,7 @@ class MultiSelect extends Component {
     /**
      * Passed through to react-select package. Close the select menu when the user selects an option
      */
-    closeMenuOnSelect: PropTypes.bool,
+    closeMenuOnSelect: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Custom components to use
@@ -269,7 +282,7 @@ class MultiSelect extends Component {
     /**
      * Passed through to react-select package. Clear all values when the user presses escape AND the menu is closed
      */
-    escapeClearsValue: PropTypes.bool,
+    escapeClearsValue: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Formats group labels in the menu as React components
@@ -299,7 +312,7 @@ class MultiSelect extends Component {
     /**
      * Passed through to react-select package. Hide the selected option from the menu
      */
-    hideSelectedOptions: PropTypes.bool,
+    hideSelectedOptions: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. The value of the search input
@@ -354,7 +367,7 @@ class MultiSelect extends Component {
     /**
      * Passed through to react-select package. Whether the menu is open
      */
-    menuIsOpen: PropTypes.bool,
+    menuIsOpen: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Default placement of the menu in relation to the control. 'auto' will flip
@@ -451,12 +464,12 @@ class MultiSelect extends Component {
     /**
      * Passed through to react-select package. Whether the menu should be scrolled into view when it opens
      */
-    scrollMenuIntoView: PropTypes.bool,
+    scrollMenuIntoView: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Passed through to react-select package. Select the currently focused option when the user presses tab
      */
-    tabSelectsValue: PropTypes.bool,
+    tabSelectsValue: PropTypes.bool, // eslint-disable-line react/boolean-prop-naming
 
     /**
      * Set this to the current saved value, if editing, or a default value if creating. The closest form implementing
@@ -598,8 +611,8 @@ class MultiSelect extends Component {
       optionValue = [];
       reactSelectOptions.forEach((opt) => {
         if (opt.options) {
-          opt.options.forEach((o) => {
-            if (value.includes(o.value)) optionValue.push(o);
+          opt.options.forEach((subOpt) => {
+            if (value.includes(subOpt.value)) optionValue.push(subOpt);
           });
         }
         if (value.includes(opt.value)) optionValue.push(opt);
