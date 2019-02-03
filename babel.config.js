@@ -23,8 +23,7 @@ module.exports = function (api) {
     "babel-plugin-styled-components",
     ["@babel/plugin-proposal-decorators", { legacy: true }],
     ["@babel/plugin-proposal-class-properties", { loose: true }],
-    "@babel/plugin-syntax-dynamic-import",
-    "@babel/plugin-proposal-optional-chaining"
+    "@babel/plugin-syntax-dynamic-import"
   ];
 
   return {
