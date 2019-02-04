@@ -2,7 +2,6 @@
 
 exports[`basic snapshot 1`] = `
 <div
-  aria-describedby={undefined}
   className="MuiFormControl-root-4"
 >
   <div
@@ -15,7 +14,6 @@ exports[`basic snapshot 1`] = `
       <button
         className="MuiButtonBase-root-42 QuantityInput-incrementButton-1"
         color="default"
-        disabled={undefined}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -34,7 +32,6 @@ exports[`basic snapshot 1`] = `
         <svg
           aria-hidden="true"
           className="MuiSvgIcon-root-45"
-          color={undefined}
           focusable="false"
           role="presentation"
           style={
@@ -52,22 +49,13 @@ exports[`basic snapshot 1`] = `
     </div>
     <input
       aria-invalid={false}
-      autoComplete={undefined}
-      autoFocus={undefined}
       className="MuiInputBase-input-31 MuiInput-input-16 QuantityInput-quantityInput-3 MuiInputBase-inputAdornedStart-36 MuiInputBase-inputAdornedEnd-37"
-      defaultValue={undefined}
       disabled={false}
       id="addToCartQuantityInput"
-      name={undefined}
       onBlur={[Function]}
       onChange={[Function]}
       onFocus={[Function]}
-      onKeyDown={undefined}
-      onKeyUp={undefined}
-      placeholder={undefined}
-      readOnly={undefined}
       required={false}
-      rows={undefined}
       type="text"
       value={0}
     />
@@ -77,7 +65,6 @@ exports[`basic snapshot 1`] = `
       <button
         className="MuiButtonBase-root-42 QuantityInput-incrementButton-1"
         color="default"
-        disabled={undefined}
         onBlur={[Function]}
         onClick={[Function]}
         onFocus={[Function]}
@@ -96,7 +83,6 @@ exports[`basic snapshot 1`] = `
         <svg
           aria-hidden="true"
           className="MuiSvgIcon-root-45"
-          color={undefined}
           focusable="false"
           role="presentation"
           style={

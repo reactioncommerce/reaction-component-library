@@ -5,9 +5,7 @@ exports[`basic snapshot with all props 1`] = `
   margin-top: 40px;
 }
 
-<div
-  className={undefined}
->
+<div>
   <div
     className="c0"
   >
@@ -26,9 +24,7 @@ exports[`basic snapshot with only required props 1`] = `
   margin-top: 40px;
 }
 
-<div
-  className={undefined}
->
+<div>
   <div
     className="c0"
   >

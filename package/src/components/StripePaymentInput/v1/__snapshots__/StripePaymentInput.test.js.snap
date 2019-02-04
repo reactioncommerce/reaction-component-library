@@ -26,9 +26,7 @@ exports[`basic snapshot 1`] = `
   vertical-align: super;
 }
 
-<div
-  className={undefined}
->
+<div>
   StripeForm({})
   <div
     className="c0"

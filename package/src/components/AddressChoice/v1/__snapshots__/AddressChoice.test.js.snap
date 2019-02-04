@@ -1,25 +1,19 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`simple snapshot 1`] = `
-<div
-  className={undefined}
->
+<div>
   AddressForm({"isReadOnly":false})
 </div>
 `;
 
 exports[`simple snapshot read only 1`] = `
-<div
-  className={undefined}
->
+<div>
   AddressForm({"isReadOnly":true})
 </div>
 `;
 
 exports[`snapshot with addresses 1`] = `
-<div
-  className={undefined}
->
+<div>
   SelectableList({"name":"addressList","isReadOnly":false,"options":"[Object]","value":"0"})
 </div>
 `;

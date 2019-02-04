@@ -16,9 +16,7 @@ exports[`basic snapshot 1`] = `
   line-height: 1.25;
 }
 
-<div
-  className={undefined}
->
+<div>
   <h3
     className="c0"
   >
@@ -54,9 +52,7 @@ exports[`snapshot with a partial payment 1`] = `
   line-height: 1.25;
 }
 
-<div
-  className={undefined}
->
+<div>
   <h3
     className="c0"
   >
@@ -93,9 +89,7 @@ exports[`snapshot with an alert 1`] = `
   line-height: 1.25;
 }
 
-<div
-  className={undefined}
->
+<div>
   <h3
     className="c0"
   >

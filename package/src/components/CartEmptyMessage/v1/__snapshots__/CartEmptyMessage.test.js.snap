@@ -120,7 +120,6 @@ Array [
       onKeyPress={[Function]}
       role="button"
       tabIndex={0}
-      title={undefined}
     >
       <div>
         Custom button text
@@ -260,7 +259,6 @@ Array [
       onKeyPress={[Function]}
       role="button"
       tabIndex={0}
-      title={undefined}
     >
       <div>
         Continue shopping
