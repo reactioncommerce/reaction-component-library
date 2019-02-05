@@ -51,7 +51,7 @@ import SelectableItem from "../../package/src/components/SelectableItem/v1";
 import SelectableList from "../../package/src/components/SelectableList/v1";
 import TextInput from "../../package/src/components/TextInput/v1";
 // locales higher order component
-import withLocales from "./components/withLocales.js";
+import withLocales from "./components/withLocales";
 
 // Providing default locales to AddressForm in the components-context.
 // This way consuming components will have locales automatically.

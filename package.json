@@ -73,11 +73,11 @@
       "<rootDir>/package/src/setupTests.js"
     ],
     "testPathIgnorePatterns": [
-      "/config/",
-      "/node_modules/",
-      "/reports/",
-      "/package/dist/",
-      "/package/node_modules/"
+      "<rootDir>/config/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/reports/",
+      "<rootDir>/package/dist/",
+      "<rootDir>/package/node_modules/"
     ],
     "transform": {
       "^.+\\.jsx?$": "./babel.jest.js"
@@ -88,8 +88,8 @@
     "suiteName": "jest-tests"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "@reactioncommerce/components-context": "^1.2.0",
-    "babel-polyfill": "^6.26.0",
     "prop-types": "15.6.2",
     "react": "16.4.2",
     "react-container-query": "^0.11.0",
@@ -111,6 +111,7 @@
     "@babel/plugin-proposal-throw-expressions": "7.2.0",
     "@babel/plugin-syntax-dynamic-import": "7.2.0",
     "@babel/plugin-syntax-import-meta": "7.2.0",
+    "@babel/plugin-transform-runtime": "7.2.0",
     "@babel/preset-env": "7.3.1",
     "@babel/preset-react": "^7.0.0",
     "@commitlint/cli": "7.0.0",
@@ -148,7 +149,7 @@
     "html-webpack-plugin": "2.29.0",
     "husky": "1.0.0-rc.9",
     "ignore-loader": "^0.1.2",
-    "jest": "24.0.0",
+    "jest": "^24.1.0",
     "jest-junit": "6.1.0",
     "jest-styled-components": "6.3.1",
     "object-assign": "4.1.1",

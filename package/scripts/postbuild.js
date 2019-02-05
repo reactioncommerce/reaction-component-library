@@ -1,12 +1,34 @@
 /* eslint-disable no-console */
-/* Much of this is borrowed from https://github.com/mui-org/material-ui/blob/master/packages/material-ui/scripts/copy-files.js */
+/* Some of this is borrowed from https://github.com/mui-org/material-ui/blob/master/packages/material-ui/scripts/copy-files.js */
 
-import path from "path";
-import fse from "fs-extra";
-import replaceInFiles from "replace-in-files";
+const path = require("path");
+const fse = require("fs-extra");
+const replaceInFiles = require("replace-in-files");
 
 const DIST_FOLDER = path.join(process.cwd(), "dist");
+const DIST_MODULES_FOLDER = path.join(process.cwd(), "dist-modules-temp");
 const COMPONENTS_FOLDER = path.join(DIST_FOLDER, "components");
+
+/**
+ * @summary Recursively changes all files with one extension to another
+ * @param {String} fullDirPath Directory path
+ * @param {String} ext Extension to look for
+ * @param {String} newExt Extension to change to
+ * @returns {Promise<undefined>} Nothing
+ */
+async function recursivelyChangeExtension(fullDirPath, ext, newExt) {
+  const directoryContents = await fse.readdir(fullDirPath);
+  const promises = directoryContents.map(async (item) => {
+    const childPath = path.join(fullDirPath, item);
+    if (item.indexOf(".") === -1) return recursivelyChangeExtension(childPath, ext, newExt);
+
+    if (!item.endsWith(`.${ext}`)) return null;
+
+    await fse.copy(childPath, childPath.replace(`.${ext}`, `.${newExt}`));
+    await fse.remove(childPath);
+  });
+  await Promise.all(promises);
+}
 
 /**
  * @summary Copies a file to the build directory
@@ -28,8 +50,8 @@ async function createPackageFile() {
   const { devDependencies, jest, scripts, ...packageDataOther } = JSON.parse(packageData);
   const newPackageData = {
     ...packageDataOther,
-    main: "./index.js"
-    // module: "./index.es.js"
+    main: "index",
+    module: "index.mjs"
   };
   const buildPath = path.resolve(__dirname, "../dist/package.json");
   const stringPackageJson = JSON.stringify(newPackageData, null, 2);
@@ -55,11 +77,27 @@ async function replaceUtilsPathForComponent(componentFolderPath) {
 }
 
 /**
- * @summary The main post-build script
+ * @summary The main post-build script.
+ *   1. Rename all `.js` files in `dist-modules-temp` to `.mjs` extension
+ *   2. Copy all `.mjs` files into `dist`
+ *   3. Delete `dist-modules-temp`
+ *   4. Move components up to `dist` root and delete `components` folder
+ *   5. Copy `package.json` and markdown files into `dist`
+ *
+ *   `dist` is now ready to be published in the final package structure
  * @returns {Promise<undefined>} Nothing
  */
 async function run() {
-  // After the Babel build step, we have a `dist` folder but we want to remove the extra `components`
+  // Rename all `.js` files in `dist-modules-temp` to `.mjs` extension
+  await recursivelyChangeExtension(DIST_MODULES_FOLDER, "js", "mjs");
+
+  // Copy all `.mjs` files into `dist`
+  await fse.copy(DIST_MODULES_FOLDER, DIST_FOLDER);
+
+  // Delete `dist-modules-temp`
+  await fse.remove(DIST_MODULES_FOLDER);
+
+  // We now have a `dist` folder but we want to remove the extra `components`
   // folder inside it in order to have flatter import paths. We"ll traverse the `dist/components/*`
   // folders here and move them up a level.
   const directoryContents = await fse.readdir(COMPONENTS_FOLDER);
