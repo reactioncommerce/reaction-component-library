@@ -11,6 +11,7 @@
   },
   "license": "Apache-2.0",
   "private": false,
+  "sideEffects": false,
   "scripts": {
     "prebuild": "rimraf dist && rimraf dist-modules-temp && node ./scripts/prebuild.js",
     "build": "npm run build:common && npm run build:modules",
