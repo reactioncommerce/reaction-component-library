@@ -69,8 +69,14 @@ async function createPackageFile() {
  * @returns {Promise<undefined>} Nothing
  */
 async function replaceUtilsPathForComponent(componentFolderPath) {
-  return replaceInFiles({
+  await replaceInFiles({
     files: `${componentFolderPath}/**/*.js`,
+    from: /\.\.\/\.\.\/utils/g,
+    to: "../utils"
+  });
+
+  await replaceInFiles({
+    files: `${componentFolderPath}/**/*.mjs`,
     from: /\.\.\/\.\.\/utils/g,
     to: "../utils"
   });
