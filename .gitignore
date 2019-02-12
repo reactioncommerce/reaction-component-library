@@ -7,6 +7,7 @@ node_modules
 reports/*
 **/package-lock.json
 dist
+dist-modules-temp
 
 styleguide/build/
 styleguide/favicon.ico

@@ -522,7 +522,7 @@ module.exports = {
       ]
     }
   ],
-  require: ["babel-polyfill", path.join(__dirname, "styleguide/src/styles.css")],
+  require: ["@babel/polyfill", path.join(__dirname, "styleguide/src/styles.css")],
   webpackConfig: {
     devtool: "source-map",
     module: {
