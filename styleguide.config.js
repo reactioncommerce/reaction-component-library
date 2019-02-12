@@ -455,15 +455,13 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
-            "BadgeOverlay",
-            "CatalogGridItem",
-            "CatalogGrid",
-            "InventoryStatus",
-            "Price",
-            "StockWarning"
+            "AccountProfileInfo",
+            "AddressBook",
+            "ProfileImage",
+            "ViewerInfo"
           ],
-          content: "styleguide/src/sections/Product.md",
-          name: "Product"
+          content: "styleguide/src/sections/Account.md",
+          name: "Account"
         }),
         generateSection({
           componentNames: [
@@ -511,13 +509,22 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
-            "AccountProfileInfo",
-            "AddressBook",
-            "ProfileImage",
-            "ViewerInfo"
+            "BadgeStatus"
           ],
-          content: "styleguide/src/sections/Account.md",
-          name: "Account"
+          content: "styleguide/src/sections/Order.md",
+          name: "Order"
+        }),
+        generateSection({
+          componentNames: [
+            "BadgeOverlay",
+            "CatalogGridItem",
+            "CatalogGrid",
+            "InventoryStatus",
+            "Price",
+            "StockWarning"
+          ],
+          content: "styleguide/src/sections/Product.md",
+          name: "Product"
         })
       ]
     }
