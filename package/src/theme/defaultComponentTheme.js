@@ -140,6 +140,27 @@ const rui_components = {
     paddingRight: padding.eight,
     paddingTop: padding.four
   },
+  BadgeStatus: {
+    backgroundColor_default: colors.white,
+    backgroundColor_orderReceived: colors.darkBlue300,
+    backgroundColor_shipped: colors.reactionBlue,
+    borderBottomLeftRadius: "18px",
+    borderBottomRightRadius: "18px",
+    borderTopLeftRadius: "18px",
+    borderTopRightRadius: "18px",
+    color_default: colors.black,
+    color_orderReceived: colors.white,
+    color_shipped: colors.white,
+    fadedOpacity: "0.5",
+    fontSize: "14px",
+    fontWeight: "800",
+    lineHeight: "18px",
+    paddingBottom: padding.six,
+    paddingLeft: padding.twelve,
+    paddingRight: padding.twelve,
+    paddingTop: padding.six,
+    width: "auto"
+  },
   Button: {
     backgroundColor_danger_active: colors.red400,
     backgroundColor_danger_disabled: colors.coolGrey200,
