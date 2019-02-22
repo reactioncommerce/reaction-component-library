@@ -99,8 +99,8 @@ Assume that any theme prop that does not begin with "rui" is within `rui_compone
 
 - The left column header uses `bodyText` style with `rui_components.CartSummaryLeftColumnHeader` override
 - The right column header uses `bodyText` style with `rui_components.CartSummaryRightColumnHeader` override
-- The left column uses `bodyText` style with `rui_components.CartSummaryLeftColumn` override
-- The right column uses `bodyText` style with `rui_components.CartSummaryRightColumn` override
+- The left column uses `labelText` style with `rui_components.CartSummaryLeftColumn` override
+- The right column uses `labelText` style with `rui_components.CartSummaryRightColumn` override
 - The title uses `bodyTextBold` style with `rui_components.CartSummaryTitle` override
 - The discount value uses `bodyTextBold` style with `rui_components.CartSummaryDiscount` override
-- The total value uses `bodyTextBold` style with `rui_components.CartSummaryTotal` override
+- The total value uses `subheadingTextBold` style with `rui_components.CartSummaryTotal` override
