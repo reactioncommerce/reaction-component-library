@@ -141,7 +141,10 @@ const items = [{
   productVendor: "Patagonia",
   productSlug: "product-slug",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 },
 {
   _id: "456",
@@ -192,7 +195,10 @@ const items = [{
   productVendor: "Patagonia",
   productSlug: "product-slug",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 },
 {
   _id: "456",
