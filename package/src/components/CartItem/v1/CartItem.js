@@ -80,7 +80,7 @@ const ItemContentQuantityInput = styled.div`
 `;
 
 const ItemContentPrice = styled.div`
-  position: ${(props) => (props.isMiniCart ? "absolute" : "initial")};
+  position: ${(props) => (props.isMiniCart ? "initial" : "initial")};
   bottom: ${applyTheme("CartItem.paddingBottom")};
   right: 0;
   text-align: right;
@@ -93,7 +93,7 @@ const ItemContentPrice = styled.div`
 `;
 
 const ItemContentSubtotal = styled.div`
-  position: ${(props) => (props.isMiniCart ? "initial" : "absolute")};
+  position: ${(props) => (props.isMiniCart ? "absolute" : "absolute")};
   margin-top: ${(props) => (props.isMiniCart ? applyTheme("CartItem.subtotalDisplaySpacingAbove")(props) : "0")};
   bottom: ${applyTheme("CartItem.paddingBottom")};
   right: 0;
