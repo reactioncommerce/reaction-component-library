@@ -509,13 +509,6 @@ module.exports = {
         }),
         generateSection({
           componentNames: [
-            "BadgeStatus"
-          ],
-          content: "styleguide/src/sections/Order.md",
-          name: "Order"
-        }),
-        generateSection({
-          componentNames: [
             "BadgeOverlay",
             "CatalogGridItem",
             "CatalogGrid",
@@ -529,7 +522,7 @@ module.exports = {
       ]
     }
   ],
-  require: ["babel-polyfill", path.join(__dirname, "styleguide/src/styles.css")],
+  require: ["@babel/polyfill", path.join(__dirname, "styleguide/src/styles.css")],
   webpackConfig: {
     devtool: "source-map",
     module: {
