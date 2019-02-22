@@ -24,7 +24,7 @@ const Thr = styled.th`
 `;
 
 const Td = styled.td`
-  ${addTypographyStyles("CartSummaryLeftColumn", "bodyText")}
+  ${addTypographyStyles("CartSummaryLeftColumn", "labelText")}
   border-top-color: ${applyTheme("CartSummary.borderColor")};
   border-top-style: solid;
   border-top-width: ${(props) => (props.isBordered ? applyTheme("CartSummary.borderWidth")(props) : "0")};
@@ -36,7 +36,7 @@ const Td = styled.td`
 `;
 
 const TdValue = styled(Td)`
-  ${addTypographyStyles("CartSummaryRightColumn", "bodyText")}
+  ${addTypographyStyles("CartSummaryRightColumn", "labelText")}
   text-align: right;
 `;
 
@@ -45,11 +45,48 @@ const Title = styled.span`
 `;
 
 const Discount = styled.span`
-  ${addTypographyStyles("CartSummaryDiscount", "bodyTextBold")}
+  ${addTypographyStyles("CartSummaryDiscount", "labelTextBold")}
+`;
+
+
+const TdTax = styled.td`
+  ${addTypographyStyles("CartSummaryLeftColumn", "labelText")}
+  border-top-color: ${applyTheme("CartSummary.borderColor")};
+  border-top-style: solid;
+  border-top-width: ${(props) => (props.isBordered ? applyTheme("CartSummary.borderWidth")(props) : "0")};
+  padding-bottom: ${applyTheme("CartSummary.rowPaddingBottom")};
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: ${(props) => (props.isDense ? applyTheme("CartSummary.rowDensePaddingTop")(props) : applyTheme("CartSummary.rowPaddingTop")(props))};
+  text-align: left;
+`;
+
+const TdTaxValue = styled(Td)`
+  ${addTypographyStyles("CartSummaryRightColumn", "labelText")}
+  padding-bottom: ${applyTheme("CartSummary.rowPaddingBottom")};
+  text-align: right;
+`;
+
+const TdTotal = styled.td`
+  ${addTypographyStyles("CartSummaryLeftColumn", "labelText")}
+  border-top-color: ${applyTheme("CartSummary.borderColor")};
+  border-top-style: solid;
+  border-top-width: ${(props) => (props.isBordered ? applyTheme("CartSummary.borderWidth")(props) : "0")};
+  padding-bottom: ${applyTheme("CartSummary.rowPaddingBottom")};
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: ${applyTheme("CartSummary.rowPaddingTop")};
+  text-align: left;
+`;
+
+const TdTotalValue = styled(Td)`
+  text-align: right;
+  padding-bottom: ${applyTheme("CartSummary.rowPaddingBottom")};
+  padding-top: ${applyTheme("CartSummary.rowPaddingTop")};
 `;
 
 const Total = styled.span`
-  ${addTypographyStyles("CartSummaryTotal", "bodyTextBold")}
+  ${addTypographyStyles("CartSummaryTotal", "subheadingTextBold")}
 `;
 
 class CartSummary extends Component {
@@ -119,7 +156,7 @@ class CartSummary extends Component {
 
     return (
       <tr>
-        <Td isDense={isDense}>Promo code applied</Td>
+        <Td isDense={isDense}>Promo code applied:</Td>
         <TdValue isDense={isDense}>
           <Discount>{displayDiscount}</Discount>
         </TdValue>
@@ -152,27 +189,27 @@ class CartSummary extends Component {
         {header}
         <tbody>
           <tr>
-            <Td isDense={isDense}>Item total</Td>
+            <Td isDense={isDense}>Items:</Td>
             <TdValue isDense={isDense}>{displaySubtotal}</TdValue>
           </tr>
           <tr>
-            <Td isDense={isDense}>Shipping</Td>
+            <Td isDense={isDense}>Shipping:</Td>
             <TdValue isDense={isDense}>{shipping}</TdValue>
           </tr>
           {discount}
           <tr>
-            <Td isDense={isDense}>Surcharge</Td>
+            <Td isDense={isDense}>Surcharges:</Td>
             <TdValue isDense={isDense}>{surcharge}</TdValue>
           </tr>
           <tr>
-            <Td isDense={isDense}>Tax</Td>
-            <TdValue isDense={isDense}>{tax}</TdValue>
+            <TdTax isDense={isDense}>Tax:</TdTax>
+            <TdTaxValue isDense={isDense}>{tax}</TdTaxValue>
           </tr>
           <tr>
-            <Td isDense={isDense} isBordered>Order total</Td>
-            <TdValue isDense={isDense} isBordered>
+            <TdTotal isDense={isDense} isBordered>Order total:</TdTotal>
+            <TdTotalValue isDense={isDense} isBordered>
               <Total>{displayTotal}</Total>
-            </TdValue>
+            </TdTotalValue>
           </tr>
         </tbody>
       </Table>

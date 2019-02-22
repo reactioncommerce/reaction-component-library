@@ -47,14 +47,14 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -66,18 +66,18 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   text-align: left;
 }
 
-.c6 {
+.c10 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -93,14 +93,14 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   text-align: right;
 }
@@ -120,11 +120,80 @@ exports[`Displays a summary of the current items in the cart 1`] = `
   line-height: 1;
 }
 
+.c6 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 0;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+  text-align: left;
+}
+
 .c7 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c8 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 1px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+  text-align: left;
+}
+
+.c9 {
+  text-align: right;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.c11 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 18px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 700;
@@ -161,7 +230,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c4"
       >
-        Item total
+        Items:
       </td>
       <td
         className="c5 c4"
@@ -173,7 +242,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c4"
       >
-        Shipping
+        Shipping:
       </td>
       <td
         className="c5 c4"
@@ -185,19 +254,7 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c4"
       >
-        Surcharge
-      </td>
-      <td
-        className="c5 c4"
-      >
-        -
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="c4"
-      >
-        Tax
+        Surcharges:
       </td>
       <td
         className="c5 c4"
@@ -209,13 +266,25 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c6"
       >
-        Order total
+        Tax:
       </td>
       <td
-        className="c5 c6"
+        className="c7 c4"
+      >
+        -
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c8"
+      >
+        Order total:
+      </td>
+      <td
+        className="c9 c10"
       >
         <span
-          className="c7"
+          className="c11"
         >
           $300.424
         </span>
@@ -272,14 +341,14 @@ exports[`Displays a summary with FREE shipping 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -291,18 +360,18 @@ exports[`Displays a summary with FREE shipping 1`] = `
   text-align: left;
 }
 
-.c6 {
+.c10 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -318,14 +387,14 @@ exports[`Displays a summary with FREE shipping 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   text-align: right;
 }
@@ -345,11 +414,80 @@ exports[`Displays a summary with FREE shipping 1`] = `
   line-height: 1;
 }
 
+.c6 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 0;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+  text-align: left;
+}
+
 .c7 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c8 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 1px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+  text-align: left;
+}
+
+.c9 {
+  text-align: right;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.c11 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 18px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 700;
@@ -386,7 +524,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c4"
       >
-        Item total
+        Items:
       </td>
       <td
         className="c5 c4"
@@ -398,7 +536,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c4"
       >
-        Shipping
+        Shipping:
       </td>
       <td
         className="c5 c4"
@@ -410,19 +548,7 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c4"
       >
-        Surcharge
-      </td>
-      <td
-        className="c5 c4"
-      >
-        -
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="c4"
-      >
-        Tax
+        Surcharges:
       </td>
       <td
         className="c5 c4"
@@ -434,13 +560,25 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c6"
       >
-        Order total
+        Tax:
       </td>
       <td
-        className="c5 c6"
+        className="c7 c4"
+      >
+        -
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c8"
+      >
+        Order total:
+      </td>
+      <td
+        className="c9 c10"
       >
         <span
-          className="c7"
+          className="c11"
         >
           $300.424
         </span>
@@ -497,14 +635,14 @@ exports[`Displays a summary with applied discount 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -516,18 +654,18 @@ exports[`Displays a summary with applied discount 1`] = `
   text-align: left;
 }
 
-.c7 {
+.c11 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -543,14 +681,14 @@ exports[`Displays a summary with applied discount 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   text-align: right;
 }
@@ -574,22 +712,91 @@ exports[`Displays a summary with applied discount 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #0db781;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 700;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
+}
+
+.c7 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 0;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+  text-align: left;
 }
 
 .c8 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c9 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 1px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+  text-align: left;
+}
+
+.c10 {
+  text-align: right;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.c12 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 18px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 700;
@@ -626,7 +833,7 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Item total
+        Items:
       </td>
       <td
         className="c5 c4"
@@ -638,7 +845,7 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Shipping
+        Shipping:
       </td>
       <td
         className="c5 c4"
@@ -650,7 +857,7 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Promo code applied
+        Promo code applied:
       </td>
       <td
         className="c5 c4"
@@ -666,19 +873,7 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Surcharge
-      </td>
-      <td
-        className="c5 c4"
-      >
-        -
-      </td>
-    </tr>
-    <tr>
-      <td
-        className="c4"
-      >
-        Tax
+        Surcharges:
       </td>
       <td
         className="c5 c4"
@@ -690,13 +885,25 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c7"
       >
-        Order total
+        Tax:
       </td>
       <td
-        className="c5 c7"
+        className="c8 c4"
+      >
+        -
+      </td>
+    </tr>
+    <tr>
+      <td
+        className="c9"
+      >
+        Order total:
+      </td>
+      <td
+        className="c10 c11"
       >
         <span
-          className="c8"
+          className="c12"
         >
           $300.424
         </span>
@@ -753,14 +960,14 @@ exports[`Displays a summary with calculated taxes 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -772,18 +979,18 @@ exports[`Displays a summary with calculated taxes 1`] = `
   text-align: left;
 }
 
-.c6 {
+.c10 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   border-top-color: #e6e6e6;
   border-top-style: solid;
@@ -799,14 +1006,14 @@ exports[`Displays a summary with calculated taxes 1`] = `
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 400;
-  -webkit-letter-spacing: .03em;
-  -moz-letter-spacing: .03em;
-  -ms-letter-spacing: .03em;
-  letter-spacing: .03em;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
   line-height: 1;
   text-align: right;
 }
@@ -826,11 +1033,80 @@ exports[`Displays a summary with calculated taxes 1`] = `
   line-height: 1;
 }
 
+.c6 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 0;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+  text-align: left;
+}
+
 .c7 {
   -webkit-font-smoothing: antialiased;
   color: #3c3c3c;
   font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
-  font-size: 16px;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  padding-bottom: 16px;
+  text-align: right;
+}
+
+.c8 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-stretch: normal;
+  font-weight: 400;
+  -webkit-letter-spacing: .02em;
+  -moz-letter-spacing: .02em;
+  -ms-letter-spacing: .02em;
+  letter-spacing: .02em;
+  line-height: 1;
+  border-top-color: #e6e6e6;
+  border-top-style: solid;
+  border-top-width: 1px;
+  padding-bottom: 16px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 16px;
+  text-align: left;
+}
+
+.c9 {
+  text-align: right;
+  padding-bottom: 16px;
+  padding-top: 16px;
+}
+
+.c11 {
+  -webkit-font-smoothing: antialiased;
+  color: #3c3c3c;
+  font-family: 'Source Sans Pro','Helvetica Neue',Helvetica,sans-serif;
+  font-size: 18px;
   font-style: normal;
   font-stretch: normal;
   font-weight: 700;
@@ -867,7 +1143,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c4"
       >
-        Item total
+        Items:
       </td>
       <td
         className="c5 c4"
@@ -879,7 +1155,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c4"
       >
-        Shipping
+        Shipping:
       </td>
       <td
         className="c5 c4"
@@ -891,7 +1167,7 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c4"
       >
-        Surcharge
+        Surcharges:
       </td>
       <td
         className="c5 c4"
@@ -901,27 +1177,27 @@ exports[`Displays a summary with calculated taxes 1`] = `
     </tr>
     <tr>
       <td
-        className="c4"
+        className="c6"
       >
-        Tax
+        Tax:
       </td>
       <td
-        className="c5 c4"
+        className="c7 c4"
       >
         $24.88
       </td>
     </tr>
     <tr>
       <td
-        className="c6"
+        className="c8"
       >
-        Order total
+        Order total:
       </td>
       <td
-        className="c5 c6"
+        className="c9 c10"
       >
         <span
-          className="c7"
+          className="c11"
         >
           $300.424
         </span>

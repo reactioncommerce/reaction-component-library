@@ -30,7 +30,7 @@ const item = {
     displayAmount: "$40.00",
   },
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
 };
 
 <CartItem
@@ -92,7 +92,10 @@ const item = {
   productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 };
 
 <CartItem
@@ -122,7 +125,10 @@ const item = {
   productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 };
 
 <CartItem
@@ -152,7 +158,10 @@ const item = {
   productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 };
 
 <CartItem
@@ -183,7 +192,10 @@ const item = {
   productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 };
 
 <CartItem
@@ -216,7 +228,10 @@ const item = {
   productSlug: "product-slug",
   productVendor: "Patagonia",
   title: "A Great Product",
-  quantity: 2
+  quantity: 2,
+  subtotal: {
+    displayAmount: "$40.00",
+  }
 };
 
 <CartItem
