@@ -2,7 +2,7 @@ If you'd like to see your changes locally inside of another project, such as the
 
 - `cd` into your local version of the [Reaction Component Library](https://github.com/reactioncommerce/reaction-component-library), and run the following commands:
 
-```js
+```diff
 yarn install
 cd package
 yarn install
