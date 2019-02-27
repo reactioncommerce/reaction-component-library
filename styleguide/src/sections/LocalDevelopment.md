@@ -1,14 +1,15 @@
 If you'd like to see your changes locally inside of another project, such as the [Reaction Operator UI](https://github.com/reactioncommerce/reaction) or the [Reaction Storefront](https://github.com/reactioncommerce/reaction-next-starterkit), it's possible to link your local version of this Component Library using the following steps:
 
-1. `cd` into your local version of the [Reaction Component Library](https://github.com/reactioncommerce/reaction-component-library), and run the following commands:
-```
+- `cd` into your local version of the [Reaction Component Library](https://github.com/reactioncommerce/reaction-component-library), and run the following commands:
+
+```js
 yarn install
-cd package`
+cd package
 yarn install
 yarn run build
 ```
 
-Next, `cd` into the local version of the repository you'd like to use the local `Component Library` inside. Add the following line to the `volumes:` portion of the `docker-compose.yml` file:
+- Next, `cd` into the local version of the repository you'd like to use the local `Component Library` inside. Add the following line to the `volumes:` portion of the `docker-compose.yml` file:
 
 Inside `Reaction Storefront`:
 
@@ -33,4 +34,6 @@ volumes:
 + - /{Path-to-your-local-repo}/reaction-component-library/package/dist:/usr/local/src/node_modules/@reactioncommerce/components
 ```
 
-Next, run `docker-compose up -d` like normal to access the app in your browser and test it. Be sure to remove and not commit the added line from `docker-compose.yml` when you are done testing.
+- Next, run `docker-compose up -d` like normal to access the app in your browser and test it.
+
+**Be sure to remove and not commit the added line from `docker-compose.yml` when you are done testing.**
