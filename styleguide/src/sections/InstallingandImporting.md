@@ -24,7 +24,7 @@ The `@reactioncommerce/components` package exports both CommonJS and EcmaScript 
 
 Webpack 4 tries to use .mjs files, which are EcmaScript modules, if a package provides them. However, there is still mixed support for EcmaScript modules and when your app or a package mixes NPM packages with CommonJS and EcmaScript exports, errors can happen. If you see an error similar to `Can't import the named export 'Component' from non EcmaScript module` when building or starting your Webpack app, the solution is to add the following in your Webpack config `module.rules` array:
 
-```js
+```jsx static
 {
   test: /\.mjs$/,
   include: /node_modules/,
@@ -45,7 +45,7 @@ For a `create-react-app` app that hasn't been ejected, add `react-app-rewired` a
 
 Then paste this into a file in the project root directory named `config-overrides.js`:
 
-```js
+```jsx static
 module.exports = function override(webpackConfig) {
   webpackConfig.module.rules.push({
     test: /\.mjs$/,
@@ -59,7 +59,7 @@ module.exports = function override(webpackConfig) {
 
 For a NextJS app, you can add this to the exported object in your `next.config.js` file:
 
-```js
+```jsx static
 webpack(webpackConfig) {
   webpackConfig.module.rules.push({
     test: /\.mjs$/,
@@ -186,7 +186,7 @@ export default {
 
 In your React component code:
 
-```js static
+```jsx static
 import Button from "@reactioncommerce/components/Button/v1"
 ```
 
