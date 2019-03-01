@@ -1,22 +1,75 @@
 #### Install
 
 ```bash
-npm install --save react@16.4.2 prop-types@15.6.2 styled-components@3.3.3 reacto-form@0.0.2 @reactioncommerce/components-context@1.2.0 @reactioncommerce/components
+npm install --save react@16 prop-types styled-components@3 reacto-form @reactioncommerce/components-context @reactioncommerce/components
 ```
 
 or
 
 ```bash
-yarn add react@16.4.2 prop-types@15.6.2 styled-components@3.3.3 reacto-form@0.0.2 @reactioncommerce/components-context@1.2.0 @reactioncommerce/components
+yarn add react@16 prop-types styled-components@3 reacto-form @reactioncommerce/components-context @reactioncommerce/components
 ```
 
 Note that the minimum required React version is 16.4.1 because this package uses newer APIs like `createContext` and `forwardRef`. The `react`, `prop-types`, `@reactioncommerce/components-context`, `reacto-form`, and `styled-components` packages are peer dependencies, which means that you must install the proper versions in your app. They are not included with this package.
 
-> If you use the `StripeForm` component, then you must also install `react-stripe-elements@2.0.1`. It is an optional peer dependency.
-
 ##### Verify Peer Dependencies
 
 View the current list of `"peerDependencies"` in the `package.json` of the `@reactioncommerce/components` package, and make sure that you have installed them all in your app.
+
+> If you use the `StripeForm` component, then you must also install `react-stripe-elements >= 2.0.1`. It is an optional peer dependency.
+
+##### Tell Webpack 4 How to Handle .mjs Files
+
+The `@reactioncommerce/components` package exports both CommonJS and EcmaScript modules. EcmaScript modules are newer and better in that they don't require transpiling for most newer browsers and they allow you to "tree shake" your app (remove unused package code while building).
+
+Webpack 4 tries to use .mjs files, which are EcmaScript modules, if a package provides them. However, there is still mixed support for EcmaScript modules and when your app or a package mixes NPM packages with CommonJS and EcmaScript exports, errors can happen. If you see an error similar to `Can't import the named export 'Component' from non EcmaScript module` when building or starting your Webpack app, the solution is to add the following in your Webpack config `module.rules` array:
+
+```jsx static
+{
+  test: /\.mjs$/,
+  include: /node_modules/,
+  type: "javascript/auto"
+}
+```
+
+For a `create-react-app` app that hasn't been ejected, add `react-app-rewired` as a dev dependency, and in `package.json`, update the `start`, `build`, and `test` scripts to replace `react-scripts` with `react-app-rewired`:
+
+```json
+"scripts": {
+  "start": "react-app-rewired start",
+  "build": "react-app-rewired build",
+  "test": "react-app-rewired test",
+  "eject": "react-scripts eject"
+},
+```
+
+Then paste this into a file in the project root directory named `config-overrides.js`:
+
+```jsx static
+module.exports = function override(webpackConfig) {
+  webpackConfig.module.rules.push({
+    test: /\.mjs$/,
+    include: /node_modules/,
+    type: "javascript/auto"
+  });
+
+  return webpackConfig;
+}
+```
+
+For a NextJS app, you can add this to the exported object in your `next.config.js` file:
+
+```jsx static
+webpack(webpackConfig) {
+  webpackConfig.module.rules.push({
+    test: /\.mjs$/,
+    include: /node_modules/,
+    type: "javascript/auto"
+  });
+
+  return webpackConfig;
+}
+```
 
 ##### Provide the Components Context
 
@@ -133,7 +186,7 @@ export default {
 
 In your React component code:
 
-```js static
+```jsx static
 import Button from "@reactioncommerce/components/Button/v1"
 ```
 
