@@ -36,7 +36,7 @@ export default class ShopLogo extends Component {
       <Container className={className}>
         {
           shopLogoUrl ? (
-            <img src={shopLogoUrl} alt={shopName} />
+            <Logo src={shopLogoUrl} alt={shopName} />
           ) : (
             shopName
           )
