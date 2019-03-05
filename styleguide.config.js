@@ -378,6 +378,10 @@ module.exports = {
         {
           name: "Understanding Component References",
           content: "styleguide/src/sections/ComponentsContext.md"
+        },
+        {
+          name: "Developing Locally Inside Another Project",
+          content: "styleguide/src/sections/LocalDevelopment.md"
         }
       ]
     },
