@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import isEqual from "lodash.isequal";
 import { withComponents } from "@reactioncommerce/components-context";
 import { addressToString, CustomPropTypes } from "../../../utils";
 
@@ -67,6 +68,13 @@ class AddressChoice extends Component {
     }
 
     this.state = { selectedOption };
+  }
+
+  componentDidUpdate({ addresses }) {
+    const { selectedOption } = this.state;
+    if (selectedOption === "0" && !isEqual(addresses[0], this.props.addresses[0])) {
+      this.handleChangeSelection(selectedOption);
+    }
   }
 
   handleChangeAddress = (address) => {
