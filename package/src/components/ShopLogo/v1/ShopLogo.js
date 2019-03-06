@@ -30,7 +30,7 @@ export default class ShopLogo extends Component {
   }
 
   render() {
-    const { className, height, shopLogoUrl, shopName } = this.props;
+    const { className, shopLogoUrl, shopName } = this.props;
 
     return (
       <Container className={className}>
