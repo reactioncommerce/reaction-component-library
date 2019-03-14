@@ -16,11 +16,16 @@ exports[`basic snapshot 1`] = `
   line-height: 1.25;
 }
 
+.c1 {
+  height: auto;
+}
+
 <div
   className="c0"
 >
   <img
     alt="Reaction"
+    className="c1"
     src="//placehold.it/60"
   />
 </div>
