@@ -675,6 +675,9 @@ const rui_components = {
     borderTopLeftRadius: 0,
     borderTopRightRadius: standardBorderRadius
   },
+  ShopLogo: {
+    height: "auto"
+  },
   StockWarning: {
     typography: {
       color: colors.red

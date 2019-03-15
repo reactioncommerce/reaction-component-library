@@ -1,10 +1,14 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import { addTypographyStyles } from "../../../utils";
+import { addTypographyStyles, applyTheme } from "../../../utils";
 
 const Container = styled.div`
   ${addTypographyStyles("ShopLogo", "titleTextBold")}
+`;
+
+const Logo = styled.img`
+  height: ${applyTheme("ShopLogo.height")};
 `;
 
 export default class ShopLogo extends Component {
@@ -32,7 +36,7 @@ export default class ShopLogo extends Component {
       <Container className={className}>
         {
           shopLogoUrl ? (
-            <img src={shopLogoUrl} alt={shopName} />
+            <Logo src={shopLogoUrl} alt={shopName} />
           ) : (
             shopName
           )
