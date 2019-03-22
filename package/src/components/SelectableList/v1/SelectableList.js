@@ -109,11 +109,6 @@ const HorizontalWrapper = styled.div`
   &:last-of-type {
     padding-left: ${applyTheme("SelectableList.horizontalLastItemPaddingLeft")};
   }
-
-  div {
-    display: block;
-    height: auto;
-  }
 `;
 
 class SelectableList extends Component {
