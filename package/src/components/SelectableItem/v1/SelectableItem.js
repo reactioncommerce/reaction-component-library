@@ -75,7 +75,8 @@ const StyledInput = styled.input`
 const StyledDetail = styled.div`
   ${addTypographyStyles("SelectableItemDetail", "bodyText")}
   align-items: center;
-  display: flex;
+  display: ${(props) => (props.isStacked ? "block" : "flex")};
+  height: auto;
   justify-content: ${(props) => (props.isStacked ? "flex-start" : "center")};
   margin-left: ${(props) => (props.isStacked ? applyTheme("SelectableList.stackedSpacingToLabel")(props) : "0")};
   margin-top: ${(props) => (props.isStacked ? applyTheme("SelectableList.stackedSpacingBelowLabel")(props) : "0")};
