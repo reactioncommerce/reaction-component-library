@@ -44,9 +44,14 @@ module.exports = function (api) {
           browsers: [
             "last 2 versions",
             "ie 11"
-          ],
-          // "browsers" target is ignored when "esmodules" is true
-          esmodules
+          ]
+          // Note: If we eventually drop IE11 supports, it should be safe
+          // to go back to passing `esmodules: true` here. But for now,
+          // we want the mjs files to be transformed to be IE11 compatible
+          // EXCEPT for `import`. This allows Webpack 4 to tree shake this
+          // package but yet still remain compatible with IE11 without
+          // further transformation by the app using this package.
+          // esmodules
         },
         // https://babeljs.io/docs/en/babel-preset-env#usebuiltins-usage-experimental
         useBuiltIns: "usage"
