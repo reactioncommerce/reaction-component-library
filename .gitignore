@@ -1,5 +1,6 @@
 !.env.example
 .env
+yarn.lock
 yarn-error.log
 coverage
 node_modules
