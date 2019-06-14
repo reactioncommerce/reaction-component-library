@@ -64,7 +64,7 @@ testInput({
     const optToSelect = options.find((option) => option.value === value);
     const labelToSelect = optToSelect ? optToSelect.label : null;
     const selectOption = wrapper
-      .find("[role=\"option\"]")
+      .find('[id*="-option-"]')
       .findWhere((opt) => (opt.props().children || "").trim() === labelToSelect);
 
     selectOption.simulate("click");
