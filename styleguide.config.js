@@ -559,7 +559,7 @@ module.exports = {
   pagePerSection: true,
   showCode: true,
   showUsage: true,
-  serverPort: Number(process.env.PORT),
+  serverPort: Number(process.env.PORT || 6060),
   assetsDir: "styleguide/src/assets/",
   styleguideDir: "styleguide/dist",
   template: "styleguide/src/index.html"

@@ -23,6 +23,5 @@ declare -a args=(
   --silent
 )
 yarn "${args[@]}"
-cd package
-yarn "${args[@]}"
-yarn build
+(cd package && yarn "${args[@]}" && yarn build)
+yarn styleguide:build

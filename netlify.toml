@@ -4,4 +4,4 @@
 
 [dev]
   command = "yarn styleguide:build" # Command to start your dev server
-  port = 3999
+  port = 6060
