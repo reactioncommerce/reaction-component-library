@@ -1,0 +1,7 @@
+[build]
+  environment = { YARN_VERSION = "1.16.0" }
+  command = "./bin/build.sh"
+
+[dev]
+  command = "yarn styleguide:build" # Command to start your dev server
+  port = 6060

@@ -2,24 +2,25 @@
 
 exports[`alphabetize option snapshot 1`] = `
 <div
-  className="css-8t0hih react-select"
+  className="css-3plaoc-container react-select"
   onKeyDown={[Function]}
 >
   <div
-    className="css-1c6kyk8"
+    className="css-1f25rmc-control"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
   >
     <div
-      className="css-1rtrksz"
+      className="css-1hwfws3"
     >
       <div
-        className="css-vq28hp"
+        className="css-ugsmvz-placeholder"
       >
         Select...
       </div>
       <input
-        className="css-14uuagi"
+        className="css-gj7qu5-dummyInput"
+        disabled={false}
         id="react-select-3-input"
         onBlur={[Function]}
         onChange={[Function]}
@@ -34,7 +35,7 @@ exports[`alphabetize option snapshot 1`] = `
     >
       <div
         aria-hidden="true"
-        className="css-1lm7jx8"
+        className="css-fxmmp-indicatorContainer"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -53,59 +54,53 @@ exports[`alphabetize option snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div>
+  <div
+    className="css-1a1oeja-menu"
+    onMouseDown={[Function]}
+    onMouseMove={[Function]}
+  >
     <div
-      className="css-z8mphd"
-      onMouseDown={[Function]}
-      onMouseMove={[Function]}
+      className="css-1x0y3y4"
     >
       <div
-        className="css-1x0y3y4"
+        className="css-5hihnn-option"
+        id="react-select-3-option-0"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        onMouseOver={[Function]}
+        tabIndex={-1}
       >
-        <div
-          className="css-1gnokty"
-          id="react-select-3-option-0"
-          onClick={[Function]}
-          onMouseMove={[Function]}
-          onMouseOver={[Function]}
-          role="option"
-          tabIndex={-1}
-        >
-          A
-        </div>
-        <div
-          className="css-1gnokty"
-          id="react-select-3-option-1"
-          onClick={[Function]}
-          onMouseMove={[Function]}
-          onMouseOver={[Function]}
-          role="option"
-          tabIndex={-1}
-        >
-          C
-        </div>
-        <div
-          className="css-1gnokty"
-          id="react-select-3-option-2"
-          onClick={[Function]}
-          onMouseMove={[Function]}
-          onMouseOver={[Function]}
-          role="option"
-          tabIndex={-1}
-        >
-          E
-        </div>
-        <div
-          className="css-1gnokty"
-          id="react-select-3-option-3"
-          onClick={[Function]}
-          onMouseMove={[Function]}
-          onMouseOver={[Function]}
-          role="option"
-          tabIndex={-1}
-        >
-          Z
-        </div>
+        A
+      </div>
+      <div
+        className="css-5hihnn-option"
+        id="react-select-3-option-1"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        onMouseOver={[Function]}
+        tabIndex={-1}
+      >
+        C
+      </div>
+      <div
+        className="css-5hihnn-option"
+        id="react-select-3-option-2"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        onMouseOver={[Function]}
+        tabIndex={-1}
+      >
+        E
+      </div>
+      <div
+        className="css-5hihnn-option"
+        id="react-select-3-option-3"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        onMouseOver={[Function]}
+        tabIndex={-1}
+      >
+        Z
       </div>
     </div>
   </div>
@@ -114,24 +109,25 @@ exports[`alphabetize option snapshot 1`] = `
 
 exports[`basic snapshot 1`] = `
 <div
-  className="css-8t0hih react-select"
+  className="css-3plaoc-container react-select"
   onKeyDown={[Function]}
 >
   <div
-    className="css-1c6kyk8"
+    className="css-1f25rmc-control"
     onMouseDown={[Function]}
     onTouchEnd={[Function]}
   >
     <div
-      className="css-1rtrksz"
+      className="css-1hwfws3"
     >
       <div
-        className="css-vq28hp"
+        className="css-ugsmvz-placeholder"
       >
         Select...
       </div>
       <input
-        className="css-14uuagi"
+        className="css-gj7qu5-dummyInput"
+        disabled={false}
         id="react-select-2-input"
         onBlur={[Function]}
         onChange={[Function]}
@@ -146,7 +142,7 @@ exports[`basic snapshot 1`] = `
     >
       <div
         aria-hidden="true"
-        className="css-1lm7jx8"
+        className="css-fxmmp-indicatorContainer"
         onMouseDown={[Function]}
         onTouchEnd={[Function]}
       >
@@ -165,48 +161,43 @@ exports[`basic snapshot 1`] = `
       </div>
     </div>
   </div>
-  <div>
+  <div
+    className="css-1a1oeja-menu"
+    onMouseDown={[Function]}
+    onMouseMove={[Function]}
+  >
     <div
-      className="css-z8mphd"
-      onMouseDown={[Function]}
-      onMouseMove={[Function]}
+      className="css-1x0y3y4"
     >
       <div
-        className="css-1x0y3y4"
+        className="css-5hihnn-option"
+        id="react-select-2-option-0"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        onMouseOver={[Function]}
+        tabIndex={-1}
       >
-        <div
-          className="css-1gnokty"
-          id="react-select-2-option-0"
-          onClick={[Function]}
-          onMouseMove={[Function]}
-          onMouseOver={[Function]}
-          role="option"
-          tabIndex={-1}
-        >
-          A
-        </div>
-        <div
-          className="css-1gnokty"
-          id="react-select-2-option-1"
-          onClick={[Function]}
-          onMouseMove={[Function]}
-          onMouseOver={[Function]}
-          role="option"
-          tabIndex={-1}
-        >
-          B
-        </div>
-        <div
-          className="css-1gnokty"
-          id="react-select-2-option-2"
-          onClick={[Function]}
-          onMouseMove={[Function]}
-          onMouseOver={[Function]}
-          role="option"
-          tabIndex={-1}
-        >
-          C
-        </div>
+        A
+      </div>
+      <div
+        className="css-5hihnn-option"
+        id="react-select-2-option-1"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        onMouseOver={[Function]}
+        tabIndex={-1}
+      >
+        B
+      </div>
+      <div
+        className="css-5hihnn-option"
+        id="react-select-2-option-2"
+        onClick={[Function]}
+        onMouseMove={[Function]}
+        onMouseOver={[Function]}
+        tabIndex={-1}
+      >
+        C
       </div>
     </div>
   </div>
