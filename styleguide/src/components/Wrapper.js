@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DefaultWrapper from "react-styleguidist/lib/rsg-components/Wrapper/Wrapper";
+import DefaultWrapper from "react-styleguidist/lib/client/rsg-components/Wrapper/Wrapper";
 import { ComponentsProvider } from "@reactioncommerce/components-context";
 import { StripeProvider } from "react-stripe-elements";
 import appComponents from "../appComponents";

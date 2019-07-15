@@ -5,7 +5,8 @@ The `StripePaymentInput` component is intended to be used as the `InputComponent
 ### Usage
 
 ```jsx
-class Example extends React.Component {
+import Button from "../../Button/v1/Button"
+;class Example extends React.Component {
   constructor(props) {
     super(props);
 

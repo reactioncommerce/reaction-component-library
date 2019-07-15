@@ -45,7 +45,9 @@ const props = {
 #### Add Address
 A naive example to demonstrate a basic address add UX flow. 
 ```jsx
-initialState = { isProcessing: false, savedAddress: null };
+import Button from "../../Button/v1/Button"
+import Address from "../../Address/v1/Address"
+;initialState = { isProcessing: false, savedAddress: null };
 let _form = null;
 
 const handleSubmit = (value) => new Promise((resolve, reject) => {
@@ -75,7 +77,9 @@ state.savedAddress ? <Address address={state.savedAddress} /> : <div>
 #### Edit Address
 A naive example to demonstrate a basic address edit UX flow. 
 ```jsx
-initialState = { 
+import Button from "../../Button/v1/Button"
+import Address from "../../Address/v1/Address"
+;initialState = { 
   isProcessing: false,
   updatedAddress: null,
   savedAddress: {
@@ -122,7 +126,9 @@ A naive example to demonstrate a basic address validation UX flow.
 
 *Address postal codes that start with "1" will pass validation, all others will fail.*
 ```jsx
-initialState = { isProcessing: false, savedAddress: null, submittedAddress: null, validationResults: null };
+import Button from "../../Button/v1/Button"
+import Address from "../../Address/v1/Address"
+;initialState = { isProcessing: false, savedAddress: null, submittedAddress: null, validationResults: null };
 let _form = null;
 
 const handleSubmit = (value) => new Promise((resolve, reject) => {

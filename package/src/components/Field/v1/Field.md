@@ -3,7 +3,8 @@
 Fields can be required, with more than one line, and have help text and labels.
 
 ```jsx
-<div>
+import TextInput from "../../TextInput/v1/TextInput"
+;<div>
   <Field name="example" label="Label" helpText="Help text" labelFor="input1">
     <TextInput id="input1" name="example" placeholder="This field has help text" />
   </Field>
@@ -17,7 +18,8 @@ Fields can be required, with more than one line, and have help text and labels.
 
 #### Optional Field
 ```jsx
-<Field name="example" label="Label" labelFor="input3" isOptional>
+import TextInput from "../../TextInput/v1/TextInput"
+;<Field name="example" label="Label" labelFor="input3" isOptional>
   <TextInput id="input3" name="example" placeholder="This field has help text" />
 </Field>
 ```

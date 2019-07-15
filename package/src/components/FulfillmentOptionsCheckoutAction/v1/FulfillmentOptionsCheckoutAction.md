@@ -11,7 +11,8 @@ Typically you will use this component with the [CheckoutActions](./#!/CheckoutAc
 #### Show fulfillment options
 
 ```jsx
-const fulfillmentGroup = {
+import Button from "../../Button/v1/Button"
+;const fulfillmentGroup = {
   availableFulfillmentOptions: [
     {
       fulfillmentMethod: {

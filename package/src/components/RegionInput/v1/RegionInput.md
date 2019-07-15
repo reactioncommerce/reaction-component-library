@@ -34,7 +34,9 @@ const options = [
 #### Implemented in an AddressForm
 
 ```jsx
-const locales = {
+import Button from "../../Button/v1/Button"
+import AddressForm from "../../AddressForm/v1/AddressForm"
+;const locales = {
   "NR": {
     "name": "Country Without Regions",
   },

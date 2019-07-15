@@ -47,7 +47,8 @@ const options = [{
 A `SelectableList` can optionally have a `listAction` at the end of the list. Pass any node to the  `listAction` to display a button, checkbox, or any other node.
 
 ```jsx
-const readMore = (
+import Button from "../../Button/v1/Button"
+;const readMore = (
     <Button title="Default" className="myBtn" isTextOnly isShortHeight>Add a shipping method</Button>
 );
 
@@ -190,7 +191,8 @@ const options = [{
 #### Address list
 
 ```jsx
-const link = (
+import Button from "../../Button/v1/Button"
+;const link = (
     <Button title="Default" className="myBtn" isTextOnly isShortHeight>Edit</Button>
 );
 
