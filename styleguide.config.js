@@ -628,9 +628,9 @@ module.exports = {
     },
     body: {
       scripts: [
-	{
+        {
           src: "https://js.stripe.com/v3/"
-	}
+        }
       ]
     }
   }
