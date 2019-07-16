@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.12.0
+version: v1.13.5
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:hoek:20180212':
@@ -77,5 +77,5 @@ ignore:
   'npm:mem:20180117':
     - libnpx > yargs > os-locale > mem:
         reason: No update available
-        expires: '2019-07-14T20:24:25.499Z'
+        expires: '2019-08-15T22:17:20.703Z'
 patch: {}
