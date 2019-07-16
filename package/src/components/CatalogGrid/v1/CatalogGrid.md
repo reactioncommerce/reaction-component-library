@@ -9,8 +9,7 @@ that products always render appropriately regardless of where the grid is render
 
 ```js noeditor
 // Import mock products behind the scenes
-products = require("./__mocks__/products").default;
-let window.productsWithoutImages; ""
+products = require("./__mocks__/products").default; ""
 ```
 
 ```jsx
@@ -58,7 +57,7 @@ Specify the `placeholderImageURL` to override:
 
 ```js static
 // Clone products and remove images
-productsWithoutImages = products.slice().map((product) => {
+const productsWithoutImages = products.slice().map((product) => {
   const clonedProduct = Object.assign({}, product);
   clonedProduct.primaryImage = null;
   return clonedProduct;
@@ -66,6 +65,12 @@ productsWithoutImages = products.slice().map((product) => {
 ```
 
 ```jsx
+const productsWithoutImages = products.slice().map((product) => {
+  const clonedProduct = Object.assign({}, product);
+  clonedProduct.primaryImage = null;
+  return clonedProduct;
+});
+
 <CatalogGrid
   placeholderImageURL="/images/placeholder.gif"
   products={productsWithoutImages}
