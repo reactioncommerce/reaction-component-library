@@ -51,6 +51,7 @@ Pass any element - text, SVGs, other components, like `Address`,  or any React e
 ##### Element as detail
 
 ```jsx
+import Button from "../../Button/v1/Button";
 const link = (
   <Button title="Default" className="myBtn" isTextOnly isShortHeight>Default Text</Button>
 );
@@ -61,6 +62,7 @@ const link = (
 ##### Address as detail
 
 ```jsx
+import Address from "../../Address/v1/Address";
 const address = {
   _id: "1",
   address1: "7742 Hwy 23",

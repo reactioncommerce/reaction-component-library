@@ -71,6 +71,12 @@ const actions = [
 *Address postal codes that start with "11" will pass validation, all others will fail.*
 *Address postal codes that start with "10" will fail validation with 0 suggested addresses.*
 ```jsx
+import StripePaymentInput from "../../StripePaymentInput/v1/StripePaymentInput";
+import ExampleIOUPaymentForm from "../../ExampleIOUPaymentForm/v1/ExampleIOUPaymentForm";
+import ShippingAddressCheckoutAction from "../../ShippingAddressCheckoutAction/v1/ShippingAddressCheckoutAction";
+import FulfillmentOptionsCheckoutAction from "../../FulfillmentOptionsCheckoutAction/v1/FulfillmentOptionsCheckoutAction";
+import PaymentsCheckoutAction from "../../PaymentsCheckoutAction/v1/PaymentsCheckoutAction";
+import FinalReviewCheckoutAction from "../../FinalReviewCheckoutAction/v1/FinalReviewCheckoutAction";
 const fulfillmentGroups = [{
   _id: 1,
   type: "shipping",

@@ -5,6 +5,7 @@ The `ExampleIOUPaymentForm` component is intended to be used as the `InputCompon
 ### Usage
 
 ```jsx
+import Button from "../../Button/v1/Button";
 class Example extends React.Component {
   constructor(props) {
     super(props);

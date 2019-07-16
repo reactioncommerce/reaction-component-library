@@ -59,6 +59,7 @@ const props = { addressEntered, addressSuggestion, value: "entered" };
 #### Example implementation
 Simple `AddressReview` example.
 ```jsx
+import Button from "../../Button/v1/Button";
 const addressEntered = {
   address1: "7742 Hwy 25",
   address2: "",

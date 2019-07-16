@@ -252,6 +252,7 @@ Some `fulfillmentMethods` will charge a different shipping rate if shipping to a
 #### Address Form Implementation Example
 Simple `AddressForm` implementation example. Bind to the form element via a `ref` method that can be used by any `Button` to trigger `submit` & `validate` form methods.
 ```jsx
+import Button from "../../Button/v1/Button";
 initState = { isProcessing: false };
 const withLocales = require("../../../../../styleguide/src/components/withLocales").default;
 const AddressFormWithLocales = withLocales(AddressForm);

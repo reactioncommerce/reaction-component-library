@@ -11,6 +11,8 @@ Note that this component allows collecting information for multiple payments but
 #### Basic Incomplete State
 
 ```jsx
+import StripePaymentInput from "../../StripePaymentInput/v1/StripePaymentInput";
+import ExampleIOUPaymentForm from "../../ExampleIOUPaymentForm/v1/ExampleIOUPaymentForm";
 const paymentMethods = [
   {
     displayName: "Credit Card",
@@ -37,6 +39,8 @@ const paymentMethods = [
 #### Basic Incomplete State While Saving
 
 ```jsx
+import StripePaymentInput from "../../StripePaymentInput/v1/StripePaymentInput";
+import ExampleIOUPaymentForm from "../../ExampleIOUPaymentForm/v1/ExampleIOUPaymentForm";
 const paymentMethods = [
   {
     displayName: "Credit Card",
@@ -64,6 +68,8 @@ const paymentMethods = [
 #### Incomplete State With Alert
 
 ```jsx
+import StripePaymentInput from "../../StripePaymentInput/v1/StripePaymentInput";
+import ExampleIOUPaymentForm from "../../ExampleIOUPaymentForm/v1/ExampleIOUPaymentForm";
 const paymentMethods = [
   {
     displayName: "Credit Card",
@@ -97,6 +103,8 @@ const alert = {
 #### Incomplete State With Addresses
 
 ```jsx
+import StripePaymentInput from "../../StripePaymentInput/v1/StripePaymentInput";
+import ExampleIOUPaymentForm from "../../ExampleIOUPaymentForm/v1/ExampleIOUPaymentForm";
 const paymentMethods = [
   {
     displayName: "Credit Card",
@@ -149,6 +157,8 @@ const addresses = [
 #### Incomplete State With Addresses and Alert
 
 ```jsx
+import StripePaymentInput from "../../StripePaymentInput/v1/StripePaymentInput";
+import ExampleIOUPaymentForm from "../../ExampleIOUPaymentForm/v1/ExampleIOUPaymentForm";
 const paymentMethods = [
   {
     displayName: "Credit Card",
@@ -208,6 +218,8 @@ const alert = {
 #### Incomplete State With Partial Payment
 
 ```jsx
+import StripePaymentInput from "../../StripePaymentInput/v1/StripePaymentInput";
+import ExampleIOUPaymentForm from "../../ExampleIOUPaymentForm/v1/ExampleIOUPaymentForm";
 const paymentMethods = [
   {
     displayName: "Credit Card",
