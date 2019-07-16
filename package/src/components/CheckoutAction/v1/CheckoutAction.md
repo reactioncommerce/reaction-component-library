@@ -7,6 +7,8 @@ The `CheckoutAction` component wraps the `CheckoutActionComplete` and `CheckoutA
 #### Default: `Active` status
 
 ```jsx
+import CheckoutActionComplete from "../../CheckoutActionComplete/v1/CheckoutActionComplete";
+import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1/CheckoutActionIncomplete";
 const ActiveStepComp = () => <span>Active Component</span>;
 const Address = (
   <div>
@@ -38,6 +40,8 @@ const Address = (
 
 #### Default: `Complete` status
 ```jsx
+import CheckoutActionComplete from "../../CheckoutActionComplete/v1/CheckoutActionComplete";
+import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1/CheckoutActionIncomplete";
 const ActiveStepComp = () => <span>Active Component</span>;
 const Address = (
   <div>
@@ -69,6 +73,8 @@ const Address = (
 
 #### Default: `Incomplete` status
 ```jsx
+import CheckoutActionComplete from "../../CheckoutActionComplete/v1/CheckoutActionComplete";
+import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1/CheckoutActionIncomplete";
 const ActiveStepComp = () => <span>Active Component</span>;
 const Address = (
   <div>
@@ -102,6 +108,8 @@ const Address = (
 Each status can have its own label by using the `activeLabel, completeLabel, incompleteLabel` props.
 
 ```jsx
+import CheckoutActionComplete from "../../CheckoutActionComplete/v1/CheckoutActionComplete";
+import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1/CheckoutActionIncomplete";
 const ActiveStepComp = ({label, stepNumber}) => <span>{stepNumber}{label}: Active Component</span>;
 const onClick = () => {};
 const Address = (
@@ -138,6 +146,8 @@ const Address = (
 #### Override default `label` or `stepNumber`
 Passing `label` and `stepNumber` directly to each "status" component.
 ```jsx
+import CheckoutActionComplete from "../../CheckoutActionComplete/v1/CheckoutActionComplete";
+import CheckoutActionIncomplete from "../../CheckoutActionIncomplete/v1/CheckoutActionIncomplete";
 const ActiveStepComp = () => <span>Active Component</span>;
 const onClick = () => {};
 const Address = (

@@ -9,7 +9,8 @@ that products always render appropriately regardless of where the grid is render
 
 ```js noeditor
 // Import mock products behind the scenes
-products = require("./__mocks__/products").default; ""
+products = require("./__mocks__/products").default;
+let window.productsWithoutImages; ""
 ```
 
 ```jsx

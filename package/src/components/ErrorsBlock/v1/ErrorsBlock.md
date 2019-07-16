@@ -3,9 +3,9 @@
 The `ErrorsBlock` is used to provide helpful information to the user when a form is invalid. The block takes an array of errors that are displayed with an optional icon.
 
 ```jsx
-import Field from "../../Field/v1/Field"
-import TextInput from "../../TextInput/v1/TextInput"
-;const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
+import Field from "../../Field/v1/Field";
+import TextInput from "../../TextInput/v1/TextInput";
+const TwoColumnExamples = require("../../../../../styleguide/src/components/TwoColumnExamples").default;
 
 const errors = [{ name: "example", message: "This field is required" }];
 
@@ -30,9 +30,9 @@ Use `ErrorsBlock` components with form fields and pass in an array of errors to 
 Pass `shouldShowIcon` to show an icon before each error message.
 
 ```jsx
-import Field from "../../Field/v1/Field"
-import TextInput from "../../TextInput/v1/TextInput"
-;const errors = [{ name: "example", message: "This field is required" }, { name: "example", message: "Another error" }];
+import Field from "../../Field/v1/Field";
+import TextInput from "../../TextInput/v1/TextInput";
+const errors = [{ name: "example", message: "This field is required" }, { name: "example", message: "Another error" }];
 <Field name="example" label="Label" labelFor="exampleInput3" errors={errors}>
  <TextInput id="exampleInput3" name="example" errors={errors} shouldAllowLineBreaks />
  <ErrorsBlock names={["example"]} errors={errors} shouldShowIcon />
