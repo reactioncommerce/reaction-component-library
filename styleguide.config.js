@@ -382,7 +382,8 @@ module.exports = {
           name: "Developing Locally Inside Another Project",
           content: "styleguide/src/sections/LocalDevelopment.md"
         }
-      ]
+      ],
+      sectionDepth: 2
     },
     {
       name: "Style",
@@ -395,7 +396,8 @@ module.exports = {
           name: "Typography",
           content: "styleguide/src/sections/Typography.md"
         }
-      ]
+      ],
+      sectionDepth: 2
     },
     {
       name: "Base Components",
@@ -444,7 +446,8 @@ module.exports = {
           content: "styleguide/src/sections/Menus.md",
           name: "Menus"
         })
-      ]
+      ],
+      sectionDepth: 2
     },
     {
       name: "Storefront Components",
@@ -522,7 +525,8 @@ module.exports = {
           content: "styleguide/src/sections/Product.md",
           name: "Product"
         })
-      ]
+      ],
+      sectionDepth: 2
     }
   ],
   require: ["@babel/polyfill", path.join(__dirname, "styleguide/src/styles.css")],
