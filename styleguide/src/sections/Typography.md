@@ -1,4 +1,4 @@
-The Reaction Design System uses a small set of typographic styles, which map to key elements and functions in the user interface.
+The Reaction Storefront Component Library uses a small set of typographic styles, which map to key elements and functions in the user interface.
 
 #### Base styles
 
@@ -22,7 +22,7 @@ Type styles are generally named for their usage within the UI. The Body text sty
 
 #### Type scale
 
-This type scale defines the font sizes that can be used by the default Reaction Design System theme. Type generally does not exceed 1.5rem/24px.
+This type scale defines the font sizes that can be used by the default Reaction Storefront Component Library theme. Type generally does not exceed 1.5rem/24px.
 
 | rem      | px   | Actual size                                                                                                  |
 | -------- | ---- | ------------------------------------------------------------------------------------------------------------ |
@@ -41,7 +41,7 @@ This type scale defines the font sizes that can be used by the default Reaction 
 
 ##### Font weight
 
-The default Reaction Design System theme uses [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) font in Regular and Bold weights, which can be used to create content hierarchy.
+The default Reaction Storefront Component Library theme uses [Source Sans Pro](https://fonts.google.com/specimen/Source+Sans+Pro) font in Regular and Bold weights, which can be used to create content hierarchy.
 
 |            | Regular 400                                                                                                            | <span style="font-family: Source Sans Pro; font-weight: 700;">Bold 700</span>                                                         | <span style="font-family: Source Sans Pro; font-weight: 600;">SemiBold 600</span>                                                         |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ Generally used for emphasis, the bold weight shouldn’t be applied to anything 
 
 ##### Line height
 
-Leading, or line-height, is an important factor in the legibility of copy. The default Reaction Design System theme uses two line heights for text:
+Leading, or line-height, is an important factor in the legibility of copy. The default Reaction Storefront Component Library theme uses two line heights for text:
 
 - 1.5 for body copy
 - 1.25 for labels, captions, headings, subheadings and titles.
@@ -70,7 +70,7 @@ Body copy benefits from more spacing between lines for improved legibility, whil
 
 #### Type styles specs and usage
 
-Here are the typography specs for the default Reaction Design System theme at a glance. For information about using a custom theme to override these defaults, refer to [Theming Components](./#!/Theming%20Components).
+Here are the typography specs for the default Reaction Storefront Component Library theme at a glance. For information about using a custom theme to override these defaults, refer to [Theming Components](./#!/Theming%20Components).
 
 <div style="vertical-align: top; width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1.5rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 1.25;margin-bottom: 20px;margin-right: 10px;">Title Text</div>
 <div style="vertical-align: top; width: 30%; height: 120px; padding-top: 40px; border: 4px solid rgb(247, 247, 247); text-align: center; box-sizing: border-box; display: inline-block; font-size: 1rem; letter-spacing: 0.03em; color: rgb(80, 85, 88);line-height: 1.25;margin-right: 10px;">Heading Text</div>

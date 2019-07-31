@@ -21,7 +21,7 @@ And there is an additional requirement we gave ourselves that I didn't mention:
 
 - A developer using the library must be able to easily swap in their own compatible component
 
-For example, if you have a different Select component you really like, you should be able to import that somewhere and all of the Reaction Design System form components will use that instead.
+For example, if you have a different Select component you really like, you should be able to import that somewhere and all of the Reaction Storefront Component Library form components will use that instead.
 
 So with all of these requirements and complications in mind, we decided that the best solution is to pass all component dependencies as props, specifically in an object prop named `components`. This gives full control to the app developers to import and pass in whatever they choose, as long as it conforms to the expected props and methods API.
 
@@ -32,4 +32,4 @@ Adding the components context provider is an extra step and potentially confusin
 Lastly, if you're wondering why we don't just have a default components context built into the library package, it's for two reasons:
 - Importing all the components anywhere in the library codebase would mean that you are no longer able to tree-shake them out of your app. You would be stuck with all of the components code, even if you provided your own components context in which you were only using a few of them.
 - We would have to provide multiple versions of the context, or only the latest version. Either way, it could lead to a lot of confusion about which version of a component is being used in which places.
-By giving full control to the app developer, it is very easy to see which versions of which components your app is using, and to remove the code for all unused Reaction Design System components from your app JavaScript bundle.
+By giving full control to the app developer, it is very easy to see which versions of which components your app is using, and to remove the code for all unused Reaction Storefront Component Library components from your app JavaScript bundle.

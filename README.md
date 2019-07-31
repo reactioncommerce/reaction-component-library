@@ -10,7 +10,7 @@ This is a single project with a package of React components for the [Example Sto
 - [`@reactioncommerce/components`](https://www.npmjs.com/package/@reactioncommerce/components): See the [package.json](https://github.com/reactioncommerce/reaction-component-library/blob/master/package/package.json) in [`/package`](https://github.com/reactioncommerce/reaction-component-library/tree/master/package) folder.
 - [Reaction Storefront Component Library](https://designsystem.reactioncommerce.com/): See the root [package.json](https://github.com/reactioncommerce/reaction-component-library/blob/master/package.json).
 
-We use the [React Styleguidist](https://react-styleguidist.js.org/) package to run and build the Reaction Design System website, and running the style guide locally doubles as an interactive playground for developing and testing the components.
+We use the [React Styleguidist](https://react-styleguidist.js.org/) package to run and build the documentation website, and running the style guide locally doubles as an interactive playground for developing and testing the components.
 
 ## Use the React components in your storefront
 

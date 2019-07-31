@@ -1,6 +1,6 @@
 ### Overview
 
-This form is intended to be used to integrate [react-stripe-elements](https://github.com/stripe/react-stripe-elements) into a storefront project easily, with it styled to look like other Reaction Design System forms.
+This form is intended to be used to integrate [react-stripe-elements](https://github.com/stripe/react-stripe-elements) into a storefront project easily.
 
 ### Usage
 

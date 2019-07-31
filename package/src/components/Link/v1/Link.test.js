@@ -6,7 +6,7 @@ import Link from "./Link";
 test("Link component with image snapshot", () => {
   const component = renderer.create((
     <Link href="http://google.com">
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library Logo" />
     </Link>
   ));
 
