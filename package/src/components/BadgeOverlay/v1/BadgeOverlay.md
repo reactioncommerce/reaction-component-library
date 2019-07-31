@@ -16,7 +16,7 @@ When sold out, the overlay and its children are faded to 50% visibility.
     isBestseller: false
   }}
 >
-  <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
+  <img src="/storefront-component-library-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
 </BadgeOverlay>
 ```
 
@@ -32,7 +32,7 @@ When sold out, the overlay and its children are faded to 50% visibility.
     isBestseller: false
   }}
 >
-  <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
+  <img src="/storefront-component-library-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
 </BadgeOverlay>
 ```
 
@@ -48,7 +48,7 @@ When sold out, the overlay and its children are faded to 50% visibility.
     isBestseller: false
   }}
 >
-  <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
+  <img src="/storefront-component-library-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
 </BadgeOverlay>
 ```
 
@@ -64,7 +64,7 @@ When sold out, the overlay and its children are faded to 50% visibility.
     isBestseller: false
   }}
 >
-  <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
+  <img src="/storefront-component-library-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
 </BadgeOverlay>
 ```
 
@@ -80,7 +80,7 @@ When sold out, the overlay and its children are faded to 50% visibility.
     isBestseller: true
   }}
 >
-  <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
+  <img src="/storefront-component-library-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
 </BadgeOverlay>
 ```
 
@@ -96,7 +96,7 @@ When sold out, the overlay and its children are faded to 50% visibility.
     isBestseller: false
   }}
 >
-  <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
+  <img src="/storefront-component-library-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
 </BadgeOverlay>
 ```
 
@@ -112,7 +112,7 @@ When sold out, the overlay and its children are faded to 50% visibility.
     isBestseller: true
   }}
 >
-  <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
+  <img src="/storefront-component-library-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
 </BadgeOverlay>
 ```
 
@@ -128,7 +128,7 @@ When sold out, the overlay and its children are faded to 50% visibility.
     isBestseller: true
   }}
 >
-  <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
+  <img src="/storefront-component-library-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library" />
 </BadgeOverlay>
 ```
 

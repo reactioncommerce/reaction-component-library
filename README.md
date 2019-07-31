@@ -3,8 +3,6 @@
 [![npm (scoped)](https://img.shields.io/npm/v/@reactioncommerce/components.svg)](https://www.npmjs.com/package/@reactioncommerce/components)
  [![CircleCI](https://circleci.com/gh/reactioncommerce/reaction-component-library.svg?style=svg)](https://circleci.com/gh/reactioncommerce/reaction-component-library)
 
-![Reaction Storefront Component Library](https://blog.reactioncommerce.com/content/images/2018/09/style-guide-artwork.jpg)
-
 This is a single project with a package of React components for the [Example Storefront](https://github.com/reactioncommerce/example-storefront/):
 
 - [`@reactioncommerce/components`](https://www.npmjs.com/package/@reactioncommerce/components): See the [package.json](https://github.com/reactioncommerce/reaction-component-library/blob/master/package/package.json) in [`/package`](https://github.com/reactioncommerce/reaction-component-library/tree/master/package) folder.

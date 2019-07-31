@@ -4,7 +4,7 @@ import ProgressiveImage from "./ProgressiveImage";
 
 test("Basic ProgressiveImage snapshot", () => {
   const component = renderer.create((
-    <ProgressiveImage src="/reaction-design-system-logo.svg" alt="Reaction Storefront Component Library Logo" />
+    <ProgressiveImage src="/storefront-component-library-logo.svg" alt="Reaction Storefront Component Library Logo" />
   ));
 
   const tree = component.toJSON();

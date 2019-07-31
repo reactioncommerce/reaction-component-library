@@ -10,7 +10,7 @@ ProgressiveImage can be used as a drop-in replacement for the HTML `<img />` tag
 
 ```jsx
 <div style={{ borderStyle: "dotted", borderWidth: "1px", borderColor: "#999999", width: 400 }}>
-  <ProgressiveImage src="/reaction-design-system-logo.svg" alt="Reaction Storefront Component Library Logo" />
+  <ProgressiveImage src="/storefront-component-library-logo.svg" alt="Reaction Storefront Component Library Logo" />
 </div>
 ```
 
