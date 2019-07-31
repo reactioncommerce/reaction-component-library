@@ -31,6 +31,31 @@ To enable the multi-line text input, pass the `shouldAllowLineBreaks` prop.
 </div>
 ```
 
+#### Number
+To enable the number type text input, use the `type="number"`.
+
+```jsx
+<div style={{ width: "50%" }}>
+  <TextInput name="example" placeholder="0.00" type="number"/>
+</div>
+```
+
+To set minimum or maximum values allowed, set the `min` and `max` props.
+
+```jsx
+<div style={{ width: "50%" }}>
+  <TextInput name="example" placeholder="0.00" max={10.00} min={0} type="number"/>
+</div>
+```
+
+To set the increment the input arrows will use, set the `step` prop.
+
+```jsx
+<div style={{ width: "50%" }}>
+  <TextInput name="example" placeholder="0.00" max={10.00} min={0} step="0.01" type="number"/>
+</div>
+```
+
 ### Styles
 
 By default, text inputs are white with dark text on grey backgrounds.
