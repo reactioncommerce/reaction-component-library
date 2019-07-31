@@ -13,7 +13,7 @@ test("BadgeOverlay with sold out primary badge", () => {
         isBestseller: false
       }}
     >
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
     </BadgeOverlay>
   ));
 
@@ -32,7 +32,7 @@ test("BadgeOverlay with backorder primary badge", () => {
         isBestseller: false
       }}
     >
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
     </BadgeOverlay>
   ));
 
@@ -51,7 +51,7 @@ test("BadgeOverlay with on sale primary badge", () => {
         isBestseller: false
       }}
     >
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
     </BadgeOverlay>
   ));
 
@@ -70,7 +70,7 @@ test("BadgeOverlay with on sale primary badge and low quantity secondary badge",
         isBestseller: false
       }}
     >
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
     </BadgeOverlay>
   ));
 
@@ -89,7 +89,7 @@ test("BadgeOverlay with on sale primary badge and best seller secondary badge", 
         isBestseller: true
       }}
     >
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
     </BadgeOverlay>
   ));
 
@@ -108,7 +108,7 @@ test("BadgeOverlay with low quantity primary badge", () => {
         isBestseller: false
       }}
     >
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
     </BadgeOverlay>
   ));
 
@@ -127,7 +127,7 @@ test("BadgeOverlay with low quantity primary badge and best seller secondary bad
         isBestseller: true
       }}
     >
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
     </BadgeOverlay>
   ));
 
@@ -146,7 +146,7 @@ test("BadgeOverlay with best seller primary badge", () => {
         isBestseller: true
       }}
     >
-      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Design System Logo" />
+      <img src="/reaction-design-system-logo.svg" width="200" height="200" alt="Reaction Storefront Component Library logo" />
     </BadgeOverlay>
   ));
 

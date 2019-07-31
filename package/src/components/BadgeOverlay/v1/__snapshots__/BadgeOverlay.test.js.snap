@@ -59,7 +59,7 @@ exports[`BadgeOverlay with backorder primary badge 1`] = `
     </span>
   </div>
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
@@ -126,7 +126,7 @@ exports[`BadgeOverlay with best seller primary badge 1`] = `
     </span>
   </div>
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
@@ -193,7 +193,7 @@ exports[`BadgeOverlay with low quantity primary badge 1`] = `
     </span>
   </div>
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
@@ -290,7 +290,7 @@ exports[`BadgeOverlay with low quantity primary badge and best seller secondary 
     </span>
   </div>
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
@@ -357,7 +357,7 @@ exports[`BadgeOverlay with on sale primary badge 1`] = `
     </span>
   </div>
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
@@ -454,7 +454,7 @@ exports[`BadgeOverlay with on sale primary badge and best seller secondary badge
     </span>
   </div>
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
@@ -551,7 +551,7 @@ exports[`BadgeOverlay with on sale primary badge and low quantity secondary badg
     </span>
   </div>
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
@@ -619,7 +619,7 @@ exports[`BadgeOverlay with sold out primary badge 1`] = `
     </span>
   </div>
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library logo"
     height="200"
     src="/reaction-design-system-logo.svg"
     width="200"
