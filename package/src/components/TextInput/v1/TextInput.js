@@ -260,9 +260,17 @@ class TextInput extends Component {
      */
     isReadOnly: PropTypes.oneOfType([PropTypes.bool, PropTypes.func]),
     /**
+     * Maximum value for input when type === number
+     */
+    max: PropTypes.number,
+    /**
      * Max amount of characters allowed in input
      */
     maxLength: PropTypes.number,
+    /**
+     * Minimum value for input when type === number
+     */
+    min: PropTypes.number,
     /**
      * Input name
      */
@@ -300,9 +308,13 @@ class TextInput extends Component {
      */
     shouldTrimValue: PropTypes.bool,
     /**
-     * The HTML input type for the text input, the input only supports "email", "password", "text", "url" defaults to "text"
+     * Increment value when type === number
      */
-    type: PropTypes.oneOf(["email", "password", "text", "url"]),
+    step: PropTypes.string,
+    /**
+     * The HTML input type for the text input, the input only supports "email", "number", "password", "text", "url" defaults to "text"
+     */
+    type: PropTypes.oneOf(["email", "number", "password", "text", "url"]),
     /**
      * Prepopulate the input's value
      */
@@ -555,10 +567,13 @@ class TextInput extends Component {
       id,
       isOnDarkBackground,
       isReadOnly,
+      max,
       maxLength,
+      min,
       name,
       placeholder,
       shouldAllowLineBreaks,
+      step,
       type
     } = this.props;
     const { isButtonFocused, isInputFocused, value } = this.state;
@@ -575,13 +590,16 @@ class TextInput extends Component {
             hasBeenValidated={hasBeenValidated}
             id={id}
             isOnDarkBackground={isOnDarkBackground}
+            max={max}
             maxLength={maxLength}
+            min={min}
             name={name}
             onBlur={this.onInputBlur}
             onChange={this.onChange}
             onFocus={this.onInputFocus}
             placeholder={placeholder}
             readOnly={isReadOnly}
+            step={step}
             value={value}
           />
           {this.showClearButton() ? this.renderClearButton() : null}
@@ -604,7 +622,9 @@ class TextInput extends Component {
           hasBeenValidated={hasBeenValidated}
           id={id}
           isOnDarkBackground={isOnDarkBackground}
+          max={max}
           maxLength={maxLength}
+          min={min}
           name={name}
           onBlur={this.onInputBlur}
           onChange={this.onChange}
@@ -612,6 +632,7 @@ class TextInput extends Component {
           onKeyPress={this.onKeyPress}
           placeholder={placeholder}
           readOnly={isReadOnly}
+          step={step}
           type={type}
           value={value}
         />
