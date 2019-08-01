@@ -78,7 +78,7 @@ function generateSection({ componentNames, name, content }) {
 }
 
 module.exports = {
-  title: "Reaction Design System",
+  title: "Storefront Component Library | Reaction Commerce",
   theme: {
     sidebarWidth: 320,
     maxWidth: 1000,
@@ -168,7 +168,7 @@ module.exports = {
       },
       logo: {
         borderBottom: [[0]],
-        backgroundImage: "url(reaction-design-system-logo.svg)",
+        backgroundImage: "url(storefront-component-library-logo.svg)",
         backgroundRepeat: "no-repeat",
         height: 110,
         backgroundPosition: "25% 50%",

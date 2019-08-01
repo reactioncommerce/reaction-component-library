@@ -1,5 +1,5 @@
 /**
- * Default Reaction Design System Colors
+ * Default Reaction Example Storefront Colors
  */
 
 export default {

@@ -1,7 +1,7 @@
 {
   "name": "@reactioncommerce/styleguide",
   "version": "0.1.0",
-  "description": "Reaction Commerce Style Guide",
+  "description": "Reaction Commerce - Example Storefront Component Library",
   "homepage": "https://github.com/reactioncommerce/reaction-component-library",
   "main": "index.js",
   "repository": "https://github.com/reactioncommerce/reaction-component-library",

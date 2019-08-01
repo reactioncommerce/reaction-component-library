@@ -12,9 +12,9 @@ exports[`Link component with image snapshot 1`] = `
   onClick={[Function]}
 >
   <img
-    alt="Reaction Design System Logo"
+    alt="Reaction Storefront Component Library Logo"
     height="200"
-    src="/reaction-design-system-logo.svg"
+    src="/storefront-component-library-logo.svg"
     width="200"
   />
 </a>

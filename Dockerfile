@@ -1,7 +1,7 @@
 FROM node:8-alpine
 
 ARG NAME=styleguide
-ARG DESCRIPTION="Reaction Components Style Guide"
+ARG DESCRIPTION="Reaction Commerce's Example Storefront Component Library"
 ARG URL=https://github.com/reactioncommerce/reaction-component-library
 ARG DOC_URL=https://github.com/reactioncommerce/reaction-component-library
 ARG VCS_URL=https://github.com/reactioncommerce/reaction-component-library

@@ -1,4 +1,4 @@
-Most components of the Reaction Design System component library can be visually customized with a [styled-components theme](https://www.styled-components.com/docs/advanced#theming).
+Most components of the Reaction Storefront component library can be visually customized with a [styled-components theme](https://www.styled-components.com/docs/advanced#theming).
 
 #### Add a ThemeProvider
 
@@ -154,7 +154,7 @@ const theme = {
 };
 ```
 
-Additionally, you can override these values for a specific component. Note that "component" may be an actual React component name, or may be a string describing a DOM element that is within a component. For example, the Reaction Design System has a `BadgeOverlay` component, but to override the badge label text, you need to use `BadgeOverlayBadgeLabel` as the component name. These names are listed in the theme documentation for each component.
+Additionally, you can override these values for a specific component. Note that "component" may be an actual React component name, or may be a string describing a DOM element that is within a component. For example, the Reaction Storefront has a `BadgeOverlay` component, but to override the badge label text, you need to use `BadgeOverlayBadgeLabel` as the component name. These names are listed in the theme documentation for each component.
 
 Using `BadgeOverlay` as an example, note that `BadgeOverlayBadgeLabel` uses `labelText`. So if you want to make your `labelText` green in general, but make the text in the `BadgeOverlay` label white, you would need this in your theme:
 

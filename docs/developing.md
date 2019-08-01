@@ -1,6 +1,6 @@
 # Running and Developing Locally
 
-These instructions are the same regardless of whether you're developing components within the Reaction Design System or developing the Reaction Design System website itself.
+These instructions are the same regardless of whether you're developing components within the Reaction Storefront Component Library or developing the Reaction Storefront Component Library website itself.
 
 ## Run for Development
 
@@ -115,4 +115,4 @@ Be sure to familiarize yourself with the [Repo Structure](./repo-structure.md).
 
 If you're going to create components, learn the [Component Development Guidelines](./component-development-guidelines.md) and read about [Creating a New Component](./creating-new-component.md).
 
-If you're going to work on the Reaction Design System website, check out the [Style Guide Development](./style-guide-development.md) docs.
+If you're going to work on the Reaction Storefront Component Library website, check out the [Style Guide Development](./style-guide-development.md) docs.
