@@ -1,7 +1,7 @@
 {
   "name": "@reactioncommerce/components",
   "version": "0.0.0-development",
-  "description": "Reaction Components",
+  "description": "Reaction Commerce - Example Storefront Component Library",
   "homepage": "https://github.com/reactioncommerce/reaction-component-library",
   "repository": "https://github.com/reactioncommerce/reaction-component-library",
   "author": {
