@@ -1,6 +1,6 @@
 {
-  "short_name": "Reaction Style Guide",
-  "name": "Reaction UI Components Style Guide",
+  "short_name": "Reaction Storefront Components",
+  "name": "Reaction Commerce's Example Storefront Component Library",
   "icons": [
     {
       "src": "favicon.ico",
