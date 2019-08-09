@@ -1,11 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`basic snapshot 1`] = `
-<div
-  className={null}
-  style={Object {}}
->
-  Field({"name":"fullName","label":"Full name","labelFor":"fullName_ExampleIOUPaymentForm1","children":"[Object]"})
-  Field({"name":"amount","label":"Amount (optional)","labelFor":"amount_ExampleIOUPaymentForm1","children":"[Object]"})
+<div>
+  Field({"name":"fullName","errors":"[Object]","label":"Full name","labelFor":"fullName_ExampleIOUPaymentForm1","children":"[Object]"})
+  Field({"name":"amount","errors":"[Object]","label":"Amount (optional)","labelFor":"amount_ExampleIOUPaymentForm1","children":"[Object]"})
 </div>
 `;
