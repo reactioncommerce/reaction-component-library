@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import isEmpty from "lodash.isempty";
+import isEmpty from "lodash/isEmpty";
 
 const DEFAULT_LOCALES_PATH = "./utils/locales/locales.json";
 

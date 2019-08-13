@@ -42,8 +42,7 @@ test("calls onChange on mount and change", () => {
     </ComponentsProvider>
   ));
 
-  expect(onChange).toHaveBeenCalledTimes(1);
-  expect(onChange).toHaveBeenLastCalledWith({
+  expect(onChange).toHaveBeenCalledWith({
     amount: null,
     data: { fullName: null },
     displayName: null

@@ -560,8 +560,8 @@ module.exports = {
     return `import ${name} from "@reactioncommerce/components/${name}/${version}"`;
   },
   pagePerSection: true,
-  showCode: true,
-  showUsage: true,
+  exampleMode: "collapse",
+  usageMode: "expand",
   serverPort: Number(process.env.PORT || 6060),
   assetsDir: "styleguide/src/assets/",
   styleguideDir: "styleguide/dist",
