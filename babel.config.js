@@ -54,7 +54,7 @@ module.exports = function (api) {
           // esmodules
         },
         // https://babeljs.io/docs/en/babel-preset-env#usebuiltins-usage-experimental
-        useBuiltIns: "usage"
+        useBuiltIns: "entry"
       }
     ],
     "@babel/preset-react"
