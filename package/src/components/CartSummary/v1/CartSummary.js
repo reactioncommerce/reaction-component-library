@@ -92,6 +92,10 @@ const Total = styled.span`
 class CartSummary extends Component {
   static propTypes = {
     /**
+     * The text for the "Cart" title text.
+     */
+    cartTitleText: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
@@ -122,6 +126,10 @@ class CartSummary extends Component {
      */
     displayTotal: PropTypes.string.isRequired,
     /**
+     * The text for the "FREE" label text.
+     */
+    freeText: PropTypes.string,
+    /**
      * Dense layout with a transparent background color
      */
     isDense: PropTypes.bool,
@@ -130,20 +138,60 @@ class CartSummary extends Component {
      */
     isFreeShipping: PropTypes.bool,
     /**
+     * The text for the "Items" label text.
+     */
+    itemLabelText: PropTypes.string,
+    /**
+     * The text for the "items" header text.
+     */
+    itemsText: PropTypes.string,
+    /**
      * Quantity of products in shopping cart
      */
-    itemsQuantity: PropTypes.number
+    itemsQuantity: PropTypes.number,
+    /**
+     * The text for the "Order total" label text.
+     */
+    orderTotalLabelText: PropTypes.string,
+    /**
+     * The text for the "Promo code applied" text.
+     */
+    promoCodeText: PropTypes.string,
+    /**
+     * The text for the "Shipping" label text.
+     */
+    shippingLabelText: PropTypes.string,
+    /**
+     * The text for the "Surcharges" label text.
+     */
+    surchargesLabelText: PropTypes.string,
+    /**
+     * The text for the "Tax" label text.
+     */
+    taxLabelText: PropTypes.string,
+  }
+
+  static defaultProps: {
+    cartTitleText: "Cart Summary",
+    freeText: "FREE",
+    itemLabelText: "Items",
+    itemsText: "items",
+    orderTotalLabelText: "Order total"
+    promoCodeText: "Promo code applied",
+    shippingLabelText: "Shipping",
+    surchargesLabelText: "Surcharges",
+    taxLabelText: "Tax",
   }
 
   renderHeader() {
-    const { itemsQuantity } = this.props;
-    const itemsLabel = itemsQuantity >= 0 ? `${itemsQuantity} items` : null;
+    const { cartTitleText, itemsQuantity, itemsText } = this.props;
+    const itemsLabel = itemsQuantity >= 0 ? `${itemsQuantity} ${itemsText}` : null;
 
     return (
       <thead>
         <tr>
           <Th>
-            <Title>Cart Summary</Title>
+            <Title>{cartTitleText}</Title>
           </Th>
           <Thr>{itemsLabel}</Thr>
         </tr>
@@ -152,11 +200,11 @@ class CartSummary extends Component {
   }
 
   renderDiscount() {
-    const { displayDiscount, isDense } = this.props;
+    const { displayDiscount, isDense, promoCodeText } = this.props;
 
     return (
       <tr>
-        <Td isDense={isDense}>Promo code applied:</Td>
+        <Td isDense={isDense}>{promoCodeText}:</Td>
         <TdValue isDense={isDense}>
           <Discount>{displayDiscount}</Discount>
         </TdValue>
@@ -174,11 +222,17 @@ class CartSummary extends Component {
       displayTax,
       displayTotal,
       isDense,
-      isFreeShipping
+      isFreeShipping,
+      freeText,
+      itemLabelText,
+      orderTotalLabelText,
+      shippingLabelText,
+      surchargesLabelText,
+      taxLabelText,
     } = this.props;
 
     // Use "-" to indicate we are still calculating this field.
-    const shipping = (isFreeShipping ? "FREE" : displayShipping) || "-";
+    const shipping = (isFreeShipping ? freeText : displayShipping) || "-";
     const tax = displayTax || "-";
     const header = !isDense && this.renderHeader();
     const discount = displayDiscount && this.renderDiscount();
@@ -189,24 +243,24 @@ class CartSummary extends Component {
         {header}
         <tbody>
           <tr>
-            <Td isDense={isDense}>Items:</Td>
+            <Td isDense={isDense}>{itemLabelText}:</Td>
             <TdValue isDense={isDense}>{displaySubtotal}</TdValue>
           </tr>
           <tr>
-            <Td isDense={isDense}>Shipping:</Td>
+            <Td isDense={isDense}>{shippingLabelText}:</Td>
             <TdValue isDense={isDense}>{shipping}</TdValue>
           </tr>
           {discount}
           <tr>
-            <Td isDense={isDense}>Surcharges:</Td>
+            <Td isDense={isDense}>{surchargesLabelText}:</Td>
             <TdValue isDense={isDense}>{surcharge}</TdValue>
           </tr>
           <tr>
-            <TdTax isDense={isDense}>Tax:</TdTax>
+            <TdTax isDense={isDense}>{taxLabelText}:</TdTax>
             <TdTaxValue isDense={isDense}>{tax}</TdTaxValue>
           </tr>
           <tr>
-            <TdTotal isDense={isDense} isBordered>Order total:</TdTotal>
+            <TdTotal isDense={isDense} isBordered>{orderTotalLabelText}:</TdTotal>
             <TdTotalValue isDense={isDense} isBordered>
               <Total>{displayTotal}</Total>
             </TdTotalValue>

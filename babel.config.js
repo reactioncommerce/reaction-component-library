@@ -9,6 +9,8 @@ module.exports = function (api) {
         [
           "@babel/env",
           {
+            corejs: 3,
+            useBuiltIns: "entry",
             // https://babeljs.io/docs/en/babel-preset-env#targets
             targets: {
               node: "current",
@@ -37,6 +39,7 @@ module.exports = function (api) {
     [
       "@babel/env",
       {
+        corejs: 3,
         modules: esmodules ? false : "auto",
         // https://babeljs.io/docs/en/babel-preset-env#targets
         targets: {
