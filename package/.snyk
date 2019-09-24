@@ -1,0 +1,9 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  'npm:mem:20180117':
+    - libnpx > yargs > os-locale > mem:
+        reason: package cannot be upgraded
+        expires: '2019-10-24T18:15:12.496Z'
+patch: {}
