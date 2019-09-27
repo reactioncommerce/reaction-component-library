@@ -11,27 +11,25 @@ yarn run build
 
 - Next, `cd` into the local version of the repository you'd like to use the local `Component Library` inside. Add the following line to the `volumes:` portion of the `docker-compose.yml` file:
 
-Inside `Reaction Storefront`:
+In the example storefront project:
 
 ```diff
 volumes:
   - $HOME/.cache/yarn-offline-mirror:/home/node/.cache/yarn-offline-mirror
   - web-yarn:/home/node/.cache/yarn
   - .:/usr/local/src/reaction-app
-  - empty_node_modules:/usr/local/src/reaction-app/node_modules # do not link node_modules in, and persist it between dc up runs
   - node_modules:/usr/local/src/node_modules
 + - /{Path-to-your-local-repo}/reaction-component-library/package/dist:/usr/local/src/reaction-app/node_modules/@reactioncommerce/components
 ```
 
-Inside `Reaction Operator UI`:
+Or in the Reaction Admin project, under the `reaction` service:
+
 ```diff
 volumes:
-  - $HOME/.cache/yarn-offline-mirror:/home/node/.cache/yarn-offline-mirror
-  - web-yarn:/home/node/.cache/yarn
-  - .:/usr/local/src/reaction-app
-  - empty_node_modules:/usr/local/src/reaction-app/node_modules # do not link node_modules in, and persist it between dc up runs
-  - node_modules:/usr/local/src/node_modules
-+ - /{Path-to-your-local-repo}/reaction-component-library/package/dist:/usr/local/src/node_modules/@reactioncommerce/components
+  - .:/opt/reaction/src:cached
+  - reaction_meteor_local:/opt/reaction/src/.meteor/local
+  - reaction_node_modules:/opt/reaction/src/node_modules # do not link node_modules in, and persist it between dc up runs
++ - /{Path-to-your-local-repo}/reaction-component-library/package/dist:/opt/reaction/src/node_modules/@reactioncommerce/components
 ```
 
 - Next, run `docker-compose up -d` like normal to access the app in your browser and test it.
