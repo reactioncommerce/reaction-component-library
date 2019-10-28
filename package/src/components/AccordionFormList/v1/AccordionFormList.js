@@ -83,6 +83,10 @@ class AccordionFormList extends Component {
      */
     addNewItemButtonText: PropTypes.string,
     /**
+     * The text for the "Cancel" text, if it is shown.
+     */
+    cancelButtonText: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
@@ -156,13 +160,19 @@ class AccordionFormList extends Component {
     /**
      * Handles item deletion from list
      */
-    onItemDeleted: PropTypes.func
+    onItemDeleted: PropTypes.func,
+    /**
+     * The text for the "Save" text, if it is shown.
+     */
+    saveButtonText: PropTypes.string
   };
 
   static defaultProps = {
     addNewItemButtonText: "Add an item",
     deleteItemButtonText: "Delete this item",
     entryFormSubmitButtonText: "Add item",
+    cancelButtonText: "Cancel",
+    saveButtonText: "Save",
     isWaiting: false,
     onItemDeleted() {}
   };
@@ -207,10 +217,12 @@ class AccordionFormList extends Component {
   renderAccordion() {
     const {
       addNewItemButtonText,
+      cancelButtonText,
       components: { Accordion, Button, iconPlus, ItemEditForm },
       deleteItemButtonText,
       isWaiting,
-      items
+      items,
+      saveButtonText
     } = this.props;
 
     return (
@@ -250,10 +262,10 @@ class AccordionFormList extends Component {
                   this.toggleAccordionForItem(id);
                 }}
               >
-                Cancel
+                {cancelButtonText}
               </Button>
               <Button onClick={() => this._refs[`editForm_${id}`].submit()} isShortHeight isWaiting={isWaiting}>
-                Save Changes
+                {saveButtonText}
               </Button>
             </FormActions>
           </Accordion>
@@ -269,7 +281,7 @@ class AccordionFormList extends Component {
   }
 
   renderEntryForm() {
-    const { components: { Button, ItemAddForm }, entryFormSubmitButtonText, isWaiting, itemAddFormProps } = this.props;
+    const { cancelButtonText, components: { Button, ItemAddForm }, entryFormSubmitButtonText, isWaiting, itemAddFormProps } = this.props;
     return (
       <Fragment>
         <ItemAddForm
@@ -280,7 +292,7 @@ class AccordionFormList extends Component {
         />
         <FormActions>
           <Button actionType="secondary" onClick={this.handleEntryFormCancel}>
-            Cancel
+            {cancelButtonText}
           </Button>
           <Button onClick={() => this._addItemForm.submit()} isWaiting={isWaiting}>
             {entryFormSubmitButtonText}
