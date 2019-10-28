@@ -19,6 +19,10 @@ class AddressBook extends Component {
       addressBook: CustomPropTypes.addressBook
     }),
     /**
+     * The text for the "Add a new address" text, if it is shown.
+     */
+    addNewItemButtonText: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
@@ -47,6 +51,14 @@ class AddressBook extends Component {
        */
       AddressReview: CustomPropTypes.component.isRequired
     }).isRequired,
+    /**
+     * The text for the "Delete address" text, if it is shown.
+     */
+    deleteItemButtonText: PropTypes.string,
+    /**
+     * The text for the "Save Changes" text, if it is shown.
+     */
+    entryFormSubmitButtonText: PropTypes.string,
     /**
      * Is data being saved
      */
@@ -77,6 +89,9 @@ class AddressBook extends Component {
     account: {
       addressBook: []
     },
+    addNewItemButtonText: "Add a new address",
+    deleteItemButtonText: "Delete address",
+    entryFormSubmitButtonText: "Save Changes",
     isSaving: false,
     onAddressAdded() {},
     onAddressDeleted() {},
@@ -133,7 +148,7 @@ class AddressBook extends Component {
   // Render Methods
   //
   renderAccordionFormList() {
-    const { account: { addressBook }, components: { AccordionFormList, AddressForm }, isSaving } = this.props;
+    const { account: { addressBook }, addNewItemButtonText, components: { AccordionFormList, AddressForm }, deleteItemButtonText, entryFormSubmitButtonText, isSaving } = this.props;
 
     const items = addressBook.map(({ _id, ...address }) => ({
       id: _id,
@@ -156,10 +171,10 @@ class AddressBook extends Component {
 
     return (
       <AccordionFormList
-        addNewItemButtonText="Add a new address"
+        addNewItemButtonText={addNewItemButtonText}
         components={{ ItemAddForm: AddressForm, ItemEditForm: AddressForm }}
-        deleteItemButtonText="Delete address"
-        entryFormSubmitButtonText="Save Changes"
+        deleteItemButtonText={deleteItemButtonText}
+        entryFormSubmitButtonText={entryFormSubmitButtonText}
         itemAddFormProps={itemAddFormProps}
         items={items}
         onItemDeleted={this.handleDeleteAddress}
