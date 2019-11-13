@@ -172,7 +172,7 @@ class AccordionFormList extends Component {
     deleteItemButtonText: "Delete this item",
     entryFormSubmitButtonText: "Add item",
     cancelButtonText: "Cancel",
-    saveButtonText: "Save",
+    saveButtonText: "Save Changes",
     isWaiting: false,
     onItemDeleted() {}
   };
