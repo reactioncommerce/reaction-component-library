@@ -144,7 +144,7 @@ class CheckoutActions extends Component {
 
   static defaultProps = {
     cancelButtonText: "Cancel",
-    isNotSavingButtonText: "Place your order"
+    isNotSavingButtonText: "Place your order",
     isSavingButtonText: "Placing your order...",
     saveButtonText: "Save and continue",
   };
