@@ -49,6 +49,10 @@ class StripePaymentCheckoutAction extends Component {
      */
     alert: CustomPropTypes.alert,
     /**
+     * The text for the "Billing Address" label text.
+     */
+    billingAddressTitleText: PropTypes.string,
+    /**
      * If you've set up a components context using
      * [@reactioncommerce/components-context](https://github.com/reactioncommerce/components-context)
      * (recommended), then this prop will come from there automatically. If you have not
@@ -100,13 +104,19 @@ class StripePaymentCheckoutAction extends Component {
      */
     onSubmit: PropTypes.func,
     /**
+     * The text for the "Your Information is private and secure." caption text.
+     */
+    secureCaptionText: PropTypes.string,
+    /**
      * Checkout process step number
      */
     stepNumber: PropTypes.number.isRequired
   };
 
   static defaultProps = {
-    onReadyForSaveChange() { }
+    billingAddressTitleText: "Billing Address"
+    onReadyForSaveChange() { },
+    secureCaptionText: "Your Information is private and secure.",
   };
 
   state = {
@@ -225,9 +235,11 @@ class StripePaymentCheckoutAction extends Component {
   render() {
     const {
       alert,
+      billingAddressTitleText,
       components: { iconLock, InlineAlert, SelectableList, StripeForm },
       label,
-      stepNumber
+      stepNumber,
+      secureCaptionText
     } = this.props;
 
     const { billingAddress } = this.state;
@@ -243,9 +255,9 @@ class StripePaymentCheckoutAction extends Component {
           stripeRef={(stripe) => { this._stripe = stripe; }}
         />
         <SecureCaption>
-          <IconLockSpan>{iconLock}</IconLockSpan> <Span>Your Information is private and secure.</Span>
+          <IconLockSpan>{iconLock}</IconLockSpan> <Span>{secureCaptionText}</Span>
         </SecureCaption>
-        <Title>Billing Address</Title>
+        <Title>{billingAddressTitleText}</Title>
         <SelectableList
           onChanging={this.handleUseNewBillingAddress}
           options={billingAddressOptions}
