@@ -338,8 +338,9 @@ class CartItem extends Component {
         isLowQuantity,
         price: { displayAmount: displayPrice },
         subtotal,
-        removeText
-      }
+      },
+      removeText,
+      totalText
     } = this.props;
 
     const { displayAmount: displaySubtotal } = subtotal || {};
