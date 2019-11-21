@@ -80,10 +80,18 @@ class CartItemDetail extends Component {
      */
     quantity: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     /**
+     * The text for the "Quantity" label text.
+     */
+    quantityText: PropTypes.string,
+    /**
      * Product title of chosen item.
      */
     title: PropTypes.string
   };
+
+  static defaultProps: {
+    quantityText: "Quantity"
+  }
 
   renderBlockAttributes() {
     const { attributes } = this.props;
@@ -112,7 +120,7 @@ class CartItemDetail extends Component {
   }
 
   renderAttributes() {
-    const { attributes, isMiniCart, productVendor, quantity } = this.props;
+    const { attributes, isMiniCart, productVendor, quantity, quantityText } = this.props;
 
     if ((!attributes || attributes.length === 0) && !productVendor) return null;
 
@@ -120,7 +128,7 @@ class CartItemDetail extends Component {
       <Attributes isMiniCart={isMiniCart}>
         {productVendor ? <Text>{productVendor}</Text> : null}
         {isMiniCart ? this.renderInlineAttributes() : this.renderBlockAttributes()}
-        {quantity ? <Text>Quantity: {quantity}</Text> : null}
+        {quantity ? <Text>{quantityText}: {quantity}</Text> : null}
       </Attributes>
     );
   }
