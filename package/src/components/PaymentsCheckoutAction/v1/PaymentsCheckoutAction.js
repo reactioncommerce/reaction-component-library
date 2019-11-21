@@ -37,6 +37,10 @@ class PaymentsCheckoutAction extends Component {
      */
     alert: CustomPropTypes.alert,
     /**
+     * The text for the "Billing Address" title text.
+     */
+    billingAddressTitleText: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
@@ -120,7 +124,8 @@ class PaymentsCheckoutAction extends Component {
   static defaultProps = {
     onReadyForSaveChange() {},
     onReset() {},
-    onSubmit() {}
+    onSubmit() {},
+    billingAddressTitleText: "Billing Address"
   };
 
   constructor(props) {
@@ -212,11 +217,11 @@ class PaymentsCheckoutAction extends Component {
   };
 
   renderBillingAddressForm() {
-    const { addresses, components: { AddressChoice }, isSaving } = this.props;
+    const { addresses, components: { AddressChoice }, isSaving, billingAddressTitleText } = this.props;
 
     return (
       <Fragment>
-        <Title>Billing Address</Title>
+        <Title>{billingAddressTitleText}</Title>
         <AddressChoice addresses={addresses} isReadOnly={isSaving} onChange={this.handleAddressChange} />
       </Fragment>
     );
