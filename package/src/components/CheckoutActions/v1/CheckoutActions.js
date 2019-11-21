@@ -90,6 +90,10 @@ class CheckoutActions extends Component {
       props: PropTypes.object
     })),
     /**
+     * The text for the "Cancel" button text.
+     */
+    cancelButtonText: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
@@ -123,10 +127,27 @@ class CheckoutActions extends Component {
        * accepts compatible props.
        */
       CheckoutActionIncomplete: CustomPropTypes.component.isRequired
-    }).isRequired
+    }).isRequired,
+    /**
+     * The text for the "Place your order" button text when `isSaving` equals `false`.
+     */
+    isNotSavingButtonText: PropTypes.string,
+    /**
+     * The text for the "Placing your order..." button text when `isSaving` equals `true`.
+     */
+    isSavingButtonText: PropTypes.string,
+     /**
+     * The text for the "Save and continue" button text.
+     */
+    saveButtonText: PropTypes.string,
   };
 
-  static defaultProps = {};
+  static defaultProps = {
+    cancelButtonText: "Cancel",
+    isNotSavingButtonText: "Place your order"
+    isSavingButtonText: "Placing your order...",
+    saveButtonText: "Save and continue",
+  };
 
   static getDerivedStateFromProps(props, state) {
     if (!isEqual(props.actions, state.previousActionsProp)) {
@@ -233,7 +254,7 @@ class CheckoutActions extends Component {
   };
 
   renderFormActions = (action) => {
-    const { actions, components: { Button } } = this.props;
+    const { actions, components: { Button }, cancelButtonText, saveButtonText, isSavingButtonText, isNotSavingButtonText } = this.props;
     const { readyForSave, isSaving } = this.getCurrentActionByID(action.id);
     const lastStep = actions.length - 1 === this.getCurrentActionIndex(action.id);
 
@@ -246,13 +267,13 @@ class CheckoutActions extends Component {
               this.setStateForAction(action.id, { isActive: false });
             }}
           >
-            Cancel
+            {cancelButtonText}
           </Button>
         ) : (
           ""
         )}
         <Button onClick={() => this.actionSubmit(action.id)} isDisabled={!readyForSave} isWaiting={isSaving}>
-          Save and continue
+          {saveButtonText}
         </Button>
       </React.Fragment>
     );
@@ -260,7 +281,7 @@ class CheckoutActions extends Component {
     const placeOrderButton = (
       <PlaceOrderButtonContainer>
         <Button onClick={() => this.actionSubmit(action.id)} actionType="important" isWaiting={isSaving} isFullWidth>
-          {isSaving ? "Placing your order..." : "Place your order"}
+          {isSaving ? `${isSavingButtonText}` : `${isNotSavingButtonText}`}
         </Button>
       </PlaceOrderButtonContainer>
     );
