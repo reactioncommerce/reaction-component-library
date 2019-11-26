@@ -60,12 +60,17 @@ class StripePaymentInput extends Component {
      * method is called. The object may have `data`, `displayName`,
      * and `amount` properties.
      */
-    onSubmit: PropTypes.func
+    onSubmit: PropTypes.func,
+     /**
+     * The text for the "Your Information is private and secure." caption text.
+     */
+    secureCaptionText: PropTypes.string,
   };
 
   static defaultProps = {
     onReadyForSaveChange() {},
-    onSubmit() {}
+    onSubmit() {},
+    secureCaptionText: "Your Information is private and secure.",
   };
 
   componentDidMount() {
@@ -95,7 +100,7 @@ class StripePaymentInput extends Component {
   }
 
   render() {
-    const { className, components: { iconLock, StripeForm } } = this.props;
+    const { className, components: { iconLock, StripeForm }, secureCaptionText } = this.props;
 
     return (
       <div className={className}>
@@ -104,7 +109,7 @@ class StripePaymentInput extends Component {
           stripeRef={(stripe) => { this._stripe = stripe; }}
         />
         <SecureCaption>
-          <IconLockSpan>{iconLock}</IconLockSpan> <Span>Your Information is private and secure.</Span>
+          <IconLockSpan>{iconLock}</IconLockSpan> <Span>{secureCaptionText}</Span>
         </SecureCaption>
       </div>
     );
