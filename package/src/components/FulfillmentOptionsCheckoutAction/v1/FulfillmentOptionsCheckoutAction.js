@@ -63,6 +63,10 @@ class FulfillmentOptionsCheckoutAction extends Component {
       InlineAlert: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
+     * The text for the "No fulfillment methods" label text.
+     */
+    emptyMessageLabelText: PropTypes.string,
+    /**
      * Checkout data needed for form
      */
     fulfillmentGroup: PropTypes.shape({
@@ -97,7 +101,8 @@ class FulfillmentOptionsCheckoutAction extends Component {
 
   static defaultProps = {
     isSaving: false,
-    onReadyForSaveChange() { }
+    onReadyForSaveChange() { },
+    emptyMessageLabelText: "No fulfillment methods"
   };
 
   state = {};
@@ -158,7 +163,8 @@ class FulfillmentOptionsCheckoutAction extends Component {
       fulfillmentGroup: {
         availableFulfillmentOptions
       },
-      stepNumber
+      stepNumber,
+      emptyMessageLabelText
     } = this.props;
 
     return (
@@ -184,7 +190,7 @@ class FulfillmentOptionsCheckoutAction extends Component {
             />
           </Form>
           :
-          <EmptyMessage>No fulfillment methods</EmptyMessage>
+          <EmptyMessage>{emptyMessageLabelText}</EmptyMessage>
         }
       </Fragment>
     );
