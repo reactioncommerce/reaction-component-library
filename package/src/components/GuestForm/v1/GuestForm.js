@@ -62,6 +62,14 @@ class GuestForm extends Component {
       TextInput: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
+     * The text for the "Email address" label text.
+     */
+    emailLabelText: PropTypes.string,
+    /**
+     * The text for the "Email address" placeholder text.
+     */
+    emailPlaceholderText: PropTypes.string,
+    /**
      * Errors array
      */
     errors: PropTypes.arrayOf(PropTypes.shape({
@@ -112,7 +120,9 @@ class GuestForm extends Component {
     validator: getRequiredValidator("email"),
     value: {
       email: ""
-    }
+    },
+    emailLabelText: "Email address",
+    emailPlaceholderText: "Email address"
   };
 
   _form = null;
@@ -132,6 +142,8 @@ class GuestForm extends Component {
       buttonText,
       className,
       components: { Button, ErrorsBlock, Field, TextInput },
+      emailLabelText,
+      emailPlaceholderText,
       errors,
       helpText,
       isSaving,
@@ -153,8 +165,8 @@ class GuestForm extends Component {
         validator={validator}
         value={value}
       >
-        <Field name="email" label="Email Address" isRequired helpText={helpText}>
-          <TextInput id={emailInputId} isReadOnly={isSaving} name="email" placeholder="Email address"
+        <Field name="email" label={emailLabelText} isRequired helpText={helpText}>
+          <TextInput id={emailInputId} isReadOnly={isSaving} name="email" placeholder={emailPlaceholderText}
             type="email"
           />
           <ErrorsBlock names={["email"]} />
