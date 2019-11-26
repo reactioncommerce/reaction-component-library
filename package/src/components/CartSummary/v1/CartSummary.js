@@ -171,12 +171,12 @@ class CartSummary extends Component {
     taxLabelText: PropTypes.string,
   }
 
-  static defaultProps: {
+  static defaultProps = {
     cartTitleText: "Cart Summary",
     freeText: "FREE",
     itemLabelText: "Items",
     itemsText: "items",
-    orderTotalLabelText: "Order total"
+    orderTotalLabelText: "Order total",
     promoCodeText: "Promo code applied",
     shippingLabelText: "Shipping",
     surchargesLabelText: "Surcharges",
