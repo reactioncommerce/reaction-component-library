@@ -36,14 +36,22 @@ class CheckoutEmailAddress extends Component {
      */
     className: PropTypes.string,
     emailAddress: PropTypes.string.isRequired,
-    isAccountEmail: PropTypes.bool.isRequired
+    isAccountEmail: PropTypes.bool.isRequired,
+    /**
+     * The text for the "Signed in as" label text.
+     */
+    signedInText: PropTypes.string,
   };
 
+  static defaultProps = {
+    signedInText: "Signed in as"
+  }
+
   renderAccountEmail = () => {
-    const { isAccountEmail } = this.props;
+    const { isAccountEmail, signedInText } = this.props;
 
     if (isAccountEmail) {
-      return "Signed in as";
+      return signedInText;
     }
 
     return null;
