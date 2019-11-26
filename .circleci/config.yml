@@ -84,7 +84,7 @@ jobs:
             - node-modules-package-v3-{{ .Branch }}
       - run:
           name: Run Unit Tests
-          command: yarn run test
+          command: yarn run test -w 1
 
   docker-build-push:
     <<: *defaults
