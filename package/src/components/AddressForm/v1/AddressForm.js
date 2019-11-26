@@ -28,9 +28,37 @@ const ColHalf = styled.div`
 class AddressForm extends Component {
   static propTypes = {
     /**
-     * Place holder for Address Name field.
+     * The text for the "Address" label text.
+     */
+    address1LabelText: PropTypes.string,
+    /**
+     * Place holder for "Address" field.
+     */
+    address1PlaceholderText: PropTypes.string,
+    /**
+     * The text for the "Address Line 2" label text.
+     */
+    address2LabelText: PropTypes.string,
+    /**
+     * Place holder for "Address Line 2 (Optional)" field.
+     */
+    address2PlaceholderText: PropTypes.string,
+    /**
+     * The text for the "Address Name" label text.
+     */
+    addressNameLabelText: PropTypes.string,
+    /**
+     * Place holder for "Address name" field.
      */
     addressNamePlaceholder: PropTypes.string,
+    /**
+     * The text for the "City" label text.
+     */
+    cityLabelText: PropTypes.string,
+    /**
+     * Place holder for "City" field.
+     */
+    cityPlaceholderText: PropTypes.string,
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
@@ -43,7 +71,7 @@ class AddressForm extends Component {
      * (recommended), then this prop will come from there automatically. If you have not
      * set up a components context or you want to override one of the components in a
      * single spot, you can pass in the components prop directly.
-     */
+    */
     components: PropTypes.shape({
       /**
        * Pass either the Reaction Checkbox component or your own component that is
@@ -82,6 +110,14 @@ class AddressForm extends Component {
       RegionInput: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
+     * The text for the "Country" label text.
+     */
+    countryLabelText: PropTypes.string,
+    /**
+     * Place holder for "Country" field.
+     */
+    countryPlaceholderText: PropTypes.string,
+    /**
      * Errors array
      */
     errors: PropTypes.arrayOf(PropTypes.shape({
@@ -95,6 +131,10 @@ class AddressForm extends Component {
       name: PropTypes.string.isRequired
     })),
     /**
+     * The text for the "This is a commercial address." label text.
+    */
+    isCommercialLabelText: PropTypes.string,
+    /**
      * Enable when using the form on a dark background, disabled by default
      */
     isOnDarkBackground: PropTypes.bool,
@@ -107,6 +147,7 @@ class AddressForm extends Component {
      * While true, typing in address fields is disabled.
      */
     isSaving: PropTypes.bool,
+
     /**
      * Locale options to populate the forms country and region fields
      */
@@ -125,6 +166,14 @@ class AddressForm extends Component {
      */
     name: PropTypes.string,
     /**
+     * The text for the "Name" label text.
+     */
+    nameLabelText: PropTypes.string,
+    /**
+     * Place holder for "Name" field.
+     */
+    namePlaceholderText: PropTypes.string,
+    /**
      * Cancel event callback
      */
     onCancel: PropTypes.func,
@@ -136,6 +185,30 @@ class AddressForm extends Component {
      * Form submit event callback
      */
     onSubmit: PropTypes.func,
+    /**
+     * The text for the "Phone" label text.
+     */
+    phoneLabelText: PropTypes.string,
+    /**
+     * Place holder for "Phone" field.
+     */
+    phonePlaceholderText: PropTypes.string,
+    /**
+     * The text for the "Postal Code" label text.
+     */
+    postalLabelText: PropTypes.string,
+    /**
+     * Place holder for "Postal Code" field.
+     */
+    postalPlaceholderText: PropTypes.string,
+    /**
+     * The text for the "Region" label text..
+     */
+    regionLabelText: PropTypes.string,
+    /**
+     * Place holder for "Region" field.
+     */
+    regionPlaceholderText: PropTypes.string,
     /**
      * Should the AddressForm show the "Address Names" field.
      */
@@ -155,13 +228,31 @@ class AddressForm extends Component {
   };
 
   static defaultProps = {
+    address1LabelText: "Address",
+    address1PlaceholderText: "Address",
+    address2LabelText: "Address Line 2",
+    address2PlaceholderText: "Address Line 2 (Optional)",
+    addressNameLabelText: "Address Name",
     addressNamePlaceholder: "Address Name",
+    cityLabelText: "City",
+    cityPlaceholderText: "City",
+    countryLabelText: "Country",
+    countryPlaceholderText: "Country",
     errors: [],
     locales: {},
+    isCommercialLabelText: "This is a commercial address.",
     isOnDarkBackground: false,
     isReadOnly: false,
     isSaving: false,
     name: "address",
+    nameLabelText: "Name",
+    namePlaceholderText: "Name",
+    phoneLabelText: "Phone",
+    phonePlaceholderText: "Phone",
+    postalLabelText: "Postal Code",
+    postalPlaceholderText: "Postal Code",
+    regionLabelText: "Region",
+    regionPlaceholderText: "Region",
     onCancel() {},
     onChange() {},
     onSubmit() {},
@@ -258,16 +349,34 @@ class AddressForm extends Component {
 
   render() {
     const {
+      address1LabelText,
+      address1PlaceholderText,
+      address2LabelText,
+      address2PlaceholderText,
+      addressNameLabelText,
       addressNamePlaceholder,
       value,
       className,
+      cityLabelText,
+      cityPlaceholderText,
       components: { Checkbox, ErrorsBlock, Field, TextInput, Select, PhoneNumberInput, RegionInput },
+      countryLabelText,
+      countryPlaceholderText,
       errors,
+      isCommercialLabelText,
       isOnDarkBackground,
       isReadOnly,
       isSaving,
       name,
+      nameLabelText,
+      namePlaceholderText,
       onChange,
+      phoneLabelText,
+      phonePlaceholderText,
+      postalLabelText,
+      postalPlaceholderText,
+      regionLabelText,
+      regionPlaceholderText,
       shouldShowAddressNameField,
       shouldShowIsCommercialField,
       validator
@@ -301,10 +410,11 @@ class AddressForm extends Component {
         <Grid>
           {shouldShowAddressNameField && (
             <ColFull>
-              <Field name="addressName" label="Address Name" labelFor={addressNameInputId} isOptional>
+              <Field name="addressName" label={addressNameLabelText} labelFor={addressNameInputId} isOptional>
                 <TextInput
                   id={addressNameInputId}
                   name="addressName"
+                  // TODO: Replace addressNamePlaceholder to adressNamePlaceholderText
                   placeholder={addressNamePlaceholder}
                   isOnDarkBackground={isOnDarkBackground}
                   isReadOnly={isSaving || isReadOnly}
@@ -314,7 +424,7 @@ class AddressForm extends Component {
           )}
 
           <ColFull>
-            <Field name="country" label="Country" labelFor={countryInputId} isRequired>
+            <Field name="country" label={countryLabelText} labelFor={countryInputId} isRequired>
               {this.countryOptions && this.countryOptions.length > 1 ? (
                 <Select
                   id={countryInputId}
@@ -323,7 +433,7 @@ class AddressForm extends Component {
                   name="country"
                   onChange={this.handleCountryChange}
                   options={this.countryOptions}
-                  placeholder="Country"
+                  placeholder={countryPlaceholderText}
                   isOnDarkBackground={isOnDarkBackground}
                   isReadOnly={isSaving || isReadOnly}
                 />
@@ -331,7 +441,7 @@ class AddressForm extends Component {
                 <TextInput
                   id={countryInputId}
                   name="country"
-                  placeholder="Country"
+                  placeholder={countryPlaceholderText}
                   isOnDarkBackground={isOnDarkBackground}
                   isReadOnly={isSaving || isReadOnly}
                 />
@@ -341,11 +451,11 @@ class AddressForm extends Component {
           </ColFull>
 
           <ColFull>
-            <Field name="fullName" label="Name" labelFor={fullNameInputId} isRequired>
+            <Field name="fullName" label={nameLabelText} labelFor={fullNameInputId} isRequired>
               <TextInput
                 id={fullNameInputId}
                 name="fullName"
-                placeholder="Name"
+                placeholder={namePlaceholderText}
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving || isReadOnly}
               />
@@ -354,11 +464,11 @@ class AddressForm extends Component {
           </ColFull>
 
           <ColFull>
-            <Field name="address1" label="Address" labelFor={address1InputId} isRequired>
+            <Field name="address1" label={address1LabelText} labelFor={address1InputId} isRequired>
               <TextInput
                 id={address1InputId}
                 name="address1"
-                placeholder="Address"
+                placeholder={address1PlaceholderText}
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving || isReadOnly}
               />
@@ -367,11 +477,11 @@ class AddressForm extends Component {
           </ColFull>
 
           <ColFull>
-            <Field name="address2" label="Address Line 2" labelFor={address2InputId} isOptional>
+            <Field name="address2" label={address2LabelText} labelFor={address2InputId} isOptional>
               <TextInput
                 id={address2InputId}
                 name="address2"
-                placeholder="Address Line 2 (Optional)"
+                placeholder={address2PlaceholderText}
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving || isReadOnly}
               />
@@ -379,11 +489,11 @@ class AddressForm extends Component {
           </ColFull>
 
           <ColFull>
-            <Field name="city" label="City" labelFor={cityInputId}>
+            <Field name="city" label={cityLabelText} labelFor={cityInputId}>
               <TextInput
                 id={cityInputId}
                 name="city"
-                placeholder="City"
+                placeholder={cityPlaceholderText}
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving || isReadOnly}
               />
@@ -392,24 +502,24 @@ class AddressForm extends Component {
           </ColFull>
 
           <ColHalf>
-            <Field name="region" label="Region" labelFor={regionInputId} isRequired>
+            <Field name="region" label={regionLabelText} labelFor={regionInputId} isRequired>
               <RegionInput
                 id={regionInputId}
                 options={this.regionOptions}
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving || isReadOnly}
                 name="region"
-                placeholder="Region"
+                placeholder={regionPlaceholderText}
               />
               <ErrorsBlock names={["region"]} />
             </Field>
           </ColHalf>
           <ColHalf>
-            <Field name="postal" label="Postal Code" labelFor={postalInputId} isRequired>
+            <Field name="postal" label={postalLabelText} labelFor={postalInputId} isRequired>
               <TextInput
                 id={postalInputId}
                 name="postal"
-                placeholder="Postal Code"
+                placeholder={postalPlaceholderText}
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving || isReadOnly}
               />
@@ -418,11 +528,11 @@ class AddressForm extends Component {
           </ColHalf>
 
           <ColFull>
-            <Field name="phone" label="Phone" labelFor={phoneInputId} isRequired>
+            <Field name="phone" label={phoneLabelText} labelFor={phoneInputId} isRequired>
               <PhoneNumberInput
                 id={phoneInputId}
                 name="phone"
-                placeholder="Phone"
+                placeholder={phonePlaceholderText}
                 isOnDarkBackground={isOnDarkBackground}
                 isReadOnly={isSaving || isReadOnly}
               />
@@ -436,7 +546,7 @@ class AddressForm extends Component {
                 <Checkbox
                   id={isCommercialInputId}
                   name="isCommercial"
-                  label="This is a commercial address."
+                  label={isCommercialLabelText}
                   isOnDarkBackground={isOnDarkBackground}
                   isReadOnly={isSaving || isReadOnly}
                 />
