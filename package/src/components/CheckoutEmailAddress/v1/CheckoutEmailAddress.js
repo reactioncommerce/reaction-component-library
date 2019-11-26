@@ -40,7 +40,7 @@ class CheckoutEmailAddress extends Component {
     /**
      * The text for the "Signed in as" label text.
      */
-    signedInText: PropTypes.string,
+    signedInText: PropTypes.string
   };
 
   static defaultProps = {
