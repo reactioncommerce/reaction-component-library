@@ -2,6 +2,22 @@
 module.exports = function (api) {
   const isTest = api.env("test");
 
+  // We set this in the `build:modules` package.json script
+  const esmodules = process.env.BABEL_MODULES === "1";
+
+  const plugins = [
+    "babel-plugin-styled-components",
+    ["@babel/plugin-proposal-decorators", { legacy: true }],
+    ["@babel/plugin-proposal-class-properties", { loose: true }],
+    "@babel/plugin-syntax-dynamic-import",
+    [
+      "@babel/plugin-transform-runtime",
+      {
+        useESModules: esmodules
+      }
+    ]
+  ];
+
   // Config for when running Jest tests
   if (isTest) {
     return {
@@ -23,17 +39,9 @@ module.exports = function (api) {
         ],
         "@babel/preset-react"
       ],
-      plugins: [
-        "babel-plugin-styled-components",
-        ["@babel/plugin-proposal-decorators", { legacy: true }],
-        ["@babel/plugin-proposal-class-properties", { loose: true }],
-        "@babel/plugin-syntax-dynamic-import"
-      ]
+      plugins
     };
   }
-
-  // We set this in the `build:modules` package.json script
-  const esmodules = process.env.BABEL_MODULES === "1";
 
   const presets = [
     [
@@ -61,19 +69,6 @@ module.exports = function (api) {
       }
     ],
     "@babel/preset-react"
-  ];
-
-  const plugins = [
-    "babel-plugin-styled-components",
-    ["@babel/plugin-proposal-decorators", { legacy: true }],
-    ["@babel/plugin-proposal-class-properties", { loose: true }],
-    "@babel/plugin-syntax-dynamic-import",
-    [
-      "@babel/plugin-transform-runtime",
-      {
-        useESModules: esmodules
-      }
-    ]
   ];
 
   let ignore;
