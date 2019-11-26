@@ -54,6 +54,10 @@ const ActionButton = styled.div`
 class CheckoutActionComplete extends Component {
   static propTypes = {
     /**
+     * The text for the "Change" button text.
+     */
+    changeButtonText: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
@@ -91,10 +95,14 @@ class CheckoutActionComplete extends Component {
     stepNumber: PropTypes.number
   };
 
+  static defaultProps = {
+    changeButtonText: "Change"
+  }
+
   handleOnChange = () => this.props.onClickChangeButton();
 
   render() {
-    const { className, components: { Button }, content, label, stepNumber } = this.props;
+    const { className, components: { Button }, content, label, stepNumber, changeButtonText } = this.props;
 
     const step = stepNumber ? <Fragment>{stepNumber}.&nbsp;</Fragment> : null;
 
@@ -107,7 +115,7 @@ class CheckoutActionComplete extends Component {
           {content}
         </ActionDetail>
         <ActionButton>
-          <Button actionType="important" onClick={this.handleOnChange} isShortHeight isTextOnly>Change</Button>
+          <Button actionType="important" onClick={this.handleOnChange} isShortHeight isTextOnly>{changeButtonText}</Button>
         </ActionButton>
       </ActionContainer>
     );
