@@ -20,9 +20,17 @@ class AddressReview extends Component {
      */
     addressEntered: CustomPropTypes.address.isRequired,
     /**
+     * The text for the "Address Name" label text.
+     */
+    addressEnteredLabelText: PropTypes.string,
+    /**
      * Address validations address suggestion
      */
     addressSuggestion: CustomPropTypes.address.isRequired,
+    /**
+     * The text for the "Suggested Address" label text.
+     */
+    addressSuggestionLabelText: PropTypes.string,
     /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
@@ -66,6 +74,8 @@ class AddressReview extends Component {
   };
 
   static defaultProps = {
+    addressEnteredLabelText: "Entered Address",
+    addressSuggestionLabelText: "Suggested Address",
     isSaving: false,
     value: SUGGESTED
   };
@@ -142,7 +152,9 @@ class AddressReview extends Component {
   render() {
     const {
       addressEntered,
+      addressEnteredLabelText,
       addressSuggestion,
+      addressSuggestionLabelText,
       className,
       components: { Address, SelectableList },
       isSaving,
@@ -158,13 +170,13 @@ class AddressReview extends Component {
             invalidAddressProperties={this.invalidAddressProperties}
           />
         ),
-        label: "Entered Address:",
+        label: `${addressEnteredLabelText}:`,
         value: ENTERED
       },
       {
         id: `${SUGGESTED}_${this.uniqueInstanceIdentifier}`,
         detail: <Address address={this.xformAddress(addressSuggestion)} />,
-        label: "Suggested Address:",
+        label: `${addressSuggestionLabelText}:`,
         value: SUGGESTED
       }
     ];
