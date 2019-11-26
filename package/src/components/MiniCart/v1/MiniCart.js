@@ -93,6 +93,10 @@ class MiniCart extends Component {
       items: PropTypes.arrayOf(PropTypes.object).isRequired
     }),
     /**
+     * The text for the "Checkout" button text.
+     */
+    checkoutButtonText: PropTypes.string,
+    /**
      * You can provide a `className` prop that will be applied to the outermost DOM element
      * rendered by this component. We do not recommend using this for styling purposes, but
      * it can be useful as a selector in some situations.
@@ -128,6 +132,10 @@ class MiniCart extends Component {
       MiniCartSummary: CustomPropTypes.component.isRequired
     }),
     /**
+     * The text for the "Shipping and tax calculated in checkout" message text.
+     */
+    footerMessageText: PropTypes.string,
+    /**
      * On cart item quantity change handler
      */
     onChangeCartItemQuantity: PropTypes.func,
@@ -148,14 +156,18 @@ class MiniCart extends Component {
   static defaultProps = {
     onChangeCartItemQuantity() {},
     onCheckoutButtonClick() {},
-    onRemoveItemFromCart() {}
+    onRemoveItemFromCart() {},
+    checkoutButtonText: "Checkout",
+    footerMessageText: "Shipping and tax calculated in checkout"
   };
 
   render() {
     const {
       cart: { checkout: { summary }, items },
       className,
+      checkoutButtonText,
       components: { Button, CartCheckoutButton, CartItems, MiniCartSummary },
+      footerMessageText,
       onCheckoutButtonClick,
       ...props
     } = this.props;
@@ -168,10 +180,10 @@ class MiniCart extends Component {
           <MiniCartSummary displaySubtotal={summary.itemTotal.displayAmount} />
           {(CartCheckoutButton && <CartCheckoutButton onClick={onCheckoutButtonClick} />) || (
             <Button actionType="important" isFullWidth onClick={onCheckoutButtonClick}>
-              Checkout
+              {checkoutButtonText}
             </Button>
           )}
-          <FooterMessage>Shipping and tax calculated in checkout</FooterMessage>
+          <FooterMessage>{footerMessageText}</FooterMessage>
         </Footer>
       </Cart>
     );
