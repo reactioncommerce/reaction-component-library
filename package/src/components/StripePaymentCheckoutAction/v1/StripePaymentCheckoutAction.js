@@ -114,9 +114,9 @@ class StripePaymentCheckoutAction extends Component {
   };
 
   static defaultProps = {
-    billingAddressTitleText: "Billing Address"
+    billingAddressTitleText: "Billing Address",
     onReadyForSaveChange() { },
-    secureCaptionText: "Your Information is private and secure.",
+    secureCaptionText: "Your Information is private and secure."
   };
 
   state = {
