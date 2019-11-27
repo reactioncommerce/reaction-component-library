@@ -70,7 +70,7 @@ class Field extends Component {
     /**
      * The text for the "Optional" label text.
      */
-    optionalLabelText: PropTypes.string,
+    optionalLabelText: PropTypes.string
   };
 
   static defaultProps = {
