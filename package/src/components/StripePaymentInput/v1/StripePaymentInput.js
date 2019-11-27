@@ -61,16 +61,16 @@ class StripePaymentInput extends Component {
      * and `amount` properties.
      */
     onSubmit: PropTypes.func,
-     /**
-     * The text for the "Your Information is private and secure." caption text.
-     */
-    secureCaptionText: PropTypes.string,
+    /**
+    * The text for the "Your Information is private and secure." caption text.
+    */
+    secureCaptionText: PropTypes.string
   };
 
   static defaultProps = {
     onReadyForSaveChange() {},
     onSubmit() {},
-    secureCaptionText: "Your Information is private and secure.",
+    secureCaptionText: "Your Information is private and secure."
   };
 
   componentDidMount() {
