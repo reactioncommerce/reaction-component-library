@@ -46,18 +46,18 @@ class MiniCartSummary extends Component {
      */
     displayTax: PropTypes.string,
     /**
-     * The text for the "Tax" label text.
-     */
-    taxLabelText: PropTypes.string,
-    /**
      * The text for the "Subtotal" label text.
      */
     subtotalLabelText: PropTypes.string,
+    /**
+     * The text for the "Tax" label text.
+     */
+    taxLabelText: PropTypes.string
   };
 
   static defaultProps = {
     taxLabelText: "Tax",
-    subtotalLabelText: "Subtotal",
+    subtotalLabelText: "Subtotal"
   }
 
   renderTax = () => {
