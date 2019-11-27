@@ -146,7 +146,7 @@ class CheckoutActions extends Component {
     cancelButtonText: "Cancel",
     isNotSavingButtonText: "Place your order",
     isSavingButtonText: "Placing your order...",
-    saveButtonText: "Save and continue",
+    saveButtonText: "Save and continue"
   };
 
   static getDerivedStateFromProps(props, state) {
@@ -281,7 +281,7 @@ class CheckoutActions extends Component {
     const placeOrderButton = (
       <PlaceOrderButtonContainer>
         <Button onClick={() => this.actionSubmit(action.id)} actionType="important" isWaiting={isSaving} isFullWidth>
-          {isSaving ? `${isSavingButtonText}` : `${isNotSavingButtonText}`}
+          {isSaving ? isSavingButtonText : isNotSavingButtonText}
         </Button>
       </PlaceOrderButtonContainer>
     );
