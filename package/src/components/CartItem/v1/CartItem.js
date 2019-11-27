@@ -271,13 +271,9 @@ class CartItem extends Component {
      */
     removeText: PropTypes.string,
     /**
-     * The text for the "Remove" button text.
-     */
-    removeText: PropTypes.string,
-    /**
      * The text for the "Total" title text.
      */
-    totalText: PropTypes.string,
+    totalText: PropTypes.string
   };
 
   static defaultProps = {
