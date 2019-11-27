@@ -89,7 +89,7 @@ class CartItemDetail extends Component {
     title: PropTypes.string
   };
 
-  static defaultProps: {
+  static defaultProps = {
     quantityText: "Quantity"
   }
 
