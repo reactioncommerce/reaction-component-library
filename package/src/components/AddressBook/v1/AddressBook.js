@@ -148,7 +148,14 @@ class AddressBook extends Component {
   // Render Methods
   //
   renderAccordionFormList() {
-    const { account: { addressBook }, addNewItemButtonText, components: { AccordionFormList, AddressForm }, deleteItemButtonText, entryFormSubmitButtonText, isSaving } = this.props;
+    const {
+      account: { addressBook },
+      addNewItemButtonText,
+      components: { AccordionFormList, AddressForm },
+      deleteItemButtonText,
+      entryFormSubmitButtonText,
+      isSaving
+    } = this.props;
 
     const items = addressBook.map(({ _id, ...address }) => ({
       id: _id,

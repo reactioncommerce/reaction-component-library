@@ -142,13 +142,13 @@ class CartSummary extends Component {
      */
     itemLabelText: PropTypes.string,
     /**
-     * The text for the "items" header text.
-     */
-    itemsText: PropTypes.string,
-    /**
      * Quantity of products in shopping cart
      */
     itemsQuantity: PropTypes.number,
+    /**
+     * The text for the "items" header text.
+     */
+    itemsText: PropTypes.string,
     /**
      * The text for the "Order total" label text.
      */
@@ -168,7 +168,7 @@ class CartSummary extends Component {
     /**
      * The text for the "Tax" label text.
      */
-    taxLabelText: PropTypes.string,
+    taxLabelText: PropTypes.string
   }
 
   static defaultProps = {
@@ -180,7 +180,7 @@ class CartSummary extends Component {
     promoCodeText: "Promo code applied",
     shippingLabelText: "Shipping",
     surchargesLabelText: "Surcharges",
-    taxLabelText: "Tax",
+    taxLabelText: "Tax"
   }
 
   renderHeader() {
@@ -228,7 +228,7 @@ class CartSummary extends Component {
       orderTotalLabelText,
       shippingLabelText,
       surchargesLabelText,
-      taxLabelText,
+      taxLabelText
     } = this.props;
 
     // Use "-" to indicate we are still calculating this field.
