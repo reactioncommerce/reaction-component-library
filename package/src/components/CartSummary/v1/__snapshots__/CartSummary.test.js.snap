@@ -230,7 +230,8 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c4"
       >
-        Items:
+        Items
+        :
       </td>
       <td
         className="c5 c4"
@@ -242,7 +243,8 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c4"
       >
-        Shipping:
+        Shipping
+        :
       </td>
       <td
         className="c5 c4"
@@ -254,7 +256,8 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c4"
       >
-        Surcharges:
+        Surcharges
+        :
       </td>
       <td
         className="c5 c4"
@@ -266,7 +269,8 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c6"
       >
-        Tax:
+        Tax
+        :
       </td>
       <td
         className="c7 c4"
@@ -278,7 +282,8 @@ exports[`Displays a summary of the current items in the cart 1`] = `
       <td
         className="c8"
       >
-        Order total:
+        Order total
+        :
       </td>
       <td
         className="c9 c10"
@@ -524,7 +529,8 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c4"
       >
-        Items:
+        Items
+        :
       </td>
       <td
         className="c5 c4"
@@ -536,7 +542,8 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c4"
       >
-        Shipping:
+        Shipping
+        :
       </td>
       <td
         className="c5 c4"
@@ -548,7 +555,8 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c4"
       >
-        Surcharges:
+        Surcharges
+        :
       </td>
       <td
         className="c5 c4"
@@ -560,7 +568,8 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c6"
       >
-        Tax:
+        Tax
+        :
       </td>
       <td
         className="c7 c4"
@@ -572,7 +581,8 @@ exports[`Displays a summary with FREE shipping 1`] = `
       <td
         className="c8"
       >
-        Order total:
+        Order total
+        :
       </td>
       <td
         className="c9 c10"
@@ -833,7 +843,8 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Items:
+        Items
+        :
       </td>
       <td
         className="c5 c4"
@@ -845,7 +856,8 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Shipping:
+        Shipping
+        :
       </td>
       <td
         className="c5 c4"
@@ -857,7 +869,8 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Promo code applied:
+        Promo code applied
+        :
       </td>
       <td
         className="c5 c4"
@@ -873,7 +886,8 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c4"
       >
-        Surcharges:
+        Surcharges
+        :
       </td>
       <td
         className="c5 c4"
@@ -885,7 +899,8 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c7"
       >
-        Tax:
+        Tax
+        :
       </td>
       <td
         className="c8 c4"
@@ -897,7 +912,8 @@ exports[`Displays a summary with applied discount 1`] = `
       <td
         className="c9"
       >
-        Order total:
+        Order total
+        :
       </td>
       <td
         className="c10 c11"
@@ -1143,7 +1159,8 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c4"
       >
-        Items:
+        Items
+        :
       </td>
       <td
         className="c5 c4"
@@ -1155,7 +1172,8 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c4"
       >
-        Shipping:
+        Shipping
+        :
       </td>
       <td
         className="c5 c4"
@@ -1167,7 +1185,8 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c4"
       >
-        Surcharges:
+        Surcharges
+        :
       </td>
       <td
         className="c5 c4"
@@ -1179,7 +1198,8 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c6"
       >
-        Tax:
+        Tax
+        :
       </td>
       <td
         className="c7 c4"
@@ -1191,7 +1211,8 @@ exports[`Displays a summary with calculated taxes 1`] = `
       <td
         className="c8"
       >
-        Order total:
+        Order total
+        :
       </td>
       <td
         className="c9 c10"
