@@ -76,6 +76,7 @@ COPY --chown=node . $APP_SOURCE_DIR
 # The project directory will be mounted during development. Therefore, we'll
 # install dependencies into an external directory (one level up.) This works
 # because Node traverses up the fs to find node_modules.
+# hadolint ignore=DL3003
 RUN set -ex; \
   if [ "$BUILD_ENV" = "production" ]; then \
     yarn install \

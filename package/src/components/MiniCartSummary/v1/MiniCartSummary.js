@@ -44,29 +44,42 @@ class MiniCartSummary extends Component {
     /**
      * The computed taxes for items in the cart.
      */
-    displayTax: PropTypes.string
+    displayTax: PropTypes.string,
+    /**
+     * The text for the "Subtotal" label text.
+     */
+    subtotalLabelText: PropTypes.string,
+    /**
+     * The text for the "Tax" label text.
+     */
+    taxLabelText: PropTypes.string
   };
 
+  static defaultProps = {
+    taxLabelText: "Tax",
+    subtotalLabelText: "Subtotal"
+  }
+
   renderTax = () => {
-    const { displayTax } = this.props;
+    const { displayTax, taxLabelText } = this.props;
 
     return (
       <tr>
-        <Td>Tax</Td>
+        <Td>{taxLabelText}</Td>
         <TdValue>{displayTax}</TdValue>
       </tr>
     );
   };
 
   render() {
-    const { className, displaySubtotal, displayTax } = this.props;
+    const { className, displaySubtotal, displayTax, subtotalLabelText } = this.props;
     const taxes = displayTax && this.renderTax();
 
     return (
       <Table className={className}>
         <tbody>
           <tr>
-            <Td>Subtotal</Td>
+            <Td>{subtotalLabelText}</Td>
             <TdValue>{displaySubtotal}</TdValue>
           </tr>
           {taxes}

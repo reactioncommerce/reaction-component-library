@@ -55,6 +55,10 @@ class AccountProfileInfo extends Component {
       ProfileImage: PropTypes.oneOfType([PropTypes.string, PropTypes.func])
     }),
     /**
+     * The text for the "Edit Account" text, if it is shown.
+     */
+    editAccountButtonText: PropTypes.string,
+    /**
      * Function to pass to button onClick
      */
     onClickEdit: PropTypes.func,
@@ -75,6 +79,7 @@ class AccountProfileInfo extends Component {
   };
 
   static defaultProps = {
+    editAccountButtonText: "Edit Account",
     shouldShowEditButton: false
   };
 
@@ -104,11 +109,11 @@ class AccountProfileInfo extends Component {
   }
 
   viewerProfileEditLink = () => {
-    const { components: { Button }, onClickEdit, shouldShowEditButton } = this.props;
+    const { components: { Button }, onClickEdit, shouldShowEditButton, editAccountButtonText } = this.props;
 
     if (shouldShowEditButton) {
       return (
-        <Button isShortHeight isTextOnly isTextOnlyNoPadding onClick={onClickEdit}>Edit Account</Button>
+        <Button isShortHeight isTextOnly isTextOnlyNoPadding onClick={onClickEdit}>{editAccountButtonText}</Button>
       );
     }
     return null;

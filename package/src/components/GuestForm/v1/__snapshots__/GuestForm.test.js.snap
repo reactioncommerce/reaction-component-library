@@ -27,7 +27,7 @@ exports[`basic snapshot 1`] = `
   className={null}
   style={Object {}}
 >
-  Field({"name":"email","label":"Email Address","isRequired":true,"helpText":"You will have the option to create an account and save your details after checkout.","children":"[Object]"})
+  Field({"name":"email","label":"Email address","isRequired":true,"helpText":"You will have the option to create an account and save your details after checkout.","children":"[Object]"})
   <div
     className="c0"
   >

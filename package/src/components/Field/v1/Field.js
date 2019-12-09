@@ -66,7 +66,11 @@ class Field extends Component {
     isRequired: PropTypes.bool,
     label: PropTypes.node,
     labelClassName: PropTypes.string,
-    labelFor: PropTypes.string
+    labelFor: PropTypes.string,
+    /**
+     * The text for the "Optional" label text.
+     */
+    optionalLabelText: PropTypes.string
   };
 
   static defaultProps = {
@@ -76,7 +80,8 @@ class Field extends Component {
     labelClassName: undefined,
     labelFor: undefined,
     isOptional: false,
-    isRequired: false
+    isRequired: false,
+    optionalLabelText: "Optional"
   };
 
   getClassName() {
@@ -87,12 +92,12 @@ class Field extends Component {
   }
 
   renderLabel() {
-    const { errors, label, labelClassName, labelFor, isOptional } = this.props;
+    const { errors, label, labelClassName, labelFor, isOptional, optionalLabelText } = this.props;
 
     return (
       <StyledLabel className={labelClassName} errors={errors} htmlFor={labelFor}>
         {label}
-        {isOptional ? " (Optional)" : null}
+        {isOptional ? ` (${optionalLabelText})` : null}
       </StyledLabel>
     );
   }

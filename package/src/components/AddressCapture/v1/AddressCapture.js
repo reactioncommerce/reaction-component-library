@@ -95,6 +95,10 @@ class AddressCapture extends Component {
       AddressReview: CustomPropTypes.component.isRequired
     }).isRequired,
     /**
+     * The text for the "Edit entered address" text, if it is shown.
+     */
+    editButtonText: PropTypes.string,
+    /**
      * Is data being saved
      */
     isSaving: PropTypes.bool,
@@ -120,6 +124,7 @@ class AddressCapture extends Component {
       addressEntered: null,
       addressSuggestion: null
     },
+    editButtonText: "Edit entered address",
     isSaving: false
   };
 
@@ -268,7 +273,7 @@ class AddressCapture extends Component {
   }
 
   renderReview() {
-    const { addressReviewProps, components: { AddressReview, Button }, isSaving } = this.props;
+    const { addressReviewProps, components: { AddressReview, Button }, editButtonText, isSaving } = this.props;
     return (
       <Fragment>
         <AddressReview {...addressReviewProps} ref={this.formRef} isSaving={isSaving} onSubmit={this.handleSubmit} />
@@ -278,7 +283,7 @@ class AddressCapture extends Component {
             this.toggleStatus = EDIT;
           }}
         >
-          Edit entered address
+          {editButtonText}
         </Button>
       </Fragment>
     );
