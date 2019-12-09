@@ -265,14 +265,24 @@ class CartItem extends Component {
     /**
      * Product URL path to be prepended before the slug
      */
-    productURLPath: PropTypes.string
+    productURLPath: PropTypes.string,
+    /**
+     * Text to display inside the remove button
+     */
+    removeText: PropTypes.string,
+    /**
+     * The text for the "Total" title text.
+     */
+    totalText: PropTypes.string
   };
 
   static defaultProps = {
     isMiniCart: false,
     isReadOnly: false,
     onChangeCartItemQuantity() { },
-    onRemoveItemFromCart() { }
+    onRemoveItemFromCart() { },
+    removeText: "Remove",
+    totalText: "Total"
   };
 
   state = {
@@ -324,7 +334,9 @@ class CartItem extends Component {
         isLowQuantity,
         price: { displayAmount: displayPrice },
         subtotal
-      }
+      },
+      removeText,
+      totalText
     } = this.props;
 
     const { displayAmount: displaySubtotal } = subtotal || {};
@@ -368,7 +380,7 @@ class CartItem extends Component {
               }
             </ItemContentDetailInner>
 
-            {!isReadOnly && <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>Remove</ItemRemoveButton>}
+            {!isReadOnly && <ItemRemoveButton onClick={this.handleRemoveItemFromCart}>{removeText}</ItemRemoveButton>}
           </ItemContentDetail>
         </ItemContent>
         <ItemContentPrice isMiniCart={isMiniCart}>
@@ -379,7 +391,7 @@ class CartItem extends Component {
           />
           { quantity !== 1 ?
             <ItemContentSubtotal isMiniCart={isMiniCart}>
-              <ItemContentSubtotalTitle>Total ({quantity}):</ItemContentSubtotalTitle>
+              <ItemContentSubtotalTitle>{totalText} ({quantity}):</ItemContentSubtotalTitle>
               <ItemContentSubtotalDisplay>{displaySubtotal}</ItemContentSubtotalDisplay>
             </ItemContentSubtotal>
             :
