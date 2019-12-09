@@ -139,7 +139,7 @@ class CheckoutActions extends Component {
      /**
      * The text for the "Save and continue" button text.
      */
-    saveButtonText: PropTypes.string,
+    saveButtonText: PropTypes.string
   };
 
   static defaultProps = {
