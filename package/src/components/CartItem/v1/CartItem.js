@@ -333,7 +333,7 @@ class CartItem extends Component {
         quantity,
         isLowQuantity,
         price: { displayAmount: displayPrice },
-        subtotal,
+        subtotal
       },
       removeText,
       totalText
