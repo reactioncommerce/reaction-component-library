@@ -10,7 +10,7 @@ defaults: &defaults
     DOCKER_NAMESPACE: "reactioncommerce"
     DOCKER_NAME: "styleguide"
   docker:
-    - image: circleci/node:8.11.4-stretch
+    - image: circleci/node:8.16.2-stretch
 
 jobs:
   install-dependencies:
