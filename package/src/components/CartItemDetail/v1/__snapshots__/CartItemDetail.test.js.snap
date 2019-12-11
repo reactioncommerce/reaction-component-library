@@ -336,7 +336,8 @@ exports[`basic snapshot with quantity attribute 1`] = `
     <p
       className="c4"
     >
-      Quantity: 
+      Quantity
+      : 
       3
     </p>
   </div>

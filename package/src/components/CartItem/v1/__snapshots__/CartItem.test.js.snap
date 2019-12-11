@@ -254,7 +254,8 @@ exports[`basic snapshot with empty props 1`] = `
       <div
         className="c9"
       >
-        Total (
+        Total
+         (
         ):
       </div>
       <div
@@ -473,7 +474,8 @@ exports[`basic snapshot with isReadOnly prop 1`] = `
       <div
         className="c7"
       >
-        Total (
+        Total
+         (
         2
         ):
       </div>
@@ -695,7 +697,8 @@ exports[`basic snapshot with productURLPath prop 1`] = `
       <div
         className="c7"
       >
-        Total (
+        Total
+         (
         2
         ):
       </div>
@@ -982,7 +985,8 @@ exports[`basic snapshot with props 1`] = `
       <div
         className="c9"
       >
-        Total (
+        Total
+         (
         2
         ):
       </div>
