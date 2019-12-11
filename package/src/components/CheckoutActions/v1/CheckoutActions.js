@@ -136,7 +136,7 @@ class CheckoutActions extends Component {
      * The text for the "Placing your order..." button text when `isSaving` equals `true`.
      */
     isSavingButtonText: PropTypes.string,
-     /**
+    /**
      * The text for the "Save and continue" button text.
      */
     saveButtonText: PropTypes.string
