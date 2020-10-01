@@ -1,4 +1,4 @@
-# Reaction Storefront Component Library
+# Reaction Storefront Component Library For Locals 
 
 [![npm (scoped)](https://img.shields.io/npm/v/@reactioncommerce/components.svg)](https://www.npmjs.com/package/@reactioncommerce/components)
  [![CircleCI](https://circleci.com/gh/reactioncommerce/reaction-component-library.svg?style=svg)](https://circleci.com/gh/reactioncommerce/reaction-component-library)
@@ -18,7 +18,7 @@ Refer to the [Reaction Storefront Component Library docs](https://designsystem.r
 
 Refer to the [contributor docs](./docs)
 
-## License
+## License Issue
 
 Copyright 2019 Reaction Commerce
 
