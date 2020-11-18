@@ -84,7 +84,7 @@
     "react-test-renderer": "~16.9.0",
     "replace-in-files": "~1.1.4",
     "rimraf": "~2.6.3",
-    "semantic-release": "~15.13.3",
+    "semantic-release": "~17.2.3",
     "whatwg-fetch": "~3.0.0"
   },
   "publishConfig": {
