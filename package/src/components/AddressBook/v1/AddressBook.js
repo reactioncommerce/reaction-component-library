@@ -129,11 +129,13 @@ class AddressBook extends Component {
     if (this._accordionFormList) {
       this._accordionFormList.showList();
     }
+    console.log('L132:::::: in component library');
   };
 
   handleDeleteAddress = async (id) => {
     const { onAddressDeleted } = this.props;
     await onAddressDeleted(id);
+    console.log('L139:::::: in component library');
   };
 
   handleEditAddress = async (value, _id) => {
