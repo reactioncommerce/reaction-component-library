@@ -8104,10 +8104,10 @@ mdast-util-compact@^1.0.0:
   dependencies:
     unist-util-visit "^1.1.0"
 
-mdi-material-ui@~5.8.0:
-  version "5.8.0"
-  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-5.8.0.tgz#2b92231a37ac52bef46e4ef5450ca7432fec5695"
-  integrity sha512-KixZVfNg0ejURv9CIliB1M3kl4Soe6f6yAFjFNsoYPMvGGw1AhnQKGZ3EOEKOIdp2X9YeZFOaO+i9e4ZHUrpNA==
+mdi-material-ui@~5.33.1:
+  version "5.33.1"
+  resolved "https://registry.yarnpkg.com/mdi-material-ui/-/mdi-material-ui-5.33.1.tgz#a6a476a8ce7217357b4f4b9bd1774337fe540123"
+  integrity sha512-YIVE/SOlsgM4/vnPwaV5pm0/70WtD7idEO3JU9dbJhcD3VVsTl5lzO1LYxwSvIl0vpQVcw48aZhTL7Ld640UXQ==
 
 meant@^1.0.2:
   version "1.0.2"
@@ -8833,7 +8833,6 @@ npm@^6.10.3:
     cmd-shim "^3.0.3"
     columnify "~1.5.4"
     config-chain "^1.1.12"
-    debuglog "*"
     detect-indent "~5.0.0"
     detect-newline "^2.1.0"
     dezalgo "~1.0.3"
@@ -8848,7 +8847,6 @@ npm@^6.10.3:
     has-unicode "~2.0.1"
     hosted-git-info "^2.8.8"
     iferr "^1.0.2"
-    imurmurhash "*"
     infer-owner "^1.0.4"
     inflight "~1.0.6"
     inherits "^2.0.4"
@@ -8867,14 +8865,8 @@ npm@^6.10.3:
     libnpx "^10.2.4"
     lock-verify "^2.1.0"
     lockfile "^1.0.4"
-    lodash._baseindexof "*"
     lodash._baseuniq "~4.6.0"
-    lodash._bindcallback "*"
-    lodash._cacheindexof "*"
-    lodash._createcache "*"
-    lodash._getnative "*"
     lodash.clonedeep "~4.5.0"
-    lodash.restparam "*"
     lodash.union "~4.6.0"
     lodash.uniq "~4.5.0"
     lodash.without "~4.4.0"
