@@ -1,12 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import checkPropTypes from "check-prop-types";
 import StockWarning from "./StockWarning";
-
-test("Displays error warning about required props", () => {
-  const errorMessage = checkPropTypes(StockWarning.propTypes, {});
-  expect(errorMessage).toMatchSnapshot();
-});
 
 test("Renders stock warning when inventory is low", () => {
   const component = renderer.create((

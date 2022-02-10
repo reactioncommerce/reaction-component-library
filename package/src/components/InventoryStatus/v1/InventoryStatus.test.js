@@ -1,13 +1,8 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import checkPropTypes from "check-prop-types";
 import mockComponents from "../../../tests/mockComponents";
 import InventoryStatus from "./InventoryStatus";
 
-test("Displays error warning about required props", () => {
-  const errorMessage = checkPropTypes(InventoryStatus.propTypes, {});
-  expect(errorMessage).toMatchSnapshot();
-});
 
 test("Renders backorder notification when inventory is sold out and backorder is allowed", () => {
   const productData = {
