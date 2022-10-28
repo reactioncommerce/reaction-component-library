@@ -81,9 +81,6 @@ class Address extends Component {
       case "country":
         addressElement = addressProp;
         break;
-      // case "region":
-      //   addressElement = <Fragment>{addressProp} </Fragment>;
-      //   break;
       default:
         addressElement = (
           <Fragment>
